@@ -925,6 +925,7 @@ import os
 from datetime import UTC, datetime
 from pipeline.benchmarks.base import (
     BenchmarkRecord,
+    deduplicate_and_filter_conflicts,
     validate_benchmark_record,
 )
 from pipeline.benchmarks.adapters.openrouter import OpenRouterAdapter
@@ -995,6 +996,36 @@ class TestBenchmarkValidation(unittest.TestCase):
             "notes": None,
         }
         self.assertFalse(validate_benchmark_record(rec))
+
+    def test_conflict_detection_and_exclusion(self):
+        rec1: BenchmarkRecord = {
+            "model_name": "DeepSeek-V3",
+            "canonical_id": "deepseek-v3",
+            "provider": "DeepSeek",
+            "benchmark_name": "LiveBench (Reasoning)",
+            "category": "Reasoning",
+            "score": 44.25,
+            "score_unit": "Percentage",
+            "evaluation_date": "2026-01-08",
+            "source": "LiveBench",
+            "source_url": "https://livebench.ai/",
+            "provenance": "Independent Evaluation",
+            "retrieved_at": "2026-10-10T00:00:00Z",
+            "notes": "Run 1",
+        }
+        rec2: BenchmarkRecord = dict(rec1)
+        rec2["score"] = 45.5 # Conflicting score for exact same measurement identity
+
+        clean, conflicts = deduplicate_and_filter_conflicts([rec1, rec2])
+        self.assertEqual(len(conflicts), 1)
+        self.assertEqual(len(clean), 0) # Excluded ambiguous measurement
+
+        # Identical duplicate should deduplicate safely without conflict
+        rec3 = dict(rec1)
+        clean2, conflicts2 = deduplicate_and_filter_conflicts([rec1, rec3])
+        self.assertEqual(len(conflicts2), 0)
+        self.assertEqual(len(clean2), 1)
+        self.assertEqual(clean2[0]["score"], 44.25)
 
 
 class TestBenchmarkAdapters(unittest.TestCase):

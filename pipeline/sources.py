@@ -32,6 +32,7 @@ class Source(TypedDict, total=False):
     access_method: str
     attribution: str
     notes: str
+    enabled: bool
 
 
 ALLOWED_CATEGORIES: list[str] = [
@@ -117,7 +118,7 @@ _DEFAULT_SOURCES: list[Source] = [
 ]
 
 
-def load_sources(file_path: Path | None = None) -> list[Source]:
+def load_sources(file_path: Path | None = None, include_disabled: bool = False) -> list[Source]:
     """Load configured RSS feed sources from JSON file.
 
     Falls back to default sources if the file cannot be read.
@@ -128,7 +129,9 @@ def load_sources(file_path: Path | None = None) -> list[Source]:
             with path.open("r", encoding="utf-8") as f:
                 data = json.load(f)
             if isinstance(data, list) and len(data) > 0:
-                return data
+                if include_disabled:
+                    return data
+                return [s for s in data if s.get("enabled", True) is not False]
         except Exception:
             pass
     return list(_DEFAULT_SOURCES)

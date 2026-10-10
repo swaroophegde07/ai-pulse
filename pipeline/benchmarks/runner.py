@@ -20,6 +20,7 @@ from pipeline.benchmarks.base import (
     BenchmarkRecord,
     ModelMetricRecord,
     current_iso_timestamp,
+    deduplicate_and_filter_conflicts,
     validate_benchmark_record,
 )
 
@@ -157,8 +158,14 @@ def run_benchmark_pipeline(benchmarks_path: Path | None = None) -> dict[str, Any
     if art_records:
         all_benchmark_records.extend(art_records)
 
-    # Validate all benchmark records
-    validated_benchmarks = [r for r in all_benchmark_records if validate_benchmark_record(r)]
+    # Validate and filter conflicting measurements
+    valid_records = [r for r in all_benchmark_records if validate_benchmark_record(r)]
+    validated_benchmarks, detected_conflicts = deduplicate_and_filter_conflicts(valid_records)
+    if detected_conflicts:
+        logger.warning(
+            "Detected %d conflicting benchmark measurements. Excluded ambiguous observations from output.",
+            len(detected_conflicts),
+        )
 
     # 2. Fetch OpenRouter model telemetry (pricing and context lengths)
     openrouter_metrics = openrouter.fetch_metrics()
