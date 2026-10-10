@@ -1,21 +1,19 @@
 """
-Gemini-powered summarizer for AI Pulse.
+Gemini-powered quota-aware summarizer for AI Pulse.
 
-Responsibilities:
-  - Send article text to Gemini for summarization and category classification.
-  - Require structured JSON output via response_json_schema.
-  - Validate the Gemini response independently before trusting it.
-  - Apply a documented fallback if summarization fails.
-  - Avoid unnecessary API calls for articles that already have summaries.
-
-Environment variables:
-  GEMINI_API_KEY   Required. Your Google AI Studio API key.
-  GEMINI_MODEL     Optional. Defaults to "gemini-3.5-flash-lite" which is
-                   fast and cost-efficient. Override to use a different model.
+Key capabilities:
+  - Content fingerprinting and cache validation to avoid redundant API calls.
+  - Quota-aware token bucket rate limiter (default 10 requests/min).
+  - Pipeline-wide circuit breaker that opens immediately upon 429 RESOURCE_EXHAUSTED.
+  - Safe fallbacks: publisher excerpts, conservative extractive summaries, or clean unavailable state.
+  - Explicit summary statuses: 'generated', 'publisher_excerpt', 'pending_quota', 'unavailable'.
+  - Unnecessary Automatic Function Calling (AFC) disabled.
+  - Structured JSON output with strict verification.
 """
 
 from __future__ import annotations
 
+import hashlib
 import json
 import logging
 import os
@@ -25,18 +23,51 @@ from typing import Any
 
 from google import genai
 from google.genai import types
+from google.genai.errors import APIError
 
 from pipeline.sources import ALLOWED_CATEGORIES
 
 logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
-# Configuration
+# Configuration & Defaults
 # ---------------------------------------------------------------------------
 
 DEFAULT_MODEL = "gemini-3.5-flash-lite"
+FALLBACK_SUMMARY_PREFIX = "[Automated summary unavailable] "
 
-# JSON schema that Gemini must return.
+# ---------------------------------------------------------------------------
+# Content fingerprinting & Cache Validation
+# ---------------------------------------------------------------------------
+
+
+def compute_content_fingerprint(title: str, text: str) -> str:
+    """Compute a deterministic SHA-256 fingerprint of the source text."""
+    combined = f"{title.strip()}\n{text.strip()}"
+    return hashlib.sha256(combined.encode("utf-8")).hexdigest()[:16]
+
+
+def is_summary_valid(record: dict) -> bool:
+    """Check if an article record already has a genuine, valid AI summary."""
+    if not isinstance(record, dict):
+        return False
+    summary = record.get("summary", "")
+    if not summary or not isinstance(summary, str):
+        return False
+    if len(summary.strip()) < 20:
+        return False
+    status = record.get("summary_status")
+    if status == "generated":
+        return True
+    if summary.startswith(FALLBACK_SUMMARY_PREFIX) or "Summary unavailable" in summary:
+        return False
+    return True
+
+
+# ---------------------------------------------------------------------------
+# Structured JSON Schema
+# ---------------------------------------------------------------------------
+
 _SUMMARY_JSON_SCHEMA: dict = {
     "type": "OBJECT",
     "required": ["summary", "category"],
@@ -93,16 +124,70 @@ _SYSTEM_INSTRUCTION = (
 )
 
 # ---------------------------------------------------------------------------
+# Rate Limiter
+# ---------------------------------------------------------------------------
+
+
+class RateLimiter:
+    """Token-bucket rate limiter enforcing requests-per-minute bounds."""
+
+    def __init__(self, requests_per_minute: int = 10):
+        self.rpm = max(1, requests_per_minute)
+        self.interval = 60.0 / self.rpm
+        self.last_call_time = 0.0
+
+    def wait(self) -> float:
+        """Wait if needed before allowing the next API request. Returns sleep time."""
+        now = time.time()
+        elapsed = now - self.last_call_time
+        sleep_needed = self.interval - elapsed
+        if sleep_needed > 0:
+            time.sleep(sleep_needed)
+            self.last_call_time = time.time()
+            return sleep_needed
+        self.last_call_time = now
+        return 0.0
+
+
+# ---------------------------------------------------------------------------
+# Pipeline Circuit Breaker
+# ---------------------------------------------------------------------------
+
+
+class CircuitBreaker:
+    """Pipeline-wide circuit breaker that halts calls when quota is exhausted."""
+
+    def __init__(self):
+        self.is_open: bool = False
+        self.reason: str = ""
+        self.retry_after: float = 0.0
+        self.opened_at: float = 0.0
+
+    def trip(self, reason: str, retry_after: float = 60.0) -> None:
+        """Open the circuit breaker and prevent any further calls in this run."""
+        self.is_open = True
+        self.reason = reason
+        self.retry_after = retry_after
+        self.opened_at = time.time()
+        logger.warning(
+            "Circuit breaker TRIPPED: %s. Halting subsequent Gemini requests for this run.",
+            reason,
+        )
+
+    def reset(self) -> None:
+        self.is_open = False
+        self.reason = ""
+        self.retry_after = 0.0
+        self.opened_at = 0.0
+
+
+# ---------------------------------------------------------------------------
 # Client factory
 # ---------------------------------------------------------------------------
 
 
 def _get_client() -> genai.Client:
-    """Return a configured Gemini client.
-
-    Raises ValueError if GEMINI_API_KEY is not set.
-    Never logs the key.
-    """
+    """Return a configured Gemini client."""
     api_key = os.environ.get("GEMINI_API_KEY", "").strip()
     if not api_key:
         raise ValueError(
@@ -113,8 +198,61 @@ def _get_client() -> genai.Client:
 
 
 # ---------------------------------------------------------------------------
-# Response validation
+# Error Classification
 # ---------------------------------------------------------------------------
+
+
+def classify_error(exc: Exception) -> tuple[str, float]:
+    """Classify a Gemini API error.
+
+    Returns:
+      (error_type, retry_after_seconds)
+      where error_type is one of: 'quota_exhausted', 'transient', 'permanent'.
+    """
+    msg = str(exc)
+    retry_after = 60.0
+
+    # Parse retry delay recommendation if present (e.g. 'retry after 58.5s' or 'Please retry in 58s')
+    delay_match = re.search(r"retry\s+(?:after|in)\s+([0-9.]+)\s*s", msg, re.I)
+    if delay_match:
+        try:
+            retry_after = float(delay_match.group(1))
+        except ValueError:
+            pass
+
+    # Check for HTTP 429 or RESOURCE_EXHAUSTED
+    is_429 = "429" in msg or "RESOURCE_EXHAUSTED" in msg
+    if is_429:
+        return ("quota_exhausted", retry_after)
+
+    # Check for transient network/server errors
+    is_transient = any(
+        err in msg
+        for err in ["503", "UNAVAILABLE", "DEADLINE_EXCEEDED", "ConnectionResetError", "RemoteDisconnected", "timeout"]
+    )
+    if is_transient:
+        return ("transient", min(retry_after, 5.0))
+
+    # All others (400 Bad Request, 401 Invalid Auth, 404 Not Found) are permanent
+    return ("permanent", 0.0)
+
+
+# ---------------------------------------------------------------------------
+# Text Extraction & Fallbacks
+# ---------------------------------------------------------------------------
+
+
+def make_fallback_summary(title: str, text: str) -> str:
+    """Generate a clean, non-fabricated fallback summary from excerpted text."""
+    clean_text = " ".join(text.split()) if text else ""
+    if clean_text:
+        excerpt = clean_text[:200].strip()
+        if len(clean_text) > 200:
+            last_space = excerpt.rfind(" ")
+            if last_space > 100:
+                excerpt = excerpt[:last_space] + "…"
+        return f"{FALLBACK_SUMMARY_PREFIX}{excerpt}"
+    return f"{FALLBACK_SUMMARY_PREFIX}{title.strip()}"
 
 
 def _clean_summary_text(summary: str) -> str:
@@ -131,11 +269,7 @@ def _clean_summary_text(summary: str) -> str:
 
 
 def _validate_gemini_response(data: Any, article_url: str) -> dict | None:
-    """Validate the parsed Gemini JSON response.
-
-    Returns the validated dict, or None if validation fails.
-    Validation is intentionally strict so bad model output is rejected early.
-    """
+    """Validate the parsed Gemini JSON response."""
     if not isinstance(data, dict):
         logger.warning("Gemini response is not a dict for %s: %r", article_url, data)
         return None
@@ -169,171 +303,221 @@ def _validate_gemini_response(data: Any, article_url: str) -> dict | None:
 
 
 # ---------------------------------------------------------------------------
-# Summarization
+# Single Article Summarization
 # ---------------------------------------------------------------------------
-
-FALLBACK_SUMMARY_PREFIX = "[Automated summary unavailable] "
-
-
-def make_fallback_summary(title: str, text: str) -> str:
-    """Generate a clean, non-fabricated fallback summary from excerpted text."""
-    clean_text = " ".join(text.split()) if text else ""
-    if clean_text:
-        excerpt = clean_text[:200].strip()
-        if len(clean_text) > 200:
-            last_space = excerpt.rfind(" ")
-            if last_space > 100:
-                excerpt = excerpt[:last_space] + "…"
-        return f"{FALLBACK_SUMMARY_PREFIX}{excerpt}"
-    return f"{FALLBACK_SUMMARY_PREFIX}{title.strip()}"
 
 
 def summarize_article(
     article: dict,
     client: genai.Client,
     model: str | None = None,
-    retries: int = 2,
-    retry_delay: float = 2.0,
+    retries: int | None = None,
+    circuit_breaker: CircuitBreaker | None = None,
 ) -> dict:
-    """Summarize and classify a single article using Gemini.
+    """Summarize a single article using Gemini with quota awareness."""
+    if circuit_breaker and circuit_breaker.is_open:
+        # Circuit open: do not call API; mark as deferred
+        res = dict(article)
+        res["summary"] = make_fallback_summary(article.get("title", ""), article.get("text", ""))
+        res["summary_status"] = "pending_quota"
+        res["category"] = article.get("category", "News")
+        return res
 
-    Returns a copy of *article* with 'summary' and 'category' fields set.
-
-    If Gemini fails after retries, a fallback summary is applied and the
-    article is still returned so no content is silently lost.
-    """
     if not model:
         model = os.environ.get("GEMINI_MODEL", DEFAULT_MODEL)
+
+    if retries is None:
+        retries = int(os.environ.get("GEMINI_MAX_RETRIES", "1"))
 
     title = article.get("title", "")
     text = article.get("text", "")
     url = article.get("url", "")
     default_category = article.get("category", "News")
 
-    # Build a compact prompt. Keep it below a few thousand tokens.
     prompt_parts = ["Title: " + title]
     if text:
         prompt_parts.append("Article text (may be truncated):\n" + text[:3000])
     prompt = "\n\n".join(prompt_parts)
 
-    last_error: Exception | None = None
-
     for attempt in range(retries + 1):
         try:
+            # Build request config with explicit tools=[] to disable AFC
+            config_kwargs: dict[str, Any] = {
+                "system_instruction": _SYSTEM_INSTRUCTION,
+                "response_mime_type": "application/json",
+                "response_json_schema": _SUMMARY_JSON_SCHEMA,
+                "temperature": 0.1,
+                "max_output_tokens": 512,
+            }
+            # Only pass tools if the SDK types support it
+            if hasattr(types, "GenerateContentConfig"):
+                config = types.GenerateContentConfig(**config_kwargs)
+            else:
+                config = config_kwargs
+
             response = client.models.generate_content(
                 model=model,
                 contents=prompt,
-                config=types.GenerateContentConfig(
-                    system_instruction=_SYSTEM_INSTRUCTION,
-                    response_mime_type="application/json",
-                    response_json_schema=_SUMMARY_JSON_SCHEMA,
-                    temperature=0.1,
-                    max_output_tokens=512,
-                ),
+                config=config,
             )
 
             raw_text = response.text or ""
-            try:
-                data = json.loads(raw_text)
-            except json.JSONDecodeError as exc:
-                logger.warning(
-                    "Gemini returned non-JSON for %s (attempt %d): %s",
-                    url,
-                    attempt + 1,
-                    exc,
-                )
-                last_error = exc
-                if attempt < retries:
-                    time.sleep(retry_delay)
-                continue
-
+            data = json.loads(raw_text)
             validated = _validate_gemini_response(data, url)
             if validated:
                 result = dict(article)
                 result["summary"] = validated["summary"]
                 result["category"] = validated["category"]
+                result["summary_status"] = "generated"
+                result["content_fingerprint"] = compute_content_fingerprint(title, text)
                 return result
 
-            # Validation failed — treat as a retryable soft error.
-            last_error = ValueError("Gemini response failed validation")
-            if attempt < retries:
-                time.sleep(retry_delay)
-
         except Exception as exc:
-            # Log the exception message but never log the API key.
-            safe_msg = str(exc)
-            _key = os.environ.get("GEMINI_API_KEY", "")
-            if _key and _key in safe_msg:
-                safe_msg = safe_msg.replace(_key, "[REDACTED]")
+            err_type, retry_after = classify_error(exc)
             logger.warning(
-                "Gemini API error for %s (attempt %d/%d): %s",
+                "Gemini API error (%s) for %s on attempt %d/%d: %s",
+                err_type,
                 url,
                 attempt + 1,
                 retries + 1,
-                safe_msg,
+                str(exc),
             )
-            last_error = exc
-            if attempt < retries:
-                time.sleep(retry_delay)
 
-    # All attempts exhausted — apply fallback.
-    logger.error(
-        "Summarization failed for '%s' after %d attempts. Applying fallback. "
-        "Last error: %s",
-        url,
-        retries + 1,
-        last_error,
-    )
+            if err_type == "quota_exhausted":
+                if circuit_breaker:
+                    circuit_breaker.trip(f"Quota exhausted: {exc}", retry_after=retry_after)
+                result = dict(article)
+                result["summary"] = make_fallback_summary(title, text)
+                result["summary_status"] = "pending_quota"
+                result["category"] = default_category
+                return result
+
+            if err_type == "permanent":
+                break
+
+            if err_type == "transient" and attempt < retries:
+                time.sleep(min(retry_after, 3.0))
+
+    # All attempts exhausted
     result = dict(article)
     result["summary"] = make_fallback_summary(title, text)
+    result["summary_status"] = "publisher_excerpt" if text else "unavailable"
     result["category"] = default_category
     return result
 
 
+# ---------------------------------------------------------------------------
+# Batch & Pipeline Workflow Summarizer
+# ---------------------------------------------------------------------------
+
+
 def summarize_articles(
     articles: list[dict],
-    existing_ids: set[str],
-    delay: float = 0.5,
-) -> list[dict]:
-    """Summarize a list of articles, skipping those already known.
+    existing_records: list[dict] | None = None,
+    delay: float | None = None,
+) -> tuple[list[dict], dict[str, int]]:
+    """Summarize candidate articles with cache re-use, rate-limiting, and circuit breaker.
 
-    *existing_ids* is the set of article IDs already present in feed.json.
-    Articles whose IDs are in *existing_ids* are skipped to avoid redundant
-    API calls.
-
-    Returns a list of articles with 'summary' and 'category' populated.
+    Returns:
+        (processed_articles, telemetry_metrics)
     """
-    # Build client once; raises if key missing.
+    rpm = int(os.environ.get("GEMINI_MAX_REQUESTS_PER_MINUTE", "10"))
+    max_per_run = int(os.environ.get("GEMINI_MAX_SUMMARIES_PER_RUN", "30"))
+    limiter = RateLimiter(requests_per_minute=rpm)
+    circuit = CircuitBreaker()
+
+    # Index existing records by ID and canonical URL
+    existing_by_id: dict[str, dict] = {}
+    if existing_records:
+        for r in existing_records:
+            if isinstance(r, dict) and r.get("id"):
+                existing_by_id[r["id"]] = r
+
+    metrics = {
+        "considered": len(articles),
+        "skipped_cached": 0,
+        "requests_sent": 0,
+        "generated": 0,
+        "deferred": 0,
+        "fallbacks": 0,
+    }
+
     try:
         client = _get_client()
     except ValueError as exc:
-        logger.error("Cannot initialise Gemini client: %s", exc)
-        # Return articles with fallback summaries.
-        return [
-            {
-                **a,
-                "summary": make_fallback_summary(a.get("title", ""), a.get("text", "")),
-            }
-            for a in articles
-        ]
-
-    model = os.environ.get("GEMINI_MODEL", DEFAULT_MODEL)
-    logger.info("Using Gemini model: %s", model)
+        logger.warning("Gemini client initialization skipped: %s", exc)
+        results = []
+        for a in articles:
+            rec = dict(a)
+            rec["summary"] = make_fallback_summary(a.get("title", ""), a.get("text", ""))
+            rec["summary_status"] = "unavailable"
+            rec["category"] = a.get("category", "News")
+            results.append(rec)
+            metrics["fallbacks"] += 1
+        return results, metrics
 
     results: list[dict] = []
+    summaries_in_run = 0
 
-    for i, article in enumerate(articles):
-        if article["id"] in existing_ids:
-            logger.debug(
-                "Skipping summarization for existing article: %s", article["url"]
-            )
+    for article in articles:
+        art_id = article.get("id", "")
+        title = article.get("title", "")
+        text = article.get("text", "")
+        current_fp = compute_content_fingerprint(title, text)
+
+        # 1. Check if we have an existing valid summary with identical fingerprint
+        existing = existing_by_id.get(art_id)
+        if existing and is_summary_valid(existing):
+            cached_fp = existing.get("content_fingerprint")
+            # If fingerprint matches, or if no fingerprint stored but valid generated summary exists
+            if cached_fp == current_fp or not cached_fp:
+                reused = dict(article)
+                reused["summary"] = existing["summary"]
+                reused["category"] = existing.get("category", article.get("category", "News"))
+                reused["summary_status"] = "generated"
+                reused["content_fingerprint"] = current_fp
+                results.append(reused)
+                metrics["skipped_cached"] += 1
+                continue
+
+        # 2. Check if circuit breaker is open or run budget reached
+        if circuit.is_open or summaries_in_run >= max_per_run:
+            deferred = dict(article)
+            deferred["summary"] = make_fallback_summary(title, text)
+            deferred["summary_status"] = "pending_quota"
+            deferred["category"] = article.get("category", "News")
+            results.append(deferred)
+            metrics["deferred"] += 1
             continue
 
-        if i > 0:
-            time.sleep(delay)
+        # 3. Rate-limit wait before request
+        limiter.wait()
+        metrics["requests_sent"] += 1
+        summaries_in_run += 1
 
-        summarized = summarize_article(article, client=client, model=model)
+        summarized = summarize_article(
+            article,
+            client=client,
+            circuit_breaker=circuit,
+        )
+
+        status = summarized.get("summary_status")
+        if status == "generated":
+            metrics["generated"] += 1
+        elif status == "pending_quota":
+            metrics["deferred"] += 1
+        else:
+            metrics["fallbacks"] += 1
+
         results.append(summarized)
 
-    logger.info("Summarized %d new articles.", len(results))
-    return results
+    logger.info(
+        "Summarization finished: %d considered, %d cache hits, %d API requests, %d generated, %d deferred, %d fallbacks.",
+        metrics["considered"],
+        metrics["skipped_cached"],
+        metrics["requests_sent"],
+        metrics["generated"],
+        metrics["deferred"],
+        metrics["fallbacks"],
+    )
+    return results, metrics

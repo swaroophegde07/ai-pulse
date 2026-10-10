@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import json
 import tempfile
+import time
 import unittest
 from datetime import datetime
 from pathlib import Path
@@ -46,9 +47,15 @@ from pipeline.scraper import (
 from pipeline.sources import ALLOWED_CATEGORIES, load_sources
 from pipeline.summarizer import (
     FALLBACK_SUMMARY_PREFIX,
+    CircuitBreaker,
+    RateLimiter,
     _validate_gemini_response,
+    classify_error,
+    compute_content_fingerprint,
+    is_summary_valid,
     make_fallback_summary,
     summarize_article,
+    summarize_articles,
 )
 
 # ===========================================================================
@@ -1086,7 +1093,7 @@ class TestFutureDateHandling(unittest.TestCase):
         from pipeline.scraper import parse_date
         entry = MagicMock()
         # Mock published_parsed 1 year in the future
-        future_year = datetime.now(UTC).year + 2
+        future_year = datetime.now().year + 2
         entry.published_parsed = (future_year, 1, 1, 0, 0, 0, 0, 0, 0)
         entry.updated_parsed = None
         entry.published = None
@@ -1095,6 +1102,126 @@ class TestFutureDateHandling(unittest.TestCase):
         self.assertIsNone(parsed)
 
 
+# ===========================================================================
+# Quota-Aware Summarizer & Circuit Breaker Tests
+# ===========================================================================
+
+
+class TestQuotaAwareSummarizer(unittest.TestCase):
+    def setUp(self):
+        self.article = {
+            "id": "art_123",
+            "title": "Quantum Attention Mechanisms",
+            "company": "DeepMind",
+            "source": "DeepMind Blog",
+            "url": "https://example.com/quantum",
+            "text": "Full article body describing algorithmic advancements.",
+            "category": "Research",
+        }
+
+    def test_content_fingerprint_deterministic(self):
+        fp1 = compute_content_fingerprint("Title", "Body")
+        fp2 = compute_content_fingerprint("Title", "Body")
+        fp3 = compute_content_fingerprint("Different", "Body")
+        self.assertEqual(fp1, fp2)
+        self.assertNotEqual(fp1, fp3)
+
+    def test_is_summary_valid(self):
+        self.assertTrue(is_summary_valid({"summary": "A comprehensive 2-sentence summary of genuine content.", "summary_status": "generated"}))
+        self.assertFalse(is_summary_valid({"summary": "[Automated summary unavailable] Something", "summary_status": "publisher_excerpt"}))
+        self.assertFalse(is_summary_valid({"summary": "Short", "summary_status": "generated"}))
+        self.assertFalse(is_summary_valid({}))
+
+    def test_classify_error_quota_exhausted(self):
+        err = Exception("429 RESOURCE_EXHAUSTED: quota exceeded. Please retry in 58.5s")
+        err_type, delay = classify_error(err)
+        self.assertEqual(err_type, "quota_exhausted")
+        self.assertEqual(delay, 58.5)
+
+    def test_classify_error_transient(self):
+        err = Exception("503 Service Unavailable")
+        err_type, _ = classify_error(err)
+        self.assertEqual(err_type, "transient")
+
+    def test_classify_error_permanent(self):
+        err = Exception("400 Bad Request: Invalid model argument")
+        err_type, _ = classify_error(err)
+        self.assertEqual(err_type, "permanent")
+
+    def test_circuit_breaker_trips_on_429(self):
+        cb = CircuitBreaker()
+        self.assertFalse(cb.is_open)
+        mock_client = MagicMock()
+        mock_client.models.generate_content.side_effect = Exception("429 RESOURCE_EXHAUSTED: free tier limit 15 requests/min")
+
+        res = summarize_article(self.article, client=mock_client, circuit_breaker=cb)
+        self.assertTrue(cb.is_open)
+        self.assertEqual(res["summary_status"], "pending_quota")
+        # Should only have called once (no repeated calls on 429)
+        self.assertEqual(mock_client.models.generate_content.call_count, 1)
+
+    def test_circuit_breaker_halts_subsequent_articles(self):
+        cb = CircuitBreaker()
+        cb.trip("Quota exhausted")
+        mock_client = MagicMock()
+
+        res = summarize_article(self.article, client=mock_client, circuit_breaker=cb)
+        self.assertEqual(res["summary_status"], "pending_quota")
+        # Client should not have been called at all while circuit is open
+        self.assertEqual(mock_client.models.generate_content.call_count, 0)
+
+    def test_summarize_articles_cache_reuse(self):
+        existing = [{
+            "id": "art_123",
+            "title": "Quantum Attention Mechanisms",
+            "summary": "Existing verified summary.",
+            "summary_status": "generated",
+            "content_fingerprint": compute_content_fingerprint("Quantum Attention Mechanisms", "Full article body describing algorithmic advancements."),
+            "category": "Research",
+        }]
+
+        with patch("pipeline.summarizer._get_client") as mock_get_client:
+            mock_client = MagicMock()
+            mock_get_client.return_value = mock_client
+            results, metrics = summarize_articles([self.article], existing_records=existing)
+
+            self.assertEqual(metrics["skipped_cached"], 1)
+            self.assertEqual(metrics["requests_sent"], 0)
+            self.assertEqual(results[0]["summary"], "Existing verified summary.")
+            self.assertEqual(results[0]["summary_status"], "generated")
+            self.assertEqual(mock_client.models.generate_content.call_count, 0)
+
+    def test_changed_content_triggers_regeneration(self):
+        existing = [{
+            "id": "art_123",
+            "title": "Quantum Attention Mechanisms",
+            "summary": "Old summary.",
+            "summary_status": "generated",
+            "content_fingerprint": "old_fingerprint",
+            "category": "Research",
+        }]
+
+        with patch("pipeline.summarizer._get_client") as mock_get_client:
+            mock_client = MagicMock()
+            mock_resp = MagicMock()
+            mock_resp.text = json.dumps({"summary": "Brand new updated summary for edited article.", "category": "Research"})
+            mock_client.models.generate_content.return_value = mock_resp
+            mock_get_client.return_value = mock_client
+
+            results, metrics = summarize_articles([self.article], existing_records=existing)
+            self.assertEqual(metrics["requests_sent"], 1)
+            self.assertEqual(results[0]["summary"], "Brand new updated summary for edited article.")
+
+    def test_rate_limiter_interval(self):
+        limiter = RateLimiter(requests_per_minute=60) # 1 per second
+        self.assertEqual(limiter.interval, 1.0)
+        limiter.last_call_time = time.time()
+        # Sleep needed should be near 1.0
+        sleep_time = limiter.wait()
+        self.assertGreaterEqual(sleep_time, 0.5)
+
+
 if __name__ == "__main__":
     unittest.main()
+
 

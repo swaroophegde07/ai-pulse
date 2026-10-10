@@ -17,6 +17,7 @@ interface Props {
   priority_explanation?: string;
   why_it_matters?: string;
   source_type?: string;
+  summary_status?: string;
 }
 
 const {
@@ -35,6 +36,7 @@ const {
   priority_explanation,
   why_it_matters,
   source_type,
+  summary_status,
 } = Astro.props;
 
 // Format dates for display.
@@ -147,7 +149,21 @@ const prioStyle = priority_label ? (priorityStyles[priority_label] ?? prioritySt
 
     <!-- Summary -->
     {
-      !summary || summary.startsWith("[Automated summary unavailable]") ? (
+      summary_status === "publisher_excerpt" || (summary && summary.startsWith("[Automated summary unavailable] ") && summary.length > 40) ? (
+        <p class="text-xs text-neutral-400 leading-relaxed line-clamp-4">
+          <span class="text-neutral-500 font-mono text-[10px] mr-1 uppercase">[Excerpt]</span>
+          {summary.replace("[Automated summary unavailable] ", "")}
+        </p>
+      ) : summary_status === "pending_quota" ? (
+        <p class="text-xs text-neutral-400 leading-relaxed line-clamp-4">
+          <span class="text-amber-500/80 font-mono text-[9px] mr-1.5 uppercase border border-amber-500/30 px-1 py-0.2 rounded bg-amber-500/10">Summary in queue</span>
+          {summary && !summary.startsWith("[Automated summary unavailable]") && summary.length > 20 ? (
+            summary.replace("[Automated summary unavailable] ", "")
+          ) : (
+            <span class="italic text-neutral-500">Summary pending quota refresh — read the original article.</span>
+          )}
+        </p>
+      ) : !summary || summary.startsWith("[Automated summary unavailable]") ? (
         <p class="text-xs text-neutral-500 italic leading-relaxed line-clamp-4">
           Summary unavailable — read the original article.
         </p>

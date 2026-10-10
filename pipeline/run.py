@@ -190,20 +190,32 @@ def merge_records(
     }
 
     added = 0
+    updated = 0
     for article in clean_new:
         art_id = article["id"]
         art_url = normalize_url(article["url"])
 
         if art_id in seen_ids:
+            # If the new record generated an actual AI summary, upgrade the existing record
+            existing_rec = seen_ids[art_id]
+            if article.get("summary_status") == "generated" and existing_rec.get("summary_status") != "generated":
+                existing_rec.update(article)
+                updated += 1
             continue
+
         if art_url in seen_urls:
+            matched_id = seen_urls[art_url]
+            existing_rec = seen_ids[matched_id]
+            if article.get("summary_status") == "generated" and existing_rec.get("summary_status") != "generated":
+                existing_rec.update(article)
+                updated += 1
             continue
 
         seen_ids[art_id] = article
         seen_urls[art_url] = art_id
         added += 1
 
-    logger.info("Added %d new articles (before retention filter & trim).", added)
+    logger.info("Added %d new articles, updated %d existing records (before retention filter & trim).", added, updated)
 
     all_records = list(seen_ids.values())
 
@@ -361,6 +373,8 @@ def prepare_article(raw: dict) -> dict:
         "company": raw.get("company", ""),
         "source": raw.get("source", ""),
         "summary": raw.get("summary", ""),
+        "summary_status": raw.get("summary_status", "generated" if raw.get("summary") and not raw.get("summary", "").startswith("[Automated") else "pending_quota"),
+        "content_fingerprint": raw.get("content_fingerprint", ""),
         "url": raw.get("url", ""),
         "date": raw.get("date"),
         "category": raw.get("category", "News"),
@@ -413,11 +427,24 @@ def run_pipeline(
         logger.warning("No articles fetched from any source. Exiting early.")
         return 0
 
-    # 3. Summarize new (unseen) articles with Gemini.
-    new_articles_raw = [a for a in raw_articles if a["id"] not in existing_ids]
-    logger.info("%d new articles need summarization.", len(new_articles_raw))
+    # 3. Identify candidate articles to summarize:
+    # - Brand new articles not in existing_ids
+    # - Previously deferred articles (pending_quota / unavailable) that need summarization
+    candidate_articles: list[dict] = []
+    for art in raw_articles:
+        art_id = art["id"]
+        existing_rec = next((r for r in existing if r.get("id") == art_id), None)
+        if not existing_rec:
+            candidate_articles.append(art)
+        elif existing_rec.get("summary_status") in ["pending_quota", "unavailable"]:
+            # Candidate for retry if quota has recovered
+            candidate_articles.append(art)
+        elif not existing_rec.get("summary") or existing_rec.get("summary", "").startswith("[Automated"):
+            candidate_articles.append(art)
 
-    summarized = summarize_articles(new_articles_raw, existing_ids=existing_ids)
+    logger.info("%d candidate articles evaluated for summarization/caching.", len(candidate_articles))
+
+    summarized, metrics = summarize_articles(candidate_articles, existing_records=existing)
 
     # 4. Prepare final records.
     prepared: list[dict] = []
