@@ -1,71 +1,5 @@
 [
   {
-    "id": "5ff0bcef74701c64",
-    "title": "Visual Studio Code 1.142 (Insiders)",
-    "company": "Microsoft VS Code",
-    "source": "VS Code Updates",
-    "summary": "[Automated summary unavailable] Learn what's new in Visual Studio Code 1.142 (Insiders) Read the full article",
-    "url": "https://code.visualstudio.com/updates/v1_142",
-    "date": "2026-10-14T17:00:00+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-10-10T17:39:42.882796+00:00"
-  },
-  {
-    "id": "818f4dcf830d117b",
-    "title": "Anthropic is cutting off its internal evaluations from the internet",
-    "company": "The Verge",
-    "source": "The Verge – AI",
-    "summary": "[Automated summary unavailable] After a recent spate of high-profile incidents in which AI agents escaped containment, Anthropic is cutting off internet access for all internal evaluations. In a report Friday, the company detailed…",
-    "url": "https://www.theverge.com/ai-artificial-intelligence/1009286/anthropic-is-cutting-off-its-internal-evaluations-from-the-internet",
-    "date": "2026-10-10T14:41:16+00:00",
-    "category": "News",
-    "fetched_at": "2026-10-10T17:39:42.882901+00:00"
-  },
-  {
-    "id": "c9390824224ecd5b",
-    "title": "AI agent makers are promising privacy — will they deliver?",
-    "company": "The Verge",
-    "source": "The Verge – AI",
-    "summary": "[Automated summary unavailable] At this year's OpenAI DevDay, CEO Sam Altman unveiled the company's new AI agent Dots - and told the crowd that the company wants to \"set a new standard for privacy in frontier AI.\" OpenAI would…",
-    "url": "https://www.theverge.com/ai-artificial-intelligence/1009051/privacy-ai-agent-promises-openai-meta-muse-dots",
-    "date": "2026-10-10T13:00:00+00:00",
-    "category": "News",
-    "fetched_at": "2026-10-10T17:39:42.882907+00:00"
-  },
-  {
-    "id": "0854a3cada87fb07",
-    "title": "Anthropic’s AI gave Philadelphia police a fake tip about an unsolved homicide",
-    "company": "The Verge",
-    "source": "The Verge – AI",
-    "summary": "[Automated summary unavailable] An Anthropic AI model provided false information about an unsolved homicide to a Philadelphia Police Department (PPD) tipline, according to a report from 6abc. In a statement released on Friday, the…",
-    "url": "https://www.theverge.com/ai-artificial-intelligence/1009090/anthropic-fake-homicide-information-philadelphia-pd-tip",
-    "date": "2026-10-09T21:15:38+00:00",
-    "category": "News",
-    "fetched_at": "2026-10-10T17:39:42.882912+00:00"
-  },
-  {
-    "id": "42d1906c74af83c6",
-    "title": "&#8216;Pure insanity&#8217;: Mathematicians will need years to make sense of OpenAI&#8217;s latest drop",
-    "company": "The Verge",
-    "source": "The Verge – AI",
-    "summary": "[Automated summary unavailable] \"Staggering.\" \"Overwhelming.\" \"Unprecedented.\" \"Surreal.\" \"Pure insanity.\" Those were among the descriptions more than three dozen mathematicians reached for in conversations with The Verge as they…",
-    "url": "https://www.theverge.com/ai-artificial-intelligence/1008726/openai-mathematics-solutions-chaos",
-    "date": "2026-10-09T19:09:44+00:00",
-    "category": "News",
-    "fetched_at": "2026-10-10T17:39:42.882917+00:00"
-  },
-  {
-    "id": "57fe1472ddc36d4e",
-    "title": "Nikon microscopic video competition winner disqualified for using generative AI",
-    "company": "The Verge",
-    "source": "The Verge – AI",
-    "summary": "Nikon disqualified the original first-place winner of its Small World in Motion contest after it was revealed that generative AI was used in post-processing. The video, created by Dr. Ning Xu, purported to show cilia moving in a child's airway with a respiratory condition. Nikon reviewed and disqualified the entry following online skepticism and the creator's admission of using an unsupervised neural-network method.",
-    "url": "https://www.theverge.com/ai-artificial-intelligence/1008930/nikon-small-world-in-motion-winner-ai",
-    "date": "2026-10-09T18:06:57+00:00",
-    "category": "News",
-    "fetched_at": "2026-10-10T17:39:42.882922+00:00"
-  },
-  {
     "id": "e05551817b225bef",
     "title": "Impactful scheduling for GPU clusters",
     "company": "Hugging Face",
@@ -74,117 +8,16 @@
     "url": "https://huggingface.co/blog/allenai/impactful-scheduling",
     "date": "2026-10-09T15:20:29+00:00",
     "category": "News",
-    "fetched_at": "2026-10-10T16:20:33.507376+00:00"
-  },
-  {
-    "id": "9c3c12ce2bad85bf",
-    "title": "Trump’s attempt to rename AI is looking awfully artificial",
-    "company": "The Verge",
-    "source": "The Verge – AI",
-    "summary": "Former President Donald Trump is attempting to rebrand artificial intelligence by using terms like \"super\" to promote technologies he favors while applying \"artificial\" as a pejorative against opponents. Some major figures in the AI industry are aligning with this terminology shift.",
-    "url": "https://www.theverge.com/policy/1008677/trump-super-intelligence-ai-rebranding",
-    "date": "2026-10-09T14:25:43+00:00",
-    "category": "Opinion",
-    "fetched_at": "2026-10-10T17:39:42.882927+00:00"
-  },
-  {
-    "id": "3c5e66d9de6d1c79",
-    "title": "Instinct was the buzziest AI agent around — can it survive Muse?",
-    "company": "The Verge",
-    "source": "The Verge – AI",
-    "summary": "[Automated summary unavailable] Instinct’s agent is always just a text away. Before there were cute little guys , there was Instinct. In August, the startup got its AI agent to market with an unusual playbook: invite-only, no…",
-    "url": "https://www.theverge.com/tech/1008254/instinct-agent-ai-hands-on-muse-dots",
-    "date": "2026-10-09T14:00:00+00:00",
-    "category": "News",
-    "fetched_at": "2026-10-10T17:39:42.882932+00:00"
-  },
-  {
-    "id": "d55dd9b285d68fe3",
-    "title": "OpenAI doubles down on decision to fire three AI safety researchers",
-    "company": "The Verge",
-    "source": "The Verge – AI",
-    "summary": "OpenAI defended its decision to fire three safety researchers, stating they violated policies on handling sensitive information rather than being dismissed for speaking out. The company's response followed an open letter from the researchers urging greater transparency regarding their termination.",
-    "url": "https://www.theverge.com/ai-artificial-intelligence/1008604/openai-defends-decision-fire-safety-researchers",
-    "date": "2026-10-09T09:48:26+00:00",
-    "category": "News",
-    "fetched_at": "2026-10-10T17:39:42.882937+00:00"
-  },
-  {
-    "id": "570fe3204556675e",
-    "title": "Sophos cuts threat investigation time by 96% with OpenAI Daybreak",
-    "company": "OpenAI",
-    "source": "OpenAI News",
-    "summary": "Sophos implemented OpenAI's Daybreak to reduce cyber-threat investigation time by 96%. The integration automates 52% of managed detection and response (MDR) cases while maintaining human oversight.",
-    "url": "https://openai.com/index/sophos",
-    "date": "2026-10-09T07:00:00+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-10-10T17:39:42.882653+00:00"
-  },
-  {
-    "id": "9bf93d58cc35db99",
-    "title": "Asana cuts model costs 76x in browser tests with GPT-6.1 Sol",
-    "company": "OpenAI",
-    "source": "OpenAI News",
-    "summary": "Using GPT-6 Astra in Codex, Asana reduced the cost of its browser agent by 76 times during tests. The updated agent also achieved a fivefold increase in execution speed.",
-    "url": "https://openai.com/index/asana-browser-agent",
-    "date": "2026-10-09T07:00:00+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-10-10T17:39:42.882676+00:00"
-  },
-  {
-    "id": "0856c1a27e7e11a7",
-    "title": "Anthropic launches free AI security scans for open-source projects",
-    "company": "The Verge",
-    "source": "The Verge – AI",
-    "summary": "Anthropic launched a free security scanning service called OSS Scanner for open-source projects. The service provides periodic, fully model-generated vulnerability scans without human review or triage.",
-    "url": "https://www.theverge.com/ai-artificial-intelligence/1008521/anthropic-open-source-oss-scanner",
-    "date": "2026-10-08T21:53:51+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-10-10T17:39:42.882942+00:00"
-  },
-  {
-    "id": "7bd525b884109b29",
-    "title": "California is trying to shut down robot vs. human cage matches",
-    "company": "The Verge",
-    "source": "The Verge – AI",
-    "summary": "The California State Athletic Commission issued a cease-and-desist letter to a startup named Rek after it hosted a combat match on September 18th between a human and a remote-controlled humanoid robot. The event featured a human fighter against a modified EngineAI robot piloted via a virtual reality system.",
-    "url": "https://www.theverge.com/tech/1008401/california-shut-down-rek-fighting-robot-company-human",
-    "date": "2026-10-08T20:06:56+00:00",
-    "category": "News",
-    "fetched_at": "2026-10-10T17:39:42.882947+00:00"
-  },
-  {
-    "id": "db7b9e6fe248e314",
-    "title": "How Oracle turns days of work into minutes with ChatGPT and Codex",
-    "company": "OpenAI",
-    "source": "OpenAI News",
-    "summary": "Oracle utilizes ChatGPT Work and Codex to transform specialist knowledge into fast, repeatable workflows across recruiting, engineering, and operations. The technology reduces days of work into minutes for these business processes.",
-    "url": "https://openai.com/index/oracle",
-    "date": "2026-10-08T16:00:00+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-10-10T17:39:42.882681+00:00"
-  },
-  {
-    "id": "855092fba1df7e8a",
-    "title": "Pollo AI turns creative ideas into campaigns with OpenAI",
-    "company": "OpenAI",
-    "source": "OpenAI News",
-    "summary": "Pollo AI integrates models including GPT-5.6, GPT-6 Astra, and GPT-Image-2.5 to help creators generate detailed images and cinematic video ads. The platform is designed to transform creative concepts into complete advertising campaigns.",
-    "url": "https://openai.com/index/pollo-ai",
-    "date": "2026-10-08T12:00:00+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-10-10T17:39:42.882691+00:00"
-  },
-  {
-    "id": "45d6a2b79938283a",
-    "title": "LegalOn halves Codex costs while maintaining development speed",
-    "company": "OpenAI",
-    "source": "OpenAI News",
-    "summary": "LegalOn reduced its daily Codex expenses by 65 percent without impacting development speed. The cost reduction was achieved by matching tasks to specific models named Astra, Sol, and Luna while strategically managing budgets.",
-    "url": "https://openai.com/index/legalon-halves-codex-costs",
-    "date": "2026-10-08T12:00:00+00:00",
-    "category": "News",
-    "fetched_at": "2026-10-10T17:39:42.882699+00:00"
+    "fetched_at": "2026-10-10T16:20:33.507376+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
   },
   {
     "id": "ffd2818196374b7e",
@@ -195,40 +28,15 @@
     "url": "https://huggingface.co/blog/building-with-ml-intern",
     "date": "2026-10-08T00:00:00+00:00",
     "category": "Opinion",
-    "fetched_at": "2026-10-10T16:20:33.507379+00:00"
-  },
-  {
-    "id": "d9e485b409fe8517",
-    "title": "Disrupting AI-enabled “false front” operations",
-    "company": "OpenAI",
-    "source": "OpenAI News",
-    "summary": "OpenAI disrupted two AI-enabled influence operations that utilized false-front journalists and a think tank to spread geopolitical messaging. The operations attempted to leverage artificial intelligence tools to manufacture misleading content and orchestrate coordinated inauthentic behavior.",
-    "url": "https://openai.com/index/disrupting-ai-enabled-false-front-operations",
-    "date": "2026-10-08T00:00:00+00:00",
-    "category": "News",
-    "fetched_at": "2026-10-10T17:39:42.882706+00:00"
-  },
-  {
-    "id": "daa797ee94397435",
-    "title": "Secret protection must scale with software",
-    "company": "GitHub",
-    "source": "GitHub AI & Copilot",
-    "summary": "GitHub data shows that while AI agents are accelerating code creation, the per-push prevalence of leaked secrets has remained stable rather than increasing due to carelessness. To address the scaling challenge of credential exposure, a fine-tuned classifier developed with Microsoft Applied Sciences extends push protection to unstructured secrets and assesses candidate secrets in under two milliseconds. This automated approach aims to prevent more leaks proactively as human remediation struggles to keep pace with accelerated software development.",
-    "url": "https://github.blog/ai-and-ml/github-copilot/secret-protection-must-scale-with-software",
-    "date": "2026-10-07T17:45:34+00:00",
-    "category": "News",
-    "fetched_at": "2026-10-10T17:39:42.882743+00:00"
-  },
-  {
-    "id": "3edcfec6dc5c735a",
-    "title": "Visual Studio Code 1.141",
-    "company": "Microsoft VS Code",
-    "source": "VS Code Updates",
-    "summary": "[Automated summary unavailable] Learn what's new in Visual Studio Code 1.141 Read the full article",
-    "url": "https://code.visualstudio.com/updates/v1_141",
-    "date": "2026-10-07T17:00:00+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-10-10T17:39:42.882801+00:00"
+    "fetched_at": "2026-10-10T16:20:33.507379+00:00",
+    "topics": [
+      "Models and Releases"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
   },
   {
     "id": "88e871d5a8d26738",
@@ -239,18 +47,17 @@
     "url": "https://huggingface.co/blog/LiquidAI/open-d1",
     "date": "2026-10-07T16:54:33+00:00",
     "category": "Research",
-    "fetched_at": "2026-10-10T16:20:33.507382+00:00"
-  },
-  {
-    "id": "7fdb639a79501818",
-    "title": "Agent Lightning v1.0: A 3,500-Line Lightweight Agentic RL Framework for Training Agents with Real Harnesses",
-    "company": "Microsoft Research",
-    "source": "Microsoft Research AI",
-    "summary": "Microsoft Research Asia introduced Agent Lightning v1.0, a lightweight 3,500-line agentic reinforcement learning framework implementing a Harnessed Agentic RL training paradigm. The framework features native Kubernetes support and allows agents to be trained using real deployment harnesses without requiring reimplementation. Using an end-to-end coding agent pipeline, the framework improved Qwen3.5-9B from 41.8% to 56.4% Pass@1 on SWE-bench Verified using approximately 6,000 training samples.",
-    "url": "https://www.microsoft.com/en-us/research/blog/agent-lightning-v1-0-a-3500-line-lightweight-agentic-rl-framework-for-training-agents-with-real-harnesses",
-    "date": "2026-10-07T16:00:00+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-10-10T17:39:42.882848+00:00"
+    "fetched_at": "2026-10-10T16:20:33.507382+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "Provides verified empirical measurements of frontier reasoning performance."
   },
   {
     "id": "16b7810afb00bdc0",
@@ -261,7 +68,15 @@
     "url": "https://huggingface.co/blog/tiiuae/falcon-asr",
     "date": "2026-10-07T13:21:03+00:00",
     "category": "Product Release",
-    "fetched_at": "2026-10-10T16:20:33.507385+00:00"
+    "fetched_at": "2026-10-10T16:20:33.507385+00:00",
+    "topics": [
+      "Models and Releases"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
   },
   {
     "id": "67f5f61696a2949d",
@@ -272,51 +87,20 @@
     "url": "https://huggingface.co/blog/nvidia/nemotron-ioi-and-imo-2026",
     "date": "2026-10-07T12:45:31+00:00",
     "category": "Research",
-    "fetched_at": "2026-10-10T16:20:33.507388+00:00"
-  },
-  {
-    "id": "661f64ddb5f472a2",
-    "title": "Helping teens learn, plan, and shape the future of AI",
-    "company": "OpenAI",
-    "source": "OpenAI News",
-    "summary": "ChatGPT for Teens is introducing a College Planner feature to assist students with managing college applications. Additionally, the update includes new flashcards, quizzes, and the establishment of a teen AI council.",
-    "url": "https://openai.com/index/teens-learn-and-plan",
-    "date": "2026-10-07T12:00:00+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-10-10T17:39:42.882713+00:00"
-  },
-  {
-    "id": "4e324623ab7ca6fe",
-    "title": "Radisson Hotel Group brings hotel discovery into ChatGPT",
-    "company": "OpenAI",
-    "source": "OpenAI News",
-    "summary": "Radisson Hotel Group partnered with Accenture to develop a ChatGPT plugin powered by OpenAI technology. This tool allows travelers to find, compare, and book hotels directly within the chat interface during their trip planning process.",
-    "url": "https://openai.com/index/radisson",
-    "date": "2026-10-07T07:00:00+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-10-10T17:39:42.882723+00:00"
-  },
-  {
-    "id": "a097ef0d441a7216",
-    "title": "GPT-6 and Intelligent UI for everyone",
-    "company": "OpenAI",
-    "source": "OpenAI News",
-    "summary": "GPT-6 is rolling out globally within ChatGPT, featuring an Intelligent UI that delivers faster responses. The update includes integrated visuals and interactive experiences designed for direct user exploration.",
-    "url": "https://openai.com/index/gpt-6-for-everyone",
-    "date": "2026-10-07T00:00:00+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-10-10T17:39:42.882731+00:00"
-  },
-  {
-    "id": "359fb2bdb6355ddb",
-    "title": "OpenAI will watermark ChatGPT outputs by default—but only in the EU",
-    "company": "Ars Technica",
-    "source": "Ars Technica – AI",
-    "summary": "OpenAI announced it will automatically watermark ChatGPT outputs in the European Union to comply with the EU AI Act, while keeping the feature disabled by default in other regions. The proprietary watermarking method, called textGrain, embeds detectable patterns into word choices, though current watermarking technology remains relatively easy to circumvent. Access to the detection tool will initially be limited to select researchers and organizations through a request-for-approval process.",
-    "url": "https://arstechnica.com/ai/2026/10/openai-will-watermark-chatgpt-outputs-by-default-but-only-in-the-eu",
-    "date": "2026-10-06T20:50:32+00:00",
-    "category": "News",
-    "fetched_at": "2026-10-10T17:39:42.882953+00:00"
+    "fetched_at": "2026-10-10T16:20:33.507388+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 8,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
   },
   {
     "id": "2ee55c894d54d6ef",
@@ -327,51 +111,16 @@
     "url": "https://deepmind.google/blog/embeddinggemma-2-an-open-lightweight-multimodal-embedding-model",
     "date": "2026-10-06T19:57:04+00:00",
     "category": "Product Release",
-    "fetched_at": "2026-10-10T16:20:33.507301+00:00"
-  },
-  {
-    "id": "4b0006aa1b5d0be3",
-    "title": "What AI gets wrong and what failure teaches us",
-    "company": "Microsoft Research",
-    "source": "Microsoft Research AI",
-    "summary": "Microsoft partner research manager Jennifer Neville discusses her career path and research on machine learning and AI for interactive domains on a podcast episode. She explores the role of evaluation in pushing AI performance boundaries and how analyzing failures beyond traditional benchmarks helps meet user needs.",
-    "url": "https://www.microsoft.com/en-us/research/podcast/what-ai-gets-wrong-and-what-failure-teaches-us",
-    "date": "2026-10-06T16:19:06+00:00",
-    "category": "News",
-    "fetched_at": "2026-10-10T17:39:42.882853+00:00"
-  },
-  {
-    "id": "ebb413cc5359756b",
-    "title": "How Jump Trading is scaling quant research with ChatGPT",
-    "company": "OpenAI",
-    "source": "OpenAI News",
-    "summary": "Jump Trading integrates OpenAI models into its quantitative research operations. The initiative combines longer-running AI workflows with multiple data sources and human review processes.",
-    "url": "https://openai.com/index/jump-trading",
-    "date": "2026-10-06T12:00:00+00:00",
-    "category": "News",
-    "fetched_at": "2026-10-10T17:39:42.882738+00:00"
-  },
-  {
-    "id": "726fc16e67cb364f",
-    "title": "Command-line tool quickly removes Apple Intelligence from macOS 27",
-    "company": "Ars Technica",
-    "source": "Ars Technica – AI",
-    "summary": "Developer Om Lahore released a command-line tool called RemoveMacAI on GitHub that allows macOS 27 users to turn off Apple Intelligence and free up disk space. The tool provides a fully reversible method to remove the AI models, which can occupy between 12GB and over 30GB of storage. This utility addresses the lack of a native toggle in macOS 27 to completely disable the built-in AI features.",
-    "url": "https://arstechnica.com/apple/2026/10/command-line-tool-quickly-removes-apple-intelligence-from-macos-27",
-    "date": "2026-10-05T19:14:44+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-10-10T17:39:42.882957+00:00"
-  },
-  {
-    "id": "d8885d98544ba548",
-    "title": "ReviewBench: An open benchmark for AI code review",
-    "company": "GitHub",
-    "source": "GitHub AI & Copilot",
-    "summary": "ReviewBench is a new open offline benchmark designed to evaluate AI code review systems using a multi-source golden set modeled after over 100 million real GitHub pull requests. It provides a reproducible evaluation methodology encompassing precision, recall, and severity breakdowns to help teams measure and improve their code review agents. The benchmark enables more effective offline evaluations that reliably anticipate production experiment results.",
-    "url": "https://github.blog/ai-and-ml/github-copilot/reviewbench-an-open-benchmark-for-ai-code-review",
-    "date": "2026-10-05T15:59:40+00:00",
-    "category": "Benchmark",
-    "fetched_at": "2026-10-10T17:39:42.882749+00:00"
+    "fetched_at": "2026-10-10T16:20:33.507301+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 7,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
   },
   {
     "id": "bd1136d0fcfd6f13",
@@ -382,18 +131,15 @@
     "url": "https://huggingface.co/blog/microsoft/thinkingbox",
     "date": "2026-10-03T22:56:48+00:00",
     "category": "Opinion",
-    "fetched_at": "2026-10-10T16:20:33.507391+00:00"
-  },
-  {
-    "id": "3adf82e6716a48e9",
-    "title": "AI is changing developer work. Here are three skills to strengthen.",
-    "company": "GitHub",
-    "source": "GitHub AI & Copilot",
-    "summary": "Software development workflows are shifting toward directing multiple AI agents, evaluating generated code with secondary models, and focusing on high-level system design and technical tradeoffs. Developers must strengthen their abilities to clearly define problems, critique AI outputs, and manage larger architectural decisions. Tools like GitHub Copilot's Rubber Duck agent exemplify this approach by using secondary models to review plans and code before implementation.",
-    "url": "https://github.blog/ai-and-ml/ai-is-rewriting-the-developer-career-ladder-heres-how-to-stand-out",
-    "date": "2026-10-02T15:00:00+00:00",
-    "category": "Opinion",
-    "fetched_at": "2026-10-10T17:39:42.882754+00:00"
+    "fetched_at": "2026-10-10T16:20:33.507391+00:00",
+    "topics": [
+      "AI Agents"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
   },
   {
     "id": "56c490db040147f1",
@@ -404,18 +150,16 @@
     "url": "https://huggingface.co/blog/ServiceNow-AI/autosynthdata",
     "date": "2026-10-02T04:01:31+00:00",
     "category": "News",
-    "fetched_at": "2026-10-10T16:20:33.507394+00:00"
-  },
-  {
-    "id": "e7998846bd78d7e2",
-    "title": "With most information hidden, the game Stratego had stumped AI—until now",
-    "company": "Ars Technica",
-    "source": "Ars Technica – AI",
-    "summary": "Researchers from Carnegie Mellon, MIT, NYU, and Stanford University have developed an AI named Ataraxos that defeated top Stratego player Pim Niemeijer 15 games to one with four draws. The imperfect-information game had previously stumped AI researchers due to its massive hidden information and long time scales. The system was trained using just 16 GPUs and a modest budget.",
-    "url": "https://arstechnica.com/science/2026/10/ai-finally-beat-the-best-stratego-player-in-history-and-did-it-on-a-budget",
-    "date": "2026-10-01T16:28:04+00:00",
-    "category": "Research",
-    "fetched_at": "2026-10-10T17:39:42.882963+00:00"
+    "fetched_at": "2026-10-10T16:20:33.507394+00:00",
+    "topics": [
+      "AI Agents",
+      "Business and Industry"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
   },
   {
     "id": "b49099cde7e97e60",
@@ -426,51 +170,15 @@
     "url": "https://deepmind.google/blog/gemini-4-argon-our-next-era-of-frontier-intelligence",
     "date": "2026-09-30T20:01:45+00:00",
     "category": "Product Release",
-    "fetched_at": "2026-10-10T16:20:33.507333+00:00"
-  },
-  {
-    "id": "401790562c9b8c93",
-    "title": "RFK Jr. thinks AI will free us from the \"tyranny\" of medical facts, expertise",
-    "company": "Ars Technica",
-    "source": "Ars Technica – AI",
-    "summary": "At a Make America Healthy Again event, Health Secretary Robert F. Kennedy discussed the potential of artificial intelligence with Vice President JD Vance. Kennedy claimed that AI will free Americans from the medical tyranny of doctors and health experts by allowing individuals to obtain alternative medical advice. He further asserted that the technology would validate his views on public health and vaccines.",
-    "url": "https://arstechnica.com/health/2026/09/rfk-jr-says-ai-backs-his-anti-vaccine-views-we-checked-it-doesnt",
-    "date": "2026-09-30T19:31:25+00:00",
-    "category": "News",
-    "fetched_at": "2026-10-10T17:39:42.882968+00:00"
-  },
-  {
-    "id": "fefbbe2fa28d302e",
-    "title": "Visual Studio Code 1.140",
-    "company": "Microsoft VS Code",
-    "source": "VS Code Updates",
-    "summary": "[Automated summary unavailable] Learn what's new in Visual Studio Code 1.140 Read the full article",
-    "url": "https://code.visualstudio.com/updates/v1_140",
-    "date": "2026-09-30T17:00:00+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-10-10T17:39:42.882807+00:00"
-  },
-  {
-    "id": "489d5fcf8020ccbf",
-    "title": "Forecasting space weather risks on power grids",
-    "company": "Microsoft Research",
-    "source": "Microsoft Research AI",
-    "summary": "A machine learning pipeline developed at Microsoft Research uses solar-wind forecasts, physics-informed constraints, and local geological data to predict space-weather risks for nearly 67,000 substations in the US. The system successfully detected approximately 80% of major space-weather events during its evaluation and provides grid operators with 30 to 60 minutes of advance warning. The multi-stage architecture integrates indices such as Auroral Electrojet and Disturbance Storm Time with substation-specific characteristics to estimate geomagnetically induced current risks.",
-    "url": "https://www.microsoft.com/en-us/research/blog/forecasting-space-weather-risks-on-power-grids",
-    "date": "2026-09-30T16:00:00+00:00",
-    "category": "Research",
-    "fetched_at": "2026-10-10T17:39:42.882859+00:00"
-  },
-  {
-    "id": "ad318ba6bb2e4c5d",
-    "title": "Google figures out how to watermark AI-designed proteins",
-    "company": "Ars Technica",
-    "source": "Ars Technica – AI",
-    "summary": "AI tools for designing proteins offer significant biological utility, such as creating enzymes that digest plastics or block venom proteins. However, these same capabilities pose biosecurity risks by potentially enabling the creation of toxins or modified viral proteins. Current DNA screening software often fails to identify these AI-designed proteins because their threat signatures remain insufficiently characterized.",
-    "url": "https://arstechnica.com/science/2026/09/google-figures-out-how-to-watermark-ai-designed-proteins",
-    "date": "2026-09-30T15:54:52+00:00",
-    "category": "News",
-    "fetched_at": "2026-10-10T17:39:42.882973+00:00"
+    "fetched_at": "2026-10-10T16:20:33.507333+00:00",
+    "topics": [
+      "Models and Releases"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
   },
   {
     "id": "08aa8115cb5d9c89",
@@ -481,7 +189,15 @@
     "url": "https://deepmind.google/blog/introducing-synthid-bio",
     "date": "2026-09-30T15:03:07+00:00",
     "category": "Product Release",
-    "fetched_at": "2026-10-10T16:20:33.507341+00:00"
+    "fetched_at": "2026-10-10T16:20:33.507341+00:00",
+    "topics": [
+      "Safety and Security"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
   },
   {
     "id": "74c2ff7e2707d1f6",
@@ -492,29 +208,15 @@
     "url": "https://huggingface.co/blog/open-tts-leaderboard",
     "date": "2026-09-30T00:00:00+00:00",
     "category": "News",
-    "fetched_at": "2026-10-10T16:20:33.507397+00:00"
-  },
-  {
-    "id": "26afe82f54ffcc86",
-    "title": "Protests against OpenAI get increasingly creative",
-    "company": "Ars Technica",
-    "source": "Ars Technica – AI",
-    "summary": "Artists from Odd Friend Studio installed a papier-mâché sculpture titled What Iceberg? at the public entrance of an OpenAI developer event in San Francisco. The artwork depicts OpenAI leaders and investors fleeing a sinking ship to critique the economic impacts of artificial intelligence on the public. The installation was constructed over five days using cardboard, paint, and a repurposed table.",
-    "url": "https://arstechnica.com/ai/2026/09/what-iceberg-bay-area-artists-target-openai-with-titanic-themed-protest-art",
-    "date": "2026-09-29T21:52:58+00:00",
-    "category": "News",
-    "fetched_at": "2026-10-10T17:39:42.882978+00:00"
-  },
-  {
-    "id": "7ee79eecb360c6d0",
-    "title": "Introducing Quine: An AI research system designed for the complexity of biology",
-    "company": "Microsoft Research",
-    "source": "Microsoft Research AI",
-    "summary": "Microsoft Research introduced Quine, a multimodal world model and interactive research system designed for biology that integrates scientific tools, literature, and wet-lab experiments. Developed in collaboration with the Broad Institute, the system was used to prioritize therapeutic candidates that were subsequently validated in wet-lab assays. Quine is currently experimental research technology intended to accelerate scientific discovery rather than for clinical use.",
-    "url": "https://www.microsoft.com/en-us/research/blog/introducing-quine-an-ai-research-system-designed-for-the-complexity-of-biology",
-    "date": "2026-09-29T14:00:02+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-10-10T17:39:42.882865+00:00"
+    "fetched_at": "2026-10-10T16:20:33.507397+00:00",
+    "topics": [
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "Provides verified empirical measurements of frontier reasoning performance."
   },
   {
     "id": "afa8c33f8eb7996a",
@@ -525,18 +227,15 @@
     "url": "https://huggingface.co/blog/MultiverseComputingCAI/getting-the-source-right-not-just-the-fact-source",
     "date": "2026-09-29T13:07:00+00:00",
     "category": "News",
-    "fetched_at": "2026-10-10T16:20:33.507400+00:00"
-  },
-  {
-    "id": "f3d0899182d2ff38",
-    "title": "One year in: How Microsoft Research Asia – Singapore is advancing research, partnership and talent for real-world impact",
-    "company": "Microsoft Research",
-    "source": "Microsoft Research AI",
-    "summary": "Microsoft Research Asia – Singapore marks its one-year anniversary since opening on July 24, 2025, as Microsoft's first research lab in Southeast Asia. The lab focuses on advancing frontier AI across four pillars: next-generation AI models and agentic systems, domain-specific AI, AI-native research practices, and ecosystem and talent development. It collaborates with local universities, government agencies, and industry partners to translate fundamental advances into practical solutions, such as multimodal healthcare AI and diagnostic agents.",
-    "url": "https://www.microsoft.com/en-us/research/blog/one-year-in-how-microsoft-research-asia-singapore-is-advancing-research-partnership-and-talent-for-real-world-impact",
-    "date": "2026-09-28T21:00:00+00:00",
-    "category": "News",
-    "fetched_at": "2026-10-10T17:39:42.882869+00:00"
+    "fetched_at": "2026-10-10T16:20:33.507400+00:00",
+    "topics": [
+      "AI Agents"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
   },
   {
     "id": "09d1d26fa19dd694",
@@ -547,73 +246,15 @@
     "url": "https://huggingface.co/blog/Hcompany/holo4",
     "date": "2026-09-28T09:44:05+00:00",
     "category": "News",
-    "fetched_at": "2026-10-10T16:20:33.507402+00:00"
-  },
-  {
-    "id": "d48dc5cb56d9c340",
-    "title": "AI was supposed to hit new grads hard. So far, unemployment data says otherwise.",
-    "company": "Ars Technica",
-    "source": "Ars Technica – AI",
-    "summary": "A working paper from CESifo researchers Robert Fairlie and Jane Wu concludes that there is no evidence of significant displacement or reduced hiring among recent college graduates in AI-impacted occupations. The study contrasts with previous findings by examining whether changes in labor demand appear first through hiring reductions rather than layoffs.",
-    "url": "https://arstechnica.com/ai/2026/09/ai-was-supposed-to-hit-new-grads-hard-so-far-unemployment-data-says-otherwise",
-    "date": "2026-09-25T19:11:05+00:00",
-    "category": "Research",
-    "fetched_at": "2026-10-10T17:39:42.882983+00:00"
-  },
-  {
-    "id": "7d128752a2cf63b4",
-    "title": "GitHub Copilot app for Beginners: How to build custom workflows with canvases",
-    "company": "GitHub",
-    "source": "GitHub AI & Copilot",
-    "summary": "GitHub Copilot introduces canvases, which are customizable, bidirectional interfaces shared between the user and the AI agent. Users can generate and refine these interactive workflows, such as kanban boards or release checklists, using plain-language prompts with the /create-canvas skill. Canvases enable real-time collaboration where both the user and the agent can update the shared interface simultaneously.",
-    "url": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-build-custom-workflows-with-canvases",
-    "date": "2026-09-25T18:00:00+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-10-10T17:39:42.882759+00:00"
-  },
-  {
-    "id": "482d27010b8d5a70",
-    "title": "Microsoft stops insisting you need a \"Copilot+ PC\"",
-    "company": "Ars Technica",
-    "source": "Ars Technica – AI",
-    "summary": "Microsoft has dropped the Copilot+ PC branding for its newly announced Surface computers, despite the devices meeting the hardware requirements for the label. Brett Ostrum, corporate VP of Surface, confirmed to Windows Central that the new systems are not marketed using the previous AI-accelerated PC designation.",
-    "url": "https://arstechnica.com/gadgets/2026/09/microsoft-stops-insisting-you-need-a-copilot-pc",
-    "date": "2026-09-25T17:57:37+00:00",
-    "category": "News",
-    "fetched_at": "2026-10-10T17:39:42.882989+00:00"
-  },
-  {
-    "id": "d5158f51ec389770",
-    "title": "Trump admin using AI to deny medical care for seniors in disastrous experiment",
-    "company": "Ars Technica",
-    "source": "Ars Technica – AI",
-    "summary": "The Trump administration launched the WISeR pilot program, using artificial intelligence to handle prior authorizations for Medicare patients. Federal documents and reports revealed widespread technical issues, severe care delays, and inappropriate denials, prompting criticism from healthcare providers and lawmakers. Additionally, the Government Accountability Office found that officials did not follow proper legal procedures when establishing the program.",
-    "url": "https://arstechnica.com/health/2026/09/trump-admin-using-ai-to-deny-medical-care-for-seniors-in-disastrous-experiment",
-    "date": "2026-09-25T11:00:28+00:00",
-    "category": "News",
-    "fetched_at": "2026-10-10T17:39:42.882995+00:00"
-  },
-  {
-    "id": "4135fa3a00799524",
-    "title": "When chat is the wrong UI",
-    "company": "GitHub",
-    "source": "GitHub AI & Copilot",
-    "summary": "The article critiques the standard chat interface as the primary interaction surface for large language models, arguing that task-oriented, customizable user interfaces are often more effective. It highlights the canvas feature in the GitHub Copilot app as an example of a full-stack application surface that enables bidirectional communication between agents and users.",
-    "url": "https://github.blog/ai-and-ml/github-copilot/when-chat-is-the-wrong-ui",
-    "date": "2026-09-24T20:00:00+00:00",
-    "category": "Opinion",
-    "fetched_at": "2026-10-10T17:39:42.882765+00:00"
-  },
-  {
-    "id": "2690558920b683f4",
-    "title": "AI-powered fuzzing with the GitHub Security Lab Taskflow Agent",
-    "company": "GitHub",
-    "source": "GitHub AI & Copilot",
-    "summary": "The GitHub Security Lab has introduced the Fuzzing Taskflow, an autonomous AI-powered fuzzing pipeline built for C and C++ projects. The tool utilizes an LLM agent to handle tasks such as identifying entrypoints, writing harnesses, running AFL++, analyzing coverage, and triaging crashes. By default, the pipeline uses Claude Sonnet 5 and requires running in a disposable environment like a Codespace due to executing arbitrary build commands.",
-    "url": "https://github.blog/security/application-security/ai-powered-fuzzing-with-the-github-security-lab-taskflow-agent",
-    "date": "2026-09-24T18:26:12+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-10-10T17:39:42.882770+00:00"
+    "fetched_at": "2026-10-10T16:20:33.507402+00:00",
+    "topics": [
+      "AI Agents"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
   },
   {
     "id": "6add3dd62456569f",
@@ -624,40 +265,16 @@
     "url": "https://deepmind.google/blog/introducing-gemini-38-live-with-live-avatar",
     "date": "2026-09-24T16:20:39+00:00",
     "category": "Product Release",
-    "fetched_at": "2026-10-10T16:20:33.507346+00:00"
-  },
-  {
-    "id": "adfc9716558ca6b5",
-    "title": "Rendering huge pull requests in the GitHub Copilot app",
-    "company": "GitHub",
-    "source": "GitHub AI & Copilot",
-    "summary": "[Automated summary unavailable] Broad refactors and migrations often have to land as one change. Stacked pull requests are a great way to split work into smaller changes, which makes reviews easier and helps teams ship with less…",
-    "url": "https://github.blog/engineering/user-experience/rendering-huge-pull-requests-in-the-github-copilot-app",
-    "date": "2026-09-23T18:29:49+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-10-10T17:39:42.882775+00:00"
-  },
-  {
-    "id": "5c9dea62fc51b326",
-    "title": "Visual Studio Code 1.139",
-    "company": "Microsoft VS Code",
-    "source": "VS Code Updates",
-    "summary": "[Automated summary unavailable] Learn what is new in Visual Studio Code 1.139 Read the full article",
-    "url": "https://code.visualstudio.com/updates/v1_139",
-    "date": "2026-09-23T17:00:00+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-10-10T17:39:42.882812+00:00"
-  },
-  {
-    "id": "f5f3fe2846a1077a",
-    "title": "Offloaded inference for real-world physical AI robotics",
-    "company": "Microsoft Research",
-    "source": "Microsoft Research AI",
-    "summary": "Recent research demonstrates that offloading physical AI inference from onboard GPUs to edge or cloud infrastructure can improve robot task success rates, battery life, and scalability. This approach replaces power-hungry onboard hardware with lightweight alternatives and remote inference capabilities to support larger AI models. Additionally, new Kubernetes-based tooling enables developers to containerize, deploy, and orchestrate these distributed robotics workloads.",
-    "url": "https://www.microsoft.com/en-us/research/blog/offloaded-inference-for-real-world-physical-ai-robotics",
-    "date": "2026-09-23T16:01:36+00:00",
-    "category": "Research",
-    "fetched_at": "2026-10-10T17:39:42.882875+00:00"
+    "fetched_at": "2026-10-10T16:20:33.507346+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 7,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
   },
   {
     "id": "1043d9fe80283e6f",
@@ -668,7 +285,16 @@
     "url": "https://deepmind.google/blog/advancing-private-ai-compute-with-secure-server-side-memory",
     "date": "2026-09-23T16:00:57+00:00",
     "category": "Product Release",
-    "fetched_at": "2026-10-10T16:20:33.507349+00:00"
+    "fetched_at": "2026-10-10T16:20:33.507349+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
   },
   {
     "id": "721de6922a1a6b9f",
@@ -679,84 +305,15 @@
     "url": "https://deepmind.google/blog/say-hello-to-gemini-38-text-to-speech",
     "date": "2026-09-23T15:25:14+00:00",
     "category": "Product Release",
-    "fetched_at": "2026-10-10T16:20:33.507355+00:00"
-  },
-  {
-    "id": "958c3483761172ad",
-    "title": "Building the new GitHub Copilot Inline Suggestions Model: Part Two",
-    "company": "Microsoft VS Code",
-    "source": "VS Code Updates",
-    "summary": "GitHub Copilot integrated completions into its unified inline suggestions model. The update refined ghost text and editor behavior to improve overall user satisfaction.",
-    "url": "https://code.visualstudio.com/blogs/2026/09/23/building-the-github-copilot-inline-suggestions-model-part-two",
-    "date": "2026-09-23T00:00:00+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-10-10T17:39:42.882817+00:00"
-  },
-  {
-    "id": "b287b34a5390dd7e",
-    "title": "Microsoft disrupts AI-assisted platform that compromised 12,000 accounts",
-    "company": "Ars Technica",
-    "source": "Ars Technica – AI",
-    "summary": "Microsoft led an industry-wide disruption against a subscription-based scam platform named EvilTokens that used an AI chatbot to compromise 12,000 Microsoft accounts. Operating via Telegram since February, the platform charged initial and recurring fees to help cybercriminals analyze inboxes, identify high-value targets, and draft fraudulent follow-up emails.",
-    "url": "https://arstechnica.com/security/2026/09/microsoft-disrupts-ai-assisted-platform-that-compromised-12000",
-    "date": "2026-09-22T19:45:47+00:00",
-    "category": "News",
-    "fetched_at": "2026-10-10T17:39:42.883001+00:00"
-  },
-  {
-    "id": "b5c50a1bc3bd0622",
-    "title": "Improving synthesis prediction of small molecules at scale with RetroChimera",
-    "company": "Microsoft Research",
-    "source": "Microsoft Research AI",
-    "summary": "The retrosynthesis model RetroChimera has been published in the journal Nature, featuring an architecture that combines two models with complementary strengths to automatically propose synthesis routes. The implementation and model weights have been open-sourced to help researchers accelerate the development of new molecules and materials. In blind tests, PhD-level chemists preferred RetroChimera's reaction predictions over both preceding models and recorded literature reactions.",
-    "url": "https://www.microsoft.com/en-us/research/blog/improving-synthesis-prediction-of-small-molecules-at-scale-with-retrochimera",
-    "date": "2026-09-21T15:30:19+00:00",
-    "category": "Research",
-    "fetched_at": "2026-10-10T17:39:42.882879+00:00"
-  },
-  {
-    "id": "b02dba448db72934",
-    "title": "Should you read the code, is RAG dead, and did Skills kill MCP?",
-    "company": "GitHub",
-    "source": "GitHub AI & Copilot",
-    "summary": "This article from the GitHub Podcast examines common AI hot takes concerning software development, specifically addressing the necessity of reviewing AI-generated code and the expectations around AI usage in hiring. The discussion emphasizes that AI tools shift the effort of software engineering rather than eliminate it, requiring developers to exercise proper judgment and maintain ownership over outcomes. Overall, it argues that a nuanced understanding of when and how to apply AI tools is becoming a crucial part of engineering craft.",
-    "url": "https://github.blog/ai-and-ml/should-you-read-the-code-is-rag-dead-and-did-skills-kill-mcp",
-    "date": "2026-09-18T15:00:00+00:00",
-    "category": "Opinion",
-    "fetched_at": "2026-10-10T17:39:42.882781+00:00"
-  },
-  {
-    "id": "71ca52f40c8e50d8",
-    "title": "Migrating the GitHub Copilot runtime to Rust, using Copilot",
-    "company": "GitHub",
-    "source": "GitHub AI & Copilot",
-    "summary": "[Automated summary unavailable] The GitHub Copilot CLI , GitHub Copilot app , and GitHub Copilot SDK are all backed by the Copilot agent runtime, an agentic harness that can be embedded into applications and services. It was…",
-    "url": "https://github.blog/ai-and-ml/generative-ai/migrating-the-github-copilot-runtime-to-rust-using-copilot",
-    "date": "2026-09-17T00:26:43+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-10-10T17:39:42.882786+00:00"
-  },
-  {
-    "id": "8bc291f39a282969",
-    "title": "Visual Studio Code 1.138",
-    "company": "Microsoft VS Code",
-    "source": "VS Code Updates",
-    "summary": "Visual Studio Code version 1.138 has been released, introducing new features and updates for developers. Users can review the full release notes to explore the specific changes included in this version.",
-    "url": "https://code.visualstudio.com/updates/v1_138",
-    "date": "2026-09-16T17:00:00+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-10-10T17:39:42.882823+00:00"
-  },
-  {
-    "id": "636b7671bfd5d099",
-    "title": "Building the new GitHub Copilot Inline Suggestions Model: Part One",
-    "company": "Microsoft VS Code",
-    "source": "VS Code Updates",
-    "summary": "GitHub Copilot integrated completion, next edit, and long-distance suggestions into a single unified model. This consolidation aims to deliver a faster and more cohesive coding experience for developers.",
-    "url": "https://code.visualstudio.com/blogs/2026/09/16/building-the-github-copilot-inline-suggestions-model-part-one",
-    "date": "2026-09-16T00:00:00+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-10-10T17:39:42.882828+00:00"
+    "fetched_at": "2026-10-10T16:20:33.507355+00:00",
+    "topics": [
+      "Models and Releases"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
   },
   {
     "id": "6aae488b1bb65e59",
@@ -767,29 +324,16 @@
     "url": "https://deepmind.google/blog/introducing-gemini-3-8-live-and-3-8-live-extended-thinking",
     "date": "2026-09-15T17:05:57+00:00",
     "category": "Product Release",
-    "fetched_at": "2026-10-10T16:20:33.507359+00:00"
-  },
-  {
-    "id": "30a36306f538ac1a",
-    "title": "Marketing ops as code: Automating events from planning to follow-up on GitHub",
-    "company": "GitHub",
-    "source": "GitHub AI & Copilot",
-    "summary": "[Automated summary unavailable] I run marketing for GitHub in Japan and Korea, and events are the heartbeat of it: a recurring webinar series for enterprise developers, community meetups in Tokyo, invite-only executive sessions in…",
-    "url": "https://github.blog/ai-and-ml/github-copilot/marketing-ops-as-code-automating-events-from-planning-to-follow-up-on-github",
-    "date": "2026-09-11T18:26:10+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-10-10T17:39:42.882791+00:00"
-  },
-  {
-    "id": "dcd87a4c52f47f88",
-    "title": "Visual Studio Code 1.137",
-    "company": "Microsoft VS Code",
-    "source": "VS Code Updates",
-    "summary": "Visual Studio Code 1.137 has been released, introducing new features and updates. Users can read the full article to learn about the latest additions.",
-    "url": "https://code.visualstudio.com/updates/v1_137",
-    "date": "2026-09-09T17:00:00+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-10-10T17:39:42.882833+00:00"
+    "fetched_at": "2026-10-10T16:20:33.507359+00:00",
+    "topics": [
+      "Models and Releases",
+      "Applications and Products"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 7,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
   },
   {
     "id": "825546b9e9e150a7",
@@ -800,7 +344,15 @@
     "url": "https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome",
     "date": "2026-09-08T14:00:15+00:00",
     "category": "Product Release",
-    "fetched_at": "2026-10-10T16:20:33.507365+00:00"
+    "fetched_at": "2026-10-10T16:20:33.507365+00:00",
+    "topics": [
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
   },
   {
     "id": "d5ea4bcadd66b1af",
@@ -811,18 +363,15 @@
     "url": "https://deepmind.google/blog/introducing-weathernext-3-our-most-advanced-and-accurate-global-weather-ai-model",
     "date": "2026-09-03T15:02:08+00:00",
     "category": "Product Release",
-    "fetched_at": "2026-10-10T16:20:33.507369+00:00"
-  },
-  {
-    "id": "81c6b4506055269f",
-    "title": "Visual Studio Code 1.136",
-    "company": "Microsoft VS Code",
-    "source": "VS Code Updates",
-    "summary": "Visual Studio Code version 1.136 has been released, introducing new features and updates for developers. Users can read the full documentation to learn about the specific changes included in this version.",
-    "url": "https://code.visualstudio.com/updates/v1_136",
-    "date": "2026-09-02T17:00:00+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-10-10T17:39:42.882838+00:00"
+    "fetched_at": "2026-10-10T16:20:33.507369+00:00",
+    "topics": [
+      "Models and Releases"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
   },
   {
     "id": "bf94848b24bf5829",
@@ -833,51 +382,17 @@
     "url": "https://deepmind.google/blog/proactive-cyber-defense-for-governments-and-enterprises",
     "date": "2026-09-02T16:24:24+00:00",
     "category": "News",
-    "fetched_at": "2026-10-10T16:20:33.507373+00:00"
-  },
-  {
-    "id": "48268a8a96251ba4",
-    "title": "GigaPath-Flash and GigaTIME-Flash: Toward population-scale discovery with efficient pathology foundation models",
-    "company": "Microsoft Research",
-    "source": "Microsoft Research AI",
-    "summary": "The Flash family introduces GigaPath-Flash and GigaTIME-Flash, distilled pathology foundation models designed to reduce computational requirements for whole-slide image analysis. These open models enable researchers to conduct repeated analyses across large patient cohorts and support population-scale discovery in cancer research. They are intended strictly for research purposes and are not validated for clinical diagnosis or patient care decisions.",
-    "url": "https://www.microsoft.com/en-us/research/blog/gigapath-flash-and-gigatime-flash-toward-population-scale-discovery-with-efficient-pathology-foundation-models",
-    "date": "2026-08-31T16:00:00+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-10-10T17:39:42.882885+00:00"
-  },
-  {
-    "id": "477bb68b624ad0e3",
-    "title": "Visual Studio Code 1.135",
-    "company": "Microsoft VS Code",
-    "source": "VS Code Updates",
-    "summary": "Visual Studio Code version 1.135 has been released. The update introduces new features and improvements for developers.",
-    "url": "https://code.visualstudio.com/updates/v1_135",
-    "date": "2026-08-26T17:00:00+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-10-10T17:39:42.882843+00:00"
-  },
-  {
-    "id": "8625f311cd075df6",
-    "title": "Broadening access to Skala creates a faster path to predictive DFT",
-    "company": "Microsoft Research",
-    "source": "Microsoft Research AI",
-    "summary": "Microsoft Research announced the release of Skala 1.1, a deep-learning exchange-correlation functional trained on 2.5 times more data than its predecessor. The updated model outperforms expensive global hybrid functionals on the GMTKN55 benchmark while operating at the computational cost of a meta-GGA functional. Additionally, Skala is now available in CP2K and is being integrated into other major computational chemistry software including Psi4, FHI-aims, ORCA, and VASP.",
-    "url": "https://www.microsoft.com/en-us/research/blog/broadening-access-to-skala-creates-a-faster-path-to-predictive-dft",
-    "date": "2026-08-20T16:00:00+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-10-10T17:39:42.882890+00:00"
-  },
-  {
-    "id": "8e9779aa6f2a2f79",
-    "title": "MindTopo reveals VLMs’ spatial reasoning abilities",
-    "company": "Microsoft Research",
-    "source": "Microsoft Research AI",
-    "summary": "[Automated summary unavailable] At a glance MindTopo is a new benchmark for testing topological reasoning in AI, evaluating whether multimodal models can understand concepts such as connectivity, enclosure, order, separation, and…",
-    "url": "https://www.microsoft.com/en-us/research/blog/mindtopo-reveals-vlms-spatial-reasoning-abilities",
-    "date": "2026-08-12T16:00:00+00:00",
-    "category": "Research",
-    "fetched_at": "2026-10-10T17:39:42.882896+00:00"
+    "fetched_at": "2026-10-10T16:20:33.507373+00:00",
+    "topics": [
+      "Safety and Security",
+      "Business and Industry",
+      "Applications and Products"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 1,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Primary lab announcement from Google DeepMind",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
   },
   {
     "id": "011517a268b49af0",
@@ -888,7 +403,15 @@
     "url": "https://thegradient.pub/virtue-ethics-ai-alignment",
     "date": "2026-02-18T23:25:52+00:00",
     "category": "Research",
-    "fetched_at": "2026-10-10T16:20:33.507405+00:00"
+    "fetched_at": "2026-10-10T16:20:33.507405+00:00",
+    "topics": [
+      "Safety and Security"
+    ],
+    "source_type": "Analysis or Commentary",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "Introduces algorithmic methodologies that influence downstream model training."
   },
   {
     "id": "3c841b625a861f7b",
@@ -899,7 +422,16 @@
     "url": "https://thegradient.pub/agi-is-not-multimodal",
     "date": "2025-06-04T14:00:29+00:00",
     "category": "Research",
-    "fetched_at": "2026-10-10T16:20:33.507408+00:00"
+    "fetched_at": "2026-10-10T16:20:33.507408+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Analysis or Commentary",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "Provides verified empirical measurements of frontier reasoning performance."
   },
   {
     "id": "dc7f976627ff115f",
@@ -910,7 +442,16 @@
     "url": "https://thegradient.pub/shape-symmetry-structure",
     "date": "2024-11-16T16:46:15+00:00",
     "category": "Research",
-    "fetched_at": "2026-10-10T16:20:33.507411+00:00"
+    "fetched_at": "2026-10-10T16:20:33.507411+00:00",
+    "topics": [
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Analysis or Commentary",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "Introduces algorithmic methodologies that influence downstream model training."
   },
   {
     "id": "4cdcbf892cac7571",
@@ -921,7 +462,16 @@
     "url": "https://thegradient.pub/dialog",
     "date": "2024-09-09T17:28:48+00:00",
     "category": "Research",
-    "fetched_at": "2026-10-10T16:20:33.507413+00:00"
+    "fetched_at": "2026-10-10T16:20:33.507413+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Analysis or Commentary",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "Provides verified empirical measurements of frontier reasoning performance."
   },
   {
     "id": "660278244728367a",
@@ -932,7 +482,16 @@
     "url": "https://thegradient.pub/we-need-positive-visions-for-ai-grounded-in-wellbeing",
     "date": "2024-08-03T17:00:43+00:00",
     "category": "Opinion",
-    "fetched_at": "2026-10-10T16:20:33.507416+00:00"
+    "fetched_at": "2026-10-10T16:20:33.507416+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Analysis or Commentary",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
   },
   {
     "id": "e86bddf9f1c8ad8b",
@@ -943,7 +502,17 @@
     "url": "https://thegradient.pub/financial-market-applications-of-llms",
     "date": "2024-04-20T17:57:39+00:00",
     "category": "Opinion",
-    "fetched_at": "2026-10-10T16:20:33.507419+00:00"
+    "fetched_at": "2026-10-10T16:20:33.507419+00:00",
+    "topics": [
+      "Models and Releases",
+      "Business and Industry",
+      "Applications and Products"
+    ],
+    "source_type": "Analysis or Commentary",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
   },
   {
     "id": "50f1c1400ec9766f",
@@ -954,7 +523,17 @@
     "url": "https://thegradient.pub/gender-bias-in-ai",
     "date": "2024-04-08T15:54:53+00:00",
     "category": "Opinion",
-    "fetched_at": "2026-10-10T16:20:33.507422+00:00"
+    "fetched_at": "2026-10-10T16:20:33.507422+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Analysis or Commentary",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
   },
   {
     "id": "0a666323496ec028",
@@ -965,7 +544,17 @@
     "url": "https://thegradient.pub/mamba-explained",
     "date": "2024-03-28T01:24:43+00:00",
     "category": "News",
-    "fetched_at": "2026-10-10T16:20:33.507424+00:00"
+    "fetched_at": "2026-10-10T16:20:33.507424+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Analysis or Commentary",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
   },
   {
     "id": "a55a21215ea5a47d",
@@ -976,7 +565,18 @@
     "url": "https://thegradient.pub/car-gpt",
     "date": "2024-03-08T16:55:18+00:00",
     "category": "Opinion",
-    "fetched_at": "2026-10-10T16:20:33.507427+00:00"
+    "fetched_at": "2026-10-10T16:20:33.507427+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Analysis or Commentary",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
   },
   {
     "id": "f088286c4f5c3357",
@@ -987,6 +587,79 @@
     "url": "https://thegradient.pub/text-embedding-inversion",
     "date": "2024-03-05T20:15:58+00:00",
     "category": "Opinion",
-    "fetched_at": "2026-10-10T16:20:33.507430+00:00"
+    "fetched_at": "2026-10-10T16:20:33.507430+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Analysis or Commentary",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "demo0000000000001",
+    "title": "AI Pulse is live \u2014 your intelligence dashboard is ready",
+    "company": "AI Pulse",
+    "source": "AI Pulse",
+    "summary": "This is a demonstration record seeded before the first pipeline run. Run the ingestion pipeline with a valid GEMINI_API_KEY to replace these placeholders with real, summarized AI news from configured RSS sources.",
+    "url": "https://github.com/ai-pulse",
+    "date": null,
+    "category": "News",
+    "fetched_at": "2024-01-01T00:00:00+00:00",
+    "_demo": true,
+    "topics": [
+      "Models and Releases"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "demo0000000000002",
+    "title": "How to configure AI Pulse for live news ingestion",
+    "company": "AI Pulse",
+    "source": "AI Pulse",
+    "summary": "Set the GEMINI_API_KEY environment variable and run `python -m pipeline.run` from the repository root. The pipeline fetches RSS feeds from Google DeepMind, Hugging Face, MIT News, The Gradient, and VentureBeat AI, summarizes each article with Gemini, and writes the results to src/data/feed.json.",
+    "url": "https://github.com/ai-pulse#readme",
+    "date": null,
+    "category": "News",
+    "fetched_at": "2024-01-01T00:00:00+00:00",
+    "_demo": true,
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Open Source"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "Provides verified empirical measurements of frontier reasoning performance."
+  },
+  {
+    "id": "demo0000000000003",
+    "title": "Adding new RSS sources to AI Pulse",
+    "company": "AI Pulse",
+    "source": "AI Pulse",
+    "summary": "Open pipeline/sources.py and add a new entry to the SOURCES list with a name, verified feed URL, publisher, and default category. The pipeline handles feed failures gracefully, so a broken URL will not abort the run.",
+    "url": "https://github.com/ai-pulse#sources",
+    "date": null,
+    "category": "News",
+    "fetched_at": "2024-01-01T00:00:00+00:00",
+    "_demo": true,
+    "topics": [
+      "Business and Industry"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
   }
 ]

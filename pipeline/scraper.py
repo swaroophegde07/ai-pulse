@@ -15,7 +15,7 @@ import html
 import logging
 import re
 import time
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
 from email.utils import parsedate_to_datetime
 from typing import Any
 from urllib.parse import urlparse, urlunparse
@@ -104,12 +104,19 @@ def parse_date(entry: Any) -> str | None:
     Returns an ISO-8601 string (with UTC timezone) or None when no valid
     date can be determined.
     """
+    # Validate against future-dated entries (clamped to max +1 day for timezone drift)
+    now_utc = datetime.now(UTC)
+    future_threshold = now_utc + timedelta(days=1)
+
     # feedparser provides published_parsed / updated_parsed as time.struct_time
     for attr in ("published_parsed", "updated_parsed"):
         tup = getattr(entry, attr, None)
         if tup:
             try:
                 dt = datetime(*tup[:6], tzinfo=UTC)
+                if dt > future_threshold:
+                    logger.warning("Discarded future-dated timestamp: %s", dt)
+                    return None
                 return dt.isoformat()
             except Exception:
                 pass
@@ -119,8 +126,11 @@ def parse_date(entry: Any) -> str | None:
         raw = getattr(entry, attr, None) or ""
         if raw:
             try:
-                dt = parsedate_to_datetime(raw)
-                return dt.astimezone(UTC).isoformat()
+                dt = parsedate_to_datetime(raw).astimezone(UTC)
+                if dt > future_threshold:
+                    logger.warning("Discarded future-dated raw timestamp: %s", dt)
+                    return None
+                return dt.isoformat()
             except Exception:
                 pass
 

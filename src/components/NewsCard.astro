@@ -12,9 +12,15 @@ interface Props {
   category: string;
   fetched_at: string;
   isDemo?: boolean;
+  topics?: string[];
+  priority_label?: string;
+  priority_explanation?: string;
+  why_it_matters?: string;
+  source_type?: string;
 }
 
 const {
+  id,
   title,
   company,
   source,
@@ -24,6 +30,11 @@ const {
   category,
   fetched_at,
   isDemo = false,
+  topics = [],
+  priority_label,
+  priority_explanation,
+  why_it_matters,
+  source_type,
 } = Astro.props;
 
 // Format dates for display.
@@ -60,15 +71,26 @@ const categoryStyles: Record<string, string> = {
   "Opinion": "text-rose-400 bg-rose-400/10 border-rose-400/20",
 };
 const catStyle = categoryStyles[category] ?? categoryStyles["News"];
+
+const priorityStyles: Record<string, string> = {
+  "Must Know": "text-amber-300 bg-amber-400/10 border-amber-500/30",
+  "Deep Dive": "text-cyan-300 bg-cyan-400/10 border-cyan-500/30",
+  "Worth a Look": "text-neutral-400 bg-neutral-800/40 border-neutral-700/50",
+};
+const prioStyle = priority_label ? (priorityStyles[priority_label] ?? priorityStyles["Worth a Look"]) : "";
 ---
 
 <article
   class="group relative flex flex-col bg-neutral-900 border border-neutral-800 rounded-lg overflow-hidden hover:border-neutral-700 hover:bg-neutral-900/80 transition-all duration-200"
+  data-id={id}
   data-title={title.toLowerCase()}
   data-company={company.toLowerCase()}
   data-summary={summary.toLowerCase()}
   data-category={category.toLowerCase()}
   data-source={source.toLowerCase()}
+  data-date={date ?? ""}
+  data-topics={topics.join(",").toLowerCase()}
+  data-priority={priority_label ? priority_label.toLowerCase() : "worth a look"}
 >
   <!-- Demo badge -->
   {
@@ -78,16 +100,44 @@ const catStyle = categoryStyles[category] ?? categoryStyles["News"];
   }
 
   <div class="flex flex-col flex-1 p-5 gap-3">
-    <!-- Top row: category + company -->
+    <!-- Top row: category + priority + company -->
     <div class="flex items-center justify-between gap-2 flex-wrap">
-      <span
-        class={`font-mono text-[10px] font-medium tracking-widest uppercase px-2 py-0.5 rounded border ${catStyle}`}
-      >
-        {category}
-      </span>
-      <span class="font-mono text-[10px] text-neutral-500 tracking-wide truncate max-w-[50%]">
-        {isDemo && <span class="text-amber-600 mr-1">[DEMO]</span>}{company}
-      </span>
+      <div class="flex items-center gap-1.5 flex-wrap">
+        <span
+          class={`font-mono text-[10px] font-medium tracking-widest uppercase px-2 py-0.5 rounded border ${catStyle}`}
+        >
+          {category}
+        </span>
+        {
+          priority_label && (
+            <span
+              class={`font-mono text-[9px] font-medium tracking-wider uppercase px-1.5 py-0.5 rounded border ${prioStyle}`}
+              title={priority_explanation}
+            >
+              {priority_label}
+            </span>
+          )
+        }
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="font-mono text-[10px] text-neutral-500 tracking-wide truncate max-w-[140px]" title={source_type ? `${company} (${source_type})` : company}>
+          {isDemo && <span class="text-amber-600 mr-1">[DEMO]</span>}{company}
+        </span>
+        <!-- Bookmark button -->
+        <button
+          type="button"
+          class="bookmark-btn text-neutral-600 hover:text-amber-400 focus:outline-none transition-colors p-0.5"
+          data-article-id={id}
+          data-article-title={title}
+          data-article-url={url}
+          aria-label="Save article bookmark"
+          title="Save article to local bookmarks"
+        >
+          <svg class="w-3.5 h-3.5 bookmark-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+          </svg>
+        </button>
+      </div>
     </div>
 
     <!-- Title -->
@@ -96,14 +146,45 @@ const catStyle = categoryStyles[category] ?? categoryStyles["News"];
     </h3>
 
     <!-- Summary -->
-    <p class="text-xs text-neutral-400 leading-relaxed line-clamp-4 flex-1">
-      {summary}
-    </p>
+    {
+      !summary || summary.startsWith("[Automated summary unavailable]") ? (
+        <p class="text-xs text-neutral-500 italic leading-relaxed line-clamp-4">
+          Summary unavailable — read the original article.
+        </p>
+      ) : (
+        <p class="text-xs text-neutral-400 leading-relaxed line-clamp-4">
+          {summary}
+        </p>
+      )
+    }
+
+    <!-- Why it matters (if available) -->
+    {
+      why_it_matters && (
+        <div class="bg-neutral-950/60 border border-neutral-800/80 rounded px-2.5 py-1.5 text-[11px] text-neutral-400 font-mono leading-relaxed">
+          <span class="text-emerald-400/90 font-medium mr-1.5 uppercase tracking-wider text-[9px]">Why it matters:</span>
+          {why_it_matters}
+        </div>
+      )
+    }
+
+    <!-- Topics tags -->
+    {
+      topics.length > 0 && (
+        <div class="flex flex-wrap gap-1 pt-1">
+          {topics.slice(0, 3).map((t) => (
+            <span class="text-[9px] font-mono text-neutral-500 bg-neutral-950 px-1.5 py-0.5 rounded border border-neutral-800/60">
+              #{t}
+            </span>
+          ))}
+        </div>
+      )
+    }
 
     <!-- Footer metadata -->
     <footer class="flex flex-col gap-1.5 pt-2 border-t border-neutral-800/60 mt-auto">
       <div class="flex items-center justify-between gap-2 flex-wrap">
-        <span class="font-mono text-[10px] text-neutral-500 tracking-wide">
+        <span class="font-mono text-[10px] text-neutral-500 tracking-wide" title={source_type}>
           {source}
         </span>
         <time

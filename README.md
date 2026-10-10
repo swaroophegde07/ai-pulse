@@ -52,17 +52,24 @@ Visitors can:
 ```mermaid
 flowchart LR
     A[Public RSS Feeds] --> B[Python Scraper]
-    B --> C[Gemini API]
+    B --> C[Gemini Summarizer]
     C --> D[feed.json]
-    D --> E[Astro SSG Build]
-    E --> F[GitHub Pages]
+    
+    G[OpenRouter & LiveBench APIs] --> H[Benchmark Pipeline]
+    H --> I[benchmarks.json]
+    
+    J[models.json Catalog] --> K[Astro SSG Build]
+    D --> K
+    I --> K
+    K --> L[GitHub Pages]
 ```
 
-1. **Ingest**: The Python ingestion script reads verified feeds from `src/data/sources.json`.
-2. **Deduplicate & Clean**: URLs are canonicalized, fragments and UTM tracking queries are stripped, and existing articles are detected via deterministic IDs.
-3. **Summarize**: New articles are passed to Google Gemini (`google-genai` SDK) to produce structured summaries and validate category tags.
-4. **Persist**: Validated articles are merged with existing records and saved atomically to `src/data/feed.json`.
-5. **Build & Deploy**: Astro compiles the static HTML/CSS bundle into `dist/` and GitHub Actions deploys the site to GitHub Pages.
+1. **Ingest News**: The Python ingestion script reads verified feeds from `src/data/sources.json`.
+2. **Deduplicate & Clean**: URLs are canonicalized, fragments and UTM tracking queries are stripped, future dates are clamped, and existing articles are detected via deterministic IDs.
+3. **Summarize**: New articles are passed to Google Gemini (`google-genai` SDK) to produce structured summaries and validate category tags. Merged into `src/data/feed.json`.
+4. **Ingest Benchmarks**: The benchmark pipeline (`pipeline/benchmarks/runner.py`) fetches and validates multi-source evaluations (LiveBench monthly evaluations, OpenRouter pricing & context telemetry) and writes atomically to `src/data/benchmarks.json`.
+5. **Catalog Models**: Frontier model architecture specs, release dates, open weights licenses, and pricing are curated in `src/data/models.json`.
+6. **Build & Deploy**: Astro compiles the static HTML/CSS bundle into `dist/` and GitHub Actions deploys the site to GitHub Pages.
 
 ---
 
@@ -182,18 +189,24 @@ ai-pulse/
 ├── .github/workflows/
 │   └── update-and-deploy.yml    # Ingestion, build, and deployment workflow
 ├── pipeline/
-│   ├── run.py                   # Pipeline orchestrator entry point
+│   ├── run.py                   # Unified pipeline orchestrator entry point
 │   ├── scraper.py               # Feed parsing, URL normalization & deduplication
 │   ├── sources.py               # Source registry & category configuration
 │   ├── summarizer.py            # Gemini SDK summarization & fallback validation
+│   ├── benchmarks/              # Multi-source benchmark & telemetry subsystem
+│   │   ├── base.py              # Schema validation & SourceAdapter interface
+│   │   ├── runner.py            # Benchmark execution orchestrator
+│   │   └── adapters/            # Adapters (OpenRouter, LiveBench, BenchLM, etc.)
 │   ├── requirements.txt         # Production Python dependencies
 │   └── tests/
-│       └── test_pipeline.py     # Unit test suite
+│       └── test_pipeline.py     # Unit test suite (82 passing tests)
 ├── src/
 │   ├── components/              # Header, Footer, NewsCard, CategoryFilter
 │   ├── data/
 │   │   ├── feed.json            # Ingested article datastore
-│   │   └── sources.json         # Configured RSS feed list
+│   │   ├── sources.json         # Configured RSS feed list
+│   │   ├── models.json          # Frontier model catalog & architecture specs
+│   │   └── benchmarks.json      # Evaluated benchmarks & OpenRouter telemetry
 │   ├── layouts/
 │   │   └── Layout.astro         # HTML document shell
 │   └── pages/
@@ -201,7 +214,7 @@ ai-pulse/
 │       ├── news/index.astro     # Searchable news archive
 │       ├── models/index.astro   # Frontier model landscape & release tracker
 │       ├── research/index.astro # Research lab directory & publication feed
-│       └── benchmarks/index.astro # Benchmark standards & evaluation coverage
+│       └── benchmarks/index.astro # Evaluation board & head-to-head comparison
 ├── astro.config.mjs             # Astro SSG configuration
 ├── tailwind.config.mjs          # Tailwind CSS styling config
 └── requirements-dev.txt         # Dev & test Python dependencies
@@ -212,16 +225,19 @@ ai-pulse/
 ## Project Status & Roadmap
 
 ### Implemented & Live
-- [x] Automated RSS feed ingestion across 9 verified providers.
-- [x] Objective Gemini-powered article summarization and classification.
-- [x] In-browser search across headlines, publishers, and summaries.
-- [x] Category filtering and publisher statistics.
-- [x] Dedicated Models, Research, and Benchmark intelligence hubs.
-- [x] Scheduled GitHub Actions workflow with atomic JSON deployment.
+- [x] Automated RSS feed ingestion across 9 verified providers with future-date clamping and UTC normalization.
+- [x] Objective Gemini-powered article summarization with graceful fallback handling.
+- [x] In-browser search across headlines, publishers, and summaries with category filtering.
+- [x] Structured Frontier Model Catalog (`src/data/models.json`) with context windows, pricing, modalities, and open-weights licensing.
+- [x] Multi-Source Benchmark & Intelligence Dashboard (`/benchmarks/`) with category filters and interactive head-to-head model comparison.
+- [x] Automated OpenRouter API telemetry integration (pricing, context limits) and LiveBench monthly evaluation benchmark ingestion.
+- [x] Adapter architecture with transparent licensing and provenance governance (handling BenchLM CC BY-NC 4.0, Artificial Analysis API requirements, and LMCouncil guidelines).
+- [x] Curated Research Lab Directory (`/research/`) with deterministic keyword classification and active lab statistics.
+- [x] Scheduled GitHub Actions workflow staging both `feed.json` and `benchmarks.json`.
+- [x] Comprehensive test suite (82 passing unit tests covering feeds, summarizer, benchmarks, and model catalogs).
 
 ### Planned Features
 - [ ] Direct arXiv `cs.AI` and `cs.LG` automated daily preprint clustering.
-- [ ] Automated Chatbot Arena (LMSYS) Elo score leaderboard integration.
 - [ ] Semantic vector search over historical articles using Gemini embeddings.
 - [ ] Optional daily email digest dispatch.
 

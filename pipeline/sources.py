@@ -20,11 +20,18 @@ from pathlib import Path
 from typing import TypedDict
 
 
-class Source(TypedDict):
+class Source(TypedDict, total=False):
+    id: str
     name: str
     url: str
     publisher: str
     category: str
+    website: str
+    source_type: str
+    topics: list[str]
+    access_method: str
+    attribution: str
+    notes: str
 
 
 ALLOWED_CATEGORIES: list[str] = [
@@ -33,6 +40,20 @@ ALLOWED_CATEGORIES: list[str] = [
     "Benchmark",
     "Product Release",
     "Opinion",
+]
+
+ALLOWED_TOPICS: list[str] = [
+    "Models and Releases",
+    "AI Agents",
+    "Coding and Developer Tools",
+    "Research and Breakthroughs",
+    "Benchmarks and Evaluations",
+    "Safety and Security",
+    "Policy and Regulation",
+    "Business and Industry",
+    "Open Source",
+    "Infrastructure and Hardware",
+    "Applications and Products",
 ]
 
 # Path to the shared sources.json

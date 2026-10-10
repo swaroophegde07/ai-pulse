@@ -257,9 +257,104 @@ def merge_records(
 # ---------------------------------------------------------------------------
 
 
+def derive_article_metadata(raw: dict) -> dict:
+    """Enrich raw article with topics, source type, priority classification, and why it matters."""
+    title = (raw.get("title") or "")
+    summary = (raw.get("summary") or "")
+    content = f"{title} {summary}".lower()
+    cat = raw.get("category", "News")
+    company = raw.get("company", "")
+    source_name = raw.get("source", "")
+
+    # Topic taxonomy keywords
+    topic_rules = {
+        "Models and Releases": ["model", "weights", "checkpoint", "released", "release", "gemini", "claude", "gpt", "llama", "deepseek", "nemotron", "gemma", "qwen", "falcon", "frontier"],
+        "AI Agents": ["agent", "agentic", "tool use", "reasoning loop", "multi-agent", "orchestration"],
+        "Coding and Developer Tools": ["code", "coding", "developer", "copilot", "vs code", "programming", "github", "ide", "debugging", "python", "cluster", "gpu"],
+        "Research and Breakthroughs": ["paper", "arxiv", "breakthrough", "algorithm", "attention", "transformer", "fine-tuning", "pre-training", "mathematics", "olympiad", "ioi", "imo"],
+        "Benchmarks and Evaluations": ["benchmark", "evaluation", "eval", "leaderboard", "swe-bench", "mmlu", "livebench", "gold-level", "accuracy"],
+        "Safety and Security": ["safety", "alignment", "security", "guardrail", "watermark", "synthid", "vulnerability", "red team"],
+        "Policy and Regulation": ["policy", "regulation", "copyright", "eu ai act", "ftc", "antitrust", "governance"],
+        "Business and Industry": ["startup", "funding", "enterprise", "acquisition", "market", "partnership"],
+        "Open Source": ["open source", "open-weights", "open weights", "apache 2.0", "hugging face", "github", "mit license"],
+        "Infrastructure and Hardware": ["gpu", "cluster", "nvidia", "blackwell", "hopper", "tpu", "datacenter", "scheduling", "inference", "vllm"],
+        "Applications and Products": ["product", "app", "feature", "assistant", "chatgpt", "search", "copilot"]
+    }
+
+    matched_topics = [t for t, kws in topic_rules.items() if any(kw in content for kw in kws)]
+    if not matched_topics:
+        if cat == "Product Release":
+            matched_topics = ["Models and Releases"]
+        elif cat == "Research":
+            matched_topics = ["Research and Breakthroughs"]
+        else:
+            matched_topics = ["Business and Industry"]
+
+    # Priority scoring
+    score = 0
+    reasons = []
+
+    model_terms = ["introducing", "released", "release", "gemini", "claude", "gpt", "llama", "deepseek", "nemotron", "gemma", "qwen", "weights", "open model"]
+    if any(t in title.lower() for t in model_terms) or cat == "Product Release":
+        score += 3
+        reasons.append("Announces a model or architecture capability")
+
+    bench_terms = ["benchmark", "reasoning", "olympiad", "ioi", "imo", "swe-bench", "evaluation", "results", "gold-level"]
+    if any(t in content for t in bench_terms) or cat == "Benchmark":
+        score += 3
+        reasons.append("Reports measured benchmark or evaluation results")
+
+    if cat == "Research":
+        score += 2
+        reasons.append("Original research or technical finding")
+
+    if company in ["Google DeepMind", "OpenAI", "Anthropic", "Meta AI"]:
+        score += 1
+        reasons.append(f"Primary lab announcement from {company}")
+
+    if score >= 5:
+        priority_label = "Deep Dive"
+    elif score >= 3:
+        priority_label = "Must Know"
+    else:
+        priority_label = "Worth a Look"
+
+    explanation = reasons[0] if reasons else "Relevant AI development"
+
+    if "model or architecture capability" in explanation:
+        why_it_matters = "Expands foundation model capabilities and developer deployment choices."
+    elif "benchmark or evaluation results" in explanation:
+        why_it_matters = "Provides verified empirical measurements of frontier reasoning performance."
+    elif "research" in explanation:
+        why_it_matters = "Introduces algorithmic methodologies that influence downstream model training."
+    else:
+        why_it_matters = "Highlights important industry tooling, platform, and infrastructure progression."
+
+    # Map source type
+    source_type = "Technical Publication"
+    if company in ["OpenAI", "Anthropic", "Meta AI"]:
+        source_type = "Primary Source"
+    elif company in ["Google DeepMind", "Microsoft Research"]:
+        source_type = "Research Laboratory"
+    elif "arxiv" in source_name.lower():
+        source_type = "Research or Preprint"
+    elif "verge" in source_name.lower() or "ars technica" in source_name.lower() or "mit" in source_name.lower():
+        source_type = "Independent Reporting"
+
+    return {
+        "topics": matched_topics,
+        "source_type": source_type,
+        "priority_score": score,
+        "priority_label": priority_label,
+        "priority_explanation": explanation,
+        "why_it_matters": why_it_matters,
+    }
+
+
 def prepare_article(raw: dict) -> dict:
     """Build a validated feed record from a raw + summarized article dict."""
     fetched_at = datetime.now(UTC).isoformat()
+    meta = derive_article_metadata(raw)
     return {
         "id": raw["id"],
         "title": raw.get("title", ""),
@@ -270,6 +365,12 @@ def prepare_article(raw: dict) -> dict:
         "date": raw.get("date"),
         "category": raw.get("category", "News"),
         "fetched_at": fetched_at,
+        "topics": raw.get("topics") or meta["topics"],
+        "source_type": raw.get("source_type") or meta["source_type"],
+        "priority_score": raw.get("priority_score", meta["priority_score"]),
+        "priority_label": raw.get("priority_label", meta["priority_label"]),
+        "priority_explanation": raw.get("priority_explanation", meta["priority_explanation"]),
+        "why_it_matters": raw.get("why_it_matters", meta["why_it_matters"]),
     }
 
 
@@ -332,6 +433,13 @@ def run_pipeline(
 
     # 6. Write atomically.
     write_feed_atomic(merged, feed_path)
+
+    # 7. Run multi-source benchmark ingestion (fails safely without corrupting news feed).
+    try:
+        from pipeline.benchmarks.runner import run_benchmark_pipeline
+        run_benchmark_pipeline()
+    except Exception as b_exc:
+        logger.warning("Benchmark pipeline execution error (non-fatal): %s", b_exc)
 
     logger.info("=== Pipeline complete. Total records: %d ===", len(merged))
     return len(prepared)

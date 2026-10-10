@@ -1,15 +1,17 @@
 ---
-// CategoryFilter.astro — client-side category + search filter controls
+// src/components/CategoryFilter.astro — client-side category, date, sort, publisher, topic, bookmark controls + pagination
 
 interface Props {
   categories: string[];
+  publishers: string[];
+  topics: string[];
 }
 
-const { categories } = Astro.props;
+const { categories, publishers, topics } = Astro.props;
 ---
 
 <div class="flex flex-col gap-4" id="filter-bar">
-  <!-- Search input -->
+  <!-- Search input + Clear button -->
   <div class="relative">
     <label for="article-search" class="sr-only">Search articles</label>
     <div
@@ -29,7 +31,7 @@ const { categories } = Astro.props;
       id="article-search"
       type="search"
       role="searchbox"
-      placeholder="Search by title, publisher, summary, or category…"
+      placeholder="Search by title, publisher, summary, or topics…"
       class="w-full bg-neutral-900 border border-neutral-800 rounded-md pl-9 pr-10 py-2.5 text-xs text-neutral-100 placeholder:text-neutral-600 font-mono focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/20 transition-colors"
       aria-label="Search articles by title, publisher, summary, or category"
       autocomplete="off"
@@ -47,35 +49,134 @@ const { categories } = Astro.props;
     </button>
   </div>
 
-  <!-- Category pills -->
-  <div class="flex flex-wrap gap-2" role="toolbar" aria-label="Filter articles by category">
+  <!-- Primary Category & View Pills -->
+  <div class="flex items-center justify-between flex-wrap gap-2">
+    <div class="flex flex-wrap gap-1.5" role="toolbar" aria-label="Filter articles by category">
+      <button
+        type="button"
+        data-category="all"
+        class="category-btn active font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border transition-colors duration-150 border-neutral-700 text-neutral-200 bg-neutral-800 hover:border-neutral-600"
+        aria-pressed="true"
+      >
+        All
+      </button>
+      {
+        categories.map((cat) => (
+          <button
+            type="button"
+            data-category={cat.toLowerCase()}
+            class="category-btn font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border transition-colors duration-150 border-neutral-800 text-neutral-400 hover:text-neutral-200 hover:border-neutral-700"
+            aria-pressed="false"
+          >
+            {cat}
+          </button>
+        ))
+      }
+      <!-- Saved articles view pill -->
+      <button
+        type="button"
+        id="saved-view-btn"
+        data-saved-view="false"
+        class="font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border transition-colors duration-150 border-neutral-800 text-amber-500/80 hover:text-amber-400 hover:border-amber-500/40"
+        aria-pressed="false"
+      >
+        Saved (<span id="saved-count">0</span>)
+      </button>
+    </div>
+
+    <!-- Toggle Advanced Filters -->
     <button
       type="button"
-      data-category="all"
-      class="category-btn active font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border transition-colors duration-150 border-neutral-700 text-neutral-300 bg-neutral-800 hover:border-neutral-600"
-      aria-pressed="true"
+      id="toggle-filters-btn"
+      class="font-mono text-[11px] text-neutral-400 hover:text-emerald-400 transition-colors inline-flex items-center gap-1.5 py-1 px-2 rounded border border-neutral-800 hover:border-neutral-700"
     >
-      All
+      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
+      </svg>
+      <span>Filters & Sort</span>
     </button>
-    {
-      categories.map((cat) => (
-        <button
-          type="button"
-          data-category={cat.toLowerCase()}
-          class="category-btn font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border transition-colors duration-150 border-neutral-800 text-neutral-500 hover:text-neutral-300 hover:border-neutral-700"
-          aria-pressed="false"
-        >
-          {cat}
-        </button>
-      ))
-    }
   </div>
 
-  <!-- Live Result count -->
-  <div class="flex items-center justify-between">
-    <p class="font-mono text-[10px] text-neutral-500 tracking-wide" id="result-count" aria-live="polite">
+  <!-- Collapsible Secondary Filters (Date, Sort, Publisher, Topic) -->
+  <div
+    id="advanced-filters"
+    class="border border-neutral-800/80 bg-neutral-950/60 rounded-lg p-4 space-y-4"
+  >
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <!-- Date period filter -->
+      <div>
+        <label for="date-filter" class="block font-mono text-[10px] text-neutral-500 uppercase tracking-wider mb-1.5">
+          Date Window
+        </label>
+        <select
+          id="date-filter"
+          class="w-full bg-neutral-900 border border-neutral-800 rounded px-2.5 py-1.5 text-xs text-neutral-200 font-mono focus:outline-none focus:border-emerald-500/50"
+        >
+          <option value="any">Any Time</option>
+          <option value="today">Today</option>
+          <option value="24h">Past 24 Hours</option>
+          <option value="7d">Past 7 Days</option>
+        </select>
+      </div>
+
+      <!-- Sorting filter -->
+      <div>
+        <label for="sort-filter" class="block font-mono text-[10px] text-neutral-500 uppercase tracking-wider mb-1.5">
+          Sort Order
+        </label>
+        <select
+          id="sort-filter"
+          class="w-full bg-neutral-900 border border-neutral-800 rounded px-2.5 py-1.5 text-xs text-neutral-200 font-mono focus:outline-none focus:border-emerald-500/50"
+        >
+          <option value="newest">Newest First</option>
+          <option value="important">Most Important</option>
+          <option value="oldest">Oldest First</option>
+        </select>
+      </div>
+
+      <!-- Publisher filter -->
+      <div>
+        <label for="publisher-filter" class="block font-mono text-[10px] text-neutral-500 uppercase tracking-wider mb-1.5">
+          Publisher
+        </label>
+        <select
+          id="publisher-filter"
+          class="w-full bg-neutral-900 border border-neutral-800 rounded px-2.5 py-1.5 text-xs text-neutral-200 font-mono focus:outline-none focus:border-emerald-500/50"
+        >
+          <option value="all">All Publishers</option>
+          {publishers.map((pub) => <option value={pub.toLowerCase()}>{pub}</option>)}
+        </select>
+      </div>
+
+      <!-- Topic taxonomy filter -->
+      <div>
+        <label for="topic-filter" class="block font-mono text-[10px] text-neutral-500 uppercase tracking-wider mb-1.5">
+          Topic Tag
+        </label>
+        <select
+          id="topic-filter"
+          class="w-full bg-neutral-900 border border-neutral-800 rounded px-2.5 py-1.5 text-xs text-neutral-200 font-mono focus:outline-none focus:border-emerald-500/50"
+        >
+          <option value="all">All Topics</option>
+          {topics.map((top) => <option value={top.toLowerCase()}>{top}</option>)}
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Live Result count and Clear active filters -->
+  <div class="flex items-center justify-between flex-wrap gap-2 pt-1">
+    <p class="font-mono text-[11px] text-neutral-400 tracking-wide" id="result-count" aria-live="polite">
       <!-- updated dynamically by JS -->
     </p>
+    <button
+      type="button"
+      id="reset-all-filters-btn"
+      style="display: none;"
+      class="font-mono text-[10px] text-emerald-400 hover:text-emerald-300 underline underline-offset-4"
+    >
+      Clear all filters
+    </button>
   </div>
 </div>
 
@@ -84,132 +185,490 @@ const { categories } = Astro.props;
     const searchInput = document.getElementById("article-search") as HTMLInputElement | null;
     const clearSearchBtn = document.getElementById("clear-search-btn") as HTMLButtonElement | null;
     const categoryBtns = document.querySelectorAll<HTMLButtonElement>(".category-btn");
+    const savedViewBtn = document.getElementById("saved-view-btn") as HTMLButtonElement | null;
+    const savedCountSpan = document.getElementById("saved-count");
+    const dateFilter = document.getElementById("date-filter") as HTMLSelectElement | null;
+    const sortFilter = document.getElementById("sort-filter") as HTMLSelectElement | null;
+    const publisherFilter = document.getElementById("publisher-filter") as HTMLSelectElement | null;
+    const topicFilter = document.getElementById("topic-filter") as HTMLSelectElement | null;
+    const toggleFiltersBtn = document.getElementById("toggle-filters-btn") as HTMLButtonElement | null;
+    const advancedFilters = document.getElementById("advanced-filters");
     const resultCount = document.getElementById("result-count");
+    const resetAllFiltersBtn = document.getElementById("reset-all-filters-btn") as HTMLButtonElement | null;
     const grid = document.getElementById("news-grid");
     const emptyState = document.getElementById("empty-state");
     const resetFilterBtn = document.getElementById("reset-filter-btn") as HTMLButtonElement | null;
+    const loadMoreBtn = document.getElementById("load-more-btn") as HTMLButtonElement | null;
+    const paginationControls = document.getElementById("pagination-controls");
 
     if (!grid || !searchInput) return;
 
-    const articles = Array.from(
-      grid.querySelectorAll<HTMLElement>("article[data-title]")
-    );
+    // Load initial article elements
+    const originalArticles = Array.from(grid.querySelectorAll<HTMLElement>("article[data-title]"));
 
+    // State
     let activeCategory = "all";
+    let activePeriod = "any";
+    let activeSort = "newest";
+    let activePublisher = "all";
+    let activeTopic = "all";
+    let activeSavedOnly = false;
     let searchQuery = "";
+    const PAGE_SIZE = 12;
+    let currentPage = 1;
+    let matchingArticles: HTMLElement[] = [];
 
-    function updateResultCount(visible: number, total: number) {
-      if (!resultCount) return;
-      if (total === 0) {
-        resultCount.textContent = "No articles available";
-        return;
-      }
-      if (visible === total) {
-        resultCount.textContent = `Showing all ${total} article${total !== 1 ? "s" : ""}`;
-      } else {
-        resultCount.textContent = `${visible} of ${total} article${total !== 1 ? "s" : ""} matching criteria`;
+    // LocalStorage bookmark helper
+    function getSavedArticles(): string[] {
+      try {
+        const stored = localStorage.getItem("ai_pulse_bookmarks");
+        return stored ? JSON.parse(stored) : [];
+      } catch {
+        return [];
       }
     }
 
-    function filterArticles() {
-      let visibleCount = 0;
+    function saveArticle(id: string) {
+      try {
+        const set = new Set(getSavedArticles());
+        set.add(id);
+        localStorage.setItem("ai_pulse_bookmarks", JSON.stringify(Array.from(set)));
+      } catch {}
+      updateBookmarkUI();
+    }
 
-      articles.forEach((article) => {
+    function removeArticle(id: string) {
+      try {
+        const set = new Set(getSavedArticles());
+        set.delete(id);
+        localStorage.setItem("ai_pulse_bookmarks", JSON.stringify(Array.from(set)));
+      } catch {}
+      updateBookmarkUI();
+    }
+
+    function toggleBookmark(id: string) {
+      const saved = getSavedArticles();
+      if (saved.includes(id)) {
+        removeArticle(id);
+      } else {
+        saveArticle(id);
+      }
+      if (activeSavedOnly) {
+        filterAndSort();
+      }
+    }
+
+    function updateBookmarkUI() {
+      const saved = getSavedArticles();
+      if (savedCountSpan) {
+        savedCountSpan.textContent = String(saved.length);
+      }
+      originalArticles.forEach((article) => {
+        const id = article.dataset.id || "";
+        const btn = article.querySelector<HTMLButtonElement>(".bookmark-btn");
+        const icon = btn?.querySelector<SVGElement>(".bookmark-icon");
+        if (btn && icon) {
+          const isSaved = saved.includes(id);
+          btn.setAttribute("aria-pressed", isSaved ? "true" : "false");
+          if (isSaved) {
+            btn.classList.add("text-amber-400");
+            btn.classList.remove("text-neutral-600");
+            icon.setAttribute("fill", "currentColor");
+          } else {
+            btn.classList.remove("text-amber-400");
+            btn.classList.add("text-neutral-600");
+            icon.setAttribute("fill", "none");
+          }
+        }
+      });
+    }
+
+    // Attach bookmark handlers
+    originalArticles.forEach((article) => {
+      const btn = article.querySelector<HTMLButtonElement>(".bookmark-btn");
+      if (btn) {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const id = article.dataset.id || "";
+          toggleBookmark(id);
+        });
+      }
+    });
+
+    // Parse URL params on load
+    function initFromURLParams() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const q = urlParams.get("q");
+      const cat = urlParams.get("category");
+      const period = urlParams.get("period");
+      const sort = urlParams.get("sort");
+      const pub = urlParams.get("publisher");
+      const topic = urlParams.get("topic");
+
+      if (q && searchInput) {
+        searchInput.value = q;
+        searchQuery = q.toLowerCase().trim();
+      }
+      if (cat) activeCategory = cat.toLowerCase();
+      if (period && dateFilter) {
+        dateFilter.value = period;
+        activePeriod = period;
+      }
+      if (sort && sortFilter) {
+        sortFilter.value = sort;
+        activeSort = sort;
+      }
+      if (pub && publisherFilter) {
+        publisherFilter.value = pub.toLowerCase();
+        activePublisher = pub.toLowerCase();
+      }
+      if (topic && topicFilter) {
+        topicFilter.value = topic.toLowerCase();
+        activeTopic = topic.toLowerCase();
+      }
+
+      categoryBtns.forEach((b) => {
+        const c = (b.dataset.category || "all").toLowerCase();
+        const isActive = c === activeCategory;
+        b.classList.toggle("active", isActive);
+        b.setAttribute("aria-pressed", isActive ? "true" : "false");
+        if (isActive) {
+          b.classList.add("border-neutral-700", "text-neutral-200", "bg-neutral-800");
+          b.classList.remove("border-neutral-800", "text-neutral-400");
+        } else {
+          b.classList.remove("border-neutral-700", "text-neutral-200", "bg-neutral-800");
+          b.classList.add("border-neutral-800", "text-neutral-400");
+        }
+      });
+    }
+
+    function syncURLParams() {
+      const params = new URLSearchParams();
+      if (searchQuery) params.set("q", searchQuery);
+      if (activeCategory !== "all") params.set("category", activeCategory);
+      if (activePeriod !== "any") params.set("period", activePeriod);
+      if (activeSort !== "newest") params.set("sort", activeSort);
+      if (activePublisher !== "all") params.set("publisher", activePublisher);
+      if (activeTopic !== "all") params.set("topic", activeTopic);
+
+      const qs = params.toString();
+      const newUrl = qs ? `${window.location.pathname}?${qs}` : window.location.pathname;
+      window.history.replaceState({}, "", newUrl);
+    }
+
+    function checkActiveFilters(): boolean {
+      return (
+        searchQuery !== "" ||
+        activeCategory !== "all" ||
+        activePeriod !== "any" ||
+        activeSort !== "newest" ||
+        activePublisher !== "all" ||
+        activeTopic !== "all" ||
+        activeSavedOnly
+      );
+    }
+
+    // Filter and Sort Engine
+    function filterAndSort() {
+      const now = new Date();
+      const savedIds = new Set(getSavedArticles());
+
+      matchingArticles = originalArticles.filter((article) => {
         const title = (article.dataset.title || "").toLowerCase();
         const company = (article.dataset.company || "").toLowerCase();
         const summary = (article.dataset.summary || "").toLowerCase();
         const category = (article.dataset.category || "").toLowerCase();
+        const topics = (article.dataset.topics || "").toLowerCase();
+        const dateStr = article.dataset.date;
+        const id = article.dataset.id || "";
 
-        // Match against title, publisher (company), summary, and category
-        const matchesSearch =
-          !searchQuery ||
-          title.includes(searchQuery) ||
-          company.includes(searchQuery) ||
-          summary.includes(searchQuery) ||
-          category.includes(searchQuery);
+        // Saved filter
+        if (activeSavedOnly && !savedIds.has(id)) return false;
 
-        // Category filter
-        const matchesCategory =
-          activeCategory === "all" || category === activeCategory;
+        // Search query
+        if (searchQuery) {
+          const match =
+            title.includes(searchQuery) ||
+            company.includes(searchQuery) ||
+            summary.includes(searchQuery) ||
+            category.includes(searchQuery) ||
+            topics.includes(searchQuery);
+          if (!match) return false;
+        }
 
-        const visible = matchesSearch && matchesCategory;
-        article.style.display = visible ? "" : "none";
-        if (visible) visibleCount++;
+        // Category
+        if (activeCategory !== "all" && category !== activeCategory) {
+          return false;
+        }
+
+        // Publisher
+        if (activePublisher !== "all" && company !== activePublisher) {
+          return false;
+        }
+
+        // Topic
+        if (activeTopic !== "all" && !topics.includes(activeTopic)) {
+          return false;
+        }
+
+        // Date Period filter
+        if (activePeriod !== "any") {
+          if (!dateStr) return false; // undated articles excluded from strict date periods
+          const artDate = new Date(dateStr);
+          if (isNaN(artDate.getTime())) return false;
+
+          if (activePeriod === "today") {
+            // Compare local calendar date
+            const isToday =
+              artDate.getFullYear() === now.getFullYear() &&
+              artDate.getMonth() === now.getMonth() &&
+              artDate.getDate() === now.getDate();
+            if (!isToday) return false;
+          } else if (activePeriod === "24h") {
+            // Rolling 24 hours
+            const diffMs = now.getTime() - artDate.getTime();
+            if (diffMs < 0 || diffMs > 24 * 60 * 60 * 1000) return false;
+          } else if (activePeriod === "7d") {
+            // Rolling 7 days
+            const diffMs = now.getTime() - artDate.getTime();
+            if (diffMs < 0 || diffMs > 7 * 24 * 60 * 60 * 1000) return false;
+          }
+        }
+
+        return true;
       });
 
-      updateResultCount(visibleCount, articles.length);
+      // Sorting
+      matchingArticles.sort((a, b) => {
+        const da = a.dataset.date ? new Date(a.dataset.date).getTime() : 0;
+        const db = b.dataset.date ? new Date(b.dataset.date).getTime() : 0;
 
-      if (emptyState) {
-        emptyState.style.display = visibleCount === 0 ? "" : "none";
+        if (activeSort === "newest") {
+          return db - da;
+        } else if (activeSort === "oldest") {
+          return da - db;
+        } else if (activeSort === "important") {
+          const pa = a.dataset.priority === "deep dive" ? 3 : (a.dataset.priority === "must know" ? 2 : 1);
+          const pb = b.dataset.priority === "deep dive" ? 3 : (b.dataset.priority === "must know" ? 2 : 1);
+          if (pb !== pa) return pb - pa;
+          return db - da;
+        }
+        return 0;
+      });
+
+      // Render pagination
+      renderCurrentPage();
+      syncURLParams();
+    }
+
+    function renderCurrentPage() {
+      // Hide all first
+      originalArticles.forEach((a) => (a.style.display = "none"));
+
+      const totalMatches = matchingArticles.length;
+      const countToShow = Math.min(currentPage * PAGE_SIZE, totalMatches);
+
+      for (let i = 0; i < countToShow; i++) {
+        const art = matchingArticles[i];
+        art.style.display = "";
+        grid?.appendChild(art); // re-append in sorted order
       }
 
+      // Update Result Count text
+      if (resultCount) {
+        if (totalMatches === 0) {
+          resultCount.textContent = "No matching articles found";
+        } else if (countToShow < totalMatches) {
+          resultCount.textContent = `Showing ${countToShow} of ${totalMatches} articles`;
+        } else {
+          resultCount.textContent = `Showing all ${totalMatches} matching article${totalMatches !== 1 ? "s" : ""}`;
+        }
+      }
+
+      // Empty state
+      if (emptyState) {
+        emptyState.style.display = totalMatches === 0 ? "" : "none";
+      }
+
+      // Clear search button visibility
       if (clearSearchBtn) {
         clearSearchBtn.style.display = searchQuery ? "" : "none";
       }
-    }
 
-    function setCategory(cat: string) {
-      activeCategory = cat;
+      // Clear all filters button visibility
+      if (resetAllFiltersBtn) {
+        resetAllFiltersBtn.style.display = checkActiveFilters() ? "" : "none";
+      }
 
-      categoryBtns.forEach((b) => {
-        const bCat = (b.dataset.category || "").toLowerCase();
-        const isActive = bCat === activeCategory;
-        b.classList.toggle("active", isActive);
-        b.setAttribute("aria-pressed", isActive ? "true" : "false");
-
-        if (isActive) {
-          b.classList.remove("border-neutral-800", "text-neutral-500");
-          b.classList.add("border-neutral-700", "text-neutral-300", "bg-neutral-800");
-        } else {
-          b.classList.remove("border-neutral-700", "text-neutral-300", "bg-neutral-800");
-          b.classList.add("border-neutral-800", "text-neutral-500");
-        }
-      });
-
-      filterArticles();
+      // Load More button visibility
+      if (paginationControls && loadMoreBtn) {
+        paginationControls.style.display = totalMatches > countToShow ? "" : "none";
+      }
     }
 
     function resetAllFilters() {
-      if (searchInput) {
-        searchInput.value = "";
-      }
+      if (searchInput) searchInput.value = "";
       searchQuery = "";
-      setCategory("all");
-      if (searchInput) {
-        searchInput.focus();
+      activeCategory = "all";
+      activePeriod = "any";
+      activeSort = "newest";
+      activePublisher = "all";
+      activeTopic = "all";
+      activeSavedOnly = false;
+      currentPage = 1;
+
+      if (dateFilter) dateFilter.value = "any";
+      if (sortFilter) sortFilter.value = "newest";
+      if (publisherFilter) publisherFilter.value = "all";
+      if (topicFilter) topicFilter.value = "all";
+
+      if (savedViewBtn) {
+        savedViewBtn.setAttribute("data-saved-view", "false");
+        savedViewBtn.classList.remove("bg-amber-500/20", "text-amber-300");
+        savedViewBtn.classList.add("text-amber-500/80");
       }
+
+      categoryBtns.forEach((b) => {
+        const c = (b.dataset.category || "all").toLowerCase();
+        const isActive = c === "all";
+        b.classList.toggle("active", isActive);
+        b.setAttribute("aria-pressed", isActive ? "true" : "false");
+        if (isActive) {
+          b.classList.add("border-neutral-700", "text-neutral-200", "bg-neutral-800");
+          b.classList.remove("border-neutral-800", "text-neutral-400");
+        } else {
+          b.classList.remove("border-neutral-700", "text-neutral-200", "bg-neutral-800");
+          b.classList.add("border-neutral-800", "text-neutral-400");
+        }
+      });
+
+      filterAndSort();
     }
 
-    // Search input handler
+    // Event Listeners
     searchInput.addEventListener("input", (e) => {
       searchQuery = (e.target as HTMLInputElement).value.toLowerCase().trim();
-      filterArticles();
+      currentPage = 1;
+      filterAndSort();
     });
 
-    // Clear search button
     if (clearSearchBtn) {
       clearSearchBtn.addEventListener("click", () => {
         if (searchInput) searchInput.value = "";
         searchQuery = "";
-        filterArticles();
+        currentPage = 1;
+        filterAndSort();
         searchInput?.focus();
       });
     }
 
-    // Category button handlers
     categoryBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
-        const cat = (btn.dataset.category || "all").toLowerCase();
-        setCategory(cat);
+        activeCategory = (btn.dataset.category || "all").toLowerCase();
+        activeSavedOnly = false;
+        if (savedViewBtn) {
+          savedViewBtn.classList.remove("bg-amber-500/20", "text-amber-300");
+          savedViewBtn.classList.add("text-amber-500/80");
+        }
+
+        categoryBtns.forEach((b) => {
+          const isActive = (b.dataset.category || "all").toLowerCase() === activeCategory;
+          b.classList.toggle("active", isActive);
+          b.setAttribute("aria-pressed", isActive ? "true" : "false");
+          if (isActive) {
+            b.classList.add("border-neutral-700", "text-neutral-200", "bg-neutral-800");
+            b.classList.remove("border-neutral-800", "text-neutral-400");
+          } else {
+            b.classList.remove("border-neutral-700", "text-neutral-200", "bg-neutral-800");
+            b.classList.add("border-neutral-800", "text-neutral-400");
+          }
+        });
+
+        currentPage = 1;
+        filterAndSort();
       });
     });
 
-    // Reset filter button in empty state
+    if (savedViewBtn) {
+      savedViewBtn.addEventListener("click", () => {
+        activeSavedOnly = !activeSavedOnly;
+        savedViewBtn.setAttribute("data-saved-view", activeSavedOnly ? "true" : "false");
+        savedViewBtn.setAttribute("aria-pressed", activeSavedOnly ? "true" : "false");
+        if (activeSavedOnly) {
+          savedViewBtn.classList.add("bg-amber-500/20", "text-amber-300");
+          savedViewBtn.classList.remove("text-amber-500/80");
+          // Deselect category pills visually
+          categoryBtns.forEach((b) => {
+            b.classList.remove("border-neutral-700", "text-neutral-200", "bg-neutral-800");
+            b.classList.add("border-neutral-800", "text-neutral-400");
+          });
+        } else {
+          savedViewBtn.classList.remove("bg-amber-500/20", "text-amber-300");
+          savedViewBtn.classList.add("text-amber-500/80");
+        }
+        currentPage = 1;
+        filterAndSort();
+      });
+    }
+
+    if (dateFilter) {
+      dateFilter.addEventListener("change", () => {
+        activePeriod = dateFilter.value;
+        currentPage = 1;
+        filterAndSort();
+      });
+    }
+
+    if (sortFilter) {
+      sortFilter.addEventListener("change", () => {
+        activeSort = sortFilter.value;
+        currentPage = 1;
+        filterAndSort();
+      });
+    }
+
+    if (publisherFilter) {
+      publisherFilter.addEventListener("change", () => {
+        activePublisher = publisherFilter.value;
+        currentPage = 1;
+        filterAndSort();
+      });
+    }
+
+    if (topicFilter) {
+      topicFilter.addEventListener("change", () => {
+        activeTopic = topicFilter.value;
+        currentPage = 1;
+        filterAndSort();
+      });
+    }
+
+    if (loadMoreBtn) {
+      loadMoreBtn.addEventListener("click", () => {
+        currentPage++;
+        renderCurrentPage();
+      });
+    }
+
     if (resetFilterBtn) {
       resetFilterBtn.addEventListener("click", resetAllFilters);
     }
 
-    // Initial run
-    filterArticles();
+    if (resetAllFiltersBtn) {
+      resetAllFiltersBtn.addEventListener("click", resetAllFilters);
+    }
+
+    // Toggle advanced filters
+    if (toggleFiltersBtn && advancedFilters) {
+      toggleFiltersBtn.addEventListener("click", () => {
+        advancedFilters.classList.toggle("hidden");
+      });
+    }
+
+    // Initialize
+    updateBookmarkUI();
+    initFromURLParams();
+    filterAndSort();
   })();
 </script>

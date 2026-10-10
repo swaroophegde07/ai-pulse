@@ -5,6 +5,7 @@ import Header from "../../components/Header.astro";
 import NewsCard from "../../components/NewsCard.astro";
 import Footer from "../../components/Footer.astro";
 import feedData from "../../data/feed.json";
+import modelsData from "../../data/models.json";
 
 interface FeedRecord {
   id: string;
@@ -19,7 +20,32 @@ interface FeedRecord {
   _demo?: boolean;
 }
 
+interface ModelRecord {
+  id: string;
+  name: string;
+  provider: string;
+  family: string;
+  release_date: string;
+  lifecycle_status: string;
+  context_window: number;
+  input_modalities: string[];
+  output_modalities: string[];
+  license_type: string;
+  api_available: boolean;
+  consumer_available: boolean;
+  pricing?: {
+    input_per_1m: number;
+    output_per_1m: number;
+    unit: string;
+  };
+  documentation_url: string;
+  source_url: string;
+  last_verified: string;
+  notes?: string;
+}
+
 const feed = feedData as FeedRecord[];
+const models = modelsData as ModelRecord[];
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 // Only real articles
@@ -30,7 +56,7 @@ const modelArticles = realArticles
   .filter(
     (a) =>
       a.category === "Product Release" ||
-      /model|llm|weights|checkpoint|gpt|claude|gemini|llama|deepseek/i.test(a.title)
+      /model|llm|weights|checkpoint|gpt|claude|gemini|llama|deepseek|phi/i.test(a.title)
   )
   .sort((a, b) => {
     const da = a.date ? new Date(a.date).getTime() : 0;
@@ -39,57 +65,14 @@ const modelArticles = realArticles
     return new Date(b.fetched_at).getTime() - new Date(a.fetched_at).getTime();
   });
 
-// Frontier foundation models index for quick reference
-const frontierModels = [
-  {
-    name: "GPT-4o / o1 / o3-mini",
-    developer: "OpenAI",
-    type: "Frontier / Reasoning",
-    context: "128k - 200k tokens",
-    weights: "Proprietary API",
-    status: "Active",
-  },
-  {
-    name: "Claude 3.5 / 3.7 Sonnet",
-    developer: "Anthropic",
-    type: "Frontier / Coding & Reasoning",
-    context: "200k tokens",
-    weights: "Proprietary API",
-    status: "Active",
-  },
-  {
-    name: "Gemini 2.0 Flash / Pro",
-    developer: "Google DeepMind",
-    type: "Multimodal Frontier",
-    context: "1M - 2M tokens",
-    weights: "Proprietary API",
-    status: "Active",
-  },
-  {
-    name: "Llama 3.3 (70B) / Llama 3.1",
-    developer: "Meta AI",
-    type: "Dense / Open Weights",
-    context: "128k tokens",
-    weights: "Open Weights (Community)",
-    status: "Active",
-  },
-  {
-    name: "DeepSeek-V3 / DeepSeek-R1",
-    developer: "DeepSeek",
-    type: "MoE (671B) Reasoning",
-    context: "128k tokens",
-    weights: "Open Weights (MIT)",
-    status: "Active",
-  },
-  {
-    name: "Phi-4 / Phi-3.5",
-    developer: "Microsoft",
-    type: "Small Language Model (SLM)",
-    context: "16k - 128k tokens",
-    weights: "Open Weights (MIT)",
-    status: "Active",
-  },
-];
+function formatTokens(tokens: number): string {
+  if (tokens >= 1_000_000) {
+    return `${(tokens / 1_000_000).toFixed(tokens % 1_000_000 === 0 ? 0 : 1)}M`;
+  }
+  return `${Math.round(tokens / 1000)}k`;
+}
+
+const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))];
 ---
 
 <Layout title="AI Models Tracker — AI Pulse">
@@ -99,48 +82,181 @@ const frontierModels = [
     <!-- Header banner -->
     <div class="mb-10">
       <div class="inline-flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase px-2.5 py-1 rounded border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 mb-3">
-        <span>Live Tracker</span>
+        <span>Verified Specifications</span>
       </div>
       <h1 class="text-2xl sm:text-3xl font-bold text-neutral-100 tracking-tight mb-2">
         Model Tracker
       </h1>
-      <p class="text-sm text-neutral-400 leading-relaxed max-w-2xl">
-        Frontier architecture milestones, open-weights releases, and model deployment news across OpenAI, Anthropic, Google, Meta, DeepSeek, and the open-source community.
+      <p class="text-sm text-neutral-400 leading-relaxed max-w-3xl">
+        Frontier architecture specifications, verified context windows, API & consumer pricing, modalities, and open-weights licensing across leading research labs.
       </p>
     </div>
 
-    <!-- Frontier Model Reference Table -->
-    <section class="mb-12 border border-neutral-800 bg-neutral-900/40 rounded-lg p-6">
-      <h2 class="text-xs font-mono text-neutral-400 tracking-widest uppercase mb-4">
-        Frontier Model Landscape
-      </h2>
+    <!-- Quick stats overview -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+      <div class="border border-neutral-800 bg-neutral-900/40 p-4 rounded-lg">
+        <span class="font-mono text-[10px] text-neutral-500 tracking-widest uppercase block mb-1">
+          Cataloged Models
+        </span>
+        <span class="font-mono text-xl font-bold text-neutral-100">{models.length}</span>
+      </div>
+      <div class="border border-neutral-800 bg-neutral-900/40 p-4 rounded-lg">
+        <span class="font-mono text-[10px] text-neutral-500 tracking-widest uppercase block mb-1">
+          Open Weights
+        </span>
+        <span class="font-mono text-xl font-bold text-emerald-400">
+          {models.filter((m) => m.license_type.includes("Open")).length}
+        </span>
+      </div>
+      <div class="border border-neutral-800 bg-neutral-900/40 p-4 rounded-lg">
+        <span class="font-mono text-[10px] text-neutral-500 tracking-widest uppercase block mb-1">
+          Max Context Window
+        </span>
+        <span class="font-mono text-xl font-bold text-neutral-100">
+          {formatTokens(Math.max(...models.map((m) => m.context_window)))}
+        </span>
+      </div>
+      <div class="border border-neutral-800 bg-neutral-900/40 p-4 rounded-lg">
+        <span class="font-mono text-[10px] text-neutral-500 tracking-widest uppercase block mb-1">
+          Active Providers
+        </span>
+        <span class="font-mono text-xl font-bold text-neutral-100">{providers.length - 1}</span>
+      </div>
+    </div>
+
+    <!-- Interactive Filters & Search -->
+    <div class="border border-neutral-800 bg-neutral-900/50 rounded-lg p-5 mb-8">
+      <div class="flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center">
+        <!-- Search -->
+        <div class="w-full sm:w-72">
+          <label for="model-search-input" class="sr-only">Search models</label>
+          <input
+            type="search"
+            id="model-search-input"
+            placeholder="Search model, provider, family..."
+            class="w-full bg-neutral-950 border border-neutral-800 rounded px-3 py-2 text-xs text-neutral-100 placeholder:text-neutral-600 font-mono focus:outline-none focus:border-emerald-500"
+          />
+        </div>
+
+        <!-- Filter buttons -->
+        <div class="flex flex-wrap gap-2">
+          <button
+            type="button"
+            class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-neutral-700 bg-neutral-800 text-neutral-100 transition-colors"
+            data-provider="all"
+          >
+            All Labs
+          </button>
+          <button
+            type="button"
+            class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-neutral-800 text-neutral-400 hover:text-neutral-200 hover:border-neutral-700 transition-colors"
+            data-license="open"
+          >
+            Open Weights
+          </button>
+          <button
+            type="button"
+            class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-neutral-800 text-neutral-400 hover:text-neutral-200 hover:border-neutral-700 transition-colors"
+            data-license="proprietary"
+          >
+            Proprietary API
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Models Table / Matrix -->
+    <section class="mb-14 border border-neutral-800 bg-neutral-900/30 rounded-lg overflow-hidden">
+      <div class="px-6 py-4 border-b border-neutral-800 flex justify-between items-center">
+        <h2 class="text-xs font-mono text-neutral-300 tracking-widest uppercase">
+          Frontier Models Matrix
+        </h2>
+        <span class="font-mono text-[10px] text-neutral-500" id="model-count-label">
+          Showing {models.length} models
+        </span>
+      </div>
+
       <div class="overflow-x-auto">
-        <table class="w-full text-left text-xs font-mono">
+        <table class="w-full text-left text-xs font-mono" id="models-table">
           <thead>
-            <tr class="border-b border-neutral-800 text-neutral-500 text-[11px]">
-              <th class="pb-3 pr-4 font-medium">Model</th>
-              <th class="pb-3 pr-4 font-medium">Lab</th>
-              <th class="pb-3 pr-4 font-medium">Category</th>
-              <th class="pb-3 pr-4 font-medium">Context Window</th>
-              <th class="pb-3 font-medium">Availability</th>
+            <tr class="border-b border-neutral-800 bg-neutral-950/40 text-neutral-500 text-[11px]">
+              <th class="py-3.5 pl-6 pr-4 font-medium">Model</th>
+              <th class="py-3.5 pr-4 font-medium">Provider</th>
+              <th class="py-3.5 pr-4 font-medium">Context</th>
+              <th class="py-3.5 pr-4 font-medium">Modalities</th>
+              <th class="py-3.5 pr-4 font-medium">Pricing (In / Out per 1M)</th>
+              <th class="py-3.5 pr-4 font-medium">Availability</th>
+              <th class="py-3.5 pr-6 text-right font-medium">Docs</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-neutral-800/60 text-neutral-300">
             {
-              frontierModels.map((m) => (
-                <tr class="hover:bg-neutral-800/20 transition-colors">
-                  <td class="py-3 pr-4 font-semibold text-neutral-100">{m.name}</td>
-                  <td class="py-3 pr-4 text-neutral-400">{m.developer}</td>
-                  <td class="py-3 pr-4 text-neutral-400">{m.type}</td>
-                  <td class="py-3 pr-4 text-emerald-400">{m.context}</td>
-                  <td class="py-3">
-                    <span class={`inline-block px-2 py-0.5 rounded text-[10px] ${
-                      m.weights.includes("Open")
-                        ? "border border-emerald-500/30 bg-emerald-500/10 text-emerald-400"
-                        : "border border-neutral-700 bg-neutral-800 text-neutral-300"
-                    }`}>
-                      {m.weights}
+              models.map((m) => (
+                <tr
+                  class="model-row hover:bg-neutral-800/30 transition-colors"
+                  data-name={m.name.toLowerCase()}
+                  data-provider={m.provider.toLowerCase()}
+                  data-family={m.family.toLowerCase()}
+                  data-license={m.license_type.toLowerCase()}
+                >
+                  <td class="py-4 pl-6 pr-4">
+                    <div class="font-semibold text-neutral-100">{m.name}</div>
+                    <div class="text-[10px] text-neutral-500 font-mono mt-0.5">
+                      Released: {m.release_date}
+                    </div>
+                  </td>
+                  <td class="py-4 pr-4 text-neutral-300 font-medium">{m.provider}</td>
+                  <td class="py-4 pr-4 text-emerald-400 font-semibold">
+                    {formatTokens(m.context_window)} tokens
+                  </td>
+                  <td class="py-4 pr-4">
+                    <div class="text-[11px] text-neutral-300">
+                      In: {m.input_modalities.join(", ")}
+                    </div>
+                    <div class="text-[10px] text-neutral-500">
+                      Out: {m.output_modalities.join(", ")}
+                    </div>
+                  </td>
+                  <td class="py-4 pr-4">
+                    {m.pricing ? (
+                      <div>
+                        <span class="text-neutral-200 font-medium">
+                          ${m.pricing.input_per_1m.toFixed(2)}
+                        </span>{" "}
+                        /{" "}
+                        <span class="text-neutral-400">
+                          ${m.pricing.output_per_1m.toFixed(2)}
+                        </span>
+                      </div>
+                    ) : (
+                      <span class="text-neutral-600">Not verified</span>
+                    )}
+                  </td>
+                  <td class="py-4 pr-4">
+                    <span
+                      class={`inline-block px-2 py-0.5 rounded text-[10px] ${
+                        m.license_type.includes("Open")
+                          ? "border border-emerald-500/30 bg-emerald-500/10 text-emerald-400"
+                          : "border border-neutral-700 bg-neutral-800 text-neutral-300"
+                      }`}
+                    >
+                      {m.license_type}
                     </span>
+                    <div class="text-[9px] text-neutral-500 mt-1">
+                      {m.consumer_available ? "API + Web Chat" : "API Only"}
+                    </div>
+                  </td>
+                  <td class="py-4 pr-6 text-right">
+                    <a
+                      href={m.documentation_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-1 font-mono text-[10px] text-neutral-400 hover:text-emerald-400 transition-colors"
+                      aria-label={`Official docs for ${m.name} (opens in new tab)`}
+                    >
+                      <span>Docs</span>
+                      <span>↗</span>
+                    </a>
                   </td>
                 </tr>
               ))
@@ -148,14 +264,27 @@ const frontierModels = [
           </tbody>
         </table>
       </div>
+
+      <div
+        id="no-models-matched"
+        style="display: none;"
+        class="p-10 text-center font-mono text-xs text-neutral-500"
+      >
+        No models match the search or filter criteria.
+      </div>
     </section>
 
     <!-- Model Release News Feed -->
     <section>
       <div class="flex items-center justify-between mb-6">
-        <h2 class="text-xs font-mono text-neutral-400 tracking-widest uppercase">
-          Latest Model & Release News ({modelArticles.length})
-        </h2>
+        <div>
+          <h2 class="text-xs font-mono text-neutral-400 tracking-widest uppercase">
+            Model Releases & Architecture Coverage ({modelArticles.length})
+          </h2>
+          <p class="text-[11px] text-neutral-500 font-mono mt-0.5">
+            Verified release announcements and model drop coverage from provider blogs.
+          </p>
+        </div>
         <a
           href={`${base}/news/`}
           class="font-mono text-[10px] text-neutral-500 hover:text-emerald-400 transition-colors"
@@ -168,7 +297,7 @@ const frontierModels = [
         modelArticles.length === 0 ? (
           <div class="border border-neutral-800 rounded-lg p-10 text-center bg-neutral-900/30">
             <p class="font-mono text-xs text-neutral-400">
-              No model release articles indexed yet. New releases from OpenAI, Hugging Face, Google, and VS Code will populate automatically after pipeline ingestion.
+              No recent model release articles ingested yet. New releases from OpenAI, Hugging Face, and Google will populate automatically after pipeline runs.
             </p>
           </div>
         ) : (
@@ -195,3 +324,79 @@ const frontierModels = [
 
   <Footer />
 </Layout>
+
+<script>
+  (function () {
+    const searchInput = document.getElementById("model-search-input") as HTMLInputElement | null;
+    const filterButtons = document.querySelectorAll<HTMLButtonElement>(".model-filter-btn");
+    const rows = document.querySelectorAll<HTMLTableRowElement>(".model-row");
+    const countLabel = document.getElementById("model-count-label");
+    const emptyState = document.getElementById("no-models-matched");
+
+    let currentSearch = "";
+    let currentFilter = "all";
+
+    function filterModels() {
+      let visible = 0;
+
+      rows.forEach((row) => {
+        const name = row.dataset.name || "";
+        const provider = row.dataset.provider || "";
+        const family = row.dataset.family || "";
+        const license = row.dataset.license || "";
+
+        const matchesSearch =
+          !currentSearch ||
+          name.includes(currentSearch) ||
+          provider.includes(currentSearch) ||
+          family.includes(currentSearch);
+
+        let matchesFilter = true;
+        if (currentFilter === "open") {
+          matchesFilter = license.includes("open");
+        } else if (currentFilter === "proprietary") {
+          matchesFilter = !license.includes("open");
+        }
+
+        const show = matchesSearch && matchesFilter;
+        row.style.display = show ? "" : "none";
+        if (show) visible++;
+      });
+
+      if (countLabel) {
+        countLabel.textContent = `Showing ${visible} of ${rows.length} models`;
+      }
+
+      if (emptyState) {
+        emptyState.style.display = visible === 0 ? "block" : "none";
+      }
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener("input", (e) => {
+        currentSearch = (e.target as HTMLInputElement).value.toLowerCase().trim();
+        filterModels();
+      });
+    }
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        filterButtons.forEach((b) => {
+          b.classList.remove("border-neutral-700", "bg-neutral-800", "text-neutral-100");
+          b.classList.add("border-neutral-800", "text-neutral-400");
+        });
+
+        btn.classList.remove("border-neutral-800", "text-neutral-400");
+        btn.classList.add("border-neutral-700", "bg-neutral-800", "text-neutral-100");
+
+        if (btn.dataset.license) {
+          currentFilter = btn.dataset.license;
+        } else {
+          currentFilter = "all";
+        }
+
+        filterModels();
+      });
+    });
+  })();
+</script>

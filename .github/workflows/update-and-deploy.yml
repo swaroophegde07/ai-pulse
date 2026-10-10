@@ -86,12 +86,12 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/data/feed.json
-          # Only commit if the file changed.
+          git add src/data/feed.json src/data/benchmarks.json
+          # Only commit if the files changed.
           if git diff --staged --quiet; then
-            echo "No changes to feed.json — nothing to commit."
+            echo "No changes to data files — nothing to commit."
           else
-            git commit -m "chore: update feed.json [skip ci]"
+            git commit -m "chore: update feed and benchmark data [skip ci]"
             git push
           fi
 

@@ -1,56 +1,184 @@
 [
   {
+    "id": "openai",
     "name": "OpenAI News",
     "url": "https://openai.com/news/rss.xml",
     "publisher": "OpenAI",
-    "category": "Product Release"
+    "website": "https://openai.com/news",
+    "source_type": "Primary Source",
+    "category": "Product Release",
+    "topics": ["Models and Releases", "Applications and Products", "Safety and Security"],
+    "access_method": "Public RSS",
+    "attribution": "OpenAI",
+    "notes": "Official announcements and product releases from OpenAI."
   },
   {
+    "id": "google-deepmind",
     "name": "Google DeepMind Blog",
     "url": "https://deepmind.google/blog/rss.xml",
     "publisher": "Google DeepMind",
-    "category": "Research"
+    "website": "https://deepmind.google/blog",
+    "source_type": "Research Laboratory",
+    "category": "Research",
+    "topics": ["Research and Breakthroughs", "Models and Releases", "Safety and Security"],
+    "access_method": "Public RSS",
+    "attribution": "Google DeepMind",
+    "notes": "Frontier algorithmic research, Gemma/Gemini architecture publications."
   },
   {
+    "id": "hugging-face",
     "name": "Hugging Face Blog",
     "url": "https://huggingface.co/blog/feed.xml",
     "publisher": "Hugging Face",
-    "category": "News"
+    "website": "https://huggingface.co/blog",
+    "source_type": "Technical Publication",
+    "category": "News",
+    "topics": ["Open Source", "Coding and Developer Tools", "Models and Releases"],
+    "access_method": "Public RSS",
+    "attribution": "Hugging Face and guest contributors",
+    "notes": "Open weights releases, technical deep dives, community model benchmarks."
   },
   {
+    "id": "github-blog",
     "name": "GitHub AI & Copilot",
     "url": "https://github.blog/category/ai-and-ml/feed/",
     "publisher": "GitHub",
-    "category": "Product Release"
+    "website": "https://github.blog/category/ai-and-ml",
+    "source_type": "Technical Publication",
+    "category": "Product Release",
+    "topics": ["Coding and Developer Tools", "AI Agents", "Applications and Products"],
+    "access_method": "Public RSS",
+    "attribution": "GitHub",
+    "notes": "GitHub Copilot releases, agentic developer tool evolution."
   },
   {
+    "id": "vscode-updates",
     "name": "VS Code Updates",
     "url": "https://code.visualstudio.com/feed.xml",
     "publisher": "Microsoft VS Code",
-    "category": "Product Release"
+    "website": "https://code.visualstudio.com/updates",
+    "source_type": "Technical Publication",
+    "category": "Product Release",
+    "topics": ["Coding and Developer Tools", "Applications and Products"],
+    "access_method": "Public Atom",
+    "attribution": "Microsoft Visual Studio Code",
+    "notes": "Monthly developer tooling release notes and Copilot integrations."
   },
   {
+    "id": "microsoft-research",
     "name": "Microsoft Research AI",
     "url": "https://www.microsoft.com/en-us/research/feed/",
     "publisher": "Microsoft Research",
-    "category": "Research"
+    "website": "https://www.microsoft.com/en-us/research",
+    "source_type": "Research Laboratory",
+    "category": "Research",
+    "topics": ["Research and Breakthroughs", "Infrastructure and Hardware", "Safety and Security"],
+    "access_method": "Public RSS",
+    "attribution": "Microsoft Research",
+    "notes": "Technical publications on foundation architectures and systems."
   },
   {
+    "id": "the-gradient",
     "name": "The Gradient",
     "url": "https://thegradient.pub/rss/",
     "publisher": "The Gradient",
-    "category": "Research"
+    "website": "https://thegradient.pub",
+    "source_type": "Analysis or Commentary",
+    "category": "Research",
+    "topics": ["Research and Breakthroughs", "Opinion and Analysis", "AI Agents"],
+    "access_method": "Public RSS",
+    "attribution": "The Gradient (Stanford AI Lab affiliate / independent)",
+    "notes": "Long-form peer perspective, essays, and technical interviews."
   },
   {
+    "id": "the-verge",
     "name": "The Verge – AI",
     "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
     "publisher": "The Verge",
-    "category": "News"
+    "website": "https://www.theverge.com/ai-artificial-intelligence",
+    "source_type": "Independent Reporting",
+    "category": "News",
+    "topics": ["Business and Industry", "Policy and Regulation", "Applications and Products"],
+    "access_method": "Public RSS",
+    "attribution": "The Verge / Vox Media",
+    "notes": "Mainstream tech journalism covering consumer AI, regulation, and business."
   },
   {
+    "id": "ars-technica",
     "name": "Ars Technica – AI",
     "url": "https://arstechnica.com/tag/ai/feed/",
     "publisher": "Ars Technica",
-    "category": "News"
+    "website": "https://arstechnica.com/tag/ai",
+    "source_type": "Independent Reporting",
+    "category": "News",
+    "topics": ["Safety and Security", "Business and Industry", "Policy and Regulation"],
+    "access_method": "Public RSS",
+    "attribution": "Ars Technica / Condé Nast",
+    "notes": "In-depth investigative technology reporting and legal/copyright analysis."
+  },
+  {
+    "id": "mit-tech-review",
+    "name": "MIT Technology Review",
+    "url": "https://www.technologyreview.com/feed/",
+    "publisher": "MIT Technology Review",
+    "website": "https://www.technologyreview.com",
+    "source_type": "Independent Reporting",
+    "category": "News",
+    "topics": ["Policy and Regulation", "Business and Industry", "Safety and Security"],
+    "access_method": "Public RSS",
+    "attribution": "MIT Technology Review",
+    "notes": "Authoritative technology journalism focusing on ethical, societal, and regulatory developments."
+  },
+  {
+    "id": "arxiv-cs-ai",
+    "name": "arXiv cs.AI (Artificial Intelligence)",
+    "url": "https://rss.arxiv.org/rss/cs.AI",
+    "publisher": "arXiv (Cornell University)",
+    "website": "https://arxiv.org/list/cs.AI/recent",
+    "source_type": "Research or Preprint",
+    "category": "Research",
+    "topics": ["Research and Breakthroughs", "Models and Releases"],
+    "access_method": "Public RSS / Atom",
+    "attribution": "arXiv preprint authors (Cornell University)",
+    "notes": "Primary open preprints in theoretical and applied artificial intelligence."
+  },
+  {
+    "id": "arxiv-cs-lg",
+    "name": "arXiv cs.LG (Machine Learning)",
+    "url": "https://rss.arxiv.org/rss/cs.LG",
+    "publisher": "arXiv (Cornell University)",
+    "website": "https://arxiv.org/list/cs.LG/recent",
+    "source_type": "Research or Preprint",
+    "category": "Research",
+    "topics": ["Research and Breakthroughs", "Benchmarks and Evaluations"],
+    "access_method": "Public RSS / Atom",
+    "attribution": "arXiv preprint authors (Cornell University)",
+    "notes": "Foundational machine learning, optimization, and neural architecture preprints."
+  },
+  {
+    "id": "anthropic-news",
+    "name": "Anthropic News",
+    "url": "https://www.anthropic.com/news/rss",
+    "publisher": "Anthropic",
+    "website": "https://www.anthropic.com/news",
+    "source_type": "Primary Source",
+    "category": "Product Release",
+    "topics": ["Models and Releases", "Safety and Security", "AI Agents"],
+    "access_method": "Public RSS",
+    "attribution": "Anthropic",
+    "notes": "Claude frontier model releases, interpretability research, and alignment policies."
+  },
+  {
+    "id": "nvidia-developer",
+    "name": "NVIDIA Developer Blog",
+    "url": "https://developer.nvidia.com/blog/feed",
+    "publisher": "NVIDIA",
+    "website": "https://developer.nvidia.com/blog",
+    "source_type": "Technical Publication",
+    "category": "Product Release",
+    "topics": ["Infrastructure and Hardware", "Coding and Developer Tools", "Open Source"],
+    "access_method": "Public RSS",
+    "attribution": "NVIDIA Corporation",
+    "notes": "CUDA, TensorRT, Blackwell/Hopper GPU cluster architectures, and Nemotron."
   }
 ]

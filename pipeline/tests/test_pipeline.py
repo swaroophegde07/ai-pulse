@@ -702,7 +702,7 @@ class TestPrepareArticle(unittest.TestCase):
             "category",
             "fetched_at",
         }
-        self.assertEqual(required, set(result.keys()))
+        self.assertTrue(required.issubset(set(result.keys())))
 
     def test_text_field_stripped(self):
         raw = {
@@ -910,5 +910,191 @@ class TestRetentionAndSources(unittest.TestCase):
             self.assertTrue(src["url"].startswith("http"))
 
 
+# ===========================================================================
+# Benchmark Intelligence & Adapter Tests
+# ===========================================================================
+
+import os
+from datetime import UTC, datetime
+from pipeline.benchmarks.base import (
+    BenchmarkRecord,
+    validate_benchmark_record,
+)
+from pipeline.benchmarks.adapters.openrouter import OpenRouterAdapter
+from pipeline.benchmarks.adapters.livebench import LiveBenchAdapter
+from pipeline.benchmarks.adapters.benchlm import BenchLMAdapter
+from pipeline.benchmarks.adapters.artificial_analysis import ArtificialAnalysisAdapter
+from pipeline.benchmarks.adapters.lmcouncil import LMCouncilAdapter
+
+
+class TestBenchmarkValidation(unittest.TestCase):
+    def test_valid_benchmark_record(self):
+        rec: BenchmarkRecord = {
+            "model_name": "OpenAI o1",
+            "canonical_id": "openai/o1",
+            "provider": "OpenAI",
+            "benchmark_name": "LiveBench (Reasoning)",
+            "category": "Reasoning",
+            "score": 89.0,
+            "score_unit": "Percentage",
+            "evaluation_date": "2026-01-08",
+            "source": "LiveBench",
+            "source_url": "https://livebench.ai/",
+            "provenance": "Independent Evaluation",
+            "retrieved_at": "2026-10-10T00:00:00Z",
+            "notes": "Verified test notes.",
+        }
+        self.assertTrue(validate_benchmark_record(rec))
+
+    def test_missing_field_rejected(self):
+        rec = {
+            "model_name": "OpenAI o1",
+            "score": 89.0,
+        }
+        self.assertFalse(validate_benchmark_record(rec))
+
+    def test_invalid_category_rejected(self):
+        rec = {
+            "model_name": "OpenAI o1",
+            "canonical_id": "openai/o1",
+            "provider": "OpenAI",
+            "benchmark_name": "LiveBench (Reasoning)",
+            "category": "InvalidCategory",
+            "score": 89.0,
+            "score_unit": "Percentage",
+            "evaluation_date": "2026-01-08",
+            "source": "LiveBench",
+            "source_url": "https://livebench.ai/",
+            "provenance": "Independent Evaluation",
+            "retrieved_at": "2026-10-10T00:00:00Z",
+            "notes": None,
+        }
+        self.assertFalse(validate_benchmark_record(rec))
+
+    def test_invalid_provenance_rejected(self):
+        rec = {
+            "model_name": "OpenAI o1",
+            "canonical_id": "openai/o1",
+            "provider": "OpenAI",
+            "benchmark_name": "LiveBench (Reasoning)",
+            "category": "Reasoning",
+            "score": 89.0,
+            "score_unit": "Percentage",
+            "evaluation_date": "2026-01-08",
+            "source": "LiveBench",
+            "source_url": "https://livebench.ai/",
+            "provenance": "InventedProvenance",
+            "retrieved_at": "2026-10-10T00:00:00Z",
+            "notes": None,
+        }
+        self.assertFalse(validate_benchmark_record(rec))
+
+
+class TestBenchmarkAdapters(unittest.TestCase):
+    @patch("requests.get")
+    def test_openrouter_adapter_normalization(self, mock_get):
+        mock_resp = MagicMock()
+        mock_resp.raise_for_status.return_value = None
+        mock_resp.json.return_value = {
+            "data": [
+                {
+                    "id": "openai/gpt-4o",
+                    "name": "OpenAI: GPT-4o",
+                    "context_length": 128000,
+                    "pricing": {
+                        "prompt": "0.0000025",
+                        "completion": "0.00001",
+                    },
+                }
+            ]
+        }
+        mock_get.return_value = mock_resp
+
+        adapter = OpenRouterAdapter()
+        metrics = adapter.fetch_metrics()
+        self.assertEqual(len(metrics), 1)
+        self.assertEqual(metrics[0]["model_name"], "OpenAI: GPT-4o")
+        self.assertEqual(metrics[0]["context_length"], 128000)
+        self.assertEqual(metrics[0]["input_price_per_1m"], 2.5)
+        self.assertEqual(metrics[0]["output_price_per_1m"], 10.0)
+
+    @patch("requests.get")
+    def test_livebench_adapter_parsing(self, mock_get):
+        mock_table_resp = MagicMock()
+        mock_table_resp.raise_for_status.return_value = None
+        mock_table_resp.text = "model,theory_of_mind,zebra_puzzle\ndeepseek-r1,80.0,85.0\n"
+
+        mock_cat_resp = MagicMock()
+        mock_cat_resp.raise_for_status.return_value = None
+        mock_cat_resp.json.return_value = {
+            "Reasoning": ["theory_of_mind", "zebra_puzzle"]
+        }
+
+        mock_get.side_effect = [mock_table_resp, mock_cat_resp]
+
+        adapter = LiveBenchAdapter()
+        records = adapter.fetch()
+        self.assertGreater(len(records), 0)
+        reasoning_rec = next((r for r in records if r["category"] == "Reasoning"), None)
+        self.assertIsNotNone(reasoning_rec)
+        self.assertEqual(reasoning_rec["score"], 82.5)
+        self.assertEqual(reasoning_rec["provenance"], "Independent Evaluation")
+
+    def test_benchlm_adapter_disabled_by_default(self):
+        with patch.dict(os.environ, {"ENABLE_BENCHLM": "false"}):
+            adapter = BenchLMAdapter()
+            self.assertFalse(adapter.enabled)
+            records = adapter.fetch()
+            self.assertEqual(records, [])
+
+    def test_artificial_analysis_disabled_without_key(self):
+        with patch.dict(os.environ, {}, clear=True):
+            adapter = ArtificialAnalysisAdapter()
+            self.assertFalse(adapter.enabled)
+            records = adapter.fetch()
+            self.assertEqual(records, [])
+
+    def test_lmcouncil_adapter_status(self):
+        adapter = LMCouncilAdapter()
+        self.assertFalse(adapter.enabled)
+        records = adapter.fetch()
+        self.assertEqual(records, [])
+        notice = adapter.get_provenance_notice()
+        self.assertIn("robots.txt", notice["attribution"])
+
+
+class TestModelsCatalog(unittest.TestCase):
+    def test_models_json_schema(self):
+        models_path = Path(__file__).parent.parent.parent / "src" / "data" / "models.json"
+        self.assertTrue(models_path.exists())
+        with models_path.open("r", encoding="utf-8") as f:
+            models = json.load(f)
+        self.assertIsInstance(models, list)
+        self.assertGreaterEqual(len(models), 10)
+        for m in models:
+            self.assertIn("id", m)
+            self.assertIn("name", m)
+            self.assertIn("provider", m)
+            self.assertIn("context_window", m)
+            self.assertGreater(m["context_window"], 0)
+            self.assertIn("license_type", m)
+            self.assertTrue(m["documentation_url"].startswith("http"))
+
+
+class TestFutureDateHandling(unittest.TestCase):
+    def test_rejects_future_dated_entries(self):
+        from pipeline.scraper import parse_date
+        entry = MagicMock()
+        # Mock published_parsed 1 year in the future
+        future_year = datetime.now(UTC).year + 2
+        entry.published_parsed = (future_year, 1, 1, 0, 0, 0, 0, 0, 0)
+        entry.updated_parsed = None
+        entry.published = None
+        entry.updated = None
+        parsed = parse_date(entry)
+        self.assertIsNone(parsed)
+
+
 if __name__ == "__main__":
     unittest.main()
+

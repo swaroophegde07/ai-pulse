@@ -25,15 +25,27 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 // Only genuine, non-demonstration articles
 const realArticles = feed.filter((a) => !a._demo);
 
+// Deterministic research classification keywords
+const RESEARCH_KEYWORDS = /\b(paper|preprint|arxiv|technical report|study|proof|algorithm|scaling law|interpretability|architecture|ablation|reinforcement learning|benchmark evaluation|empirical|foundational|deepmind|gradient)\b/i;
+
 // Filter research papers, preprints, and lab findings
 const researchArticles = realArticles
-  .filter(
-    (a) =>
-      a.category === "Research" ||
-      /research|paper|arxiv|deepmind|gradient|study|proof|algorithm/i.test(
-        a.title
-      )
-  )
+  .filter((a) => {
+    // 1. Explicitly tagged Research
+    if (a.category === "Research") return true;
+
+    // 2. Published by dedicated research hubs
+    const isResearchPublisher =
+      a.company === "Google DeepMind" ||
+      a.company === "The Gradient" ||
+      a.company === "Microsoft Research";
+
+    // 3. Or text/title matches substantive scientific keywords
+    const matchesResearchContent =
+      RESEARCH_KEYWORDS.test(a.title) || RESEARCH_KEYWORDS.test(a.summary);
+
+    return isResearchPublisher || matchesResearchContent;
+  })
   .sort((a, b) => {
     const da = a.date ? new Date(a.date).getTime() : 0;
     const db = b.date ? new Date(b.date).getTime() : 0;
@@ -41,30 +53,33 @@ const researchArticles = realArticles
     return new Date(b.fetched_at).getTime() - new Date(a.fetched_at).getTime();
   });
 
+// Extract distinct research institutions represented in this feed
+const researchPublishers = new Set(researchArticles.map((a) => a.company).filter(Boolean));
+
 const researchLabs = [
   {
     name: "Google DeepMind",
-    focus: "AlphaFold, Gemini architectures, reasoning, RL",
+    focus: "AlphaFold, Gemini architectures, reasoning, RL, frontier science",
     url: "https://deepmind.google/research/",
   },
   {
     name: "OpenAI Research",
-    focus: "Reasoning models (o1/o3), scaling laws, alignment",
+    focus: "Reasoning models (o1/o3), scaling laws, alignment, synthetic data",
     url: "https://openai.com/research/",
   },
   {
     name: "Anthropic Research",
-    focus: "Constitutional AI, mechanistic interpretability, safety",
+    focus: "Constitutional AI, mechanistic interpretability, safety evaluations",
     url: "https://www.anthropic.com/research",
   },
   {
     name: "Microsoft Research AI",
-    focus: "Small language models (Phi), multimodal agents",
+    focus: "Small language models (Phi), multimodal systems, autonomous agents",
     url: "https://www.microsoft.com/en-us/research/research-area/artificial-intelligence/",
   },
   {
     name: "Meta FAIR",
-    focus: "Open research, self-supervised learning, Llama models",
+    focus: "Open scientific research, self-supervised learning, Llama models",
     url: "https://ai.meta.com/research/",
   },
   {
@@ -75,21 +90,45 @@ const researchLabs = [
 ];
 ---
 
-<Layout title="AI Research Feed — AI Pulse">
+<Layout title="AI Research Feed & Publications — AI Pulse">
   <Header currentPath="/research/" />
 
   <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
     <!-- Header banner -->
     <div class="mb-10">
       <div class="inline-flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase px-2.5 py-1 rounded border border-purple-500/30 bg-purple-500/10 text-purple-400 mb-3">
-        <span>Research Intelligence</span>
+        <span>Peer Intelligence & Preprints</span>
       </div>
       <h1 class="text-2xl sm:text-3xl font-bold text-neutral-100 tracking-tight mb-2">
         Research Feed
       </h1>
-      <p class="text-sm text-neutral-400 leading-relaxed max-w-2xl">
-        Curated papers, technical breakthroughs, algorithmic innovations, and methodology papers from leading AI research laboratories and academic institutions.
+      <p class="text-sm text-neutral-400 leading-relaxed max-w-3xl">
+        Curated papers, preprints, technical reports, and algorithmic breakthroughs from leading AI research laboratories and scientific institutions.
       </p>
+    </div>
+
+    <!-- Quick stats overview -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
+      <div class="border border-neutral-800 bg-neutral-900/40 p-4 rounded-lg">
+        <span class="font-mono text-[10px] text-neutral-500 tracking-widest uppercase block mb-1">
+          Technical Publications
+        </span>
+        <span class="font-mono text-xl font-bold text-neutral-100">{researchArticles.length}</span>
+      </div>
+      <div class="border border-neutral-800 bg-neutral-900/40 p-4 rounded-lg">
+        <span class="font-mono text-[10px] text-neutral-500 tracking-widest uppercase block mb-1">
+          Active Contributing Labs
+        </span>
+        <span class="font-mono text-xl font-bold text-purple-400">
+          {researchPublishers.size}
+        </span>
+      </div>
+      <div class="border border-neutral-800 bg-neutral-900/40 p-4 rounded-lg">
+        <span class="font-mono text-[10px] text-neutral-500 tracking-widest uppercase block mb-1">
+          Monitored Research Hubs
+        </span>
+        <span class="font-mono text-xl font-bold text-neutral-100">{researchLabs.length}</span>
+      </div>
     </div>
 
     <!-- Monitored Research Labs Directory -->
@@ -107,7 +146,7 @@ const researchLabs = [
               class="border border-neutral-800 bg-neutral-950/60 p-4 rounded hover:border-neutral-700 transition-colors group block"
             >
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-semibold text-xs text-neutral-200 group-hover:text-emerald-400 transition-colors">
+                <span class="font-semibold text-xs text-neutral-200 group-hover:text-purple-400 transition-colors">
                   {lab.name}
                 </span>
                 <span class="font-mono text-[10px] text-neutral-600 group-hover:text-neutral-400">
@@ -126,9 +165,14 @@ const researchLabs = [
     <!-- Research Articles List -->
     <section>
       <div class="flex items-center justify-between mb-6">
-        <h2 class="text-xs font-mono text-neutral-400 tracking-widest uppercase">
-          Publications & Research Reports ({researchArticles.length})
-        </h2>
+        <div>
+          <h2 class="text-xs font-mono text-neutral-400 tracking-widest uppercase">
+            Publications & Technical Reports ({researchArticles.length})
+          </h2>
+          <p class="text-[11px] text-neutral-500 font-mono mt-0.5">
+            Filtered using deterministic scientific publication keywords and verified research lab sources.
+          </p>
+        </div>
         <a
           href={`${base}/news/`}
           class="font-mono text-[10px] text-neutral-500 hover:text-emerald-400 transition-colors"
