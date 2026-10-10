@@ -17,6 +17,9 @@
 name: Update and Deploy
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     # 07:00 UTC and 19:00 UTC daily.
     - cron: "0 7 * * *"
