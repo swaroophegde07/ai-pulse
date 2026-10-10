@@ -1118,6 +1118,89 @@ class TestModelsCatalog(unittest.TestCase):
             self.assertIn("license_type", m)
             self.assertTrue(m["documentation_url"].startswith("http"))
 
+    def test_sync_models_catalog_with_telemetry(self):
+        from pipeline.models.updater import sync_models_catalog
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp_path = Path(tmpdir) / "models.json"
+            seed_data = [
+                {
+                    "id": "openai/o1",
+                    "name": "OpenAI o1",
+                    "provider": "OpenAI",
+                    "family": "o-series",
+                    "release_date": "2024-12-17",
+                    "lifecycle_status": "Released (Active)",
+                    "context_window": 128000,
+                    "input_modalities": ["text", "image"],
+                    "output_modalities": ["text"],
+                    "license_type": "Proprietary API",
+                    "api_available": True,
+                    "consumer_available": True,
+                    "pricing": {
+                        "input_per_1m": 15.00,
+                        "output_per_1m": 60.00,
+                        "unit": "USD",
+                    },
+                    "documentation_url": "https://platform.openai.com/docs/models#o1",
+                    "source_url": "https://openai.com/index/introducing-openai-o1-preview/",
+                    "last_verified": "2024-12-17",
+                }
+            ]
+            with tmp_path.open("w", encoding="utf-8") as f:
+                json.dump(seed_data, f, indent=2)
+
+            telemetry = [
+                {
+                    "canonical_id": "openai/o1",
+                    "context_length": 200000,
+                    "input_price_per_1m": 15.00,
+                    "output_price_per_1m": 60.00,
+                }
+            ]
+
+            updated = sync_models_catalog(models_path=tmp_path, openrouter_metrics=telemetry)
+            self.assertEqual(len(updated), 1)
+            self.assertEqual(updated[0]["context_window"], 200000)
+            self.assertNotEqual(updated[0]["last_verified"], "2024-12-17")
+
+    def test_sync_models_catalog_preserves_on_empty_metrics(self):
+        from pipeline.models.updater import sync_models_catalog
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp_path = Path(tmpdir) / "models.json"
+            seed_data = [
+                {
+                    "id": "deepseek/deepseek-r1",
+                    "name": "DeepSeek-R1",
+                    "provider": "DeepSeek",
+                    "family": "DeepSeek-R1",
+                    "release_date": "2025-01-20",
+                    "lifecycle_status": "Released (Active)",
+                    "context_window": 128000,
+                    "input_modalities": ["text"],
+                    "output_modalities": ["text"],
+                    "license_type": "Open Weights (MIT)",
+                    "api_available": True,
+                    "consumer_available": True,
+                    "pricing": {
+                        "input_per_1m": 0.55,
+                        "output_per_1m": 2.19,
+                        "unit": "USD",
+                    },
+                    "documentation_url": "https://api-docs.deepseek.com/",
+                    "source_url": "https://github.com/deepseek-ai/DeepSeek-R1",
+                    "last_verified": "2025-01-20",
+                }
+            ]
+            with tmp_path.open("w", encoding="utf-8") as f:
+                json.dump(seed_data, f, indent=2)
+
+            updated = sync_models_catalog(models_path=tmp_path, openrouter_metrics=[])
+            self.assertEqual(len(updated), 1)
+            self.assertEqual(updated[0]["context_window"], 128000)
+            self.assertEqual(updated[0]["last_verified"], "2025-01-20")
+
 
 class TestFutureDateHandling(unittest.TestCase):
     def test_rejects_future_dated_entries(self):

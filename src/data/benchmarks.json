@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-10-10T19:33:45.329437+00:00",
-    "total_benchmark_records": 0,
+    "last_updated": "2026-10-10T19:18:00.269165+00:00",
+    "total_benchmark_records": 28,
     "total_model_metrics": 270,
     "sources": [
       {
@@ -42,7 +42,428 @@
     ],
     "disclaimer": "Benchmarks reflect standardized evaluations under specific test harnesses. Usage volumes and task scores are distinct metrics and must not be conflated into a single composite ranking without verified methodology."
   },
-  "benchmarks": [],
+  "benchmarks": [
+    {
+      "model_name": "DeepSeek-V3",
+      "canonical_id": "deepseek-v3",
+      "provider": "DeepSeek",
+      "benchmark_name": "LiveBench (Reasoning)",
+      "category": "Reasoning",
+      "score": 44.25,
+      "score_unit": "Percentage",
+      "evaluation_date": "2026-01-08",
+      "source": "LiveBench",
+      "source_url": "https://livebench.ai/",
+      "provenance": "Independent Evaluation",
+      "retrieved_at": "2026-10-10T19:18:00.269258+00:00",
+      "notes": "LiveBench 2026-01-08 release category average across 4 tasks."
+    },
+    {
+      "model_name": "DeepSeek-V3",
+      "canonical_id": "deepseek-v3",
+      "provider": "DeepSeek",
+      "benchmark_name": "LiveBench (Coding)",
+      "category": "Coding",
+      "score": 75.69,
+      "score_unit": "Percentage",
+      "evaluation_date": "2026-01-08",
+      "source": "LiveBench",
+      "source_url": "https://livebench.ai/",
+      "provenance": "Independent Evaluation",
+      "retrieved_at": "2026-10-10T19:18:00.269258+00:00",
+      "notes": "LiveBench 2026-01-08 release category average across 2 tasks."
+    },
+    {
+      "model_name": "DeepSeek-V3",
+      "canonical_id": "deepseek-v3",
+      "provider": "DeepSeek",
+      "benchmark_name": "LiveBench (Agentic Coding)",
+      "category": "Agentic Coding",
+      "score": 46.67,
+      "score_unit": "Percentage",
+      "evaluation_date": "2026-01-08",
+      "source": "LiveBench",
+      "source_url": "https://livebench.ai/",
+      "provenance": "Independent Evaluation",
+      "retrieved_at": "2026-10-10T19:18:00.269258+00:00",
+      "notes": "LiveBench 2026-01-08 release category average across 3 tasks."
+    },
+    {
+      "model_name": "DeepSeek-V3",
+      "canonical_id": "deepseek-v3",
+      "provider": "DeepSeek",
+      "benchmark_name": "LiveBench (Mathematics)",
+      "category": "Mathematics",
+      "score": 63.95,
+      "score_unit": "Percentage",
+      "evaluation_date": "2026-01-08",
+      "source": "LiveBench",
+      "source_url": "https://livebench.ai/",
+      "provenance": "Independent Evaluation",
+      "retrieved_at": "2026-10-10T19:18:00.269258+00:00",
+      "notes": "LiveBench 2026-01-08 release category average across 4 tasks."
+    },
+    {
+      "model_name": "DeepSeek-V3",
+      "canonical_id": "deepseek-v3",
+      "provider": "DeepSeek",
+      "benchmark_name": "LiveBench (Data Analysis)",
+      "category": "Data Analysis",
+      "score": 45.03,
+      "score_unit": "Percentage",
+      "evaluation_date": "2026-01-08",
+      "source": "LiveBench",
+      "source_url": "https://livebench.ai/",
+      "provenance": "Independent Evaluation",
+      "retrieved_at": "2026-10-10T19:18:00.269258+00:00",
+      "notes": "LiveBench 2026-01-08 release category average across 3 tasks."
+    },
+    {
+      "model_name": "DeepSeek-V3",
+      "canonical_id": "deepseek-v3",
+      "provider": "DeepSeek",
+      "benchmark_name": "LiveBench (Language)",
+      "category": "Language",
+      "score": 64.24,
+      "score_unit": "Percentage",
+      "evaluation_date": "2026-01-08",
+      "source": "LiveBench",
+      "source_url": "https://livebench.ai/",
+      "provenance": "Independent Evaluation",
+      "retrieved_at": "2026-10-10T19:18:00.269258+00:00",
+      "notes": "LiveBench 2026-01-08 release category average across 3 tasks."
+    },
+    {
+      "model_name": "DeepSeek-V3",
+      "canonical_id": "deepseek-v3",
+      "provider": "DeepSeek",
+      "benchmark_name": "LiveBench Overall Average",
+      "category": "Composite",
+      "score": 55.37,
+      "score_unit": "Percentage",
+      "evaluation_date": "2026-01-08",
+      "source": "LiveBench",
+      "source_url": "https://livebench.ai/",
+      "provenance": "Independent Evaluation",
+      "retrieved_at": "2026-10-10T19:18:00.269258+00:00",
+      "notes": "LiveBench overall average across 19 verified subtasks."
+    },
+    {
+      "model_name": "DeepSeek-R1",
+      "canonical_id": "deepseek-r1",
+      "provider": "DeepSeek",
+      "benchmark_name": "LiveBench (Reasoning)",
+      "category": "Reasoning",
+      "score": 45.5,
+      "score_unit": "Percentage",
+      "evaluation_date": "2026-01-08",
+      "source": "LiveBench",
+      "source_url": "https://livebench.ai/",
+      "provenance": "Independent Evaluation",
+      "retrieved_at": "2026-10-10T19:18:00.269258+00:00",
+      "notes": "LiveBench 2026-01-08 release category average across 4 tasks."
+    },
+    {
+      "model_name": "DeepSeek-R1",
+      "canonical_id": "deepseek-r1",
+      "provider": "DeepSeek",
+      "benchmark_name": "LiveBench (Coding)",
+      "category": "Coding",
+      "score": 73.19,
+      "score_unit": "Percentage",
+      "evaluation_date": "2026-01-08",
+      "source": "LiveBench",
+      "source_url": "https://livebench.ai/",
+      "provenance": "Independent Evaluation",
+      "retrieved_at": "2026-10-10T19:18:00.269258+00:00",
+      "notes": "LiveBench 2026-01-08 release category average across 2 tasks."
+    },
+    {
+      "model_name": "DeepSeek-R1",
+      "canonical_id": "deepseek-r1",
+      "provider": "DeepSeek",
+      "benchmark_name": "LiveBench (Agentic Coding)",
+      "category": "Agentic Coding",
+      "score": 36.67,
+      "score_unit": "Percentage",
+      "evaluation_date": "2026-01-08",
+      "source": "LiveBench",
+      "source_url": "https://livebench.ai/",
+      "provenance": "Independent Evaluation",
+      "retrieved_at": "2026-10-10T19:18:00.269258+00:00",
+      "notes": "LiveBench 2026-01-08 release category average across 3 tasks."
+    },
+    {
+      "model_name": "DeepSeek-R1",
+      "canonical_id": "deepseek-r1",
+      "provider": "DeepSeek",
+      "benchmark_name": "LiveBench (Mathematics)",
+      "category": "Mathematics",
+      "score": 64.38,
+      "score_unit": "Percentage",
+      "evaluation_date": "2026-01-08",
+      "source": "LiveBench",
+      "source_url": "https://livebench.ai/",
+      "provenance": "Independent Evaluation",
+      "retrieved_at": "2026-10-10T19:18:00.269258+00:00",
+      "notes": "LiveBench 2026-01-08 release category average across 4 tasks."
+    },
+    {
+      "model_name": "DeepSeek-R1",
+      "canonical_id": "deepseek-r1",
+      "provider": "DeepSeek",
+      "benchmark_name": "LiveBench (Data Analysis)",
+      "category": "Data Analysis",
+      "score": 44.26,
+      "score_unit": "Percentage",
+      "evaluation_date": "2026-01-08",
+      "source": "LiveBench",
+      "source_url": "https://livebench.ai/",
+      "provenance": "Independent Evaluation",
+      "retrieved_at": "2026-10-10T19:18:00.269258+00:00",
+      "notes": "LiveBench 2026-01-08 release category average across 3 tasks."
+    },
+    {
+      "model_name": "DeepSeek-R1",
+      "canonical_id": "deepseek-r1",
+      "provider": "DeepSeek",
+      "benchmark_name": "LiveBench (Language)",
+      "category": "Language",
+      "score": 65.6,
+      "score_unit": "Percentage",
+      "evaluation_date": "2026-01-08",
+      "source": "LiveBench",
+      "source_url": "https://livebench.ai/",
+      "provenance": "Independent Evaluation",
+      "retrieved_at": "2026-10-10T19:18:00.269258+00:00",
+      "notes": "LiveBench 2026-01-08 release category average across 3 tasks."
+    },
+    {
+      "model_name": "DeepSeek-R1",
+      "canonical_id": "deepseek-r1",
+      "provider": "DeepSeek",
+      "benchmark_name": "LiveBench Overall Average",
+      "category": "Composite",
+      "score": 53.97,
+      "score_unit": "Percentage",
+      "evaluation_date": "2026-01-08",
+      "source": "LiveBench",
+      "source_url": "https://livebench.ai/",
+      "provenance": "Independent Evaluation",
+      "retrieved_at": "2026-10-10T19:18:00.269258+00:00",
+      "notes": "LiveBench overall average across 19 verified subtasks."
+    },
+    {
+      "model_name": "Claude 3.5 Sonnet",
+      "canonical_id": "claude-3-5-sonnet",
+      "provider": "Anthropic",
+      "benchmark_name": "LiveBench (Reasoning)",
+      "category": "Reasoning",
+      "score": 64.37,
+      "score_unit": "Percentage",
+      "evaluation_date": "2026-01-08",
+      "source": "LiveBench",
+      "source_url": "https://livebench.ai/",
+      "provenance": "Independent Evaluation",
+      "retrieved_at": "2026-10-10T19:18:00.269258+00:00",
+      "notes": "LiveBench 2026-01-08 release category average across 4 tasks."
+    },
+    {
+      "model_name": "Claude 3.5 Sonnet",
+      "canonical_id": "claude-3-5-sonnet",
+      "provider": "Anthropic",
+      "benchmark_name": "LiveBench (Coding)",
+      "category": "Coding",
+      "score": 70.06,
+      "score_unit": "Percentage",
+      "evaluation_date": "2026-01-08",
+      "source": "LiveBench",
+      "source_url": "https://livebench.ai/",
+      "provenance": "Independent Evaluation",
+      "retrieved_at": "2026-10-10T19:18:00.269258+00:00",
+      "notes": "LiveBench 2026-01-08 release category average across 2 tasks."
+    },
+    {
+      "model_name": "Claude 3.5 Sonnet",
+      "canonical_id": "claude-3-5-sonnet",
+      "provider": "Anthropic",
+      "benchmark_name": "LiveBench (Agentic Coding)",
+      "category": "Agentic Coding",
+      "score": 31.67,
+      "score_unit": "Percentage",
+      "evaluation_date": "2026-01-08",
+      "source": "LiveBench",
+      "source_url": "https://livebench.ai/",
+      "provenance": "Independent Evaluation",
+      "retrieved_at": "2026-10-10T19:18:00.269258+00:00",
+      "notes": "LiveBench 2026-01-08 release category average across 3 tasks."
+    },
+    {
+      "model_name": "Claude 3.5 Sonnet",
+      "canonical_id": "claude-3-5-sonnet",
+      "provider": "Anthropic",
+      "benchmark_name": "LiveBench (Mathematics)",
+      "category": "Mathematics",
+      "score": 82.4,
+      "score_unit": "Percentage",
+      "evaluation_date": "2026-01-08",
+      "source": "LiveBench",
+      "source_url": "https://livebench.ai/",
+      "provenance": "Independent Evaluation",
+      "retrieved_at": "2026-10-10T19:18:00.269258+00:00",
+      "notes": "LiveBench 2026-01-08 release category average across 4 tasks."
+    },
+    {
+      "model_name": "Claude 3.5 Sonnet",
+      "canonical_id": "claude-3-5-sonnet",
+      "provider": "Anthropic",
+      "benchmark_name": "LiveBench (Data Analysis)",
+      "category": "Data Analysis",
+      "score": 51.5,
+      "score_unit": "Percentage",
+      "evaluation_date": "2026-01-08",
+      "source": "LiveBench",
+      "source_url": "https://livebench.ai/",
+      "provenance": "Independent Evaluation",
+      "retrieved_at": "2026-10-10T19:18:00.269258+00:00",
+      "notes": "LiveBench 2026-01-08 release category average across 3 tasks."
+    },
+    {
+      "model_name": "Claude 3.5 Sonnet",
+      "canonical_id": "claude-3-5-sonnet",
+      "provider": "Anthropic",
+      "benchmark_name": "LiveBench (Language)",
+      "category": "Language",
+      "score": 71.06,
+      "score_unit": "Percentage",
+      "evaluation_date": "2026-01-08",
+      "source": "LiveBench",
+      "source_url": "https://livebench.ai/",
+      "provenance": "Independent Evaluation",
+      "retrieved_at": "2026-10-10T19:18:00.269258+00:00",
+      "notes": "LiveBench 2026-01-08 release category average across 3 tasks."
+    },
+    {
+      "model_name": "Claude 3.5 Sonnet",
+      "canonical_id": "claude-3-5-sonnet",
+      "provider": "Anthropic",
+      "benchmark_name": "LiveBench Overall Average",
+      "category": "Composite",
+      "score": 62.62,
+      "score_unit": "Percentage",
+      "evaluation_date": "2026-01-08",
+      "source": "LiveBench",
+      "source_url": "https://livebench.ai/",
+      "provenance": "Independent Evaluation",
+      "retrieved_at": "2026-10-10T19:18:00.269258+00:00",
+      "notes": "LiveBench overall average across 19 verified subtasks."
+    },
+    {
+      "model_name": "OpenAI o1",
+      "canonical_id": "o1",
+      "provider": "OpenAI",
+      "benchmark_name": "LiveBench (Reasoning)",
+      "category": "Reasoning",
+      "score": 77.17,
+      "score_unit": "Percentage",
+      "evaluation_date": "2026-01-08",
+      "source": "LiveBench",
+      "source_url": "https://livebench.ai/",
+      "provenance": "Independent Evaluation",
+      "retrieved_at": "2026-10-10T19:18:00.269258+00:00",
+      "notes": "LiveBench 2026-01-08 release category average across 4 tasks."
+    },
+    {
+      "model_name": "OpenAI o1",
+      "canonical_id": "o1",
+      "provider": "OpenAI",
+      "benchmark_name": "LiveBench (Coding)",
+      "category": "Coding",
+      "score": 64.62,
+      "score_unit": "Percentage",
+      "evaluation_date": "2026-01-08",
+      "source": "LiveBench",
+      "source_url": "https://livebench.ai/",
+      "provenance": "Independent Evaluation",
+      "retrieved_at": "2026-10-10T19:18:00.269258+00:00",
+      "notes": "LiveBench 2026-01-08 release category average across 2 tasks."
+    },
+    {
+      "model_name": "OpenAI o1",
+      "canonical_id": "o1",
+      "provider": "OpenAI",
+      "benchmark_name": "LiveBench (Agentic Coding)",
+      "category": "Agentic Coding",
+      "score": 40.0,
+      "score_unit": "Percentage",
+      "evaluation_date": "2026-01-08",
+      "source": "LiveBench",
+      "source_url": "https://livebench.ai/",
+      "provenance": "Independent Evaluation",
+      "retrieved_at": "2026-10-10T19:18:00.269258+00:00",
+      "notes": "LiveBench 2026-01-08 release category average across 3 tasks."
+    },
+    {
+      "model_name": "OpenAI o1",
+      "canonical_id": "o1",
+      "provider": "OpenAI",
+      "benchmark_name": "LiveBench (Mathematics)",
+      "category": "Mathematics",
+      "score": 85.03,
+      "score_unit": "Percentage",
+      "evaluation_date": "2026-01-08",
+      "source": "LiveBench",
+      "source_url": "https://livebench.ai/",
+      "provenance": "Independent Evaluation",
+      "retrieved_at": "2026-10-10T19:18:00.269258+00:00",
+      "notes": "LiveBench 2026-01-08 release category average across 4 tasks."
+    },
+    {
+      "model_name": "OpenAI o1",
+      "canonical_id": "o1",
+      "provider": "OpenAI",
+      "benchmark_name": "LiveBench (Data Analysis)",
+      "category": "Data Analysis",
+      "score": 50.0,
+      "score_unit": "Percentage",
+      "evaluation_date": "2026-01-08",
+      "source": "LiveBench",
+      "source_url": "https://livebench.ai/",
+      "provenance": "Independent Evaluation",
+      "retrieved_at": "2026-10-10T19:18:00.269258+00:00",
+      "notes": "LiveBench 2026-01-08 release category average across 3 tasks."
+    },
+    {
+      "model_name": "OpenAI o1",
+      "canonical_id": "o1",
+      "provider": "OpenAI",
+      "benchmark_name": "LiveBench (Language)",
+      "category": "Language",
+      "score": 70.41,
+      "score_unit": "Percentage",
+      "evaluation_date": "2026-01-08",
+      "source": "LiveBench",
+      "source_url": "https://livebench.ai/",
+      "provenance": "Independent Evaluation",
+      "retrieved_at": "2026-10-10T19:18:00.269258+00:00",
+      "notes": "LiveBench 2026-01-08 release category average across 3 tasks."
+    },
+    {
+      "model_name": "OpenAI o1",
+      "canonical_id": "o1",
+      "provider": "OpenAI",
+      "benchmark_name": "LiveBench Overall Average",
+      "category": "Composite",
+      "score": 66.28,
+      "score_unit": "Percentage",
+      "evaluation_date": "2026-01-08",
+      "source": "LiveBench",
+      "source_url": "https://livebench.ai/",
+      "provenance": "Independent Evaluation",
+      "retrieved_at": "2026-10-10T19:18:00.269258+00:00",
+      "notes": "LiveBench overall average across 19 verified subtasks."
+    }
+  ],
   "model_metrics": [
     {
       "model_name": "Anthropic: Claude Haiku 5.5",
@@ -54,7 +475,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/anthropic/claude-haiku-5.5",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Anthropic: Claude Haiku 5.5 (batch)",
@@ -66,7 +487,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/anthropic/claude-haiku-5.5:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Nano Banana 2.1",
@@ -78,7 +499,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-nano-banana-2.1",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Mistral: Mistral Large 4",
@@ -90,7 +511,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/mistralai/mistral-large-4-0",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-6.1 Sol Pro",
@@ -102,7 +523,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-6.1-sol-pro",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-6.1 Sol Pro (batch)",
@@ -114,7 +535,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-6.1-sol-pro:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-6.1 Sol",
@@ -126,7 +547,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-6.1-sol",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-6.1 Sol (batch)",
@@ -138,7 +559,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-6.1-sol:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Anthropic: Claude Sonnet 5.5",
@@ -150,7 +571,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/anthropic/claude-sonnet-5.5",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Anthropic: Claude Sonnet 5.5 (batch)",
@@ -162,7 +583,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/anthropic/claude-sonnet-5.5:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3.8 Max Prime",
@@ -174,7 +595,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3.8-max-prime",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-6 Luna Pro",
@@ -186,7 +607,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-6-luna-pro",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-6 Luna Pro (batch)",
@@ -198,7 +619,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-6-luna-pro:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-6 Luna",
@@ -210,7 +631,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-6-luna",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-6 Luna (batch)",
@@ -222,7 +643,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-6-luna:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-6 Sol Pro",
@@ -234,7 +655,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-6-sol-pro",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-6 Sol Pro (batch)",
@@ -246,7 +667,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-6-sol-pro:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-6 Sol",
@@ -258,7 +679,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-6-sol",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-6 Sol (batch)",
@@ -270,7 +691,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-6-sol:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Anthropic: Claude Opus 5.5",
@@ -282,7 +703,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/anthropic/claude-opus-5.5",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Anthropic: Claude Opus 5.5 (batch)",
@@ -294,7 +715,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/anthropic/claude-opus-5.5:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3.8 Omni Flash",
@@ -306,7 +727,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3.8-omni-flash",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "DeepSeek: DeepSeek V4.1 Flash",
@@ -318,7 +739,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/deepseek/deepseek-v4.1-flash",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "DeepSeek: DeepSeek V4.1 Flash (batch)",
@@ -330,7 +751,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/deepseek/deepseek-v4.1-flash:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-6 Astra",
@@ -342,7 +763,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-6-astra",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-6 Astra (batch)",
@@ -354,7 +775,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-6-astra:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-6 Astra Pro",
@@ -366,7 +787,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-6-astra-pro",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-6 Astra Pro (batch)",
@@ -378,7 +799,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-6-astra-pro:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3.8 Max (0902)",
@@ -390,7 +811,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3.8-max-0902",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemini 3.8 Flash",
@@ -402,7 +823,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-3.8-flash",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemini 3.8 Flash (batch)",
@@ -414,7 +835,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-3.8-flash:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Anthropic: Claude Fable 5.1",
@@ -426,7 +847,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/anthropic/claude-fable-5.1",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Anthropic: Claude Fable 5.1 (batch)",
@@ -438,7 +859,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/anthropic/claude-fable-5.1:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3.8 Flash",
@@ -450,7 +871,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3.8-flash",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "DeepSeek: DeepSeek V4 Flash Vision Exp",
@@ -462,7 +883,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/deepseek/deepseek-v4-flash-vision-exp",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3.8 27B",
@@ -474,7 +895,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3.8-27b",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemini 3.7 Flash",
@@ -486,7 +907,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-3.7-flash",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemini 3.7 Flash (batch)",
@@ -498,7 +919,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-3.7-flash:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3.8 2.4T A95B",
@@ -510,7 +931,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3.8-2.4t-a95b",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "DeepSeek: DeepSeek V4 Pro 0813",
@@ -522,7 +943,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/deepseek/deepseek-v4-pro-0813",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "DeepSeek: DeepSeek V4 Flash 0731",
@@ -534,7 +955,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/deepseek/deepseek-v4-flash-0731",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3.7 Flash",
@@ -546,7 +967,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3.7-flash",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Anthropic: Claude Opus 5",
@@ -558,7 +979,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/anthropic/claude-opus-5",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Anthropic: Claude Opus 5 (batch)",
@@ -570,7 +991,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/anthropic/claude-opus-5:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemini 3.6 Flash",
@@ -582,7 +1003,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-3.6-flash",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemini 3.6 Flash (batch)",
@@ -594,7 +1015,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-3.6-flash:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemini 3.5 Flash Lite",
@@ -606,7 +1027,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-3.5-flash-lite",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemini 3.5 Flash Lite (batch)",
@@ -618,7 +1039,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-3.5-flash-lite:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.6 Luna Pro",
@@ -630,7 +1051,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.6-luna-pro",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.6 Luna Pro (batch)",
@@ -642,7 +1063,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.6-luna-pro:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.6 Luna",
@@ -654,7 +1075,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.6-luna",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.6 Luna (batch)",
@@ -666,7 +1087,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.6-luna:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.6 Terra Pro",
@@ -678,7 +1099,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.6-terra-pro",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.6 Terra Pro (batch)",
@@ -690,7 +1111,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.6-terra-pro:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.6 Terra",
@@ -702,7 +1123,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.6-terra",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.6 Terra (batch)",
@@ -714,7 +1135,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.6-terra:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.6 Sol Pro",
@@ -726,7 +1147,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.6-sol-pro",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.6 Sol Pro (batch)",
@@ -738,7 +1159,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.6-sol-pro:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.6 Sol",
@@ -750,7 +1171,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.6-sol",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.6 Sol (batch)",
@@ -762,7 +1183,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.6-sol:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Anthropic: Claude Sonnet 5",
@@ -774,7 +1195,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/anthropic/claude-sonnet-5",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Anthropic: Claude Sonnet 5 (batch)",
@@ -786,7 +1207,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/anthropic/claude-sonnet-5:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Nano Banana 2 Lite (Gemini 3.1 Flash Lite Image)",
@@ -798,7 +1219,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-3.1-flash-lite-image",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Nano Banana 2 (Gemini 3.1 Flash Image)",
@@ -810,7 +1231,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-3.1-flash-image",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Nano Banana Pro (Gemini 3 Pro Image)",
@@ -822,7 +1243,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-3-pro-image",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Anthropic: Claude Fable 5",
@@ -834,7 +1255,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/anthropic/claude-fable-5",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Anthropic: Claude Fable 5 (batch)",
@@ -846,7 +1267,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/anthropic/claude-fable-5:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3.7 Plus",
@@ -858,7 +1279,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3.7-plus",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Anthropic: Claude Opus 4.8",
@@ -870,7 +1291,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/anthropic/claude-opus-4.8",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Anthropic: Claude Opus 4.8 (batch)",
@@ -882,7 +1303,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/anthropic/claude-opus-4.8:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3.7 Max",
@@ -894,7 +1315,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3.7-max",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemini 3.5 Flash",
@@ -906,7 +1327,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-3.5-flash",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemini 3.5 Flash (batch)",
@@ -918,7 +1339,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-3.5-flash:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemini 3.1 Flash Lite",
@@ -930,7 +1351,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-3.1-flash-lite",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemini 3.1 Flash Lite (batch)",
@@ -942,7 +1363,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-3.1-flash-lite:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT Chat Latest",
@@ -954,7 +1375,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-chat-latest",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Mistral: Mistral Medium 3.5",
@@ -966,7 +1387,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/mistralai/mistral-medium-3-5",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Mistral: Mistral Medium 3.5 (batch)",
@@ -978,7 +1399,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/mistralai/mistral-medium-3-5:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3.5 Plus 2026-04-20",
@@ -990,7 +1411,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3.5-plus-20260420",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3.6 Flash",
@@ -1002,7 +1423,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3.6-flash",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3.6 35B A3B",
@@ -1014,7 +1435,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3.6-35b-a3b",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3.6 27B",
@@ -1026,7 +1447,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3.6-27b",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.5 Pro",
@@ -1038,7 +1459,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.5-pro",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.5 Pro (batch)",
@@ -1050,7 +1471,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.5-pro:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.5",
@@ -1062,7 +1483,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.5",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.5 (batch)",
@@ -1074,7 +1495,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.5:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "DeepSeek: DeepSeek V4 Pro 0423",
@@ -1086,7 +1507,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/deepseek/deepseek-v4-pro",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "DeepSeek: DeepSeek V4 Flash 0423",
@@ -1098,7 +1519,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/deepseek/deepseek-v4-flash",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.4 Image 2",
@@ -1110,7 +1531,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.4-image-2",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Anthropic: Claude Opus 4.7",
@@ -1122,7 +1543,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/anthropic/claude-opus-4.7",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Anthropic: Claude Opus 4.7 (batch)",
@@ -1134,7 +1555,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/anthropic/claude-opus-4.7:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemma 4 26B A4B ",
@@ -1146,7 +1567,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemma-4-26b-a4b-it",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemma 4 26B A4B  (free)",
@@ -1158,7 +1579,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemma-4-26b-a4b-it:free",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemma 4 31B",
@@ -1170,7 +1591,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemma-4-31b-it",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemma 4 31B (free)",
@@ -1182,7 +1603,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemma-4-31b-it:free",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3.6 Plus",
@@ -1194,7 +1615,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3.6-plus",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Lyria 3 Pro Preview",
@@ -1206,7 +1627,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/lyria-3-pro-preview",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Lyria 3 Clip Preview",
@@ -1218,7 +1639,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/lyria-3-clip-preview",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.4 Nano",
@@ -1230,7 +1651,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.4-nano",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.4 Nano (batch)",
@@ -1242,7 +1663,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.4-nano:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.4 Mini",
@@ -1254,7 +1675,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.4-mini",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.4 Mini (batch)",
@@ -1266,7 +1687,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.4-mini:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Mistral: Mistral Small 4",
@@ -1278,7 +1699,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/mistralai/mistral-small-2603",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Mistral: Mistral Small 4 (batch)",
@@ -1290,7 +1711,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/mistralai/mistral-small-2603:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3.5-9B",
@@ -1302,7 +1723,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3.5-9b",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.4 Pro",
@@ -1314,7 +1735,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.4-pro",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.4 Pro (batch)",
@@ -1326,7 +1747,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.4-pro:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.4",
@@ -1338,7 +1759,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.4",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.4 (batch)",
@@ -1350,7 +1771,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.4:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemini 3.1 Flash Lite Preview",
@@ -1362,7 +1783,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-3.1-flash-lite-preview",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Nano Banana 2 (Gemini 3.1 Flash Image Preview)",
@@ -1374,7 +1795,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-3.1-flash-image-preview",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3.5-35B-A3B",
@@ -1386,7 +1807,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3.5-35b-a3b",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3.5-27B",
@@ -1398,7 +1819,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3.5-27b",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3.5-122B-A10B",
@@ -1410,7 +1831,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3.5-122b-a10b",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3.5-Flash",
@@ -1422,7 +1843,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3.5-flash-02-23",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemini 3.1 Pro Preview Custom Tools",
@@ -1434,7 +1855,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-3.1-pro-preview-customtools",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.3-Codex",
@@ -1446,7 +1867,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.3-codex",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemini 3.1 Pro Preview",
@@ -1458,7 +1879,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-3.1-pro-preview",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemini 3.1 Pro Preview (batch)",
@@ -1470,7 +1891,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-3.1-pro-preview:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Anthropic: Claude Sonnet 4.6",
@@ -1482,7 +1903,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/anthropic/claude-sonnet-4.6",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Anthropic: Claude Sonnet 4.6 (batch)",
@@ -1494,7 +1915,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/anthropic/claude-sonnet-4.6:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3.5 Plus 2026-02-15",
@@ -1506,7 +1927,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3.5-plus-02-15",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3.5 397B A17B",
@@ -1518,7 +1939,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3.5-397b-a17b",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Anthropic: Claude Opus 4.6",
@@ -1530,7 +1951,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/anthropic/claude-opus-4.6",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Anthropic: Claude Opus 4.6 (batch)",
@@ -1542,7 +1963,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/anthropic/claude-opus-4.6:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3 Coder Next",
@@ -1554,7 +1975,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3-coder-next",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT Audio",
@@ -1566,7 +1987,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-audio",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT Audio Mini",
@@ -1578,7 +1999,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-audio-mini",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.2-Codex",
@@ -1590,7 +2011,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.2-codex",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemini 3 Flash Preview",
@@ -1602,7 +2023,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-3-flash-preview",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemini 3 Flash Preview (batch)",
@@ -1614,7 +2035,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-3-flash-preview:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.2 Chat",
@@ -1626,7 +2047,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.2-chat",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.2 Pro",
@@ -1638,7 +2059,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.2-pro",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.2 Pro (batch)",
@@ -1650,7 +2071,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.2-pro:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.2",
@@ -1662,7 +2083,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.2",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.2 (batch)",
@@ -1674,7 +2095,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.2:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Mistral: Devstral 2 2512",
@@ -1686,7 +2107,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/mistralai/devstral-2512",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.1-Codex-Max",
@@ -1698,7 +2119,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.1-codex-max",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Mistral: Ministral 3 14B 2512",
@@ -1710,7 +2131,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/mistralai/ministral-14b-2512",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Mistral: Ministral 3 8B 2512",
@@ -1722,7 +2143,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/mistralai/ministral-8b-2512",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Mistral: Ministral 3 8B 2512 (batch)",
@@ -1734,7 +2155,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/mistralai/ministral-8b-2512:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Mistral: Ministral 3 3B 2512",
@@ -1746,7 +2167,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/mistralai/ministral-3b-2512",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Mistral: Mistral Large 3 2512",
@@ -1758,7 +2179,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/mistralai/mistral-large-2512",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Mistral: Mistral Large 3 2512 (batch)",
@@ -1770,7 +2191,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/mistralai/mistral-large-2512:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "DeepSeek: DeepSeek V3.2",
@@ -1782,7 +2203,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/deepseek/deepseek-v3.2",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Anthropic: Claude Opus 4.5",
@@ -1794,7 +2215,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/anthropic/claude-opus-4.5",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Anthropic: Claude Opus 4.5 (batch)",
@@ -1806,7 +2227,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/anthropic/claude-opus-4.5:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Nano Banana Pro (Gemini 3 Pro Image Preview)",
@@ -1818,7 +2239,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-3-pro-image-preview",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.1",
@@ -1830,7 +2251,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.1",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.1 (batch)",
@@ -1842,7 +2263,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.1:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.1-Codex",
@@ -1854,7 +2275,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.1-codex",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5.1-Codex-Mini",
@@ -1866,7 +2287,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5.1-codex-mini",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Mistral: Voxtral Small 24B 2507",
@@ -1878,7 +2299,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/mistralai/voxtral-small-24b-2507",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: gpt-oss-safeguard-20b",
@@ -1890,7 +2311,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-oss-safeguard-20b",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5 Image Mini",
@@ -1902,7 +2323,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5-image-mini",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Anthropic: Claude Haiku 4.5",
@@ -1914,7 +2335,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/anthropic/claude-haiku-4.5",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Anthropic: Claude Haiku 4.5 (batch)",
@@ -1926,7 +2347,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/anthropic/claude-haiku-4.5:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3 VL 8B Instruct",
@@ -1938,7 +2359,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3-vl-8b-instruct",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5 Image",
@@ -1950,7 +2371,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5-image",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Nano Banana (Gemini 2.5 Flash Image)",
@@ -1962,7 +2383,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-2.5-flash-image",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3 VL 30B A3B Thinking",
@@ -1974,7 +2395,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3-vl-30b-a3b-thinking",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3 VL 30B A3B Instruct",
@@ -1986,7 +2407,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3-vl-30b-a3b-instruct",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5 Pro",
@@ -1998,7 +2419,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5-pro",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5 Pro (batch)",
@@ -2010,7 +2431,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5-pro:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Anthropic: Claude Sonnet 4.5",
@@ -2022,7 +2443,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/anthropic/claude-sonnet-4.5",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Anthropic: Claude Sonnet 4.5 (batch)",
@@ -2034,7 +2455,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/anthropic/claude-sonnet-4.5:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "DeepSeek: DeepSeek V3.2 Exp",
@@ -2046,7 +2467,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/deepseek/deepseek-v3.2-exp",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3 VL 235B A22B Instruct",
@@ -2058,7 +2479,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3-vl-235b-a22b-instruct",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "DeepSeek: DeepSeek V3.1 Terminus",
@@ -2070,7 +2491,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/deepseek/deepseek-v3.1-terminus",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3 Coder Flash",
@@ -2082,7 +2503,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3-coder-flash",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3 Next 80B A3B Thinking",
@@ -2094,7 +2515,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3-next-80b-a3b-thinking",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3 Next 80B A3B Instruct",
@@ -2106,7 +2527,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3-next-80b-a3b-instruct",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "DeepSeek: DeepSeek V3.1",
@@ -2118,7 +2539,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/deepseek/deepseek-chat-v3.1",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Mistral: Mistral Medium 3.1",
@@ -2130,7 +2551,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/mistralai/mistral-medium-3.1",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Mistral: Mistral Medium 3.1 (batch)",
@@ -2142,7 +2563,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/mistralai/mistral-medium-3.1:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5",
@@ -2154,7 +2575,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5 (batch)",
@@ -2166,7 +2587,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5 Mini",
@@ -2178,7 +2599,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5-mini",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5 Mini (batch)",
@@ -2190,7 +2611,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5-mini:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5 Nano",
@@ -2202,7 +2623,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5-nano",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-5 Nano (batch)",
@@ -2214,7 +2635,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-5-nano:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: gpt-oss-120b",
@@ -2226,7 +2647,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-oss-120b",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: gpt-oss-120b (batch)",
@@ -2238,7 +2659,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-oss-120b:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: gpt-oss-20b",
@@ -2250,7 +2671,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-oss-20b",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: gpt-oss-20b (batch)",
@@ -2262,7 +2683,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-oss-20b:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Anthropic: Claude Opus 4.1",
@@ -2274,7 +2695,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/anthropic/claude-opus-4.1",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Anthropic: Claude Opus 4.1 (batch)",
@@ -2286,7 +2707,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/anthropic/claude-opus-4.1:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Mistral: Codestral 2508",
@@ -2298,7 +2719,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/mistralai/codestral-2508",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Mistral: Codestral 2508 (batch)",
@@ -2310,7 +2731,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/mistralai/codestral-2508:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3 Coder 30B A3B Instruct",
@@ -2322,7 +2743,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3-coder-30b-a3b-instruct",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3 30B A3B Instruct 2507",
@@ -2334,7 +2755,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3-30b-a3b-instruct-2507",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3 235B A22B Thinking 2507",
@@ -2346,7 +2767,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3-235b-a22b-thinking-2507",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3 Coder 480B A35B",
@@ -2358,7 +2779,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3-coder",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemini 2.5 Flash Lite",
@@ -2370,7 +2791,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-2.5-flash-lite",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemini 2.5 Flash Lite (batch)",
@@ -2382,7 +2803,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-2.5-flash-lite:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3 235B A22B Instruct 2507",
@@ -2394,7 +2815,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3-235b-a22b-2507",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Mistral: Mistral Small 3.2 24B",
@@ -2406,7 +2827,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/mistralai/mistral-small-3.2-24b-instruct",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemini 2.5 Flash",
@@ -2418,7 +2839,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-2.5-flash",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemini 2.5 Flash (batch)",
@@ -2430,7 +2851,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-2.5-flash:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemini 2.5 Pro",
@@ -2442,7 +2863,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-2.5-pro",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemini 2.5 Pro (batch)",
@@ -2454,7 +2875,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-2.5-pro:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: o3 Pro",
@@ -2466,7 +2887,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/o3-pro",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemini 2.5 Pro Preview 06-05",
@@ -2478,7 +2899,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemini-2.5-pro-preview",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "DeepSeek: R1 0528",
@@ -2490,7 +2911,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/deepseek/deepseek-r1-0528",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Anthropic: Claude Sonnet 4",
@@ -2502,7 +2923,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/anthropic/claude-sonnet-4",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Mistral: Mistral Medium 3",
@@ -2514,7 +2935,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/mistralai/mistral-medium-3",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Meta: Llama Guard 4 12B",
@@ -2526,7 +2947,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/meta-llama/llama-guard-4-12b",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3 30B A3B",
@@ -2538,7 +2959,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3-30b-a3b",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3 14B",
@@ -2550,7 +2971,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3-14b",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen3 32B",
@@ -2562,7 +2983,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen3-32b",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: o4 Mini High",
@@ -2574,7 +2995,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/o4-mini-high",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: o3",
@@ -2586,7 +3007,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/o3",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: o3 (batch)",
@@ -2598,7 +3019,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/o3:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: o4 Mini",
@@ -2610,7 +3031,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/o4-mini",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: o4 Mini (batch)",
@@ -2622,7 +3043,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/o4-mini:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-4.1",
@@ -2634,7 +3055,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-4.1",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-4.1 (batch)",
@@ -2646,7 +3067,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-4.1:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-4.1 Mini",
@@ -2658,7 +3079,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-4.1-mini",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-4.1 Mini (batch)",
@@ -2670,7 +3091,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-4.1-mini:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-4.1 Nano",
@@ -2682,7 +3103,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-4.1-nano",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-4.1 Nano (batch)",
@@ -2694,7 +3115,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-4.1-nano:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Meta: Llama 4 Maverick",
@@ -2706,7 +3127,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/meta-llama/llama-4-maverick",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Meta: Llama 4 Scout",
@@ -2718,7 +3139,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/meta-llama/llama-4-scout",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "DeepSeek: DeepSeek V3 0324",
@@ -2730,7 +3151,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/deepseek/deepseek-chat-v3-0324",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: o1-pro",
@@ -2742,7 +3163,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/o1-pro",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Mistral: Mistral Small 3.1 24B",
@@ -2754,7 +3175,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/mistralai/mistral-small-3.1-24b-instruct",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemma 3 4B",
@@ -2766,7 +3187,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemma-3-4b-it",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemma 3 12B",
@@ -2778,7 +3199,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemma-3-12b-it",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemma 3 27B",
@@ -2790,7 +3211,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemma-3-27b-it",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Mistral: Saba",
@@ -2802,7 +3223,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/mistralai/mistral-saba",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: o3 Mini High",
@@ -2814,7 +3235,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/o3-mini-high",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen2.5 VL 72B Instruct",
@@ -2826,7 +3247,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen2.5-vl-72b-instruct",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen-Plus",
@@ -2838,7 +3259,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen-plus",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: o3 Mini",
@@ -2850,7 +3271,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/o3-mini",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: o3 Mini (batch)",
@@ -2862,7 +3283,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/o3-mini:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Mistral: Mistral Small 3",
@@ -2874,7 +3295,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/mistralai/mistral-small-24b-instruct-2501",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "DeepSeek: R1",
@@ -2886,7 +3307,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/deepseek/deepseek-r1",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Microsoft: Phi 4",
@@ -2898,7 +3319,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/microsoft/phi-4",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "DeepSeek: DeepSeek V3",
@@ -2910,7 +3331,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/deepseek/deepseek-chat",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: o1",
@@ -2922,7 +3343,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/o1",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Meta: Llama 3.3 70B Instruct",
@@ -2934,7 +3355,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/meta-llama/llama-3.3-70b-instruct",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-4o (2024-11-20)",
@@ -2946,7 +3367,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-4o-2024-11-20",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Mistral Large 2407",
@@ -2958,7 +3379,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/mistralai/mistral-large-2407",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen2.5 Coder 32B Instruct",
@@ -2970,7 +3391,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen-2.5-coder-32b-instruct",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen: Qwen2.5 7B Instruct",
@@ -2982,7 +3403,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen-2.5-7b-instruct",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Meta: Llama 3.2 1B Instruct",
@@ -2994,7 +3415,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/meta-llama/llama-3.2-1b-instruct",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Meta: Llama 3.2 3B Instruct",
@@ -3006,7 +3427,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/meta-llama/llama-3.2-3b-instruct",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Qwen2.5 72B Instruct",
@@ -3018,7 +3439,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/qwen/qwen-2.5-72b-instruct",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-4o (2024-08-06)",
@@ -3030,7 +3451,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-4o-2024-08-06",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Meta: Llama 3.1 70B Instruct",
@@ -3042,7 +3463,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/meta-llama/llama-3.1-70b-instruct",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Meta: Llama 3.1 8B Instruct",
@@ -3054,7 +3475,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/meta-llama/llama-3.1-8b-instruct",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Mistral: Mistral Nemo",
@@ -3066,7 +3487,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/mistralai/mistral-nemo",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-4o-mini",
@@ -3078,7 +3499,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-4o-mini",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-4o-mini (2024-07-18)",
@@ -3090,7 +3511,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-4o-mini-2024-07-18",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-4o-mini (batch)",
@@ -3102,7 +3523,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-4o-mini:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Google: Gemma 2 27B",
@@ -3114,7 +3535,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/google/gemma-2-27b-it",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-4o",
@@ -3126,7 +3547,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-4o",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-4o (2024-05-13)",
@@ -3138,7 +3559,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-4o-2024-05-13",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-4o (batch)",
@@ -3150,7 +3571,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-4o:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Mistral: Mixtral 8x22B Instruct",
@@ -3162,7 +3583,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/mistralai/mixtral-8x22b-instruct",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "WizardLM-2 8x22B",
@@ -3174,7 +3595,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/microsoft/wizardlm-2-8x22b",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-4 Turbo",
@@ -3186,7 +3607,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-4-turbo",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-4 Turbo (batch)",
@@ -3198,7 +3619,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-4-turbo:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "Mistral Large",
@@ -3210,7 +3631,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/mistralai/mistral-large",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-3.5 Turbo (older v0613)",
@@ -3222,7 +3643,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-3.5-turbo-0613",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-3.5 Turbo Instruct",
@@ -3234,7 +3655,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-3.5-turbo-instruct",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-3.5 Turbo 16k",
@@ -3246,7 +3667,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-3.5-turbo-16k",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-3.5 Turbo",
@@ -3258,7 +3679,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-3.5-turbo",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-3.5 Turbo (batch)",
@@ -3270,7 +3691,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-3.5-turbo:batch",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     },
     {
       "model_name": "OpenAI: GPT-4",
@@ -3282,7 +3703,7 @@
       "currency": "USD",
       "source": "OpenRouter",
       "source_url": "https://openrouter.ai/openai/gpt-4",
-      "retrieved_at": "2026-10-10T19:33:45.855808+00:00"
+      "retrieved_at": "2026-10-10T19:18:00.831323+00:00"
     }
   ],
   "benchmark_standards": [

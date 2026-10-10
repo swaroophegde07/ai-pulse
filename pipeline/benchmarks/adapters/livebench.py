@@ -7,6 +7,7 @@ from __future__ import annotations
 import csv
 import io
 import logging
+import re
 from typing import Any
 import requests
 
@@ -100,12 +101,17 @@ class LiveBenchAdapter(SourceAdapter):
             "Instruction Following": "Instruction Following",
         }
 
+        # Sort keys descending by length so specific models (e.g. gpt-4o-mini, claude-3-5-sonnet) match before shorter substrings
+        sorted_target_keys = sorted(target_models_map.keys(), key=len, reverse=True)
+
         for row in rows:
             raw_model = row.get("model", "").strip().lower()
             matched_info = None
 
-            for key, (disp_name, prov) in target_models_map.items():
-                if key in raw_model or raw_model.startswith(key):
+            for key in sorted_target_keys:
+                pattern = r"(?:^|[^a-z0-9])" + re.escape(key) + r"(?:$|[^a-z0-9])"
+                if re.search(pattern, raw_model):
+                    disp_name, prov = target_models_map[key]
                     matched_info = (key, disp_name, prov)
                     break
 

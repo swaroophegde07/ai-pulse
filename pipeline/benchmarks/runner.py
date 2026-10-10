@@ -193,6 +193,14 @@ def run_benchmark_pipeline(benchmarks_path: Path | None = None) -> dict[str, Any
     write_benchmarks_atomic(output_payload, target_path)
     logger.info("Benchmark pipeline complete: %d benchmark records, %d telemetry records.",
                 len(validated_benchmarks), len(openrouter_metrics))
+
+    # 3. Synchronize models catalog (src/data/models.json) with OpenRouter telemetry
+    try:
+        from pipeline.models.updater import sync_models_catalog
+        sync_models_catalog(openrouter_metrics=openrouter_metrics)
+    except Exception as m_exc:
+        logger.warning("Models catalog synchronization error (non-fatal): %s", m_exc)
+
     return output_payload
 
 

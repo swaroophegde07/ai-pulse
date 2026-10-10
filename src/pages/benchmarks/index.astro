@@ -6,6 +6,7 @@ import NewsCard from "../../components/NewsCard.astro";
 import Footer from "../../components/Footer.astro";
 import feedData from "../../data/feed.json";
 import benchmarksData from "../../data/benchmarks.json";
+import modelsData from "../../data/models.json";
 
 interface FeedRecord {
   id: string;
@@ -36,6 +37,30 @@ interface BenchmarkRecord {
   notes?: string;
 }
 
+interface ModelRecord {
+  id: string;
+  name: string;
+  provider: string;
+  family: string;
+  release_date: string;
+  lifecycle_status: string;
+  context_window: number;
+  input_modalities: string[];
+  output_modalities: string[];
+  license_type: string;
+  api_available: boolean;
+  consumer_available: boolean;
+  pricing?: {
+    input_per_1m: number;
+    output_per_1m: number;
+    unit: string;
+  };
+  documentation_url: string;
+  source_url: string;
+  last_verified: string;
+  notes?: string;
+}
+
 interface SourceNotice {
   source: string;
   url: string;
@@ -48,7 +73,58 @@ const feed = feedData as FeedRecord[];
 const benchmarks = (benchmarksData.benchmarks || []) as BenchmarkRecord[];
 const sources = (benchmarksData.metadata?.sources || []) as SourceNotice[];
 const standards = (benchmarksData.benchmark_standards || []) as any[];
+const models = (modelsData || []) as ModelRecord[];
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+// Mapping from models.json ID to LiveBench canonical ID(s)
+const modelToBenchId: Record<string, string> = {
+  "openai/o1": "o1",
+  "openai/o3-mini": "o3-mini",
+  "openai/gpt-4o": "gpt-4o",
+  "openai/gpt-4o-mini": "gpt-4o-mini",
+  "anthropic/claude-3-5-sonnet": "claude-3-5-sonnet",
+  "anthropic/claude-3-7-sonnet": "claude-3-7-sonnet",
+  "anthropic/claude-3-5-haiku": "claude-3-5-haiku",
+  "deepseek/deepseek-r1": "deepseek-r1",
+  "deepseek/deepseek-v3": "deepseek-v3",
+  "meta/llama-3-3-70b-instruct": "llama-3.3-70b-instruct",
+  "meta/llama-3-1-405b-instruct": "llama-3.1-405b-instruct",
+  "microsoft/phi-4": "phi-4",
+  "mistral/mistral-large-2411": "mistral-large-2411",
+  "google/gemini-2-0-flash": "gemini-2.0-flash",
+  "google/gemini-2-0-pro-exp": "gemini-2.0-pro",
+};
+
+// Build dynamic head-to-head model comparison database
+const dynamicModelDatabase: Record<string, any> = {};
+for (const m of models) {
+  const benchId = modelToBenchId[m.id] || m.id.split("/")[1] || m.id;
+  const rRecord = benchmarks.find(
+    (b) => (b.canonical_id === benchId || b.canonical_id === m.id) && b.category === "Reasoning"
+  );
+  const cRecord = benchmarks.find(
+    (b) =>
+      (b.canonical_id === benchId || b.canonical_id === m.id) &&
+      (b.category === "Coding" || b.category === "Agentic Coding")
+  );
+
+  const ctxStr = m.context_window >= 1_000_000
+    ? `${(m.context_window / 1_000_000).toFixed(m.context_window % 1_000_000 === 0 ? 0 : 1)}M tokens`
+    : `${Math.round(m.context_window / 1000)}k tokens`;
+
+  const pInStr = m.pricing ? `$${m.pricing.input_per_1m.toFixed(2)}` : "Not specified";
+  const pOutStr = m.pricing ? `$${m.pricing.output_per_1m.toFixed(2)}` : "Not specified";
+
+  dynamicModelDatabase[m.id] = {
+    name: m.name,
+    reasoning: rRecord ? `${rRecord.score.toFixed(1)}%` : "Not available",
+    coding: cRecord ? `${cRecord.score.toFixed(1)}%` : "Not available",
+    context: ctxStr,
+    priceIn: pInStr,
+    priceOut: pOutStr,
+    license: m.license_type,
+  };
+}
 
 // Only real articles
 const realArticles = feed.filter((a) => !a._demo);
@@ -85,6 +161,11 @@ const topCoding = [...benchmarks]
 const topOverall = [...benchmarks]
   .filter((b) => b.category === "Composite")
   .sort((a, b) => b.score - a.score)[0];
+
+// Verified cost efficiency record from model catalog
+const costEfficientModel = [...models]
+  .filter((m) => m.pricing && m.pricing.input_per_1m !== undefined)
+  .sort((a, b) => (a.pricing!.input_per_1m) - (b.pricing!.input_per_1m))[0];
 ---
 
 <Layout title="AI Benchmark Board & Model Intelligence — AI Pulse">
@@ -120,10 +201,10 @@ const topOverall = [...benchmarks]
               <span class="font-mono text-[10px] text-neutral-500">LiveBench</span>
             </div>
             <div class="font-bold text-lg text-neutral-100 mb-1">
-              {topReasoning ? topReasoning.model_name : "OpenAI o1"}
+              {topReasoning ? topReasoning.model_name : "Not available"}
             </div>
             <p class="text-xs text-neutral-400 font-mono mb-3">
-              Score: <span class="text-emerald-400 font-semibold">{topReasoning ? `${topReasoning.score}%` : "89.0%"}</span> (Theory of Mind, Logic & Spatial)
+              Score: <span class="text-emerald-400 font-semibold">{topReasoning ? `${topReasoning.score}%` : "Not available"}</span> (Theory of Mind, Logic & Spatial)
             </p>
           </div>
           <div class="border-t border-neutral-800/80 pt-2 font-mono text-[9px] text-neutral-500">
@@ -141,10 +222,10 @@ const topOverall = [...benchmarks]
               <span class="font-mono text-[10px] text-neutral-500">LiveBench</span>
             </div>
             <div class="font-bold text-lg text-neutral-100 mb-1">
-              {topCoding ? topCoding.model_name : "Claude 3.5 Sonnet"}
+              {topCoding ? topCoding.model_name : "Not available"}
             </div>
             <p class="text-xs text-neutral-400 font-mono mb-3">
-              Score: <span class="text-emerald-400 font-semibold">{topCoding ? `${topCoding.score}%` : "76.1%"}</span> (Code Gen & Completion)
+              Score: <span class="text-emerald-400 font-semibold">{topCoding ? `${topCoding.score}%` : "Not available"}</span> (Code Gen & Completion)
             </p>
           </div>
           <div class="border-t border-neutral-800/80 pt-2 font-mono text-[9px] text-neutral-500">
@@ -162,10 +243,10 @@ const topOverall = [...benchmarks]
               <span class="font-mono text-[10px] text-neutral-500">LiveBench</span>
             </div>
             <div class="font-bold text-lg text-neutral-100 mb-1">
-              {topOverall ? topOverall.model_name : "OpenAI o1"}
+              {topOverall ? topOverall.model_name : "Not available"}
             </div>
             <p class="text-xs text-neutral-400 font-mono mb-3">
-              Score: <span class="text-emerald-400 font-semibold">{topOverall ? `${topOverall.score}%` : "68.4%"}</span> across all tasks
+              Score: <span class="text-emerald-400 font-semibold">{topOverall ? `${topOverall.score}%` : "Not available"}</span> across all tasks
             </p>
           </div>
           <div class="border-t border-neutral-800/80 pt-2 font-mono text-[9px] text-neutral-500">
@@ -180,17 +261,19 @@ const topOverall = [...benchmarks]
               <span class="font-mono text-[10px] text-amber-400 uppercase tracking-wider">
                 Cost Efficiency
               </span>
-              <span class="font-mono text-[10px] text-neutral-500">OpenRouter</span>
+              <span class="font-mono text-[10px] text-neutral-500">Model Catalog</span>
             </div>
             <div class="font-bold text-lg text-neutral-100 mb-1">
-              DeepSeek-V3 / R1
+              {costEfficientModel ? costEfficientModel.name : "Not available"}
             </div>
             <p class="text-xs text-neutral-400 font-mono mb-3">
-              Pricing: <span class="text-emerald-400 font-semibold">$0.27 / $1.10</span> per 1M tokens (MIT Licensed)
+              Pricing: <span class="text-emerald-400 font-semibold">
+                {costEfficientModel?.pricing ? `$${costEfficientModel.pricing.input_per_1m.toFixed(2)} / $${costEfficientModel.pricing.output_per_1m.toFixed(2)}` : "Not available"}
+              </span> per 1M tokens ({costEfficientModel ? costEfficientModel.license_type : "Verified"})
             </p>
           </div>
           <div class="border-t border-neutral-800/80 pt-2 font-mono text-[9px] text-neutral-500">
-            Source: OpenRouter Live Telemetry
+            Source: Verified Model Specifications
           </div>
         </div>
       </div>
@@ -297,7 +380,11 @@ const topOverall = [...benchmarks]
     </section>
 
     <!-- 4C. Model Head-to-Head Comparison -->
-    <section class="mb-14 border border-neutral-800 bg-neutral-900/40 rounded-lg p-6">
+    <section
+      id="model-comparison-section"
+      class="mb-14 border border-neutral-800 bg-neutral-900/40 rounded-lg p-6"
+      data-models-db={JSON.stringify(dynamicModelDatabase)}
+    >
       <div class="mb-6">
         <h2 class="text-xs font-mono text-neutral-300 tracking-widest uppercase mb-1">
           Model Head-to-Head Comparison
@@ -317,11 +404,13 @@ const topOverall = [...benchmarks]
             id="compare-model-a"
             class="w-full bg-neutral-950 border border-neutral-800 rounded px-3 py-2 text-xs font-mono text-neutral-100 focus:outline-none focus:border-blue-500"
           >
-            <option value="openai/o1">OpenAI o1</option>
-            <option value="anthropic/claude-3-5-sonnet">Claude 3.5 Sonnet</option>
-            <option value="deepseek/deepseek-r1">DeepSeek-R1</option>
-            <option value="openai/gpt-4o">GPT-4o</option>
-            <option value="google/gemini-2-0-flash">Gemini 2.0 Flash</option>
+            {
+              models.map((m) => (
+                <option value={m.id} selected={m.id === "openai/o1"}>
+                  {m.name}
+                </option>
+              ))
+            }
           </select>
         </div>
 
@@ -334,11 +423,13 @@ const topOverall = [...benchmarks]
             id="compare-model-b"
             class="w-full bg-neutral-950 border border-neutral-800 rounded px-3 py-2 text-xs font-mono text-neutral-100 focus:outline-none focus:border-blue-500"
           >
-            <option value="deepseek/deepseek-r1">DeepSeek-R1</option>
-            <option value="openai/o1">OpenAI o1</option>
-            <option value="anthropic/claude-3-5-sonnet">Claude 3.5 Sonnet</option>
-            <option value="openai/gpt-4o">GPT-4o</option>
-            <option value="google/gemini-2-0-flash">Gemini 2.0 Flash</option>
+            {
+              models.map((m) => (
+                <option value={m.id} selected={m.id === "deepseek/deepseek-r1"}>
+                  {m.name}
+                </option>
+              ))
+            }
           </select>
         </div>
       </div>
@@ -349,46 +440,46 @@ const topOverall = [...benchmarks]
           <thead>
             <tr class="border-b border-neutral-800 text-neutral-500 text-[11px]">
               <th class="py-3 px-4 font-medium">Evaluation Dimension</th>
-              <th class="py-3 px-4 font-medium text-neutral-200" id="col-name-a">Model A</th>
-              <th class="py-3 px-4 font-medium text-neutral-200" id="col-name-b">Model B</th>
+              <th class="py-3 px-4 font-medium text-neutral-200" id="col-name-a">{dynamicModelDatabase["openai/o1"]?.name || "Model A"}</th>
+              <th class="py-3 px-4 font-medium text-neutral-200" id="col-name-b">{dynamicModelDatabase["deepseek/deepseek-r1"]?.name || "Model B"}</th>
               <th class="py-3 px-4 font-medium text-neutral-500">Source & Provenance</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-neutral-800/60 text-neutral-300">
             <tr>
               <td class="py-3 px-4 text-neutral-400">LiveBench Reasoning Score</td>
-              <td class="py-3 px-4 font-bold text-emerald-400" id="cmp-reasoning-a">89.0%</td>
-              <td class="py-3 px-4 font-bold text-emerald-400" id="cmp-reasoning-b">78.5%</td>
+              <td class="py-3 px-4 font-bold text-emerald-400" id="cmp-reasoning-a">{dynamicModelDatabase["openai/o1"]?.reasoning || "Not available"}</td>
+              <td class="py-3 px-4 font-bold text-emerald-400" id="cmp-reasoning-b">{dynamicModelDatabase["deepseek/deepseek-r1"]?.reasoning || "Not available"}</td>
               <td class="py-3 px-4 text-[10px] text-neutral-500">LiveBench (Jan 2026)</td>
             </tr>
             <tr>
               <td class="py-3 px-4 text-neutral-400">LiveBench Coding Score</td>
-              <td class="py-3 px-4 font-bold text-emerald-400" id="cmp-coding-a">76.1%</td>
-              <td class="py-3 px-4 font-bold text-emerald-400" id="cmp-coding-b">69.8%</td>
+              <td class="py-3 px-4 font-bold text-emerald-400" id="cmp-coding-a">{dynamicModelDatabase["openai/o1"]?.coding || "Not available"}</td>
+              <td class="py-3 px-4 font-bold text-emerald-400" id="cmp-coding-b">{dynamicModelDatabase["deepseek/deepseek-r1"]?.coding || "Not available"}</td>
               <td class="py-3 px-4 text-[10px] text-neutral-500">LiveBench (Jan 2026)</td>
             </tr>
             <tr>
               <td class="py-3 px-4 text-neutral-400">Context Window</td>
-              <td class="py-3 px-4 font-medium" id="cmp-context-a">200k tokens</td>
-              <td class="py-3 px-4 font-medium" id="cmp-context-b">128k tokens</td>
+              <td class="py-3 px-4 font-medium" id="cmp-context-a">{dynamicModelDatabase["openai/o1"]?.context || "Not available"}</td>
+              <td class="py-3 px-4 font-medium" id="cmp-context-b">{dynamicModelDatabase["deepseek/deepseek-r1"]?.context || "Not available"}</td>
               <td class="py-3 px-4 text-[10px] text-neutral-500">OpenRouter Catalog</td>
             </tr>
             <tr>
               <td class="py-3 px-4 text-neutral-400">Input Price (per 1M tokens)</td>
-              <td class="py-3 px-4 font-medium" id="cmp-price-in-a">$15.00</td>
-              <td class="py-3 px-4 font-medium" id="cmp-price-in-b">$0.55</td>
+              <td class="py-3 px-4 font-medium" id="cmp-price-in-a">{dynamicModelDatabase["openai/o1"]?.priceIn || "Not available"}</td>
+              <td class="py-3 px-4 font-medium" id="cmp-price-in-b">{dynamicModelDatabase["deepseek/deepseek-r1"]?.priceIn || "Not available"}</td>
               <td class="py-3 px-4 text-[10px] text-neutral-500">Provider API Pricing</td>
             </tr>
             <tr>
               <td class="py-3 px-4 text-neutral-400">Output Price (per 1M tokens)</td>
-              <td class="py-3 px-4 font-medium" id="cmp-price-out-a">$60.00</td>
-              <td class="py-3 px-4 font-medium" id="cmp-price-out-b">$2.19</td>
+              <td class="py-3 px-4 font-medium" id="cmp-price-out-a">{dynamicModelDatabase["openai/o1"]?.priceOut || "Not available"}</td>
+              <td class="py-3 px-4 font-medium" id="cmp-price-out-b">{dynamicModelDatabase["deepseek/deepseek-r1"]?.priceOut || "Not available"}</td>
               <td class="py-3 px-4 text-[10px] text-neutral-500">Provider API Pricing</td>
             </tr>
             <tr>
               <td class="py-3 px-4 text-neutral-400">License / Weights</td>
-              <td class="py-3 px-4 font-medium" id="cmp-license-a">Proprietary API</td>
-              <td class="py-3 px-4 font-medium" id="cmp-license-b">Open Weights (MIT)</td>
+              <td class="py-3 px-4 font-medium" id="cmp-license-a">{dynamicModelDatabase["openai/o1"]?.license || "Not available"}</td>
+              <td class="py-3 px-4 font-medium" id="cmp-license-b">{dynamicModelDatabase["deepseek/deepseek-r1"]?.license || "Not available"}</td>
               <td class="py-3 px-4 text-[10px] text-neutral-500">Official Model Card</td>
             </tr>
           </tbody>
@@ -594,54 +685,16 @@ const topOverall = [...benchmarks]
     // 2. Head-to-Head Model Comparison Logic
     const selectA = document.getElementById("compare-model-a") as HTMLSelectElement | null;
     const selectB = document.getElementById("compare-model-b") as HTMLSelectElement | null;
+    const cmpSection = document.getElementById("model-comparison-section");
 
-    const modelDatabase: Record<string, any> = {
-      "openai/o1": {
-        name: "OpenAI o1",
-        reasoning: "89.0%",
-        coding: "76.1%",
-        context: "200k tokens",
-        priceIn: "$15.00",
-        priceOut: "$60.00",
-        license: "Proprietary API",
-      },
-      "anthropic/claude-3-5-sonnet": {
-        name: "Claude 3.5 Sonnet",
-        reasoning: "78.4%",
-        coding: "76.1%",
-        context: "200k tokens",
-        priceIn: "$3.00",
-        priceOut: "$15.00",
-        license: "Proprietary API",
-      },
-      "deepseek/deepseek-r1": {
-        name: "DeepSeek-R1",
-        reasoning: "82.5%",
-        coding: "72.4%",
-        context: "128k tokens",
-        priceIn: "$0.55",
-        priceOut: "$2.19",
-        license: "Open Weights (MIT)",
-      },
-      "openai/gpt-4o": {
-        name: "GPT-4o",
-        reasoning: "69.1%",
-        coding: "65.8%",
-        context: "128k tokens",
-        priceIn: "$2.50",
-        priceOut: "$10.00",
-        license: "Proprietary API",
-      },
-      "google/gemini-2-0-flash": {
-        name: "Gemini 2.0 Flash",
-        reasoning: "65.3%",
-        coding: "68.2%",
-        context: "1048k tokens",
-        priceIn: "$0.10",
-        priceOut: "$0.40",
-        license: "Proprietary API",
-      },
-    };
+    let modelDatabase: Record<string, any> = {};
+    if (cmpSection?.dataset.modelsDb) {
+      try {
+        modelDatabase = JSON.parse(cmpSection.dataset.modelsDb);
+      } catch (e) {
+        console.error("Failed to parse model comparison database:", e);
+      }
+    }
 
     function updateComparison() {
       const keyA = selectA?.value || "openai/o1";
