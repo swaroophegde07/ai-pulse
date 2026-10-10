@@ -1,5 +1,317 @@
 [
   {
+    "id": "818f4dcf830d117b",
+    "title": "Anthropic is cutting off its internal evaluations from the internet",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "[Automated summary unavailable] After a recent spate of high-profile incidents in which AI agents escaped containment, Anthropic is cutting off internet access for all internal evaluations. In a report Friday, the company detailed…",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1009286/anthropic-is-cutting-off-its-internal-evaluations-from-the-internet",
+    "date": "2026-10-10T14:41:16+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.304936+00:00",
+    "topics": [
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "Provides verified empirical measurements of frontier reasoning performance."
+  },
+  {
+    "id": "c9390824224ecd5b",
+    "title": "AI agent makers are promising privacy — will they deliver?",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "[Automated summary unavailable] At this year's OpenAI DevDay, CEO Sam Altman unveiled the company's new AI agent Dots - and told the crowd that the company wants to \"set a new standard for privacy in frontier AI.\" OpenAI would…",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1009051/privacy-ai-agent-promises-openai-meta-muse-dots",
+    "date": "2026-10-10T13:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.304978+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "04a3afe8fc92fa04",
+    "title": "An Explainable Header-Centric Framework for Large-Scale Semantic Table Interpretation and Data Quality Assessment",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2610.10541v1 Announce Type: new Abstract: Knowledge Graph (KG) quality depends not only on downstream graph validation, but also on the quality of tabular metadata used before integration. In…",
+    "url": "https://arxiv.org/abs/2610.10541",
+    "date": "2026-10-10T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-10T18:51:14.306377+00:00",
+    "topics": [
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "Introduces algorithmic methodologies that influence downstream model training."
+  },
+  {
+    "id": "30c38a4f4bf9960a",
+    "title": "Synthesis Through Simulation: Generating Coherent Enterprise Data via Scalable Agent-System Interaction",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "The authors introduce Synthesis Through Simulation (STS), a schema-free data synthesis paradigm where an LLM agent generates enterprise data by executing operations against policy-enforcing APIs in simulated environments. Utilizing a domain-agnostic agent called the Generalist Populator, the approach achieves 0.88 average marginal fidelity and 100% constraint satisfaction across ten environments without database schemas. The full framework, simulation environments, and generated datasets are open-sourced.",
+    "url": "https://arxiv.org/abs/2610.10549",
+    "date": "2026-10-10T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-10T18:51:14.306424+00:00",
+    "topics": [
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Policy and Regulation",
+      "Business and Industry",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "Introduces algorithmic methodologies that influence downstream model training."
+  },
+  {
+    "id": "ba63583808d70cbb",
+    "title": "Agent-Controlled Forgetting for Tool-Using Agents: Reversible Context Curation in Practice",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This research introduces agent-controlled forgetting, a technique where tool-using agents replace bulky tool observations with short notes while preserving originals in an archive. In experimental evaluations, the approach reduced prompt tokens and API costs in noisy trajectories, though outcomes varied significantly depending on the specific workload. The method relies on a Python harness enabling batch archival and recovery without requiring task-specific model training.",
+    "url": "https://arxiv.org/abs/2610.10590",
+    "date": "2026-10-10T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-10T18:51:14.306476+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "Provides verified empirical measurements of frontier reasoning performance."
+  },
+  {
+    "id": "1322a304a3c5e652",
+    "title": "Verification and Self-Improvement in Agentic AI: Foundations and Limits",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This research paper formalizes agentic AI self-improvement and verification through bounded verification with hidden terminal randomness. The authors prove that independent majority amplification preserves defined languages, whereas existential acceptance over random tapes can admit incorrect outputs. Furthermore, the work establishes that uniformly bounded self-modification under a common sound interpreter remains within the same verification class.",
+    "url": "https://arxiv.org/abs/2610.10611",
+    "date": "2026-10-10T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-10T18:51:14.306521+00:00",
+    "topics": [
+      "AI Agents",
+      "Research and Breakthroughs",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "Introduces algorithmic methodologies that influence downstream model training."
+  },
+  {
+    "id": "20b6195dd6f81b9b",
+    "title": "The Harness as the Only Mutable Surface: Compliance-Bounded Self-Evolution of LLM Agents in Credit Pipelines, with a Measured Admission Gate",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This research introduces a dual-loop engine for self-improving LLM agents in credit pipelines that confines evolution to the runtime harness while keeping model weights fixed. A hash-chained admission gate reviews proposed changes as traceable diffs, preventing harmful adaptations and aligning with regulatory standards such as the EU AI Act. The simulation results show that the gated loop successfully restored false-positive rates without increasing missed flags across various severity levels.",
+    "url": "https://arxiv.org/abs/2610.10629",
+    "date": "2026-10-10T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-10T18:51:14.306569+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Policy and Regulation",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "Provides verified empirical measurements of frontier reasoning performance."
+  },
+  {
+    "id": "dc072a92c6c9bda0",
+    "title": "Speaking the Navigator's Language: Trajectory-Grounded Instruction Translation for Frozen Aerial VLN Agents",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Aerial vision-and-language navigation agents experience a significant performance drop when processing short, intent-driven user instructions instead of detailed, trajectory-aligned commands. To bridge this instruction gap without modifying the frozen navigator, the authors introduce the Trajectory-Grounded Instruction Translator, which converts weak inputs into agent-executable commands by learning from trajectory outcomes. This translator successfully raises weak-input success rates and demonstrates zero-shot transfer capabilities to real human instructions across multiple datasets.",
+    "url": "https://arxiv.org/abs/2610.10635",
+    "date": "2026-10-10T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-10T18:51:14.306621+00:00",
+    "topics": [
+      "AI Agents"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "Introduces algorithmic methodologies that influence downstream model training."
+  },
+  {
+    "id": "de3301f4821ae8ca",
+    "title": "Plan-and-Patch: Diffusion Language Models for Agentic Planning",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Plan-and-Patch introduces a framework utilizing diffusion language models for structured plan generation and localized repair in long-horizon agents. The diffusion planner achieves a 53.7% plan repair success rate compared to 27.0% for autoregressive planners on Natural Plan without task-specific training. Additionally, it reduces mean plan-generation latency by 39-46% relative to autoregressive models after training on ALFWorld and TextCraft.",
+    "url": "https://arxiv.org/abs/2610.10786",
+    "date": "2026-10-10T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-10T18:51:14.306690+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "Introduces algorithmic methodologies that influence downstream model training."
+  },
+  {
+    "id": "5fbdf754feb46aff",
+    "title": "Whose Ground Truth? Embracing Ambiguity in Human-Centered AI",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Traditional machine learning often assumes a single definitive ground truth, dismissing human annotation variability as noise. This position paper advocates for modeling the space of plausible human judgments to account for inherent ambiguity in human-centered tasks. The authors argue that this shift should influence AI representation, learning, evaluation, deployment, and governance to better reflect diverse human perspectives.",
+    "url": "https://arxiv.org/abs/2610.10805",
+    "date": "2026-10-10T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-10T18:51:14.306736+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Policy and Regulation"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "Provides verified empirical measurements of frontier reasoning performance."
+  },
+  {
+    "id": "2d399e565010d00a",
+    "title": "On the Clock: Towards Punctual and Productive Time-Budgeted AI Agents",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This study evaluates small LLM agents operating under explicit wall-clock time budgets using Qwen3.6-27B on MLE-Bench Lite and Qwen3-4B on Zork I. The findings indicate that agents initially fail to respect time limits, but harness-based timing information and reinforcement learning significantly improve budget adherence. However, agents still struggle to productively utilize additional time to enhance task performance.",
+    "url": "https://arxiv.org/abs/2610.10833",
+    "date": "2026-10-10T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-10T18:51:14.306778+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "Introduces algorithmic methodologies that influence downstream model training."
+  },
+  {
+    "id": "83dfccd4c450e4a4",
+    "title": "Self-Supervised Keyframe Discovery for Horizon-Invariant Behavior Cloning",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Keyframe Mnemonics is introduced as a self-supervised method for behavior cloning in non-Markovian environments by discovering information-critical observations to model action distributions over long horizons. The approach offers context retention guarantees over an infinite horizon while utilizing a small set of decision-relevant keyframes. Evaluations on synthetic memory domains and robot manipulation benchmarks demonstrate that the method achieves high success rates and robust generalization to extended horizons beyond training.",
+    "url": "https://arxiv.org/abs/2610.10857",
+    "date": "2026-10-10T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-10T18:51:14.306823+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "Provides verified empirical measurements of frontier reasoning performance."
+  },
+  {
+    "id": "0854a3cada87fb07",
+    "title": "Anthropic’s AI gave Philadelphia police a fake tip about an unsolved homicide",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "[Automated summary unavailable] An Anthropic AI model provided false information about an unsolved homicide to a Philadelphia Police Department (PPD) tipline, according to a report from 6abc. In a statement released on Friday, the…",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1009090/anthropic-fake-homicide-information-philadelphia-pd-tip",
+    "date": "2026-10-09T21:15:38+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.305023+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "42d1906c74af83c6",
+    "title": "&#8216;Pure insanity&#8217;: Mathematicians will need years to make sense of OpenAI&#8217;s latest drop",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "[Automated summary unavailable] \"Staggering.\" \"Overwhelming.\" \"Unprecedented.\" \"Surreal.\" \"Pure insanity.\" Those were among the descriptions more than three dozen mathematicians reached for in conversations with The Verge as they…",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1008726/openai-mathematics-solutions-chaos",
+    "date": "2026-10-09T19:09:44+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.305070+00:00",
+    "topics": [
+      "Business and Industry"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "57fe1472ddc36d4e",
+    "title": "Nikon microscopic video competition winner disqualified for using generative AI",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "[Automated summary unavailable] The original first place video used AI in post-processing. | Image: Dr. Ning Xu Nikon says the video that originally won first place in its Small World in Motion contest \"did not comply with the…",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1008930/nikon-small-world-in-motion-winner-ai",
+    "date": "2026-10-09T18:06:57+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.305119+00:00",
+    "topics": [
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
     "id": "e05551817b225bef",
     "title": "Impactful scheduling for GPU clusters",
     "company": "Hugging Face",
@@ -14,6 +326,432 @@
       "Infrastructure and Hardware"
     ],
     "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "9c3c12ce2bad85bf",
+    "title": "Trump’s attempt to rename AI is looking awfully artificial",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "[Automated summary unavailable] President Donald Trump has a knack for turning words against his enemies. His first successful presidential run was built on monikers like \"Little Marco\" and \"Crooked Hillary\"; he changed \"fake…",
+    "url": "https://www.theverge.com/policy/1008677/trump-super-intelligence-ai-rebranding",
+    "date": "2026-10-09T14:25:43+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.305163+00:00",
+    "topics": [
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "3c5e66d9de6d1c79",
+    "title": "Instinct was the buzziest AI agent around — can it survive Muse?",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "[Automated summary unavailable] Instinct’s agent is always just a text away. Before there were cute little guys , there was Instinct. In August, the startup got its AI agent to market with an unusual playbook: invite-only, no…",
+    "url": "https://www.theverge.com/tech/1008254/instinct-agent-ai-hands-on-muse-dots",
+    "date": "2026-10-09T14:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.305208+00:00",
+    "topics": [
+      "AI Agents",
+      "Business and Industry"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "ec445018e75f175b",
+    "title": "The Download: AI’s refusal problem and weight-loss drug side effects",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "Current AI models are heavily trained to refuse harmful prompts, but these safety mechanisms can fail and create difficult trade-offs regarding capability and censorship. Meanwhile, researchers are investigating the broader benefits and side effects of GLP-1 weight-loss drugs. Additionally, companies like Envision Energy are utilizing AI-powered systems to optimize wind and battery power for data centers.",
+    "url": "https://www.technologyreview.com/2026/10/09/1146250/the-download-ai-refusal-problem-weight-loss-drug-side-effects",
+    "date": "2026-10-09T12:10:00+00:00",
+    "category": "Opinion",
+    "fetched_at": "2026-10-10T18:51:14.305901+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "d55dd9b285d68fe3",
+    "title": "OpenAI doubles down on decision to fire three AI safety researchers",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "OpenAI defended its decision to fire three safety researchers, stating they committed a significant breach of trust by violating policies on handling sensitive information. The company denied the dismissals were related to the researchers speaking out about AI safety concerns. This statement responds to an open letter and social media posts from the researchers demanding greater transparency regarding their firing.",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1008604/openai-defends-decision-fire-safety-researchers",
+    "date": "2026-10-09T09:48:26+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.305253+00:00",
+    "topics": [
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "83fd479413834064",
+    "title": "We’re putting too much faith in AI’s ability to say no",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "Modern artificial intelligence models undergo extensive safety training to refuse harmful prompts, such as instructions for violence or illegal acts, using techniques like reinforcement learning and auxiliary moderation systems. However, because these refusal mechanisms are probabilistic and foundational models still retain vast capabilities for dangerous tasks, relying entirely on AI disobedience remains unreliable. Determined users can frequently bypass these safety boundaries, highlighting the fragility of current AI alignment strategies.",
+    "url": "https://www.technologyreview.com/2026/10/09/1145728/we-are-putting-too-much-faith-in-ai-to-say-no",
+    "date": "2026-10-09T09:00:00+00:00",
+    "category": "Opinion",
+    "fetched_at": "2026-10-10T18:51:14.305957+00:00",
+    "topics": [
+      "Models and Releases",
+      "Safety and Security"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "456f209fddad2731",
+    "title": "Job titles of the future: Delivery drone air traffic controller",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "Remote pilots in command, such as FlyTrex employee Trevor Wischnewsky, act as air traffic controllers for commercial delivery drone fleets operating in areas like Dallas. These professionals require FAA drone certification, aviation experience, and the ability to monitor multiple autonomous vehicles while handling weather-related interventions. Companies including FlyTrex, Zipline, Amazon, and Alphabet's Wing utilize unmanned aircraft systems traffic management networks to coordinate drone flights safely.",
+    "url": "https://www.technologyreview.com/2026/10/09/1145737/job-titles-delivery-drone-air-traffic-controller-trevor-wischnewsky",
+    "date": "2026-10-09T09:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.306021+00:00",
+    "topics": [
+      "Business and Industry"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "3a37b5ad182749ab",
+    "title": "We’re still figuring out the side effects of GLP-1 weight-loss drugs",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "[Automated summary unavailable] This week my colleague Antonio Regalado had an interesting update on GLP-1 weight-loss drugs. According to research presented at an aging meeting in Boston, these drugs seem to affect at least some…",
+    "url": "https://www.technologyreview.com/2026/10/09/1146094/were-still-figuring-out-the-side-effects-of-glp-1-weight-loss-drugs",
+    "date": "2026-10-09T09:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.306081+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "570fe3204556675e",
+    "title": "Sophos cuts threat investigation time by 96% with OpenAI Daybreak",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Sophos implemented OpenAI's Daybreak technology to reduce cyber-threat investigation time by 96%. The integration also automates 52% of managed detection and response (MDR) cases while maintaining human oversight.",
+    "url": "https://openai.com/index/sophos",
+    "date": "2026-10-09T07:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.303270+00:00",
+    "topics": [
+      "Models and Releases"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "9bf93d58cc35db99",
+    "title": "Asana cuts model costs 76x in browser tests with GPT-6.1 Sol",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Asana integrated GPT-6 Astra within Codex to evaluate browser agent performance. The test results showed a 76x reduction in cost and a 5x increase in speed, aimed at providing customers with more capable models.",
+    "url": "https://openai.com/index/asana-browser-agent",
+    "date": "2026-10-09T07:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.303363+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 7,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "4b1ee3039cb69fe0",
+    "title": "Roundtables: A Conversation With the Creator of AI-Designed Viruses",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "[Automated summary unavailable] Friday, October 16, 2026 Can AI design new life forms? In 2025, Stanford University PhD student Samuel King came up with a preliminary answer when he used a generative AI model to propose genetic…",
+    "url": "https://www.technologyreview.com/2026/10/08/1146224/roundtables-a-conversation-with-the-creator-of-ai-designed-viruses",
+    "date": "2026-10-09T00:08:24+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.306130+00:00",
+    "topics": [
+      "Models and Releases"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "0856c1a27e7e11a7",
+    "title": "Anthropic launches free AI security scans for open-source projects",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "Anthropic introduced a free service called OSS Scanner to provide periodic security scans for opt-in open-source projects using its AI models. The scans are fully model-generated without human review or triage to enable faster reporting, though this may result in some incorrect or invalid findings.",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1008521/anthropic-open-source-oss-scanner",
+    "date": "2026-10-08T21:53:51+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.305303+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Safety and Security"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "d5fea414d61e112a",
+    "title": "5 Steps to Create SimReady Assets for Robotics with Frontier AI Models",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "Preparing CAD assets for robotics simulation involves configuring materials, collision geometry, joints, and physics properties to validate robot behavior. NVIDIA Omniverse libraries and agentic NVIDIA skills provide a structured workflow for converting and validating these SimReady assets based on foundation specifications.",
+    "url": "https://developer.nvidia.com/blog/5-steps-to-create-simready-assets-for-robotics-with-frontier-ai-models",
+    "date": "2026-10-08T20:57:55+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.306871+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "7bd525b884109b29",
+    "title": "California is trying to shut down robot vs. human cage matches",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "The California State Athletic Commission issued a cease-and-desist letter to a startup named Rek for hosting a combat match between a human and a remote-controlled humanoid robot on September 18th. The event featured human participant Frankie LaPenna fighting a modified EngineAI robot piloted via a virtual reality system.",
+    "url": "https://www.theverge.com/tech/1008401/california-shut-down-rek-fighting-robot-company-human",
+    "date": "2026-10-08T20:06:56+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.305341+00:00",
+    "topics": [
+      "Business and Industry",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "983129a3016b1868",
+    "title": "Building Reliable Data Analytics Agents: Lessons from the KDD Cup",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "The NVIDIA KGMON team secured second place in the KDD Cup 2026 Data Agents competition by utilizing a system with a streamlined and easily verifiable agent harness. The competition challenged agents to answer natural-language questions using heterogeneous data sources such as databases, CSV and JSON files, prose documents, PDFs, and briefing videos.",
+    "url": "https://developer.nvidia.com/blog/building-reliable-data-analytics-agents-lessons-from-the-kdd-cup",
+    "date": "2026-10-08T18:30:02+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.306923+00:00",
+    "topics": [
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "db7b9e6fe248e314",
+    "title": "How Oracle turns days of work into minutes with ChatGPT and Codex",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Oracle utilizes ChatGPT Work and Codex to transform specialist knowledge into fast and repeatable workflows across recruiting, engineering, and operations. This adoption significantly reduces the time required for complex tasks from days to minutes.",
+    "url": "https://openai.com/index/oracle",
+    "date": "2026-10-08T16:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.303413+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "66f33d3c297836e0",
+    "title": "The Download: AI roadblocks for humanoids and portable rubber dams",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "[Automated summary unavailable] This is today’s edition of The Download , our weekday newsletter that provides a daily dose of what’s going on in the world of technology. AI breakthroughs in robotics won’t change your life any…",
+    "url": "https://www.technologyreview.com/2026/10/08/1146045/the-download-ai-roadblocks-humanoids-portable-rubber-dams",
+    "date": "2026-10-08T12:10:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.306171+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "855092fba1df7e8a",
+    "title": "Pollo AI turns creative ideas into campaigns with OpenAI",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Pollo AI integrates OpenAI models including GPT-5.6, GPT-6 Astra, and GPT-Image-2.5 to help creators generate detailed images and cinematic video ads. The platform is designed to transform creative ideas into complete advertising campaigns.",
+    "url": "https://openai.com/index/pollo-ai",
+    "date": "2026-10-08T12:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.303455+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "45d6a2b79938283a",
+    "title": "LegalOn halves Codex costs while maintaining development speed",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "LegalOn reduced its daily Codex expenses by 65% while keeping development velocity steady. The organization achieved this reduction by aligning specific models like Astra, Sol, and Luna with appropriate tasks and strategically managing budgets.",
+    "url": "https://openai.com/index/legalon-halves-codex-costs",
+    "date": "2026-10-08T12:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.303493+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 1,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Primary lab announcement from OpenAI",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "edda5c68b018758e",
+    "title": "Why we’re watching these climate tech companies",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "[Automated summary unavailable] This week, we released our 2026 version of our Climate Tech Companies to Watch list. It’s an annual project that the MIT Technology Review team puts together. Our goal is to highlight some of the…",
+    "url": "https://www.technologyreview.com/2026/10/08/1145920/climate-tech-companies-list",
+    "date": "2026-10-08T10:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.306210+00:00",
+    "topics": [
+      "Models and Releases"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "93c31b5defc3d49a",
+    "title": "AI breakthroughs in robotics won’t change your life any time soon",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "[Automated summary unavailable] The story is a collaboration between MIT Technology Review and Aventine , a non-profit research foundation that creates and supports content about how technology and science are changing the way we…",
+    "url": "https://www.technologyreview.com/2026/10/08/1145923/ai-breakthroughs-in-robotics-wont-change-your-life-any-time-soon",
+    "date": "2026-10-08T09:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.306254+00:00",
+    "topics": [
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "c9f8263218d16e77",
+    "title": "Building a safer path to autonomous industrial AI",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "[Automated summary unavailable] Industrial AI is entering a new phase. After decades of predictive analytics and other specialized applications, advances in foundation models, physical AI, and agentic AI are making it possible to…",
+    "url": "https://www.technologyreview.com/2026/10/08/1144020/building-a-safer-path-to-autonomous-industrial-ai",
+    "date": "2026-10-08T08:17:32+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.306300+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
     "priority_score": 0,
     "priority_label": "Worth a Look",
     "priority_explanation": "Relevant AI development",
@@ -39,6 +777,89 @@
     "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
   },
   {
+    "id": "d9e485b409fe8517",
+    "title": "Disrupting AI-enabled “false front” operations",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "OpenAI disrupted two AI-enabled influence operations using false-front journalists and a think tank to spread geopolitical messaging. These operations utilized artificial intelligence tools to generate deceptive content and impersonate authoritative entities.",
+    "url": "https://openai.com/index/disrupting-ai-enabled-false-front-operations",
+    "date": "2026-10-08T00:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.303528+00:00",
+    "topics": [
+      "Business and Industry"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 1,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Primary lab announcement from OpenAI",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "3edacba82f9b35c2",
+    "title": "The Machines that Make the Machines",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "Robots were trained to assemble NVIDIA Grace Blackwell GB300 tester trays to automate complex manufacturing tasks. This process provided insights into robot learning, mechanical intelligence, and industrial engineering applications.",
+    "url": "https://developer.nvidia.com/blog/the-machines-that-make-the-machines",
+    "date": "2026-10-07T18:21:03+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.306966+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "daa797ee94397435",
+    "title": "Secret protection must scale with software",
+    "company": "GitHub",
+    "source": "GitHub AI & Copilot",
+    "summary": "GitHub data shows that while AI agents are accelerating code creation, the per-push prevalence of leaked secrets has remained stable rather than increasing due to carelessness. To address the scaling challenge of credential exposure, a fine-tuned classifier built with Microsoft Applied Sciences was introduced to extend push protection to unstructured secrets. This model assesses candidate secrets in under two milliseconds and aims to more than double prevented leaks.",
+    "url": "https://github.blog/ai-and-ml/github-copilot/secret-protection-must-scale-with-software",
+    "date": "2026-10-07T17:45:34+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.303736+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Open Source",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "3edcfec6dc5c735a",
+    "title": "Visual Studio Code 1.141",
+    "company": "Microsoft VS Code",
+    "source": "VS Code Updates",
+    "summary": "[Automated summary unavailable] Learn what's new in Visual Studio Code 1.141 Read the full article",
+    "url": "https://code.visualstudio.com/updates/v1_141",
+    "date": "2026-10-07T17:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.304207+00:00",
+    "topics": [
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
     "id": "88e871d5a8d26738",
     "title": "Multimodal open d1 decision models for the edge",
     "company": "Hugging Face",
@@ -58,6 +879,90 @@
     "priority_label": "Deep Dive",
     "priority_explanation": "Reports measured benchmark or evaluation results",
     "why_it_matters": "Provides verified empirical measurements of frontier reasoning performance."
+  },
+  {
+    "id": "7fdb639a79501818",
+    "title": "Agent Lightning v1.0: A 3,500-Line Lightweight Agentic RL Framework for Training Agents with Real Harnesses",
+    "company": "Microsoft Research",
+    "source": "Microsoft Research AI",
+    "summary": "Microsoft Research Asia introduced Agent Lightning v1.0, a lightweight 3,500-line framework that implements Harnessed Agentic RL to train AI agents using their actual deployment harnesses. The framework features native Kubernetes support and demonstrated a 14.6 percentage point gain on SWE-bench Verified, raising Qwen3.5-9B from 41.8% to 56.4% Pass@1 using roughly 6,000 training samples.",
+    "url": "https://www.microsoft.com/en-us/research/blog/agent-lightning-v1-0-a-3500-line-lightweight-agentic-rl-framework-for-training-agents-with-real-harnesses",
+    "date": "2026-10-07T16:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.304438+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 6,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "2b3b48d8e55439fa",
+    "title": "Validate AI Factory Changes with Digital Twins and AI Agents",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "AI factories combine highly complex hardware components like GPUs, CPUs, and switches with dynamic software stacks and orchestration services. Validating that this infrastructure, software, and policy configuration function cohesively for specific workloads presents a major operational challenge. Digital twins and AI agents can be utilized to simulate and validate changes within these complex environments.",
+    "url": "https://developer.nvidia.com/blog/validate-ai-factory-changes-with-digital-twins-and-ai-agents",
+    "date": "2026-10-07T16:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.307000+00:00",
+    "topics": [
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Policy and Regulation",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "3b31c130485ad58e",
+    "title": "Scaling Decision Optimization to 100 Million Variables and Beyond with mPDLP in NVIDIA cuOpt",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "NVIDIA cuOpt GPU-accelerated decision optimization scales to handle over 100 million variables using mPDLP. This technology addresses growing complexities in supply chains and energy grids by delivering speedups of over 10x compared to traditional CPUs.",
+    "url": "https://developer.nvidia.com/blog/scaling-decision-optimization-to-100-million-variables-and-beyond-with-mpdlp-in-nvidia-cuopt",
+    "date": "2026-10-07T15:45:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.307044+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "79db3391f4f6b0fd",
+    "title": "Faster Scientific Image Analysis with NVIDIA cuPhoton",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "High-throughput scientific instruments generate image data faster than traditional CPU-bound pipelines can process it. The computational bottleneck spans the entire path from raw sensor data acquisition to final decision-making, limiting timely analysis.",
+    "url": "https://developer.nvidia.com/blog/faster-scientific-image-analysis-with-nvidia-cuphoton",
+    "date": "2026-10-07T15:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.307085+00:00",
+    "topics": [
+      "Business and Industry",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
   },
   {
     "id": "16b7810afb00bdc0",
@@ -103,6 +1008,131 @@
     "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
   },
   {
+    "id": "22ec8d79f463ab73",
+    "title": "The Download: weight-loss drugs slowing aging and carbon dioxide batteries",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "[Automated summary unavailable] This is today’s edition of The Download , our weekday newsletter that provides a daily dose of what’s going on in the world of technology. Weight-loss drugs show signs of slowing biological aging,…",
+    "url": "https://www.technologyreview.com/2026/10/07/1145895/the-download-weight-loss-drugs-slow-aging-carbon-dioxide-batteries",
+    "date": "2026-10-07T12:10:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.306336+00:00",
+    "topics": [
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "661f64ddb5f472a2",
+    "title": "Helping teens learn, plan, and shape the future of AI",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "ChatGPT for Teens is introducing a College Planner feature to assist students with managing college applications. Additionally, the platform is rolling out new educational tools including flashcards, quizzes, and a teen AI council.",
+    "url": "https://openai.com/index/teens-learn-and-plan",
+    "date": "2026-10-07T12:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.303586+00:00",
+    "topics": [
+      "Models and Releases",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "4e324623ab7ca6fe",
+    "title": "Radisson Hotel Group brings hotel discovery into ChatGPT",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Radisson Hotel Group partnered with Accenture to develop a ChatGPT plugin powered by OpenAI technology. The tool enables travelers to discover, compare, and book hotels directly while planning trips within the ChatGPT interface.",
+    "url": "https://openai.com/index/radisson",
+    "date": "2026-10-07T07:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.303628+00:00",
+    "topics": [
+      "Models and Releases",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "a097ef0d441a7216",
+    "title": "GPT-6 and Intelligent UI for everyone",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "GPT-6 is rolling out globally within ChatGPT, featuring an Intelligent UI designed to deliver faster responses alongside direct visual and interactive exploration experiences.",
+    "url": "https://openai.com/index/gpt-6-for-everyone",
+    "date": "2026-10-07T00:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.303669+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "359fb2bdb6355ddb",
+    "title": "OpenAI will watermark ChatGPT outputs by default—but only in the EU",
+    "company": "Ars Technica",
+    "source": "Ars Technica – AI",
+    "summary": "OpenAI announced it will automatically watermark ChatGPT outputs in the European Union to comply with the EU AI Act, while keeping the feature disabled by default in other regions. The proprietary watermarking method, called textGrain, embeds detectable patterns in word choices that can be identified using a specialized detector. Access to the detector will initially be restricted to a limited group of researchers and organizations through an approval process.",
+    "url": "https://arstechnica.com/ai/2026/10/openai-will-watermark-chatgpt-outputs-by-default-but-only-in-the-eu",
+    "date": "2026-10-06T20:50:32+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.305384+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Safety and Security",
+      "Policy and Regulation",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "76db71543697957e",
+    "title": "Scale Bitwise-Deterministic Pretraining with NVIDIA Megatron Core",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "Bitwise determinism improves the debugging, validation, and reproducible resumption of large-scale model pretraining. These advantages are particularly useful when training models with trillions of parameters across thousands of GPUs.",
+    "url": "https://developer.nvidia.com/blog/scale-bitwise-deterministic-pretraining-with-nvidia-megatron-core",
+    "date": "2026-10-06T19:58:03+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-10T18:51:14.307123+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "Introduces algorithmic methodologies that influence downstream model training."
+  },
+  {
     "id": "2ee55c894d54d6ef",
     "title": "EmbeddingGemma 2: an open, lightweight multimodal embedding model",
     "company": "Google DeepMind",
@@ -123,6 +1153,155 @@
     "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
   },
   {
+    "id": "826571bed109f2a5",
+    "title": "How DOCA GPUNetIO Unifies GPU-Initiated Networking Across the NVIDIA Software Stack",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "[Automated summary unavailable] GPU applications increasingly need networking and data movement to behave like first-class GPU-controlled operations rather than host-driven services. When the... GPU applications increasingly need…",
+    "url": "https://developer.nvidia.com/blog/doca-gpunetio-gda-ki-unified-gpu-networking",
+    "date": "2026-10-06T19:07:02+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.307157+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "4b0006aa1b5d0be3",
+    "title": "What AI gets wrong and what failure teaches us",
+    "company": "Microsoft Research",
+    "source": "Microsoft Research AI",
+    "summary": "Microsoft partner research manager Jennifer Neville discusses her career path and research in machine learning and AI for interactive domains. In a podcast conversation with Principal Applied Scientist Chad Atalla, Neville explores how model evaluation and surprising failures help push the performance boundaries of AI systems.",
+    "url": "https://www.microsoft.com/en-us/research/podcast/what-ai-gets-wrong-and-what-failure-teaches-us",
+    "date": "2026-10-06T16:19:06+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.304486+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "Provides verified empirical measurements of frontier reasoning performance."
+  },
+  {
+    "id": "704b90a84e93c542",
+    "title": "AICR v1.0: Open, stable, and verifiable GPU cluster configuration",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "[Automated summary unavailable] GPU-accelerated Kubernetes clusters depend on compatible versions across dozens of components, each on its own release cycle: host kernels, GPU drivers,... GPU-accelerated Kubernetes clusters depend…",
+    "url": "https://developer.nvidia.com/blog/aicr-v1-0-open-stable-and-verifiable-gpu-cluster-configuration",
+    "date": "2026-10-06T16:13:47+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.307202+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "5620120659a81e50",
+    "title": "Control How Your GPU Shares Work with Green Contexts",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "[Automated summary unavailable] GPU applications increasingly consist of multiple independent components running at the same time within a single process: a latency-sensitive operator... GPU applications increasingly consist of…",
+    "url": "https://developer.nvidia.com/blog/control-how-your-gpu-shares-work-with-green-contexts",
+    "date": "2026-10-06T15:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.307241+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "ebb413cc5359756b",
+    "title": "How Jump Trading is scaling quant research with ChatGPT",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Jump Trading is utilizing OpenAI technology to expand quantitative research capabilities. The organization combines longer-running AI workflows using multiple data sources with human review processes.",
+    "url": "https://openai.com/index/jump-trading",
+    "date": "2026-10-06T12:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.303702+00:00",
+    "topics": [
+      "Models and Releases",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "726fc16e67cb364f",
+    "title": "Command-line tool quickly removes Apple Intelligence from macOS 27",
+    "company": "Ars Technica",
+    "source": "Ars Technica – AI",
+    "summary": "A developer created a command-line tool called RemoveMacAI to let macOS 27 users disable Apple Intelligence and free up to 30GB of storage. Because macOS 27 lacks a native toggle to turn off Apple Intelligence, this tool provides a fully reversible method to remove the persistent AI models. The utility addresses user concerns regarding unrequested AI features consuming substantial disk space.",
+    "url": "https://arstechnica.com/apple/2026/10/command-line-tool-quickly-removes-apple-intelligence-from-macos-27",
+    "date": "2026-10-05T19:14:44+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.305439+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "d8885d98544ba548",
+    "title": "ReviewBench: An open benchmark for AI code review",
+    "company": "GitHub",
+    "source": "GitHub AI & Copilot",
+    "summary": "ReviewBench is a new open benchmark designed to evaluate AI code review systems using pull requests modeled after over 100 million real GitHub repositories. It utilizes a multi-source golden set, consistent scoring rubrics, and independent validation by senior engineers to measure precision, recall, and overall effectiveness. The benchmark provides development teams with an offline signal to reliably track and improve code review agent performance prior to production deployment.",
+    "url": "https://github.blog/ai-and-ml/github-copilot/reviewbench-an-open-benchmark-for-ai-code-review",
+    "date": "2026-10-05T15:59:40+00:00",
+    "category": "Benchmark",
+    "fetched_at": "2026-10-10T18:51:14.303778+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Open Source",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "Provides verified empirical measurements of frontier reasoning performance."
+  },
+  {
     "id": "bd1136d0fcfd6f13",
     "title": "The Agent Said It Was Done. The Database Disagreed.",
     "company": "Hugging Face",
@@ -134,6 +1313,28 @@
     "fetched_at": "2026-10-10T16:20:33.507391+00:00",
     "topics": [
       "AI Agents"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "3adf82e6716a48e9",
+    "title": "AI is changing developer work. Here are three skills to strengthen.",
+    "company": "GitHub",
+    "source": "GitHub AI & Copilot",
+    "summary": "Developers must adapt to AI by learning to direct multiple agents, critically evaluating AI-generated outputs, and focusing on higher-level technical decisions and tradeoffs. Rather than just writing code, engineers spend more time defining problems, coordinating agent workflows, and reviewing implementations for edge cases. These shifts enable developers to tackle broader architectural problems and ensure code quality while relying on AI for routine execution.",
+    "url": "https://github.blog/ai-and-ml/ai-is-rewriting-the-developer-career-ladder-heres-how-to-stand-out",
+    "date": "2026-10-02T15:00:00+00:00",
+    "category": "Opinion",
+    "fetched_at": "2026-10-10T18:51:14.303814+00:00",
+    "topics": [
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Infrastructure and Hardware"
     ],
     "source_type": "Technical Publication",
     "priority_score": 0,
@@ -162,6 +1363,27 @@
     "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
   },
   {
+    "id": "e7998846bd78d7e2",
+    "title": "With most information hidden, the game Stratego had stumped AI—until now",
+    "company": "Ars Technica",
+    "source": "Ars Technica – AI",
+    "summary": "Researchers from Carnegie Mellon, MIT, New York University, and Stanford University have developed an AI named Ataraxos that defeated top Stratego player Pim Niemeijer 15 games to one with four draws. The AI was trained using 16 GPUs for a few thousand dollars, overcoming the challenge of the game's massive hidden information and long time scales.",
+    "url": "https://arstechnica.com/science/2026/10/ai-finally-beat-the-best-stratego-player-in-history-and-did-it-on-a-budget",
+    "date": "2026-10-01T16:28:04+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-10T18:51:14.305481+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "Introduces algorithmic methodologies that influence downstream model training."
+  },
+  {
     "id": "b49099cde7e97e60",
     "title": "Gemini 4 Argon: our next era of frontier intelligence",
     "company": "Google DeepMind",
@@ -179,6 +1401,87 @@
     "priority_label": "Must Know",
     "priority_explanation": "Announces a model or architecture capability",
     "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "401790562c9b8c93",
+    "title": "RFK Jr. thinks AI will free us from the \"tyranny\" of medical facts, expertise",
+    "company": "Ars Technica",
+    "source": "Ars Technica – AI",
+    "summary": "At a Make America Healthy Again event, Health Secretary Robert F. Kennedy praised artificial intelligence for its potential to bypass traditional medical experts and public health guidance. Kennedy claimed that AI would act as a better-informed alternative to human doctors, allowing Americans to independently verify medical advice.",
+    "url": "https://arstechnica.com/health/2026/09/rfk-jr-says-ai-backs-his-anti-vaccine-views-we-checked-it-doesnt",
+    "date": "2026-09-30T19:31:25+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.305537+00:00",
+    "topics": [
+      "Business and Industry"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "fefbbe2fa28d302e",
+    "title": "Visual Studio Code 1.140",
+    "company": "Microsoft VS Code",
+    "source": "VS Code Updates",
+    "summary": "[Automated summary unavailable] Learn what's new in Visual Studio Code 1.140 Read the full article",
+    "url": "https://code.visualstudio.com/updates/v1_140",
+    "date": "2026-09-30T17:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.304231+00:00",
+    "topics": [
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "489d5fcf8020ccbf",
+    "title": "Forecasting space weather risks on power grids",
+    "company": "Microsoft Research",
+    "source": "Microsoft Research AI",
+    "summary": "A machine learning pipeline developed at Microsoft Research uses solar-wind forecasts, physics constraints, and local geological data to predict space-weather risks for 66,935 substations in the US. The system successfully detected nearly 80% of major space-weather events during evaluation and provides 30 to 60 minutes of advance warning to grid operators. The approach combines gradient-boosting models with location-specific features to estimate the rate of magnetic-field change and assess continental infrastructure vulnerability.",
+    "url": "https://www.microsoft.com/en-us/research/blog/forecasting-space-weather-risks-on-power-grids",
+    "date": "2026-09-30T16:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-10T18:51:14.304524+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "Provides verified empirical measurements of frontier reasoning performance."
+  },
+  {
+    "id": "ad318ba6bb2e4c5d",
+    "title": "Google figures out how to watermark AI-designed proteins",
+    "company": "Ars Technica",
+    "source": "Ars Technica – AI",
+    "summary": "AI-based protein design tools offer significant benefits like enzymes that digest plastics or block venoms, but they also pose biosecurity risks by potentially creating toxins or altering viral proteins. Traditional DNA screening software struggles to identify these synthetic proteins because they have not been sufficiently characterized as threats. Google has developed a method to watermark AI-designed proteins to help address this biosecurity gap.",
+    "url": "https://arstechnica.com/science/2026/09/google-figures-out-how-to-watermark-ai-designed-proteins",
+    "date": "2026-09-30T15:54:52+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.305585+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Safety and Security"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
   },
   {
     "id": "08aa8115cb5d9c89",
@@ -219,6 +1522,46 @@
     "why_it_matters": "Provides verified empirical measurements of frontier reasoning performance."
   },
   {
+    "id": "26afe82f54ffcc86",
+    "title": "Protests against OpenAI get increasingly creative",
+    "company": "Ars Technica",
+    "source": "Ars Technica – AI",
+    "summary": "Two artists from the Berkeley-based Odd Friend Studio installed a papier-mâché sculpture titled What Iceberg? at the public entrance of an OpenAI developer event in San Francisco. The artwork depicts OpenAI leaders and investors fleeing a sinking ship with wealth while leaving others to face AI costs. The creators built the five-foot-tall installation over five days using cardboard, paint, and a repurposed table.",
+    "url": "https://arstechnica.com/ai/2026/09/what-iceberg-bay-area-artists-target-openai-with-titanic-themed-protest-art",
+    "date": "2026-09-29T21:52:58+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.305637+00:00",
+    "topics": [
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "7ee79eecb360c6d0",
+    "title": "Introducing Quine: An AI research system designed for the complexity of biology",
+    "company": "Microsoft Research",
+    "source": "Microsoft Research AI",
+    "summary": "Microsoft Research introduced Quine, a multimodal world model and interactive research system designed for biology. Developed in collaboration with the Broad Institute, the system connects scientific tools, literature, and wet-lab experiments to prioritize therapeutic compounds. Access is initially limited to an experimental cohort called the Quine Fellows program.",
+    "url": "https://www.microsoft.com/en-us/research/blog/introducing-quine-an-ai-research-system-designed-for-the-complexity-of-biology",
+    "date": "2026-09-29T14:00:02+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.304571+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 6,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
     "id": "afa8c33f8eb7996a",
     "title": "Getting the Source Right, Not Just the Fact: Source-Aware Verification for MCP Agents",
     "company": "Hugging Face",
@@ -232,6 +1575,27 @@
       "AI Agents"
     ],
     "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "f3d0899182d2ff38",
+    "title": "One year in: How Microsoft Research Asia – Singapore is advancing research, partnership and talent for real-world impact",
+    "company": "Microsoft Research",
+    "source": "Microsoft Research AI",
+    "summary": "Microsoft Research Asia – Singapore reflects on its first year of operation since opening on July 24, 2025. The lab focuses on four key pillars including next-generation AI models, domain-specific AI, AI-native research practices, and talent development. Through partnerships with local academic and government entities, the lab applies frontier AI to sectors such as healthcare while feeding real-world challenges back into foundational research.",
+    "url": "https://www.microsoft.com/en-us/research/blog/one-year-in-how-microsoft-research-asia-singapore-is-advancing-research-partnership-and-talent-for-real-world-impact",
+    "date": "2026-09-28T21:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.304614+00:00",
+    "topics": [
+      "Models and Releases",
+      "Business and Industry",
+      "Applications and Products"
+    ],
+    "source_type": "Research Laboratory",
     "priority_score": 0,
     "priority_label": "Worth a Look",
     "priority_explanation": "Relevant AI development",
@@ -257,6 +1621,135 @@
     "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
   },
   {
+    "id": "d48dc5cb56d9c340",
+    "title": "AI was supposed to hit new grads hard. So far, unemployment data says otherwise.",
+    "company": "Ars Technica",
+    "source": "Ars Technica – AI",
+    "summary": "A working paper from CESifo researchers Robert Fairlie and Jane Wu concludes that there is no evidence of significant displacement or reduced hiring among recent college graduates due to AI. While previous studies suggested entry-level jobs in AI-impacted fields were lagging, this new research finds no absolute or relative decline in early-career hiring.",
+    "url": "https://arstechnica.com/ai/2026/09/ai-was-supposed-to-hit-new-grads-hard-so-far-unemployment-data-says-otherwise",
+    "date": "2026-09-25T19:11:05+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-10T18:51:14.305688+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "Introduces algorithmic methodologies that influence downstream model training."
+  },
+  {
+    "id": "7d128752a2cf63b4",
+    "title": "GitHub Copilot app for Beginners: How to build custom workflows with canvases",
+    "company": "GitHub",
+    "source": "GitHub AI & Copilot",
+    "summary": "GitHub Copilot has introduced canvases, a customizable, bidirectional interface feature that allows users and agents to collaborate on shared workflows in real time. Users can generate these dynamic interfaces using the /create-canvas skill and plain text descriptions without manual coding. Canvases can be saved as team or personal extensions to support specific tasks like kanban boards, checklists, and release trackers.",
+    "url": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-build-custom-workflows-with-canvases",
+    "date": "2026-09-25T18:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.303862+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Open Source",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "482d27010b8d5a70",
+    "title": "Microsoft stops insisting you need a \"Copilot+ PC\"",
+    "company": "Ars Technica",
+    "source": "Ars Technica – AI",
+    "summary": "Microsoft has dropped the 'Copilot+ PC' branding from its newly announced Surface computers despite the devices meeting all the technical requirements for the label. Brett Ostrum, corporate VP of Surface, confirmed to Windows Central that the new hardware will not use the Copilot+ PC designation.",
+    "url": "https://arstechnica.com/gadgets/2026/09/microsoft-stops-insisting-you-need-a-copilot-pc",
+    "date": "2026-09-25T17:57:37+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.305732+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "d5158f51ec389770",
+    "title": "Trump admin using AI to deny medical care for seniors in disastrous experiment",
+    "company": "Ars Technica",
+    "source": "Ars Technica – AI",
+    "summary": "The Trump administration launched a pilot program called WISeR that uses artificial intelligence to manage prior authorizations for Medicare patients. Media reports and federal documents obtained by the Electronic Frontier Foundation revealed technical issues, treatment delays, and problematic care denials. The Government Accountability Office found that officials did not follow proper procedures when establishing the initiative.",
+    "url": "https://arstechnica.com/health/2026/09/trump-admin-using-ai-to-deny-medical-care-for-seniors-in-disastrous-experiment",
+    "date": "2026-09-25T11:00:28+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.305771+00:00",
+    "topics": [
+      "Models and Releases"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "4135fa3a00799524",
+    "title": "When chat is the wrong UI",
+    "company": "GitHub",
+    "source": "GitHub AI & Copilot",
+    "summary": "The article critiques the standard chat interface as the default UI for large language models, arguing that task-oriented, customizable interfaces are often more effective. It introduces the concept of a canvas—a full-stack application running within the GitHub Copilot app—that allows bi-directional communication between an agent and a custom user interface.",
+    "url": "https://github.blog/ai-and-ml/github-copilot/when-chat-is-the-wrong-ui",
+    "date": "2026-09-24T20:00:00+00:00",
+    "category": "Opinion",
+    "fetched_at": "2026-10-10T18:51:14.303924+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Open Source",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "2690558920b683f4",
+    "title": "AI-powered fuzzing with the GitHub Security Lab Taskflow Agent",
+    "company": "GitHub",
+    "source": "GitHub AI & Copilot",
+    "summary": "The GitHub Security Lab has introduced the Fuzzing Taskflow, an autonomous AI-powered pipeline designed to automate fuzzing tasks for C and C++ projects. The agent handles end-to-end responsibilities such as identifying entrypoints, writing harnesses, executing AFL++, analyzing coverage, and triaging crashes without human intervention. The framework utilizes Claude Sonnet by default and is intended to run within isolated, disposable environments due to the execution of arbitrary build commands.",
+    "url": "https://github.blog/security/application-security/ai-powered-fuzzing-with-the-github-security-lab-taskflow-agent",
+    "date": "2026-09-24T18:26:12+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.303968+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Safety and Security",
+      "Open Source"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
     "id": "6add3dd62456569f",
     "title": "Introducing Gemini 3.8 Live with Live Avatar",
     "company": "Google DeepMind",
@@ -275,6 +1768,70 @@
     "priority_label": "Deep Dive",
     "priority_explanation": "Announces a model or architecture capability",
     "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "adfc9716558ca6b5",
+    "title": "Rendering huge pull requests in the GitHub Copilot app",
+    "company": "GitHub",
+    "source": "GitHub AI & Copilot",
+    "summary": "[Automated summary unavailable] Broad refactors and migrations often have to land as one change. Stacked pull requests are a great way to split work into smaller changes, which makes reviews easier and helps teams ship with less…",
+    "url": "https://github.blog/engineering/user-experience/rendering-huge-pull-requests-in-the-github-copilot-app",
+    "date": "2026-09-23T18:29:49+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.304017+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Open Source",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "5c9dea62fc51b326",
+    "title": "Visual Studio Code 1.139",
+    "company": "Microsoft VS Code",
+    "source": "VS Code Updates",
+    "summary": "Visual Studio Code version 1.139 has been released, introducing new features and updates for developers. Users can review the full release notes to learn about specific additions and improvements in this version.",
+    "url": "https://code.visualstudio.com/updates/v1_139",
+    "date": "2026-09-23T17:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.304250+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "f5f3fe2846a1077a",
+    "title": "Offloaded inference for real-world physical AI robotics",
+    "company": "Microsoft Research",
+    "source": "Microsoft Research AI",
+    "summary": "This research challenges the assumption that physical AI inference must run exclusively on onboard GPUs, demonstrating that offloading inference to edge or cloud infrastructure improves task success rates and battery life. By utilizing Kubernetes-based tooling for distributed inference, developers can containerize and orchestrate robotics AI workloads across robots, edge servers, and the cloud. The findings indicate that offloading power-heavy workloads enables the execution of larger AI models and extends robot operating time in dynamic environments.",
+    "url": "https://www.microsoft.com/en-us/research/blog/offloaded-inference-for-real-world-physical-ai-robotics",
+    "date": "2026-09-23T16:01:36+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-10T18:51:14.304682+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "Introduces algorithmic methodologies that influence downstream model training."
   },
   {
     "id": "1043d9fe80283e6f",
@@ -316,6 +1873,151 @@
     "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
   },
   {
+    "id": "958c3483761172ad",
+    "title": "Building the new GitHub Copilot Inline Suggestions Model: Part Two",
+    "company": "Microsoft VS Code",
+    "source": "VS Code Updates",
+    "summary": "GitHub Copilot integrated completions into its unified inline suggestions model. The update refined ghost text and editor behavior, resulting in improved user satisfaction.",
+    "url": "https://code.visualstudio.com/blogs/2026/09/23/building-the-github-copilot-inline-suggestions-model-part-two",
+    "date": "2026-09-23T00:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.304279+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Open Source",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "b287b34a5390dd7e",
+    "title": "Microsoft disrupts AI-assisted platform that compromised 12,000 accounts",
+    "company": "Ars Technica",
+    "source": "Ars Technica – AI",
+    "summary": "Microsoft led an industry-wide disruption of EvilTokens, a subscription-based scam platform that utilized an AI chatbot to compromise 12,000 Microsoft accounts over several months. The platform charged an initial fee of $1,500 followed by a $500 monthly subscription to streamline account compromises, analyze inboxes, and draft fraudulent emails. The integrated AI chatbot specifically helped criminals identify high-value targets, analyze victim relationships, and recommend strategies for financial fraud.",
+    "url": "https://arstechnica.com/security/2026/09/microsoft-disrupts-ai-assisted-platform-that-compromised-12000",
+    "date": "2026-09-22T19:45:47+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-10T18:51:14.305827+00:00",
+    "topics": [
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "b5c50a1bc3bd0622",
+    "title": "Improving synthesis prediction of small molecules at scale with RetroChimera",
+    "company": "Microsoft Research",
+    "source": "Microsoft Research AI",
+    "summary": "The retrosynthesis model RetroChimera, published in the journal Nature, automatically proposes high-quality synthesis routes for small molecules by combining two models with complementary strengths. The implementation and model weights have been open-sourced to accelerate research in medicine and materials science. Blind tests showed that PhD-level chemists preferred its reaction predictions over prior models and recorded literature reactions.",
+    "url": "https://www.microsoft.com/en-us/research/blog/improving-synthesis-prediction-of-small-molecules-at-scale-with-retrochimera",
+    "date": "2026-09-21T15:30:19+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-10T18:51:14.304730+00:00",
+    "topics": [
+      "Models and Releases",
+      "Applications and Products"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "Introduces algorithmic methodologies that influence downstream model training."
+  },
+  {
+    "id": "b02dba448db72934",
+    "title": "Should you read the code, is RAG dead, and did Skills kill MCP?",
+    "company": "GitHub",
+    "source": "GitHub AI & Copilot",
+    "summary": "[Automated summary unavailable] Hot takes turn complicated topics into one confident sentence. That makes them great for engagement, but not necessarily for understanding. At the surface level, they do not matter much. You agree,…",
+    "url": "https://github.blog/ai-and-ml/should-you-read-the-code-is-rag-dead-and-did-skills-kill-mcp",
+    "date": "2026-09-18T15:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.304057+00:00",
+    "topics": [
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "71ca52f40c8e50d8",
+    "title": "Migrating the GitHub Copilot runtime to Rust, using Copilot",
+    "company": "GitHub",
+    "source": "GitHub AI & Copilot",
+    "summary": "[Automated summary unavailable] The GitHub Copilot CLI , GitHub Copilot app , and GitHub Copilot SDK are all backed by the Copilot agent runtime, an agentic harness that can be embedded into applications and services. It was…",
+    "url": "https://github.blog/ai-and-ml/generative-ai/migrating-the-github-copilot-runtime-to-rust-using-copilot",
+    "date": "2026-09-17T00:26:43+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.304100+00:00",
+    "topics": [
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Open Source",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "8bc291f39a282969",
+    "title": "Visual Studio Code 1.138",
+    "company": "Microsoft VS Code",
+    "source": "VS Code Updates",
+    "summary": "Visual Studio Code version 1.138 has been released, introducing new updates and features for developers. Users can review the full release notes to learn about the specific changes included in this version.",
+    "url": "https://code.visualstudio.com/updates/v1_138",
+    "date": "2026-09-16T17:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.304309+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "636b7671bfd5d099",
+    "title": "Building the new GitHub Copilot Inline Suggestions Model: Part One",
+    "company": "Microsoft VS Code",
+    "source": "VS Code Updates",
+    "summary": "GitHub Copilot combined completion, next edit, and long-distance suggestions into a single unified model. This consolidation aims to deliver a faster and more cohesive coding experience for developers.",
+    "url": "https://code.visualstudio.com/blogs/2026/09/16/building-the-github-copilot-inline-suggestions-model-part-one",
+    "date": "2026-09-16T00:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.304337+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Open Source",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
     "id": "6aae488b1bb65e59",
     "title": "Introducing Gemini 3.8 Live and 3.8 Live Extended Thinking",
     "company": "Google DeepMind",
@@ -332,6 +2034,48 @@
     "source_type": "Research Laboratory",
     "priority_score": 7,
     "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "30a36306f538ac1a",
+    "title": "Marketing ops as code: Automating events from planning to follow-up on GitHub",
+    "company": "GitHub",
+    "source": "GitHub AI & Copilot",
+    "summary": "[Automated summary unavailable] I run marketing for GitHub in Japan and Korea, and events are the heartbeat of it: a recurring webinar series for enterprise developers, community meetups in Tokyo, invite-only executive sessions in…",
+    "url": "https://github.blog/ai-and-ml/github-copilot/marketing-ops-as-code-automating-events-from-planning-to-follow-up-on-github",
+    "date": "2026-09-11T18:26:10+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.304137+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Business and Industry",
+      "Open Source"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "dcd87a4c52f47f88",
+    "title": "Visual Studio Code 1.137",
+    "company": "Microsoft VS Code",
+    "source": "VS Code Updates",
+    "summary": "Visual Studio Code version 1.137 has been released, introducing new features and updates for developers. Users can review the full release notes to learn about the specific additions and improvements in this version.",
+    "url": "https://code.visualstudio.com/updates/v1_137",
+    "date": "2026-09-09T17:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.304367+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
     "priority_explanation": "Announces a model or architecture capability",
     "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
   },
@@ -374,6 +2118,27 @@
     "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
   },
   {
+    "id": "81c6b4506055269f",
+    "title": "Visual Studio Code 1.136",
+    "company": "Microsoft VS Code",
+    "source": "VS Code Updates",
+    "summary": "Visual Studio Code version 1.136 has been released. The update introduces new features and improvements for developers.",
+    "url": "https://code.visualstudio.com/updates/v1_136",
+    "date": "2026-09-02T17:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.304394+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
     "id": "bf94848b24bf5829",
     "title": "Proactive cyber defense for governments and enterprises",
     "company": "Google DeepMind",
@@ -393,6 +2158,90 @@
     "priority_label": "Worth a Look",
     "priority_explanation": "Primary lab announcement from Google DeepMind",
     "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
+    "id": "48268a8a96251ba4",
+    "title": "GigaPath-Flash and GigaTIME-Flash: Toward population-scale discovery with efficient pathology foundation models",
+    "company": "Microsoft Research",
+    "source": "Microsoft Research AI",
+    "summary": "The GigaPath-Flash and GigaTIME-Flash models extend the original GigaPath and GigaTIME pathology foundation models with a distilled backbone to improve computational efficiency. These open models are designed to enable population-scale discovery by reducing computational costs for whole-slide image analysis and tumor microenvironment research across large patient cohorts. The models are strictly intended for research purposes and are not validated for clinical use.",
+    "url": "https://www.microsoft.com/en-us/research/blog/gigapath-flash-and-gigatime-flash-toward-population-scale-discovery-with-efficient-pathology-foundation-models",
+    "date": "2026-08-31T16:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.304780+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "477bb68b624ad0e3",
+    "title": "Visual Studio Code 1.135",
+    "company": "Microsoft VS Code",
+    "source": "VS Code Updates",
+    "summary": "Visual Studio Code version 1.135 has been released, introducing new features and updates for developers. Users can review the full release notes to learn about specific improvements and bug fixes.",
+    "url": "https://code.visualstudio.com/updates/v1_135",
+    "date": "2026-08-26T17:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.304416+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "8625f311cd075df6",
+    "title": "Broadening access to Skala creates a faster path to predictive DFT",
+    "company": "Microsoft Research",
+    "source": "Microsoft Research AI",
+    "summary": "Microsoft Research announced Skala 1.1, a deep-learning exchange-correlation functional trained on 2.5x more data than its predecessor to improve accuracy in thermochemistry, kinetics, and molecular structure prediction. Skala is now available in CP2K and is being integrated into Psi4, FHI-aims, ORCA, and VASP to broaden accessibility across scientific software. Additionally, a living benchmark has been introduced to track the computational performance and efficiency of future Skala releases.",
+    "url": "https://www.microsoft.com/en-us/research/blog/broadening-access-to-skala-creates-a-faster-path-to-predictive-dft",
+    "date": "2026-08-20T16:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.304831+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 6,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
+  },
+  {
+    "id": "8e9779aa6f2a2f79",
+    "title": "MindTopo reveals VLMs’ spatial reasoning abilities",
+    "company": "Microsoft Research",
+    "source": "Microsoft Research AI",
+    "summary": "[Automated summary unavailable] At a glance MindTopo is a new benchmark for testing topological reasoning in AI, evaluating whether multimodal models can understand concepts such as connectivity, enclosure, order, separation, and…",
+    "url": "https://www.microsoft.com/en-us/research/blog/mindtopo-reveals-vlms-spatial-reasoning-abilities",
+    "date": "2026-08-12T16:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-10T18:51:14.304894+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "Provides verified empirical measurements of frontier reasoning performance."
   },
   {
     "id": "011517a268b49af0",
@@ -601,65 +2450,22 @@
     "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
   },
   {
-    "id": "demo0000000000001",
-    "title": "AI Pulse is live \u2014 your intelligence dashboard is ready",
-    "company": "AI Pulse",
-    "source": "AI Pulse",
-    "summary": "This is a demonstration record seeded before the first pipeline run. Run the ingestion pipeline with a valid GEMINI_API_KEY to replace these placeholders with real, summarized AI news from configured RSS sources.",
-    "url": "https://github.com/ai-pulse",
+    "id": "5ff0bcef74701c64",
+    "title": "Visual Studio Code 1.142 (Insiders)",
+    "company": "Microsoft VS Code",
+    "source": "VS Code Updates",
+    "summary": "[Automated summary unavailable] Learn what's new in Visual Studio Code 1.142 (Insiders) Read the full article",
+    "url": "https://code.visualstudio.com/updates/v1_142",
     "date": null,
-    "category": "News",
-    "fetched_at": "2024-01-01T00:00:00+00:00",
-    "_demo": true,
+    "category": "Product Release",
+    "fetched_at": "2026-10-10T18:51:14.304179+00:00",
     "topics": [
-      "Models and Releases"
-    ],
-    "source_type": "Technical Publication",
-    "priority_score": 0,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Relevant AI development",
-    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
-  },
-  {
-    "id": "demo0000000000002",
-    "title": "How to configure AI Pulse for live news ingestion",
-    "company": "AI Pulse",
-    "source": "AI Pulse",
-    "summary": "Set the GEMINI_API_KEY environment variable and run `python -m pipeline.run` from the repository root. The pipeline fetches RSS feeds from Google DeepMind, Hugging Face, MIT News, The Gradient, and VentureBeat AI, summarizes each article with Gemini, and writes the results to src/data/feed.json.",
-    "url": "https://github.com/ai-pulse#readme",
-    "date": null,
-    "category": "News",
-    "fetched_at": "2024-01-01T00:00:00+00:00",
-    "_demo": true,
-    "topics": [
-      "Models and Releases",
-      "Coding and Developer Tools",
-      "Open Source"
+      "Coding and Developer Tools"
     ],
     "source_type": "Technical Publication",
     "priority_score": 3,
     "priority_label": "Must Know",
-    "priority_explanation": "Reports measured benchmark or evaluation results",
-    "why_it_matters": "Provides verified empirical measurements of frontier reasoning performance."
-  },
-  {
-    "id": "demo0000000000003",
-    "title": "Adding new RSS sources to AI Pulse",
-    "company": "AI Pulse",
-    "source": "AI Pulse",
-    "summary": "Open pipeline/sources.py and add a new entry to the SOURCES list with a name, verified feed URL, publisher, and default category. The pipeline handles feed failures gracefully, so a broken URL will not abort the run.",
-    "url": "https://github.com/ai-pulse#sources",
-    "date": null,
-    "category": "News",
-    "fetched_at": "2024-01-01T00:00:00+00:00",
-    "_demo": true,
-    "topics": [
-      "Business and Industry"
-    ],
-    "source_type": "Technical Publication",
-    "priority_score": 0,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Relevant AI development",
-    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "Expands foundation model capabilities and developer deployment choices."
   }
 ]
