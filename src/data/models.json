@@ -7,14 +7,18 @@
     "release_date": "2025-01-31",
     "lifecycle_status": "Released (Active)",
     "context_window": 200000,
-    "input_modalities": ["text"],
-    "output_modalities": ["text"],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "license_type": "Proprietary API",
     "api_available": true,
     "consumer_available": true,
     "pricing": {
-      "input_per_1m": 1.10,
-      "output_per_1m": 4.40,
+      "input_per_1m": 1.1,
+      "output_per_1m": 4.4,
       "unit": "USD"
     },
     "documentation_url": "https://platform.openai.com/docs/models#o3-mini",
@@ -30,14 +34,19 @@
     "release_date": "2024-12-17",
     "lifecycle_status": "Released (Active)",
     "context_window": 200000,
-    "input_modalities": ["text", "image"],
-    "output_modalities": ["text"],
+    "input_modalities": [
+      "text",
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "license_type": "Proprietary API",
     "api_available": true,
     "consumer_available": true,
     "pricing": {
-      "input_per_1m": 15.00,
-      "output_per_1m": 60.00,
+      "input_per_1m": 15.0,
+      "output_per_1m": 60.0,
       "unit": "USD"
     },
     "documentation_url": "https://platform.openai.com/docs/models#o1",
@@ -53,14 +62,21 @@
     "release_date": "2024-05-13",
     "lifecycle_status": "Released (Active)",
     "context_window": 128000,
-    "input_modalities": ["text", "image", "audio"],
-    "output_modalities": ["text", "audio"],
+    "input_modalities": [
+      "text",
+      "image",
+      "audio"
+    ],
+    "output_modalities": [
+      "text",
+      "audio"
+    ],
     "license_type": "Proprietary API",
     "api_available": true,
     "consumer_available": true,
     "pricing": {
-      "input_per_1m": 2.50,
-      "output_per_1m": 10.00,
+      "input_per_1m": 2.5,
+      "output_per_1m": 10.0,
       "unit": "USD"
     },
     "documentation_url": "https://platform.openai.com/docs/models#gpt-4o",
@@ -76,14 +92,19 @@
     "release_date": "2024-07-18",
     "lifecycle_status": "Released (Active)",
     "context_window": 128000,
-    "input_modalities": ["text", "image"],
-    "output_modalities": ["text"],
+    "input_modalities": [
+      "text",
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "license_type": "Proprietary API",
     "api_available": true,
     "consumer_available": true,
     "pricing": {
       "input_per_1m": 0.15,
-      "output_per_1m": 0.60,
+      "output_per_1m": 0.6,
       "unit": "USD"
     },
     "documentation_url": "https://platform.openai.com/docs/models#gpt-4o-mini",
@@ -99,14 +120,19 @@
     "release_date": "2025-02-24",
     "lifecycle_status": "Released (Active)",
     "context_window": 200000,
-    "input_modalities": ["text", "image"],
-    "output_modalities": ["text"],
+    "input_modalities": [
+      "text",
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "license_type": "Proprietary API",
     "api_available": true,
     "consumer_available": true,
     "pricing": {
-      "input_per_1m": 3.00,
-      "output_per_1m": 15.00,
+      "input_per_1m": 3.0,
+      "output_per_1m": 15.0,
       "unit": "USD"
     },
     "documentation_url": "https://docs.anthropic.com/en/docs/about-claude/models",
@@ -122,14 +148,19 @@
     "release_date": "2024-06-20",
     "lifecycle_status": "Released (Active)",
     "context_window": 200000,
-    "input_modalities": ["text", "image"],
-    "output_modalities": ["text"],
+    "input_modalities": [
+      "text",
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "license_type": "Proprietary API",
     "api_available": true,
     "consumer_available": true,
     "pricing": {
-      "input_per_1m": 3.00,
-      "output_per_1m": 15.00,
+      "input_per_1m": 3.0,
+      "output_per_1m": 15.0,
       "unit": "USD"
     },
     "documentation_url": "https://docs.anthropic.com/en/docs/about-claude/models",
@@ -145,14 +176,19 @@
     "release_date": "2024-11-04",
     "lifecycle_status": "Released (Active)",
     "context_window": 200000,
-    "input_modalities": ["text", "image"],
-    "output_modalities": ["text"],
+    "input_modalities": [
+      "text",
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "license_type": "Proprietary API",
     "api_available": true,
     "consumer_available": true,
     "pricing": {
-      "input_per_1m": 0.80,
-      "output_per_1m": 4.00,
+      "input_per_1m": 0.8,
+      "output_per_1m": 4.0,
       "unit": "USD"
     },
     "documentation_url": "https://docs.anthropic.com/en/docs/about-claude/models",
@@ -168,14 +204,22 @@
     "release_date": "2025-02-05",
     "lifecycle_status": "Released (Active)",
     "context_window": 1048576,
-    "input_modalities": ["text", "image", "audio", "video"],
-    "output_modalities": ["text", "audio"],
+    "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video"
+    ],
+    "output_modalities": [
+      "text",
+      "audio"
+    ],
     "license_type": "Proprietary API",
     "api_available": true,
     "consumer_available": true,
     "pricing": {
-      "input_per_1m": 0.10,
-      "output_per_1m": 0.40,
+      "input_per_1m": 0.1,
+      "output_per_1m": 0.4,
       "unit": "USD"
     },
     "documentation_url": "https://ai.google.dev/gemini-api/docs/models/gemini#gemini-2.0-flash",
@@ -191,14 +235,22 @@
     "release_date": "2025-02-05",
     "lifecycle_status": "Preview",
     "context_window": 2097152,
-    "input_modalities": ["text", "image", "audio", "video", "code"],
-    "output_modalities": ["text"],
+    "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "code"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "license_type": "Proprietary API",
     "api_available": true,
     "consumer_available": true,
     "pricing": {
       "input_per_1m": 1.25,
-      "output_per_1m": 5.00,
+      "output_per_1m": 5.0,
       "unit": "USD"
     },
     "documentation_url": "https://ai.google.dev/gemini-api/docs/models/gemini#gemini-2.0-pro",
@@ -213,15 +265,19 @@
     "family": "DeepSeek",
     "release_date": "2025-01-20",
     "lifecycle_status": "Released (Active)",
-    "context_window": 128000,
-    "input_modalities": ["text"],
-    "output_modalities": ["text"],
+    "context_window": 64000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "license_type": "Open Weights (MIT)",
     "api_available": true,
     "consumer_available": true,
     "pricing": {
-      "input_per_1m": 0.55,
-      "output_per_1m": 2.19,
+      "input_per_1m": 0.7,
+      "output_per_1m": 2.5,
       "unit": "USD"
     },
     "documentation_url": "https://api-docs.deepseek.com/",
@@ -236,15 +292,19 @@
     "family": "DeepSeek",
     "release_date": "2024-12-26",
     "lifecycle_status": "Released (Active)",
-    "context_window": 128000,
-    "input_modalities": ["text"],
-    "output_modalities": ["text"],
+    "context_window": 163840,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "license_type": "Open Weights (MIT)",
     "api_available": true,
     "consumer_available": true,
     "pricing": {
-      "input_per_1m": 0.27,
-      "output_per_1m": 1.10,
+      "input_per_1m": 0.32,
+      "output_per_1m": 0.89,
       "unit": "USD"
     },
     "documentation_url": "https://api-docs.deepseek.com/",
@@ -259,15 +319,19 @@
     "family": "Llama 3",
     "release_date": "2024-12-06",
     "lifecycle_status": "Released (Active)",
-    "context_window": 128000,
-    "input_modalities": ["text"],
-    "output_modalities": ["text"],
+    "context_window": 131072,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "license_type": "Open Weights (Llama 3.3 Community)",
     "api_available": true,
     "consumer_available": true,
     "pricing": {
-      "input_per_1m": 0.12,
-      "output_per_1m": 0.30,
+      "input_per_1m": 0.22,
+      "output_per_1m": 0.5,
       "unit": "USD"
     },
     "documentation_url": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama3_3/",
@@ -283,14 +347,18 @@
     "release_date": "2024-07-23",
     "lifecycle_status": "Released (Active)",
     "context_window": 128000,
-    "input_modalities": ["text"],
-    "output_modalities": ["text"],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "license_type": "Open Weights (Llama 3.1 Community)",
     "api_available": true,
     "consumer_available": false,
     "pricing": {
       "input_per_1m": 1.79,
-      "output_per_1m": 2.40,
+      "output_per_1m": 2.4,
       "unit": "USD"
     },
     "documentation_url": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama3_1/",
@@ -306,8 +374,12 @@
     "release_date": "2024-12-12",
     "lifecycle_status": "Released (Active)",
     "context_window": 16384,
-    "input_modalities": ["text"],
-    "output_modalities": ["text"],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "license_type": "Open Weights (MIT)",
     "api_available": true,
     "consumer_available": false,
@@ -329,14 +401,18 @@
     "release_date": "2024-11-18",
     "lifecycle_status": "Released (Active)",
     "context_window": 128000,
-    "input_modalities": ["text"],
-    "output_modalities": ["text"],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "license_type": "Proprietary API",
     "api_available": true,
     "consumer_available": true,
     "pricing": {
-      "input_per_1m": 2.00,
-      "output_per_1m": 6.00,
+      "input_per_1m": 2.0,
+      "output_per_1m": 6.0,
       "unit": "USD"
     },
     "documentation_url": "https://docs.mistral.ai/getting-started/models/models_overview/",
