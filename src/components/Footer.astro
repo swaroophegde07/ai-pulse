@@ -1,14 +1,30 @@
 ---
 // Footer.astro — site footer
+import sourcesData from "../data/sources.json";
+import feedData from "../data/feed.json";
+
+interface FeedRecord {
+  source?: string;
+  _demo?: boolean;
+}
 
 const currentYear = new Date().getFullYear();
-const sources = [
-  "Google DeepMind Blog",
-  "Hugging Face Blog",
-  "MIT News – AI",
-  "The Gradient",
-  "VentureBeat AI",
-];
+
+// Only consider genuine non-demonstration articles
+const realArticles = (feedData as FeedRecord[]).filter((a) => !a._demo);
+const contributingSourceNames = new Set(
+  realArticles.map((a) => a.source).filter(Boolean)
+);
+
+// Sources that have actually contributed articles to the dataset
+const contributingSources = sourcesData.filter((src) =>
+  contributingSourceNames.has(src.name)
+);
+
+// Configured sources that do not yet have articles in the dataset
+const pendingSources = sourcesData.filter(
+  (src) => !contributingSourceNames.has(src.name)
+);
 ---
 
 <footer class="border-t border-neutral-800 mt-16">
@@ -28,17 +44,38 @@ const sources = [
       <!-- Data sources -->
       <div class="flex flex-col gap-3">
         <h3 class="font-mono text-[10px] text-neutral-500 tracking-widest uppercase">
-          Data Sources
+          Contributing Sources
         </h3>
-        <ul class="flex flex-col gap-1.5">
-          {
-            sources.map((src) => (
-              <li class="font-mono text-[11px] text-neutral-600">
-                {src}
-              </li>
-            ))
-          }
-        </ul>
+        {
+          contributingSources.length > 0 ? (
+            <ul class="flex flex-col gap-1.5">
+              {contributingSources.map((src) => (
+                <li class="font-mono text-[11px] text-neutral-400 flex items-center justify-between">
+                  <span>{src.name}</span>
+                  <span class="text-[10px] text-neutral-600 font-mono">
+                    {src.publisher}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <div class="flex flex-col gap-1">
+              <span class="font-mono text-[11px] text-neutral-500">
+                Awaiting initial ingestion
+              </span>
+              <span class="text-[10px] text-neutral-600 leading-relaxed">
+                {sourcesData.length} public feeds configured in pipeline.
+              </span>
+            </div>
+          )
+        }
+        {
+          contributingSources.length > 0 && pendingSources.length > 0 && (
+            <p class="text-[10px] text-neutral-600 font-mono pt-1 border-t border-neutral-900">
+              Also monitoring: {pendingSources.map((s) => s.name).join(", ")}
+            </p>
+          )
+        }
       </div>
 
       <!-- Links -->
@@ -49,12 +86,14 @@ const sources = [
         <ul class="flex flex-col gap-1.5">
           <li>
             <a
-              href="https://github.com/ai-pulse"
+              href="https://github.com/swaroophegde07/ai-pulse"
               target="_blank"
               rel="noopener noreferrer"
-              class="font-mono text-[11px] text-neutral-600 hover:text-emerald-400 transition-colors"
+              class="font-mono text-[11px] text-neutral-400 hover:text-emerald-400 transition-colors inline-flex items-center gap-1 group"
+              aria-label="View source repository on GitHub (opens in a new tab)"
             >
-              GitHub ↗
+              <span>GitHub</span>
+              <span class="group-hover:translate-x-0.5 transition-transform">↗</span>
             </a>
           </li>
           <li>

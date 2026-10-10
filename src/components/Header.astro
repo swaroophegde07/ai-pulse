@@ -5,8 +5,20 @@ interface Props {
   currentPath?: string;
 }
 
-const { currentPath = "/" } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const rawCurrent = Astro.props.currentPath || Astro.url.pathname || "/";
+
+// Strip base prefix and normalize trailing slashes for robust route matching
+const stripBase = (path: string): string => {
+  let p = path;
+  if (base && p.startsWith(base)) {
+    p = p.slice(base.length);
+  }
+  p = p.replace(/\/+$/, "");
+  return p === "" ? "/" : p;
+};
+
+const normalizedCurrent = stripBase(rawCurrent);
 
 const navItems = [
   { label: "Overview", href: `${base}/`, active: true },
@@ -37,10 +49,12 @@ const navItems = [
       <nav class="hidden md:flex items-center gap-1" aria-label="Main navigation">
         {
           navItems.map((item) => {
+            const target = stripBase(item.href);
             const isCurrent =
-              item.href === "/"
-                ? currentPath === "/" || currentPath === ""
-                : currentPath.startsWith(item.href);
+              target === "/"
+                ? normalizedCurrent === "/"
+                : normalizedCurrent === target ||
+                  normalizedCurrent.startsWith(`${target}/`);
 
             return (
               <a
@@ -86,10 +100,12 @@ const navItems = [
     >
       {
         navItems.map((item) => {
+          const target = stripBase(item.href);
           const isCurrent =
-            item.href === "/"
-              ? currentPath === "/"
-              : currentPath.startsWith(item.href);
+            target === "/"
+              ? normalizedCurrent === "/"
+              : normalizedCurrent === target ||
+                normalizedCurrent.startsWith(`${target}/`);
           return (
             <a
               href={item.href}

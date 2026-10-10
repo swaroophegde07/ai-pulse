@@ -15,6 +15,8 @@ Guidelines for adding new sources:
      will not abort the entire run.
 """
 
+import json
+from pathlib import Path
 from typing import TypedDict
 
 
@@ -33,14 +35,16 @@ ALLOWED_CATEGORIES: list[str] = [
     "Opinion",
 ]
 
-# ---------------------------------------------------------------------------
-# RSS feed registry
-# ---------------------------------------------------------------------------
-# Feeds verified as plausible public RSS/Atom endpoints (October 2024).
-# If a feed becomes unavailable the pipeline logs a warning and continues.
-# ---------------------------------------------------------------------------
+# Path to the shared sources.json
+SOURCES_JSON_PATH = Path(__file__).parent.parent / "src" / "data" / "sources.json"
 
-SOURCES: list[Source] = [
+_DEFAULT_SOURCES: list[Source] = [
+    {
+        "name": "OpenAI News",
+        "url": "https://openai.com/news/rss.xml",
+        "publisher": "OpenAI",
+        "category": "Product Release",
+    },
     {
         "name": "Google DeepMind Blog",
         "url": "https://deepmind.google/blog/rss.xml",
@@ -54,9 +58,21 @@ SOURCES: list[Source] = [
         "category": "News",
     },
     {
-        "name": "MIT News – Artificial Intelligence",
-        "url": "https://news.mit.edu/topic/artificial-intelligence2/feed",
-        "publisher": "MIT",
+        "name": "GitHub AI & Copilot",
+        "url": "https://github.blog/category/ai-and-ml/feed/",
+        "publisher": "GitHub",
+        "category": "Product Release",
+    },
+    {
+        "name": "VS Code Updates",
+        "url": "https://code.visualstudio.com/feed.xml",
+        "publisher": "Microsoft VS Code",
+        "category": "Product Release",
+    },
+    {
+        "name": "Microsoft Research AI",
+        "url": "https://www.microsoft.com/en-us/research/feed/",
+        "publisher": "Microsoft Research",
         "category": "Research",
     },
     {
@@ -66,9 +82,35 @@ SOURCES: list[Source] = [
         "category": "Research",
     },
     {
-        "name": "VentureBeat AI",
-        "url": "https://venturebeat.com/category/ai/feed/",
-        "publisher": "VentureBeat",
+        "name": "The Verge – AI",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+        "publisher": "The Verge",
+        "category": "News",
+    },
+    {
+        "name": "Ars Technica – AI",
+        "url": "https://arstechnica.com/tag/ai/feed/",
+        "publisher": "Ars Technica",
         "category": "News",
     },
 ]
+
+
+def load_sources(file_path: Path | None = None) -> list[Source]:
+    """Load configured RSS feed sources from JSON file.
+
+    Falls back to default sources if the file cannot be read.
+    """
+    path = file_path or SOURCES_JSON_PATH
+    if path.exists():
+        try:
+            with path.open("r", encoding="utf-8") as f:
+                data = json.load(f)
+            if isinstance(data, list) and len(data) > 0:
+                return data
+        except Exception:
+            pass
+    return list(_DEFAULT_SOURCES)
+
+
+SOURCES: list[Source] = load_sources()

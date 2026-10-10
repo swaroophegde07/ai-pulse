@@ -6,6 +6,7 @@ import Header from "../../components/Header.astro";
 import NewsCard from "../../components/NewsCard.astro";
 import CategoryFilter from "../../components/CategoryFilter.astro";
 import Footer from "../../components/Footer.astro";
+import sourcesData from "../../data/sources.json";
 import feedData from "../../data/feed.json";
 
 interface FeedRecord {
@@ -31,13 +32,32 @@ const categories = [
   "Opinion",
 ];
 
-const lastUpdated = feed
+// Only genuine, non-demonstration articles in production
+const realArticles = feed.filter((a) => !a._demo);
+
+// Distinct publishers represented in real dataset
+const distinctPublishers = new Set(
+  realArticles.map((a) => a.company).filter(Boolean)
+);
+const publisherCount = distinctPublishers.size;
+
+// Sort by actual publication date descending (dated first, newest first)
+const sortedArticles = [...realArticles].sort((a, b) => {
+  const da = a.date ? new Date(a.date).getTime() : 0;
+  const db = b.date ? new Date(b.date).getTime() : 0;
+  if (da !== db) return db - da;
+  const fa = a.fetched_at ? new Date(a.fetched_at).getTime() : 0;
+  const fb = b.fetched_at ? new Date(b.fetched_at).getTime() : 0;
+  return fb - fa;
+});
+
+const lastUpdated = realArticles
   .map((a) => a.fetched_at)
   .sort()
   .reverse()[0];
 
 function formatLastUpdated(iso: string | undefined): string {
-  if (!iso) return "Never";
+  if (!iso) return "Awaiting first ingestion";
   try {
     return new Date(iso).toUTCString();
   } catch {
@@ -58,11 +78,9 @@ function formatLastUpdated(iso: string | undefined): string {
             <h1 class="text-xl font-bold text-neutral-100 tracking-tight mb-1">
               AI News Feed
             </h1>
-            <p class="text-xs text-neutral-500">
-              {feed.length} article{feed.length !== 1 ? "s" : ""} from{" "}
-              {[...new Set(feed.map((a) => a.source))].length} source{
-                [...new Set(feed.map((a) => a.source))].length !== 1 ? "s" : ""
-              }
+            <p class="text-xs text-neutral-500 font-mono">
+              {realArticles.length} article{realArticles.length !== 1 ? "s" : ""} across{" "}
+              {publisherCount} publisher{publisherCount !== 1 ? "s" : ""} · {sourcesData.length} feeds monitored
             </p>
           </div>
           <p class="font-mono text-[10px] text-neutral-700 tracking-wide">
@@ -80,16 +98,20 @@ function formatLastUpdated(iso: string | undefined): string {
 
       <!-- Article grid -->
       {
-        feed.length === 0 ? (
+        sortedArticles.length === 0 ? (
           <div
             id="empty-state"
-            class="border border-neutral-800 rounded-lg p-16 text-center"
+            class="border border-neutral-800 rounded-lg p-16 text-center bg-neutral-900/30"
           >
-            <p class="font-mono text-xs text-neutral-600 mb-2">
-              No articles yet.
+            <p class="font-mono text-xs text-neutral-400 mb-2 font-medium">
+              No genuine news articles ingested yet.
+            </p>
+            <p class="font-mono text-[11px] text-neutral-600 max-w-md mx-auto leading-relaxed mb-4">
+              The automated ingestion pipeline runs twice daily across {sourcesData.length} public feeds,
+              or can be triggered on demand via GitHub Actions.
             </p>
             <p class="font-mono text-[10px] text-neutral-700">
-              Run the pipeline: <code class="text-neutral-500">python -m pipeline.run</code>
+              Run locally: <code class="text-neutral-500">python3 -m pipeline.run</code>
             </p>
           </div>
         ) : (
@@ -98,7 +120,7 @@ function formatLastUpdated(iso: string | undefined): string {
               id="news-grid"
               class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
             >
-              {feed.map((article) => (
+              {sortedArticles.map((article) => (
                 <NewsCard
                   id={article.id}
                   title={article.title}
@@ -109,7 +131,7 @@ function formatLastUpdated(iso: string | undefined): string {
                   date={article.date}
                   category={article.category}
                   fetched_at={article.fetched_at}
-                  isDemo={article._demo === true}
+                  isDemo={false}
                 />
               ))}
             </div>
@@ -118,14 +140,21 @@ function formatLastUpdated(iso: string | undefined): string {
             <div
               id="empty-state"
               style="display: none;"
-              class="border border-neutral-800 rounded-lg p-16 text-center mt-4"
+              class="border border-neutral-800 rounded-lg p-16 text-center mt-4 bg-neutral-900/30"
             >
-              <p class="font-mono text-xs text-neutral-600 mb-1">
-                No articles match your search.
+              <p class="font-mono text-xs text-neutral-400 mb-1">
+                No articles match your search or filter criteria.
               </p>
-              <p class="font-mono text-[10px] text-neutral-700">
-                Try a different query or category filter.
+              <p class="font-mono text-[10px] text-neutral-600 mb-4">
+                Try a different keyword, publisher name, or category filter.
               </p>
+              <button
+                type="button"
+                id="reset-filter-btn"
+                class="font-mono text-[10px] uppercase tracking-wider text-neutral-300 hover:text-white px-3 py-1.5 rounded border border-neutral-700 bg-neutral-800 hover:bg-neutral-700 transition-colors"
+              >
+                Clear all filters
+              </button>
             </div>
           </>
         )

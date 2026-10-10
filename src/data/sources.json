@@ -1,0 +1,56 @@
+[
+  {
+    "name": "OpenAI News",
+    "url": "https://openai.com/news/rss.xml",
+    "publisher": "OpenAI",
+    "category": "Product Release"
+  },
+  {
+    "name": "Google DeepMind Blog",
+    "url": "https://deepmind.google/blog/rss.xml",
+    "publisher": "Google DeepMind",
+    "category": "Research"
+  },
+  {
+    "name": "Hugging Face Blog",
+    "url": "https://huggingface.co/blog/feed.xml",
+    "publisher": "Hugging Face",
+    "category": "News"
+  },
+  {
+    "name": "GitHub AI & Copilot",
+    "url": "https://github.blog/category/ai-and-ml/feed/",
+    "publisher": "GitHub",
+    "category": "Product Release"
+  },
+  {
+    "name": "VS Code Updates",
+    "url": "https://code.visualstudio.com/feed.xml",
+    "publisher": "Microsoft VS Code",
+    "category": "Product Release"
+  },
+  {
+    "name": "Microsoft Research AI",
+    "url": "https://www.microsoft.com/en-us/research/feed/",
+    "publisher": "Microsoft Research",
+    "category": "Research"
+  },
+  {
+    "name": "The Gradient",
+    "url": "https://thegradient.pub/rss/",
+    "publisher": "The Gradient",
+    "category": "Research"
+  },
+  {
+    "name": "The Verge – AI",
+    "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+    "publisher": "The Verge",
+    "category": "News"
+  },
+  {
+    "name": "Ars Technica – AI",
+    "url": "https://arstechnica.com/tag/ai/feed/",
+    "publisher": "Ars Technica",
+    "category": "News"
+  }
+]

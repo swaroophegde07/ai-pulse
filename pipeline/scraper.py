@@ -11,6 +11,7 @@ Responsibilities:
 from __future__ import annotations
 
 import hashlib
+import html
 import logging
 import re
 import time
@@ -139,12 +140,16 @@ def extract_text(entry: Any) -> str:
         text = content[0]["value"]
         # Strip obvious HTML tags for cleanliness.
         text = re.sub(r"<[^>]+>", " ", text)
+        text = html.unescape(text)
         return " ".join(text.split())[:4000]
 
-    # Fall back to summary.
-    summary = getattr(entry, "summary", None) or ""
+    # Fall back to summary or description.
+    summary = (
+        getattr(entry, "summary", None) or getattr(entry, "description", None) or ""
+    )
     if summary:
         summary = re.sub(r"<[^>]+>", " ", summary)
+        summary = html.unescape(summary)
         return " ".join(summary.split())[:4000]
 
     return ""

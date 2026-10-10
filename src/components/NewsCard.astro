@@ -67,7 +67,8 @@ const catStyle = categoryStyles[category] ?? categoryStyles["News"];
   data-title={title.toLowerCase()}
   data-company={company.toLowerCase()}
   data-summary={summary.toLowerCase()}
-  data-category={category}
+  data-category={category.toLowerCase()}
+  data-source={source.toLowerCase()}
 >
   <!-- Demo badge -->
   {

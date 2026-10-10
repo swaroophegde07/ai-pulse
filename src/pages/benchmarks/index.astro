@@ -1,50 +1,182 @@
 ---
-// src/pages/benchmarks/index.astro — Benchmarks Board (Coming Soon)
+// src/pages/benchmarks/index.astro — Benchmark Board
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
+import NewsCard from "../../components/NewsCard.astro";
 import Footer from "../../components/Footer.astro";
+import feedData from "../../data/feed.json";
+
+interface FeedRecord {
+  id: string;
+  title: string;
+  company: string;
+  source: string;
+  summary: string;
+  url: string;
+  date: string | null;
+  category: string;
+  fetched_at: string;
+  _demo?: boolean;
+}
+
+const feed = feedData as FeedRecord[];
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+// Only real articles
+const realArticles = feed.filter((a) => !a._demo);
+
+// Filter articles related to benchmarks & evaluations
+const benchmarkArticles = realArticles
+  .filter(
+    (a) =>
+      a.category === "Benchmark" ||
+      /benchmark|eval|leaderboard|arena|swe-bench|mmlu|humaneval|score|test/i.test(
+        a.title
+      ) ||
+      /benchmark|eval|leaderboard|arena|elo/i.test(a.summary)
+  )
+  .sort((a, b) => {
+    const da = a.date ? new Date(a.date).getTime() : 0;
+    const db = b.date ? new Date(b.date).getTime() : 0;
+    if (da !== db) return db - da;
+    return new Date(b.fetched_at).getTime() - new Date(a.fetched_at).getTime();
+  });
+
+const benchmarkStandards = [
+  {
+    name: "SWE-bench Verified",
+    focus: "Autonomous Coding & Software Engineering",
+    description: "Real-world resolved GitHub issues with unit test verification.",
+    leader: "Claude 3.5 / 3.7 Sonnet, OpenAI o3-mini",
+  },
+  {
+    name: "Chatbot Arena (LMSYS)",
+    focus: "Human Preference Elo Rating",
+    description: "Blind crowdsourced side-by-side conversational evaluations.",
+    leader: "Gemini 2.0 Pro, GPT-4o, Claude 3.5 Sonnet",
+  },
+  {
+    name: "GPQA Diamond",
+    focus: "PhD-Level Expert Scientific Reasoning",
+    description: "Google-proof biology, chemistry, and physics questions.",
+    leader: "OpenAI o1 / o3-mini, DeepSeek-R1",
+  },
+  {
+    name: "MMLU-Pro",
+    focus: "Multidisciplinary Complex Reasoning",
+    description: "Expanded 10-choice rigorous version of traditional MMLU.",
+    leader: "OpenAI o1, Gemini 2.0 Pro, Claude 3.5 Sonnet",
+  },
+  {
+    name: "MATH 500 / AIME 2024",
+    focus: "Competition Mathematics & Deduction",
+    description: "High school Olympiad and advanced competition problems.",
+    leader: "DeepSeek-R1, OpenAI o1 / o3-mini",
+  },
+  {
+    name: "LiveCodeBench",
+    focus: "Contamination-Free Code Generation",
+    description: "Continuously updated LeetCode and AtCoder problems.",
+    leader: "Claude 3.5 Sonnet, OpenAI o1",
+  },
+];
 ---
 
-<Layout title="Benchmarks — Coming Soon">
+<Layout title="AI Benchmark Board — AI Pulse">
   <Header currentPath="/benchmarks/" />
 
-  <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <div class="max-w-2xl border border-neutral-800 bg-neutral-900/50 rounded-lg p-8 sm:p-12">
-      <div class="inline-flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase px-2.5 py-1 rounded border border-amber-500/30 bg-amber-500/10 text-amber-400 mb-4">
-        <span>Under Active Development</span>
+  <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <!-- Header banner -->
+    <div class="mb-10">
+      <div class="inline-flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase px-2.5 py-1 rounded border border-blue-500/30 bg-blue-500/10 text-blue-400 mb-3">
+        <span>Evaluations & Evals</span>
       </div>
-      <h1 class="text-2xl sm:text-3xl font-bold text-neutral-100 tracking-tight mb-4">
+      <h1 class="text-2xl sm:text-3xl font-bold text-neutral-100 tracking-tight mb-2">
         Benchmark Board
       </h1>
-      <p class="text-sm text-neutral-400 leading-relaxed mb-6">
-        Standardized evaluations across MMLU-Pro, SWE-bench, GSM8k, HumanEval, and Math arenas. Tracking performance metrics, inference cost efficiency, and latency profiles.
+      <p class="text-sm text-neutral-400 leading-relaxed max-w-2xl">
+        Standardized capability benchmarks, human preference arena ratings, and empirical evaluations across coding, reasoning, and mathematics.
       </p>
-      <div class="border-t border-neutral-800 pt-6">
-        <p class="text-xs text-neutral-500 mb-4">
-          Planned capabilities for upcoming releases:
-        </p>
-        <ul class="space-y-2 font-mono text-xs text-neutral-400">
-          <li class="flex items-center gap-2">
-            <span class="text-emerald-400">▹</span> Side-by-side leaderboard comparison matrix
-          </li>
-          <li class="flex items-center gap-2">
-            <span class="text-emerald-400">▹</span> Cost-per-token vs. performance Pareto frontiers
-          </li>
-          <li class="flex items-center gap-2">
-            <span class="text-emerald-400">▹</span> Verified benchmark verification protocols to detect data contamination
-          </li>
-        </ul>
+    </div>
+
+    <!-- Core Industry Benchmarks Standard -->
+    <section class="mb-12 border border-neutral-800 bg-neutral-900/40 rounded-lg p-6">
+      <h2 class="text-xs font-mono text-neutral-400 tracking-widest uppercase mb-4">
+        Industry Benchmark Standards
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {
+          benchmarkStandards.map((b) => (
+            <div class="border border-neutral-800 bg-neutral-950/60 p-4 rounded flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-1">
+                  <span class="font-semibold text-xs text-neutral-200">
+                    {b.name}
+                  </span>
+                  <span class="font-mono text-[9px] text-blue-400 uppercase tracking-wider">
+                    Eval
+                  </span>
+                </div>
+                <p class="text-[11px] text-neutral-400 font-mono mb-2">
+                  {b.focus}
+                </p>
+                <p class="text-[11px] text-neutral-500 leading-relaxed mb-3">
+                  {b.description}
+                </p>
+              </div>
+              <div class="border-t border-neutral-800/80 pt-2 font-mono text-[10px] text-neutral-400">
+                <span class="text-neutral-500">Leading:</span> {b.leader}
+              </div>
+            </div>
+          ))
+        }
       </div>
-      <div class="mt-8">
+    </section>
+
+    <!-- Benchmark & Evaluation News -->
+    <section>
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-xs font-mono text-neutral-400 tracking-widest uppercase">
+          Benchmark & Evaluation Coverage ({benchmarkArticles.length})
+        </h2>
         <a
           href={`${base}/news/`}
-          class="inline-flex items-center gap-2 font-mono text-xs text-neutral-300 hover:text-emerald-400 transition-colors"
+          class="font-mono text-[10px] text-neutral-500 hover:text-emerald-400 transition-colors"
         >
-          <span>← Browse benchmark news and announcements</span>
+          View all news →
         </a>
       </div>
-    </div>
+
+      {
+        benchmarkArticles.length === 0 ? (
+          <div class="border border-neutral-800 rounded-lg p-10 text-center bg-neutral-900/30">
+            <p class="font-mono text-xs text-neutral-400 mb-2">
+              No specific benchmark articles tagged yet.
+            </p>
+            <p class="font-mono text-[11px] text-neutral-500 max-w-md mx-auto">
+              Evaluation analyses and benchmark scores from OpenAI, Google DeepMind, and Ars Technica will appear here automatically when classified under Benchmark.
+            </p>
+          </div>
+        ) : (
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {benchmarkArticles.map((article) => (
+              <NewsCard
+                id={article.id}
+                title={article.title}
+                company={article.company}
+                source={article.source}
+                summary={article.summary}
+                url={article.url}
+                date={article.date}
+                category={article.category}
+                fetched_at={article.fetched_at}
+                isDemo={false}
+              />
+            ))}
+          </div>
+        )
+      }
+    </section>
   </main>
 
   <Footer />

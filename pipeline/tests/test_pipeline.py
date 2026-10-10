@@ -43,10 +43,11 @@ from pipeline.scraper import (
     parse_date,
     stable_id,
 )
-from pipeline.sources import ALLOWED_CATEGORIES
+from pipeline.sources import ALLOWED_CATEGORIES, load_sources
 from pipeline.summarizer import (
     FALLBACK_SUMMARY_PREFIX,
     _validate_gemini_response,
+    make_fallback_summary,
     summarize_article,
 )
 
@@ -734,6 +735,179 @@ class TestPrepareArticle(unittest.TestCase):
         # Should parse without error.
         dt = datetime.fromisoformat(result["fetched_at"])
         self.assertIsNotNone(dt)
+
+
+# ===========================================================================
+# Demonstration records & statistics calculation tests
+# ===========================================================================
+
+
+class TestDemonstrationAndStatistics(unittest.TestCase):
+    def _make_record(self, idx: int, is_demo: bool = False, company: str = "Test Co"):
+        return {
+            "id": f"rec_{idx}",
+            "title": f"Article {idx}",
+            "company": company,
+            "source": f"Source {idx % 2}",
+            "summary": "Concrete summary.",
+            "url": f"https://example.com/{idx}",
+            "date": "2024-05-01T00:00:00+00:00",
+            "category": "Research",
+            "fetched_at": "2024-05-01T12:00:00+00:00",
+            **({"_demo": True} if is_demo else {}),
+        }
+
+    def test_merge_records_purges_demo_records(self):
+        existing = [
+            self._make_record(1, is_demo=True),
+            self._make_record(2, is_demo=False),
+        ]
+        new_records = [
+            self._make_record(3, is_demo=True),
+            self._make_record(4, is_demo=False),
+        ]
+        merged = merge_records(existing, new_records, max_articles=10)
+        self.assertEqual(len(merged), 2)
+        for r in merged:
+            self.assertFalse(r.get("_demo", False))
+            self.assertIn(r["id"], ["rec_2", "rec_4"])
+
+    def test_real_article_and_publisher_counts(self):
+        dataset = [
+            self._make_record(1, is_demo=True, company="Demo Corp"),
+            self._make_record(2, is_demo=True, company="Demo Corp"),
+            self._make_record(3, is_demo=False, company="DeepMind"),
+            self._make_record(4, is_demo=False, company="DeepMind"),
+            self._make_record(5, is_demo=False, company="Hugging Face"),
+        ]
+        real_articles = [r for r in dataset if not r.get("_demo")]
+        distinct_publishers = {r["company"] for r in real_articles if r.get("company")}
+
+        # 3 real articles from 2 distinct publishers
+        self.assertEqual(len(real_articles), 3)
+        self.assertEqual(len(distinct_publishers), 2)
+        self.assertEqual(distinct_publishers, {"DeepMind", "Hugging Face"})
+
+    def test_last_updated_excludes_demo_records(self):
+        dataset = [
+            {
+                **self._make_record(1, is_demo=True),
+                "fetched_at": "2026-01-01T00:00:00+00:00",
+            },
+            {
+                **self._make_record(2, is_demo=False),
+                "fetched_at": "2024-01-01T00:00:00+00:00",
+            },
+        ]
+        real_articles = [r for r in dataset if not r.get("_demo")]
+        dates = [r["fetched_at"] for r in real_articles]
+        last_updated = sorted(dates, reverse=True)[0]
+        self.assertEqual(last_updated, "2024-01-01T00:00:00+00:00")
+
+
+# ===========================================================================
+# Summary quality & filler removal tests
+# ===========================================================================
+
+
+class TestSummaryQuality(unittest.TestCase):
+    def test_strips_filler_introductory_phrases(self):
+        data = {
+            "summary": (
+                "This article discusses breakthrough results in quantum "
+                "transformer attention."
+            ),
+            "category": "Research",
+        }
+        validated = _validate_gemini_response(data, "https://example.com")
+        self.assertIsNotNone(validated)
+        self.assertEqual(
+            validated["summary"],
+            "Breakthrough results in quantum transformer attention.",
+        )
+
+    def test_strips_this_post_explains_filler(self):
+        data = {
+            "summary": (
+                "This post explains how new benchmarks evaluate "
+                "reasoning models."
+            ),
+            "category": "Benchmark",
+        }
+        validated = _validate_gemini_response(data, "https://example.com")
+        self.assertIsNotNone(validated)
+        self.assertEqual(
+            validated["summary"],
+            "How new benchmarks evaluate reasoning models.",
+        )
+
+    def test_rejects_summary_that_is_only_filler(self):
+        data = {
+            "summary": "This article discusses.",
+            "category": "News",
+        }
+        validated = _validate_gemini_response(data, "https://example.com")
+        self.assertIsNone(validated)
+
+    def test_fallback_summary_format(self):
+        title = "OpenAI releases new reasoning model"
+        text = "The new model achieves 92% on competition math."
+        fallback = make_fallback_summary(title, text)
+        self.assertTrue(fallback.startswith(FALLBACK_SUMMARY_PREFIX))
+        self.assertIn("The new model achieves 92%", fallback)
+
+    def test_fallback_summary_without_text(self):
+        title = "DeepMind announces AlphaFold 3 update"
+        fallback = make_fallback_summary(title, "")
+        self.assertEqual(fallback, f"{FALLBACK_SUMMARY_PREFIX}{title}")
+
+
+# ===========================================================================
+# Retention policy & source configuration tests
+# ===========================================================================
+
+
+class TestRetentionAndSources(unittest.TestCase):
+    def test_retention_days_pruning(self):
+        recent_date = datetime.now().isoformat()
+        old_record = {
+            "id": "old_1",
+            "title": "Old Article",
+            "company": "Corp",
+            "source": "Feed",
+            "summary": "Summary.",
+            "url": "https://example.com/old",
+            "date": "2020-01-01T00:00:00+00:00",
+            "category": "News",
+            "fetched_at": "2020-01-01T00:00:00+00:00",
+        }
+        new_record = {
+            "id": "new_1",
+            "title": "New Article",
+            "company": "Corp",
+            "source": "Feed",
+            "summary": "Summary.",
+            "url": "https://example.com/new",
+            "date": recent_date,
+            "category": "News",
+            "fetched_at": recent_date,
+        }
+        merged = merge_records(
+            [old_record], [new_record], max_articles=10, retention_days=30
+        )
+        self.assertEqual(len(merged), 1)
+        self.assertEqual(merged[0]["id"], "new_1")
+
+    def test_sources_configuration_loaded(self):
+        sources = load_sources()
+        self.assertIsInstance(sources, list)
+        self.assertGreaterEqual(len(sources), 3)
+        for src in sources:
+            self.assertIn("name", src)
+            self.assertIn("url", src)
+            self.assertIn("publisher", src)
+            self.assertIn("category", src)
+            self.assertTrue(src["url"].startswith("http"))
 
 
 if __name__ == "__main__":

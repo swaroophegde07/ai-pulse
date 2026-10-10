@@ -25,7 +25,7 @@ import logging
 import os
 import sys
 import tempfile
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
 from pipeline.scraper import fetch_all_sources, normalize_url
@@ -158,22 +158,39 @@ def write_feed_atomic(records: list[dict], feed_path: Path) -> None:
 # ---------------------------------------------------------------------------
 
 
+DEFAULT_RETENTION_DAYS = 90
+
+
 def merge_records(
     existing: list[dict],
     new_articles: list[dict],
     max_articles: int,
+    retention_days: int | None = None,
 ) -> list[dict]:
     """Merge *new_articles* into *existing*, deduplicate, sort, and trim.
 
-    Deduplication is by stable ID first, then by normalized URL.
-    Sorting is by date descending (articles with no date go last).
-    The result is trimmed to *max_articles*.
+    - Purges demonstration records so they do not pollute live data.
+    - Deduplicates by stable ID and normalized canonical URL.
+    - Applies configurable retention window for dated articles.
+    - Sorts dated articles strictly by actual publication date descending.
+    - Places undated articles after dated articles, ordered by fetched_at.
+    - Trims to *max_articles*.
     """
-    seen_ids: dict[str, dict] = {r["id"]: r for r in existing}
-    seen_urls: dict[str, str] = {normalize_url(r["url"]): r["id"] for r in existing}
+    if retention_days is None:
+        env_ret = os.environ.get("RETENTION_DAYS")
+        retention_days = int(env_ret) if env_ret else 0
+
+    # Exclude demo records from live dataset
+    clean_existing = [r for r in existing if not r.get("_demo")]
+    clean_new = [r for r in new_articles if not r.get("_demo")]
+
+    seen_ids: dict[str, dict] = {r["id"]: r for r in clean_existing}
+    seen_urls: dict[str, str] = {
+        normalize_url(r["url"]): r["id"] for r in clean_existing
+    }
 
     added = 0
-    for article in new_articles:
+    for article in clean_new:
         art_id = article["id"]
         art_url = normalize_url(article["url"])
 
@@ -186,18 +203,50 @@ def merge_records(
         seen_urls[art_url] = art_id
         added += 1
 
-    logger.info("Added %d new articles (before trim).", added)
+    logger.info("Added %d new articles (before retention filter & trim).", added)
 
     all_records = list(seen_ids.values())
 
-    def sort_key(r: dict):
+    # Apply retention window to dated articles if configured
+    if retention_days > 0:
+        cutoff = datetime.now(UTC) - timedelta(days=retention_days)
+        retained = []
+        for r in all_records:
+            date_str = r.get("date")
+            if date_str:
+                try:
+                    pub_dt = datetime.fromisoformat(date_str)
+                    if pub_dt.tzinfo is None:
+                        pub_dt = pub_dt.replace(tzinfo=UTC)
+                    if pub_dt < cutoff:
+                        continue
+                except ValueError:
+                    pass
+            retained.append(r)
+        all_records = retained
+
+    def sort_key(r: dict) -> tuple[int, datetime]:
         date_str = r.get("date") or ""
         if date_str:
             try:
-                return datetime.fromisoformat(date_str)
+                # Priority 1: dated articles, sorted by actual publication date
+                dt = datetime.fromisoformat(date_str)
+                if dt.tzinfo is None:
+                    dt = dt.replace(tzinfo=UTC)
+                return (1, dt)
             except ValueError:
                 pass
-        return datetime.min.replace(tzinfo=UTC)
+        # Priority 0: articles without publication date, sorted by fetched_at
+        fetched_str = r.get("fetched_at") or ""
+        if fetched_str:
+            try:
+                f_dt = datetime.fromisoformat(fetched_str)
+                if f_dt.tzinfo is None:
+                    f_dt = f_dt.replace(tzinfo=UTC)
+                return (0, f_dt)
+            except ValueError:
+                pass
+        return (0, datetime.min.replace(tzinfo=UTC))
 
     all_records.sort(key=sort_key, reverse=True)
     return all_records[:max_articles]
