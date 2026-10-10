@@ -1,0 +1,149 @@
+---
+// CategoryFilter.astro — client-side category + search filter controls
+
+interface Props {
+  categories: string[];
+}
+
+const { categories } = Astro.props;
+---
+
+<div class="flex flex-col gap-4" id="filter-bar">
+  <!-- Search -->
+  <div class="relative">
+    <label for="article-search" class="sr-only">Search articles</label>
+    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none" aria-hidden="true">
+      <svg class="w-3.5 h-3.5 text-neutral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+    </div>
+    <input
+      id="article-search"
+      type="search"
+      placeholder="Search by title, company, or summary…"
+      class="w-full bg-neutral-900 border border-neutral-800 rounded-md pl-9 pr-4 py-2.5 text-xs text-neutral-100 placeholder:text-neutral-600 font-mono focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/20 transition-colors"
+      aria-label="Search articles"
+      autocomplete="off"
+    />
+  </div>
+
+  <!-- Category pills -->
+  <div class="flex flex-wrap gap-2" role="group" aria-label="Filter by category">
+    <button
+      type="button"
+      data-category="all"
+      class="category-btn active font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border transition-colors duration-150 border-neutral-700 text-neutral-300 bg-neutral-800 hover:border-neutral-600"
+      aria-pressed="true"
+    >
+      All
+    </button>
+    {
+      categories.map((cat) => (
+        <button
+          type="button"
+          data-category={cat}
+          class="category-btn font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border transition-colors duration-150 border-neutral-800 text-neutral-500 hover:text-neutral-300 hover:border-neutral-700"
+          aria-pressed="false"
+        >
+          {cat}
+        </button>
+      ))
+    }
+  </div>
+
+  <!-- Result count -->
+  <p class="font-mono text-[10px] text-neutral-600 tracking-wide" id="result-count" aria-live="polite">
+    <!-- updated by JS -->
+  </p>
+</div>
+
+<script>
+  (function () {
+    const searchInput = document.getElementById("article-search") as HTMLInputElement | null;
+    const categoryBtns = document.querySelectorAll<HTMLButtonElement>(".category-btn");
+    const resultCount = document.getElementById("result-count");
+    const grid = document.getElementById("news-grid");
+
+    if (!grid || !searchInput) return;
+
+    const articles = Array.from(
+      grid.querySelectorAll<HTMLElement>("article[data-title]")
+    );
+
+    let activeCategory = "all";
+    let searchQuery = "";
+
+    function updateResultCount(visible: number, total: number) {
+      if (!resultCount) return;
+      if (visible === total) {
+        resultCount.textContent = `Showing all ${total} article${total !== 1 ? "s" : ""}`;
+      } else {
+        resultCount.textContent = `${visible} of ${total} article${total !== 1 ? "s" : ""} match`;
+      }
+    }
+
+    function filterArticles() {
+      const emptyState = document.getElementById("empty-state");
+      let visibleCount = 0;
+
+      articles.forEach((article) => {
+        const title = article.dataset.title ?? "";
+        const company = article.dataset.company ?? "";
+        const summary = article.dataset.summary ?? "";
+        const category = article.dataset.category ?? "";
+
+        const matchesSearch =
+          !searchQuery ||
+          title.includes(searchQuery) ||
+          company.includes(searchQuery) ||
+          summary.includes(searchQuery);
+
+        const matchesCategory =
+          activeCategory === "all" || category === activeCategory;
+
+        const visible = matchesSearch && matchesCategory;
+        article.style.display = visible ? "" : "none";
+        if (visible) visibleCount++;
+      });
+
+      updateResultCount(visibleCount, articles.length);
+
+      if (emptyState) {
+        emptyState.style.display = visibleCount === 0 ? "" : "none";
+      }
+    }
+
+    // Search input handler.
+    searchInput.addEventListener("input", (e) => {
+      searchQuery = (e.target as HTMLInputElement).value.toLowerCase().trim();
+      filterArticles();
+    });
+
+    // Category button handlers.
+    categoryBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        activeCategory = btn.dataset.category ?? "all";
+
+        categoryBtns.forEach((b) => {
+          const isActive = b.dataset.category === activeCategory;
+          b.classList.toggle("active", isActive);
+          b.setAttribute("aria-pressed", isActive ? "true" : "false");
+
+          if (isActive) {
+            b.classList.remove("border-neutral-800", "text-neutral-500");
+            b.classList.add("border-neutral-700", "text-neutral-300", "bg-neutral-800");
+          } else {
+            b.classList.remove("border-neutral-700", "text-neutral-300", "bg-neutral-800");
+            b.classList.add("border-neutral-800", "text-neutral-500");
+          }
+        });
+
+        filterArticles();
+      });
+    });
+
+    // Initial count.
+    filterArticles();
+  })();
+</script>

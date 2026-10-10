@@ -1,0 +1,38 @@
+[
+  {
+    "id": "demo0000000000001",
+    "title": "AI Pulse is live — your intelligence dashboard is ready",
+    "company": "AI Pulse",
+    "source": "AI Pulse",
+    "summary": "This is a demonstration record seeded before the first pipeline run. Run the ingestion pipeline with a valid GEMINI_API_KEY to replace these placeholders with real, summarized AI news from configured RSS sources.",
+    "url": "https://github.com/ai-pulse",
+    "date": null,
+    "category": "News",
+    "fetched_at": "2024-01-01T00:00:00+00:00",
+    "_demo": true
+  },
+  {
+    "id": "demo0000000000002",
+    "title": "How to configure AI Pulse for live news ingestion",
+    "company": "AI Pulse",
+    "source": "AI Pulse",
+    "summary": "Set the GEMINI_API_KEY environment variable and run `python -m pipeline.run` from the repository root. The pipeline fetches RSS feeds from Google DeepMind, Hugging Face, MIT News, The Gradient, and VentureBeat AI, summarizes each article with Gemini, and writes the results to src/data/feed.json.",
+    "url": "https://github.com/ai-pulse#readme",
+    "date": null,
+    "category": "News",
+    "fetched_at": "2024-01-01T00:00:00+00:00",
+    "_demo": true
+  },
+  {
+    "id": "demo0000000000003",
+    "title": "Adding new RSS sources to AI Pulse",
+    "company": "AI Pulse",
+    "source": "AI Pulse",
+    "summary": "Open pipeline/sources.py and add a new entry to the SOURCES list with a name, verified feed URL, publisher, and default category. The pipeline handles feed failures gracefully, so a broken URL will not abort the run.",
+    "url": "https://github.com/ai-pulse#sources",
+    "date": null,
+    "category": "News",
+    "fetched_at": "2024-01-01T00:00:00+00:00",
+    "_demo": true
+  }
+]

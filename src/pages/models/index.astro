@@ -1,0 +1,51 @@
+---
+// src/pages/models/index.astro — Models Tracker (Coming Soon)
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<Layout title="Models — Coming Soon">
+  <Header currentPath="/models/" />
+
+  <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="max-w-2xl border border-neutral-800 bg-neutral-900/50 rounded-lg p-8 sm:p-12">
+      <div class="inline-flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase px-2.5 py-1 rounded border border-amber-500/30 bg-amber-500/10 text-amber-400 mb-4">
+        <span>Under Active Development</span>
+      </div>
+      <h1 class="text-2xl sm:text-3xl font-bold text-neutral-100 tracking-tight mb-4">
+        Model Tracker
+      </h1>
+      <p class="text-sm text-neutral-400 leading-relaxed mb-6">
+        A structured registry of frontier and open-weights AI model releases, parameter counts, architecture specifications, context windows, and licensing terms.
+      </p>
+      <div class="border-t border-neutral-800 pt-6">
+        <p class="text-xs text-neutral-500 mb-4">
+          Planned capabilities for upcoming releases:
+        </p>
+        <ul class="space-y-2 font-mono text-xs text-neutral-400">
+          <li class="flex items-center gap-2">
+            <span class="text-emerald-400">▹</span> Automated model card indexing from Hugging Face & provider labs
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-emerald-400">▹</span> Weights availability and license categorization
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-emerald-400">▹</span> Context length and multi-modal modality matrix
+          </li>
+        </ul>
+      </div>
+      <div class="mt-8">
+        <a
+          href={`${base}/news/`}
+          class="inline-flex items-center gap-2 font-mono text-xs text-neutral-300 hover:text-emerald-400 transition-colors"
+        >
+          <span>← Browse live news and model release coverage</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

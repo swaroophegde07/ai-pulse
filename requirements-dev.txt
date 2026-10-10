@@ -1,0 +1,8 @@
+# Python dev dependencies (testing + linting)
+# Install with: pip install -r requirements-dev.txt
+feedparser>=6.0.11
+google-genai>=2.25.0
+requests>=2.31.0
+pytest>=8.0.0
+pytest-cov>=5.0.0
+ruff>=0.5.0

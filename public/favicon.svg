@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Background -->
+  <rect width="32" height="32" rx="6" fill="#0a0a0a"/>
+  <!-- Pulse dot -->
+  <circle cx="16" cy="16" r="4" fill="#34d399"/>
+  <!-- Outer ring (pulse effect represented statically) -->
+  <circle cx="16" cy="16" r="8" stroke="#34d399" stroke-width="1.5" stroke-opacity="0.3" fill="none"/>
+  <circle cx="16" cy="16" r="12" stroke="#34d399" stroke-width="1" stroke-opacity="0.1" fill="none"/>
+</svg>

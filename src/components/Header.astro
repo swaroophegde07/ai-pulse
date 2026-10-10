@@ -1,0 +1,116 @@
+---
+// Header.astro — top navigation bar
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = "/" } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+const navItems = [
+  { label: "Overview", href: `${base}/`, active: true },
+  { label: "News", href: `${base}/news/`, active: true },
+  { label: "Models", href: `${base}/models/`, active: false },
+  { label: "Research", href: `${base}/research/`, active: false },
+  { label: "Benchmarks", href: `${base}/benchmarks/`, active: false },
+];
+---
+
+<header class="border-b border-neutral-800 bg-neutral-950/95 backdrop-blur-sm sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-14">
+      <!-- Wordmark -->
+      <a href={`${base}/`} class="flex items-center gap-2 group" aria-label="AI Pulse home">
+        <span
+          class="font-mono text-sm font-bold tracking-[0.25em] text-neutral-100 group-hover:text-emerald-400 transition-colors duration-200"
+        >
+          AI PULSE
+        </span>
+        <span
+          class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"
+          aria-hidden="true"
+        ></span>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-1" aria-label="Main navigation">
+        {
+          navItems.map((item) => {
+            const isCurrent =
+              item.href === "/"
+                ? currentPath === "/" || currentPath === ""
+                : currentPath.startsWith(item.href);
+
+            return (
+              <a
+                href={item.href}
+                class={`font-mono text-xs tracking-wide px-3 py-1.5 rounded transition-colors duration-150 inline-flex items-center gap-1 ${
+                  isCurrent
+                    ? "text-emerald-400 bg-emerald-400/10"
+                    : item.active
+                      ? "text-neutral-400 hover:text-neutral-100 hover:bg-neutral-800"
+                      : "text-neutral-500 hover:text-neutral-300 hover:bg-neutral-900"
+                }`}
+                aria-current={isCurrent ? "page" : undefined}
+              >
+                <span>{item.label}</span>
+                {!item.active && (
+                  <span class="text-[9px] uppercase tracking-widest text-neutral-600 bg-neutral-900 border border-neutral-800 px-1 py-0.2 rounded font-mono">
+                    soon
+                  </span>
+                )}
+              </a>
+            );
+          })
+        }
+      </nav>
+
+      <!-- Mobile menu button (checkbox toggle) -->
+      <label
+        for="mobile-menu-toggle"
+        class="md:hidden cursor-pointer p-2 rounded text-neutral-400 hover:text-neutral-100 hover:bg-neutral-800 transition-colors"
+        aria-label="Toggle menu"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </label>
+      <input type="checkbox" id="mobile-menu-toggle" class="peer hidden" />
+    </div>
+
+    <!-- Mobile nav (CSS-only toggle) -->
+    <nav
+      class="hidden peer-checked:block md:hidden pb-3 border-t border-neutral-800 mt-0 pt-3"
+      aria-label="Mobile navigation"
+    >
+      {
+        navItems.map((item) => {
+          const isCurrent =
+            item.href === "/"
+              ? currentPath === "/"
+              : currentPath.startsWith(item.href);
+          return (
+            <a
+              href={item.href}
+              class={`flex items-center justify-between font-mono text-xs tracking-wide px-2 py-2 rounded transition-colors ${
+                isCurrent
+                  ? "text-emerald-400"
+                  : item.active
+                    ? "text-neutral-400 hover:text-neutral-100"
+                    : "text-neutral-500 hover:text-neutral-300"
+              }`}
+            >
+              <span>{item.label}</span>
+              {!item.active && (
+                <span class="text-[9px] uppercase tracking-widest text-neutral-600 bg-neutral-900 border border-neutral-800 px-1 py-0.2 rounded font-mono">
+                  soon
+                </span>
+              )}
+            </a>
+          );
+        })
+      }
+    </nav>
+  </div>
+</header>
