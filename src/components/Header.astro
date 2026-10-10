@@ -23,9 +23,9 @@ const normalizedCurrent = stripBase(rawCurrent);
 const navItems = [
   { label: "Overview", href: `${base}/`, active: true },
   { label: "News", href: `${base}/news/`, active: true },
-  { label: "Models", href: `${base}/models/`, active: false },
-  { label: "Research", href: `${base}/research/`, active: false },
-  { label: "Benchmarks", href: `${base}/benchmarks/`, active: false },
+  { label: "Models", href: `${base}/models/`, active: true },
+  { label: "Research", href: `${base}/research/`, active: true },
+  { label: "Benchmarks", href: `${base}/benchmarks/`, active: true },
 ];
 ---
 
@@ -33,7 +33,11 @@ const navItems = [
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-14">
       <!-- Wordmark -->
-      <a href={`${base}/`} class="flex items-center gap-2 group" aria-label="AI Pulse home">
+      <a
+        href={`${base}/`}
+        class="flex items-center gap-2 group min-h-[44px] py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded"
+        aria-label="AI Pulse home"
+      >
         <span
           class="font-mono text-sm font-bold tracking-[0.25em] text-neutral-100 group-hover:text-emerald-400 transition-colors duration-200"
         >
@@ -59,43 +63,68 @@ const navItems = [
             return (
               <a
                 href={item.href}
-                class={`font-mono text-xs tracking-wide px-3 py-1.5 rounded transition-colors duration-150 inline-flex items-center gap-1 ${
+                class={`font-mono text-xs tracking-wide px-3 py-2 rounded transition-colors duration-150 inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
                   isCurrent
-                    ? "text-emerald-400 bg-emerald-400/10"
-                    : item.active
-                      ? "text-neutral-400 hover:text-neutral-100 hover:bg-neutral-800"
-                      : "text-neutral-500 hover:text-neutral-300 hover:bg-neutral-900"
+                    ? "text-emerald-400 bg-emerald-400/10 font-medium"
+                    : "text-neutral-400 hover:text-neutral-100 hover:bg-neutral-800/80"
                 }`}
                 aria-current={isCurrent ? "page" : undefined}
               >
                 <span>{item.label}</span>
-                {!item.active && (
-                  <span class="text-[9px] uppercase tracking-widest text-neutral-600 bg-neutral-900 border border-neutral-800 px-1 py-0.2 rounded font-mono">
-                    soon
-                  </span>
-                )}
               </a>
             );
           })
         }
       </nav>
 
-      <!-- Mobile menu button (checkbox toggle) -->
-      <label
-        for="mobile-menu-toggle"
-        class="md:hidden cursor-pointer p-2 rounded text-neutral-400 hover:text-neutral-100 hover:bg-neutral-800 transition-colors"
-        aria-label="Toggle menu"
+      <!-- Mobile menu button -->
+      <button
+        type="button"
+        id="mobile-menu-btn"
+        class="md:hidden inline-flex items-center justify-center w-11 h-11 -mr-2 rounded text-neutral-400 hover:text-neutral-100 hover:bg-neutral-800/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 transition-colors cursor-pointer"
+        aria-label="Open main menu"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
       >
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        <!-- Hamburger icon (shown when closed) -->
+        <svg
+          id="menu-icon-closed"
+          class="w-5 h-5 block"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
         </svg>
-      </label>
-      <input type="checkbox" id="mobile-menu-toggle" class="peer hidden" />
+        <!-- Close (X) icon (hidden when closed) -->
+        <svg
+          id="menu-icon-open"
+          class="w-5 h-5 hidden"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
     </div>
 
-    <!-- Mobile nav (CSS-only toggle) -->
+    <!-- Mobile nav dropdown -->
     <nav
-      class="hidden peer-checked:block md:hidden pb-3 border-t border-neutral-800 mt-0 pt-3"
+      id="mobile-nav"
+      class="hidden md:hidden border-t border-neutral-800/80 py-3 space-y-1"
       aria-label="Mobile navigation"
     >
       {
@@ -106,22 +135,20 @@ const navItems = [
               ? normalizedCurrent === "/"
               : normalizedCurrent === target ||
                 normalizedCurrent.startsWith(`${target}/`);
+
           return (
             <a
               href={item.href}
-              class={`flex items-center justify-between font-mono text-xs tracking-wide px-2 py-2 rounded transition-colors ${
+              class={`mobile-nav-link flex items-center justify-between font-mono text-xs tracking-wide px-3 py-3 rounded-md min-h-[44px] transition-colors ${
                 isCurrent
-                  ? "text-emerald-400"
-                  : item.active
-                    ? "text-neutral-400 hover:text-neutral-100"
-                    : "text-neutral-500 hover:text-neutral-300"
+                  ? "text-emerald-400 bg-emerald-400/10 font-medium"
+                  : "text-neutral-300 hover:text-neutral-100 hover:bg-neutral-800/60 active:bg-neutral-800"
               }`}
+              aria-current={isCurrent ? "page" : undefined}
             >
               <span>{item.label}</span>
-              {!item.active && (
-                <span class="text-[9px] uppercase tracking-widest text-neutral-600 bg-neutral-900 border border-neutral-800 px-1 py-0.2 rounded font-mono">
-                  soon
-                </span>
+              {isCurrent && (
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400" aria-hidden="true"></span>
               )}
             </a>
           );
@@ -130,3 +157,85 @@ const navItems = [
     </nav>
   </div>
 </header>
+
+<script>
+  function setupMobileMenu() {
+    const btn = document.getElementById("mobile-menu-btn");
+    const menu = document.getElementById("mobile-nav");
+    const closedIcon = document.getElementById("menu-icon-closed");
+    const openIcon = document.getElementById("menu-icon-open");
+
+    if (!btn || !menu) return;
+
+    function openMenu() {
+      btn?.setAttribute("aria-expanded", "true");
+      btn?.setAttribute("aria-label", "Close main menu");
+      menu?.classList.remove("hidden");
+      closedIcon?.classList.add("hidden");
+      openIcon?.classList.remove("hidden");
+    }
+
+    function closeMenu() {
+      btn?.setAttribute("aria-expanded", "false");
+      btn?.setAttribute("aria-label", "Open main menu");
+      menu?.classList.add("hidden");
+      closedIcon?.classList.remove("hidden");
+      openIcon?.classList.add("hidden");
+    }
+
+    function toggleMenu() {
+      const isExpanded = btn?.getAttribute("aria-expanded") === "true";
+      if (isExpanded) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    }
+
+    btn.onclick = (e) => {
+      e.stopPropagation();
+      toggleMenu();
+    };
+
+    // Close on navigation link click
+    const links = menu.querySelectorAll(".mobile-nav-link");
+    links.forEach((link) => {
+      link.addEventListener("click", () => {
+        closeMenu();
+      });
+    });
+
+    // Close on Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && btn.getAttribute("aria-expanded") === "true") {
+        closeMenu();
+        btn.focus();
+      }
+    });
+
+    // Close when clicking outside header
+    document.addEventListener("click", (e) => {
+      if (!menu.classList.contains("hidden")) {
+        const header = btn.closest("header");
+        if (header && !header.contains(e.target as Node)) {
+          closeMenu();
+        }
+      }
+    });
+
+    // Reset menu on resize to desktop (>= 768px)
+    window.addEventListener("resize", () => {
+      if (window.innerWidth >= 768 && btn.getAttribute("aria-expanded") === "true") {
+        closeMenu();
+      }
+    });
+  }
+
+  // Setup on initial DOM load
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setupMobileMenu);
+  } else {
+    setupMobileMenu();
+  }
+  document.addEventListener("astro:page-load", setupMobileMenu);
+</script>
