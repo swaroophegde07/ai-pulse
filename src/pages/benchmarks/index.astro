@@ -63,6 +63,7 @@ interface ModelRecord {
   source_url: string;
   last_verified: string;
   notes?: string;
+  is_featured_frontier?: boolean;
 }
 
 interface SourceNotice {
@@ -74,10 +75,19 @@ interface SourceNotice {
 }
 
 const feed = feedData as FeedRecord[];
-const benchmarks = (benchmarksData.benchmarks || []) as BenchmarkRecord[];
+const rawBenchmarks = (benchmarksData.benchmarks || []) as BenchmarkRecord[];
+// Sort benchmarks by score descending so top-ranked models appear first
+const benchmarks = [...rawBenchmarks].sort((a, b) => b.score - a.score);
 const sources = (benchmarksData.metadata?.sources || []) as SourceNotice[];
 const standards = (benchmarksData.benchmark_standards || []) as any[];
-const models = (modelsData || []) as ModelRecord[];
+const rawModels = (modelsData || []) as ModelRecord[];
+// Sort models chronologically so latest frontier flagships are prioritized
+const models = [...rawModels].sort((a, b) => {
+  const da = a.release_date && a.release_date !== "Unknown" ? new Date(a.release_date).getTime() : 0;
+  const db = b.release_date && b.release_date !== "Unknown" ? new Date(b.release_date).getTime() : 0;
+  if (da !== db) return db - da;
+  return (b.is_featured_frontier ? 1 : 0) - (a.is_featured_frontier ? 1 : 0);
+});
 const validationReport = benchmarksData.metadata?.validation_report || {
   retrieved_count: benchmarks.length,
   parsed_count: benchmarks.length,
@@ -97,17 +107,45 @@ const modelToBenchId: Record<string, string> = {
   "openai/o3-mini": "o3-mini",
   "openai/gpt-4o": "gpt-4o",
   "openai/gpt-4o-mini": "gpt-4o-mini",
+  "openai/gpt-6.1-sol": "gpt-6.1-sol-max",
+  "openai/gpt-6.1-sol-pro": "gpt-6.1-sol-max",
+  "openai/gpt-6-astra": "gpt-6-astra-max",
+  "openai/gpt-6-astra-pro": "gpt-6-astra-max",
+  "openai/gpt-6-sol": "gpt-6-sol-max",
+  "openai/gpt-6-luna": "gpt-6-luna",
+  "openai/gpt-5.6-sol": "gpt-5.6-sol-max",
+  "openai/gpt-5.5": "gpt-5.5-xhigh",
   "anthropic/claude-3-5-sonnet": "claude-3-5-sonnet",
   "anthropic/claude-3-7-sonnet": "claude-3-7-sonnet",
   "anthropic/claude-3-5-haiku": "claude-3-5-haiku",
+  "anthropic/claude-opus-5.5": "claude-opus-5-5-max-effort",
+  "anthropic/claude-sonnet-5.5": "claude-sonnet-5-5-max-effort",
+  "anthropic/claude-haiku-5.5": "claude-haiku-5-5",
+  "anthropic/claude-opus-5": "claude-opus-5-max-effort",
+  "anthropic/claude-sonnet-5": "claude-sonnet-5",
+  "anthropic/claude-opus-4.8": "claude-opus-4-8",
+  "anthropic/claude-opus-4.7": "claude-opus-4-7-xhigh-effort",
+  "anthropic/claude-opus-4.6": "claude-opus-4-6-thinking-auto-high-effort",
+  "anthropic/claude-opus-4.5": "claude-opus-4-5-20251101-thinking-64k-high-effort",
+  "anthropic/claude-opus-4.1": "claude-opus-4-1",
   "deepseek/deepseek-r1": "deepseek-r1",
   "deepseek/deepseek-v3": "deepseek-v3",
+  "deepseek/deepseek-v4.1-flash": "deepseek-v4.1-flash",
+  "deepseek/deepseek-v4-pro": "deepseek-v4-pro",
+  "deepseek/deepseek-v4-flash": "deepseek-v4-flash",
   "meta/llama-3-3-70b-instruct": "llama-3.3-70b-instruct",
   "meta/llama-3-1-405b-instruct": "llama-3.1-405b-instruct",
   "microsoft/phi-4": "phi-4",
   "mistral/mistral-large-2411": "mistral-large-2411",
+  "mistralai/mistral-large-4-0": "mistral-large-4",
   "google/gemini-2-0-flash": "gemini-2.0-flash",
   "google/gemini-2-0-pro-exp": "gemini-2.0-pro",
+  "google/gemini-3.8-flash": "gemini-3.8-flash",
+  "google/gemini-3.7-flash": "gemini-3.7-flash",
+  "google/gemini-3.6-flash": "gemini-3.6-flash",
+  "google/gemini-3.5-flash": "gemini-3.5-flash",
+  "qwen/qwen3.8-max-prime": "qwen3.8-max-prime",
+  "qwen/qwen3.8-flash": "qwen3.8-flash",
 };
 
 // Build dynamic head-to-head model comparison database
@@ -115,20 +153,27 @@ const dynamicModelDatabase: Record<string, any> = {};
 for (const m of models) {
   const benchId = modelToBenchId[m.id] || m.id.split("/")[1] || m.id;
 
-  const rRecord = benchmarks.find(
-    (b) =>
-      b.category === "Reasoning" &&
-      ((b.internal_model_id && b.internal_model_id === m.id) ||
-        b.canonical_id === benchId ||
-        b.canonical_id === m.id)
-  );
-  const cRecord = benchmarks.find(
-    (b) =>
-      (b.category === "Coding" || b.category === "Agentic Coding") &&
-      ((b.internal_model_id && b.internal_model_id === m.id) ||
-        b.canonical_id === benchId ||
-        b.canonical_id === m.id)
-  );
+  const rRecord = benchmarks
+    .filter(
+      (b) =>
+        b.category === "Reasoning" &&
+        ((b.internal_model_id && b.internal_model_id === m.id) ||
+          b.canonical_id === benchId ||
+          (benchId && b.canonical_id.startsWith(benchId)) ||
+          b.canonical_id === m.id)
+    )
+    .sort((a, b) => b.score - a.score)[0];
+
+  const cRecord = benchmarks
+    .filter(
+      (b) =>
+        (b.category === "Coding" || b.category === "Agentic Coding") &&
+        ((b.internal_model_id && b.internal_model_id === m.id) ||
+          b.canonical_id === benchId ||
+          (benchId && b.canonical_id.startsWith(benchId)) ||
+          b.canonical_id === m.id)
+    )
+    .sort((a, b) => b.score - a.score)[0];
 
   const ctxStr = m.context_window >= 1_000_000
     ? `${(m.context_window / 1_000_000).toFixed(m.context_window % 1_000_000 === 0 ? 0 : 1)}M tokens`
@@ -422,26 +467,41 @@ const costEfficientModel = [...models]
         <table class="w-full text-left text-xs font-mono" id="benchmarks-table">
           <thead>
             <tr class="border-b border-neutral-800 bg-neutral-950/40 text-neutral-500 text-[11px]">
-              <th class="py-3 pl-6 pr-4 font-medium">Model</th>
-              <th class="py-3 pr-4 font-medium">Provider</th>
-              <th class="py-3 pr-4 font-medium">Benchmark Suite</th>
-              <th class="py-3 pr-4 font-medium">Category</th>
-              <th class="py-3 pr-4 font-medium">Score</th>
-              <th class="py-3 pr-4 font-medium">Provenance</th>
+              <th class="py-3 pl-6 pr-3 font-medium w-16 text-center cursor-pointer hover:text-neutral-200 select-none" data-sort="score">Rank</th>
+              <th class="py-3 pr-4 font-medium cursor-pointer hover:text-neutral-200 select-none" data-sort="model">Model</th>
+              <th class="py-3 pr-4 font-medium cursor-pointer hover:text-neutral-200 select-none" data-sort="provider">Provider</th>
+              <th class="py-3 pr-4 font-medium cursor-pointer hover:text-neutral-200 select-none" data-sort="benchmark">Benchmark Suite</th>
+              <th class="py-3 pr-4 font-medium cursor-pointer hover:text-neutral-200 select-none" data-sort="category">Category</th>
+              <th class="py-3 pr-4 font-medium cursor-pointer hover:text-neutral-200 select-none text-blue-400 font-bold" data-sort="score">Score ▼</th>
+              <th class="py-3 pr-4 font-medium">Provenance &amp; Date</th>
               <th class="py-3 pr-6 text-right font-medium">Source</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-neutral-800/60 text-neutral-300">
             {
-              benchmarks.map((b) => (
+              benchmarks.map((b, idx) => (
                 <tr
                   class="benchmark-row hover:bg-neutral-800/30 transition-colors"
                   data-model={b.model_name.toLowerCase()}
                   data-provider={b.provider.toLowerCase()}
                   data-benchmark={b.benchmark_name.toLowerCase()}
                   data-category={b.category.toLowerCase()}
+                  data-score={b.score}
                 >
-                  <td class="py-3.5 pl-6 pr-4 font-semibold text-neutral-100">
+                  <td class="py-3.5 pl-6 pr-3 text-center">
+                    <span class={`rank-badge inline-flex items-center justify-center font-mono text-[11px] font-bold px-1.5 py-0.5 rounded ${
+                      idx === 0
+                        ? "bg-amber-500/20 text-amber-300 border border-amber-500/30"
+                        : idx === 1
+                        ? "bg-neutral-300/20 text-neutral-200 border border-neutral-400/30"
+                        : idx === 2
+                        ? "bg-amber-700/20 text-amber-500 border border-amber-600/30"
+                        : "text-neutral-500"
+                    }`}>
+                      #{idx + 1}
+                    </span>
+                  </td>
+                  <td class="py-3.5 pr-4 font-semibold text-neutral-100">
                     {b.model_name}
                   </td>
                   <td class="py-3.5 pr-4 text-neutral-400">{b.provider}</td>
@@ -538,7 +598,7 @@ const costEfficientModel = [...models]
           >
             {
               models.map((m) => (
-                <option value={m.id} selected={m.id === "openai/o1"}>
+                <option value={m.id} selected={m.id === "anthropic/claude-opus-5.5"}>
                   {m.name}
                 </option>
               ))
@@ -557,7 +617,7 @@ const costEfficientModel = [...models]
           >
             {
               models.map((m) => (
-                <option value={m.id} selected={m.id === "deepseek/deepseek-r1"}>
+                <option value={m.id} selected={m.id === "openai/gpt-6.1-sol"}>
                   {m.name}
                 </option>
               ))
@@ -575,46 +635,46 @@ const costEfficientModel = [...models]
           <thead>
             <tr class="border-b border-neutral-800 text-neutral-500 text-[11px]">
               <th class="py-3 px-4 font-medium">Evaluation Dimension</th>
-              <th class="py-3 px-4 font-medium text-neutral-200" id="col-name-a">{dynamicModelDatabase["openai/o1"]?.name || "Model A"}</th>
-              <th class="py-3 px-4 font-medium text-neutral-200" id="col-name-b">{dynamicModelDatabase["deepseek/deepseek-r1"]?.name || "Model B"}</th>
-              <th class="py-3 px-4 font-medium text-neutral-500">Source & Provenance</th>
+              <th class="py-3 px-4 font-medium text-neutral-200" id="col-name-a">{dynamicModelDatabase["anthropic/claude-opus-5.5"]?.name || "Model A"}</th>
+              <th class="py-3 px-4 font-medium text-neutral-200" id="col-name-b">{dynamicModelDatabase["openai/gpt-6.1-sol"]?.name || "Model B"}</th>
+              <th class="py-3 px-4 font-medium text-neutral-500">Source &amp; Provenance</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-neutral-800/60 text-neutral-300">
             <tr>
               <td class="py-3 px-4 text-neutral-400">LiveBench Reasoning Score</td>
-              <td class="py-3 px-4 font-bold text-emerald-400" id="cmp-reasoning-a">{dynamicModelDatabase["openai/o1"]?.reasoning || "Not available"}</td>
-              <td class="py-3 px-4 font-bold text-emerald-400" id="cmp-reasoning-b">{dynamicModelDatabase["deepseek/deepseek-r1"]?.reasoning || "Not available"}</td>
+              <td class="py-3 px-4 font-bold text-emerald-400" id="cmp-reasoning-a">{dynamicModelDatabase["anthropic/claude-opus-5.5"]?.reasoning || "Not available"}</td>
+              <td class="py-3 px-4 font-bold text-emerald-400" id="cmp-reasoning-b">{dynamicModelDatabase["openai/gpt-6.1-sol"]?.reasoning || "Not available"}</td>
               <td class="py-3 px-4 text-[10px] text-neutral-500" id="cmp-provenance-reasoning">LiveBench Independent Eval</td>
             </tr>
             <tr>
               <td class="py-3 px-4 text-neutral-400">LiveBench Coding Score</td>
-              <td class="py-3 px-4 font-bold text-emerald-400" id="cmp-coding-a">{dynamicModelDatabase["openai/o1"]?.coding || "Not available"}</td>
-              <td class="py-3 px-4 font-bold text-emerald-400" id="cmp-coding-b">{dynamicModelDatabase["deepseek/deepseek-r1"]?.coding || "Not available"}</td>
+              <td class="py-3 px-4 font-bold text-emerald-400" id="cmp-coding-a">{dynamicModelDatabase["anthropic/claude-opus-5.5"]?.coding || "Not available"}</td>
+              <td class="py-3 px-4 font-bold text-emerald-400" id="cmp-coding-b">{dynamicModelDatabase["openai/gpt-6.1-sol"]?.coding || "Not available"}</td>
               <td class="py-3 px-4 text-[10px] text-neutral-500" id="cmp-provenance-coding">LiveBench Independent Eval</td>
             </tr>
             <tr>
               <td class="py-3 px-4 text-neutral-400">Context Window</td>
-              <td class="py-3 px-4 font-medium" id="cmp-context-a">{dynamicModelDatabase["openai/o1"]?.context || "Not available"}</td>
-              <td class="py-3 px-4 font-medium" id="cmp-context-b">{dynamicModelDatabase["deepseek/deepseek-r1"]?.context || "Not available"}</td>
+              <td class="py-3 px-4 font-medium" id="cmp-context-a">{dynamicModelDatabase["anthropic/claude-opus-5.5"]?.context || "Not available"}</td>
+              <td class="py-3 px-4 font-medium" id="cmp-context-b">{dynamicModelDatabase["openai/gpt-6.1-sol"]?.context || "Not available"}</td>
               <td class="py-3 px-4 text-[10px] text-neutral-500">OpenRouter Catalog</td>
             </tr>
             <tr>
               <td class="py-3 px-4 text-neutral-400">Input Price (per 1M tokens)</td>
-              <td class="py-3 px-4 font-medium" id="cmp-price-in-a">{dynamicModelDatabase["openai/o1"]?.priceIn || "Not available"}</td>
-              <td class="py-3 px-4 font-medium" id="cmp-price-in-b">{dynamicModelDatabase["deepseek/deepseek-r1"]?.priceIn || "Not available"}</td>
+              <td class="py-3 px-4 font-medium" id="cmp-price-in-a">{dynamicModelDatabase["anthropic/claude-opus-5.5"]?.priceIn || "Not available"}</td>
+              <td class="py-3 px-4 font-medium" id="cmp-price-in-b">{dynamicModelDatabase["openai/gpt-6.1-sol"]?.priceIn || "Not available"}</td>
               <td class="py-3 px-4 text-[10px] text-neutral-500">Provider API Pricing</td>
             </tr>
             <tr>
               <td class="py-3 px-4 text-neutral-400">Output Price (per 1M tokens)</td>
-              <td class="py-3 px-4 font-medium" id="cmp-price-out-a">{dynamicModelDatabase["openai/o1"]?.priceOut || "Not available"}</td>
-              <td class="py-3 px-4 font-medium" id="cmp-price-out-b">{dynamicModelDatabase["deepseek/deepseek-r1"]?.priceOut || "Not available"}</td>
+              <td class="py-3 px-4 font-medium" id="cmp-price-out-a">{dynamicModelDatabase["anthropic/claude-opus-5.5"]?.priceOut || "Not available"}</td>
+              <td class="py-3 px-4 font-medium" id="cmp-price-out-b">{dynamicModelDatabase["openai/gpt-6.1-sol"]?.priceOut || "Not available"}</td>
               <td class="py-3 px-4 text-[10px] text-neutral-500">Provider API Pricing</td>
             </tr>
             <tr>
               <td class="py-3 px-4 text-neutral-400">License / Weights</td>
-              <td class="py-3 px-4 font-medium" id="cmp-license-a">{dynamicModelDatabase["openai/o1"]?.license || "Not available"}</td>
-              <td class="py-3 px-4 font-medium" id="cmp-license-b">{dynamicModelDatabase["deepseek/deepseek-r1"]?.license || "Not available"}</td>
+              <td class="py-3 px-4 font-medium" id="cmp-license-a">{dynamicModelDatabase["anthropic/claude-opus-5.5"]?.license || "Not available"}</td>
+              <td class="py-3 px-4 font-medium" id="cmp-license-b">{dynamicModelDatabase["openai/gpt-6.1-sol"]?.license || "Not available"}</td>
               <td class="py-3 px-4 text-[10px] text-neutral-500">Official Model Card</td>
             </tr>
           </tbody>
@@ -777,6 +837,33 @@ const costEfficientModel = [...models]
 
     let currentSearch = "";
     let currentCategory = "all";
+    let currentSort = "score";
+    let sortAsc = false;
+
+    function updateRanks() {
+      let rankCounter = 1;
+      const tbody = document.querySelector("#benchmarks-table tbody");
+      if (!tbody) return;
+      const currentRows = Array.from(tbody.querySelectorAll<HTMLTableRowElement>(".benchmark-row"));
+      currentRows.forEach((row) => {
+        if (row.style.display !== "none") {
+          const badge = row.querySelector(".rank-badge");
+          if (badge) {
+            badge.textContent = `#${rankCounter}`;
+            badge.className = "rank-badge inline-flex items-center justify-center font-mono text-[11px] font-bold px-1.5 py-0.5 rounded " + (
+              rankCounter === 1
+                ? "bg-amber-500/20 text-amber-300 border border-amber-500/30"
+                : rankCounter === 2
+                ? "bg-neutral-300/20 text-neutral-200 border border-neutral-400/30"
+                : rankCounter === 3
+                ? "bg-amber-700/20 text-amber-500 border border-amber-600/30"
+                : "text-neutral-500"
+            );
+            rankCounter++;
+          }
+        }
+      });
+    }
 
     function filterBenchmarks() {
       let visible = 0;
@@ -800,6 +887,8 @@ const costEfficientModel = [...models]
         if (show) visible++;
       });
 
+      updateRanks();
+
       if (emptyState) {
         emptyState.style.display = visible === 0 ? "block" : "none";
       }
@@ -808,6 +897,54 @@ const costEfficientModel = [...models]
         clearSearchBtn.style.display = currentSearch ? "" : "none";
       }
     }
+
+    // Interactive Table Header Sorting
+    const sortHeaders = document.querySelectorAll<HTMLTableCellElement>("#benchmarks-table th[data-sort]");
+    sortHeaders.forEach((th) => {
+      th.addEventListener("click", () => {
+        const sortKey = th.dataset.sort;
+        if (!sortKey) return;
+
+        if (currentSort === sortKey) {
+          sortAsc = !sortAsc;
+        } else {
+          currentSort = sortKey;
+          sortAsc = sortKey === "score" ? false : true;
+        }
+
+        const tbody = document.querySelector("#benchmarks-table tbody");
+        if (!tbody) return;
+
+        const rowArray = Array.from(tbody.querySelectorAll<HTMLTableRowElement>(".benchmark-row"));
+        rowArray.sort((a, b) => {
+          if (sortKey === "score") {
+            const valA = parseFloat(a.dataset.score || "0");
+            const valB = parseFloat(b.dataset.score || "0");
+            return sortAsc ? (valA - valB) : (valB - valA);
+          } else {
+            const valA = (a.dataset[sortKey] || "");
+            const valB = (b.dataset[sortKey] || "");
+            return sortAsc ? valA.localeCompare(valB) : valB.localeCompare(valA);
+          }
+        });
+
+        rowArray.forEach((r) => tbody.appendChild(r));
+
+        sortHeaders.forEach((h) => {
+          const k = h.dataset.sort;
+          const label = h.textContent?.replace(/[▼▲]/g, "").trim() || "";
+          if (k === currentSort) {
+            h.textContent = `${label} ${sortAsc ? "▲" : "▼"}`;
+            h.classList.add("text-blue-400", "font-bold");
+          } else {
+            h.textContent = label;
+            h.classList.remove("text-blue-400", "font-bold");
+          }
+        });
+
+        filterBenchmarks();
+      });
+    });
 
     if (searchInput) {
       searchInput.addEventListener("input", (e) => {
@@ -865,11 +1002,11 @@ const costEfficientModel = [...models]
     }
 
     function updateComparison() {
-      const keyA = selectA?.value || "openai/o1";
-      const keyB = selectB?.value || "deepseek/deepseek-r1";
+      const keyA = selectA?.value || "anthropic/claude-opus-5.5";
+      const keyB = selectB?.value || "openai/gpt-6.1-sol";
 
-      const dataA = modelDatabase[keyA] || modelDatabase["openai/o1"];
-      const dataB = modelDatabase[keyB] || modelDatabase["deepseek/deepseek-r1"];
+      const dataA = modelDatabase[keyA] || modelDatabase["anthropic/claude-opus-5.5"] || modelDatabase["openai/o1"];
+      const dataB = modelDatabase[keyB] || modelDatabase["openai/gpt-6.1-sol"] || modelDatabase["deepseek/deepseek-r1"];
 
       const colA = document.getElementById("col-name-a");
       const colB = document.getElementById("col-name-b");

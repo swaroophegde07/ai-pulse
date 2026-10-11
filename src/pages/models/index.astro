@@ -48,7 +48,12 @@ interface ModelRecord {
 }
 
 const feed = feedData as FeedRecord[];
-const models = modelsData as ModelRecord[];
+const models = (modelsData as ModelRecord[]).slice().sort((a, b) => {
+  const da = a.release_date ? new Date(a.release_date).getTime() : 0;
+  const db = b.release_date ? new Date(b.release_date).getTime() : 0;
+  if (da !== db) return db - da;
+  return a.name.localeCompare(b.name);
+});
 const featuredFrontierModels = models.filter((m) => m.is_featured_frontier);
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
@@ -328,11 +333,12 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
         <table class="w-full text-left text-xs font-mono" id="models-table">
           <thead>
             <tr class="border-b border-neutral-800 bg-neutral-950/40 text-neutral-500 text-[11px]">
-              <th class="py-3.5 pl-6 pr-4 font-medium">Model</th>
-              <th class="py-3.5 pr-4 font-medium">Provider</th>
-              <th class="py-3.5 pr-4 font-medium">Context</th>
+              <th class="py-3.5 pl-6 pr-4 font-medium cursor-pointer hover:text-neutral-200 select-none" data-sort="name">Model</th>
+              <th class="py-3.5 pr-4 font-medium cursor-pointer hover:text-neutral-200 select-none" data-sort="provider">Provider</th>
+              <th class="py-3.5 pr-4 font-medium cursor-pointer hover:text-neutral-200 select-none text-emerald-400 font-bold" data-sort="release">Released ▼</th>
+              <th class="py-3.5 pr-4 font-medium cursor-pointer hover:text-neutral-200 select-none" data-sort="context">Context</th>
               <th class="py-3.5 pr-4 font-medium">Modalities</th>
-              <th class="py-3.5 pr-4 font-medium">Pricing (In / Out per 1M)</th>
+              <th class="py-3.5 pr-4 font-medium cursor-pointer hover:text-neutral-200 select-none" data-sort="price">Pricing (In / Out per 1M)</th>
               <th class="py-3.5 pr-4 font-medium">Availability</th>
               <th class="py-3.5 pr-6 text-right font-medium">Docs</th>
             </tr>
@@ -350,6 +356,9 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
                   data-modalities={(m.input_modalities || []).join(" ").toLowerCase()}
                   data-status={(m.lifecycle_status || "").toLowerCase()}
                   data-frontier={m.is_featured_frontier ? "true" : "false"}
+                  data-release={m.release_date || ""}
+                  data-context={m.context_window}
+                  data-price={m.pricing ? m.pricing.input_per_1m : 999999}
                 >
                   <td class="py-4 pl-6 pr-4">
                     <div class="flex items-center gap-2">
@@ -360,12 +369,12 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
                         </span>
                       )}
                     </div>
-                    <div class="text-[10px] text-neutral-500 font-mono mt-0.5">
-                      Released: {m.release_date || "Unknown"}
-                    </div>
                   </td>
                   <td class="py-4 pr-4 text-neutral-300 font-medium">{m.provider}</td>
-                  <td class="py-4 pr-4 text-emerald-400 font-semibold">
+                  <td class="py-4 pr-4 font-mono text-[11px] text-neutral-300 whitespace-nowrap">
+                    {m.release_date || "Active"}
+                  </td>
+                  <td class="py-4 pr-4 text-emerald-400 font-semibold whitespace-nowrap">
                     {formatTokens(m.context_window)} tokens
                   </td>
                   <td class="py-4 pr-4">
@@ -570,6 +579,65 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
         clearSearchBtn.style.display = currentSearch ? "" : "none";
       }
     }
+
+    let currentModelSort = "release";
+    let modelSortAsc = false;
+
+    // Interactive Model Table Header Sorting
+    const sortHeaders = document.querySelectorAll<HTMLTableCellElement>("#models-table th[data-sort]");
+    sortHeaders.forEach((th) => {
+      th.addEventListener("click", () => {
+        const sortKey = th.dataset.sort;
+        if (!sortKey) return;
+
+        if (currentModelSort === sortKey) {
+          modelSortAsc = !modelSortAsc;
+        } else {
+          currentModelSort = sortKey;
+          modelSortAsc = sortKey === "release" ? false : true;
+        }
+
+        const tbody = document.querySelector("#models-table tbody");
+        if (!tbody) return;
+
+        const rowArray = Array.from(tbody.querySelectorAll<HTMLTableRowElement>(".model-row"));
+        rowArray.sort((a, b) => {
+          if (sortKey === "release") {
+            const da = a.dataset.release ? new Date(a.dataset.release).getTime() : 0;
+            const db = b.dataset.release ? new Date(b.dataset.release).getTime() : 0;
+            return modelSortAsc ? (da - db) : (db - da);
+          } else if (sortKey === "context") {
+            const ca = parseInt(a.dataset.context || "0", 10);
+            const cb = parseInt(b.dataset.context || "0", 10);
+            return modelSortAsc ? (ca - cb) : (cb - ca);
+          } else if (sortKey === "price") {
+            const pa = parseFloat(a.dataset.price || "999999");
+            const pb = parseFloat(b.dataset.price || "999999");
+            return modelSortAsc ? (pa - pb) : (pb - pa);
+          } else {
+            const va = a.dataset[sortKey] || "";
+            const vb = b.dataset[sortKey] || "";
+            return modelSortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
+          }
+        });
+
+        rowArray.forEach((r) => tbody.appendChild(r));
+
+        sortHeaders.forEach((h) => {
+          const k = h.dataset.sort;
+          const label = h.textContent?.replace(/[▼▲]/g, "").trim() || "";
+          if (k === currentModelSort) {
+            h.textContent = `${label} ${modelSortAsc ? "▲" : "▼"}`;
+            h.classList.add("text-emerald-400", "font-bold");
+          } else {
+            h.textContent = label;
+            h.classList.remove("text-emerald-400", "font-bold");
+          }
+        });
+
+        filterModels();
+      });
+    });
 
     if (searchInput) {
       searchInput.addEventListener("input", (e) => {

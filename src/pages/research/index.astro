@@ -17,6 +17,16 @@ interface FeedRecord {
   category: string;
   fetched_at: string;
   _demo?: boolean;
+  topics?: string[];
+  tags?: string[];
+  key_points?: string[];
+  impact_score?: number | null;
+  sources?: { title?: string; url: string; publisher?: string }[];
+  priority_label?: string;
+  priority_explanation?: string;
+  why_it_matters?: string;
+  source_type?: string;
+  summary_status?: string;
 }
 
 const feed = feedData as FeedRecord[];
@@ -270,6 +280,16 @@ const researchLabs = [
                   category={article.category}
                   fetched_at={article.fetched_at}
                   isDemo={false}
+                  topics={article.topics || []}
+                  tags={article.tags || []}
+                  key_points={article.key_points || []}
+                  impact_score={article.impact_score}
+                  sources={article.sources || []}
+                  priority_label={article.priority_label}
+                  priority_explanation={article.priority_explanation}
+                  why_it_matters={article.why_it_matters}
+                  source_type={article.source_type}
+                  summary_status={article.summary_status}
                 />
               ))}
             </div>
@@ -335,12 +355,16 @@ const researchLabs = [
         const title = (art.dataset.title || "").toLowerCase();
         const company = (art.dataset.company || "").toLowerCase();
         const summary = (art.dataset.summary || "").toLowerCase();
+        const tags = (art.dataset.tags || "").toLowerCase();
+        const keypoints = (art.dataset.keypoints || "").toLowerCase();
 
         const matchesSearch =
           !currentSearch ||
           title.includes(currentSearch) ||
           company.includes(currentSearch) ||
-          summary.includes(currentSearch);
+          summary.includes(currentSearch) ||
+          tags.includes(currentSearch) ||
+          keypoints.includes(currentSearch);
 
         const matchesLab = currentLab === "all" || company === currentLab;
 
@@ -409,5 +433,23 @@ const researchLabs = [
 
     if (resetBtn) resetBtn.addEventListener("click", resetFilters);
     if (emptyResetBtn) emptyResetBtn.addEventListener("click", resetFilters);
+
+    // Delegated click handler for article entity tag pills
+    grid.addEventListener("click", (e) => {
+      const target = (e.target as HTMLElement).closest(".tag-pill") as HTMLElement | null;
+      if (target && target.dataset.tag) {
+        e.preventDefault();
+        e.stopPropagation();
+        const clickedTag = target.dataset.tag.toLowerCase();
+        if (searchInput) {
+          searchInput.value = clickedTag;
+          currentSearch = clickedTag;
+          filterResearch();
+          const headerOffset = 120;
+          const gridPos = grid.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+          window.scrollTo({ top: gridPos, behavior: "smooth" });
+        }
+      }
+    });
   })();
 </script>

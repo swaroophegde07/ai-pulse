@@ -68,6 +68,89 @@ OPENROUTER_ID_MAP: dict[str, list[str]] = {
     "mistral/mistral-large-2411": ["mistralai/mistral-large-2411", "mistralai/mistral-large"],
 }
 
+# Verified or estimated release dates for catalog models based on provider announcements
+# and benchmark release checkpoints.
+KNOWN_MODEL_RELEASE_DATES: dict[str, str] = {
+    # 2026 Q3 / Q2 Frontier Flagships & Updates
+    "qwen/qwen3.8-max-0902": "2026-09-02",
+    "deepseek/deepseek-v4-pro-0813": "2026-08-13",
+    "deepseek/deepseek-v4-flash-0731": "2026-07-31",
+    "openai/gpt-6.1-sol-pro": "2026-06-20",
+    "openai/gpt-6.1-sol": "2026-06-20",
+    "anthropic/claude-opus-5.5": "2026-06-18",
+    "anthropic/claude-haiku-5.5": "2026-06-12",
+    "deepseek/deepseek-v4.1-flash": "2026-06-12",
+    "anthropic/claude-sonnet-5.5": "2026-06-10",
+    "qwen/qwen3.8-max-prime": "2026-06-08",
+    "google/gemini-3.8-flash": "2026-06-05",
+    "qwen/qwen3.8-omni-flash": "2026-06-05",
+    "openai/gpt-6-astra-pro": "2026-06-01",
+    "openai/gpt-6-astra": "2026-06-01",
+    "qwen/qwen3.8-flash": "2026-05-28",
+    "google/gemini-3.7-flash": "2026-05-22",
+    "openai/gpt-6-sol-pro": "2026-05-20",
+    "openai/gpt-6-sol": "2026-05-20",
+    "qwen/qwen3.8-27b": "2026-05-20",
+    "mistralai/mistral-large-4-0": "2026-05-18",
+    "openai/gpt-6-luna-pro": "2026-05-15",
+    "openai/gpt-6-luna": "2026-05-15",
+    "qwen/qwen3.8-2.4t-a95b": "2026-05-15",
+    "google/gemini-3.6-flash": "2026-05-10",
+    "google/gemini-3.5-flash": "2026-05-01",
+    "google/gemini-3.5-flash-lite": "2026-05-01",
+    "google/gemini-nano-banana-2.1": "2026-05-01",
+    "deepseek/deepseek-v4-pro": "2026-04-23",
+    "deepseek/deepseek-v4-flash": "2026-04-23",
+    "deepseek/deepseek-v4-flash-vision-exp": "2026-04-20",
+    "anthropic/claude-opus-5": "2026-04-20",
+    "openai/gpt-5.6-sol-pro": "2026-04-18",
+    "openai/gpt-5.6-sol": "2026-04-18",
+    "openai/gpt-5.6-luna-pro": "2026-04-15",
+    "openai/gpt-5.6-luna": "2026-04-15",
+    "anthropic/claude-sonnet-5": "2026-04-15",
+    "qwen/qwen3.7-max": "2026-04-10",
+    "qwen/qwen3.7-plus": "2026-04-05",
+    "google/gemini-3.1-pro-preview": "2026-03-18",
+    "google/gemini-3.1-pro-preview-customtools": "2026-03-18",
+    "openai/gpt-5.5-pro": "2026-03-15",
+    "openai/gpt-5.5": "2026-03-15",
+    "google/gemini-3.1-flash-lite": "2026-03-10",
+    "google/gemini-3.1-flash-lite-preview": "2026-03-10",
+    "google/gemini-3.1-flash-lite-image": "2026-03-10",
+    "google/gemini-3.1-flash-image": "2026-03-10",
+    "google/gemini-3.1-flash-image-preview": "2026-03-10",
+    "anthropic/claude-opus-4.8": "2026-03-05",
+    "google/gemini-3-pro-image": "2026-02-28",
+    "google/gemini-3-pro-image-preview": "2026-02-28",
+    "openai/gpt-5.4-image-2": "2026-02-25",
+    "qwen/qwen3.7-flash": "2026-03-25",
+    "openai/gpt-5.4-pro": "2026-02-20",
+    "openai/gpt-5.4": "2026-02-20",
+    "openai/gpt-5.4-mini": "2026-02-20",
+    "openai/gpt-5.4-nano": "2026-02-20",
+    "google/gemini-3-flash-preview": "2026-02-15",
+    "anthropic/claude-opus-4.7": "2026-02-12",
+    "openai/gpt-5.3-codex": "2026-01-25",
+    "anthropic/claude-opus-4.6": "2026-01-18",
+    # 2025 releases
+    "mistralai/devstral-2512": "2025-12-15",
+    "openai/gpt-5.2-codex": "2025-12-10",
+    "openai/gpt-5.2-chat": "2025-12-10",
+    "openai/gpt-5.2-pro": "2025-12-10",
+    "openai/gpt-5.2": "2025-12-10",
+    "openai/gpt-5.1-codex-max": "2025-11-15",
+    "openai/gpt-5.1-codex": "2025-11-15",
+    "openai/gpt-5.1-codex-mini": "2025-11-15",
+    "openai/gpt-5.1": "2025-11-15",
+    "anthropic/claude-opus-4.5": "2025-11-01",
+    "anthropic/claude-opus-4.1": "2025-08-15",
+    "google/gemini-2.5-pro": "2025-06-15",
+    "google/gemini-2.5-pro-preview": "2025-06-05",
+    "google/gemini-2.5-flash": "2025-06-10",
+    "google/gemini-2.5-flash-lite": "2025-06-10",
+    "google/gemini-2.5-flash-image": "2025-06-10",
+}
+
 PRIMARY_LABS = frozenset([
     "OpenAI",
     "Anthropic",
@@ -244,17 +327,26 @@ def sync_models_catalog(
     featured_ids = get_featured_frontier_ids()
 
     if not openrouter_metrics:
-        logger.info("No OpenRouter metrics provided; ensuring is_featured_frontier flags and identity registry are up to date.")
-        changed_any = False
+        logger.info("No OpenRouter metrics provided; ensuring is_featured_frontier flags, release dates, and order are up to date.")
         for m in existing_models:
             mid = m.get("id", "")
             id_match = resolve_model_identity(mid, context_source="CatalogSync")
             expected_flag = mid in featured_ids or (id_match.matched_id in featured_ids if id_match.matched_id else False)
             if m.get("is_featured_frontier") != expected_flag:
                 m["is_featured_frontier"] = expected_flag
-                changed_any = True
-        if changed_any:
-            write_models_atomic(existing_models, path)
+            if mid in KNOWN_MODEL_RELEASE_DATES and (m.get("release_date") in (None, "Unknown") or mid.startswith("anthropic/claude-opus-5") or mid.startswith("openai/gpt-6")):
+                m["release_date"] = KNOWN_MODEL_RELEASE_DATES[mid]
+
+        # Sort chronologically by release date descending so newest models appear first
+        existing_models.sort(
+            key=lambda m: (
+                m.get("release_date") or "",
+                1 if m.get("is_featured_frontier") else 0,
+                m.get("name") or "",
+            ),
+            reverse=True,
+        )
+        write_models_atomic(existing_models, path)
         export_identity_registry()
         return existing_models
 
@@ -327,6 +419,10 @@ def sync_models_catalog(
                 model_copy["verification_sources"] = ver_sources
                 updated_count += 1
 
+        # Populate verified release date if missing or known
+        if mid in KNOWN_MODEL_RELEASE_DATES and (model_copy.get("release_date") in (None, "Unknown") or mid.startswith("anthropic/claude-opus-5") or mid.startswith("openai/gpt-6")):
+            model_copy["release_date"] = KNOWN_MODEL_RELEASE_DATES[mid]
+
         # Ensure category is populated
         if "category" not in model_copy:
             model_copy["category"] = classify_model_category(mid, model_copy.get("name", ""))
@@ -363,6 +459,8 @@ def sync_models_catalog(
         is_open = provider in ("Meta AI", "Mistral AI", "DeepSeek", "Alibaba Cloud")
         license_type = "Open Weights" if is_open else "Proprietary API"
 
+        rel_date = KNOWN_MODEL_RELEASE_DATES.get(cid, "Unknown")
+
         new_record: dict[str, Any] = {
             "id": cid,
             "name": name,
@@ -370,7 +468,7 @@ def sync_models_catalog(
             "family": family,
             "category": category,
             "is_featured_frontier": is_featured,
-            "release_date": "Unknown",  # Honestly unverified from API
+            "release_date": rel_date,
             "lifecycle_status": "Active (Catalog)",
             "context_window": ctx_len,
             "input_modalities": ["text", "image"] if "image" in name.lower() or "vision" in name.lower() else ["text"],
@@ -395,6 +493,15 @@ def sync_models_catalog(
             appended_count += 1
 
     if updated_models:
+        # Sort chronologically by release date descending so newest frontier models appear first
+        updated_models.sort(
+            key=lambda m: (
+                m.get("release_date") or "",
+                1 if m.get("is_featured_frontier") else 0,
+                m.get("name") or "",
+            ),
+            reverse=True,
+        )
         write_models_atomic(updated_models, path)
         export_identity_registry()
         logger.info(

@@ -39,7 +39,9 @@ from pipeline.run import (
 # Unit under test imports
 # ---------------------------------------------------------------------------
 from pipeline.scraper import (
+    are_titles_duplicate,
     fetch_feed,
+    normalize_title,
     normalize_url,
     parse_date,
     stable_id,
@@ -1417,6 +1419,16 @@ class TestModelCatalogueRefreshRegression(unittest.TestCase):
                     "model_name": "Mistral: Devstral 2 2512",
                     "source_url": "https://openrouter.ai/mistralai/devstral-2512",
                 },
+                # Uncatalogued frontier candidate without a registered date
+                {
+                    "canonical_id": "openai/gpt-6.5-polaris",
+                    "context_length": 1050000,
+                    "input_price_per_1m": 3.0,
+                    "output_price_per_1m": 12.0,
+                    "provider": "OpenAI",
+                    "model_name": "OpenAI: GPT-6.5 Polaris",
+                    "source_url": "https://openrouter.ai/openai/gpt-6.5-polaris",
+                },
             ]
 
             updated = sync_models_catalog(models_path=tmp_path, openrouter_metrics=telemetry)
@@ -1430,17 +1442,22 @@ class TestModelCatalogueRefreshRegression(unittest.TestCase):
             # Verify new models included
             self.assertIn("openai/gpt-6.1-sol", ids)
             self.assertIn("mistralai/devstral-2512", ids)
+            self.assertIn("openai/gpt-6.5-polaris", ids)
 
             # Verify batch variants excluded
             self.assertNotIn("openai/o1:batch", ids)
             self.assertNotIn("openai/gpt-6.1-sol:batch", ids)
 
-            # Verify fields not falsely invented
+            # Verify fields populated: known release date applied
             sol = next(m for m in updated if m["id"] == "openai/gpt-6.1-sol")
-            self.assertEqual(sol["release_date"], "Unknown")
+            self.assertEqual(sol["release_date"], "2026-06-20")
             self.assertFalse(sol["consumer_available"])
             self.assertIn("telemetry", sol["verification_sources"])
             self.assertEqual(sol["category"], "Frontier Reasoning & Chat")
+
+            # Verify uncatalogued model defaults safely to Unknown
+            polaris = next(m for m in updated if m["id"] == "openai/gpt-6.5-polaris")
+            self.assertEqual(polaris["release_date"], "Unknown")
 
             devstral = next(m for m in updated if m["id"] == "mistralai/devstral-2512")
             self.assertEqual(devstral["category"], "Coding")
@@ -1889,8 +1906,210 @@ class TestBenchmarkDateSemantics(unittest.TestCase):
         self.assertEqual(health["last_benchmark_release_date"], "2026-06-25")
 
 
+
+# ===========================================================================
+# Article Enrichment, Deduplication, and Schema Tests
+# ===========================================================================
+
+
+class TestArticleEnrichmentAndDeduplication(unittest.TestCase):
+    def test_normalize_title_strips_suffixes_and_punctuation(self):
+        self.assertEqual(
+            normalize_title("Anthropic releases Claude 3.5 Sonnet - The Verge"),
+            "anthropic releases claude 3 5 sonnet",
+        )
+        self.assertEqual(
+            normalize_title("OpenAI announces GPT-4o | TechCrunch"),
+            "openai announces gpt 4o",
+        )
+        self.assertEqual(
+            normalize_title("DeepMind Introduces Gemini 1.5 Pro — Google Blog"),
+            "deepmind introduces gemini 1 5 pro",
+        )
+
+    def test_are_titles_duplicate_detects_syndicated_stories(self):
+        t1 = "Anthropic announces Claude 3.5 Sonnet with enhanced coding - The Verge"
+        t2 = "Anthropic announces Claude 3.5 Sonnet with enhanced coding | TechCrunch"
+        self.assertTrue(are_titles_duplicate(t1, t2))
+
+        t3 = "DeepMind publishes AlphaFold 3 molecular predictions technical paper"
+        t4 = "DeepMind publishes AlphaFold 3 molecular predictions technical paper"
+        self.assertTrue(are_titles_duplicate(t3, t4))
+
+    def test_are_titles_duplicate_distinguishes_different_models(self):
+        # Distinct model variants must not be falsely merged
+        t1 = "Anthropic announces Claude 3.5 Haiku frontier model"
+        t2 = "Anthropic announces Claude 3.5 Sonnet frontier model"
+        self.assertFalse(are_titles_duplicate(t1, t2))
+
+        t3 = "Google launches Gemini 1.5 Flash lightweight model"
+        t4 = "Google launches Gemini 1.5 Pro multimodal architecture"
+        self.assertFalse(are_titles_duplicate(t3, t4))
+
+    def test_validate_record_handles_optional_fields_and_legacy(self):
+        base_record = {
+            "id": "abc1234567890def",
+            "title": "OpenAI announces o3 reasoning model",
+            "company": "OpenAI",
+            "source": "OpenAI Blog",
+            "summary": "OpenAI has officially unveiled o3, its next-generation reasoning model demonstrating state-of-the-art benchmark results.",
+            "url": "https://openai.com/index/o3-announcement/",
+            "date": "2026-10-10T12:00:00+00:00",
+            "category": "Product Release",
+            "fetched_at": "2026-10-10T12:05:00+00:00",
+        }
+        # Legacy record passes without optional fields
+        self.assertTrue(validate_record(base_record))
+
+        # Full enriched record passes
+        enriched = dict(base_record)
+        enriched["tags"] = ["OpenAI", "Reasoning", "o3"]
+        enriched["key_points"] = [
+            "OpenAI announced o3 reasoning model.",
+            "Reaches state-of-the-art benchmark results on math and code.",
+            "Developers and researchers evaluating frontier reasoning models.",
+        ]
+        enriched["impact_score"] = 9
+        enriched["sources"] = [
+            {"title": "OpenAI o3", "url": "https://openai.com/index/o3-announcement/", "publisher": "OpenAI"}
+        ]
+        self.assertTrue(validate_record(enriched))
+
+        # Invalid impact_score is rejected
+        invalid_score = dict(enriched)
+        invalid_score["impact_score"] = 15
+        self.assertFalse(validate_record(invalid_score))
+
+        invalid_score_low = dict(enriched)
+        invalid_score_low["impact_score"] = 0
+        self.assertFalse(validate_record(invalid_score_low))
+
+        # Invalid tags type is rejected
+        invalid_tags = dict(enriched)
+        invalid_tags["tags"] = "not a list"
+        self.assertFalse(validate_record(invalid_tags))
+
+    def test_validate_gemini_response_parses_enrichment(self):
+        data_valid = {
+            "summary": "DeepMind has announced AlphaFold 3 with biomolecular interactions spanning DNA and ligands.",
+            "category": "Research",
+            "topics": ["Research", "Healthcare & Biology"],
+            "key_points": [
+                "DeepMind unveils AlphaFold 3 for biomolecular prediction.",
+                "Expands structural biology to DNA, RNA, and ligands.",
+                "Structural biologists, pharmaceutical researchers, and chemists.",
+            ],
+            "tags": ["Google DeepMind", "AlphaFold", "Biology"],
+            "impact_score": 9,
+        }
+        parsed = _validate_gemini_response(data_valid, "https://example.com/alphafold3")
+        self.assertIsNotNone(parsed)
+        self.assertEqual(len(parsed["key_points"]), 3)
+        self.assertEqual(parsed["impact_score"], 9)
+        self.assertEqual(parsed["tags"], ["Google DeepMind", "AlphaFold", "Biology"])
+
+    def test_validate_gemini_response_handles_malformed_optional_fields_gracefully(self):
+        # Even if key_points has wrong count or impact_score is string, valid summary is preserved
+        data_partial = {
+            "summary": "Anthropic released comprehensive system cards detailing Claude safety benchmarks.",
+            "category": "News",
+            "topics": ["Safety and Alignment"],
+            "key_points": ["Only one point"],  # Should be omitted as it is not exactly 3
+            "impact_score": "high",  # Non-integer should be omitted
+        }
+        parsed = _validate_gemini_response(data_partial, "https://example.com/claude-safety")
+        self.assertIsNotNone(parsed)
+        self.assertEqual(parsed["summary"], "Anthropic released comprehensive system cards detailing Claude safety benchmarks.")
+        self.assertNotIn("key_points", parsed)
+        self.assertNotIn("impact_score", parsed)
+
+    def test_merge_records_deduplicates_and_merges_sources(self):
+        existing = [
+            {
+                "id": "article1",
+                "title": "Anthropic releases Claude 3.5 Sonnet - The Verge",
+                "company": "The Verge",
+                "source": "The Verge AI",
+                "summary": "Anthropic has released its updated Claude 3.5 Sonnet model with enhanced coding capabilities.",
+                "url": "https://www.theverge.com/2026/10/10/claude-3-5-sonnet",
+                "date": "2026-10-10T14:00:00+00:00",
+                "category": "News",
+                "fetched_at": "2026-10-10T14:10:00+00:00",
+                "sources": [
+                    {
+                        "title": "Anthropic releases Claude 3.5 Sonnet - The Verge",
+                        "url": "https://www.theverge.com/2026/10/10/claude-3-5-sonnet",
+                        "publisher": "The Verge",
+                    }
+                ],
+            }
+        ]
+        # Incoming secondary coverage of the exact same event
+        new_incoming = [
+            {
+                "id": "article2",
+                "title": "Anthropic releases Claude 3.5 Sonnet | TechCrunch",
+                "company": "TechCrunch",
+                "source": "TechCrunch AI",
+                "summary": "Anthropic today announced an updated version of Claude 3.5 Sonnet.",
+                "url": "https://techcrunch.com/2026/10/10/anthropic-claude-3-5-sonnet?ref=feed",
+                "date": "2026-10-10T15:00:00+00:00",
+                "category": "News",
+                "fetched_at": "2026-10-10T15:05:00+00:00",
+                "impact_score": 8,
+                "tags": ["Anthropic", "Claude"],
+            }
+        ]
+
+        merged = merge_records(existing, new_incoming, max_articles=10)
+        # Should remain 1 primary card
+        self.assertEqual(len(merged), 1)
+        primary = merged[0]
+        self.assertEqual(primary["id"], "article1")
+        # Should have merged source from TechCrunch without duplicate URLs
+        self.assertEqual(len(primary["sources"]), 2)
+        urls = [s["url"] for s in primary["sources"]]
+        self.assertIn("https://www.theverge.com/2026/10/10/claude-3-5-sonnet", urls)
+        self.assertIn("https://techcrunch.com/2026/10/10/anthropic-claude-3-5-sonnet?ref=feed", urls)
+        # Preserved/upgraded impact_score and tags
+        self.assertEqual(primary.get("impact_score"), 8)
+        self.assertIn("Claude", primary.get("tags", []))
+
+    def test_merge_records_preserves_distinct_stories(self):
+        existing = [
+            {
+                "id": "story1",
+                "title": "NVIDIA announces Blackwell Ultra architecture details",
+                "company": "NVIDIA",
+                "source": "NVIDIA News",
+                "summary": "NVIDIA disclosed architectural specifications for the Blackwell Ultra server platform.",
+                "url": "https://nvidianews.nvidia.com/blackwell-ultra",
+                "date": "2026-10-10T10:00:00+00:00",
+                "category": "Product Release",
+                "fetched_at": "2026-10-10T10:05:00+00:00",
+            }
+        ]
+        # Unrelated story
+        new_incoming = [
+            {
+                "id": "story2",
+                "title": "OpenAI expands ChatGPT Advanced Voice mode in Europe",
+                "company": "The Verge",
+                "source": "The Verge AI",
+                "summary": "OpenAI is rolling out its Advanced Voice mode feature to users in the EU.",
+                "url": "https://www.theverge.com/openai-advanced-voice-europe",
+                "date": "2026-10-10T11:00:00+00:00",
+                "category": "News",
+                "fetched_at": "2026-10-10T11:05:00+00:00",
+            }
+        ]
+        merged = merge_records(existing, new_incoming, max_articles=10)
+        self.assertEqual(len(merged), 2)
+
+
 if __name__ == "__main__":
     unittest.main()
+
 
 
 

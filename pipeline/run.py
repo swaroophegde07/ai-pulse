@@ -28,7 +28,7 @@ import tempfile
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
-from pipeline.scraper import fetch_all_sources, normalize_url
+from pipeline.scraper import are_titles_duplicate, fetch_all_sources, normalize_title, normalize_url
 from pipeline.sources import ALLOWED_CATEGORIES, SOURCES
 from pipeline.summarizer import summarize_articles
 
@@ -85,6 +85,22 @@ def validate_record(record: dict) -> bool:
     if not isinstance(record.get("url"), str) or not record["url"].startswith("http"):
         logger.warning("Record has invalid URL: %r", record.get("id"))
         return False
+
+    # Optional fields validation
+    if "tags" in record and not isinstance(record["tags"], list):
+        logger.warning("Record has invalid tags type: %r", record.get("id"))
+        return False
+    if "key_points" in record and not isinstance(record["key_points"], list):
+        logger.warning("Record has invalid key_points type: %r", record.get("id"))
+        return False
+    if "impact_score" in record and record["impact_score"] is not None:
+        if not isinstance(record["impact_score"], (int, float)) or not (1 <= record["impact_score"] <= 10):
+            logger.warning("Record has invalid impact_score: %r", record.get("id"))
+            return False
+    if "sources" in record and not isinstance(record["sources"], list):
+        logger.warning("Record has invalid sources type: %r", record.get("id"))
+        return False
+
     return True
 
 
@@ -162,6 +178,65 @@ def write_feed_atomic(records: list[dict], feed_path: Path) -> None:
 DEFAULT_RETENTION_DAYS = 90
 
 
+def _merge_source_into(target_rec: dict, source_art: dict) -> None:
+    """Merge a source article's link and metadata into target_rec without duplicates."""
+    sources = target_rec.setdefault("sources", [])
+    seen_urls = {normalize_url(s.get("url", "")) for s in sources if isinstance(s, dict) and s.get("url")}
+
+    src_url = source_art.get("url") or ""
+    norm_src_url = normalize_url(src_url)
+    if norm_src_url and norm_src_url not in seen_urls:
+        seen_urls.add(norm_src_url)
+        sources.append({
+            "title": source_art.get("title", target_rec.get("title", "")),
+            "url": src_url,
+            "publisher": source_art.get("company", source_art.get("source", "")),
+        })
+
+    # Merge any sources list already present on source_art
+    for s in source_art.get("sources") or []:
+        if isinstance(s, dict) and s.get("url"):
+            norm_s_url = normalize_url(s["url"])
+            if norm_s_url and norm_s_url not in seen_urls:
+                seen_urls.add(norm_s_url)
+                sources.append(s)
+
+    # Merge tags
+    existing_tags = list(target_rec.get("tags") or target_rec.get("topics") or [])
+    new_tags = list(source_art.get("tags") or source_art.get("topics") or [])
+    for t in new_tags:
+        if t and t not in existing_tags and len(existing_tags) < 5:
+            existing_tags.append(t)
+    if existing_tags:
+        target_rec["tags"] = existing_tags
+
+    # Preserve key_points if target lacks them
+    if not target_rec.get("key_points") and source_art.get("key_points"):
+        target_rec["key_points"] = source_art["key_points"]
+
+    # Preserve highest impact score
+    s1 = target_rec.get("impact_score")
+    s2 = source_art.get("impact_score")
+    if s1 or s2:
+        target_rec["impact_score"] = max(s1 or 0, s2 or 0)
+
+
+def _dates_compatible(d1_str: str | None, d2_str: str | None, max_hours: int = 48) -> bool:
+    """Check if two publication dates are within max_hours of each other (or undated)."""
+    if not d1_str or not d2_str:
+        return True
+    try:
+        dt1 = datetime.fromisoformat(d1_str)
+        dt2 = datetime.fromisoformat(d2_str)
+        if dt1.tzinfo is None:
+            dt1 = dt1.replace(tzinfo=UTC)
+        if dt2.tzinfo is None:
+            dt2 = dt2.replace(tzinfo=UTC)
+        return abs((dt1 - dt2).total_seconds()) <= max_hours * 3600
+    except Exception:
+        return True
+
+
 def merge_records(
     existing: list[dict],
     new_articles: list[dict],
@@ -172,6 +247,8 @@ def merge_records(
 
     - Purges demonstration records so they do not pollute live data.
     - Deduplicates by stable ID and normalized canonical URL.
+    - Identifies obvious duplicate reporting via normalized title comparison.
+    - Merges secondary coverage into the primary article's sources list without duplicate URLs.
     - Applies configurable retention window for dated articles.
     - Sorts dated articles strictly by actual publication date descending.
     - Places undated articles after dated articles, ordered by fetched_at.
@@ -185,6 +262,17 @@ def merge_records(
     clean_existing = [r for r in existing if not r.get("_demo")]
     clean_new = [r for r in new_articles if not r.get("_demo")]
 
+    # Ensure existing records have sources initialized
+    for r in clean_existing:
+        if "sources" not in r or not r["sources"]:
+            r["sources"] = [
+                {
+                    "title": r.get("title", ""),
+                    "url": r.get("url", ""),
+                    "publisher": r.get("company", r.get("source", "")),
+                }
+            ]
+
     seen_ids: dict[str, dict] = {r["id"]: r for r in clean_existing}
     seen_urls: dict[str, str] = {
         normalize_url(r["url"]): r["id"] for r in clean_existing
@@ -192,31 +280,73 @@ def merge_records(
 
     added = 0
     updated = 0
+    merged_duplicates = 0
+
     for article in clean_new:
         art_id = article["id"]
         art_url = normalize_url(article["url"])
 
+        # 1. Exact ID match
         if art_id in seen_ids:
-            # If the new record generated an actual AI summary, upgrade the existing record
             existing_rec = seen_ids[art_id]
             if article.get("summary_status") == "generated" and existing_rec.get("summary_status") != "generated":
                 existing_rec.update(article)
                 updated += 1
+            _merge_source_into(existing_rec, article)
             continue
 
+        # 2. Exact URL match
         if art_url in seen_urls:
             matched_id = seen_urls[art_url]
             existing_rec = seen_ids[matched_id]
             if article.get("summary_status") == "generated" and existing_rec.get("summary_status") != "generated":
                 existing_rec.update(article)
                 updated += 1
+            _merge_source_into(existing_rec, article)
             continue
 
+        # 3. Obvious title duplicate of same event
+        found_title_duplicate = False
+        art_title = article.get("title", "")
+        art_date = article.get("date")
+
+        for existing_id, existing_rec in list(seen_ids.items()):
+            if are_titles_duplicate(art_title, existing_rec.get("title", "")):
+                if _dates_compatible(art_date, existing_rec.get("date")):
+                    # Duplicate coverage of same event
+                    _merge_source_into(existing_rec, article)
+                    # If incoming article has AI summary and existing doesn't, upgrade
+                    if article.get("summary_status") == "generated" and existing_rec.get("summary_status") != "generated":
+                        existing_rec["summary"] = article["summary"]
+                        existing_rec["summary_status"] = "generated"
+                        if article.get("key_points"):
+                            existing_rec["key_points"] = article["key_points"]
+                    merged_duplicates += 1
+                    found_title_duplicate = True
+                    break
+
+        if found_title_duplicate:
+            continue
+
+        # 4. New unique article
+        if "sources" not in article or not article["sources"]:
+            article["sources"] = [
+                {
+                    "title": article.get("title", ""),
+                    "url": article.get("url", ""),
+                    "publisher": article.get("company", article.get("source", "")),
+                }
+            ]
         seen_ids[art_id] = article
         seen_urls[art_url] = art_id
         added += 1
 
-    logger.info("Added %d new articles, updated %d existing records (before retention filter & trim).", added, updated)
+    logger.info(
+        "Added %d new articles, updated %d existing, merged %d cross-source duplicates (before retention filter & trim).",
+        added,
+        updated,
+        merged_duplicates,
+    )
 
     all_records = list(seen_ids.values())
 

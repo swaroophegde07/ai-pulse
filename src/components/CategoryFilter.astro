@@ -31,7 +31,7 @@ const { categories, publishers, topics } = Astro.props;
       id="article-search"
       type="search"
       role="searchbox"
-      placeholder="Search by title, publisher, summary, or topics…"
+      placeholder="Search articles by title, key points, tags, publisher…"
       class="w-full bg-neutral-900 border border-neutral-800 rounded-md pl-9 pr-10 py-2.5 text-xs text-neutral-100 placeholder:text-neutral-600 font-mono focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/20 transition-colors"
       aria-label="Search articles by title, publisher, summary, or category"
       autocomplete="off"
@@ -72,6 +72,16 @@ const { categories, publishers, topics } = Astro.props;
           </button>
         ))
       }
+      <!-- High Impact articles view pill -->
+      <button
+        type="button"
+        id="high-impact-view-btn"
+        data-high-impact="false"
+        class="font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border transition-colors duration-150 border-neutral-800 text-amber-400/80 hover:text-amber-300 hover:border-amber-500/40"
+        aria-pressed="false"
+      >
+        High Impact (<span id="high-impact-count">0</span>)
+      </button>
       <!-- Saved articles view pill -->
       <button
         type="button"
@@ -188,6 +198,8 @@ const { categories, publishers, topics } = Astro.props;
     const searchInput = document.getElementById("article-search") as HTMLInputElement | null;
     const clearSearchBtn = document.getElementById("clear-search-btn") as HTMLButtonElement | null;
     const categoryBtns = document.querySelectorAll<HTMLButtonElement>(".category-btn");
+    const highImpactViewBtn = document.getElementById("high-impact-view-btn") as HTMLButtonElement | null;
+    const highImpactCountSpan = document.getElementById("high-impact-count");
     const savedViewBtn = document.getElementById("saved-view-btn") as HTMLButtonElement | null;
     const savedCountSpan = document.getElementById("saved-count");
     const dateFilter = document.getElementById("date-filter") as HTMLSelectElement | null;
@@ -216,8 +228,9 @@ const { categories, publishers, topics } = Astro.props;
     let activePublisher = "all";
     let activeTopic = "all";
     let activeSavedOnly = false;
+    let activeHighImpactOnly = false;
     let searchQuery = "";
-    const PAGE_SIZE = 12;
+    const PAGE_SIZE = 20;
     let currentPage = 1;
     let matchingArticles: HTMLElement[] = [];
 
@@ -381,7 +394,8 @@ const { categories, publishers, topics } = Astro.props;
         activeSort !== "newest" ||
         activePublisher !== "all" ||
         activeTopic !== "all" ||
-        activeSavedOnly
+        activeSavedOnly ||
+        activeHighImpactOnly
       );
     }
 
@@ -396,11 +410,17 @@ const { categories, publishers, topics } = Astro.props;
         const summary = (article.dataset.summary || "").toLowerCase();
         const category = (article.dataset.category || "").toLowerCase();
         const topics = (article.dataset.topics || "").toLowerCase();
+        const tags = (article.dataset.tags || "").toLowerCase();
+        const keypoints = (article.dataset.keypoints || "").toLowerCase();
+        const impact = parseFloat(article.dataset.impact || "0");
         const dateStr = article.dataset.date;
         const id = article.dataset.id || "";
 
         // Saved filter
         if (activeSavedOnly && !savedIds.has(id)) return false;
+
+        // High Impact filter
+        if (activeHighImpactOnly && impact < 8) return false;
 
         // Search query
         if (searchQuery) {
@@ -409,7 +429,9 @@ const { categories, publishers, topics } = Astro.props;
             company.includes(searchQuery) ||
             summary.includes(searchQuery) ||
             category.includes(searchQuery) ||
-            topics.includes(searchQuery);
+            topics.includes(searchQuery) ||
+            tags.includes(searchQuery) ||
+            keypoints.includes(searchQuery);
           if (!match) return false;
         }
 
@@ -542,6 +564,15 @@ const { categories, publishers, topics } = Astro.props;
       }
     }
 
+    function updateHighImpactUI() {
+      const count = originalArticles.filter(
+        (a) => parseFloat(a.dataset.impact || "0") >= 8
+      ).length;
+      if (highImpactCountSpan) {
+        highImpactCountSpan.textContent = String(count);
+      }
+    }
+
     function resetAllFilters() {
       if (searchInput) searchInput.value = "";
       searchQuery = "";
@@ -551,12 +582,20 @@ const { categories, publishers, topics } = Astro.props;
       activePublisher = "all";
       activeTopic = "all";
       activeSavedOnly = false;
+      activeHighImpactOnly = false;
       currentPage = 1;
 
       if (dateFilter) dateFilter.value = "any";
       if (sortFilter) sortFilter.value = "newest";
       if (publisherFilter) publisherFilter.value = "all";
       if (topicFilter) topicFilter.value = "all";
+
+      if (highImpactViewBtn) {
+        highImpactViewBtn.setAttribute("data-high-impact", "false");
+        highImpactViewBtn.setAttribute("aria-pressed", "false");
+        highImpactViewBtn.classList.remove("bg-amber-500/20", "text-amber-300", "border-amber-500/40");
+        highImpactViewBtn.classList.add("text-amber-400/80", "border-neutral-800");
+      }
 
       if (savedViewBtn) {
         savedViewBtn.setAttribute("data-saved-view", "false");
@@ -611,6 +650,13 @@ const { categories, publishers, topics } = Astro.props;
       btn.addEventListener("click", () => {
         activeCategory = (btn.dataset.category || "all").toLowerCase();
         activeSavedOnly = false;
+        activeHighImpactOnly = false;
+        if (highImpactViewBtn) {
+          highImpactViewBtn.setAttribute("data-high-impact", "false");
+          highImpactViewBtn.setAttribute("aria-pressed", "false");
+          highImpactViewBtn.classList.remove("bg-amber-500/20", "text-amber-300", "border-amber-500/40");
+          highImpactViewBtn.classList.add("text-amber-400/80", "border-neutral-800");
+        }
         if (savedViewBtn) {
           savedViewBtn.classList.remove("bg-amber-500/20", "text-amber-300");
           savedViewBtn.classList.add("text-amber-500/80");
@@ -634,9 +680,38 @@ const { categories, publishers, topics } = Astro.props;
       });
     });
 
+    if (highImpactViewBtn) {
+      highImpactViewBtn.addEventListener("click", () => {
+        activeHighImpactOnly = !activeHighImpactOnly;
+        highImpactViewBtn.setAttribute("data-high-impact", activeHighImpactOnly ? "true" : "false");
+        highImpactViewBtn.setAttribute("aria-pressed", activeHighImpactOnly ? "true" : "false");
+        if (activeHighImpactOnly) {
+          activeSavedOnly = false;
+          if (savedViewBtn) {
+            savedViewBtn.classList.remove("bg-amber-500/20", "text-amber-300");
+            savedViewBtn.classList.add("text-amber-500/80");
+          }
+          highImpactViewBtn.classList.add("bg-amber-500/20", "text-amber-300", "border-amber-500/40");
+          highImpactViewBtn.classList.remove("text-amber-400/80", "border-neutral-800");
+        } else {
+          highImpactViewBtn.classList.remove("bg-amber-500/20", "text-amber-300", "border-amber-500/40");
+          highImpactViewBtn.classList.add("text-amber-400/80", "border-neutral-800");
+        }
+        currentPage = 1;
+        filterAndSort();
+      });
+    }
+
     if (savedViewBtn) {
       savedViewBtn.addEventListener("click", () => {
         activeSavedOnly = !activeSavedOnly;
+        activeHighImpactOnly = false;
+        if (highImpactViewBtn) {
+          highImpactViewBtn.setAttribute("data-high-impact", "false");
+          highImpactViewBtn.setAttribute("aria-pressed", "false");
+          highImpactViewBtn.classList.remove("bg-amber-500/20", "text-amber-300", "border-amber-500/40");
+          highImpactViewBtn.classList.add("text-amber-400/80", "border-neutral-800");
+        }
         savedViewBtn.setAttribute("data-saved-view", activeSavedOnly ? "true" : "false");
         savedViewBtn.setAttribute("aria-pressed", activeSavedOnly ? "true" : "false");
         if (activeSavedOnly) {
@@ -655,6 +730,25 @@ const { categories, publishers, topics } = Astro.props;
         filterAndSort();
       });
     }
+
+    // Delegated click handler for article entity tag pills
+    grid.addEventListener("click", (e) => {
+      const target = (e.target as HTMLElement).closest(".tag-pill") as HTMLElement | null;
+      if (target && target.dataset.tag) {
+        e.preventDefault();
+        e.stopPropagation();
+        const clickedTag = target.dataset.tag.toLowerCase();
+        if (searchInput) {
+          searchInput.value = clickedTag;
+          searchQuery = clickedTag;
+          currentPage = 1;
+          filterAndSort();
+          const headerOffset = 120;
+          const gridPos = grid.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+          window.scrollTo({ top: gridPos, behavior: "smooth" });
+        }
+      }
+    });
 
     if (dateFilter) {
       dateFilter.addEventListener("change", () => {
@@ -719,6 +813,7 @@ const { categories, publishers, topics } = Astro.props;
 
     // Initialize
     updateBookmarkUI();
+    updateHighImpactUI();
     initFromURLParams();
     filterAndSort();
   })();

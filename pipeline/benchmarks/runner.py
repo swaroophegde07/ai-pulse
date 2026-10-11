@@ -266,6 +266,9 @@ def run_benchmark_pipeline(benchmarks_path: Path | None = None) -> dict[str, Any
     # 3. Derive dynamic standards with actual data-driven leaders
     benchmark_standards = derive_benchmark_standards(validated_benchmarks)
 
+    # Sort validated benchmark records by score descending so highest-performing models rank first
+    validated_benchmarks.sort(key=lambda b: b.get("score", 0.0), reverse=True)
+
     # Assemble dataset
     output_payload: dict[str, Any] = {
         "metadata": {

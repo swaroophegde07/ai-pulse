@@ -1,6 +1,12 @@
 ---
 // NewsCard.astro — individual article card
 
+interface SourceItem {
+  title?: string;
+  url: string;
+  publisher?: string;
+}
+
 interface Props {
   id: string;
   title: string;
@@ -13,6 +19,10 @@ interface Props {
   fetched_at: string;
   isDemo?: boolean;
   topics?: string[];
+  tags?: string[];
+  key_points?: string[];
+  impact_score?: number | null;
+  sources?: SourceItem[];
   priority_label?: string;
   priority_explanation?: string;
   why_it_matters?: string;
@@ -32,6 +42,10 @@ const {
   fetched_at,
   isDemo = false,
   topics = [],
+  tags = [],
+  key_points = [],
+  impact_score,
+  sources = [],
   priority_label,
   priority_explanation,
   why_it_matters,
@@ -64,6 +78,9 @@ function formatFetchedAt(iso: string): string {
 const displayDate = formatDate(date);
 const displayFetched = formatFetchedAt(fetched_at);
 
+// Combined tags list (prefer new tags, fallback to topics)
+const articleTags = tags.length > 0 ? tags : topics;
+
 // Category styling map.
 const categoryStyles: Record<string, string> = {
   "News": "text-sky-400 bg-sky-400/10 border-sky-400/20",
@@ -91,7 +108,9 @@ const prioStyle = priority_label ? (priorityStyles[priority_label] ?? prioritySt
   data-category={category.toLowerCase()}
   data-source={source.toLowerCase()}
   data-date={date ?? ""}
-  data-topics={topics.join(",").toLowerCase()}
+  data-tags={articleTags.join(",").toLowerCase()}
+  data-keypoints={(key_points || []).join(" ").toLowerCase()}
+  data-impact={impact_score ?? 0}
   data-priority={priority_label ? priority_label.toLowerCase() : "worth a look"}
 >
   <!-- Demo badge -->
@@ -102,7 +121,7 @@ const prioStyle = priority_label ? (priorityStyles[priority_label] ?? prioritySt
   }
 
   <div class="flex flex-col flex-1 p-5 gap-3">
-    <!-- Top row: category + priority + company -->
+    <!-- Top row: category + impact/priority + company -->
     <div class="flex items-center justify-between gap-2 flex-wrap">
       <div class="flex items-center gap-1.5 flex-wrap">
         <span
@@ -111,14 +130,28 @@ const prioStyle = priority_label ? (priorityStyles[priority_label] ?? prioritySt
           {category}
         </span>
         {
-          priority_label && (
+          impact_score !== undefined && impact_score !== null && impact_score >= 8 ? (
+            <span
+              class="font-mono text-[9px] font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded border border-amber-500/40 bg-amber-500/10 text-amber-300"
+              title={`Editorial Impact Score: ${impact_score}/10`}
+            >
+              High Impact · {impact_score}/10
+            </span>
+          ) : impact_score !== undefined && impact_score !== null && impact_score >= 6 ? (
+            <span
+              class="font-mono text-[9px] font-medium tracking-wider px-1.5 py-0.5 rounded border border-neutral-700 bg-neutral-800 text-neutral-300"
+              title={`Editorial Impact Score: ${impact_score}/10`}
+            >
+              Impact {impact_score}/10
+            </span>
+          ) : priority_label ? (
             <span
               class={`font-mono text-[9px] font-medium tracking-wider uppercase px-1.5 py-0.5 rounded border ${prioStyle}`}
               title={priority_explanation}
             >
               {priority_label}
             </span>
-          )
+          ) : null
         }
       </div>
       <div class="flex items-center gap-2">
@@ -174,6 +207,30 @@ const prioStyle = priority_label ? (priorityStyles[priority_label] ?? prioritySt
       )
     }
 
+    <!-- Three-point TL;DR Key Points (if available) -->
+    {
+      key_points && key_points.length === 3 && (
+        <div class="bg-neutral-950/70 border border-neutral-800/80 rounded-md p-3 space-y-1.5 font-mono text-[11px] text-neutral-300">
+          <div class="text-[9px] uppercase tracking-wider text-neutral-500 font-semibold mb-1 flex items-center justify-between">
+            <span>Three-Point TL;DR</span>
+            <span class="text-[8px] text-emerald-400/80 font-medium">Verified Analysis</span>
+          </div>
+          <div class="flex items-start gap-1.5">
+            <span class="text-emerald-400 font-bold shrink-0 text-[10px]">1.</span>
+            <span class="text-neutral-300 leading-snug">{key_points[0]}</span>
+          </div>
+          <div class="flex items-start gap-1.5">
+            <span class="text-emerald-400 font-bold shrink-0 text-[10px]">2.</span>
+            <span class="text-neutral-300 leading-snug">{key_points[1]}</span>
+          </div>
+          <div class="flex items-start gap-1.5">
+            <span class="text-emerald-400 font-bold shrink-0 text-[10px]">3.</span>
+            <span class="text-neutral-300 leading-snug">{key_points[2]}</span>
+          </div>
+        </div>
+      )
+    }
+
     <!-- Why it matters (if available) -->
     {
       why_it_matters && (
@@ -184,20 +241,25 @@ const prioStyle = priority_label ? (priorityStyles[priority_label] ?? prioritySt
       )
     }
 
-    <!-- Topics tags -->
+    <!-- Clickable Entity Tags -->
     {
-      topics.length > 0 && (
-        <div class="flex flex-wrap gap-1 pt-1">
-          {topics.slice(0, 3).map((t) => (
-            <span class="text-[9px] font-mono text-neutral-500 bg-neutral-950 px-1.5 py-0.5 rounded border border-neutral-800/60">
+      articleTags.length > 0 && (
+        <div class="flex flex-wrap gap-1.5 pt-0.5">
+          {articleTags.slice(0, 5).map((t) => (
+            <button
+              type="button"
+              class="tag-pill text-[10px] font-mono text-neutral-400 bg-neutral-950/80 hover:text-emerald-300 hover:border-emerald-500/40 px-2 py-0.5 rounded border border-neutral-800/80 transition-colors cursor-pointer"
+              data-tag={t.toLowerCase()}
+              title={`Filter articles tagged #${t}`}
+            >
               #{t}
-            </span>
+            </button>
           ))}
         </div>
       )
     }
 
-    <!-- Footer metadata -->
+    <!-- Footer metadata & Links -->
     <footer class="flex flex-col gap-1.5 pt-2 border-t border-neutral-800/60 mt-auto">
       <div class="flex items-center justify-between gap-2 flex-wrap">
         <span class="font-mono text-[10px] text-neutral-500 tracking-wide" title={source_type}>
@@ -211,6 +273,27 @@ const prioStyle = priority_label ? (priorityStyles[priority_label] ?? prioritySt
           {displayDate}
         </time>
       </div>
+
+      <!-- Merged coverage sources (if deduplicated) -->
+      {
+        sources && sources.length > 1 && (
+          <div class="font-mono text-[10px] text-neutral-500 flex flex-wrap items-center gap-1.5 pt-0.5">
+            <span class="text-neutral-600">Also reported by:</span>
+            {sources.slice(1).map((s) => (
+              <a
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-neutral-400 hover:text-emerald-400 transition-colors inline-flex items-center gap-0.5"
+                title={s.title || s.publisher || "Source link"}
+              >
+                <span>{s.publisher || "Source"}</span>
+                <span>↗</span>
+              </a>
+            ))}
+          </div>
+        )
+      }
 
       <!-- External link -->
       <a

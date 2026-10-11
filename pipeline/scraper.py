@@ -69,21 +69,71 @@ def normalize_url(url: str) -> str:
 
     # Strip tracking parameters.
     _TRACKING_PARAMS = re.compile(
-        r"^(utm_|fbclid|gclid|msclkid|ref|source|campaign)",
+        r"^(utm_|fbclid|gclid|msclkid|ref|source|campaign|mc_cid|mc_eid|_hsenc|_hsmi|mkt_tok|vero_id)",
         re.IGNORECASE,
     )
     if parsed.query:
         cleaned_params = [
             p
             for p in parsed.query.split("&")
-            if not _TRACKING_PARAMS.match(p.split("=")[0])
+            if p and not _TRACKING_PARAMS.match(p.split("=")[0])
         ]
+        # Sort query params for deterministic canonical URL
+        cleaned_params.sort()
         query = "&".join(cleaned_params)
     else:
         query = ""
 
     canonical = urlunparse((scheme, netloc, path, parsed.params, query, ""))
     return canonical
+
+
+def normalize_title(title: str) -> str:
+    """Normalize article title for conservative duplicate detection.
+
+    - Lowercases text.
+    - Strips common publication suffixes (e.g. ' - The Verge', ' | TechCrunch').
+    - Removes punctuation and extra whitespace.
+    """
+    if not title:
+        return ""
+    text = title.strip().lower()
+    # Strip common publisher suffixes
+    text = re.sub(
+        r"\s*([|–—-]|by)\s*(the verge|techcrunch|ars technica|wired|venturebeat|reuters|bloomberg|mit technology review|the gradient|openai|anthropic|google deepmind|google blog|google|microsoft).*$",
+        "",
+        text,
+        flags=re.IGNORECASE,
+    )
+    # Strip punctuation
+    text = re.sub(r"[^\w\s]", " ", text)
+    # Collapse whitespace
+    return " ".join(text.split())
+
+
+def are_titles_duplicate(title1: str, title2: str) -> bool:
+    """Determine if two article titles indicate the exact same reporting.
+
+    Uses conservative matching:
+    - Exact match after normalization.
+    - Or Jaccard token overlap >= 0.85 when both titles have at least 5 words.
+    """
+    n1 = normalize_title(title1)
+    n2 = normalize_title(title2)
+    if not n1 or not n2:
+        return False
+    if n1 == n2:
+        return True
+
+    words1 = set(n1.split())
+    words2 = set(n2.split())
+    if len(words1) >= 5 and len(words2) >= 5:
+        intersection = words1 & words2
+        union = words1 | words2
+        jaccard = len(intersection) / len(union)
+        return jaccard >= 0.85
+
+    return False
 
 
 def stable_id(url: str) -> str:
