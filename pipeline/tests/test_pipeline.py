@@ -442,15 +442,27 @@ class TestLoadExistingFeed(unittest.TestCase):
         finally:
             tmp.unlink(missing_ok=True)
 
-    def test_returns_empty_on_invalid_json(self):
+    def test_raises_on_invalid_json(self):
         with tempfile.NamedTemporaryFile(
             mode="w", suffix=".json", delete=False, encoding="utf-8"
         ) as f:
             f.write("not valid json {{{")
             tmp = Path(f.name)
         try:
-            result = load_existing_feed(tmp)
-            self.assertEqual(result, [])
+            with self.assertRaises(RuntimeError):
+                load_existing_feed(tmp)
+        finally:
+            tmp.unlink(missing_ok=True)
+
+    def test_raises_on_non_list_root(self):
+        with tempfile.NamedTemporaryFile(
+            mode="w", suffix=".json", delete=False, encoding="utf-8"
+        ) as f:
+            json.dump({"not": "a list"}, f)
+            tmp = Path(f.name)
+        try:
+            with self.assertRaises(RuntimeError):
+                load_existing_feed(tmp)
         finally:
             tmp.unlink(missing_ok=True)
 
@@ -744,6 +756,106 @@ class TestPrepareArticle(unittest.TestCase):
         # Should parse without error.
         dt = datetime.fromisoformat(result["fetched_at"])
         self.assertIsNotNone(dt)
+
+    def test_preserves_valid_gemini_metadata(self):
+        raw = {
+            "id": "meta123",
+            "title": "Frontier Model Launch",
+            "company": "DeepMind",
+            "source": "DeepMind Blog",
+            "summary": "DeepMind released a new reasoning model achieving gold-level Olympiad scores.",
+            "url": "https://deepmind.google/news/model-launch",
+            "date": "2024-05-01T12:00:00+00:00",
+            "category": "Product Release",
+            "key_points": [
+                "DeepMind introduced a new frontier reasoning model.",
+                "The architecture achieves gold-level performance in competition math.",
+                "Researchers and production teams evaluating reasoning workloads.",
+            ],
+            "tags": ["DeepMind", "Reasoning", "Frontier Models"],
+            "impact_score": 9,
+            "sources": [
+                {
+                    "title": "Frontier Model Launch",
+                    "url": "https://deepmind.google/news/model-launch",
+                    "publisher": "Google DeepMind",
+                }
+            ],
+        }
+        result = prepare_article(raw)
+        self.assertEqual(len(result["key_points"]), 3)
+        self.assertEqual(result["key_points"][0], "DeepMind introduced a new frontier reasoning model.")
+        self.assertEqual(result["tags"], ["DeepMind", "Reasoning", "Frontier Models"])
+        self.assertEqual(result["impact_score"], 9)
+        self.assertEqual(len(result["sources"]), 1)
+        self.assertEqual(result["sources"][0]["url"], "https://deepmind.google/news/model-launch")
+
+    def test_fallback_primary_source_when_sources_missing(self):
+        raw = {
+            "id": "nosrc123",
+            "title": "Open Source Weights",
+            "company": "Meta AI",
+            "source": "Meta AI Blog",
+            "summary": "Meta released new open weights under permissive license.",
+            "url": "https://ai.meta.com/blog/open-weights",
+            "date": "2024-05-02T12:00:00+00:00",
+            "category": "Product Release",
+        }
+        result = prepare_article(raw)
+        self.assertIn("sources", result)
+        self.assertEqual(len(result["sources"]), 1)
+        self.assertEqual(result["sources"][0]["url"], "https://ai.meta.com/blog/open-weights")
+        self.assertEqual(result["sources"][0]["title"], "Open Source Weights")
+        self.assertEqual(result["sources"][0]["publisher"], "Meta AI")
+
+    def test_rejects_generic_or_invalid_key_points(self):
+        raw = {
+            "id": "genkp123",
+            "title": "Generic Story",
+            "company": "Tech",
+            "source": "News",
+            "summary": "Some general news story about AI.",
+            "url": "https://example.com/story",
+            "date": "2024-05-02T12:00:00+00:00",
+            "category": "News",
+            "key_points": [
+                "Generic story title.",
+                "Provides verified empirical measurements of frontier reasoning performance.",
+                "Engineers building autonomous agent workflows and developer tooling.",
+            ],
+        }
+        result = prepare_article(raw)
+        self.assertNotIn("key_points", result)
+
+    def test_rejects_invalid_impact_score(self):
+        raw = {
+            "id": "badscore123",
+            "title": "Score Test",
+            "company": "Tech",
+            "source": "News",
+            "summary": "Some general news story.",
+            "url": "https://example.com/score",
+            "date": "2024-05-02T12:00:00+00:00",
+            "category": "News",
+            "impact_score": 99,
+        }
+        result = prepare_article(raw)
+        self.assertNotIn("impact_score", result)
+
+    def test_canned_why_it_matters_is_cleared(self):
+        raw = {
+            "id": "wim123",
+            "title": "Test Title",
+            "company": "Tech",
+            "source": "News",
+            "summary": "A test story.",
+            "url": "https://example.com/wim",
+            "date": "2024-05-02T12:00:00+00:00",
+            "category": "News",
+            "why_it_matters": "Provides verified empirical measurements of frontier reasoning performance.",
+        }
+        result = prepare_article(raw)
+        self.assertEqual(result["why_it_matters"], "")
 
 
 # ===========================================================================

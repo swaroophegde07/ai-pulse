@@ -30,7 +30,12 @@ from pathlib import Path
 
 from pipeline.scraper import are_titles_duplicate, fetch_all_sources, normalize_title, normalize_url
 from pipeline.sources import ALLOWED_CATEGORIES, SOURCES
-from pipeline.summarizer import summarize_articles
+from pipeline.summarizer import (
+    is_generic_why_it_matters,
+    is_key_point_generic,
+    summarize_articles,
+    validate_key_points,
+)
 
 logging.basicConfig(
     level=logging.INFO,
@@ -112,7 +117,9 @@ def validate_record(record: dict) -> bool:
 def load_existing_feed(feed_path: Path) -> list[dict]:
     """Load and return existing records from feed.json.
 
-    Returns an empty list if the file does not exist or is invalid JSON.
+    Returns an empty list if the file does not exist.
+    If the file exists but contains invalid JSON or has a non-list root,
+    raises RuntimeError to fail safely and prevent silent loss of historical data.
     Invalid individual records are skipped with a warning.
     """
     if not feed_path.exists():
@@ -123,16 +130,25 @@ def load_existing_feed(feed_path: Path) -> list[dict]:
         with feed_path.open("r", encoding="utf-8") as fh:
             data = json.load(fh)
     except (json.JSONDecodeError, OSError) as exc:
-        logger.error(
-            "Could not read existing feed at %s: %s. Starting fresh.",
+        logger.critical(
+            "Could not read existing feed at %s: %s. Aborting to protect historical data.",
             feed_path,
             exc,
         )
-        return []
+        raise RuntimeError(
+            f"Existing feed at {feed_path} contains invalid JSON ({exc}). "
+            "Aborting run to prevent silent loss of historical articles."
+        ) from exc
 
     if not isinstance(data, list):
-        logger.error("feed.json root is not a list; starting fresh.")
-        return []
+        logger.critical(
+            "Existing feed at %s root is not a list. Aborting to protect historical data.",
+            feed_path,
+        )
+        raise RuntimeError(
+            f"Existing feed at {feed_path} root is not a list. "
+            "Aborting run to prevent silent loss of historical articles."
+        )
 
     valid = [r for r in data if validate_record(r)]
     if len(valid) < len(data):
@@ -464,14 +480,11 @@ def derive_article_metadata(raw: dict) -> dict:
 
     explanation = reasons[0] if reasons else "Relevant AI development"
 
-    if "model or architecture capability" in explanation:
-        why_it_matters = "Expands foundation model capabilities and developer deployment choices."
-    elif "benchmark or evaluation results" in explanation:
-        why_it_matters = "Provides verified empirical measurements of frontier reasoning performance."
-    elif "research" in explanation:
-        why_it_matters = "Introduces algorithmic methodologies that influence downstream model training."
+    raw_wim = raw.get("why_it_matters")
+    if raw_wim and isinstance(raw_wim, str) and not is_generic_why_it_matters(raw_wim):
+        why_it_matters = raw_wim.strip()
     else:
-        why_it_matters = "Highlights important industry tooling, platform, and infrastructure progression."
+        why_it_matters = ""
 
     # Map source type
     source_type = "Technical Publication"
@@ -498,7 +511,70 @@ def prepare_article(raw: dict) -> dict:
     """Build a validated feed record from a raw + summarized article dict."""
     fetched_at = datetime.now(UTC).isoformat()
     meta = derive_article_metadata(raw)
-    return {
+
+    # Validate key_points (strictly exactly 3 non-empty, non-generic strings)
+    valid_key_points: list[str] | None = None
+    raw_kp = raw.get("key_points")
+    if isinstance(raw_kp, list) and validate_key_points(raw_kp):
+        valid_key_points = [str(p).strip() for p in raw_kp]
+
+    # Validate tags (list of short, useful strings)
+    valid_tags: list[str] | None = None
+    raw_tags = raw.get("tags")
+    if isinstance(raw_tags, list):
+        cleaned_tags = []
+        for t in raw_tags:
+            if isinstance(t, str):
+                s = t.strip()
+                if 1 <= len(s) <= 50 and s.lower() not in [x.lower() for x in cleaned_tags]:
+                    cleaned_tags.append(s)
+        if cleaned_tags:
+            valid_tags = cleaned_tags
+
+    # Validate impact_score (integer from 1 to 10 when available)
+    valid_impact_score: int | None = None
+    raw_impact = raw.get("impact_score")
+    if raw_impact is not None:
+        try:
+            val = int(raw_impact)
+            if 1 <= val <= 10:
+                valid_impact_score = val
+        except (ValueError, TypeError):
+            pass
+
+    # Validate sources with primary-source fallback
+    valid_sources: list[dict] = []
+    raw_sources = raw.get("sources")
+    if isinstance(raw_sources, list):
+        seen_urls = set()
+        for s in raw_sources:
+            if isinstance(s, dict) and isinstance(s.get("url"), str) and s["url"].startswith("http"):
+                u = s["url"].strip()
+                if u not in seen_urls:
+                    seen_urls.add(u)
+                    src_item: dict[str, str] = {"url": u}
+                    if s.get("title") and isinstance(s["title"], str):
+                        src_item["title"] = s["title"].strip()
+                    if s.get("publisher") and isinstance(s["publisher"], str):
+                        src_item["publisher"] = s["publisher"].strip()
+                    elif s.get("company") and isinstance(s["company"], str):
+                        src_item["publisher"] = s["company"].strip()
+                    valid_sources.append(src_item)
+    if not valid_sources:
+        primary_url = raw.get("url", "")
+        if isinstance(primary_url, str) and primary_url.startswith("http"):
+            valid_sources = [
+                {
+                    "title": raw.get("title", ""),
+                    "url": primary_url,
+                    "publisher": raw.get("company") or raw.get("source") or "Primary Source",
+                }
+            ]
+
+    raw_wim = raw.get("why_it_matters")
+    resolved_wim = raw_wim if (raw_wim and isinstance(raw_wim, str) and not is_generic_why_it_matters(raw_wim)) else meta["why_it_matters"]
+
+    record: dict[str, Any] = {
         "id": raw["id"],
         "title": raw.get("title", ""),
         "company": raw.get("company", ""),
@@ -515,8 +591,19 @@ def prepare_article(raw: dict) -> dict:
         "priority_score": raw.get("priority_score", meta["priority_score"]),
         "priority_label": raw.get("priority_label", meta["priority_label"]),
         "priority_explanation": raw.get("priority_explanation", meta["priority_explanation"]),
-        "why_it_matters": raw.get("why_it_matters", meta["why_it_matters"]),
+        "why_it_matters": resolved_wim,
     }
+
+    if valid_key_points is not None:
+        record["key_points"] = valid_key_points
+    if valid_tags is not None:
+        record["tags"] = valid_tags
+    if valid_impact_score is not None:
+        record["impact_score"] = valid_impact_score
+    if valid_sources:
+        record["sources"] = valid_sources
+
+    return record
 
 
 # ---------------------------------------------------------------------------

@@ -60,8 +60,29 @@ const sortedArticles = [...realArticles].sort((a, b) => {
   return fb - fa;
 });
 
+// Importance ranking preferring impact_score (1-10) with fallback to priority_label
+function getImportanceScore(a: FeedRecord): number {
+  if (typeof a.impact_score === "number" && a.impact_score >= 1 && a.impact_score <= 10) {
+    return a.impact_score;
+  }
+  const prio = (a.priority_label || "").toLowerCase();
+  if (prio === "deep dive") return 8;
+  if (prio === "must know") return 6;
+  if (typeof a.priority_score === "number" && a.priority_score > 0) {
+    return Math.min(10, Math.max(1, a.priority_score * 1.5));
+  }
+  return 3;
+}
+
+const isGenericWhy = (text?: string) =>
+  !text ||
+  text.includes("Provides verified empirical") ||
+  text.includes("Highlights important industry") ||
+  text.includes("Expands foundation model") ||
+  text.includes("Introduces algorithmic methodologies");
+
 // Semantics for Today's AI Brief:
-// Check articles published on the current calendar day or past 24 hours
+// Check articles published within safe recency window (last 30 hours)
 const nowMs = Date.now();
 const articlesFromToday = sortedArticles.filter((a) => {
   if (!a.date) return false;
@@ -69,12 +90,32 @@ const articlesFromToday = sortedArticles.filter((a) => {
   return (nowMs - pubMs <= 30 * 60 * 60 * 1000) && pubMs <= (nowMs + 24 * 60 * 60 * 1000);
 });
 
-const isLimitedToday = articlesFromToday.length < 3;
+// Fallback pool strictly limited to past 7 days (never the full historical archive)
+const articlesFromPast7Days = sortedArticles.filter((a) => {
+  if (!a.date) return false;
+  const pubMs = new Date(a.date).getTime();
+  return (nowMs - pubMs <= 7 * 24 * 60 * 60 * 1000) && pubMs <= (nowMs + 24 * 60 * 60 * 1000);
+});
+
+type BriefMode = "today" | "recent" | "empty";
+let briefMode: BriefMode = "today";
+let briefCandidatePool: FeedRecord[] = [];
+
+if (articlesFromToday.length >= 3) {
+  briefMode = "today";
+  briefCandidatePool = articlesFromToday;
+} else if (articlesFromPast7Days.length > 0) {
+  briefMode = "recent";
+  briefCandidatePool = articlesFromPast7Days;
+} else {
+  briefMode = "empty";
+  briefCandidatePool = [];
+}
 
 // Prioritize high-signal stories with publisher diversity (max 2 per publisher in the brief)
-const briefCandidatePool = (isLimitedToday ? [...sortedArticles] : [...articlesFromToday]).sort((a, b) => {
-  const sa = a.priority_score ?? 0;
-  const sb = b.priority_score ?? 0;
+const sortedBriefCandidates = [...briefCandidatePool].sort((a, b) => {
+  const sa = getImportanceScore(a);
+  const sb = getImportanceScore(b);
   if (sb !== sa) return sb - sa;
   const da = a.date ? new Date(a.date).getTime() : 0;
   const db = b.date ? new Date(b.date).getTime() : 0;
@@ -84,7 +125,7 @@ const briefCandidatePool = (isLimitedToday ? [...sortedArticles] : [...articlesF
 const todaysBrief: FeedRecord[] = [];
 const briefPublishersCount: Record<string, number> = {};
 
-for (const candidate of briefCandidatePool) {
+for (const candidate of sortedBriefCandidates) {
   const pub = candidate.company || "Unknown";
   const count = briefPublishersCount[pub] || 0;
   if (count < 2) {
@@ -97,7 +138,15 @@ for (const candidate of briefCandidatePool) {
 // Dedicated Priority Stories (high-signal developments across coverage)
 const briefIds = new Set(todaysBrief.map((a) => a.id));
 const priorityStories = sortedArticles
-  .filter((a) => (a.priority_score ?? 0) >= 3 && !briefIds.has(a.id))
+  .filter((a) => !briefIds.has(a.id) && getImportanceScore(a) >= 6)
+  .sort((a, b) => {
+    const sa = getImportanceScore(a);
+    const sb = getImportanceScore(b);
+    if (sb !== sa) return sb - sa;
+    const da = a.date ? new Date(a.date).getTime() : 0;
+    const db = b.date ? new Date(b.date).getTime() : 0;
+    return db - da;
+  })
   .slice(0, 4);
 
 // Latest coverage strictly chronological
@@ -197,13 +246,17 @@ function formatLastUpdated(iso: string | undefined): string {
             Today's AI Brief
           </h2>
           {
-            isLimitedToday ? (
-              <span class="font-mono text-[9px] text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded tracking-wide">
-                From recent days (limited coverage today)
-              </span>
-            ) : (
+            briefMode === "today" ? (
               <span class="font-mono text-[9px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded tracking-wide">
                 Live Daily Coverage
+              </span>
+            ) : briefMode === "recent" ? (
+              <span class="font-mono text-[9px] text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded tracking-wide">
+                Past 7 Days Highlights (limited coverage today)
+              </span>
+            ) : (
+              <span class="font-mono text-[9px] text-neutral-400 bg-neutral-800/50 border border-neutral-700/50 px-2 py-0.5 rounded tracking-wide">
+                No recent stories (past 7 days)
               </span>
             )
           }
@@ -219,7 +272,8 @@ function formatLastUpdated(iso: string | undefined): string {
       {
         todaysBrief.length === 0 ? (
           <div class="border border-neutral-800 rounded-lg p-8 text-center bg-neutral-900/30">
-            <p class="font-mono text-xs text-neutral-400">Awaiting news ingestion.</p>
+            <p class="font-mono text-xs text-neutral-400 mb-1">No recent articles published in the past 7 days.</p>
+            <p class="font-mono text-[11px] text-neutral-600">The automated ingestion runs twice daily across monitored feeds. Explore latest stories below.</p>
           </div>
         ) : (
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -247,7 +301,7 @@ function formatLastUpdated(iso: string | undefined): string {
                   <p class="text-xs text-neutral-400 leading-relaxed mb-3">
                     {article.summary}
                   </p>
-                  {article.why_it_matters && (
+                  {article.why_it_matters && !isGenericWhy(article.why_it_matters) && (
                     <div class="bg-neutral-950/80 border border-neutral-800/80 rounded px-2.5 py-1.5 text-[11px] text-neutral-400 font-mono leading-relaxed mb-3">
                       <span class="text-emerald-400/90 font-medium mr-1.5 uppercase tracking-wider text-[9px]">Why it matters:</span>
                       {article.why_it_matters}

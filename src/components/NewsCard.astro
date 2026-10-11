@@ -78,8 +78,32 @@ function formatFetchedAt(iso: string): string {
 const displayDate = formatDate(date);
 const displayFetched = formatFetchedAt(fetched_at);
 
+// Base URL for links
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
 // Combined tags list (prefer new tags, fallback to topics)
 const articleTags = tags.length > 0 ? tags : topics;
+
+// Boilerplate / generic content detection
+const isGenericWhy = (text?: string) =>
+  !text ||
+  text.includes("Provides verified empirical") ||
+  text.includes("Highlights important industry") ||
+  text.includes("Expands foundation model") ||
+  text.includes("Introduces algorithmic methodologies");
+
+const isGenericPoint = (point?: string) =>
+  !point ||
+  point.trim().length === 0 ||
+  point.includes("Provides verified empirical") ||
+  point.includes("Highlights important industry") ||
+  point.includes("Expands foundation model") ||
+  point.includes("Introduces algorithmic methodologies");
+
+const hasValidKeyPoints =
+  Array.isArray(key_points) &&
+  key_points.length === 3 &&
+  key_points.every((p) => typeof p === "string" && !isGenericPoint(p));
 
 // Category styling map.
 const categoryStyles: Record<string, string> = {
@@ -108,6 +132,7 @@ const prioStyle = priority_label ? (priorityStyles[priority_label] ?? prioritySt
   data-category={category.toLowerCase()}
   data-source={source.toLowerCase()}
   data-date={date ?? ""}
+  data-topics={(topics || []).join(",").toLowerCase()}
   data-tags={articleTags.join(",").toLowerCase()}
   data-keypoints={(key_points || []).join(" ").toLowerCase()}
   data-impact={impact_score ?? 0}
@@ -175,9 +200,16 @@ const prioStyle = priority_label ? (priorityStyles[priority_label] ?? prioritySt
       </div>
     </div>
 
-    <!-- Title -->
+    <!-- Title (Clickable) -->
     <h3 class="text-sm font-semibold text-neutral-100 leading-snug group-hover:text-white transition-colors line-clamp-3">
-      {title}
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-400 rounded transition-colors"
+      >
+        {title}
+      </a>
     </h3>
 
     <!-- Summary -->
@@ -207,33 +239,33 @@ const prioStyle = priority_label ? (priorityStyles[priority_label] ?? prioritySt
       )
     }
 
-    <!-- Three-point TL;DR Key Points (if available) -->
+    <!-- Three-point TL;DR Key Points (AI-generated TL;DR with explicit labels) -->
     {
-      key_points && key_points.length === 3 && (
-        <div class="bg-neutral-950/70 border border-neutral-800/80 rounded-md p-3 space-y-1.5 font-mono text-[11px] text-neutral-300">
+      hasValidKeyPoints && (
+        <div class="bg-neutral-950/70 border border-neutral-800/80 rounded-md p-3 space-y-2 font-mono text-[11px] text-neutral-300">
           <div class="text-[9px] uppercase tracking-wider text-neutral-500 font-semibold mb-1 flex items-center justify-between">
-            <span>Three-Point TL;DR</span>
-            <span class="text-[8px] text-emerald-400/80 font-medium">Verified Analysis</span>
+            <span>AI-generated TL;DR</span>
+            <span class="text-[8px] text-emerald-400/80 font-medium">Synthesized Analysis</span>
           </div>
           <div class="flex items-start gap-1.5">
-            <span class="text-emerald-400 font-bold shrink-0 text-[10px]">1.</span>
+            <span class="text-emerald-400 font-bold shrink-0 text-[10px]">What happened:</span>
             <span class="text-neutral-300 leading-snug">{key_points[0]}</span>
           </div>
           <div class="flex items-start gap-1.5">
-            <span class="text-emerald-400 font-bold shrink-0 text-[10px]">2.</span>
+            <span class="text-emerald-400 font-bold shrink-0 text-[10px]">Why it matters:</span>
             <span class="text-neutral-300 leading-snug">{key_points[1]}</span>
           </div>
           <div class="flex items-start gap-1.5">
-            <span class="text-emerald-400 font-bold shrink-0 text-[10px]">3.</span>
+            <span class="text-emerald-400 font-bold shrink-0 text-[10px]">Who is affected:</span>
             <span class="text-neutral-300 leading-snug">{key_points[2]}</span>
           </div>
         </div>
       )
     }
 
-    <!-- Why it matters (if available) -->
+    <!-- Why it matters (if available, no TL;DR present, and not generic) -->
     {
-      why_it_matters && (
+      !hasValidKeyPoints && why_it_matters && !isGenericWhy(why_it_matters) && (
         <div class="bg-neutral-950/60 border border-neutral-800/80 rounded px-2.5 py-1.5 text-[11px] text-neutral-400 font-mono leading-relaxed">
           <span class="text-emerald-400/90 font-medium mr-1.5 uppercase tracking-wider text-[9px]">Why it matters:</span>
           {why_it_matters}
@@ -241,19 +273,19 @@ const prioStyle = priority_label ? (priorityStyles[priority_label] ?? prioritySt
       )
     }
 
-    <!-- Clickable Entity Tags -->
+    <!-- Clickable Entity Tags (Semantic link with in-page override on News page) -->
     {
       articleTags.length > 0 && (
         <div class="flex flex-wrap gap-1.5 pt-0.5">
           {articleTags.slice(0, 5).map((t) => (
-            <button
-              type="button"
-              class="tag-pill text-[10px] font-mono text-neutral-400 bg-neutral-950/80 hover:text-emerald-300 hover:border-emerald-500/40 px-2 py-0.5 rounded border border-neutral-800/80 transition-colors cursor-pointer"
+            <a
+              href={`${base}/news/?q=${encodeURIComponent(t.toLowerCase())}`}
+              class="tag-pill text-[10px] font-mono text-neutral-400 bg-neutral-950/80 hover:text-emerald-300 hover:border-emerald-500/40 px-2 py-0.5 rounded border border-neutral-800/80 transition-colors"
               data-tag={t.toLowerCase()}
               title={`Filter articles tagged #${t}`}
             >
               #{t}
-            </button>
+            </a>
           ))}
         </div>
       )

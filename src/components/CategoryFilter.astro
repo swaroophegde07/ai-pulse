@@ -446,8 +446,15 @@ const { categories, publishers, topics } = Astro.props;
         }
 
         // Topic
-        if (activeTopic !== "all" && !topics.includes(activeTopic)) {
-          return false;
+        if (activeTopic !== "all") {
+          const artTopics = (article.dataset.topics || "")
+            .toLowerCase()
+            .split(",")
+            .map((s) => s.trim())
+            .filter(Boolean);
+          if (!artTopics.includes(activeTopic)) {
+            return false;
+          }
         }
 
         // Date Period filter
@@ -487,9 +494,18 @@ const { categories, publishers, topics } = Astro.props;
         } else if (activeSort === "oldest") {
           return da - db;
         } else if (activeSort === "important") {
-          const pa = a.dataset.priority === "deep dive" ? 3 : (a.dataset.priority === "must know" ? 2 : 1);
-          const pb = b.dataset.priority === "deep dive" ? 3 : (b.dataset.priority === "must know" ? 2 : 1);
-          if (pb !== pa) return pb - pa;
+          const getImportance = (art: HTMLElement): number => {
+            const rawImpact = art.dataset.impact;
+            const impact = rawImpact ? parseFloat(rawImpact) : 0;
+            if (impact >= 1 && impact <= 10) return impact;
+            const prio = (art.dataset.priority || "").toLowerCase();
+            if (prio === "deep dive") return 8;
+            if (prio === "must know") return 6;
+            return 3;
+          };
+          const ia = getImportance(a);
+          const ib = getImportance(b);
+          if (ib !== ia) return ib - ia;
           return db - da;
         }
         return 0;
