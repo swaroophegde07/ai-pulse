@@ -7,6 +7,8 @@ import NewsCard from "../components/NewsCard.astro";
 import Footer from "../components/Footer.astro";
 import sourcesData from "../data/sources.json";
 import feedData from "../data/feed.json";
+import modelsData from "../data/models.json";
+import benchmarksData from "../data/benchmarks.json";
 
 interface FeedRecord {
   id: string;
@@ -30,6 +32,10 @@ interface FeedRecord {
 const feed = feedData as FeedRecord[];
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
+const modelsCount = Array.isArray(modelsData) ? modelsData.length : 91;
+const featuredModelsCount = Array.isArray(modelsData) ? modelsData.filter((m: any) => m.is_featured_frontier).length : 23;
+const benchmarksCount = Array.isArray((benchmarksData as any)?.benchmarks) ? (benchmarksData as any).benchmarks.length : 552;
+
 // Only genuine, non-demonstration articles in production views
 const realArticles = feed.filter((a) => !a._demo);
 
@@ -49,9 +55,19 @@ const sortedArticles = [...realArticles].sort((a, b) => {
   return fb - fa;
 });
 
-// Construct Today's AI Brief:
+// Semantics for Today's AI Brief:
+// Check articles published on the current calendar day or past 24 hours
+const nowMs = Date.now();
+const articlesFromToday = sortedArticles.filter((a) => {
+  if (!a.date) return false;
+  const pubMs = new Date(a.date).getTime();
+  return (nowMs - pubMs <= 30 * 60 * 60 * 1000) && pubMs <= (nowMs + 24 * 60 * 60 * 1000);
+});
+
+const isLimitedToday = articlesFromToday.length < 3;
+
 // Prioritize high-signal stories with publisher diversity (max 2 per publisher in the brief)
-const briefCandidatePool = [...realArticles].sort((a, b) => {
+const briefCandidatePool = (isLimitedToday ? [...sortedArticles] : [...articlesFromToday]).sort((a, b) => {
   const sa = a.priority_score ?? 0;
   const sb = b.priority_score ?? 0;
   if (sb !== sa) return sb - sa;
@@ -73,9 +89,15 @@ for (const candidate of briefCandidatePool) {
   if (todaysBrief.length >= 4) break;
 }
 
-// Fallback to latest articles if brief pool is small
+// Dedicated Priority Stories (high-signal developments across coverage)
 const briefIds = new Set(todaysBrief.map((a) => a.id));
-const latestArticles = sortedArticles.filter((a) => !briefIds.has(a.id)).slice(0, 6);
+const priorityStories = sortedArticles
+  .filter((a) => (a.priority_score ?? 0) >= 3 && !briefIds.has(a.id))
+  .slice(0, 4);
+
+// Latest coverage strictly chronological
+const displayedIds = new Set([...briefIds, ...priorityStories.map((a) => a.id)]);
+const latestArticles = sortedArticles.filter((a) => !displayedIds.has(a.id)).slice(0, 6);
 
 // Last successful data refresh from trustworthy ingestion metadata
 const lastUpdated = realArticles
@@ -105,54 +127,81 @@ function formatLastUpdated(iso: string | undefined): string {
   <main id="main-content">
     <!-- Hero / Intro Section -->
     <section class="border-b border-neutral-800/60 bg-neutral-950">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <div class="max-w-3xl">
-          <h1 class="text-2xl sm:text-3xl font-bold text-neutral-100 tracking-tight mb-3">
-            AI Intelligence Dashboard
-          </h1>
-          <p class="text-sm text-neutral-400 leading-relaxed mb-6 max-w-xl">
-            Objective news aggregation, verified model capabilities, empirical benchmarks, and research tracking. Filtered for high-signal developments with traceable provenance.
-          </p>
-
-          <!-- Stats bar: single source of truth -->
-          <div class="flex flex-wrap gap-6">
-            {
-              [
-                { label: "Articles", value: String(realArticles.length) },
-                { label: "Publishers", value: String(publisherCount) },
-                {
-                  label: "Configured Sources",
-                  value: String(sourcesData.length),
-                },
-                {
-                  label: "Ingestion Status",
-                  value: formatLastUpdated(lastUpdated),
-                },
-              ].map(({ label, value }) => (
-                <div class="flex flex-col gap-1">
-                  <span class="font-mono text-[10px] text-neutral-600 tracking-widest uppercase">
-                    {label}
-                  </span>
-                  <span class="font-mono text-sm text-neutral-300">{value}</span>
-                </div>
-              ))
-            }
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
+          <div class="max-w-2xl">
+            <div class="inline-flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase px-2.5 py-1 rounded border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 mb-3">
+              <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              <span>Frontier Intelligence Stream</span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-bold text-neutral-100 tracking-tight mb-2">
+              AI Intelligence Dashboard
+            </h1>
+            <p class="text-sm text-neutral-400 leading-relaxed">
+              Objective news aggregation, verified model capabilities, empirical benchmarks, and research tracking. Filtered for high-signal developments with traceable provenance.
+            </p>
           </div>
+
+          <!-- Fast section jump navigation -->
+          <nav aria-label="Page sections" class="flex items-center gap-2 flex-wrap font-mono text-[10px]">
+            <span class="text-neutral-500 uppercase tracking-wider">Jump to:</span>
+            <a href="#todays-brief" class="px-2.5 py-1 rounded border border-neutral-800 bg-neutral-900/60 text-neutral-300 hover:text-emerald-400 hover:border-neutral-700 transition-colors">Today's Brief</a>
+            <a href="#priority-intelligence" class="px-2.5 py-1 rounded border border-neutral-800 bg-neutral-900/60 text-neutral-300 hover:text-emerald-400 hover:border-neutral-700 transition-colors">Priority Intel</a>
+            <a href="#latest-coverage" class="px-2.5 py-1 rounded border border-neutral-800 bg-neutral-900/60 text-neutral-300 hover:text-emerald-400 hover:border-neutral-700 transition-colors">Latest News</a>
+            <a href="#intelligence-hubs" class="px-2.5 py-1 rounded border border-neutral-800 bg-neutral-900/60 text-neutral-300 hover:text-emerald-400 hover:border-neutral-700 transition-colors">Hubs</a>
+            <span class="text-neutral-700 hidden sm:inline">&middot;</span>
+            <a href={`${base}/feedback/`} class="px-2.5 py-1 rounded border border-neutral-800/80 bg-neutral-950 text-neutral-400 hover:text-emerald-400 hover:border-neutral-700 transition-colors" title="Send feedback or report an issue">Send Feedback</a>
+          </nav>
+        </div>
+
+        <!-- Formatted stats cards: single source of truth -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {
+            [
+              { label: "Articles Ingested", value: String(realArticles.length) },
+              { label: "Distinct Publishers", value: String(publisherCount) },
+              {
+                label: "Monitored Feeds",
+                value: String(sourcesData.length),
+              },
+              {
+                label: "Last Ingestion",
+                value: formatLastUpdated(lastUpdated),
+              },
+            ].map(({ label, value }) => (
+              <div class="bg-neutral-900/40 border border-neutral-800/80 rounded-lg p-3.5 flex flex-col justify-between">
+                <span class="font-mono text-[10px] text-neutral-500 tracking-wider uppercase">
+                  {label}
+                </span>
+                <span class="font-mono text-sm font-semibold text-neutral-200 mt-1 truncate" title={value}>
+                  {value}
+                </span>
+              </div>
+            ))
+          }
         </div>
       </div>
     </section>
 
     <!-- Today's AI Brief Section -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-b border-neutral-900">
+    <section id="todays-brief" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-b border-neutral-900">
       <div class="flex items-center justify-between mb-6">
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2 flex-wrap">
           <span class="inline-block w-2 h-2 rounded-full bg-emerald-400"></span>
           <h2 class="text-xs font-mono text-neutral-300 font-semibold tracking-widest uppercase">
             Today's AI Brief
           </h2>
-          <span class="font-mono text-[10px] text-neutral-600 uppercase tracking-wider hidden sm:inline">
-            · High-Impact Developments
-          </span>
+          {
+            isLimitedToday ? (
+              <span class="font-mono text-[9px] text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded tracking-wide">
+                From recent days (limited coverage today)
+              </span>
+            ) : (
+              <span class="font-mono text-[9px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded tracking-wide">
+                Live Daily Coverage
+              </span>
+            )
+          }
         </div>
         <a
           href={`${base}/news/?sort=important`}
@@ -221,8 +270,63 @@ function formatLastUpdated(iso: string | undefined): string {
       }
     </section>
 
+    <!-- Priority Intelligence Section -->
+    {
+      priorityStories.length > 0 && (
+        <section id="priority-intelligence" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-b border-neutral-900">
+          <div class="flex items-center justify-between mb-6">
+            <div>
+              <h2 class="text-xs font-mono text-neutral-300 font-semibold tracking-widest uppercase mb-1">
+                Priority Intelligence
+              </h2>
+              <p class="text-[11px] font-mono text-neutral-500">
+                High-signal architecture drops, benchmark results, and foundation model milestones.
+              </p>
+            </div>
+            <a
+              href={`${base}/news/?sort=important`}
+              class="font-mono text-[10px] text-neutral-500 hover:text-emerald-400 tracking-wide transition-colors"
+            >
+              View all high-signal stories →
+            </a>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {priorityStories.map((article) => (
+              <div class="bg-neutral-900/50 border border-neutral-800 rounded-lg p-4 flex flex-col justify-between hover:border-neutral-700 transition-colors">
+                <div>
+                  <div class="flex items-center justify-between gap-1 mb-2">
+                    <span class="font-mono text-[9px] text-amber-400 bg-amber-400/10 border border-amber-500/30 uppercase tracking-wider px-1.5 py-0.5 rounded">
+                      {article.priority_label || "Must Know"}
+                    </span>
+                    <time class="font-mono text-[9px] text-neutral-500">
+                      {article.date ? new Date(article.date).toLocaleDateString("en-US", { month: "short", day: "numeric" }) : "Recent"}
+                    </time>
+                  </div>
+                  <h3 class="text-xs font-semibold text-neutral-200 mb-2 line-clamp-2 leading-snug">
+                    <a href={article.url} target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors">
+                      {article.title}
+                    </a>
+                  </h3>
+                  <p class="text-[11px] text-neutral-400 line-clamp-3 leading-relaxed mb-3">
+                    {article.summary}
+                  </p>
+                </div>
+                <div class="pt-2 border-t border-neutral-800/60 flex items-center justify-between font-mono text-[10px]">
+                  <span class="text-neutral-500">{article.company}</span>
+                  <a href={article.url} target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-emerald-400">
+                    Source ↗
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )
+    }
+
     <!-- Latest Articles Section -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <section id="latest-coverage" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <div class="flex items-center justify-between mb-6">
         <h2 class="text-xs font-mono text-neutral-500 tracking-widest uppercase">
           Latest Coverage
@@ -272,7 +376,7 @@ function formatLastUpdated(iso: string | undefined): string {
     </section>
 
     <!-- Intelligence Hub Sections -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+    <section id="intelligence-hubs" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
       <h2 class="text-xs font-mono text-neutral-500 tracking-widest uppercase mb-4">
         Intelligence Hubs
       </h2>
@@ -281,21 +385,21 @@ function formatLastUpdated(iso: string | undefined): string {
           [
             {
               title: "Model Tracker",
-              tag: "15 Frontier Models",
+              tag: `${modelsCount} Models (${featuredModelsCount} Featured)`,
               description:
                 "Frontier architectures, context lengths, token pricing, modalities, and open-weights licensing across major providers.",
               href: `${base}/models/`,
             },
             {
               title: "Research Feed",
-              tag: "Original Papers",
+              tag: "Original Papers & Reports",
               description:
                 "Algorithmic breakthroughs, preprints, and publications from Google DeepMind, OpenAI, Meta FAIR, and Microsoft Research.",
               href: `${base}/research/`,
             },
             {
               title: "Benchmark Board",
-              tag: "Multi-Source Eval",
+              tag: `${benchmarksCount} Verified Evaluations`,
               description:
                 "LiveBench evaluations, OpenRouter real-time pricing telemetry, and interactive head-to-head model comparisons.",
               href: `${base}/benchmarks/`,
@@ -324,6 +428,17 @@ function formatLastUpdated(iso: string | undefined): string {
             </a>
           ))
         }
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-neutral-800/60 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-neutral-500">
+        <span>Help refine our coverage, models catalogue, and benchmark accuracy.</span>
+        <a
+          href={`${base}/feedback/`}
+          class="text-neutral-300 hover:text-emerald-400 transition-colors inline-flex items-center gap-1.5"
+        >
+          <span>Report an issue or suggest a feature</span>
+          <span>→</span>
+        </a>
       </div>
     </section>
   </main>

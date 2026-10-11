@@ -55,6 +55,7 @@ const researchArticles = realArticles
 
 // Extract distinct research institutions represented in this feed
 const researchPublishers = new Set(researchArticles.map((a) => a.company).filter(Boolean));
+const labList = Array.from(researchPublishers).sort();
 
 const researchLabs = [
   {
@@ -173,12 +174,78 @@ const researchLabs = [
             Filtered using deterministic scientific publication keywords and verified research lab sources.
           </p>
         </div>
-        <a
-          href={`${base}/news/`}
-          class="font-mono text-[10px] text-neutral-500 hover:text-emerald-400 transition-colors"
-        >
-          View all news →
-        </a>
+        <div class="flex items-center gap-4">
+          <a
+            href="https://github.com/swaroophegde07/ai-pulse/issues/new?template=data_correction.yml&title=%5BData+Correction%5D%3A+Research+Publication+Inaccuracy&affected_page=https%3A%2F%2Fswaroophegde07.github.io%2Fai-pulse%2Fresearch%2F&entity_type=Research+Publication+%28Lab+Attribution%2C+Title%2C+Summary%29"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-mono text-[10px] text-neutral-400 hover:text-blue-400 transition-colors hidden sm:inline-flex items-center gap-1"
+            title="Report inaccurate research data, lab attribution, or broken preprint links"
+          >
+            <span>Report a research-data issue</span>
+            <span>↗</span>
+          </a>
+          <a
+            href={`${base}/news/`}
+            class="font-mono text-[10px] text-neutral-500 hover:text-emerald-400 transition-colors"
+          >
+            View all news →
+          </a>
+        </div>
+      </div>
+
+      <!-- Search and Lab Filter Toolbar -->
+      <div class="border border-neutral-800 bg-neutral-900/40 rounded-lg p-4 mb-6">
+        <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+          <div class="relative w-full sm:w-80">
+            <label for="research-search-input" class="sr-only">Search research publications</label>
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-neutral-500">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+            </div>
+            <input
+              type="search"
+              id="research-search-input"
+              placeholder="Search papers, preprints, keywords..."
+              class="w-full bg-neutral-950 border border-neutral-800 rounded pl-9 pr-8 py-2 text-xs text-neutral-100 placeholder:text-neutral-600 font-mono focus:outline-none focus:border-purple-500"
+            />
+            <button
+              type="button"
+              id="clear-research-search"
+              style="display: none;"
+              class="absolute inset-y-0 right-0 pr-2.5 flex items-center text-neutral-500 hover:text-neutral-200 transition-colors cursor-pointer"
+              aria-label="Clear research search"
+            >
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+
+          <div class="flex items-center gap-3 w-full sm:w-auto">
+            <label for="research-lab-filter" class="sr-only">Filter by Lab</label>
+            <select
+              id="research-lab-filter"
+              class="w-full sm:w-auto bg-neutral-950 border border-neutral-800 rounded px-3 py-2 text-xs text-neutral-300 font-mono focus:outline-none focus:border-purple-500 cursor-pointer"
+            >
+              <option value="all">All Contributing Labs ({researchArticles.length})</option>
+              {labList.map((lab) => <option value={lab.toLowerCase()}>{lab}</option>)}
+            </select>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between pt-3 mt-3 border-t border-neutral-800/60 text-[11px] font-mono text-neutral-400">
+          <span id="research-count-label">Showing all {researchArticles.length} publications</span>
+          <button
+            type="button"
+            id="reset-research-filters-btn"
+            style="display: none;"
+            class="text-purple-400 hover:text-purple-300 underline underline-offset-4 cursor-pointer"
+          >
+            Clear filters
+          </button>
+        </div>
       </div>
 
       {
@@ -189,22 +256,54 @@ const researchLabs = [
             </p>
           </div>
         ) : (
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {researchArticles.map((article) => (
-              <NewsCard
-                id={article.id}
-                title={article.title}
-                company={article.company}
-                source={article.source}
-                summary={article.summary}
-                url={article.url}
-                date={article.date}
-                category={article.category}
-                fetched_at={article.fetched_at}
-                isDemo={false}
-              />
-            ))}
-          </div>
+          <>
+            <div id="research-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {researchArticles.map((article) => (
+                <NewsCard
+                  id={article.id}
+                  title={article.title}
+                  company={article.company}
+                  source={article.source}
+                  summary={article.summary}
+                  url={article.url}
+                  date={article.date}
+                  category={article.category}
+                  fetched_at={article.fetched_at}
+                  isDemo={false}
+                />
+              ))}
+            </div>
+
+            <div
+              id="no-research-matched"
+              style="display: none;"
+              class="border border-neutral-800 rounded-lg p-12 text-center bg-neutral-900/30"
+            >
+              <p class="font-mono text-xs text-neutral-400 mb-3">
+                No research articles match your search query or selected laboratory.
+              </p>
+              <button
+                type="button"
+                id="empty-research-reset-btn"
+                class="font-mono text-[10px] uppercase tracking-wider text-neutral-300 hover:text-white px-3 py-1.5 rounded border border-neutral-700 bg-neutral-800 hover:bg-neutral-700 transition-colors cursor-pointer"
+              >
+                Reset research filters
+              </button>
+            </div>
+
+            <div class="mt-12 pt-6 border-t border-neutral-800/80 flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] text-neutral-500">
+              <span>Notice a misattributed lab or broken paper link?</span>
+              <a
+                href="https://github.com/swaroophegde07/ai-pulse/issues/new?template=data_correction.yml&title=%5BData+Correction%5D%3A+Research+Publication+Inaccuracy&affected_page=https%3A%2F%2Fswaroophegde07.github.io%2Fai-pulse%2Fresearch%2F&entity_type=Research+Publication+%28Lab+Attribution%2C+Title%2C+Summary%29"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-neutral-400 hover:text-blue-400 transition-colors inline-flex items-center gap-1"
+              >
+                <span>Report a research-data issue</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </>
         )
       }
     </section>
@@ -212,3 +311,103 @@ const researchLabs = [
 
   <Footer />
 </Layout>
+
+<script>
+  (function () {
+    const searchInput = document.getElementById("research-search-input") as HTMLInputElement | null;
+    const clearSearchBtn = document.getElementById("clear-research-search") as HTMLButtonElement | null;
+    const labSelect = document.getElementById("research-lab-filter") as HTMLSelectElement | null;
+    const countLabel = document.getElementById("research-count-label");
+    const resetBtn = document.getElementById("reset-research-filters-btn") as HTMLButtonElement | null;
+    const emptyResetBtn = document.getElementById("empty-research-reset-btn") as HTMLButtonElement | null;
+    const grid = document.getElementById("research-grid");
+    const emptyState = document.getElementById("no-research-matched");
+
+    if (!grid) return;
+    const articles = Array.from(grid.querySelectorAll<HTMLElement>("article"));
+
+    let currentSearch = "";
+    let currentLab = "all";
+
+    function filterResearch() {
+      let visible = 0;
+      articles.forEach((art) => {
+        const title = (art.dataset.title || "").toLowerCase();
+        const company = (art.dataset.company || "").toLowerCase();
+        const summary = (art.dataset.summary || "").toLowerCase();
+
+        const matchesSearch =
+          !currentSearch ||
+          title.includes(currentSearch) ||
+          company.includes(currentSearch) ||
+          summary.includes(currentSearch);
+
+        const matchesLab = currentLab === "all" || company === currentLab;
+
+        const show = matchesSearch && matchesLab;
+        art.style.display = show ? "" : "none";
+        if (show) visible++;
+      });
+
+      if (countLabel) {
+        if (visible === articles.length && !currentSearch && currentLab === "all") {
+          countLabel.textContent = `Showing all ${articles.length} publications`;
+        } else if (visible === 0) {
+          countLabel.textContent = "No matching publications";
+        } else {
+          countLabel.textContent = `Showing ${visible} of ${articles.length} publications`;
+        }
+      }
+
+      if (emptyState) {
+        emptyState.style.display = visible === 0 ? "block" : "none";
+      }
+
+      const hasFilter = currentSearch !== "" || currentLab !== "all";
+      if (resetBtn) resetBtn.style.display = hasFilter ? "" : "none";
+      if (clearSearchBtn) clearSearchBtn.style.display = currentSearch ? "" : "none";
+    }
+
+    function resetFilters() {
+      if (searchInput) searchInput.value = "";
+      if (labSelect) labSelect.value = "all";
+      currentSearch = "";
+      currentLab = "all";
+      filterResearch();
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener("input", (e) => {
+        currentSearch = (e.target as HTMLInputElement).value.toLowerCase().trim();
+        filterResearch();
+      });
+
+      searchInput.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && searchInput.value) {
+          searchInput.value = "";
+          currentSearch = "";
+          filterResearch();
+        }
+      });
+    }
+
+    if (clearSearchBtn) {
+      clearSearchBtn.addEventListener("click", () => {
+        if (searchInput) searchInput.value = "";
+        currentSearch = "";
+        filterResearch();
+        searchInput?.focus();
+      });
+    }
+
+    if (labSelect) {
+      labSelect.addEventListener("change", (e) => {
+        currentLab = (e.target as HTMLSelectElement).value.toLowerCase();
+        filterResearch();
+      });
+    }
+
+    if (resetBtn) resetBtn.addEventListener("click", resetFilters);
+    if (emptyResetBtn) emptyResetBtn.addEventListener("click", resetFilters);
+  })();
+</script>

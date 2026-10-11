@@ -25,7 +25,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
     <title>{title === "AI Pulse" ? title : `${title} — AI Pulse`}</title>
   </head>
-  <body class="bg-neutral-950 text-neutral-100 min-h-screen antialiased">
+  <body class="bg-neutral-950 text-neutral-100 min-h-screen antialiased selection:bg-emerald-500/20 selection:text-emerald-300">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:bg-emerald-400 focus:text-neutral-950 focus:font-mono focus:text-xs focus:font-bold focus:rounded focus:shadow-xl focus:ring-2 focus:ring-white"
+    >
+      Skip to main content
+    </a>
     <slot />
   </body>
 </html>

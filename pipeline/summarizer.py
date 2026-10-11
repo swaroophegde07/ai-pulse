@@ -59,6 +59,8 @@ def is_summary_valid(record: dict) -> bool:
     status = record.get("summary_status")
     if status == "generated":
         return True
+    if status in ("unverified_excerpt", "pending_quota", "unavailable"):
+        return False
     if summary.startswith(FALLBACK_SUMMARY_PREFIX) or "Summary unavailable" in summary:
         return False
     return True
@@ -268,6 +270,87 @@ def _clean_summary_text(summary: str) -> str:
     return text
 
 
+_MODEL_BRAND_FAMILIES = [
+    ("claude", ["anthropic", "claude"]),
+    ("gemini", ["google", "deepmind", "gemini"]),
+    ("gpt-", ["openai", "gpt"]),
+    ("o1", ["openai", "o1"]),
+    ("o3", ["openai", "o3"]),
+    ("deepseek", ["deepseek"]),
+    ("llama", ["meta", "llama"]),
+    ("mistral", ["mistral"]),
+    ("qwen", ["alibaba", "qwen"]),
+]
+
+
+def validate_article_summary_quality(
+    title: str,
+    summary: str,
+    text: str = "",
+) -> tuple[bool, str]:
+    """Perform deterministic quality safeguards on an article summary.
+
+    Validates:
+    1. Sensible minimum length.
+    2. Freedom from generic filler or placeholder text.
+    3. Non-degeneracy (no repetitive phrase loops).
+    4. Headline to model brand consistency (detects hallucinated model substitutions).
+
+    Returns:
+        (is_valid, failure_reason)
+    """
+    if not summary or not isinstance(summary, str):
+        return False, "Summary is empty or not a string"
+
+    cleaned = summary.strip()
+    if len(cleaned) < 20:
+        return False, f"Summary too short ({len(cleaned)} chars, minimum 20)"
+
+    cleaned_lower = cleaned.lower()
+    norm_head = re.sub(r"^[\[\(\s]+", "", cleaned_lower)
+
+    # Reject known placeholders
+    placeholders = [
+        "automated summary unavailable",
+        "summary unavailable",
+        "no summary available",
+        "click here to read",
+        "subscribe to read",
+        "this article discusses",
+        "this post explains",
+        "the authors present",
+    ]
+    if any(norm_head.startswith(p) for p in placeholders):
+        return False, "Summary begins with placeholder or introductory filler"
+
+    # Degeneracy check: repetition of 4-word phrases
+    words = cleaned_lower.split()
+    if len(words) >= 8:
+        quads = [" ".join(words[i : i + 4]) for i in range(len(words) - 3)]
+        if len(quads) != len(set(quads)):
+            for q in set(quads):
+                if quads.count(q) > 1:
+                    return False, f"Degenerate repetitive phrasing detected: '{q}'"
+
+    # Headline / Model-name mismatch detection
+    title_lower = title.lower()
+    for brand, lab_tokens in _MODEL_BRAND_FAMILIES:
+        if brand in title_lower and not any(other_b in title_lower for other_b, _ in _MODEL_BRAND_FAMILIES if other_b != brand):
+            has_own_brand = any(tok in cleaned_lower for tok in lab_tokens)
+            conflicting_brands = [
+                other_b
+                for other_b, other_tokens in _MODEL_BRAND_FAMILIES
+                if other_b != brand and any(tok in cleaned_lower for tok in other_tokens)
+            ]
+            if conflicting_brands and not has_own_brand:
+                return (
+                    False,
+                    f"Headline model mismatch: title focuses on '{brand}' but summary attributes to '{conflicting_brands[0]}'",
+                )
+
+    return True, "Valid"
+
+
 def _validate_gemini_response(data: Any, article_url: str) -> dict | None:
     """Validate the parsed Gemini JSON response."""
     if not isinstance(data, dict):
@@ -365,6 +448,15 @@ def summarize_article(
             data = json.loads(raw_text)
             validated = _validate_gemini_response(data, url)
             if validated:
+                quality_ok, quality_reason = validate_article_summary_quality(title, validated["summary"], text)
+                if not quality_ok:
+                    logger.warning("Summary quality validation failed (%s) for %s; setting unverified excerpt fallback.", quality_reason, url)
+                    result = dict(article)
+                    result["summary"] = make_fallback_summary(title, text)
+                    result["summary_status"] = "unverified_excerpt"
+                    result["category"] = validated["category"]
+                    return result
+
                 result = dict(article)
                 result["summary"] = validated["summary"]
                 result["category"] = validated["category"]

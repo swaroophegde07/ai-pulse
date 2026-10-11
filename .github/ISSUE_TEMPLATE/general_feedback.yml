@@ -1,0 +1,50 @@
+name: General Feedback
+description: Share general thoughts, dashboard impressions, usability feedback, or suggestions for AI Pulse
+title: "[Feedback]: "
+labels: ["feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Share your feedback on AI Pulse
+        
+        > **Public Visibility Reminder**: Submissions are publicly visible on GitHub. Please do not share private credentials or sensitive information.
+  - type: dropdown
+    id: feedback_category
+    attributes:
+      label: Feedback Category
+      description: Which aspect of AI Pulse are you providing feedback on?
+      options:
+        - "Design, Visual Hierarchy & Scannability"
+        - "News Feed & Article Curation"
+        - "Model Catalogue & Technical Specifications"
+        - "Benchmarks Board & Comparison Tools"
+        - "Research Feed & Laboratory Coverage"
+        - "Mobile Experience & Responsiveness"
+        - "Accessibility & Keyboard Navigation"
+        - "Performance & Loading Speed"
+        - "General Impressions & Other Ideas"
+    validations:
+      required: true
+  - type: textarea
+    id: feedback_body
+    attributes:
+      label: Your Feedback
+      description: What do you find useful? What feels clunky, confusing, or missing?
+      placeholder: I really like the compact layout, but I would appreciate...
+    validations:
+      required: true
+  - type: textarea
+    id: improvement_ideas
+    attributes:
+      label: What would make AI Pulse more useful for your daily workflow?
+      description: Specific ideas, workflows, or perspectives that would increase the value of this dashboard for you.
+    validations:
+      required: false
+  - type: textarea
+    id: additional_notes
+    attributes:
+      label: Additional Notes
+      description: Any other thoughts or context you would like to share.
+    validations:
+      required: false

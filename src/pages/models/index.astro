@@ -25,11 +25,11 @@ interface ModelRecord {
   name: string;
   provider: string;
   family: string;
-  release_date: string;
+  release_date?: string | null;
   lifecycle_status: string;
   context_window: number;
-  input_modalities: string[];
-  output_modalities: string[];
+  input_modalities?: string[];
+  output_modalities?: string[];
   license_type: string;
   api_available: boolean;
   consumer_available: boolean;
@@ -42,10 +42,14 @@ interface ModelRecord {
   source_url: string;
   last_verified: string;
   notes?: string;
+  category?: string;
+  is_featured_frontier?: boolean;
+  verification_sources?: Record<string, string>;
 }
 
 const feed = feedData as FeedRecord[];
 const models = modelsData as ModelRecord[];
+const featuredFrontierModels = models.filter((m) => m.is_featured_frontier);
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 // Only real articles
@@ -124,59 +128,203 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
       </div>
     </div>
 
-    <!-- Interactive Filters & Search -->
+    <!-- Featured Frontier Models Section -->
+    <section class="mb-14">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <h2 class="text-xs font-mono text-neutral-300 tracking-widest uppercase mb-1">
+            Featured Frontier Models
+          </h2>
+          <p class="text-xs text-neutral-500 font-mono">
+            Flagship reasoning, coding, and multimodal models actively deployed across primary AI research laboratories.
+          </p>
+        </div>
+        <span class="font-mono text-[10px] text-neutral-400 border border-neutral-800 bg-neutral-900/60 px-2.5 py-1 rounded">
+          {featuredFrontierModels.length} Featured Flagships
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {
+          featuredFrontierModels.map((m) => (
+            <div class="border border-neutral-800 bg-neutral-900/40 rounded-lg p-5 flex flex-col justify-between hover:border-neutral-700 transition-colors">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-2.5">
+                  <span class="font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded border border-neutral-700 bg-neutral-800 text-neutral-300">
+                    {m.provider}
+                  </span>
+                  <span
+                    class={`font-mono text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded border ${
+                      m.license_type.includes("Open")
+                        ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-400"
+                        : "border-blue-500/30 bg-blue-500/10 text-blue-400"
+                    }`}
+                  >
+                    {m.license_type}
+                  </span>
+                </div>
+
+                <h3 class="text-sm font-bold text-neutral-100 mb-1">
+                  {m.name}
+                </h3>
+                <p class="text-[11px] text-neutral-400 mb-4 line-clamp-2">
+                  {m.notes || `${m.provider} foundation model in the ${m.family} family.`}
+                </p>
+
+                <div class="grid grid-cols-2 gap-2 text-[11px] font-mono border-t border-neutral-800/80 pt-3 mb-3">
+                  <div>
+                    <span class="text-[10px] text-neutral-500 block">Context Window</span>
+                    <span class="font-semibold text-neutral-200">
+                      {formatTokens(m.context_window)} tokens
+                    </span>
+                  </div>
+                  <div>
+                    <span class="text-[10px] text-neutral-500 block">Pricing / 1M In/Out</span>
+                    <span class="font-semibold text-neutral-200">
+                      {m.pricing
+                        ? `$${m.pricing.input_per_1m.toFixed(2)} / $${m.pricing.output_per_1m.toFixed(2)}`
+                        : "Not specified"}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between pt-2 border-t border-neutral-800/60 font-mono text-[10px]">
+                <span class="text-neutral-500">
+                  Released: {m.release_date || "Active"}
+                </span>
+                <a
+                  href={m.documentation_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-neutral-400 hover:text-emerald-400 transition-colors inline-flex items-center gap-1"
+                >
+                  Docs ↗
+                </a>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Complete Model Catalogue: Interactive Filters & Search -->
     <div class="border border-neutral-800 bg-neutral-900/50 rounded-lg p-5 mb-8">
       <div class="flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center">
         <!-- Search -->
-        <div class="w-full sm:w-72">
+        <div class="w-full sm:w-72 relative">
           <label for="model-search-input" class="sr-only">Search models</label>
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-neutral-500">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+          </div>
           <input
             type="search"
             id="model-search-input"
             placeholder="Search model, provider, family..."
-            class="w-full bg-neutral-950 border border-neutral-800 rounded px-3 py-2 text-xs text-neutral-100 placeholder:text-neutral-600 font-mono focus:outline-none focus:border-emerald-500"
+            class="w-full bg-neutral-950 border border-neutral-800 rounded pl-9 pr-8 py-2 text-xs text-neutral-100 placeholder:text-neutral-600 font-mono focus:outline-none focus:border-emerald-500"
           />
+          <button
+            type="button"
+            id="clear-model-search"
+            style="display: none;"
+            class="absolute inset-y-0 right-0 pr-2.5 flex items-center text-neutral-500 hover:text-neutral-200 transition-colors cursor-pointer"
+            aria-label="Clear model search"
+          >
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
         </div>
 
-        <!-- Filter buttons -->
-        <div class="flex flex-wrap gap-2">
+        <!-- Filter tabs -->
+        <div class="flex flex-wrap gap-2" role="toolbar" aria-label="Filter models by category">
           <button
             type="button"
             class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-neutral-700 bg-neutral-800 text-neutral-100 transition-colors"
-            data-provider="all"
+            data-filter="all"
+            aria-pressed="true"
           >
-            All Labs
+            All ({models.length})
           </button>
           <button
             type="button"
             class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-neutral-800 text-neutral-400 hover:text-neutral-200 hover:border-neutral-700 transition-colors"
-            data-license="open"
+            data-filter="reasoning"
+            aria-pressed="false"
+          >
+            Frontier Reasoning
+          </button>
+          <button
+            type="button"
+            class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-neutral-800 text-neutral-400 hover:text-neutral-200 hover:border-neutral-700 transition-colors"
+            data-filter="coding"
+            aria-pressed="false"
+          >
+            Coding
+          </button>
+          <button
+            type="button"
+            class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-neutral-800 text-neutral-400 hover:text-neutral-200 hover:border-neutral-700 transition-colors"
+            data-filter="multimodal"
+            aria-pressed="false"
+          >
+            Multimodal
+          </button>
+          <button
+            type="button"
+            class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-neutral-800 text-neutral-400 hover:text-neutral-200 hover:border-neutral-700 transition-colors"
+            data-filter="open"
+            aria-pressed="false"
           >
             Open Weights
           </button>
           <button
             type="button"
             class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-neutral-800 text-neutral-400 hover:text-neutral-200 hover:border-neutral-700 transition-colors"
-            data-license="proprietary"
+            data-filter="historical"
+            aria-pressed="false"
           >
-            Proprietary API
+            Historical
           </button>
         </div>
       </div>
     </div>
 
-    <!-- Models Table / Matrix -->
+    <!-- Complete Model Catalogue Table -->
     <section class="mb-14 border border-neutral-800 bg-neutral-900/30 rounded-lg overflow-hidden">
       <div class="px-6 py-4 border-b border-neutral-800 flex justify-between items-center">
-        <h2 class="text-xs font-mono text-neutral-300 tracking-widest uppercase">
-          Frontier Models Matrix
-        </h2>
-        <span class="font-mono text-[10px] text-neutral-500" id="model-count-label">
-          Showing {models.length} models
-        </span>
+        <div>
+          <h2 class="text-xs font-mono text-neutral-300 tracking-widest uppercase">
+            Complete Model Catalogue
+          </h2>
+          <p class="text-[10px] text-neutral-500 font-mono mt-0.5">
+            Full inventory of verified frontier models, open weights, and catalog telemetry.
+          </p>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="font-mono text-[10px] text-neutral-500" id="model-count-label">
+            Showing {models.length} models
+          </span>
+          <span class="text-neutral-700 hidden sm:inline">&middot;</span>
+          <a
+            href="https://github.com/swaroophegde07/ai-pulse/issues/new?template=data_correction.yml&title=%5BData+Correction%5D%3A+Model+Specification+Inaccuracy&affected_page=https%3A%2F%2Fswaroophegde07.github.io%2Fai-pulse%2Fmodels%2F&entity_type=AI+Model+%28Specs%2C+Pricing%2C+Context+Window%2C+License%2C+Architecture%29"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hidden sm:inline-flex items-center gap-1 font-mono text-[10px] text-neutral-400 hover:text-blue-400 transition-colors"
+            title="Report incorrect model specifications or pricing via GitHub Issue Form"
+          >
+            <span>Report incorrect model info</span>
+            <span>↗</span>
+          </a>
+        </div>
       </div>
 
-      <div class="overflow-x-auto">
+      <div class="overflow-x-auto custom-scrollbar">
+        <div class="block sm:hidden text-[10px] text-neutral-400 font-mono px-6 py-2 bg-neutral-950/80 border-b border-neutral-800/80">
+          Swipe table horizontally for pricing & context details →
+        </div>
         <table class="w-full text-left text-xs font-mono" id="models-table">
           <thead>
             <tr class="border-b border-neutral-800 bg-neutral-950/40 text-neutral-500 text-[11px]">
@@ -198,11 +346,22 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
                   data-provider={m.provider.toLowerCase()}
                   data-family={m.family.toLowerCase()}
                   data-license={m.license_type.toLowerCase()}
+                  data-category={(m.category || "").toLowerCase()}
+                  data-modalities={(m.input_modalities || []).join(" ").toLowerCase()}
+                  data-status={(m.lifecycle_status || "").toLowerCase()}
+                  data-frontier={m.is_featured_frontier ? "true" : "false"}
                 >
                   <td class="py-4 pl-6 pr-4">
-                    <div class="font-semibold text-neutral-100">{m.name}</div>
+                    <div class="flex items-center gap-2">
+                      <span class="font-semibold text-neutral-100">{m.name}</span>
+                      {m.category && (
+                        <span class="text-[9px] font-mono px-1.5 py-0.5 rounded border border-neutral-700 bg-neutral-800 text-neutral-400">
+                          {m.category}
+                        </span>
+                      )}
+                    </div>
                     <div class="text-[10px] text-neutral-500 font-mono mt-0.5">
-                      Released: {m.release_date}
+                      Released: {m.release_date || "Unknown"}
                     </div>
                   </td>
                   <td class="py-4 pr-4 text-neutral-300 font-medium">{m.provider}</td>
@@ -211,10 +370,10 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
                   </td>
                   <td class="py-4 pr-4">
                     <div class="text-[11px] text-neutral-300">
-                      In: {m.input_modalities.join(", ")}
+                      In: {(m.input_modalities || ["text"]).join(", ")}
                     </div>
                     <div class="text-[10px] text-neutral-500">
-                      Out: {m.output_modalities.join(", ")}
+                      Out: {(m.output_modalities || ["text"]).join(", ")}
                     </div>
                   </td>
                   <td class="py-4 pr-4">
@@ -235,15 +394,19 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
                   <td class="py-4 pr-4">
                     <span
                       class={`inline-block px-2 py-0.5 rounded text-[10px] ${
-                        m.license_type.includes("Open")
+                        (m.license_type || "").includes("Open")
                           ? "border border-emerald-500/30 bg-emerald-500/10 text-emerald-400"
                           : "border border-neutral-700 bg-neutral-800 text-neutral-300"
                       }`}
                     >
                       {m.license_type}
                     </span>
-                    <div class="text-[9px] text-neutral-500 mt-1">
-                      {m.consumer_available ? "API + Web Chat" : "API Only"}
+                    <div class="text-[9px] text-neutral-500 mt-1 font-mono">
+                      {m.verification_sources?.telemetry
+                        ? `Telemetry: ${m.verification_sources.telemetry}`
+                        : m.consumer_available
+                          ? "API + Web Chat"
+                          : "API Only"}
                     </div>
                   </td>
                   <td class="py-4 pr-6 text-right">
@@ -268,9 +431,29 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
       <div
         id="no-models-matched"
         style="display: none;"
-        class="p-10 text-center font-mono text-xs text-neutral-500"
+        class="p-12 text-center font-mono text-xs text-neutral-400 bg-neutral-950/40"
       >
-        No models match the search or filter criteria.
+        <p class="mb-3 text-neutral-300">No models match the search or filter criteria.</p>
+        <button
+          type="button"
+          id="reset-models-filter-btn"
+          class="font-mono text-[10px] uppercase tracking-wider text-neutral-300 hover:text-white px-3 py-1.5 rounded border border-neutral-700 bg-neutral-800 hover:bg-neutral-700 transition-colors cursor-pointer"
+        >
+          Reset model filters
+        </button>
+      </div>
+
+      <div class="px-6 py-2.5 bg-neutral-950/60 border-t border-neutral-800/80 flex flex-wrap items-center justify-between gap-2 text-[10px] font-mono text-neutral-500">
+        <span>Verified against OpenRouter &amp; provider disclosures</span>
+        <a
+          href="https://github.com/swaroophegde07/ai-pulse/issues/new?template=data_correction.yml&title=%5BData+Correction%5D%3A+Model+Specification+Inaccuracy&affected_page=https%3A%2F%2Fswaroophegde07.github.io%2Fai-pulse%2Fmodels%2F&entity_type=AI+Model+%28Specs%2C+Pricing%2C+Context+Window%2C+License%2C+Architecture%29"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-neutral-400 hover:text-blue-400 transition-colors inline-flex items-center gap-1"
+        >
+          <span>Report incorrect model information</span>
+          <span>↗</span>
+        </a>
       </div>
     </section>
 
@@ -332,6 +515,8 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
     const rows = document.querySelectorAll<HTMLTableRowElement>(".model-row");
     const countLabel = document.getElementById("model-count-label");
     const emptyState = document.getElementById("no-models-matched");
+    const clearSearchBtn = document.getElementById("clear-model-search") as HTMLButtonElement | null;
+    const resetFilterBtn = document.getElementById("reset-models-filter-btn") as HTMLButtonElement | null;
 
     let currentSearch = "";
     let currentFilter = "all";
@@ -344,6 +529,10 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
         const provider = row.dataset.provider || "";
         const family = row.dataset.family || "";
         const license = row.dataset.license || "";
+        const category = row.dataset.category || "";
+        const modalities = row.dataset.modalities || "";
+        const status = row.dataset.status || "";
+        const isFrontier = row.dataset.frontier === "true";
 
         const matchesSearch =
           !currentSearch ||
@@ -352,10 +541,16 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
           family.includes(currentSearch);
 
         let matchesFilter = true;
-        if (currentFilter === "open") {
+        if (currentFilter === "reasoning") {
+          matchesFilter = category.includes("reasoning") || isFrontier;
+        } else if (currentFilter === "coding") {
+          matchesFilter = category.includes("coding") || name.includes("code") || name.includes("devstral");
+        } else if (currentFilter === "multimodal") {
+          matchesFilter = modalities.includes("image") || modalities.includes("audio") || modalities.includes("vision") || name.includes("vision") || name.includes("omni");
+        } else if (currentFilter === "open") {
           matchesFilter = license.includes("open");
-        } else if (currentFilter === "proprietary") {
-          matchesFilter = !license.includes("open");
+        } else if (currentFilter === "historical") {
+          matchesFilter = status.includes("deprecated") || status.includes("historical") || status.includes("archive");
         }
 
         const show = matchesSearch && matchesFilter;
@@ -370,12 +565,33 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
       if (emptyState) {
         emptyState.style.display = visible === 0 ? "block" : "none";
       }
+
+      if (clearSearchBtn) {
+        clearSearchBtn.style.display = currentSearch ? "" : "none";
+      }
     }
 
     if (searchInput) {
       searchInput.addEventListener("input", (e) => {
         currentSearch = (e.target as HTMLInputElement).value.toLowerCase().trim();
         filterModels();
+      });
+
+      searchInput.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && searchInput.value) {
+          searchInput.value = "";
+          currentSearch = "";
+          filterModels();
+        }
+      });
+    }
+
+    if (clearSearchBtn) {
+      clearSearchBtn.addEventListener("click", () => {
+        if (searchInput) searchInput.value = "";
+        currentSearch = "";
+        filterModels();
+        searchInput?.focus();
       });
     }
 
@@ -384,19 +600,36 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
         filterButtons.forEach((b) => {
           b.classList.remove("border-neutral-700", "bg-neutral-800", "text-neutral-100");
           b.classList.add("border-neutral-800", "text-neutral-400");
+          b.setAttribute("aria-pressed", "false");
         });
 
         btn.classList.remove("border-neutral-800", "text-neutral-400");
         btn.classList.add("border-neutral-700", "bg-neutral-800", "text-neutral-100");
+        btn.setAttribute("aria-pressed", "true");
 
-        if (btn.dataset.license) {
-          currentFilter = btn.dataset.license;
-        } else {
-          currentFilter = "all";
-        }
-
+        currentFilter = btn.dataset.filter || "all";
         filterModels();
       });
     });
+
+    if (resetFilterBtn) {
+      resetFilterBtn.addEventListener("click", () => {
+        if (searchInput) searchInput.value = "";
+        currentSearch = "";
+        currentFilter = "all";
+        filterButtons.forEach((b) => {
+          const isAll = (b.dataset.filter || "all") === "all";
+          b.setAttribute("aria-pressed", isAll ? "true" : "false");
+          if (isAll) {
+            b.classList.add("border-neutral-700", "bg-neutral-800", "text-neutral-100");
+            b.classList.remove("border-neutral-800", "text-neutral-400");
+          } else {
+            b.classList.remove("border-neutral-700", "bg-neutral-800", "text-neutral-100");
+            b.classList.add("border-neutral-800", "text-neutral-400");
+          }
+        });
+        filterModels();
+      });
+    }
   })();
 </script>

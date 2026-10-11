@@ -128,14 +128,14 @@ const prioStyle = priority_label ? (priorityStyles[priority_label] ?? prioritySt
         <!-- Bookmark button -->
         <button
           type="button"
-          class="bookmark-btn text-neutral-600 hover:text-amber-400 focus:outline-none transition-colors p-0.5"
+          class="bookmark-btn inline-flex items-center justify-center w-8 h-8 -mr-1.5 rounded text-neutral-500 hover:text-amber-400 hover:bg-neutral-800/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 transition-colors cursor-pointer"
           data-article-id={id}
           data-article-title={title}
           data-article-url={url}
           aria-label="Save article bookmark"
           title="Save article to local bookmarks"
         >
-          <svg class="w-3.5 h-3.5 bookmark-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-4 h-4 bookmark-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
           </svg>
         </button>
@@ -149,14 +149,14 @@ const prioStyle = priority_label ? (priorityStyles[priority_label] ?? prioritySt
 
     <!-- Summary -->
     {
-      summary_status === "publisher_excerpt" || (summary && summary.startsWith("[Automated summary unavailable] ") && summary.length > 40) ? (
+      summary_status === "publisher_excerpt" || summary_status === "unverified_excerpt" || (summary && summary.startsWith("[Automated summary unavailable] ") && summary.length > 40) ? (
         <p class="text-xs text-neutral-400 leading-relaxed line-clamp-4">
-          <span class="text-neutral-500 font-mono text-[10px] mr-1 uppercase">[Excerpt]</span>
+          <span class="text-neutral-500 font-mono text-[9px] mr-1 uppercase border border-neutral-800 bg-neutral-950 px-1 py-0.5 rounded tracking-wider">[Excerpt]</span>
           {summary.replace("[Automated summary unavailable] ", "")}
         </p>
       ) : summary_status === "pending_quota" ? (
         <p class="text-xs text-neutral-400 leading-relaxed line-clamp-4">
-          <span class="text-amber-500/80 font-mono text-[9px] mr-1.5 uppercase border border-amber-500/30 px-1 py-0.2 rounded bg-amber-500/10">Summary in queue</span>
+          <span class="text-amber-500/80 font-mono text-[9px] mr-1.5 uppercase border border-amber-500/30 px-1 py-0.5 rounded bg-amber-500/10">Summary in queue</span>
           {summary && !summary.startsWith("[Automated summary unavailable]") && summary.length > 20 ? (
             summary.replace("[Automated summary unavailable] ", "")
           ) : (
@@ -217,7 +217,7 @@ const prioStyle = priority_label ? (priorityStyles[priority_label] ?? prioritySt
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-1.5 font-mono text-[10px] text-neutral-500 hover:text-emerald-400 transition-colors duration-150 group/link mt-0.5 w-fit"
+        class="inline-flex items-center gap-1.5 font-mono text-[10px] text-neutral-500 hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-400 rounded px-1 -mx-1 transition-colors duration-150 group/link mt-0.5 w-fit"
         aria-label={`Read full article: ${title} (opens in new tab)`}
       >
         <span>Read article</span>

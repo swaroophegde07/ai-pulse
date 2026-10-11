@@ -1,0 +1,69 @@
+name: Bug Report
+description: Report a bug, broken feature, layout defect, or unexpected behavior in AI Pulse
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Thank you for reporting a problem with AI Pulse!
+        
+        > **Security & Privacy Reminder**: All issues in this repository are publicly visible.
+        > **DO NOT** include passwords, API keys, private tokens, or sensitive personal data.
+  - type: input
+    id: affected_url
+    attributes:
+      label: Affected Page URL
+      description: The page URL where you observed the issue (e.g. https://swaroophegde07.github.io/ai-pulse/models/).
+      placeholder: https://swaroophegde07.github.io/ai-pulse/...
+    validations:
+      required: true
+  - type: textarea
+    id: what_happened
+    attributes:
+      label: What happened?
+      description: A clear and concise description of the bug or unexpected behavior.
+      placeholder: When I click the filter button, the list does not update...
+    validations:
+      required: true
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: What did you expect to happen?
+      description: What did you expect should happen instead?
+      placeholder: The filtered models list should display only coding models...
+    validations:
+      required: true
+  - type: textarea
+    id: steps_to_reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: Step-by-step instructions to reproduce the problem.
+      placeholder: |
+        1. Navigate to '...'
+        2. Click on '....'
+        3. Observe error or unexpected display
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Browser & Operating System
+      description: Information about the device/browser where the bug occurred.
+      placeholder: e.g. Chrome 130 on Windows 11, Safari on iOS 18, Firefox on Ubuntu 24.04
+    validations:
+      required: false
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshot or Screen Recording
+      description: Drag and drop screenshots or screen recordings here to help illustrate the issue.
+    validations:
+      required: false
+  - type: textarea
+    id: additional_info
+    attributes:
+      label: Additional Information
+      description: Console errors, network errors, or any other relevant context.
+    validations:
+      required: false

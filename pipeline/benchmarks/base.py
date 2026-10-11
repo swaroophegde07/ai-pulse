@@ -30,9 +30,11 @@ ALLOWED_PROVENANCE_TYPES: list[str] = [
 ]
 
 
-class BenchmarkRecord(TypedDict):
+class BenchmarkRecord(TypedDict, total=False):
     model_name: str
     canonical_id: str
+    internal_model_id: str | None
+    match_confidence: float | None
     provider: str
     benchmark_name: str
     category: str
@@ -44,6 +46,10 @@ class BenchmarkRecord(TypedDict):
     provenance: str
     retrieved_at: str
     notes: str | None
+    model_version: str | None
+    configuration: str | None
+    benchmark_version: str | None
+    harness: str | None
 
 
 class ModelMetricRecord(TypedDict):
@@ -94,13 +100,26 @@ def validate_benchmark_record(record: dict[str, Any]) -> bool:
     return True
 
 
+def get_measurement_key(r: dict[str, Any]) -> tuple:
+    """Derive full measurement identity key preserving model identity, version, configuration, and suite."""
+    return (
+        r.get("source"),
+        r.get("canonical_id"),
+        r.get("model_name"),
+        r.get("configuration"),
+        r.get("benchmark_name"),
+        r.get("category"),
+        r.get("evaluation_date"),
+    )
+
+
 def deduplicate_and_filter_conflicts(
     records: list[BenchmarkRecord],
 ) -> tuple[list[BenchmarkRecord], list[dict[str, Any]]]:
-    """Detect conflicting measurements for the same model, benchmark, category, and date.
+    """Detect conflicting measurements for the same model, benchmark, category, configuration, and date.
 
     If two records share the exact same logical measurement identity:
-    (canonical_id, benchmark_name, category, evaluation_date)
+    (source, canonical_id, model_name, configuration, benchmark_name, category, evaluation_date)
     but have different scores, flag them as conflicting and exclude the ambiguous
     records from public leaderboards until verified.
     """
@@ -109,24 +128,20 @@ def deduplicate_and_filter_conflicts(
     conflict_keys: set[tuple] = set()
 
     for r in records:
-        key = (
-            r.get("canonical_id"),
-            r.get("benchmark_name"),
-            r.get("category"),
-            r.get("evaluation_date"),
-        )
+        key = get_measurement_key(r)
         if key in seen:
             prev = seen[key]
             if prev["score"] != r["score"]:
                 logger.warning(
-                    "Conflicting benchmark score detected for %s: %s (score %.2f vs %.2f). Excluding ambiguous record.",
+                    "Conflicting benchmark score detected for %s [%s]: %s (score %.2f vs %.2f). Excluding ambiguous record.",
                     r.get("canonical_id"),
+                    r.get("model_name"),
                     r.get("benchmark_name"),
                     prev["score"],
                     r["score"],
                 )
                 conflicts.append({
-                    "identity": f"{key[0]} - {key[1]} ({key[3]})",
+                    "identity": f"{key[1]} ({key[2]}) - {key[4]} [{key[6]}]",
                     "existing_score": prev["score"],
                     "conflicting_score": r["score"],
                     "source": r.get("source"),
@@ -138,12 +153,7 @@ def deduplicate_and_filter_conflicts(
     # Filter out all ambiguous measurements whose keys experienced conflicts
     clean_records = [
         rec for rec in seen.values()
-        if (
-            rec.get("canonical_id"),
-            rec.get("benchmark_name"),
-            rec.get("category"),
-            rec.get("evaluation_date"),
-        ) not in conflict_keys
+        if get_measurement_key(rec) not in conflict_keys
     ]
 
     return clean_records, conflicts

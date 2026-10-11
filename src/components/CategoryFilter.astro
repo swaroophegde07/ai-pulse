@@ -88,19 +88,22 @@ const { categories, publishers, topics } = Astro.props;
     <button
       type="button"
       id="toggle-filters-btn"
-      class="font-mono text-[11px] text-neutral-400 hover:text-emerald-400 transition-colors inline-flex items-center gap-1.5 py-1 px-2 rounded border border-neutral-800 hover:border-neutral-700"
+      class="font-mono text-[11px] text-neutral-400 hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-400 transition-colors inline-flex items-center gap-1.5 py-1.5 px-2.5 rounded border border-neutral-800 hover:border-neutral-700 bg-neutral-900/60 cursor-pointer"
+      aria-expanded="false"
+      aria-controls="advanced-filters"
     >
-      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
       </svg>
       <span>Filters & Sort</span>
+      <span id="active-filters-count" class="hidden font-mono text-[9px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-1 rounded font-semibold">0</span>
     </button>
   </div>
 
   <!-- Collapsible Secondary Filters (Date, Sort, Publisher, Topic) -->
   <div
     id="advanced-filters"
-    class="border border-neutral-800/80 bg-neutral-950/60 rounded-lg p-4 space-y-4"
+    class="hidden border border-neutral-800/80 bg-neutral-950/60 rounded-lg p-4 space-y-4"
   >
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       <!-- Date period filter -->
@@ -328,6 +331,19 @@ const { categories, publishers, topics } = Astro.props;
         activeTopic = topic.toLowerCase();
       }
 
+      // Auto-expand advanced filters if URL specified secondary filters
+      if (
+        (period && period !== "any") ||
+        (sort && sort !== "newest") ||
+        (pub && pub !== "all") ||
+        (topic && topic !== "all")
+      ) {
+        if (advancedFilters && toggleFiltersBtn) {
+          advancedFilters.classList.remove("hidden");
+          toggleFiltersBtn.setAttribute("aria-expanded", "true");
+        }
+      }
+
       categoryBtns.forEach((b) => {
         const c = (b.dataset.category || "all").toLowerCase();
         const isActive = c === activeCategory;
@@ -458,8 +474,27 @@ const { categories, publishers, topics } = Astro.props;
       });
 
       // Render pagination
+      updateActiveFilterBadge();
       renderCurrentPage();
       syncURLParams();
+    }
+
+    function updateActiveFilterBadge() {
+      let count = 0;
+      if (activePeriod !== "any") count++;
+      if (activeSort !== "newest") count++;
+      if (activePublisher !== "all") count++;
+      if (activeTopic !== "all") count++;
+
+      const badge = document.getElementById("active-filters-count");
+      if (badge) {
+        if (count > 0) {
+          badge.textContent = String(count);
+          badge.classList.remove("hidden");
+        } else {
+          badge.classList.add("hidden");
+        }
+      }
     }
 
     function renderCurrentPage() {
@@ -551,6 +586,15 @@ const { categories, publishers, topics } = Astro.props;
       searchQuery = (e.target as HTMLInputElement).value.toLowerCase().trim();
       currentPage = 1;
       filterAndSort();
+    });
+
+    searchInput.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && searchInput.value) {
+        searchInput.value = "";
+        searchQuery = "";
+        currentPage = 1;
+        filterAndSort();
+      }
     });
 
     if (clearSearchBtn) {
@@ -662,7 +706,14 @@ const { categories, publishers, topics } = Astro.props;
     // Toggle advanced filters
     if (toggleFiltersBtn && advancedFilters) {
       toggleFiltersBtn.addEventListener("click", () => {
-        advancedFilters.classList.toggle("hidden");
+        const isHidden = advancedFilters.classList.contains("hidden");
+        if (isHidden) {
+          advancedFilters.classList.remove("hidden");
+          toggleFiltersBtn.setAttribute("aria-expanded", "true");
+        } else {
+          advancedFilters.classList.add("hidden");
+          toggleFiltersBtn.setAttribute("aria-expanded", "false");
+        }
       });
     }
 

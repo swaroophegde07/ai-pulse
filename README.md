@@ -50,26 +50,44 @@ Visitors can:
 ## How It Works
 
 ```mermaid
-flowchart LR
-    A[Public RSS Feeds] --> B[Python Scraper]
-    B --> C[Gemini Summarizer]
-    C --> D[feed.json]
-    
-    G[OpenRouter & LiveBench APIs] --> H[Benchmark Pipeline]
-    H --> I[benchmarks.json]
-    
-    J[models.json Catalog] --> K[Astro SSG Build]
-    D --> K
-    I --> K
-    K --> L[GitHub Pages]
+flowchart TD
+    subgraph Data Ingestion
+        A[14 Public RSS Feeds] --> B[Python Scraper]
+        B --> C[Gemini Summarizer + Quality Guardrails]
+        C --> D[feed.json]
+    end
+
+    subgraph Benchmark & Telemetry
+        E[OpenRouter API Models] --> F[Model Identity Registry]
+        G[LiveBench Official Releases] --> F
+        F --> H[Benchmark Runner & Validation Report]
+        H --> I[benchmarks.json & model-identities.json]
+    end
+
+    subgraph Model Catalogue
+        F --> J[Model Updater]
+        J --> K[models.json - 91 Catalogued, 23 Featured]
+    end
+
+    subgraph Status & Build
+        L[Pipeline Status Reporter] --> M[pipeline-status.json & build.json]
+    end
+
+    D --> N[Astro SSG Build]
+    I --> N
+    K --> N
+    M --> N
+    N --> O[GitHub Pages Dashboard]
 ```
 
-1. **Ingest News**: The Python ingestion script reads verified feeds from `src/data/sources.json`.
-2. **Deduplicate & Clean**: URLs are canonicalized, fragments and UTM tracking queries are stripped, future dates are clamped, and existing articles are detected via deterministic IDs.
-3. **Summarize**: New articles are passed to Google Gemini (`google-genai` SDK) to produce structured summaries and validate category tags. Merged into `src/data/feed.json`.
-4. **Ingest Benchmarks**: The benchmark pipeline (`pipeline/benchmarks/runner.py`) fetches and validates multi-source evaluations (LiveBench monthly evaluations, OpenRouter pricing & context telemetry) and writes atomically to `src/data/benchmarks.json`.
-5. **Catalog Models**: Frontier model architecture specs, release dates, open weights licenses, and pricing are curated in `src/data/models.json`.
-6. **Build & Deploy**: Astro compiles the static HTML/CSS bundle into `dist/` and GitHub Actions deploys the site to GitHub Pages.
+1. **Ingest News**: The Python ingestion script reads verified feeds from `src/data/sources.json` across 14 research and news publishers.
+2. **Deduplicate & Clean**: URLs are canonicalized, UTM tracking queries stripped, future dates clamped, and existing articles detected via deterministic SHA-256 IDs.
+3. **Summarize with Quality Guardrails**: New articles are passed to Google Gemini (`google-genai` SDK) to produce structured summaries. A quality validator rejects filler intros, bracketed placeholders, and headline-to-model brand mismatches, falling back gracefully to clean excerpts without burning quota. Merged into `src/data/feed.json`.
+4. **Model Identity Mapping**: `pipeline/models/identity.py` standardizes models across OpenRouter and benchmark datasets using an exact 4-tier resolution engine, preventing false version collapsing.
+5. **Ingest Benchmarks & Validate**: The benchmark pipeline (`pipeline/benchmarks/runner.py`) fetches and validates multi-source evaluations (LiveBench evaluations under Apache-2.0, OpenRouter pricing & context telemetry). All records are verified, conflict-checked, and exported with a full validation report to `src/data/benchmarks.json`.
+6. **Catalog Models**: Foundation model architecture specs, release dates, open weights licenses, and pricing are curated in `src/data/models.json` (91 models, 23 featured flagships).
+7. **Status & Build Metadata**: `pipeline/run.py` generates `src/data/pipeline-status.json` and `src/data/build.json` tracking source health, git revisions, and deployment timestamps.
+8. **Build & Deploy**: Astro compiles the static HTML/CSS bundle into `dist/` and GitHub Actions deploys the site to GitHub Pages.
 
 ---
 
@@ -187,34 +205,40 @@ The project uses a GitHub Actions workflow defined in [`.github/workflows/update
 ```text
 ai-pulse/
 ├── .github/workflows/
-│   └── update-and-deploy.yml    # Ingestion, build, and deployment workflow
+│   └── update-and-deploy.yml    # Ingestion, validation, build, and deployment workflow
 ├── pipeline/
-│   ├── run.py                   # Unified pipeline orchestrator entry point
+│   ├── run.py                   # Unified pipeline orchestrator & status reporter
 │   ├── scraper.py               # Feed parsing, URL normalization & deduplication
-│   ├── sources.py               # Source registry & category configuration
-│   ├── summarizer.py            # Gemini SDK summarization & fallback validation
+│   ├── sources.py               # 14 verified source registries & category definitions
+│   ├── summarizer.py            # Gemini SDK summarization, quality validator & rate-limiter
+│   ├── models/                  # Model intelligence & synchronization subsystem
+│   │   ├── identity.py          # Exact canonical model identity mapping & alias registry
+│   │   └── updater.py           # Model catalogue synchronizer & featured frontier tagging
 │   ├── benchmarks/              # Multi-source benchmark & telemetry subsystem
-│   │   ├── base.py              # Schema validation & SourceAdapter interface
-│   │   ├── runner.py            # Benchmark execution orchestrator
-│   │   └── adapters/            # Adapters (OpenRouter, LiveBench, BenchLM, etc.)
+│   │   ├── base.py              # Schema validation, internal identity linking & adapter specs
+│   │   ├── runner.py            # Benchmark execution orchestrator & validation reporting
+│   │   └── adapters/            # Adapters (LiveBench, OpenRouter, BenchLM, etc.)
 │   ├── requirements.txt         # Production Python dependencies
 │   └── tests/
-│       └── test_pipeline.py     # Unit test suite (82 passing tests)
+│       └── test_pipeline.py     # Comprehensive test suite (118 passing unit tests)
 ├── src/
 │   ├── components/              # Header, Footer, NewsCard, CategoryFilter
 │   ├── data/
 │   │   ├── feed.json            # Ingested article datastore
 │   │   ├── sources.json         # Configured RSS feed list
-│   │   ├── models.json          # Frontier model catalog & architecture specs
-│   │   └── benchmarks.json      # Evaluated benchmarks & OpenRouter telemetry
+│   │   ├── models.json          # 91 catalogued models with 23 featured frontier flagships
+│   │   ├── model-identities.json# Exported canonical identity & alias registry
+│   │   ├── benchmarks.json      # 552 LiveBench evaluations & OpenRouter telemetry
+│   │   ├── pipeline-status.json # Source health snapshot across feeds & external APIs
+│   │   └── build.json           # Git commit revision, build date & environment metadata
 │   ├── layouts/
 │   │   └── Layout.astro         # HTML document shell
 │   └── pages/
-│       ├── index.astro          # Dashboard homepage
-│       ├── news/index.astro     # Searchable news archive
-│       ├── models/index.astro   # Frontier model landscape & release tracker
+│       ├── index.astro          # Dashboard homepage with Today's AI Brief & Priority Intel
+│       ├── news/index.astro     # Searchable news archive with live pipeline health badge
+│       ├── models/index.astro   # Dual-tier Featured Frontier cards & complete filterable catalogue
 │       ├── research/index.astro # Research lab directory & publication feed
-│       └── benchmarks/index.astro # Evaluation board & head-to-head comparison
+│       └── benchmarks/index.astro # Benchmark Board, validation metrics & head-to-head comparison
 ├── astro.config.mjs             # Astro SSG configuration
 ├── tailwind.config.mjs          # Tailwind CSS styling config
 └── requirements-dev.txt         # Dev & test Python dependencies
@@ -222,19 +246,54 @@ ai-pulse/
 
 ---
 
+## Data Quality, Identity & Provenance Governance
+
+### 1. Canonical Model Identity Mapping (`pipeline/models/identity.py`)
+To prevent data contamination between external providers and benchmark suites, model resolution operates via a strict 4-tier hierarchy:
+1. **Exact Internal Model ID**: Matches curated system keys (e.g. `anthropic/claude-3-7-sonnet`).
+2. **Exact OpenRouter Model ID**: Matches canonical provider IDs (e.g. `anthropic/claude-3.7-sonnet`).
+3. **Exact Benchmark Canonical ID**: Matches evaluation suite keys (e.g. `claude-3-7-sonnet`).
+4. **Verified Exact Alias**: Matches approved historical checkpoint tags without substring ambiguity.
+
+> [!IMPORTANT]
+> Unmapped models or versioned checkpoints (e.g. `gpt-5.5` vs `gpt-5.5-xhigh`, or `deepseek-v3` vs `deepseek-v3.2`) are **never** collapsed together via fuzzy substrings. They retain distinct records or remain tagged as unmapped variants with transparent attribution.
+
+### 2. Dual-Tier Model Interface (`/models/`)
+- **Featured Frontier Flagships**: Curated high-impact reasoning, coding, and multimodal models (23 models) displayed with provider badges, context window formatting, verified token pricing, licensing, and documentation links.
+- **Complete Model Catalogue**: Exhaustive table of 91 models with client-side category filter tabs (`All`, `Frontier Reasoning`, `Coding`, `Multimodal`, `Open Weights`, `Historical`) and instant real-time text search.
+
+### 3. Empirical Benchmark Validation (`/benchmarks/`)
+- **Upstream Provenance**: Ingests official LiveBench releases under Apache-2.0 licensing (current release: `2026-06-25` containing 552 evaluation observations).
+- **Validation Report**: Tracks retrieved, parsed, valid, duplicate, and quarantined records directly in `benchmarks.json` and renders transparently on the dashboard.
+- **Dynamic Standards**: Leaders for Reasoning, Coding, and Mathematics are computed dynamically from actual verified records rather than hardcoded assumptions.
+
+### 4. Article Quality Safeguards (`pipeline/summarizer.py`)
+- Automated summaries are checked for minimum character count, bracketed placeholders, and repetitive filler phrases.
+- Brand mismatch protection verifies that the summary discusses the primary entity named in the headline.
+- Articles failing validation gracefully fall back to clean excerpts (`unverified_excerpt`) without burning API quota.
+- Homepage displays calendar-aware "Today's AI Brief" with fallback indicators when same-day volume is limited.
+
+### 5. Automated Health & Status Monitoring (`src/data/pipeline-status.json`)
+- Continuous tracking of all 14 RSS feed endpoints, OpenRouter telemetry, and LiveBench updates.
+- Explicit status logging for disabled adapters (BenchLM, Artificial Analysis, LM Council) explaining licensing constraints and API key requirements.
+
+---
+
 ## Project Status & Roadmap
 
 ### Implemented & Live
-- [x] Automated RSS feed ingestion across 9 verified providers with future-date clamping and UTC normalization.
-- [x] Objective Gemini-powered article summarization with graceful fallback handling.
-- [x] In-browser search across headlines, publishers, and summaries with category filtering.
-- [x] Structured Frontier Model Catalog (`src/data/models.json`) with context windows, pricing, modalities, and open-weights licensing.
-- [x] Multi-Source Benchmark & Intelligence Dashboard (`/benchmarks/`) with category filters and interactive head-to-head model comparison.
-- [x] Automated OpenRouter API telemetry integration (pricing, context limits) and LiveBench monthly evaluation benchmark ingestion.
-- [x] Adapter architecture with transparent licensing and provenance governance (handling BenchLM CC BY-NC 4.0, Artificial Analysis API requirements, and LMCouncil guidelines).
-- [x] Curated Research Lab Directory (`/research/`) with deterministic keyword classification and active lab statistics.
-- [x] Scheduled GitHub Actions workflow staging both `feed.json` and `benchmarks.json`.
-- [x] Comprehensive test suite (82 passing unit tests covering feeds, summarizer, benchmarks, and model catalogs).
+- [x] Automated RSS feed ingestion across 14 verified providers with future-date clamping and UTC normalization.
+- [x] Objective Gemini-powered article summarization with strict quality validation and quota circuit breakers.
+- [x] Calendar-aware Today's AI Brief with Priority Intelligence age badges on the homepage.
+- [x] Dual-tier model catalogue: 23 Featured Frontier flagships and 91 complete models with 6 category filter tabs.
+- [x] Multi-Source Benchmark & Intelligence Dashboard (`/benchmarks/`) with transparent Data Integrity & Validation Reporting.
+- [x] Official LiveBench ingestion (552 observations) without fuzzy substring collisions or version collapses.
+- [x] Automated OpenRouter API telemetry integration and exact model identity mapping.
+- [x] Transparent pipeline status and source health monitoring (`pipeline-status.json` and footer badges).
+- [x] Build revision metadata (`build.json`) capturing git commit hashes and build timestamps.
+- [x] Comprehensive test suite (**118 passing unit tests** covering feeds, summarizer, benchmarks, model identity, and pipeline health).
+- [x] 100% clean TypeScript diagnostics (`astro check`: 0 errors, 0 warnings, 0 hints across 17 files).
+- [x] Static site generation producing clean, verified HTML across all 5 routes (`/`, `/news/`, `/models/`, `/research/`, `/benchmarks/`).
 
 ### Planned Features
 - [ ] Direct arXiv `cs.AI` and `cs.LG` automated daily preprint clustering.
@@ -243,16 +302,40 @@ ai-pulse/
 
 ---
 
+## Feedback & Bug Reporting
+
+AI Pulse welcomes community contributions, bug reports, and data quality corrections. All feedback is organized through dedicated GitHub Issue Forms:
+
+* **[Report a Bug](https://github.com/swaroophegde07/ai-pulse/issues/new?template=bug_report.yml)**: Technical errors, broken filters, layout overflow, or mobile defects.
+* **[Suggest a Feature](https://github.com/swaroophegde07/ai-pulse/issues/new?template=feature_request.yml)**: Propose new RSS feeds, topic filters, or dashboard features.
+* **[Report Incorrect Data](https://github.com/swaroophegde07/ai-pulse/issues/new?template=data_correction.yml)**: Report inaccurate model specs, benchmark scores, or article summaries (with official primary citation).
+* **[Share General Feedback](https://github.com/swaroophegde07/ai-pulse/issues/new?template=general_feedback.yml)**: Usability feedback, design thoughts, and general suggestions.
+
+Visitors can also access the dedicated web portal at **[/feedback/](https://swaroophegde07.github.io/ai-pulse/feedback/)**.
+
+---
+
+## Security and Private Reporting
+
+All GitHub issues filed through public templates are publicly visible to all repository visitors.
+
+> **DO NOT** report security-sensitive vulnerabilities, private API keys, credentials, or personal information in public GitHub issues.
+
+To report a security vulnerability or sensitive defect, please contact the maintainer privately via GitHub profile contact options or submit a confidential advisory if GitHub Private Vulnerability Reporting is active on the repository.
+
+---
+
 ## Contributing
 
-Contributions, feedback, and feed suggestions are welcome.
+Pull requests and community suggestions are welcome!
 
-When adding new RSS sources to `src/data/sources.json` or `pipeline/sources.py`:
-1. Ensure the feed is publicly accessible without authentication or paywalls.
-2. Verify that the URL returns valid RSS or Atom XML.
-3. Ensure all tests continue to pass (`pytest pipeline/tests/ -v` and `npm run check`).
+When proposing code or data changes:
+1. Ensure all feeds added to `src/data/sources.json` are public and unauthenticated.
+2. Maintain data pipeline integrity: run `pytest pipeline/tests/ -v`.
+3. Verify Astro templates and TypeScript diagnostics: run `npm run check`.
+4. Verify production build: run `npm run build`.
 
-Submit changes by creating a branch and opening a pull request.
+Submit changes by creating a branch and opening a pull request on the repository.
 
 ---
 

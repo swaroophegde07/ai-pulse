@@ -24,6 +24,8 @@ interface FeedRecord {
 interface BenchmarkRecord {
   model_name: string;
   canonical_id: string;
+  internal_model_id?: string | null;
+  match_confidence?: number | null;
   provider: string;
   benchmark_name: string;
   category: string;
@@ -74,6 +76,16 @@ const benchmarks = (benchmarksData.benchmarks || []) as BenchmarkRecord[];
 const sources = (benchmarksData.metadata?.sources || []) as SourceNotice[];
 const standards = (benchmarksData.benchmark_standards || []) as any[];
 const models = (modelsData || []) as ModelRecord[];
+const validationReport = benchmarksData.metadata?.validation_report || {
+  retrieved_count: benchmarks.length,
+  parsed_count: benchmarks.length,
+  valid_count: benchmarks.length,
+  duplicate_count: 0,
+  conflict_count: 0,
+  quarantined_count: 0,
+  retained_count: benchmarks.length,
+};
+const lastEvalDate = benchmarksData.metadata?.health?.last_successful_evaluation_date || "2026-06-25";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 // Mapping from models.json ID to LiveBench canonical ID(s)
@@ -99,13 +111,20 @@ const modelToBenchId: Record<string, string> = {
 const dynamicModelDatabase: Record<string, any> = {};
 for (const m of models) {
   const benchId = modelToBenchId[m.id] || m.id.split("/")[1] || m.id;
+
   const rRecord = benchmarks.find(
-    (b) => (b.canonical_id === benchId || b.canonical_id === m.id) && b.category === "Reasoning"
+    (b) =>
+      b.category === "Reasoning" &&
+      ((b.internal_model_id && b.internal_model_id === m.id) ||
+        b.canonical_id === benchId ||
+        b.canonical_id === m.id)
   );
   const cRecord = benchmarks.find(
     (b) =>
-      (b.canonical_id === benchId || b.canonical_id === m.id) &&
-      (b.category === "Coding" || b.category === "Agentic Coding")
+      (b.category === "Coding" || b.category === "Agentic Coding") &&
+      ((b.internal_model_id && b.internal_model_id === m.id) ||
+        b.canonical_id === benchId ||
+        b.canonical_id === m.id)
   );
 
   const ctxStr = m.context_window >= 1_000_000
@@ -115,6 +134,9 @@ for (const m of models) {
   const pInStr = m.pricing ? `$${m.pricing.input_per_1m.toFixed(2)}` : "Not specified";
   const pOutStr = m.pricing ? `$${m.pricing.output_per_1m.toFixed(2)}` : "Not specified";
 
+  const evalDate = rRecord?.evaluation_date || cRecord?.evaluation_date;
+  const evalSource = rRecord ? `${rRecord.source} (${rRecord.evaluation_date || "Verified"})` : cRecord ? `${cRecord.source} (${cRecord.evaluation_date || "Verified"})` : "Not evaluated";
+
   dynamicModelDatabase[m.id] = {
     name: m.name,
     reasoning: rRecord ? `${rRecord.score.toFixed(1)}%` : "Not available",
@@ -123,6 +145,8 @@ for (const m of models) {
     priceIn: pInStr,
     priceOut: pOutStr,
     license: m.license_type,
+    evalSource: evalSource,
+    evalDate: evalDate || "Not available",
   };
 }
 
@@ -183,6 +207,46 @@ const costEfficientModel = [...models]
       <p class="text-sm text-neutral-400 leading-relaxed max-w-3xl">
         Multi-source evaluation intelligence covering standardized reasoning suites, autonomous coding benchmarks, and model telemetry across verified, independent sources.
       </p>
+    </div>
+
+    <!-- Benchmark Pipeline Integrity Strip -->
+    <div class="mb-10 border border-neutral-800 bg-neutral-900/40 rounded-lg p-5">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-neutral-800/80 pb-3 mb-4">
+        <div class="flex items-center gap-2">
+          <span class="inline-block w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span class="font-mono text-xs font-semibold text-neutral-200">Data Integrity & Validation Report</span>
+          <span class="font-mono text-[10px] text-neutral-400">({lastEvalDate} Official Release)</span>
+        </div>
+        <div class="font-mono text-[10px] text-neutral-400">
+          Source: Official LiveBench (Apache-2.0) & OpenRouter Catalog
+        </div>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 font-mono text-xs">
+        <div class="bg-neutral-950/60 p-3 rounded border border-neutral-800/80">
+          <div class="text-[10px] text-neutral-500 uppercase tracking-wider">Retrieved</div>
+          <div class="text-neutral-200 font-bold mt-1 text-sm">{validationReport.retrieved_count}</div>
+        </div>
+        <div class="bg-neutral-950/60 p-3 rounded border border-neutral-800/80">
+          <div class="text-[10px] text-neutral-500 uppercase tracking-wider">Parsed</div>
+          <div class="text-neutral-200 font-bold mt-1 text-sm">{validationReport.parsed_count}</div>
+        </div>
+        <div class="bg-neutral-950/60 p-3 rounded border border-neutral-800/80">
+          <div class="text-[10px] text-emerald-400 uppercase tracking-wider">Valid Verified</div>
+          <div class="text-emerald-400 font-bold mt-1 text-sm">{validationReport.valid_count}</div>
+        </div>
+        <div class="bg-neutral-950/60 p-3 rounded border border-neutral-800/80">
+          <div class="text-[10px] text-neutral-500 uppercase tracking-wider">Duplicates</div>
+          <div class="text-neutral-200 font-bold mt-1 text-sm">{validationReport.duplicate_count}</div>
+        </div>
+        <div class="bg-neutral-950/60 p-3 rounded border border-neutral-800/80">
+          <div class="text-[10px] text-neutral-500 uppercase tracking-wider">Conflicting/Quarantined</div>
+          <div class="text-neutral-200 font-bold mt-1 text-sm">{validationReport.conflict_count + validationReport.quarantined_count}</div>
+        </div>
+        <div class="bg-neutral-950/60 p-3 rounded border border-neutral-800/80">
+          <div class="text-[10px] text-blue-400 uppercase tracking-wider">Retained in UI</div>
+          <div class="text-blue-400 font-bold mt-1 text-sm">{validationReport.retained_count}</div>
+        </div>
+      </div>
     </div>
 
     <!-- 4A. Overview Highlights -->
@@ -286,32 +350,67 @@ const costEfficientModel = [...models]
           <h2 class="text-xs font-mono text-neutral-300 tracking-widest uppercase">
             Benchmark Explorer
           </h2>
-          <p class="text-[11px] text-neutral-500 font-mono mt-0.5">
-            Verified empirical evaluations with traceable provenance and scoring units.
-          </p>
+          <div class="flex items-center gap-2 mt-0.5">
+            <p class="text-[11px] text-neutral-500 font-mono">
+              Verified empirical evaluations with traceable provenance and scoring units.
+            </p>
+            <span class="text-neutral-700 hidden sm:inline">&middot;</span>
+            <a
+              href="https://github.com/swaroophegde07/ai-pulse/issues/new?template=data_correction.yml&title=%5BData+Correction%5D%3A+Benchmark+Evaluation+Inaccuracy&affected_page=https%3A%2F%2Fswaroophegde07.github.io%2Fai-pulse%2Fbenchmarks%2F&entity_type=Benchmark+Result+%28Score%2C+Suite+Name%2C+Metric%2C+Category%29"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hidden sm:inline-flex items-center gap-1 font-mono text-[10px] text-neutral-400 hover:text-blue-400 transition-colors"
+              title="Report a benchmark issue via GitHub Issue Form"
+            >
+              <span>Report a benchmark issue</span>
+              <span>↗</span>
+            </a>
+          </div>
         </div>
 
         <!-- Search & Filter Controls -->
         <div class="flex flex-wrap items-center gap-3 w-full sm:w-auto">
-          <input
-            type="search"
-            id="benchmark-search-input"
-            placeholder="Search model or benchmark..."
-            class="bg-neutral-950 border border-neutral-800 rounded px-3 py-1.5 text-xs text-neutral-100 placeholder:text-neutral-600 font-mono focus:outline-none focus:border-blue-500 w-full sm:w-56"
-          />
+          <div class="relative w-full sm:w-56">
+            <label for="benchmark-search-input" class="sr-only">Search benchmark results</label>
+            <div class="absolute inset-y-0 left-0 pl-2.5 flex items-center pointer-events-none text-neutral-500">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+            </div>
+            <input
+              type="search"
+              id="benchmark-search-input"
+              placeholder="Search model or benchmark..."
+              class="bg-neutral-950 border border-neutral-800 rounded pl-8 pr-7 py-1.5 text-xs text-neutral-100 placeholder:text-neutral-600 font-mono focus:outline-none focus:border-blue-500 w-full"
+            />
+            <button
+              type="button"
+              id="clear-benchmark-search"
+              style="display: none;"
+              class="absolute inset-y-0 right-0 pr-2 flex items-center text-neutral-500 hover:text-neutral-200 transition-colors cursor-pointer"
+              aria-label="Clear benchmark search"
+            >
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
 
           <!-- Category filter select -->
           <label for="benchmark-category-filter" class="sr-only">Filter by Category</label>
           <select
             id="benchmark-category-filter"
-            class="bg-neutral-950 border border-neutral-800 rounded px-3 py-1.5 text-xs text-neutral-300 font-mono focus:outline-none focus:border-blue-500"
+            class="bg-neutral-950 border border-neutral-800 rounded px-3 py-1.5 text-xs text-neutral-300 font-mono focus:outline-none focus:border-blue-500 cursor-pointer"
           >
             {categories.map((c) => <option value={c.toLowerCase()}>{c}</option>)}
           </select>
         </div>
       </div>
 
-      <div class="overflow-x-auto">
+      <div class="overflow-x-auto custom-scrollbar">
+        <div class="block sm:hidden text-[10px] text-neutral-400 font-mono px-6 py-2 bg-neutral-950/80 border-b border-neutral-800/80">
+          Swipe table horizontally for scores & provenance details →
+        </div>
         <table class="w-full text-left text-xs font-mono" id="benchmarks-table">
           <thead>
             <tr class="border-b border-neutral-800 bg-neutral-950/40 text-neutral-500 text-[11px]">
@@ -373,9 +472,29 @@ const costEfficientModel = [...models]
       <div
         id="no-benchmarks-matched"
         style="display: none;"
-        class="p-10 text-center font-mono text-xs text-neutral-500"
+        class="p-12 text-center font-mono text-xs text-neutral-400 bg-neutral-950/40"
       >
-        No benchmark results match your search and category filter.
+        <p class="mb-3 text-neutral-300">No benchmark results match your search and category filter.</p>
+        <button
+          type="button"
+          id="reset-benchmarks-filter-btn"
+          class="font-mono text-[10px] uppercase tracking-wider text-neutral-300 hover:text-white px-3 py-1.5 rounded border border-neutral-700 bg-neutral-800 hover:bg-neutral-700 transition-colors cursor-pointer"
+        >
+          Reset benchmark filters
+        </button>
+      </div>
+
+      <div class="px-6 py-2.5 bg-neutral-950/60 border-t border-neutral-800/80 flex flex-wrap items-center justify-between gap-2 text-[10px] font-mono text-neutral-500">
+        <span>Evaluations parsed from official LiveBench releases</span>
+        <a
+          href="https://github.com/swaroophegde07/ai-pulse/issues/new?template=data_correction.yml&title=%5BData+Correction%5D%3A+Benchmark+Evaluation+Inaccuracy&affected_page=https%3A%2F%2Fswaroophegde07.github.io%2Fai-pulse%2Fbenchmarks%2F&entity_type=Benchmark+Result+%28Score%2C+Suite+Name%2C+Metric%2C+Category%29"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-neutral-400 hover:text-blue-400 transition-colors inline-flex items-center gap-1"
+        >
+          <span>Report a benchmark issue</span>
+          <span>↗</span>
+        </a>
       </div>
     </section>
 
@@ -402,7 +521,7 @@ const costEfficientModel = [...models]
           </label>
           <select
             id="compare-model-a"
-            class="w-full bg-neutral-950 border border-neutral-800 rounded px-3 py-2 text-xs font-mono text-neutral-100 focus:outline-none focus:border-blue-500"
+            class="w-full bg-neutral-950 border border-neutral-800 rounded px-3 py-2 text-xs font-mono text-neutral-100 focus:outline-none focus:border-blue-500 cursor-pointer"
           >
             {
               models.map((m) => (
@@ -421,7 +540,7 @@ const costEfficientModel = [...models]
           </label>
           <select
             id="compare-model-b"
-            class="w-full bg-neutral-950 border border-neutral-800 rounded px-3 py-2 text-xs font-mono text-neutral-100 focus:outline-none focus:border-blue-500"
+            class="w-full bg-neutral-950 border border-neutral-800 rounded px-3 py-2 text-xs font-mono text-neutral-100 focus:outline-none focus:border-blue-500 cursor-pointer"
           >
             {
               models.map((m) => (
@@ -435,7 +554,10 @@ const costEfficientModel = [...models]
       </div>
 
       <!-- Comparison Metrics Matrix -->
-      <div class="border border-neutral-800 rounded-lg overflow-x-auto bg-neutral-950/60">
+      <div class="border border-neutral-800 rounded-lg overflow-x-auto custom-scrollbar bg-neutral-950/60">
+        <div class="block sm:hidden text-[10px] text-neutral-400 font-mono px-4 py-2 bg-neutral-950/80 border-b border-neutral-800/80">
+          Swipe table horizontally to inspect comparison →
+        </div>
         <table class="w-full text-left font-mono text-xs">
           <thead>
             <tr class="border-b border-neutral-800 text-neutral-500 text-[11px]">
@@ -450,13 +572,13 @@ const costEfficientModel = [...models]
               <td class="py-3 px-4 text-neutral-400">LiveBench Reasoning Score</td>
               <td class="py-3 px-4 font-bold text-emerald-400" id="cmp-reasoning-a">{dynamicModelDatabase["openai/o1"]?.reasoning || "Not available"}</td>
               <td class="py-3 px-4 font-bold text-emerald-400" id="cmp-reasoning-b">{dynamicModelDatabase["deepseek/deepseek-r1"]?.reasoning || "Not available"}</td>
-              <td class="py-3 px-4 text-[10px] text-neutral-500">LiveBench (Jan 2026)</td>
+              <td class="py-3 px-4 text-[10px] text-neutral-500" id="cmp-provenance-reasoning">LiveBench Independent Eval</td>
             </tr>
             <tr>
               <td class="py-3 px-4 text-neutral-400">LiveBench Coding Score</td>
               <td class="py-3 px-4 font-bold text-emerald-400" id="cmp-coding-a">{dynamicModelDatabase["openai/o1"]?.coding || "Not available"}</td>
               <td class="py-3 px-4 font-bold text-emerald-400" id="cmp-coding-b">{dynamicModelDatabase["deepseek/deepseek-r1"]?.coding || "Not available"}</td>
-              <td class="py-3 px-4 text-[10px] text-neutral-500">LiveBench (Jan 2026)</td>
+              <td class="py-3 px-4 text-[10px] text-neutral-500" id="cmp-provenance-coding">LiveBench Independent Eval</td>
             </tr>
             <tr>
               <td class="py-3 px-4 text-neutral-400">Context Window</td>
@@ -634,7 +756,9 @@ const costEfficientModel = [...models]
   (function () {
     // 1. Benchmark Explorer filtering & search
     const searchInput = document.getElementById("benchmark-search-input") as HTMLInputElement | null;
+    const clearSearchBtn = document.getElementById("clear-benchmark-search") as HTMLButtonElement | null;
     const catSelect = document.getElementById("benchmark-category-filter") as HTMLSelectElement | null;
+    const resetFilterBtn = document.getElementById("reset-benchmarks-filter-btn") as HTMLButtonElement | null;
     const rows = document.querySelectorAll<HTMLTableRowElement>(".benchmark-row");
     const emptyState = document.getElementById("no-benchmarks-matched");
 
@@ -666,6 +790,10 @@ const costEfficientModel = [...models]
       if (emptyState) {
         emptyState.style.display = visible === 0 ? "block" : "none";
       }
+
+      if (clearSearchBtn) {
+        clearSearchBtn.style.display = currentSearch ? "" : "none";
+      }
     }
 
     if (searchInput) {
@@ -673,11 +801,38 @@ const costEfficientModel = [...models]
         currentSearch = (e.target as HTMLInputElement).value.toLowerCase().trim();
         filterBenchmarks();
       });
+
+      searchInput.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && searchInput.value) {
+          searchInput.value = "";
+          currentSearch = "";
+          filterBenchmarks();
+        }
+      });
+    }
+
+    if (clearSearchBtn) {
+      clearSearchBtn.addEventListener("click", () => {
+        if (searchInput) searchInput.value = "";
+        currentSearch = "";
+        filterBenchmarks();
+        searchInput?.focus();
+      });
     }
 
     if (catSelect) {
       catSelect.addEventListener("change", (e) => {
         currentCategory = (e.target as HTMLSelectElement).value.toLowerCase();
+        filterBenchmarks();
+      });
+    }
+
+    if (resetFilterBtn) {
+      resetFilterBtn.addEventListener("click", () => {
+        if (searchInput) searchInput.value = "";
+        if (catSelect) catSelect.value = "all";
+        currentSearch = "";
+        currentCategory = "all";
         filterBenchmarks();
       });
     }

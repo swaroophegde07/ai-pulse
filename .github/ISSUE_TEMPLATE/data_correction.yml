@@ -1,0 +1,74 @@
+name: Data Correction
+description: Report incorrect AI model specifications, benchmark scores, evaluation dates, article summaries, or attributions
+title: "[Data Correction]: "
+labels: ["data-quality"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Report an inaccuracy in AI Pulse data
+        
+        > **Important**: Submitted data corrections are queued for maintainer investigation and verification against official primary sources. Submissions **do not** automatically alter published dataset snapshots.
+        >
+        > **Privacy Warning**: This issue is public. Do NOT include API keys, passwords, or personal credentials.
+  - type: dropdown
+    id: entity_type
+    attributes:
+      label: Affected Entity Type
+      description: What kind of information is incorrect?
+      options:
+        - "AI Model (Specs, Pricing, Context Window, License, Architecture)"
+        - "Benchmark Result (Score, Suite Name, Metric, Category)"
+        - "Article Summary or Title (News, Opinion, Release)"
+        - "Research Publication (Lab Attribution, Title, Summary)"
+        - "Source Attribution or Broken Source Link"
+        - "Other Data Inaccuracy"
+    validations:
+      required: true
+  - type: input
+    id: affected_page
+    attributes:
+      label: Affected Page or Route
+      description: The AI Pulse page URL where the incorrect data appears.
+      placeholder: https://swaroophegde07.github.io/ai-pulse/models/
+    validations:
+      required: true
+  - type: input
+    id: affected_item
+    attributes:
+      label: Affected Item Identifier or URL
+      description: Specific model ID, benchmark name, article headline, or source URL.
+      placeholder: e.g. Claude 3.7 Sonnet / LiveBench 2026-01-08 / Article URL
+    validations:
+      required: true
+  - type: textarea
+    id: incorrect_information
+    attributes:
+      label: What information is currently incorrect?
+      description: Quote or describe the incorrect value, metric, date, or attribution currently displayed.
+      placeholder: The context window for Model X is displayed as 128k tokens...
+    validations:
+      required: true
+  - type: textarea
+    id: correct_information
+    attributes:
+      label: What should the correct information be?
+      description: Provide the accurate specification, verified evaluation score, or corrected attribution.
+      placeholder: Model X supports a 200k context window according to the official release announcement...
+    validations:
+      required: true
+  - type: input
+    id: supporting_source
+    attributes:
+      label: Supporting Source URL (Verification Citation)
+      description: Link to the primary lab announcement, evaluation leaderboard, model card, or technical paper validating this correction.
+      placeholder: https://...
+    validations:
+      required: true
+  - type: textarea
+    id: additional_explanation
+    attributes:
+      label: Additional Explanation or Methodology Context
+      description: Any extra nuance, evaluation date differences, or release version distinctions.
+    validations:
+      required: false

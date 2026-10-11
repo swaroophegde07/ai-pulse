@@ -1,10 +1,15 @@
 """
 Model catalog synchronization and telemetry updater.
 
-Safely updates `src/data/models.json` by merging latest verified pricing,
-context window specifications, and telemetry from OpenRouter model metrics
-while preserving curated architecture details, license types, documentation URLs,
-and maintaining last-known-good fallbacks if remote data is missing or partial.
+Safely refreshes and expands `src/data/models.json` by:
+1. Merging latest verified pricing and context length specifications from OpenRouter
+   telemetry for existing curated frontier models while preserving verified release dates,
+   licensing terms, and documentation links.
+2. Dynamically discovering and appending suitable newly released frontier models,
+   coding specialists, and multimodal models from top AI labs.
+3. Classifying models by capability (Frontier Reasoning, Coding, Specialist, etc.).
+4. Recording transparent per-field data provenance without falsely claiming unverified
+   attributes (such as exact lab release date or consumer availability) are verified.
 """
 
 from __future__ import annotations
@@ -12,10 +17,17 @@ from __future__ import annotations
 import json
 import logging
 import os
+import re
 import tempfile
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
+
+from pipeline.models.identity import (
+    export_identity_registry,
+    get_featured_frontier_ids,
+    resolve_model_identity,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -27,14 +39,10 @@ REQUIRED_MODEL_FIELDS = frozenset([
     "name",
     "provider",
     "family",
-    "release_date",
     "lifecycle_status",
     "context_window",
-    "input_modalities",
-    "output_modalities",
     "license_type",
     "api_available",
-    "consumer_available",
     "documentation_url",
     "source_url",
     "last_verified",
@@ -59,6 +67,106 @@ OPENROUTER_ID_MAP: dict[str, list[str]] = {
     "microsoft/phi-4": ["microsoft/phi-4"],
     "mistral/mistral-large-2411": ["mistralai/mistral-large-2411", "mistralai/mistral-large"],
 }
+
+PRIMARY_LABS = frozenset([
+    "OpenAI",
+    "Anthropic",
+    "Google DeepMind",
+    "DeepSeek",
+    "Meta AI",
+    "Mistral AI",
+    "Alibaba Cloud",
+    "Microsoft",
+    "xAI",
+])
+
+
+def classify_model_category(canonical_id: str, model_name: str) -> str:
+    """Classify model into standard categories."""
+    cid_l = canonical_id.lower()
+    name_l = model_name.lower()
+
+    if any(k in cid_l or k in name_l for k in ("embed", "bge", "text-embedding", "clip")):
+        return "Embedding"
+    if any(k in cid_l or k in name_l for k in ("image", "flux", "dall-e", "midjourney", "stable-diffusion")):
+        return "Image Generation"
+    if any(k in cid_l or k in name_l for k in ("audio", "whisper", "tts", "voice")):
+        return "Audio"
+    if any(k in cid_l or k in name_l for k in ("coder", "coding", "codex", "devstral")):
+        return "Coding"
+    if any(
+        k in cid_l or k in name_l
+        for k in (
+            "r1", "o1", "o3", "o4", "reasoning", "thinking", "opus", "sonnet-5",
+            "haiku-5", "sol", "luna", "pro", "max", "flash", "gpt-6", "gpt-5", "v4"
+        )
+    ):
+        return "Frontier Reasoning & Chat"
+    return "General Chat & Language"
+
+
+def infer_model_family(canonical_id: str, model_name: str, provider: str) -> str:
+    """Infer model family name cleanly."""
+    cid = canonical_id.lower()
+    if "claude" in cid:
+        if "opus" in cid:
+            return "Claude Opus"
+        if "sonnet" in cid:
+            return "Claude Sonnet"
+        if "haiku" in cid:
+            return "Claude Haiku"
+        return "Claude"
+    if "gpt-6" in cid:
+        return "GPT-6"
+    if "gpt-5" in cid:
+        return "GPT-5"
+    if "gpt-4" in cid:
+        return "GPT-4"
+    if "gemini-3" in cid:
+        return "Gemini 3"
+    if "gemini-2" in cid:
+        return "Gemini 2"
+    if "deepseek-v4" in cid:
+        return "DeepSeek-V4"
+    if "deepseek-v3" in cid or "deepseek-r1" in cid:
+        return "DeepSeek-V3"
+    if "qwen3" in cid:
+        return "Qwen 3"
+    if "qwen2" in cid or "qwen-2" in cid:
+        return "Qwen 2.5"
+    if "mistral" in cid:
+        return "Mistral"
+    if "llama" in cid:
+        return "Llama"
+    if "phi" in cid:
+        return "Phi"
+    return provider
+
+
+def should_include_new_candidate(metric: dict[str, Any]) -> bool:
+    """Determine whether an OpenRouter model metric represents a suitable primary model."""
+    cid = metric.get("canonical_id", "").lower()
+    if not cid:
+        return False
+
+    # Exclude batch, free, nitro, duplicate hosting variants
+    if any(cid.endswith(s) for s in (":batch", ":free", ":nitro", ":extended")):
+        return False
+    if any(k in cid for k in ("test", "debug", "internal", "eval")):
+        return False
+
+    # Only include primary labs
+    provider = metric.get("provider", "")
+    if provider not in PRIMARY_LABS:
+        return False
+
+    # Filter for notable frontier releases, coding models, or key lab releases
+    frontier_signals = (
+        "sol", "luna", "opus", "sonnet-5", "haiku-5", "gpt-6", "gpt-5.5", "gpt-5.4",
+        "gpt-5.2", "gpt-5.1", "gemini-3", "gemini-2.5", "deepseek-v4", "mistral-large-4",
+        "qwen3.8", "qwen3.7", "codex", "devstral", "claude-4", "nano-banana"
+    )
+    return any(sig in cid for sig in frontier_signals)
 
 
 def validate_model_record(record: dict[str, Any]) -> bool:
@@ -119,12 +227,12 @@ def sync_models_catalog(
     models_path: Path | None = None,
     openrouter_metrics: list[dict[str, Any]] | None = None,
 ) -> list[dict[str, Any]]:
-    """Synchronize the models catalog with live OpenRouter telemetry specifications.
+    """Synchronize and refresh the models catalog with live OpenRouter telemetry.
 
-    - Updates token pricing and verified context lengths from live metrics.
-    - Preserves established models and maintains schema validity.
-    - Updates `last_verified` date for matched models.
-    - If OpenRouter metrics are unavailable or partial, preserves previous verified data.
+    1. Updates token pricing and context lengths for existing curated models.
+    2. Discovers and appends newly released frontier models and coding specialists from top labs.
+    3. Categorizes models and transparently records field-level verification sources.
+    4. If telemetry is unavailable, preserves the existing verified catalog intact.
     """
     path = models_path or DEFAULT_MODELS_PATH
     existing_models = load_models_catalog(path)
@@ -133,8 +241,21 @@ def sync_models_catalog(
         logger.warning("No valid existing models loaded; preserving existing file untouched.")
         return []
 
+    featured_ids = get_featured_frontier_ids()
+
     if not openrouter_metrics:
-        logger.info("No OpenRouter metrics provided; keeping models catalog intact.")
+        logger.info("No OpenRouter metrics provided; ensuring is_featured_frontier flags and identity registry are up to date.")
+        changed_any = False
+        for m in existing_models:
+            mid = m.get("id", "")
+            id_match = resolve_model_identity(mid, context_source="CatalogSync")
+            expected_flag = mid in featured_ids or (id_match.matched_id in featured_ids if id_match.matched_id else False)
+            if m.get("is_featured_frontier") != expected_flag:
+                m["is_featured_frontier"] = expected_flag
+                changed_any = True
+        if changed_any:
+            write_models_atomic(existing_models, path)
+        export_identity_registry()
         return existing_models
 
     # Index OpenRouter metrics by canonical ID (excluding :batch variations from primary specs)
@@ -147,16 +268,30 @@ def sync_models_catalog(
     today_str = datetime.now(UTC).strftime("%Y-%m-%d")
     updated_models: list[dict[str, Any]] = []
     updated_count = 0
+    existing_seen_ids: set[str] = set()
 
+    # Step 1: Update existing curated records
     for model in existing_models:
         model_copy = dict(model)
         mid = model_copy.get("id", "")
+        existing_seen_ids.add(mid)
+
+        # Set verified featured frontier flag
+        id_match = resolve_model_identity(mid, context_source="CatalogSync")
+        is_featured = (
+            mid in featured_ids
+            or (id_match.matched_id in featured_ids if id_match.matched_id else False)
+            or bool(model_copy.get("is_featured_frontier", False))
+        )
+        model_copy["is_featured_frontier"] = is_featured
+
         candidate_or_ids = OPENROUTER_ID_MAP.get(mid, [mid])
 
         matched_metric = None
         for or_id in candidate_or_ids:
             if or_id in metrics_by_id:
                 matched_metric = metrics_by_id[or_id]
+                existing_seen_ids.add(or_id)
                 break
 
         if matched_metric:
@@ -186,15 +321,87 @@ def sync_models_catalog(
 
             if changed:
                 model_copy["last_verified"] = today_str
+                ver_sources = dict(model_copy.get("verification_sources") or {})
+                ver_sources["telemetry"] = f"OpenRouter ({today_str})"
+                ver_sources["pricing"] = f"OpenRouter ({today_str})"
+                model_copy["verification_sources"] = ver_sources
                 updated_count += 1
+
+        # Ensure category is populated
+        if "category" not in model_copy:
+            model_copy["category"] = classify_model_category(mid, model_copy.get("name", ""))
 
         updated_models.append(model_copy)
 
+    # Step 2: Append newly discovered frontier and specialist models from OpenRouter
+    appended_count = 0
+    for metric in openrouter_metrics:
+        cid = metric.get("canonical_id", "")
+        if cid in existing_seen_ids:
+            continue
+        if not should_include_new_candidate(metric):
+            continue
+
+        name = metric.get("model_name", cid)
+        provider = metric.get("provider", "Independent / Open")
+        ctx_len = metric.get("context_length") or 128000
+        in_p = metric.get("input_price_per_1m")
+        out_p = metric.get("output_price_per_1m")
+        pricing = (
+            {"input_per_1m": in_p, "output_per_1m": out_p, "unit": "USD"}
+            if in_p is not None and out_p is not None
+            else None
+        )
+
+        category = classify_model_category(cid, name)
+        family = infer_model_family(cid, name, provider)
+
+        id_match = resolve_model_identity(cid, context_source="CatalogDiscover")
+        is_featured = bool(id_match.matched_id and id_match.matched_id in featured_ids)
+
+        # License inferred conservatively
+        is_open = provider in ("Meta AI", "Mistral AI", "DeepSeek", "Alibaba Cloud")
+        license_type = "Open Weights" if is_open else "Proprietary API"
+
+        new_record: dict[str, Any] = {
+            "id": cid,
+            "name": name,
+            "provider": provider,
+            "family": family,
+            "category": category,
+            "is_featured_frontier": is_featured,
+            "release_date": "Unknown",  # Honestly unverified from API
+            "lifecycle_status": "Active (Catalog)",
+            "context_window": ctx_len,
+            "input_modalities": ["text", "image"] if "image" in name.lower() or "vision" in name.lower() else ["text"],
+            "output_modalities": ["text"],
+            "license_type": license_type,
+            "api_available": True,
+            "consumer_available": False,  # Not verified for web consumer apps
+            "pricing": pricing,
+            "documentation_url": metric.get("source_url") or f"https://openrouter.ai/{cid}",
+            "source_url": metric.get("source_url") or f"https://openrouter.ai/{cid}",
+            "last_verified": today_str,
+            "verification_sources": {
+                "telemetry": f"OpenRouter ({today_str})",
+                "pricing": f"OpenRouter ({today_str})" if pricing else "Not verified",
+            },
+            "notes": f"Discovered via OpenRouter catalog API. Telemetry specifications verified as of {today_str}.",
+        }
+
+        if validate_model_record(new_record):
+            updated_models.append(new_record)
+            existing_seen_ids.add(cid)
+            appended_count += 1
+
     if updated_models:
         write_models_atomic(updated_models, path)
+        export_identity_registry()
         logger.info(
-            "Model catalog sync complete: %d models updated with live OpenRouter telemetry.",
+            "Model catalog sync complete: %d existing models updated, %d new models appended (total: %d).",
             updated_count,
+            appended_count,
+            len(updated_models),
         )
 
     return updated_models

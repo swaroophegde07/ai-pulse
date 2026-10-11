@@ -1,0 +1,50 @@
+name: Feature Request
+description: Suggest an enhancement, new data source, filter, or capability for AI Pulse
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Thank you for proposing an enhancement to AI Pulse!
+        
+        > **Public Visibility Reminder**: All submitted feature requests are public. Please do not include confidential or proprietary information.
+  - type: input
+    id: feature_title
+    attributes:
+      label: Feature Title
+      description: A concise summary of the proposed enhancement.
+      placeholder: Add RSS feed support for Anthropic Engineering Blog
+    validations:
+      required: true
+  - type: textarea
+    id: problem_description
+    attributes:
+      label: What problem would this solve?
+      description: Explain the problem, current limitation, or workflow friction that motivates this request.
+      placeholder: Currently, frontier model announcements from ... are not tracked in real-time...
+    validations:
+      required: true
+  - type: textarea
+    id: proposed_feature
+    attributes:
+      label: Proposed Feature & Expected Behavior
+      description: Describe your proposed solution, how it should work, and where it fits in AI Pulse.
+      placeholder: Add the feed to sources.json, tag it under Research, and extract release dates...
+    validations:
+      required: true
+  - type: textarea
+    id: expected_benefit
+    attributes:
+      label: Expected Benefit to Users
+      description: Why does this matter? How does it improve intelligence gathering or dashboard utility?
+      placeholder: Readers will get immediate visibility into ...
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternative Solutions or Additional Ideas
+      description: Have you considered other approaches or related tools?
+    validations:
+      required: false

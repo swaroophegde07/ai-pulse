@@ -1070,7 +1070,7 @@ class TestBenchmarkAdapters(unittest.TestCase):
 
         mock_get.side_effect = [mock_table_resp, mock_cat_resp]
 
-        adapter = LiveBenchAdapter()
+        adapter = LiveBenchAdapter(release_date="2026-06-25")
         records = adapter.fetch()
         self.assertGreater(len(records), 0)
         reasoning_rec = next((r for r in records if r["category"] == "Reasoning"), None)
@@ -1335,7 +1335,457 @@ class TestQuotaAwareSummarizer(unittest.TestCase):
         self.assertGreaterEqual(sleep_time, 0.5)
 
 
+# ===========================================================================
+# End-to-End Regression Tests for Model Catalog & Benchmark Data Flow
+# ===========================================================================
+
+
+class TestModelCatalogueRefreshRegression(unittest.TestCase):
+    def test_catalogue_refresh_appends_new_frontier_models(self):
+        from pipeline.models.updater import sync_models_catalog
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp_path = Path(tmpdir) / "models.json"
+            seed_data = [
+                {
+                    "id": "openai/o1",
+                    "name": "OpenAI o1",
+                    "provider": "OpenAI",
+                    "family": "o-series",
+                    "release_date": "2024-12-17",
+                    "lifecycle_status": "Released (Active)",
+                    "context_window": 128000,
+                    "input_modalities": ["text", "image"],
+                    "output_modalities": ["text"],
+                    "license_type": "Proprietary API",
+                    "api_available": True,
+                    "consumer_available": True,
+                    "pricing": {"input_per_1m": 15.0, "output_per_1m": 60.0, "unit": "USD"},
+                    "documentation_url": "https://platform.openai.com/docs/models#o1",
+                    "source_url": "https://openai.com/index/introducing-openai-o1-preview/",
+                    "last_verified": "2024-12-17",
+                }
+            ]
+            with tmp_path.open("w", encoding="utf-8") as f:
+                json.dump(seed_data, f, indent=2)
+
+            telemetry = [
+                # Existing model update
+                {
+                    "canonical_id": "openai/o1",
+                    "context_length": 200000,
+                    "input_price_per_1m": 15.0,
+                    "output_price_per_1m": 60.0,
+                    "provider": "OpenAI",
+                    "model_name": "OpenAI: o1",
+                },
+                # Batch variant of existing model (should be ignored)
+                {
+                    "canonical_id": "openai/o1:batch",
+                    "context_length": 200000,
+                    "input_price_per_1m": 7.5,
+                    "output_price_per_1m": 30.0,
+                    "provider": "OpenAI",
+                    "model_name": "OpenAI: o1 (Batch)",
+                },
+                # New frontier model
+                {
+                    "canonical_id": "openai/gpt-6.1-sol",
+                    "context_length": 1050000,
+                    "input_price_per_1m": 2.0,
+                    "output_price_per_1m": 10.0,
+                    "provider": "OpenAI",
+                    "model_name": "OpenAI: GPT-6.1 Sol",
+                    "source_url": "https://openrouter.ai/openai/gpt-6.1-sol",
+                },
+                # Batch variant of new model (should NOT be added as separate model)
+                {
+                    "canonical_id": "openai/gpt-6.1-sol:batch",
+                    "context_length": 1050000,
+                    "input_price_per_1m": 1.0,
+                    "output_price_per_1m": 5.0,
+                    "provider": "OpenAI",
+                    "model_name": "OpenAI: GPT-6.1 Sol (Batch)",
+                },
+                # New coding model
+                {
+                    "canonical_id": "mistralai/devstral-2512",
+                    "context_length": 256000,
+                    "input_price_per_1m": 0.4,
+                    "output_price_per_1m": 1.2,
+                    "provider": "Mistral AI",
+                    "model_name": "Mistral: Devstral 2 2512",
+                    "source_url": "https://openrouter.ai/mistralai/devstral-2512",
+                },
+            ]
+
+            updated = sync_models_catalog(models_path=tmp_path, openrouter_metrics=telemetry)
+            ids = [m["id"] for m in updated]
+
+            # Verify existing model updated
+            self.assertIn("openai/o1", ids)
+            o1 = next(m for m in updated if m["id"] == "openai/o1")
+            self.assertEqual(o1["context_window"], 200000)
+
+            # Verify new models included
+            self.assertIn("openai/gpt-6.1-sol", ids)
+            self.assertIn("mistralai/devstral-2512", ids)
+
+            # Verify batch variants excluded
+            self.assertNotIn("openai/o1:batch", ids)
+            self.assertNotIn("openai/gpt-6.1-sol:batch", ids)
+
+            # Verify fields not falsely invented
+            sol = next(m for m in updated if m["id"] == "openai/gpt-6.1-sol")
+            self.assertEqual(sol["release_date"], "Unknown")
+            self.assertFalse(sol["consumer_available"])
+            self.assertIn("telemetry", sol["verification_sources"])
+            self.assertEqual(sol["category"], "Frontier Reasoning & Chat")
+
+            devstral = next(m for m in updated if m["id"] == "mistralai/devstral-2512")
+            self.assertEqual(devstral["category"], "Coding")
+            self.assertEqual(devstral["license_type"], "Open Weights")
+
+
+class TestLiveBenchRegressionAndExactIdentity(unittest.TestCase):
+    @patch("requests.get")
+    def test_livebench_preserves_distinct_variants(self, mock_get):
+        from pipeline.benchmarks.adapters.livebench import LiveBenchAdapter
+        from pipeline.benchmarks.base import deduplicate_and_filter_conflicts
+
+        # CSV with two distinct effort configurations of the same model family
+        csv_data = (
+            "model,theory_of_mind,zebra_puzzle\n"
+            "gpt-5.5-xhigh,85.0,90.0\n"
+            "gpt-5.5-high,80.0,85.0\n"
+            "claude-opus-4-7-xhigh-effort,88.0,92.0\n"
+        )
+        cat_data = {"Reasoning": ["theory_of_mind", "zebra_puzzle"]}
+
+        mock_table = MagicMock()
+        mock_table.raise_for_status.return_value = None
+        mock_table.text = csv_data
+
+        mock_cat = MagicMock()
+        mock_cat.raise_for_status.return_value = None
+        mock_cat.json.return_value = cat_data
+
+        mock_get.side_effect = [mock_table, mock_cat]
+
+        adapter = LiveBenchAdapter(release_date="2026-06-25")
+        records = adapter.fetch()
+
+        # Should parse Reasoning and Composite for each of the 3 models = 6 records
+        self.assertEqual(len(records), 6)
+
+        cids = {r["canonical_id"] for r in records}
+        self.assertIn("gpt-5.5-xhigh", cids)
+        self.assertIn("gpt-5.5-high", cids)
+        self.assertIn("claude-opus-4-7-xhigh-effort", cids)
+
+        # Distinct variants must not be collapsed
+        self.assertNotEqual("gpt-5.5-xhigh", "gpt-5.5-high")
+
+        # Distinct variants must survive deduplication without false conflicts
+        clean, conflicts = deduplicate_and_filter_conflicts(records)
+        self.assertEqual(len(conflicts), 0)
+        self.assertEqual(len(clean), 6)
+
+    def test_conflicting_measurement_rejected(self):
+        from pipeline.benchmarks.base import BenchmarkRecord, deduplicate_and_filter_conflicts
+
+        rec1: BenchmarkRecord = {
+            "model_name": "GPT 5.5 (xhigh)",
+            "canonical_id": "gpt-5.5-xhigh",
+            "provider": "OpenAI",
+            "benchmark_name": "LiveBench (Reasoning)",
+            "category": "Reasoning",
+            "score": 87.5,
+            "score_unit": "Percentage",
+            "evaluation_date": "2026-06-25",
+            "source": "LiveBench",
+            "source_url": "https://livebench.ai/",
+            "provenance": "Independent Evaluation",
+            "retrieved_at": "2026-10-11T00:00:00Z",
+            "configuration": "xhigh",
+        }
+        rec2 = dict(rec1)
+        rec2["score"] = 92.0  # Conflicting score for the exact same measurement identity
+
+        clean, conflicts = deduplicate_and_filter_conflicts([rec1, rec2])
+        self.assertEqual(len(conflicts), 1)
+        self.assertEqual(len(clean), 0)
+
+
+class TestStaleDataFallbackAndHealth(unittest.TestCase):
+    @patch("pipeline.benchmarks.adapters.livebench.LiveBenchAdapter.fetch")
+    @patch("pipeline.benchmarks.adapters.openrouter.OpenRouterAdapter.fetch_metrics")
+    def test_pipeline_preserves_snapshot_on_outage(self, mock_or, mock_lb):
+        from pipeline.benchmarks.runner import run_benchmark_pipeline
+
+        # Simulate remote failure
+        mock_lb.return_value = []
+        mock_or.return_value = []
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp_bench = Path(tmpdir) / "benchmarks.json"
+            seed_data = {
+                "metadata": {
+                    "last_updated": "2026-06-25T12:00:00Z",
+                    "total_benchmark_records": 1,
+                    "total_model_metrics": 1,
+                },
+                "benchmarks": [
+                    {
+                        "model_name": "Claude Fable 5",
+                        "canonical_id": "claude-fable-5",
+                        "provider": "Anthropic",
+                        "benchmark_name": "LiveBench Overall Average",
+                        "category": "Composite",
+                        "score": 83.38,
+                        "score_unit": "Percentage",
+                        "evaluation_date": "2026-06-25",
+                        "source": "LiveBench",
+                        "source_url": "https://livebench.ai/",
+                        "provenance": "Independent Evaluation",
+                        "retrieved_at": "2026-06-25T12:00:00Z",
+                    }
+                ],
+                "model_metrics": [],
+                "benchmark_standards": [],
+            }
+            with tmp_bench.open("w", encoding="utf-8") as f:
+                json.dump(seed_data, f, indent=2)
+
+            result = run_benchmark_pipeline(benchmarks_path=tmp_bench)
+
+            # Must preserve the snapshot, not overwrite with 0 records
+            self.assertEqual(len(result["benchmarks"]), 1)
+            self.assertEqual(result["metadata"]["total_benchmark_records"], 1)
+            self.assertEqual(result["metadata"]["status"], "stale_fallback")
+            self.assertTrue(any("Preserved" in w for w in result["metadata"]["health"]["warnings"]))
+
+
+class TestDynamicBenchmarkStandards(unittest.TestCase):
+    def test_dynamic_leaders_derived_from_actual_data(self):
+        from pipeline.benchmarks.runner import derive_benchmark_standards
+
+        records = [
+            {
+                "model_name": "Claude Fable 5.1 Max",
+                "canonical_id": "claude-fable-5.1-max",
+                "provider": "Anthropic",
+                "benchmark_name": "LiveBench Overall Average",
+                "category": "Composite",
+                "score": 83.78,
+                "score_unit": "Percentage",
+                "evaluation_date": "2026-06-25",
+                "source": "LiveBench",
+                "source_url": "https://livebench.ai/",
+                "provenance": "Independent Evaluation",
+                "retrieved_at": "2026-10-11T00:00:00Z",
+            },
+            {
+                "model_name": "GPT 6 Astra Max",
+                "canonical_id": "gpt-6-astra-max",
+                "provider": "OpenAI",
+                "benchmark_name": "LiveBench Overall Average",
+                "category": "Composite",
+                "score": 82.50,
+                "score_unit": "Percentage",
+                "evaluation_date": "2026-06-25",
+                "source": "LiveBench",
+                "source_url": "https://livebench.ai/",
+                "provenance": "Independent Evaluation",
+                "retrieved_at": "2026-10-11T00:00:00Z",
+            },
+        ]
+
+        standards = derive_benchmark_standards(records)
+        lb_std = next(s for s in standards if s["name"] == "LiveBench")
+        self.assertIn("Claude Fable 5.1 Max", lb_std["leader"])
+        self.assertIn("83.78%", lb_std["leader"])
+        # Static legacy leaders like o1 / Claude 3.5 Sonnet must NOT appear when data has newer leaders
+        self.assertNotIn("OpenAI o1, DeepSeek-R1", lb_std["leader"])
+
+
+class TestDeploymentBuildMetadata(unittest.TestCase):
+    def test_build_metadata_schema_and_types(self):
+        build_path = Path(__file__).parent.parent.parent / "src" / "data" / "build.json"
+        self.assertTrue(build_path.exists())
+        with build_path.open("r", encoding="utf-8") as f:
+            data = json.load(f)
+        self.assertIn("commit_sha", data)
+        self.assertIn("build_time", data)
+        self.assertIsInstance(data["commit_sha"], str)
+        self.assertIsInstance(data["build_time"], str)
+
+
+class TestModelIdentityResolution(unittest.TestCase):
+    def test_resolve_exact_internal_id(self):
+        from pipeline.models.identity import MatchType, resolve_model_identity
+        res = resolve_model_identity("openai/o1")
+        self.assertEqual(res.match_type, MatchType.EXACT_INTERNAL_ID)
+        self.assertEqual(res.matched_id, "openai/o1")
+        self.assertEqual(res.confidence, 1.0)
+        self.assertEqual(res.canonical_name, "OpenAI o1")
+        self.assertEqual(res.provider, "OpenAI")
+
+    def test_resolve_exact_openrouter_id(self):
+        from pipeline.models.identity import MatchType, resolve_model_identity
+        res = resolve_model_identity("meta-llama/llama-3.3-70b-instruct")
+        self.assertEqual(res.match_type, MatchType.EXACT_OPENROUTER_ID)
+        self.assertEqual(res.matched_id, "meta/llama-3-3-70b-instruct")
+        self.assertEqual(res.confidence, 1.0)
+
+    def test_resolve_exact_benchmark_name(self):
+        from pipeline.models.identity import MatchType, resolve_model_identity
+        res = resolve_model_identity("o3-mini-high")
+        self.assertEqual(res.match_type, MatchType.EXACT_BENCHMARK_NAME)
+        self.assertEqual(res.matched_id, "openai/o3-mini")
+        self.assertEqual(res.configuration, "high")
+
+    def test_resolve_verified_alias(self):
+        from pipeline.models.identity import MatchType, resolve_model_identity
+        res = resolve_model_identity("Claude 3.5 Sonnet")
+        self.assertEqual(res.match_type, MatchType.VERIFIED_ALIAS)
+        self.assertEqual(res.matched_id, "anthropic/claude-3-5-sonnet")
+
+    def test_distinct_variant_not_collapsed(self):
+        from pipeline.models.identity import MatchType, resolve_model_identity
+        # Distinct version checkpoint not registered in verified aliases must NOT collapse
+        res = resolve_model_identity("deepseek-v3.2")
+        self.assertEqual(res.match_type, MatchType.UNRESOLVED)
+        self.assertIsNone(res.matched_id)
+        self.assertEqual(res.confidence, 0.0)
+
+    def test_empty_identifier_unresolved(self):
+        from pipeline.models.identity import MatchType, resolve_model_identity
+        res = resolve_model_identity("   ")
+        self.assertEqual(res.match_type, MatchType.UNRESOLVED)
+        self.assertIsNone(res.matched_id)
+
+
+class TestFeaturedFrontierAndCatalogue(unittest.TestCase):
+    def test_featured_frontier_ids_presence(self):
+        from pipeline.models.identity import get_featured_frontier_ids
+        f_ids = get_featured_frontier_ids()
+        self.assertIn("openai/o1", f_ids)
+        self.assertIn("deepseek/deepseek-r1", f_ids)
+        self.assertIn("anthropic/claude-3-7-sonnet", f_ids)
+        self.assertIn("google/gemini-2-0-flash", f_ids)
+        # Utility or low-tier models must not be featured frontier
+        self.assertNotIn("openai/gpt-4o-mini", f_ids)
+
+    def test_models_json_has_featured_frontier_boolean(self):
+        models_path = Path(__file__).parent.parent.parent / "src" / "data" / "models.json"
+        with models_path.open("r", encoding="utf-8") as f:
+            models = json.load(f)
+        self.assertGreater(len(models), 0)
+        for m in models:
+            self.assertIn("is_featured_frontier", m)
+            self.assertIsInstance(m["is_featured_frontier"], bool)
+
+    def test_model_identities_json_valid(self):
+        ids_path = Path(__file__).parent.parent.parent / "src" / "data" / "model-identities.json"
+        self.assertTrue(ids_path.exists())
+        with ids_path.open("r", encoding="utf-8") as f:
+            identities = json.load(f)
+        self.assertIsInstance(identities, list)
+        self.assertGreater(len(identities), 10)
+        first = identities[0]
+        self.assertIn("internal_id", first)
+        self.assertIn("canonical_name", first)
+        self.assertIn("provider", first)
+        self.assertIn("provenance", first)
+
+
+class TestBenchmarkValidationReportAndProvenance(unittest.TestCase):
+    def test_validation_report_keys_and_values(self):
+        bench_path = Path(__file__).parent.parent.parent / "src" / "data" / "benchmarks.json"
+        with bench_path.open("r", encoding="utf-8") as f:
+            data = json.load(f)
+        report = data.get("metadata", {}).get("validation_report")
+        self.assertIsNotNone(report)
+        required_keys = {
+            "retrieved_count",
+            "parsed_count",
+            "valid_count",
+            "duplicate_count",
+            "conflict_count",
+            "quarantined_count",
+            "retained_count",
+        }
+        self.assertTrue(required_keys.issubset(report.keys()))
+        self.assertGreaterEqual(report["retained_count"], 0)
+
+    def test_livebench_internal_model_id_populated(self):
+        bench_path = Path(__file__).parent.parent.parent / "src" / "data" / "benchmarks.json"
+        with bench_path.open("r", encoding="utf-8") as f:
+            data = json.load(f)
+        benchmarks = data.get("benchmarks", [])
+        # Check that curated frontier model records have internal_model_id populated
+        sol_records = [b for b in benchmarks if b.get("internal_model_id") == "openai/gpt-6.1-sol"]
+        self.assertGreater(len(sol_records), 0)
+        self.assertEqual(sol_records[0]["internal_model_id"], "openai/gpt-6.1-sol")
+
+
+class TestArticleQualitySafeguards(unittest.TestCase):
+    def test_clean_factual_summary_passes(self):
+        from pipeline.summarizer import validate_article_summary_quality
+        title = "Anthropic Releases Claude 3.7 Sonnet with Hybrid Reasoning"
+        summary = "Anthropic has launched Claude 3.7 Sonnet, introducing hybrid reasoning architecture with selectable test-time compute."
+        is_valid, reason = validate_article_summary_quality(title, summary)
+        self.assertTrue(is_valid)
+        self.assertEqual(reason, "Valid")
+
+    def test_short_summary_rejected(self):
+        from pipeline.summarizer import validate_article_summary_quality
+        is_valid, reason = validate_article_summary_quality("Title", "Too short.")
+        self.assertFalse(is_valid)
+        self.assertIn("too short", reason.lower())
+
+    def test_filler_placeholder_summary_rejected(self):
+        from pipeline.summarizer import validate_article_summary_quality
+        is_valid, reason = validate_article_summary_quality(
+            "New LLM", "[Automated summary unavailable] Read more at site."
+        )
+        self.assertFalse(is_valid)
+        self.assertIn("placeholder", reason.lower())
+
+    def test_headline_model_mismatch_detected(self):
+        from pipeline.summarizer import validate_article_summary_quality
+        title = "Anthropic Announces Claude 3.7 Sonnet Frontier Model"
+        summary = "Google DeepMind has introduced new Gemini models offering extended context window capabilities."
+        is_valid, reason = validate_article_summary_quality(title, summary)
+        self.assertFalse(is_valid)
+        self.assertIn("mismatch", reason.lower())
+
+
+class TestPipelineStatus(unittest.TestCase):
+    def test_pipeline_status_snapshot_schema(self):
+        status_path = Path(__file__).parent.parent.parent / "src" / "data" / "pipeline-status.json"
+        self.assertTrue(status_path.exists())
+        with status_path.open("r", encoding="utf-8") as f:
+            data = json.load(f)
+        self.assertIn("generated_at", data)
+        self.assertIn("overall_status", data)
+        self.assertIn("feed_health", data)
+        self.assertIn("rss_sources", data)
+        self.assertIn("benchmark_sources", data)
+
+    def test_pipeline_status_disabled_sources(self):
+        status_path = Path(__file__).parent.parent.parent / "src" / "data" / "pipeline-status.json"
+        with status_path.open("r", encoding="utf-8") as f:
+            data = json.load(f)
+        bench_sources = data.get("benchmark_sources", [])
+        benchlm = next(s for s in bench_sources if s["name"] == "BenchLM")
+        self.assertEqual(benchlm["status"], "disabled")
+        self.assertIn("reason", benchlm)
+
+
 if __name__ == "__main__":
     unittest.main()
+
 
 

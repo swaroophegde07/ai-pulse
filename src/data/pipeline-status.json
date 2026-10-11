@@ -1,0 +1,180 @@
+{
+  "generated_at": "2026-10-11T06:06:28.497331+00:00",
+  "overall_status": "healthy",
+  "feed_health": {
+    "total_configured_sources": 14,
+    "active_sources": 14,
+    "total_retained_articles": 121
+  },
+  "rss_sources": [
+    {
+      "name": "OpenAI News",
+      "publisher": "OpenAI",
+      "url": "https://openai.com/news/rss.xml",
+      "category": "Product Release",
+      "status": "active",
+      "retained_articles_count": 10,
+      "last_checked": "2026-10-11T06:06:28.497331+00:00"
+    },
+    {
+      "name": "Google DeepMind Blog",
+      "publisher": "Google DeepMind",
+      "url": "https://deepmind.google/blog/rss.xml",
+      "category": "Research",
+      "status": "active",
+      "retained_articles_count": 10,
+      "last_checked": "2026-10-11T06:06:28.497331+00:00"
+    },
+    {
+      "name": "Hugging Face Blog",
+      "publisher": "Hugging Face",
+      "url": "https://huggingface.co/blog/feed.xml",
+      "category": "News",
+      "status": "active",
+      "retained_articles_count": 10,
+      "last_checked": "2026-10-11T06:06:28.497331+00:00"
+    },
+    {
+      "name": "GitHub AI & Copilot",
+      "publisher": "GitHub",
+      "url": "https://github.blog/category/ai-and-ml/feed/",
+      "category": "Product Release",
+      "status": "active",
+      "retained_articles_count": 10,
+      "last_checked": "2026-10-11T06:06:28.497331+00:00"
+    },
+    {
+      "name": "VS Code Updates",
+      "publisher": "Microsoft VS Code",
+      "url": "https://code.visualstudio.com/feed.xml",
+      "category": "Product Release",
+      "status": "active",
+      "retained_articles_count": 10,
+      "last_checked": "2026-10-11T06:06:28.497331+00:00"
+    },
+    {
+      "name": "Microsoft Research AI",
+      "publisher": "Microsoft Research",
+      "url": "https://www.microsoft.com/en-us/research/feed/",
+      "category": "Research",
+      "status": "active",
+      "retained_articles_count": 10,
+      "last_checked": "2026-10-11T06:06:28.497331+00:00"
+    },
+    {
+      "name": "The Gradient",
+      "publisher": "The Gradient",
+      "url": "https://thegradient.pub/rss/",
+      "category": "Research",
+      "status": "active",
+      "retained_articles_count": 10,
+      "last_checked": "2026-10-11T06:06:28.497331+00:00"
+    },
+    {
+      "name": "The Verge – AI",
+      "publisher": "The Verge",
+      "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+      "category": "News",
+      "status": "active",
+      "retained_articles_count": 11,
+      "last_checked": "2026-10-11T06:06:28.497331+00:00"
+    },
+    {
+      "name": "Ars Technica – AI",
+      "publisher": "Ars Technica",
+      "url": "https://arstechnica.com/tag/ai/feed/",
+      "category": "News",
+      "status": "active",
+      "retained_articles_count": 10,
+      "last_checked": "2026-10-11T06:06:28.497331+00:00"
+    },
+    {
+      "name": "MIT Technology Review",
+      "publisher": "MIT Technology Review",
+      "url": "https://www.technologyreview.com/feed/",
+      "category": "News",
+      "status": "active",
+      "retained_articles_count": 10,
+      "last_checked": "2026-10-11T06:06:28.497331+00:00"
+    },
+    {
+      "name": "arXiv cs.AI (Artificial Intelligence)",
+      "publisher": "arXiv (Cornell University)",
+      "url": "https://rss.arxiv.org/rss/cs.AI",
+      "category": "Research",
+      "status": "active",
+      "retained_articles_count": 10,
+      "last_checked": "2026-10-11T06:06:28.497331+00:00"
+    },
+    {
+      "name": "arXiv cs.LG (Machine Learning)",
+      "publisher": "arXiv (Cornell University)",
+      "url": "https://rss.arxiv.org/rss/cs.LG",
+      "category": "Research",
+      "status": "active",
+      "retained_articles_count": 0,
+      "last_checked": "2026-10-11T06:06:28.497331+00:00"
+    },
+    {
+      "name": "Anthropic News",
+      "publisher": "Anthropic",
+      "url": "https://www.anthropic.com/news/rss",
+      "category": "Product Release",
+      "status": "active",
+      "retained_articles_count": 0,
+      "last_checked": "2026-10-11T06:06:28.497331+00:00"
+    },
+    {
+      "name": "NVIDIA Developer Blog",
+      "publisher": "NVIDIA",
+      "url": "https://developer.nvidia.com/blog/feed",
+      "category": "Product Release",
+      "status": "active",
+      "retained_articles_count": 10,
+      "last_checked": "2026-10-11T06:06:28.497331+00:00"
+    }
+  ],
+  "benchmark_sources": [
+    {
+      "name": "LiveBench",
+      "type": "Benchmark Suite",
+      "status": "active",
+      "release": "2026-06-25",
+      "provenance": "Independent Evaluation",
+      "url": "https://livebench.ai/",
+      "license": "Apache-2.0",
+      "notes": "Contamination-free evaluations with monthly updated problems across reasoning, coding, and mathematics."
+    },
+    {
+      "name": "OpenRouter Telemetry",
+      "type": "Model Telemetry",
+      "status": "active",
+      "role": "Model catalogue & token pricing telemetry",
+      "url": "https://openrouter.ai/",
+      "notes": "Verified context lengths and input/output token pricing per 1M tokens."
+    },
+    {
+      "name": "BenchLM",
+      "type": "Benchmark Suite",
+      "status": "disabled",
+      "reason": "Awaiting official public API endpoint and authentication."
+    },
+    {
+      "name": "Artificial Analysis",
+      "type": "Benchmark Suite",
+      "status": "disabled",
+      "reason": "Requires ARTIFICIAL_ANALYSIS_API_KEY environment credential."
+    },
+    {
+      "name": "LM Council",
+      "type": "Human Evaluation",
+      "status": "disabled",
+      "reason": "Source API deprecation or restructuring."
+    }
+  ],
+  "summary": {
+    "total_rss_sources": 14,
+    "active_benchmark_sources": 2,
+    "disabled_benchmark_sources": 3
+  }
+}

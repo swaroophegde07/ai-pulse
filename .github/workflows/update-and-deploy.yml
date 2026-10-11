@@ -55,6 +55,9 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event.inputs.skip_ingestion != 'true' }}
 
+    outputs:
+      commit_sha: ${{ steps.commit_data.outputs.commit_sha }}
+
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -86,6 +89,7 @@ jobs:
         run: python -m pipeline.run
 
       - name: Commit updated feed data
+        id: commit_data
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -97,6 +101,7 @@ jobs:
             git commit -m "chore: update feed, benchmark, and model catalog data [skip ci]"
             git push
           fi
+          echo "commit_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
   # ---------------------------------------------------------------------------
   # Job 2: Build and Deploy — install Node deps, build Astro, deploy to Pages
@@ -117,8 +122,15 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
         with:
-          # Pull the latest commit (including any feed.json update from ingest).
-          ref: ${{ github.ref }}
+          # Pull the exact commit produced by ingest (or trigger ref if ingest skipped).
+          ref: ${{ needs.ingest.outputs.commit_sha || github.ref }}
+          fetch-depth: 1
+
+      - name: Record build metadata
+        run: |
+          COMMIT_SHA="${{ needs.ingest.outputs.commit_sha || github.sha }}"
+          BUILD_TIME="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+          echo "{\"commit_sha\": \"$COMMIT_SHA\", \"build_time\": \"$BUILD_TIME\"}" > src/data/build.json
 
       - name: Set up Node.js
         uses: actions/setup-node@v4

@@ -24,7 +24,9 @@
     "documentation_url": "https://platform.openai.com/docs/models#o3-mini",
     "source_url": "https://openai.com/index/openai-o3-mini/",
     "last_verified": "2026-10-10",
-    "notes": "Cost-efficient reasoning model optimized for coding, mathematics, and STEM."
+    "notes": "Cost-efficient reasoning model optimized for coding, mathematics, and STEM.",
+    "category": "Frontier Reasoning & Chat",
+    "is_featured_frontier": true
   },
   {
     "id": "openai/o1",
@@ -52,7 +54,9 @@
     "documentation_url": "https://platform.openai.com/docs/models#o1",
     "source_url": "https://openai.com/index/introducing-openai-o1-preview/",
     "last_verified": "2026-10-10",
-    "notes": "Full-scale reasoning model using chain-of-thought reinforcement learning."
+    "notes": "Full-scale reasoning model using chain-of-thought reinforcement learning.",
+    "category": "Frontier Reasoning & Chat",
+    "is_featured_frontier": true
   },
   {
     "id": "openai/gpt-4o",
@@ -82,7 +86,9 @@
     "documentation_url": "https://platform.openai.com/docs/models#gpt-4o",
     "source_url": "https://openai.com/index/hello-gpt-4o/",
     "last_verified": "2026-10-10",
-    "notes": "Flagship multimodal foundation model across text, audio, and vision."
+    "notes": "Flagship multimodal foundation model across text, audio, and vision.",
+    "category": "General Chat & Language",
+    "is_featured_frontier": true
   },
   {
     "id": "openai/gpt-4o-mini",
@@ -110,7 +116,9 @@
     "documentation_url": "https://platform.openai.com/docs/models#gpt-4o-mini",
     "source_url": "https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/",
     "last_verified": "2026-10-10",
-    "notes": "Affordable high-throughput model replacing GPT-3.5 Turbo."
+    "notes": "Affordable high-throughput model replacing GPT-3.5 Turbo.",
+    "category": "General Chat & Language",
+    "is_featured_frontier": false
   },
   {
     "id": "anthropic/claude-3-7-sonnet",
@@ -138,7 +146,9 @@
     "documentation_url": "https://docs.anthropic.com/en/docs/about-claude/models",
     "source_url": "https://www.anthropic.com/news/claude-3-7-sonnet",
     "last_verified": "2026-10-10",
-    "notes": "Hybrid reasoning model supporting standard instantaneous generation and extended thinking."
+    "notes": "Hybrid reasoning model supporting standard instantaneous generation and extended thinking.",
+    "category": "General Chat & Language",
+    "is_featured_frontier": true
   },
   {
     "id": "anthropic/claude-3-5-sonnet",
@@ -166,7 +176,9 @@
     "documentation_url": "https://docs.anthropic.com/en/docs/about-claude/models",
     "source_url": "https://www.anthropic.com/news/claude-3-5-sonnet",
     "last_verified": "2026-10-10",
-    "notes": "Industry benchmark standard for coding, software engineering, and complex reasoning."
+    "notes": "Industry benchmark standard for coding, software engineering, and complex reasoning.",
+    "category": "General Chat & Language",
+    "is_featured_frontier": true
   },
   {
     "id": "anthropic/claude-3-5-haiku",
@@ -194,7 +206,9 @@
     "documentation_url": "https://docs.anthropic.com/en/docs/about-claude/models",
     "source_url": "https://www.anthropic.com/news/claude-3-5-haiku",
     "last_verified": "2026-10-10",
-    "notes": "Fastest Claude model with performance matching predecessor Claude 3 Opus."
+    "notes": "Fastest Claude model with performance matching predecessor Claude 3 Opus.",
+    "category": "General Chat & Language",
+    "is_featured_frontier": false
   },
   {
     "id": "google/gemini-2-0-flash",
@@ -225,7 +239,9 @@
     "documentation_url": "https://ai.google.dev/gemini-api/docs/models/gemini#gemini-2.0-flash",
     "source_url": "https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/",
     "last_verified": "2026-10-10",
-    "notes": "High-speed multimodal frontier model with native tool use and low latency."
+    "notes": "High-speed multimodal frontier model with native tool use and low latency.",
+    "category": "Frontier Reasoning & Chat",
+    "is_featured_frontier": true
   },
   {
     "id": "google/gemini-2-0-pro-exp",
@@ -256,7 +272,9 @@
     "documentation_url": "https://ai.google.dev/gemini-api/docs/models/gemini#gemini-2.0-pro",
     "source_url": "https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/",
     "last_verified": "2026-10-10",
-    "notes": "Largest Google frontier model for complex coding and math with a 2M token context window."
+    "notes": "Largest Google frontier model for complex coding and math with a 2M token context window.",
+    "category": "Frontier Reasoning & Chat",
+    "is_featured_frontier": true
   },
   {
     "id": "deepseek/deepseek-r1",
@@ -282,8 +300,14 @@
     },
     "documentation_url": "https://api-docs.deepseek.com/",
     "source_url": "https://github.com/deepseek-ai/DeepSeek-R1",
-    "last_verified": "2026-10-10",
-    "notes": "Open-weights 671B Mixture-of-Experts (37B active) reasoning model trained via large-scale RL."
+    "last_verified": "2026-10-11",
+    "notes": "Open-weights 671B Mixture-of-Experts (37B active) reasoning model trained via large-scale RL.",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "category": "Frontier Reasoning & Chat",
+    "is_featured_frontier": true
   },
   {
     "id": "deepseek/deepseek-v3",
@@ -309,8 +333,14 @@
     },
     "documentation_url": "https://api-docs.deepseek.com/",
     "source_url": "https://github.com/deepseek-ai/DeepSeek-V3",
-    "last_verified": "2026-10-10",
-    "notes": "671B MoE base/instruct model utilizing multi-head latent attention (MLA)."
+    "last_verified": "2026-10-11",
+    "notes": "671B MoE base/instruct model utilizing multi-head latent attention (MLA).",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "category": "General Chat & Language",
+    "is_featured_frontier": true
   },
   {
     "id": "meta/llama-3-3-70b-instruct",
@@ -336,8 +366,14 @@
     },
     "documentation_url": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama3_3/",
     "source_url": "https://ai.meta.com/blog/llama-3-3/",
-    "last_verified": "2026-10-10",
-    "notes": "Open-weights 70B dense model matching capabilities of Llama 3.1 405B at a fraction of compute."
+    "last_verified": "2026-10-11",
+    "notes": "Open-weights 70B dense model matching capabilities of Llama 3.1 405B at a fraction of compute.",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "category": "General Chat & Language",
+    "is_featured_frontier": true
   },
   {
     "id": "meta/llama-3-1-405b-instruct",
@@ -364,7 +400,9 @@
     "documentation_url": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama3_1/",
     "source_url": "https://ai.meta.com/blog/meta-llama-3-1/",
     "last_verified": "2026-10-10",
-    "notes": "Largest openly available dense foundation model with 405B parameters."
+    "notes": "Largest openly available dense foundation model with 405B parameters.",
+    "category": "General Chat & Language",
+    "is_featured_frontier": true
   },
   {
     "id": "microsoft/phi-4",
@@ -391,7 +429,9 @@
     "documentation_url": "https://huggingface.co/microsoft/phi-4",
     "source_url": "https://www.microsoft.com/en-us/research/blog/phi-4-technical-report/",
     "last_verified": "2026-10-10",
-    "notes": "14B parameter small language model achieving state-of-the-art reasoning on high-quality synthetic datasets."
+    "notes": "14B parameter small language model achieving state-of-the-art reasoning on high-quality synthetic datasets.",
+    "category": "General Chat & Language",
+    "is_featured_frontier": false
   },
   {
     "id": "mistral/mistral-large-2411",
@@ -418,6 +458,2524 @@
     "documentation_url": "https://docs.mistral.ai/getting-started/models/models_overview/",
     "source_url": "https://mistral.ai/news/mistral-large-2411/",
     "last_verified": "2026-10-10",
-    "notes": "123B frontier model with advanced multilingual support, reasoning, and coding capabilities."
+    "notes": "123B frontier model with advanced multilingual support, reasoning, and coding capabilities.",
+    "category": "General Chat & Language",
+    "is_featured_frontier": true
+  },
+  {
+    "id": "anthropic/claude-haiku-5.5",
+    "name": "Anthropic: Claude Haiku 5.5",
+    "provider": "Anthropic",
+    "family": "Claude Haiku",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1000000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.1,
+      "output_per_1m": 0.5,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/anthropic/claude-haiku-5.5",
+    "source_url": "https://openrouter.ai/anthropic/claude-haiku-5.5",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "google/gemini-nano-banana-2.1",
+    "name": "Google: Nano Banana 2.1",
+    "provider": "Google DeepMind",
+    "family": "Google DeepMind",
+    "category": "General Chat & Language",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 65536,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 1.5,
+      "output_per_1m": 7.5,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/google/gemini-nano-banana-2.1",
+    "source_url": "https://openrouter.ai/google/gemini-nano-banana-2.1",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "mistralai/mistral-large-4-0",
+    "name": "Mistral: Mistral Large 4",
+    "provider": "Mistral AI",
+    "family": "Mistral",
+    "category": "General Chat & Language",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1048576,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Open Weights",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.68,
+      "output_per_1m": 2.09,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/mistralai/mistral-large-4-0",
+    "source_url": "https://openrouter.ai/mistralai/mistral-large-4-0",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": true
+  },
+  {
+    "id": "openai/gpt-6.1-sol-pro",
+    "name": "OpenAI: GPT-6.1 Sol Pro",
+    "provider": "OpenAI",
+    "family": "GPT-6",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1050000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 2.0,
+      "output_per_1m": 10.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-6.1-sol-pro",
+    "source_url": "https://openrouter.ai/openai/gpt-6.1-sol-pro",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": true
+  },
+  {
+    "id": "openai/gpt-6.1-sol",
+    "name": "OpenAI: GPT-6.1 Sol",
+    "provider": "OpenAI",
+    "family": "GPT-6",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1050000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 2.0,
+      "output_per_1m": 10.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-6.1-sol",
+    "source_url": "https://openrouter.ai/openai/gpt-6.1-sol",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": true
+  },
+  {
+    "id": "anthropic/claude-sonnet-5.5",
+    "name": "Anthropic: Claude Sonnet 5.5",
+    "provider": "Anthropic",
+    "family": "Claude Sonnet",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1000000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 2.0,
+      "output_per_1m": 10.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/anthropic/claude-sonnet-5.5",
+    "source_url": "https://openrouter.ai/anthropic/claude-sonnet-5.5",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": true
+  },
+  {
+    "id": "qwen/qwen3.8-max-prime",
+    "name": "Qwen: Qwen3.8 Max Prime",
+    "provider": "Alibaba Cloud",
+    "family": "Qwen 3",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1000000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Open Weights",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 4.0,
+      "output_per_1m": 12.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/qwen/qwen3.8-max-prime",
+    "source_url": "https://openrouter.ai/qwen/qwen3.8-max-prime",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": true
+  },
+  {
+    "id": "openai/gpt-6-luna-pro",
+    "name": "OpenAI: GPT-6 Luna Pro",
+    "provider": "OpenAI",
+    "family": "GPT-6",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1050000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.1,
+      "output_per_1m": 0.5,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-6-luna-pro",
+    "source_url": "https://openrouter.ai/openai/gpt-6-luna-pro",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "openai/gpt-6-luna",
+    "name": "OpenAI: GPT-6 Luna",
+    "provider": "OpenAI",
+    "family": "GPT-6",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1050000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.1,
+      "output_per_1m": 0.5,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-6-luna",
+    "source_url": "https://openrouter.ai/openai/gpt-6-luna",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "openai/gpt-6-sol-pro",
+    "name": "OpenAI: GPT-6 Sol Pro",
+    "provider": "OpenAI",
+    "family": "GPT-6",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1050000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 2.0,
+      "output_per_1m": 10.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-6-sol-pro",
+    "source_url": "https://openrouter.ai/openai/gpt-6-sol-pro",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "openai/gpt-6-sol",
+    "name": "OpenAI: GPT-6 Sol",
+    "provider": "OpenAI",
+    "family": "GPT-6",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1050000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 2.0,
+      "output_per_1m": 10.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-6-sol",
+    "source_url": "https://openrouter.ai/openai/gpt-6-sol",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "anthropic/claude-opus-5.5",
+    "name": "Anthropic: Claude Opus 5.5",
+    "provider": "Anthropic",
+    "family": "Claude Opus",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1000000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 4.0,
+      "output_per_1m": 20.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/anthropic/claude-opus-5.5",
+    "source_url": "https://openrouter.ai/anthropic/claude-opus-5.5",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": true
+  },
+  {
+    "id": "qwen/qwen3.8-omni-flash",
+    "name": "Qwen: Qwen3.8 Omni Flash",
+    "provider": "Alibaba Cloud",
+    "family": "Qwen 3",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1000000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Open Weights",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.15,
+      "output_per_1m": 0.47,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/qwen/qwen3.8-omni-flash",
+    "source_url": "https://openrouter.ai/qwen/qwen3.8-omni-flash",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "deepseek/deepseek-v4.1-flash",
+    "name": "DeepSeek: DeepSeek V4.1 Flash",
+    "provider": "DeepSeek",
+    "family": "DeepSeek-V4",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1048576,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Open Weights",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.3,
+      "output_per_1m": 1.2,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/deepseek/deepseek-v4.1-flash",
+    "source_url": "https://openrouter.ai/deepseek/deepseek-v4.1-flash",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": true
+  },
+  {
+    "id": "openai/gpt-6-astra",
+    "name": "OpenAI: GPT-6 Astra",
+    "provider": "OpenAI",
+    "family": "GPT-6",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1050000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 10.0,
+      "output_per_1m": 50.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-6-astra",
+    "source_url": "https://openrouter.ai/openai/gpt-6-astra",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": true
+  },
+  {
+    "id": "openai/gpt-6-astra-pro",
+    "name": "OpenAI: GPT-6 Astra Pro",
+    "provider": "OpenAI",
+    "family": "GPT-6",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1050000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 10.0,
+      "output_per_1m": 50.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-6-astra-pro",
+    "source_url": "https://openrouter.ai/openai/gpt-6-astra-pro",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": true
+  },
+  {
+    "id": "qwen/qwen3.8-max-0902",
+    "name": "Qwen: Qwen3.8 Max (0902)",
+    "provider": "Alibaba Cloud",
+    "family": "Qwen 3",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1000000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Open Weights",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 2.0,
+      "output_per_1m": 6.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/qwen/qwen3.8-max-0902",
+    "source_url": "https://openrouter.ai/qwen/qwen3.8-max-0902",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "google/gemini-3.8-flash",
+    "name": "Google: Gemini 3.8 Flash",
+    "provider": "Google DeepMind",
+    "family": "Gemini 3",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1048576,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.75,
+      "output_per_1m": 3.75,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/google/gemini-3.8-flash",
+    "source_url": "https://openrouter.ai/google/gemini-3.8-flash",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "qwen/qwen3.8-flash",
+    "name": "Qwen: Qwen3.8 Flash",
+    "provider": "Alibaba Cloud",
+    "family": "Qwen 3",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1000000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Open Weights",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.15,
+      "output_per_1m": 0.47,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/qwen/qwen3.8-flash",
+    "source_url": "https://openrouter.ai/qwen/qwen3.8-flash",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "deepseek/deepseek-v4-flash-vision-exp",
+    "name": "DeepSeek: DeepSeek V4 Flash Vision Exp",
+    "provider": "DeepSeek",
+    "family": "DeepSeek-V4",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1048576,
+    "input_modalities": [
+      "text",
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Open Weights",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.2156,
+      "output_per_1m": 0.6468,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/deepseek/deepseek-v4-flash-vision-exp",
+    "source_url": "https://openrouter.ai/deepseek/deepseek-v4-flash-vision-exp",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "qwen/qwen3.8-27b",
+    "name": "Qwen: Qwen3.8 27B",
+    "provider": "Alibaba Cloud",
+    "family": "Qwen 3",
+    "category": "General Chat & Language",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1000000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Open Weights",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.04,
+      "output_per_1m": 2.3,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/qwen/qwen3.8-27b",
+    "source_url": "https://openrouter.ai/qwen/qwen3.8-27b",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "google/gemini-3.7-flash",
+    "name": "Google: Gemini 3.7 Flash",
+    "provider": "Google DeepMind",
+    "family": "Gemini 3",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1048576,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.75,
+      "output_per_1m": 3.75,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/google/gemini-3.7-flash",
+    "source_url": "https://openrouter.ai/google/gemini-3.7-flash",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "qwen/qwen3.8-2.4t-a95b",
+    "name": "Qwen: Qwen3.8 2.4T A95B",
+    "provider": "Alibaba Cloud",
+    "family": "Qwen 3",
+    "category": "General Chat & Language",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1048576,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Open Weights",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 2.0,
+      "output_per_1m": 6.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/qwen/qwen3.8-2.4t-a95b",
+    "source_url": "https://openrouter.ai/qwen/qwen3.8-2.4t-a95b",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "deepseek/deepseek-v4-pro-0813",
+    "name": "DeepSeek: DeepSeek V4 Pro 0813",
+    "provider": "DeepSeek",
+    "family": "DeepSeek-V4",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1048576,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Open Weights",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.66,
+      "output_per_1m": 1.98,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/deepseek/deepseek-v4-pro-0813",
+    "source_url": "https://openrouter.ai/deepseek/deepseek-v4-pro-0813",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "deepseek/deepseek-v4-flash-0731",
+    "name": "DeepSeek: DeepSeek V4 Flash 0731",
+    "provider": "DeepSeek",
+    "family": "DeepSeek-V4",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1048576,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Open Weights",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.0154,
+      "output_per_1m": 0.64,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/deepseek/deepseek-v4-flash-0731",
+    "source_url": "https://openrouter.ai/deepseek/deepseek-v4-flash-0731",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "qwen/qwen3.7-flash",
+    "name": "Qwen: Qwen3.7 Flash",
+    "provider": "Alibaba Cloud",
+    "family": "Qwen 3",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1000000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Open Weights",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.03,
+      "output_per_1m": 0.13,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/qwen/qwen3.7-flash",
+    "source_url": "https://openrouter.ai/qwen/qwen3.7-flash",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "anthropic/claude-opus-5",
+    "name": "Anthropic: Claude Opus 5",
+    "provider": "Anthropic",
+    "family": "Claude Opus",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1000000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 5.0,
+      "output_per_1m": 25.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/anthropic/claude-opus-5",
+    "source_url": "https://openrouter.ai/anthropic/claude-opus-5",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "google/gemini-3.6-flash",
+    "name": "Google: Gemini 3.6 Flash",
+    "provider": "Google DeepMind",
+    "family": "Gemini 3",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1048576,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.75,
+      "output_per_1m": 3.75,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/google/gemini-3.6-flash",
+    "source_url": "https://openrouter.ai/google/gemini-3.6-flash",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "google/gemini-3.5-flash-lite",
+    "name": "Google: Gemini 3.5 Flash Lite",
+    "provider": "Google DeepMind",
+    "family": "Gemini 3",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1048576,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.3,
+      "output_per_1m": 2.5,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/google/gemini-3.5-flash-lite",
+    "source_url": "https://openrouter.ai/google/gemini-3.5-flash-lite",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "openai/gpt-5.6-luna-pro",
+    "name": "OpenAI: GPT-5.6 Luna Pro",
+    "provider": "OpenAI",
+    "family": "GPT-5",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1050000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.2,
+      "output_per_1m": 1.2,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-5.6-luna-pro",
+    "source_url": "https://openrouter.ai/openai/gpt-5.6-luna-pro",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "openai/gpt-5.6-luna",
+    "name": "OpenAI: GPT-5.6 Luna",
+    "provider": "OpenAI",
+    "family": "GPT-5",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1050000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.2,
+      "output_per_1m": 1.2,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-5.6-luna",
+    "source_url": "https://openrouter.ai/openai/gpt-5.6-luna",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "openai/gpt-5.6-sol-pro",
+    "name": "OpenAI: GPT-5.6 Sol Pro",
+    "provider": "OpenAI",
+    "family": "GPT-5",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1050000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 2.0,
+      "output_per_1m": 10.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-5.6-sol-pro",
+    "source_url": "https://openrouter.ai/openai/gpt-5.6-sol-pro",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "openai/gpt-5.6-sol",
+    "name": "OpenAI: GPT-5.6 Sol",
+    "provider": "OpenAI",
+    "family": "GPT-5",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1050000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 2.0,
+      "output_per_1m": 10.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-5.6-sol",
+    "source_url": "https://openrouter.ai/openai/gpt-5.6-sol",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "anthropic/claude-sonnet-5",
+    "name": "Anthropic: Claude Sonnet 5",
+    "provider": "Anthropic",
+    "family": "Claude Sonnet",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1000000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 2.0,
+      "output_per_1m": 10.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/anthropic/claude-sonnet-5",
+    "source_url": "https://openrouter.ai/anthropic/claude-sonnet-5",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "google/gemini-3.1-flash-lite-image",
+    "name": "Google: Nano Banana 2 Lite (Gemini 3.1 Flash Lite Image)",
+    "provider": "Google DeepMind",
+    "family": "Gemini 3",
+    "category": "Image Generation",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 65536,
+    "input_modalities": [
+      "text",
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.25,
+      "output_per_1m": 1.5,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/google/gemini-3.1-flash-lite-image",
+    "source_url": "https://openrouter.ai/google/gemini-3.1-flash-lite-image",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "google/gemini-3.1-flash-image",
+    "name": "Google: Nano Banana 2 (Gemini 3.1 Flash Image)",
+    "provider": "Google DeepMind",
+    "family": "Gemini 3",
+    "category": "Image Generation",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 131072,
+    "input_modalities": [
+      "text",
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.5,
+      "output_per_1m": 3.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/google/gemini-3.1-flash-image",
+    "source_url": "https://openrouter.ai/google/gemini-3.1-flash-image",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "google/gemini-3-pro-image",
+    "name": "Google: Nano Banana Pro (Gemini 3 Pro Image)",
+    "provider": "Google DeepMind",
+    "family": "Gemini 3",
+    "category": "Image Generation",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 131072,
+    "input_modalities": [
+      "text",
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 2.0,
+      "output_per_1m": 12.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/google/gemini-3-pro-image",
+    "source_url": "https://openrouter.ai/google/gemini-3-pro-image",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "qwen/qwen3.7-plus",
+    "name": "Qwen: Qwen3.7 Plus",
+    "provider": "Alibaba Cloud",
+    "family": "Qwen 3",
+    "category": "General Chat & Language",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1000000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Open Weights",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.32,
+      "output_per_1m": 1.28,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/qwen/qwen3.7-plus",
+    "source_url": "https://openrouter.ai/qwen/qwen3.7-plus",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "anthropic/claude-opus-4.8",
+    "name": "Anthropic: Claude Opus 4.8",
+    "provider": "Anthropic",
+    "family": "Claude Opus",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1000000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 5.0,
+      "output_per_1m": 25.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/anthropic/claude-opus-4.8",
+    "source_url": "https://openrouter.ai/anthropic/claude-opus-4.8",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "qwen/qwen3.7-max",
+    "name": "Qwen: Qwen3.7 Max",
+    "provider": "Alibaba Cloud",
+    "family": "Qwen 3",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1000000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Open Weights",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 1.475,
+      "output_per_1m": 4.425,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/qwen/qwen3.7-max",
+    "source_url": "https://openrouter.ai/qwen/qwen3.7-max",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "google/gemini-3.5-flash",
+    "name": "Google: Gemini 3.5 Flash",
+    "provider": "Google DeepMind",
+    "family": "Gemini 3",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1048576,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 1.5,
+      "output_per_1m": 9.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/google/gemini-3.5-flash",
+    "source_url": "https://openrouter.ai/google/gemini-3.5-flash",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": true
+  },
+  {
+    "id": "google/gemini-3.1-flash-lite",
+    "name": "Google: Gemini 3.1 Flash Lite",
+    "provider": "Google DeepMind",
+    "family": "Gemini 3",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1048576,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.25,
+      "output_per_1m": 1.5,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/google/gemini-3.1-flash-lite",
+    "source_url": "https://openrouter.ai/google/gemini-3.1-flash-lite",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "openai/gpt-5.5-pro",
+    "name": "OpenAI: GPT-5.5 Pro",
+    "provider": "OpenAI",
+    "family": "GPT-5",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1050000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 30.0,
+      "output_per_1m": 180.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-5.5-pro",
+    "source_url": "https://openrouter.ai/openai/gpt-5.5-pro",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "openai/gpt-5.5",
+    "name": "OpenAI: GPT-5.5",
+    "provider": "OpenAI",
+    "family": "GPT-5",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1050000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 5.0,
+      "output_per_1m": 30.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-5.5",
+    "source_url": "https://openrouter.ai/openai/gpt-5.5",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": true
+  },
+  {
+    "id": "deepseek/deepseek-v4-pro",
+    "name": "DeepSeek: DeepSeek V4 Pro 0423",
+    "provider": "DeepSeek",
+    "family": "DeepSeek-V4",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1048576,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Open Weights",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.2088,
+      "output_per_1m": 0.4176,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/deepseek/deepseek-v4-pro",
+    "source_url": "https://openrouter.ai/deepseek/deepseek-v4-pro",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "deepseek/deepseek-v4-flash",
+    "name": "DeepSeek: DeepSeek V4 Flash 0423",
+    "provider": "DeepSeek",
+    "family": "DeepSeek-V4",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1048576,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Open Weights",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.03,
+      "output_per_1m": 1.28,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/deepseek/deepseek-v4-flash",
+    "source_url": "https://openrouter.ai/deepseek/deepseek-v4-flash",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "openai/gpt-5.4-image-2",
+    "name": "OpenAI: GPT-5.4 Image 2",
+    "provider": "OpenAI",
+    "family": "GPT-5",
+    "category": "Image Generation",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 272000,
+    "input_modalities": [
+      "text",
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 8.0,
+      "output_per_1m": 15.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-5.4-image-2",
+    "source_url": "https://openrouter.ai/openai/gpt-5.4-image-2",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "anthropic/claude-opus-4.7",
+    "name": "Anthropic: Claude Opus 4.7",
+    "provider": "Anthropic",
+    "family": "Claude Opus",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1000000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 5.0,
+      "output_per_1m": 25.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/anthropic/claude-opus-4.7",
+    "source_url": "https://openrouter.ai/anthropic/claude-opus-4.7",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "openai/gpt-5.4-nano",
+    "name": "OpenAI: GPT-5.4 Nano",
+    "provider": "OpenAI",
+    "family": "GPT-5",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 400000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.2,
+      "output_per_1m": 1.25,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-5.4-nano",
+    "source_url": "https://openrouter.ai/openai/gpt-5.4-nano",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "openai/gpt-5.4-mini",
+    "name": "OpenAI: GPT-5.4 Mini",
+    "provider": "OpenAI",
+    "family": "GPT-5",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 400000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.75,
+      "output_per_1m": 4.5,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-5.4-mini",
+    "source_url": "https://openrouter.ai/openai/gpt-5.4-mini",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "openai/gpt-5.4-pro",
+    "name": "OpenAI: GPT-5.4 Pro",
+    "provider": "OpenAI",
+    "family": "GPT-5",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1050000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 30.0,
+      "output_per_1m": 180.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-5.4-pro",
+    "source_url": "https://openrouter.ai/openai/gpt-5.4-pro",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "openai/gpt-5.4",
+    "name": "OpenAI: GPT-5.4",
+    "provider": "OpenAI",
+    "family": "GPT-5",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1050000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 2.5,
+      "output_per_1m": 15.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-5.4",
+    "source_url": "https://openrouter.ai/openai/gpt-5.4",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "google/gemini-3.1-flash-lite-preview",
+    "name": "Google: Gemini 3.1 Flash Lite Preview",
+    "provider": "Google DeepMind",
+    "family": "Gemini 3",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1048576,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.25,
+      "output_per_1m": 1.5,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/google/gemini-3.1-flash-lite-preview",
+    "source_url": "https://openrouter.ai/google/gemini-3.1-flash-lite-preview",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "google/gemini-3.1-flash-image-preview",
+    "name": "Google: Nano Banana 2 (Gemini 3.1 Flash Image Preview)",
+    "provider": "Google DeepMind",
+    "family": "Gemini 3",
+    "category": "Image Generation",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 65536,
+    "input_modalities": [
+      "text",
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.5,
+      "output_per_1m": 3.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/google/gemini-3.1-flash-image-preview",
+    "source_url": "https://openrouter.ai/google/gemini-3.1-flash-image-preview",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "google/gemini-3.1-pro-preview-customtools",
+    "name": "Google: Gemini 3.1 Pro Preview Custom Tools",
+    "provider": "Google DeepMind",
+    "family": "Gemini 3",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1048576,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 2.0,
+      "output_per_1m": 12.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/google/gemini-3.1-pro-preview-customtools",
+    "source_url": "https://openrouter.ai/google/gemini-3.1-pro-preview-customtools",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "openai/gpt-5.3-codex",
+    "name": "OpenAI: GPT-5.3-Codex",
+    "provider": "OpenAI",
+    "family": "GPT-5",
+    "category": "Coding",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 400000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 1.75,
+      "output_per_1m": 14.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-5.3-codex",
+    "source_url": "https://openrouter.ai/openai/gpt-5.3-codex",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "google/gemini-3.1-pro-preview",
+    "name": "Google: Gemini 3.1 Pro Preview",
+    "provider": "Google DeepMind",
+    "family": "Gemini 3",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1048576,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 2.0,
+      "output_per_1m": 12.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/google/gemini-3.1-pro-preview",
+    "source_url": "https://openrouter.ai/google/gemini-3.1-pro-preview",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "anthropic/claude-opus-4.6",
+    "name": "Anthropic: Claude Opus 4.6",
+    "provider": "Anthropic",
+    "family": "Claude Opus",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1000000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 5.0,
+      "output_per_1m": 25.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/anthropic/claude-opus-4.6",
+    "source_url": "https://openrouter.ai/anthropic/claude-opus-4.6",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "openai/gpt-5.2-codex",
+    "name": "OpenAI: GPT-5.2-Codex",
+    "provider": "OpenAI",
+    "family": "GPT-5",
+    "category": "Coding",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 400000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 1.75,
+      "output_per_1m": 14.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-5.2-codex",
+    "source_url": "https://openrouter.ai/openai/gpt-5.2-codex",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "google/gemini-3-flash-preview",
+    "name": "Google: Gemini 3 Flash Preview",
+    "provider": "Google DeepMind",
+    "family": "Gemini 3",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1048576,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.5,
+      "output_per_1m": 3.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/google/gemini-3-flash-preview",
+    "source_url": "https://openrouter.ai/google/gemini-3-flash-preview",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "openai/gpt-5.2-chat",
+    "name": "OpenAI: GPT-5.2 Chat",
+    "provider": "OpenAI",
+    "family": "GPT-5",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 128000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 1.75,
+      "output_per_1m": 14.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-5.2-chat",
+    "source_url": "https://openrouter.ai/openai/gpt-5.2-chat",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "openai/gpt-5.2-pro",
+    "name": "OpenAI: GPT-5.2 Pro",
+    "provider": "OpenAI",
+    "family": "GPT-5",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 400000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 21.0,
+      "output_per_1m": 168.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-5.2-pro",
+    "source_url": "https://openrouter.ai/openai/gpt-5.2-pro",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "openai/gpt-5.2",
+    "name": "OpenAI: GPT-5.2",
+    "provider": "OpenAI",
+    "family": "GPT-5",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 400000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 1.75,
+      "output_per_1m": 14.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-5.2",
+    "source_url": "https://openrouter.ai/openai/gpt-5.2",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "mistralai/devstral-2512",
+    "name": "Mistral: Devstral 2 2512",
+    "provider": "Mistral AI",
+    "family": "Mistral",
+    "category": "Coding",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 262144,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Open Weights",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.4,
+      "output_per_1m": 2.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/mistralai/devstral-2512",
+    "source_url": "https://openrouter.ai/mistralai/devstral-2512",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "openai/gpt-5.1-codex-max",
+    "name": "OpenAI: GPT-5.1-Codex-Max",
+    "provider": "OpenAI",
+    "family": "GPT-5",
+    "category": "Coding",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 400000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 1.25,
+      "output_per_1m": 10.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-5.1-codex-max",
+    "source_url": "https://openrouter.ai/openai/gpt-5.1-codex-max",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "anthropic/claude-opus-4.5",
+    "name": "Anthropic: Claude Opus 4.5",
+    "provider": "Anthropic",
+    "family": "Claude Opus",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 200000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 5.0,
+      "output_per_1m": 25.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/anthropic/claude-opus-4.5",
+    "source_url": "https://openrouter.ai/anthropic/claude-opus-4.5",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "google/gemini-3-pro-image-preview",
+    "name": "Google: Nano Banana Pro (Gemini 3 Pro Image Preview)",
+    "provider": "Google DeepMind",
+    "family": "Gemini 3",
+    "category": "Image Generation",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 65536,
+    "input_modalities": [
+      "text",
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 2.0,
+      "output_per_1m": 12.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/google/gemini-3-pro-image-preview",
+    "source_url": "https://openrouter.ai/google/gemini-3-pro-image-preview",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "openai/gpt-5.1",
+    "name": "OpenAI: GPT-5.1",
+    "provider": "OpenAI",
+    "family": "GPT-5",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 400000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 1.25,
+      "output_per_1m": 10.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-5.1",
+    "source_url": "https://openrouter.ai/openai/gpt-5.1",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "openai/gpt-5.1-codex",
+    "name": "OpenAI: GPT-5.1-Codex",
+    "provider": "OpenAI",
+    "family": "GPT-5",
+    "category": "Coding",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 400000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 1.25,
+      "output_per_1m": 10.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-5.1-codex",
+    "source_url": "https://openrouter.ai/openai/gpt-5.1-codex",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "openai/gpt-5.1-codex-mini",
+    "name": "OpenAI: GPT-5.1-Codex-Mini",
+    "provider": "OpenAI",
+    "family": "GPT-5",
+    "category": "Coding",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 400000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.25,
+      "output_per_1m": 2.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-5.1-codex-mini",
+    "source_url": "https://openrouter.ai/openai/gpt-5.1-codex-mini",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "google/gemini-2.5-flash-image",
+    "name": "Google: Nano Banana (Gemini 2.5 Flash Image)",
+    "provider": "Google DeepMind",
+    "family": "Gemini 2",
+    "category": "Image Generation",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 32768,
+    "input_modalities": [
+      "text",
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.3,
+      "output_per_1m": 2.5,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/google/gemini-2.5-flash-image",
+    "source_url": "https://openrouter.ai/google/gemini-2.5-flash-image",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "anthropic/claude-opus-4.1",
+    "name": "Anthropic: Claude Opus 4.1",
+    "provider": "Anthropic",
+    "family": "Claude Opus",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 200000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 15.0,
+      "output_per_1m": 75.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/anthropic/claude-opus-4.1",
+    "source_url": "https://openrouter.ai/anthropic/claude-opus-4.1",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "google/gemini-2.5-flash-lite",
+    "name": "Google: Gemini 2.5 Flash Lite",
+    "provider": "Google DeepMind",
+    "family": "Gemini 2",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1048576,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.1,
+      "output_per_1m": 0.4,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/google/gemini-2.5-flash-lite",
+    "source_url": "https://openrouter.ai/google/gemini-2.5-flash-lite",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "google/gemini-2.5-flash",
+    "name": "Google: Gemini 2.5 Flash",
+    "provider": "Google DeepMind",
+    "family": "Gemini 2",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1048576,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 0.3,
+      "output_per_1m": 2.5,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/google/gemini-2.5-flash",
+    "source_url": "https://openrouter.ai/google/gemini-2.5-flash",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "google/gemini-2.5-pro",
+    "name": "Google: Gemini 2.5 Pro",
+    "provider": "Google DeepMind",
+    "family": "Gemini 2",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1048576,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 1.25,
+      "output_per_1m": 10.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/google/gemini-2.5-pro",
+    "source_url": "https://openrouter.ai/google/gemini-2.5-pro",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
+  },
+  {
+    "id": "google/gemini-2.5-pro-preview",
+    "name": "Google: Gemini 2.5 Pro Preview 06-05",
+    "provider": "Google DeepMind",
+    "family": "Gemini 2",
+    "category": "Frontier Reasoning & Chat",
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1048576,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 1.25,
+      "output_per_1m": 10.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/google/gemini-2.5-pro-preview",
+    "source_url": "https://openrouter.ai/google/gemini-2.5-pro-preview",
+    "last_verified": "2026-10-11",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-10-11)",
+      "pricing": "OpenRouter (2026-10-11)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
+    "is_featured_frontier": false
   }
 ]

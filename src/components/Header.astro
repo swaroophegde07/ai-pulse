@@ -44,8 +44,9 @@ const navItems = [
           AI PULSE
         </span>
         <span
-          class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"
-          aria-hidden="true"
+          class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"
+          title="Automated intelligence pipeline active"
+          aria-label="Automated intelligence pipeline active"
         ></span>
       </a>
 
@@ -76,6 +77,22 @@ const navItems = [
           })
         }
       </nav>
+
+      <!-- Secondary Desktop Feedback link -->
+      <div class="hidden md:flex items-center ml-2 pl-2 border-l border-neutral-800">
+        <a
+          href={`${base}/feedback/`}
+          class={`font-mono text-xs px-2.5 py-1.5 rounded transition-colors duration-150 inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
+            normalizedCurrent === "/feedback"
+              ? "text-emerald-400 bg-emerald-400/10 font-medium"
+              : "text-neutral-400 hover:text-neutral-100 hover:bg-neutral-800/80"
+          }`}
+          aria-current={normalizedCurrent === "/feedback" ? "page" : undefined}
+          aria-label="Submit feedback or report an issue"
+        >
+          <span>Feedback</span>
+        </a>
+      </div>
 
       <!-- Mobile menu button -->
       <button
@@ -154,6 +171,20 @@ const navItems = [
           );
         })
       }
+      <div class="pt-2 mt-2 border-t border-neutral-800/80">
+        <a
+          href={`${base}/feedback/`}
+          class={`mobile-nav-link flex items-center justify-between font-mono text-xs tracking-wide px-3 py-3 rounded-md min-h-[44px] transition-colors ${
+            normalizedCurrent === "/feedback"
+              ? "text-emerald-400 bg-emerald-400/10 font-medium"
+              : "text-neutral-400 hover:text-neutral-100 hover:bg-neutral-800/60 active:bg-neutral-800"
+          }`}
+          aria-current={normalizedCurrent === "/feedback" ? "page" : undefined}
+        >
+          <span>Feedback &amp; Bug Reports</span>
+          <span class="font-mono text-[10px] text-neutral-500">↗</span>
+        </a>
+      </div>
     </nav>
   </div>
 </header>
@@ -173,6 +204,7 @@ const navItems = [
       menu?.classList.remove("hidden");
       closedIcon?.classList.add("hidden");
       openIcon?.classList.remove("hidden");
+      document.body.classList.add("overflow-hidden");
     }
 
     function closeMenu() {
@@ -181,6 +213,7 @@ const navItems = [
       menu?.classList.add("hidden");
       closedIcon?.classList.remove("hidden");
       openIcon?.classList.add("hidden");
+      document.body.classList.remove("overflow-hidden");
     }
 
     function toggleMenu() {
