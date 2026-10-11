@@ -86,7 +86,7 @@ function formatLastUpdated(iso: string | undefined): string {
   <main id="main-content">
     <!-- Page header -->
     <section class="border-b border-theme-border bg-theme-page">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 animate-reveal">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
             <div class="inline-flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase px-2.5 py-1 rounded border border-sky-500/30 bg-sky-500/10 text-sky-500 dark:text-sky-400 mb-3">
@@ -200,7 +200,7 @@ function formatLastUpdated(iso: string | undefined): string {
               <button
                 type="button"
                 id="reset-filter-btn"
-                class="font-mono text-[10px] uppercase tracking-wider text-theme-primary px-3 py-1.5 rounded border border-theme-border bg-theme-elevated hover:bg-theme-hover transition-colors cursor-pointer"
+                class="btn-interactive font-mono text-[10px] uppercase tracking-wider text-theme-primary px-3 py-1.5 rounded border border-theme-border bg-theme-elevated hover:bg-theme-hover cursor-pointer"
               >
                 Clear all filters
               </button>
@@ -215,7 +215,7 @@ function formatLastUpdated(iso: string | undefined): string {
               <button
                 type="button"
                 id="load-more-btn"
-                class="font-mono text-xs text-theme-secondary hover:text-theme-primary bg-theme-surface hover:bg-theme-hover border border-theme-border hover:border-theme-border-accent px-6 py-2.5 rounded-md transition-colors cursor-pointer"
+                class="btn-interactive font-mono text-xs text-theme-secondary hover:text-theme-primary bg-theme-surface hover:bg-theme-hover border border-theme-border hover:border-theme-border-accent px-6 py-2.5 rounded-md cursor-pointer"
               >
                 Load more articles ↓
               </button>

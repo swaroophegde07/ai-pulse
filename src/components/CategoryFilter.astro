@@ -40,7 +40,7 @@ const { categories, publishers, topics } = Astro.props;
       id="clear-search-btn"
       type="button"
       style="display: none;"
-      class="absolute inset-y-0 right-0 pr-3 flex items-center text-theme-muted hover:text-theme-primary transition-colors cursor-pointer"
+      class="btn-interactive absolute inset-y-0 right-0 pr-3 flex items-center text-theme-muted hover:text-theme-primary cursor-pointer"
       aria-label="Clear search input"
     >
       <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -55,7 +55,7 @@ const { categories, publishers, topics } = Astro.props;
       <button
         type="button"
         data-category="all"
-        class="category-btn active font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border transition-colors duration-150 border-theme-border text-theme-primary bg-theme-elevated font-semibold hover:border-theme-border-accent"
+        class="category-btn chip-interactive active font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border border-theme-border text-theme-primary bg-theme-elevated font-semibold hover:border-theme-border-accent"
         aria-pressed="true"
       >
         All
@@ -65,7 +65,7 @@ const { categories, publishers, topics } = Astro.props;
           <button
             type="button"
             data-category={cat.toLowerCase()}
-            class="category-btn font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border transition-colors duration-150 border-theme-border text-theme-muted hover:text-theme-primary hover:border-theme-border-accent bg-theme-surface"
+            class="category-btn chip-interactive font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border border-theme-border text-theme-muted hover:text-theme-primary hover:border-theme-border-accent bg-theme-surface"
             aria-pressed="false"
           >
             {cat}
@@ -77,7 +77,7 @@ const { categories, publishers, topics } = Astro.props;
         type="button"
         id="high-impact-view-btn"
         data-high-impact="false"
-        class="font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border transition-colors duration-150 border-theme-border text-amber-500/90 hover:text-amber-500 hover:border-amber-500/40 bg-theme-surface"
+        class="chip-interactive font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border border-theme-border text-amber-500/90 hover:text-amber-500 hover:border-amber-500/40 bg-theme-surface"
         aria-pressed="false"
       >
         High Impact (<span id="high-impact-count">0</span>)
@@ -87,7 +87,7 @@ const { categories, publishers, topics } = Astro.props;
         type="button"
         id="saved-view-btn"
         data-saved-view="false"
-        class="font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border transition-colors duration-150 border-theme-border text-amber-500/90 hover:text-amber-500 hover:border-amber-500/40 bg-theme-surface"
+        class="chip-interactive font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border border-theme-border text-amber-500/90 hover:text-amber-500 hover:border-amber-500/40 bg-theme-surface"
         aria-pressed="false"
       >
         Saved (<span id="saved-count">0</span>)
@@ -98,7 +98,7 @@ const { categories, publishers, topics } = Astro.props;
     <button
       type="button"
       id="toggle-filters-btn"
-      class="font-mono text-[11px] text-theme-secondary hover:text-emerald-600 dark:hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-500 transition-colors inline-flex items-center gap-1.5 py-1.5 px-2.5 rounded border border-theme-border hover:border-theme-border-accent bg-theme-surface cursor-pointer"
+      class="btn-interactive font-mono text-[11px] text-theme-secondary hover:text-emerald-600 dark:hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-500 inline-flex items-center gap-1.5 py-1.5 px-2.5 rounded border border-theme-border hover:border-theme-border-accent bg-theme-surface cursor-pointer"
       aria-expanded="false"
       aria-controls="advanced-filters"
     >
@@ -186,7 +186,7 @@ const { categories, publishers, topics } = Astro.props;
       type="button"
       id="reset-all-filters-btn"
       style="display: none;"
-      class="font-mono text-[10px] text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 underline underline-offset-4 cursor-pointer"
+      class="btn-interactive font-mono text-[10px] text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 underline underline-offset-4 cursor-pointer"
     >
       Clear all filters
     </button>

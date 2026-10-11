@@ -39,12 +39,32 @@ export function applyTheme(preference: ThemePreference): void {
   syncThemeButtons(preference);
 }
 
+let themeTransitionTimer: number | null = null;
+
+export function triggerThemeTransition(): void {
+  if (typeof window === "undefined") return;
+  // Respect prefers-reduced-motion
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    return;
+  }
+  const root = document.documentElement;
+  root.classList.add("theme-transitioning");
+  if (themeTransitionTimer !== null) {
+    window.clearTimeout(themeTransitionTimer);
+  }
+  themeTransitionTimer = window.setTimeout(() => {
+    root.classList.remove("theme-transitioning");
+    themeTransitionTimer = null;
+  }, 220);
+}
+
 export function setThemePreference(pref: ThemePreference): void {
   try {
     localStorage.setItem(THEME_KEY, pref);
   } catch {
     // Graceful fallback
   }
+  triggerThemeTransition();
   applyTheme(pref);
 }
 
@@ -92,6 +112,7 @@ export function initThemeManager(): void {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     const handleMediaChange = () => {
       if (getThemePreference() === "system") {
+        triggerThemeTransition();
         applyTheme("system");
       }
     };
@@ -107,6 +128,7 @@ export function initThemeManager(): void {
   // Cross-tab synchronization via storage event
   window.addEventListener("storage", (e) => {
     if (e.key === THEME_KEY) {
+      triggerThemeTransition();
       applyTheme(getThemePreference());
     }
   });

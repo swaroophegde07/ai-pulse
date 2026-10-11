@@ -47,6 +47,15 @@ export default {
           placeholder: "var(--text-placeholder)",
         },
       },
+      transitionDuration: {
+        micro: "150ms",
+        base: "200ms",
+        entrance: "220ms",
+      },
+      transitionTimingFunction: {
+        standard: "cubic-bezier(0.16, 1, 0.3, 1)",
+        smooth: "cubic-bezier(0.4, 0, 0.2, 1)",
+      },
     },
   },
   plugins: [],

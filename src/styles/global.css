@@ -37,6 +37,13 @@
     --text-link: #059669;
 
     --focus-ring: #059669;
+
+    /* Motion tokens */
+    --duration-micro: 150ms;
+    --duration-base: 200ms;
+    --duration-entrance: 220ms;
+    --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   html.dark,
@@ -90,10 +97,18 @@
     overflow-x: hidden;
   }
 
-  @media (prefers-reduced-motion: no-preference) {
-    body, header, footer, article, nav, button, select, input {
-      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
-    }
+  /* Smooth theme transitions triggered during explicit preference toggle or OS theme shift */
+  html.theme-transitioning,
+  html.theme-transitioning *,
+  html.theme-transitioning *::before,
+  html.theme-transitioning *::after {
+    transition: background-color var(--duration-base) var(--ease-smooth),
+                border-color var(--duration-base) var(--ease-smooth),
+                color var(--duration-base) var(--ease-smooth),
+                fill var(--duration-base) var(--ease-smooth),
+                stroke var(--duration-base) var(--ease-smooth),
+                box-shadow var(--duration-base) var(--ease-smooth) !important;
+    transition-delay: 0s !important;
   }
 
   /* High-contrast accessible text selection */
@@ -126,6 +141,7 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
+      transform: none !important;
     }
   }
 }
@@ -155,11 +171,18 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
-    transition: color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+    transition: color var(--duration-micro) var(--ease-standard),
+                background-color var(--duration-micro) var(--ease-standard),
+                box-shadow var(--duration-micro) var(--ease-standard),
+                transform var(--duration-micro) var(--ease-standard);
   }
 
   .theme-btn:hover {
     color: var(--text-primary);
+  }
+
+  .theme-btn:active {
+    transform: scale(0.96);
   }
 
   .theme-btn.theme-active {
@@ -168,9 +191,79 @@
     font-weight: 600;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
   }
+
+  /* News card micro-interactions */
+  .news-card {
+    transition: transform var(--duration-base) var(--ease-standard),
+                box-shadow var(--duration-base) var(--ease-standard),
+                border-color var(--duration-base) var(--ease-standard),
+                background-color var(--duration-base) var(--ease-standard);
+    will-change: transform;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .news-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.06), 0 2px 6px -2px rgba(0, 0, 0, 0.04);
+    }
+
+    html.dark .news-card:hover {
+      box-shadow: 0 4px 14px -2px rgba(0, 0, 0, 0.35), 0 2px 6px -2px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  .news-card:active {
+    transform: translateY(0);
+    transition-duration: var(--duration-micro);
+  }
+
+  .news-card:focus-within {
+    border-color: var(--border-accent);
+  }
+
+  /* Interactive button micro-press state */
+  .btn-interactive {
+    transition: background-color var(--duration-micro) var(--ease-standard),
+                border-color var(--duration-micro) var(--ease-standard),
+                color var(--duration-micro) var(--ease-standard),
+                box-shadow var(--duration-micro) var(--ease-standard),
+                transform var(--duration-micro) var(--ease-standard);
+  }
+
+  .btn-interactive:active:not(:disabled) {
+    transform: scale(0.97);
+  }
+
+  /* Interactive chip / pill micro-press state */
+  .chip-interactive {
+    transition: background-color var(--duration-micro) var(--ease-standard),
+                border-color var(--duration-micro) var(--ease-standard),
+                color var(--duration-micro) var(--ease-standard),
+                transform var(--duration-micro) var(--ease-standard);
+  }
+
+  .chip-interactive:active {
+    transform: scale(0.96);
+  }
 }
 
 @layer utilities {
+  /* Subtle entrance animation — minimal, non-blocking */
+  @keyframes revealUp {
+    from {
+      opacity: 0.9;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-reveal {
+    animation: revealUp var(--duration-entrance) var(--ease-standard) both;
+  }
+
   /* Line clamp utilities */
   .line-clamp-2 {
     display: -webkit-box;

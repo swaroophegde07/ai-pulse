@@ -124,7 +124,7 @@ const prioStyle = priority_label ? (priorityStyles[priority_label] ?? prioritySt
 ---
 
 <article
-  class="group relative flex flex-col bg-theme-surface border border-theme-border rounded-lg overflow-hidden hover:border-theme-border-accent hover:bg-theme-hover transition-all duration-200"
+  class="group relative flex flex-col bg-theme-surface border border-theme-border rounded-lg overflow-hidden hover:border-theme-border-accent hover:bg-theme-hover news-card"
   data-id={id}
   data-title={title.toLowerCase()}
   data-company={company.toLowerCase()}
@@ -186,7 +186,7 @@ const prioStyle = priority_label ? (priorityStyles[priority_label] ?? prioritySt
         <!-- Bookmark button -->
         <button
           type="button"
-          class="bookmark-btn inline-flex items-center justify-center w-8 h-8 -mr-1.5 rounded text-theme-muted hover:text-amber-500 hover:bg-theme-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 transition-colors cursor-pointer"
+          class="bookmark-btn inline-flex items-center justify-center w-8 h-8 -mr-1.5 rounded text-theme-muted hover:text-amber-500 hover:bg-theme-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 active:scale-90 transition-all duration-150 cursor-pointer"
           data-article-id={id}
           data-article-title={title}
           data-article-url={url}
@@ -280,7 +280,7 @@ const prioStyle = priority_label ? (priorityStyles[priority_label] ?? prioritySt
           {articleTags.slice(0, 5).map((t) => (
             <a
               href={`${base}/news/?q=${encodeURIComponent(t.toLowerCase())}`}
-              class="tag-pill text-[10px] font-mono text-theme-muted bg-theme-elevated hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-theme-border-accent px-2 py-0.5 rounded border border-theme-border transition-colors"
+              class="tag-pill chip-interactive text-[10px] font-mono text-theme-muted bg-theme-elevated hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-theme-border-accent px-2 py-0.5 rounded border border-theme-border"
               data-tag={t.toLowerCase()}
               title={`Filter articles tagged #${t}`}
             >
