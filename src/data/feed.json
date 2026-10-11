@@ -1,5 +1,27 @@
 [
   {
+    "id": "47aa66d1b4eb0050",
+    "title": "Satya Nadella says we should assume all AI models are ‘compromised’",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "Microsoft CEO Satya Nadella published a post on X outlining the risks of advanced AI models and arguing that all models should be assumed compromised. He advocated for greater transparency, independent audits, incident disclosure, and verifiable containment systems that leave tamper-proof human-readable evidence.",
+    "summary_status": "generated",
+    "content_fingerprint": "a7d83dc28c4effd7",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1009337/satya-nadella-says-we-should-assume-all-ai-models-are-compromised",
+    "date": "2026-10-10T22:10:17+00:00",
+    "category": "Opinion",
+    "fetched_at": "2026-10-11T02:19:26.020425+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "Highlights important industry tooling, platform, and infrastructure progression."
+  },
+  {
     "id": "6d57a260d9ad3ce2",
     "title": "DistroKid has been quietly taking down songs in response to UMG lawsuit",
     "company": "The Verge",
