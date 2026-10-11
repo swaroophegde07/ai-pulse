@@ -4,6 +4,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import NewsCard from "../../components/NewsCard.astro";
+import ReaderModal from "../../components/ReaderModal.astro";
 import CategoryFilter from "../../components/CategoryFilter.astro";
 import Footer from "../../components/Footer.astro";
 import sourcesData from "../../data/sources.json";
@@ -238,6 +239,8 @@ function formatLastUpdated(iso: string | undefined): string {
       }
     </div>
   </main>
+
+  <ReaderModal />
 
   <Footer />
 </Layout>

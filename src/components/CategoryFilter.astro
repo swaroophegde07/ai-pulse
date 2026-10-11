@@ -266,8 +266,14 @@ const { categories, publishers, topics } = Astro.props;
       const saved = getSavedArticles();
       if (saved.includes(id)) {
         removeArticle(id);
+        window.dispatchEvent(new CustomEvent("ai-pulse:toast", {
+          detail: { message: "Article removed from bookmarks", color: "bg-theme-muted" }
+        }));
       } else {
         saveArticle(id);
+        window.dispatchEvent(new CustomEvent("ai-pulse:toast", {
+          detail: { message: "Article saved to bookmarks", color: "bg-amber-400" }
+        }));
       }
       if (activeSavedOnly) {
         filterAndSort();

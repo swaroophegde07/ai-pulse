@@ -121,10 +121,32 @@ const priorityStyles: Record<string, string> = {
   "Worth a Look": "text-theme-muted bg-theme-elevated border-theme-border",
 };
 const prioStyle = priority_label ? (priorityStyles[priority_label] ?? priorityStyles["Worth a Look"]) : "";
+
+const articlePayload = JSON.stringify({
+  id,
+  title,
+  company,
+  source,
+  summary,
+  url,
+  date,
+  displayDate,
+  category,
+  topics,
+  tags: articleTags,
+  key_points: hasValidKeyPoints ? key_points : [],
+  impact_score: impact_score ?? null,
+  sources: sources || [],
+  priority_label: priority_label ?? null,
+  priority_explanation: priority_explanation ?? null,
+  why_it_matters: (!hasValidKeyPoints && why_it_matters && !isGenericWhy(why_it_matters)) ? why_it_matters : null,
+  source_type: source_type ?? null,
+  summary_status: summary_status ?? null,
+});
 ---
 
 <article
-  class="group relative flex flex-col bg-theme-surface border border-theme-border rounded-lg overflow-hidden hover:border-theme-border-accent hover:bg-theme-hover news-card"
+  class="group relative flex flex-col bg-theme-surface border border-theme-border rounded-lg overflow-hidden hover:border-theme-border-accent hover:bg-theme-hover news-card cursor-pointer"
   data-id={id}
   data-title={title.toLowerCase()}
   data-company={company.toLowerCase()}
@@ -137,6 +159,7 @@ const prioStyle = priority_label ? (priorityStyles[priority_label] ?? prioritySt
   data-keypoints={(key_points || []).join(" ").toLowerCase()}
   data-impact={impact_score ?? 0}
   data-priority={priority_label ? priority_label.toLowerCase() : "worth a look"}
+  data-article-payload={articlePayload}
 >
   <!-- Demo badge -->
   {
@@ -327,30 +350,46 @@ const prioStyle = priority_label ? (priorityStyles[priority_label] ?? prioritySt
         )
       }
 
-      <!-- External link -->
-      <a
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center gap-1.5 font-mono text-[10px] text-theme-muted hover:text-emerald-600 dark:hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-500 rounded px-1 -mx-1 transition-colors duration-150 group/link mt-0.5 w-fit"
-        aria-label={`Read full article: ${title} (opens in new tab)`}
-      >
-        <span>Read article</span>
-        <svg
-          class="w-3 h-3 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-150"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
+      <!-- Footer Actions: Read source & Expand Brief -->
+      <div class="flex items-center justify-between gap-2 mt-0.5 pt-0.5">
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1.5 font-mono text-[10px] text-theme-muted hover:text-emerald-600 dark:hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-500 rounded px-1 -mx-1 transition-colors duration-150 group/link w-fit"
+          aria-label={`Read full article: ${title} (opens in new tab)`}
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-          />
-        </svg>
-      </a>
+          <span>Read source</span>
+          <svg
+            class="w-3 h-3 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-150"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+            />
+          </svg>
+        </a>
+
+        <!-- Expand / Focused Reader Trigger Button -->
+        <button
+          type="button"
+          class="expand-btn btn-interactive inline-flex items-center gap-1 font-mono text-[10px] text-theme-muted hover:text-emerald-600 dark:hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-500 rounded px-1.5 py-0.5 hover:bg-theme-elevated transition-colors cursor-pointer"
+          data-expand-id={id}
+          title="Expand briefing into focused reader view"
+          aria-label={`Expand full briefing for ${title}`}
+        >
+          <span>Expand</span>
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+          </svg>
+        </button>
+      </div>
     </footer>
   </div>
 </article>

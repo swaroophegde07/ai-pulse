@@ -4,6 +4,7 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import NewsCard from "../components/NewsCard.astro";
+import ReaderModal from "../components/ReaderModal.astro";
 import Footer from "../components/Footer.astro";
 import sourcesData from "../data/sources.json";
 import feedData from "../data/feed.json";
@@ -237,7 +238,11 @@ function formatLastUpdated(iso: string | undefined): string {
                 <span class="font-mono text-[10px] text-theme-muted tracking-wider uppercase">
                   {label}
                 </span>
-                <span class="font-mono text-sm font-semibold text-theme-primary mt-1 truncate" title={value}>
+                <span
+                  class="font-mono text-sm font-semibold text-theme-primary mt-1 truncate"
+                  title={value}
+                  data-count-target={/^\d+$/.test(value) ? value : undefined}
+                >
                   {value}
                 </span>
               </div>
@@ -517,5 +522,29 @@ function formatLastUpdated(iso: string | undefined): string {
     </section>
   </main>
 
+  <ReaderModal />
+
   <Footer />
+
+  <script>
+    (function () {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      const countElements = document.querySelectorAll<HTMLElement>("[data-count-target]");
+      countElements.forEach((el) => {
+        const target = parseInt(el.dataset.countTarget || "0", 10);
+        if (isNaN(target) || target <= 0) return;
+        const duration = 450;
+        const startTime = performance.now();
+        function tick(now: number) {
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const ease = 1 - Math.pow(1 - progress, 3);
+          el.textContent = String(Math.round(ease * target));
+          if (progress < 1) requestAnimationFrame(tick);
+          else el.textContent = String(target);
+        }
+        requestAnimationFrame(tick);
+      });
+    })();
+  </script>
 </Layout>

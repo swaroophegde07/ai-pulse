@@ -69,8 +69,44 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     </a>
     <slot />
 
+    <!-- Global Futuristic HUD Toast Notification -->
+    <div
+      id="hud-toast"
+      role="status"
+      aria-live="polite"
+      class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] pointer-events-none transition-all duration-200 opacity-0 translate-y-3"
+    >
+      <div class="inline-flex items-center gap-2 px-3.5 py-2 rounded-full border border-theme-border bg-theme-surface/95 backdrop-blur-md shadow-xl text-xs font-mono text-theme-primary">
+        <span id="hud-toast-icon" class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span id="hud-toast-msg">Notification</span>
+      </div>
+    </div>
+
     <script>
       import "../scripts/theme";
+
+      let toastTimer: number | null = null;
+      window.addEventListener("ai-pulse:toast", (e: any) => {
+        const toast = document.getElementById("hud-toast");
+        const msg = document.getElementById("hud-toast-msg");
+        const icon = document.getElementById("hud-toast-icon");
+        if (!toast || !msg) return;
+
+        msg.textContent = e.detail?.message || "Notification";
+        if (icon) {
+          icon.className = `w-2 h-2 rounded-full ${e.detail?.color || "bg-emerald-500"}`;
+        }
+
+        toast.classList.remove("opacity-0", "translate-y-3", "pointer-events-none");
+        toast.classList.add("opacity-100", "translate-y-0");
+
+        if (toastTimer) clearTimeout(toastTimer);
+        toastTimer = window.setTimeout(() => {
+          toast.classList.remove("opacity-100", "translate-y-0");
+          toast.classList.add("opacity-0", "translate-y-3", "pointer-events-none");
+          toastTimer = null;
+        }, 2200);
+      });
     </script>
   </body>
 </html>
