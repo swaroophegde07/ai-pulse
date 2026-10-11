@@ -62,8 +62,8 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
         with:
-          # Use a token with write access so we can push the updated JSON.
-          token: ${{ secrets.GITHUB_TOKEN }}
+          # Use DATA_SYNC_TOKEN (personal access token with admin bypass) if configured, fallback to GITHUB_TOKEN.
+          token: ${{ secrets.DATA_SYNC_TOKEN || secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
