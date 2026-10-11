@@ -31,8 +31,12 @@ from pathlib import Path
 from pipeline.scraper import are_titles_duplicate, fetch_all_sources, normalize_title, normalize_url
 from pipeline.sources import ALLOWED_CATEGORIES, SOURCES
 from pipeline.summarizer import (
+    CircuitBreaker,
+    RateLimiter,
+    _get_client,
     is_generic_why_it_matters,
     is_key_point_generic,
+    summarize_article,
     summarize_articles,
     validate_key_points,
 )
@@ -607,6 +611,163 @@ def prepare_article(raw: dict) -> dict:
 
 
 # ---------------------------------------------------------------------------
+# Date Window & Recent TL;DR Backfill
+# ---------------------------------------------------------------------------
+
+
+def is_article_eligible_in_window(
+    date_str: str | None,
+    window_hours: float,
+    current_dt: datetime | None = None,
+) -> bool:
+    """Return True if article publication timestamp is valid, not in the future, and within window_hours."""
+    if not date_str or not isinstance(date_str, str):
+        return False
+    try:
+        pub_dt = datetime.fromisoformat(date_str)
+        if pub_dt.tzinfo is None:
+            pub_dt = pub_dt.replace(tzinfo=UTC)
+    except (ValueError, TypeError):
+        return False
+
+    now = current_dt or datetime.now(UTC)
+    if now.tzinfo is None:
+        now = now.replace(tzinfo=UTC)
+
+    # Exclude future-dated articles (not later than current time)
+    if pub_dt > now:
+        return False
+
+    # Check window boundary
+    return (now - pub_dt).total_seconds() <= window_hours * 3600
+
+
+def backfill_recent_tldrs(
+    feed_records: list[dict] | None = None,
+    feed_path: Path | None = None,
+    client: Any = None,
+    max_backfill: int | None = None,
+    days: int = 7,
+) -> tuple[int, int]:
+    """Safely backfill missing or invalid TL;DR key_points for recent existing articles.
+
+    Requirements:
+    - Bounded to articles published within the past `days` (default 7 days) and not future-dated.
+    - Only updates missing or invalid key_points.
+    - Preserves existing summaries, URLs, tags, impact scores, source links, and other metadata.
+    - Reuses the current Gemini summarizer and its quota safeguards (RateLimiter, CircuitBreaker).
+    - Uses existing generic-content validation (validate_key_points).
+    - If Gemini fails or quota is exhausted, preserves the existing article and leaves TL;DR unavailable.
+    - Writes the updated feed atomically.
+    - Safe to rerun; skips articles that already have valid TL;DR points without duplicate API calls.
+
+    Returns:
+        (updated_count, skipped_count)
+    """
+    target_feed_path = feed_path or DEFAULT_FEED_PATH
+    if feed_records is None:
+        records = load_existing_feed(target_feed_path)
+    else:
+        records = feed_records
+
+    if not records:
+        return (0, 0)
+
+    now = datetime.now(UTC)
+    window_hours = float(days * 24)
+
+    # 1. Identify candidates published within past `days` window, not future-dated, lacking valid TL;DR
+    candidates: list[dict] = []
+    for art in records:
+        d_str = art.get("date")
+        if not is_article_eligible_in_window(d_str, window_hours, current_dt=now):
+            continue
+
+        existing_kp = art.get("key_points")
+        if existing_kp and validate_key_points(existing_kp):
+            # Already has valid, verified TL;DR points -> skip without calling API
+            continue
+
+        candidates.append(art)
+
+    if not candidates:
+        logger.info("No recent articles within the past %d days require TL;DR backfill.", days)
+        return (0, 0)
+
+    # 2. Sort candidates newest first
+    def get_pub_dt(r: dict) -> datetime:
+        try:
+            d = datetime.fromisoformat(r["date"])
+            return d if d.tzinfo else d.replace(tzinfo=UTC)
+        except Exception:
+            return datetime.min.replace(tzinfo=UTC)
+
+    candidates.sort(key=get_pub_dt, reverse=True)
+
+    # 3. Apply bounds
+    if max_backfill is None:
+        env_max = os.environ.get("GEMINI_MAX_BACKFILL_PER_RUN")
+        max_backfill = int(env_max) if env_max else 20
+
+    to_process = candidates[:max_backfill]
+    logger.info(
+        "Found %d candidate articles lacking TL;DR from past %d days; processing bounded batch of %d.",
+        len(candidates),
+        days,
+        len(to_process),
+    )
+
+    # 4. Initialize Gemini client (safely handle missing credential)
+    if client is None:
+        try:
+            client = _get_client()
+        except ValueError as exc:
+            logger.warning("Gemini client initialization skipped for TL;DR backfill: %s", exc)
+            return (0, len(candidates))
+
+    # 5. Rate limiting & circuit breaker
+    rpm = int(os.environ.get("GEMINI_MAX_REQUESTS_PER_MINUTE", "10"))
+    limiter = RateLimiter(requests_per_minute=rpm)
+    circuit = CircuitBreaker()
+
+    updated_count = 0
+    for art in to_process:
+        if circuit.is_open:
+            logger.warning("Circuit breaker is open; halting TL;DR backfill early to preserve quota.")
+            break
+
+        limiter.wait()
+
+        article_input = {
+            "id": art.get("id", ""),
+            "title": art.get("title", ""),
+            "text": art.get("text") or art.get("summary", ""),
+            "url": art.get("url", ""),
+            "category": art.get("category", "News"),
+        }
+
+        try:
+            res = summarize_article(article_input, client=client, circuit_breaker=circuit)
+            new_kp = res.get("key_points")
+            if new_kp and validate_key_points(new_kp):
+                # PRESERVE all existing article summaries, URLs, tags, impact scores, source links, etc.
+                # ONLY update missing or invalid TL;DR fields
+                art["key_points"] = new_kp
+                updated_count += 1
+            else:
+                logger.info("No valid key_points generated for %s; preserving existing article.", art.get("id"))
+        except Exception as exc:
+            logger.warning("Error generating TL;DR backfill for %s: %s", art.get("id"), exc)
+
+    # 6. Atomically write updated feed if any article was updated
+    if updated_count > 0 and target_feed_path:
+        write_feed_atomic(records, target_feed_path)
+        logger.info("Successfully backfilled TL;DR for %d articles in %s.", updated_count, target_feed_path)
+
+    return (updated_count, len(candidates) - updated_count)
+
+
+# ---------------------------------------------------------------------------
 # Pipeline Status Snapshot
 # ---------------------------------------------------------------------------
 
@@ -782,17 +943,23 @@ def run_pipeline(
     # 5. Merge, sort, trim.
     merged = merge_records(existing, prepared, max_articles)
 
-    # 6. Write atomically.
+    # 6. Safe, bounded backfill for recent existing articles missing valid TL;DR
+    try:
+        backfill_recent_tldrs(merged, feed_path)
+    except Exception as bf_exc:
+        logger.warning("Recent TL;DR backfill error (non-fatal): %s", bf_exc)
+
+    # 7. Write atomically.
     write_feed_atomic(merged, feed_path)
 
-    # 7. Run multi-source benchmark ingestion (fails safely without corrupting news feed).
+    # 8. Run multi-source benchmark ingestion (fails safely without corrupting news feed).
     try:
         from pipeline.benchmarks.runner import run_benchmark_pipeline
         run_benchmark_pipeline()
     except Exception as b_exc:
         logger.warning("Benchmark pipeline execution error (non-fatal): %s", b_exc)
 
-    # 8. Generate pipeline status snapshot recording health across feeds and benchmarks.
+    # 9. Generate pipeline status snapshot recording health across feeds and benchmarks.
     try:
         generate_pipeline_status(feed_records=merged)
     except Exception as s_exc:
@@ -803,6 +970,10 @@ def run_pipeline(
 
 
 if __name__ == "__main__":
+    if "--backfill-tldr" in sys.argv:
+        updated, remaining = backfill_recent_tldrs()
+        logger.info("Backfill complete: %d updated, %d remaining/skipped.", updated, remaining)
+        sys.exit(0)
     try:
         added = run_pipeline()
         sys.exit(0)

@@ -85,36 +85,36 @@ function formatLastUpdated(iso: string | undefined): string {
 
   <main id="main-content">
     <!-- Page header -->
-    <section class="border-b border-neutral-800/60 bg-neutral-950">
+    <section class="border-b border-theme-border bg-theme-page">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
-            <div class="inline-flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase px-2.5 py-1 rounded border border-sky-500/30 bg-sky-500/10 text-sky-400 mb-3">
+            <div class="inline-flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase px-2.5 py-1 rounded border border-sky-500/30 bg-sky-500/10 text-sky-500 dark:text-sky-400 mb-3">
               <span>Chronological Intelligence Feed</span>
             </div>
-            <h1 class="text-2xl sm:text-3xl font-bold text-neutral-100 tracking-tight mb-2">
+            <h1 class="text-2xl sm:text-3xl font-bold text-theme-primary tracking-tight mb-2">
               AI News Feed
             </h1>
-            <p class="text-xs text-neutral-400 font-mono flex items-center gap-2 flex-wrap">
+            <p class="text-xs text-theme-secondary font-mono flex items-center gap-2 flex-wrap">
               <span>
                 {realArticles.length} article{realArticles.length !== 1 ? "s" : ""} across{" "}
                 {distinctPublishers.length} publisher{distinctPublishers.length !== 1 ? "s" : ""} · {sourcesData.length} feeds monitored
               </span>
-              <span class="inline-flex items-center gap-1 text-[10px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5 rounded">
-                <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              <span class="inline-flex items-center gap-1 text-[10px] text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5 rounded">
+                <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400"></span>
                 14/14 Feeds Active
               </span>
             </p>
           </div>
           <div class="flex flex-col sm:items-end gap-1">
-            <p class="font-mono text-[10px] text-neutral-500 tracking-wide">
+            <p class="font-mono text-[10px] text-theme-muted tracking-wide">
               Last ingestion: {formatLastUpdated(lastUpdated)}
             </p>
             <a
               href="https://github.com/swaroophegde07/ai-pulse/issues/new?template=data_correction.yml&title=%5BData+Correction%5D%3A+Article+Summary+Inaccuracy+%28News+Page%29"
               target="_blank"
               rel="noopener noreferrer"
-              class="font-mono text-[10px] text-neutral-500 hover:text-blue-400 transition-colors inline-flex items-center gap-1"
+              class="font-mono text-[10px] text-theme-muted hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-1"
               title="Report inaccurate article summaries, broken links, or misclassifications"
             >
               <span>Report a news issue</span>
@@ -140,17 +140,17 @@ function formatLastUpdated(iso: string | undefined): string {
         sortedArticles.length === 0 ? (
           <div
             id="empty-state"
-            class="border border-neutral-800 rounded-lg p-16 text-center bg-neutral-900/30"
+            class="border border-theme-border rounded-lg p-16 text-center bg-theme-surface"
           >
-            <p class="font-mono text-xs text-neutral-400 mb-2 font-medium">
+            <p class="font-mono text-xs text-theme-secondary mb-2 font-medium">
               No genuine news articles ingested yet.
             </p>
-            <p class="font-mono text-[11px] text-neutral-600 max-w-md mx-auto leading-relaxed mb-4">
+            <p class="font-mono text-[11px] text-theme-muted max-w-md mx-auto leading-relaxed mb-4">
               The automated ingestion pipeline runs twice daily across {sourcesData.length} public feeds,
               or can be triggered on demand via GitHub Actions.
             </p>
-            <p class="font-mono text-[10px] text-neutral-700">
-              Run locally: <code class="text-neutral-500">python3 -m pipeline.run</code>
+            <p class="font-mono text-[10px] text-theme-dim">
+              Run locally: <code class="text-theme-muted">python3 -m pipeline.run</code>
             </p>
           </div>
         ) : (
@@ -189,18 +189,18 @@ function formatLastUpdated(iso: string | undefined): string {
             <div
               id="empty-state"
               style="display: none;"
-              class="border border-neutral-800 rounded-lg p-16 text-center mt-4 bg-neutral-900/30"
+              class="border border-theme-border rounded-lg p-16 text-center mt-4 bg-theme-surface"
             >
-              <p class="font-mono text-xs text-neutral-400 mb-1">
+              <p class="font-mono text-xs text-theme-secondary mb-1">
                 No articles match your search or filter criteria.
               </p>
-              <p class="font-mono text-[10px] text-neutral-600 mb-4">
+              <p class="font-mono text-[10px] text-theme-muted mb-4">
                 Try a different keyword, publisher name, date window, or clear all filters.
               </p>
               <button
                 type="button"
                 id="reset-filter-btn"
-                class="font-mono text-[10px] uppercase tracking-wider text-neutral-300 hover:text-white px-3 py-1.5 rounded border border-neutral-700 bg-neutral-800 hover:bg-neutral-700 transition-colors"
+                class="font-mono text-[10px] uppercase tracking-wider text-theme-primary px-3 py-1.5 rounded border border-theme-border bg-theme-elevated hover:bg-theme-hover transition-colors cursor-pointer"
               >
                 Clear all filters
               </button>
@@ -215,19 +215,19 @@ function formatLastUpdated(iso: string | undefined): string {
               <button
                 type="button"
                 id="load-more-btn"
-                class="font-mono text-xs text-neutral-300 hover:text-white bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 hover:border-neutral-700 px-6 py-2.5 rounded-md transition-colors"
+                class="font-mono text-xs text-theme-secondary hover:text-theme-primary bg-theme-surface hover:bg-theme-hover border border-theme-border hover:border-theme-border-accent px-6 py-2.5 rounded-md transition-colors cursor-pointer"
               >
                 Load more articles ↓
               </button>
             </div>
 
-            <div class="mt-12 pt-6 border-t border-neutral-900 flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] text-neutral-500">
+            <div class="mt-12 pt-6 border-t border-theme-border-subtle flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] text-theme-muted">
               <span>Notice a misclassified article or broken link?</span>
               <a
                 href="https://github.com/swaroophegde07/ai-pulse/issues/new?template=data_correction.yml&title=%5BData+Correction%5D%3A+Article+Summary+Inaccuracy+%28News+Page%29"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-neutral-400 hover:text-blue-400 transition-colors inline-flex items-center gap-1"
+                class="text-theme-secondary hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-1"
               >
                 <span>Report a news issue</span>
                 <span>↗</span>

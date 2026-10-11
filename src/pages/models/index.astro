@@ -90,46 +90,46 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
   <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
     <!-- Header banner -->
     <div class="mb-10">
-      <div class="inline-flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase px-2.5 py-1 rounded border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 mb-3">
+      <div class="inline-flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase px-2.5 py-1 rounded border border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 mb-3">
         <span>Verified Specifications</span>
       </div>
-      <h1 class="text-2xl sm:text-3xl font-bold text-neutral-100 tracking-tight mb-2">
+      <h1 class="text-2xl sm:text-3xl font-bold text-theme-primary tracking-tight mb-2">
         Model Tracker
       </h1>
-      <p class="text-sm text-neutral-400 leading-relaxed max-w-3xl">
+      <p class="text-sm text-theme-secondary leading-relaxed max-w-3xl">
         Frontier architecture specifications, verified context windows, API & consumer pricing, modalities, and open-weights licensing across leading research labs.
       </p>
     </div>
 
     <!-- Quick stats overview -->
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
-      <div class="border border-neutral-800 bg-neutral-900/40 p-4 rounded-lg">
-        <span class="font-mono text-[10px] text-neutral-500 tracking-widest uppercase block mb-1">
+      <div class="border border-theme-border bg-theme-surface p-4 rounded-lg">
+        <span class="font-mono text-[10px] text-theme-muted tracking-widest uppercase block mb-1">
           Cataloged Models
         </span>
-        <span class="font-mono text-xl font-bold text-neutral-100">{models.length}</span>
+        <span class="font-mono text-xl font-bold text-theme-primary">{models.length}</span>
       </div>
-      <div class="border border-neutral-800 bg-neutral-900/40 p-4 rounded-lg">
-        <span class="font-mono text-[10px] text-neutral-500 tracking-widest uppercase block mb-1">
+      <div class="border border-theme-border bg-theme-surface p-4 rounded-lg">
+        <span class="font-mono text-[10px] text-theme-muted tracking-widest uppercase block mb-1">
           Open Weights
         </span>
-        <span class="font-mono text-xl font-bold text-emerald-400">
+        <span class="font-mono text-xl font-bold text-emerald-600 dark:text-emerald-400">
           {models.filter((m) => m.license_type.includes("Open")).length}
         </span>
       </div>
-      <div class="border border-neutral-800 bg-neutral-900/40 p-4 rounded-lg">
-        <span class="font-mono text-[10px] text-neutral-500 tracking-widest uppercase block mb-1">
+      <div class="border border-theme-border bg-theme-surface p-4 rounded-lg">
+        <span class="font-mono text-[10px] text-theme-muted tracking-widest uppercase block mb-1">
           Max Context Window
         </span>
-        <span class="font-mono text-xl font-bold text-neutral-100">
+        <span class="font-mono text-xl font-bold text-theme-primary">
           {formatTokens(Math.max(...models.map((m) => m.context_window)))}
         </span>
       </div>
-      <div class="border border-neutral-800 bg-neutral-900/40 p-4 rounded-lg">
-        <span class="font-mono text-[10px] text-neutral-500 tracking-widest uppercase block mb-1">
+      <div class="border border-theme-border bg-theme-surface p-4 rounded-lg">
+        <span class="font-mono text-[10px] text-theme-muted tracking-widest uppercase block mb-1">
           Active Providers
         </span>
-        <span class="font-mono text-xl font-bold text-neutral-100">{providers.length - 1}</span>
+        <span class="font-mono text-xl font-bold text-theme-primary">{providers.length - 1}</span>
       </div>
     </div>
 
@@ -137,14 +137,14 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
     <section class="mb-14">
       <div class="flex items-center justify-between mb-6">
         <div>
-          <h2 class="text-xs font-mono text-neutral-300 tracking-widest uppercase mb-1">
+          <h2 class="text-xs font-mono text-theme-muted tracking-widest uppercase mb-1">
             Featured Frontier Models
           </h2>
-          <p class="text-xs text-neutral-500 font-mono">
+          <p class="text-xs text-theme-muted font-mono">
             Flagship reasoning, coding, and multimodal models actively deployed across primary AI research laboratories.
           </p>
         </div>
-        <span class="font-mono text-[10px] text-neutral-400 border border-neutral-800 bg-neutral-900/60 px-2.5 py-1 rounded">
+        <span class="font-mono text-[10px] text-theme-secondary border border-theme-border bg-theme-elevated px-2.5 py-1 rounded">
           {featuredFrontierModels.length} Featured Flagships
         </span>
       </div>
@@ -152,40 +152,40 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {
           featuredFrontierModels.map((m) => (
-            <div class="border border-neutral-800 bg-neutral-900/40 rounded-lg p-5 flex flex-col justify-between hover:border-neutral-700 transition-colors">
+            <div class="border border-theme-border bg-theme-surface rounded-lg p-5 flex flex-col justify-between hover:border-theme-border-accent transition-colors">
               <div>
                 <div class="flex items-center justify-between gap-2 mb-2.5">
-                  <span class="font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded border border-neutral-700 bg-neutral-800 text-neutral-300">
+                  <span class="font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded border border-theme-border bg-theme-elevated text-theme-secondary">
                     {m.provider}
                   </span>
                   <span
                     class={`font-mono text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded border ${
                       m.license_type.includes("Open")
-                        ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-400"
-                        : "border-blue-500/30 bg-blue-500/10 text-blue-400"
+                        ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
+                        : "border-blue-500/30 bg-blue-500/10 text-blue-600 dark:text-blue-400"
                     }`}
                   >
                     {m.license_type}
                   </span>
                 </div>
 
-                <h3 class="text-sm font-bold text-neutral-100 mb-1">
+                <h3 class="text-sm font-bold text-theme-primary mb-1">
                   {m.name}
                 </h3>
-                <p class="text-[11px] text-neutral-400 mb-4 line-clamp-2">
+                <p class="text-[11px] text-theme-secondary mb-4 line-clamp-2">
                   {m.notes || `${m.provider} foundation model in the ${m.family} family.`}
                 </p>
 
-                <div class="grid grid-cols-2 gap-2 text-[11px] font-mono border-t border-neutral-800/80 pt-3 mb-3">
+                <div class="grid grid-cols-2 gap-2 text-[11px] font-mono border-t border-theme-border-subtle pt-3 mb-3">
                   <div>
-                    <span class="text-[10px] text-neutral-500 block">Context Window</span>
-                    <span class="font-semibold text-neutral-200">
+                    <span class="text-[10px] text-theme-muted block">Context Window</span>
+                    <span class="font-semibold text-theme-primary">
                       {formatTokens(m.context_window)} tokens
                     </span>
                   </div>
                   <div>
-                    <span class="text-[10px] text-neutral-500 block">Pricing / 1M In/Out</span>
-                    <span class="font-semibold text-neutral-200">
+                    <span class="text-[10px] text-theme-muted block">Pricing / 1M In/Out</span>
+                    <span class="font-semibold text-theme-primary">
                       {m.pricing
                         ? `$${m.pricing.input_per_1m.toFixed(2)} / $${m.pricing.output_per_1m.toFixed(2)}`
                         : "Not specified"}
@@ -194,15 +194,15 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
                 </div>
               </div>
 
-              <div class="flex items-center justify-between pt-2 border-t border-neutral-800/60 font-mono text-[10px]">
-                <span class="text-neutral-500">
+              <div class="flex items-center justify-between pt-2 border-t border-theme-border-subtle font-mono text-[10px]">
+                <span class="text-theme-muted">
                   Released: {m.release_date || "Active"}
                 </span>
                 <a
                   href={m.documentation_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="text-neutral-400 hover:text-emerald-400 transition-colors inline-flex items-center gap-1"
+                  class="text-theme-muted hover:text-theme-accent transition-colors inline-flex items-center gap-1"
                 >
                   Docs ↗
                 </a>
@@ -214,12 +214,12 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
     </section>
 
     <!-- Complete Model Catalogue: Interactive Filters & Search -->
-    <div class="border border-neutral-800 bg-neutral-900/50 rounded-lg p-5 mb-8">
-      <div class="flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center">
+    <div class="border border-theme-border bg-theme-surface rounded-lg p-5 mb-8">
+      <div class="flex flex-col sm:row gap-4 justify-between items-start sm:items-center">
         <!-- Search -->
         <div class="w-full sm:w-72 relative">
           <label for="model-search-input" class="sr-only">Search models</label>
-          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-neutral-500">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-theme-muted">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
             </svg>
@@ -228,13 +228,13 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
             type="search"
             id="model-search-input"
             placeholder="Search model, provider, family..."
-            class="w-full bg-neutral-950 border border-neutral-800 rounded pl-9 pr-8 py-2 text-xs text-neutral-100 placeholder:text-neutral-600 font-mono focus:outline-none focus:border-emerald-500"
+            class="w-full bg-theme-input border border-theme-border rounded pl-9 pr-8 py-2 text-xs text-theme-primary placeholder:text-theme-placeholder font-mono focus:outline-none focus:border-theme-accent"
           />
           <button
             type="button"
             id="clear-model-search"
             style="display: none;"
-            class="absolute inset-y-0 right-0 pr-2.5 flex items-center text-neutral-500 hover:text-neutral-200 transition-colors cursor-pointer"
+            class="absolute inset-y-0 right-0 pr-2.5 flex items-center text-theme-muted hover:text-theme-primary transition-colors cursor-pointer"
             aria-label="Clear model search"
           >
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -247,7 +247,7 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
         <div class="flex flex-wrap gap-2" role="toolbar" aria-label="Filter models by category">
           <button
             type="button"
-            class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-neutral-700 bg-neutral-800 text-neutral-100 transition-colors"
+            class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-theme-border bg-theme-elevated text-theme-primary transition-colors"
             data-filter="all"
             aria-pressed="true"
           >
@@ -255,7 +255,7 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
           </button>
           <button
             type="button"
-            class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-neutral-800 text-neutral-400 hover:text-neutral-200 hover:border-neutral-700 transition-colors"
+            class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-theme-border text-theme-secondary hover:text-theme-primary hover:border-theme-border-accent transition-colors"
             data-filter="reasoning"
             aria-pressed="false"
           >
@@ -263,7 +263,7 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
           </button>
           <button
             type="button"
-            class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-neutral-800 text-neutral-400 hover:text-neutral-200 hover:border-neutral-700 transition-colors"
+            class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-theme-border text-theme-secondary hover:text-theme-primary hover:border-theme-border-accent transition-colors"
             data-filter="coding"
             aria-pressed="false"
           >
@@ -271,7 +271,7 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
           </button>
           <button
             type="button"
-            class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-neutral-800 text-neutral-400 hover:text-neutral-200 hover:border-neutral-700 transition-colors"
+            class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-theme-border text-theme-secondary hover:text-theme-primary hover:border-theme-border-accent transition-colors"
             data-filter="multimodal"
             aria-pressed="false"
           >
@@ -279,7 +279,7 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
           </button>
           <button
             type="button"
-            class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-neutral-800 text-neutral-400 hover:text-neutral-200 hover:border-neutral-700 transition-colors"
+            class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-theme-border text-theme-secondary hover:text-theme-primary hover:border-theme-border-accent transition-colors"
             data-filter="open"
             aria-pressed="false"
           >
@@ -287,7 +287,7 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
           </button>
           <button
             type="button"
-            class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-neutral-800 text-neutral-400 hover:text-neutral-200 hover:border-neutral-700 transition-colors"
+            class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-theme-border text-theme-secondary hover:text-theme-primary hover:border-theme-border-accent transition-colors"
             data-filter="historical"
             aria-pressed="false"
           >
@@ -298,26 +298,26 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
     </div>
 
     <!-- Complete Model Catalogue Table -->
-    <section class="mb-14 border border-neutral-800 bg-neutral-900/30 rounded-lg overflow-hidden">
-      <div class="px-6 py-4 border-b border-neutral-800 flex justify-between items-center">
+    <section class="mb-14 border border-theme-border bg-theme-surface rounded-lg overflow-hidden">
+      <div class="px-6 py-4 border-b border-theme-border flex justify-between items-center">
         <div>
-          <h2 class="text-xs font-mono text-neutral-300 tracking-widest uppercase">
+          <h2 class="text-xs font-mono text-theme-primary tracking-widest uppercase">
             Complete Model Catalogue
           </h2>
-          <p class="text-[10px] text-neutral-500 font-mono mt-0.5">
+          <p class="text-[10px] text-theme-muted font-mono mt-0.5">
             Full inventory of verified frontier models, open weights, and catalog telemetry.
           </p>
         </div>
         <div class="flex items-center gap-3">
-          <span class="font-mono text-[10px] text-neutral-500" id="model-count-label">
+          <span class="font-mono text-[10px] text-theme-muted" id="model-count-label">
             Showing {models.length} models
           </span>
-          <span class="text-neutral-700 hidden sm:inline">&middot;</span>
+          <span class="text-theme-border hidden sm:inline">&middot;</span>
           <a
             href="https://github.com/swaroophegde07/ai-pulse/issues/new?template=data_correction.yml&title=%5BData+Correction%5D%3A+Model+Specification+Inaccuracy+%28Models+Page%29"
             target="_blank"
             rel="noopener noreferrer"
-            class="hidden sm:inline-flex items-center gap-1 font-mono text-[10px] text-neutral-400 hover:text-blue-400 transition-colors"
+            class="hidden sm:inline-flex items-center gap-1 font-mono text-[10px] text-theme-muted hover:text-blue-500 transition-colors"
             title="Report incorrect model specifications or pricing via GitHub Issue Form"
           >
             <span>Report incorrect model info</span>
@@ -327,27 +327,27 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
       </div>
 
       <div class="overflow-x-auto custom-scrollbar">
-        <div class="block sm:hidden text-[10px] text-neutral-400 font-mono px-6 py-2 bg-neutral-950/80 border-b border-neutral-800/80">
+        <div class="block sm:hidden text-[10px] text-theme-muted font-mono px-6 py-2 bg-theme-elevated/80 border-b border-theme-border-subtle">
           Swipe table horizontally for pricing & context details →
         </div>
         <table class="w-full text-left text-xs font-mono" id="models-table">
           <thead>
-            <tr class="border-b border-neutral-800 bg-neutral-950/40 text-neutral-500 text-[11px]">
-              <th class="py-3.5 pl-6 pr-4 font-medium cursor-pointer hover:text-neutral-200 select-none" data-sort="name">Model</th>
-              <th class="py-3.5 pr-4 font-medium cursor-pointer hover:text-neutral-200 select-none" data-sort="provider">Provider</th>
-              <th class="py-3.5 pr-4 font-medium cursor-pointer hover:text-neutral-200 select-none text-emerald-400 font-bold" data-sort="release">Released ▼</th>
-              <th class="py-3.5 pr-4 font-medium cursor-pointer hover:text-neutral-200 select-none" data-sort="context">Context</th>
+            <tr class="border-b border-theme-border bg-theme-elevated/40 text-theme-muted text-[11px]">
+              <th class="py-3.5 pl-6 pr-4 font-medium cursor-pointer hover:text-theme-primary select-none" data-sort="name">Model</th>
+              <th class="py-3.5 pr-4 font-medium cursor-pointer hover:text-theme-primary select-none" data-sort="provider">Provider</th>
+              <th class="py-3.5 pr-4 font-medium cursor-pointer hover:text-theme-primary select-none text-emerald-600 dark:text-emerald-400 font-bold" data-sort="release">Released ▼</th>
+              <th class="py-3.5 pr-4 font-medium cursor-pointer hover:text-theme-primary select-none" data-sort="context">Context</th>
               <th class="py-3.5 pr-4 font-medium">Modalities</th>
-              <th class="py-3.5 pr-4 font-medium cursor-pointer hover:text-neutral-200 select-none" data-sort="price">Pricing (In / Out per 1M)</th>
+              <th class="py-3.5 pr-4 font-medium cursor-pointer hover:text-theme-primary select-none" data-sort="price">Pricing (In / Out per 1M)</th>
               <th class="py-3.5 pr-4 font-medium">Availability</th>
               <th class="py-3.5 pr-6 text-right font-medium">Docs</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-neutral-800/60 text-neutral-300">
+          <tbody class="divide-y divide-theme-border-subtle text-theme-secondary">
             {
               models.map((m) => (
                 <tr
-                  class="model-row hover:bg-neutral-800/30 transition-colors"
+                  class="model-row hover:bg-theme-hover transition-colors"
                   data-name={m.name.toLowerCase()}
                   data-provider={m.provider.toLowerCase()}
                   data-family={m.family.toLowerCase()}
@@ -362,55 +362,55 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
                 >
                   <td class="py-4 pl-6 pr-4">
                     <div class="flex items-center gap-2">
-                      <span class="font-semibold text-neutral-100">{m.name}</span>
+                      <span class="font-semibold text-theme-primary">{m.name}</span>
                       {m.category && (
-                        <span class="text-[9px] font-mono px-1.5 py-0.5 rounded border border-neutral-700 bg-neutral-800 text-neutral-400">
+                        <span class="text-[9px] font-mono px-1.5 py-0.5 rounded border border-theme-border bg-theme-elevated text-theme-muted">
                           {m.category}
                         </span>
                       )}
                     </div>
                   </td>
-                  <td class="py-4 pr-4 text-neutral-300 font-medium">{m.provider}</td>
-                  <td class="py-4 pr-4 font-mono text-[11px] text-neutral-300 whitespace-nowrap">
+                  <td class="py-4 pr-4 text-theme-primary font-medium">{m.provider}</td>
+                  <td class="py-4 pr-4 font-mono text-[11px] text-theme-secondary whitespace-nowrap">
                     {m.release_date || "Active"}
                   </td>
-                  <td class="py-4 pr-4 text-emerald-400 font-semibold whitespace-nowrap">
+                  <td class="py-4 pr-4 text-emerald-600 dark:text-emerald-400 font-semibold whitespace-nowrap">
                     {formatTokens(m.context_window)} tokens
                   </td>
                   <td class="py-4 pr-4">
-                    <div class="text-[11px] text-neutral-300">
+                    <div class="text-[11px] text-theme-secondary">
                       In: {(m.input_modalities || ["text"]).join(", ")}
                     </div>
-                    <div class="text-[10px] text-neutral-500">
+                    <div class="text-[10px] text-theme-muted">
                       Out: {(m.output_modalities || ["text"]).join(", ")}
                     </div>
                   </td>
                   <td class="py-4 pr-4">
                     {m.pricing ? (
                       <div>
-                        <span class="text-neutral-200 font-medium">
+                        <span class="text-theme-primary font-medium">
                           ${m.pricing.input_per_1m.toFixed(2)}
                         </span>{" "}
                         /{" "}
-                        <span class="text-neutral-400">
+                        <span class="text-theme-secondary">
                           ${m.pricing.output_per_1m.toFixed(2)}
                         </span>
                       </div>
                     ) : (
-                      <span class="text-neutral-600">Not verified</span>
+                      <span class="text-theme-dim">Not verified</span>
                     )}
                   </td>
                   <td class="py-4 pr-4">
                     <span
                       class={`inline-block px-2 py-0.5 rounded text-[10px] ${
                         (m.license_type || "").includes("Open")
-                          ? "border border-emerald-500/30 bg-emerald-500/10 text-emerald-400"
-                          : "border border-neutral-700 bg-neutral-800 text-neutral-300"
+                          ? "border border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
+                          : "border border-theme-border bg-theme-elevated text-theme-secondary"
                       }`}
                     >
                       {m.license_type}
                     </span>
-                    <div class="text-[9px] text-neutral-500 mt-1 font-mono">
+                    <div class="text-[9px] text-theme-muted mt-1 font-mono">
                       {m.verification_sources?.telemetry
                         ? `Telemetry: ${m.verification_sources.telemetry}`
                         : m.consumer_available
@@ -423,7 +423,7 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
                       href={m.documentation_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="inline-flex items-center gap-1 font-mono text-[10px] text-neutral-400 hover:text-emerald-400 transition-colors"
+                      class="inline-flex items-center gap-1 font-mono text-[10px] text-theme-muted hover:text-theme-accent transition-colors"
                       aria-label={`Official docs for ${m.name} (opens in new tab)`}
                     >
                       <span>Docs</span>
@@ -440,25 +440,25 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
       <div
         id="no-models-matched"
         style="display: none;"
-        class="p-12 text-center font-mono text-xs text-neutral-400 bg-neutral-950/40"
+        class="p-12 text-center font-mono text-xs text-theme-muted bg-theme-elevated/30"
       >
-        <p class="mb-3 text-neutral-300">No models match the search or filter criteria.</p>
+        <p class="mb-3 text-theme-secondary">No models match the search or filter criteria.</p>
         <button
           type="button"
           id="reset-models-filter-btn"
-          class="font-mono text-[10px] uppercase tracking-wider text-neutral-300 hover:text-white px-3 py-1.5 rounded border border-neutral-700 bg-neutral-800 hover:bg-neutral-700 transition-colors cursor-pointer"
+          class="font-mono text-[10px] uppercase tracking-wider text-theme-primary hover:text-theme-primary px-3 py-1.5 rounded border border-theme-border bg-theme-elevated hover:bg-theme-hover transition-colors cursor-pointer"
         >
           Reset model filters
         </button>
       </div>
 
-      <div class="px-6 py-2.5 bg-neutral-950/60 border-t border-neutral-800/80 flex flex-wrap items-center justify-between gap-2 text-[10px] font-mono text-neutral-500">
+      <div class="px-6 py-2.5 bg-theme-elevated/50 border-t border-theme-border-subtle flex flex-wrap items-center justify-between gap-2 text-[10px] font-mono text-theme-muted">
         <span>Verified against OpenRouter &amp; provider disclosures</span>
         <a
           href="https://github.com/swaroophegde07/ai-pulse/issues/new?template=data_correction.yml&title=%5BData+Correction%5D%3A+Model+Specification+Inaccuracy+%28Models+Page%29"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-neutral-400 hover:text-blue-400 transition-colors inline-flex items-center gap-1"
+          class="text-theme-muted hover:text-blue-500 transition-colors inline-flex items-center gap-1"
         >
           <span>Report incorrect model information</span>
           <span>↗</span>
@@ -470,16 +470,16 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
     <section>
       <div class="flex items-center justify-between mb-6">
         <div>
-          <h2 class="text-xs font-mono text-neutral-400 tracking-widest uppercase">
+          <h2 class="text-xs font-mono text-theme-muted tracking-widest uppercase">
             Model Releases & Architecture Coverage ({modelArticles.length})
           </h2>
-          <p class="text-[11px] text-neutral-500 font-mono mt-0.5">
+          <p class="text-[11px] text-theme-muted font-mono mt-0.5">
             Verified release announcements and model drop coverage from provider blogs.
           </p>
         </div>
         <a
           href={`${base}/news/`}
-          class="font-mono text-[10px] text-neutral-500 hover:text-emerald-400 transition-colors"
+          class="font-mono text-[10px] text-theme-muted hover:text-theme-accent transition-colors"
         >
           View all news →
         </a>
@@ -487,8 +487,8 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
 
       {
         modelArticles.length === 0 ? (
-          <div class="border border-neutral-800 rounded-lg p-10 text-center bg-neutral-900/30">
-            <p class="font-mono text-xs text-neutral-400">
+          <div class="border border-theme-border rounded-lg p-10 text-center bg-theme-surface">
+            <p class="font-mono text-xs text-theme-secondary">
               No recent model release articles ingested yet. New releases from OpenAI, Hugging Face, and Google will populate automatically after pipeline runs.
             </p>
           </div>
@@ -628,10 +628,10 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
           const label = h.textContent?.replace(/[▼▲]/g, "").trim() || "";
           if (k === currentModelSort) {
             h.textContent = `${label} ${modelSortAsc ? "▲" : "▼"}`;
-            h.classList.add("text-emerald-400", "font-bold");
+            h.classList.add("text-emerald-600", "dark:text-emerald-400", "font-bold");
           } else {
             h.textContent = label;
-            h.classList.remove("text-emerald-400", "font-bold");
+            h.classList.remove("text-emerald-600", "dark:text-emerald-400", "font-bold");
           }
         });
 
@@ -666,13 +666,13 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
     filterButtons.forEach((btn) => {
       btn.addEventListener("click", () => {
         filterButtons.forEach((b) => {
-          b.classList.remove("border-neutral-700", "bg-neutral-800", "text-neutral-100");
-          b.classList.add("border-neutral-800", "text-neutral-400");
+          b.classList.remove("bg-theme-elevated", "text-theme-primary");
+          b.classList.add("text-theme-secondary");
           b.setAttribute("aria-pressed", "false");
         });
 
-        btn.classList.remove("border-neutral-800", "text-neutral-400");
-        btn.classList.add("border-neutral-700", "bg-neutral-800", "text-neutral-100");
+        btn.classList.remove("text-theme-secondary");
+        btn.classList.add("bg-theme-elevated", "text-theme-primary");
         btn.setAttribute("aria-pressed", "true");
 
         currentFilter = btn.dataset.filter || "all";
@@ -689,11 +689,11 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
           const isAll = (b.dataset.filter || "all") === "all";
           b.setAttribute("aria-pressed", isAll ? "true" : "false");
           if (isAll) {
-            b.classList.add("border-neutral-700", "bg-neutral-800", "text-neutral-100");
-            b.classList.remove("border-neutral-800", "text-neutral-400");
+            b.classList.add("bg-theme-elevated", "text-theme-primary");
+            b.classList.remove("text-theme-secondary");
           } else {
-            b.classList.remove("border-neutral-700", "bg-neutral-800", "text-neutral-100");
-            b.classList.add("border-neutral-800", "text-neutral-400");
+            b.classList.remove("bg-theme-elevated", "text-theme-primary");
+            b.classList.add("text-theme-secondary");
           }
         });
         filterModels();

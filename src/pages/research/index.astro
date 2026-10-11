@@ -107,44 +107,44 @@ const researchLabs = [
   <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
     <!-- Header banner -->
     <div class="mb-10">
-      <div class="inline-flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase px-2.5 py-1 rounded border border-purple-500/30 bg-purple-500/10 text-purple-400 mb-3">
+      <div class="inline-flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase px-2.5 py-1 rounded border border-purple-500/30 bg-purple-500/10 text-purple-600 dark:text-purple-400 mb-3">
         <span>Peer Intelligence & Preprints</span>
       </div>
-      <h1 class="text-2xl sm:text-3xl font-bold text-neutral-100 tracking-tight mb-2">
+      <h1 class="text-2xl sm:text-3xl font-bold text-theme-primary tracking-tight mb-2">
         Research Feed
       </h1>
-      <p class="text-sm text-neutral-400 leading-relaxed max-w-3xl">
+      <p class="text-sm text-theme-secondary leading-relaxed max-w-3xl">
         Curated papers, preprints, technical reports, and algorithmic breakthroughs from leading AI research laboratories and scientific institutions.
       </p>
     </div>
 
     <!-- Quick stats overview -->
     <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
-      <div class="border border-neutral-800 bg-neutral-900/40 p-4 rounded-lg">
-        <span class="font-mono text-[10px] text-neutral-500 tracking-widest uppercase block mb-1">
+      <div class="border border-theme-border bg-theme-surface p-4 rounded-lg">
+        <span class="font-mono text-[10px] text-theme-muted tracking-widest uppercase block mb-1">
           Technical Publications
         </span>
-        <span class="font-mono text-xl font-bold text-neutral-100">{researchArticles.length}</span>
+        <span class="font-mono text-xl font-bold text-theme-primary">{researchArticles.length}</span>
       </div>
-      <div class="border border-neutral-800 bg-neutral-900/40 p-4 rounded-lg">
-        <span class="font-mono text-[10px] text-neutral-500 tracking-widest uppercase block mb-1">
+      <div class="border border-theme-border bg-theme-surface p-4 rounded-lg">
+        <span class="font-mono text-[10px] text-theme-muted tracking-widest uppercase block mb-1">
           Active Contributing Labs
         </span>
-        <span class="font-mono text-xl font-bold text-purple-400">
+        <span class="font-mono text-xl font-bold text-purple-600 dark:text-purple-400">
           {researchPublishers.size}
         </span>
       </div>
-      <div class="border border-neutral-800 bg-neutral-900/40 p-4 rounded-lg">
-        <span class="font-mono text-[10px] text-neutral-500 tracking-widest uppercase block mb-1">
+      <div class="border border-theme-border bg-theme-surface p-4 rounded-lg">
+        <span class="font-mono text-[10px] text-theme-muted tracking-widest uppercase block mb-1">
           Monitored Research Hubs
         </span>
-        <span class="font-mono text-xl font-bold text-neutral-100">{researchLabs.length}</span>
+        <span class="font-mono text-xl font-bold text-theme-primary">{researchLabs.length}</span>
       </div>
     </div>
 
     <!-- Monitored Research Labs Directory -->
-    <section class="mb-12 border border-neutral-800 bg-neutral-900/40 rounded-lg p-6">
-      <h2 class="text-xs font-mono text-neutral-400 tracking-widest uppercase mb-4">
+    <section class="mb-12 border border-theme-border bg-theme-surface rounded-lg p-6">
+      <h2 class="text-xs font-mono text-theme-muted tracking-widest uppercase mb-4">
         Tracked Research Laboratories & Outlets
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -154,17 +154,17 @@ const researchLabs = [
               href={lab.url}
               target="_blank"
               rel="noopener noreferrer"
-              class="border border-neutral-800 bg-neutral-950/60 p-4 rounded hover:border-neutral-700 transition-colors group block"
+              class="border border-theme-border bg-theme-elevated/60 p-4 rounded hover:border-theme-border-accent transition-colors group block"
             >
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-semibold text-xs text-neutral-200 group-hover:text-purple-400 transition-colors">
+                <span class="font-semibold text-xs text-theme-primary group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
                   {lab.name}
                 </span>
-                <span class="font-mono text-[10px] text-neutral-600 group-hover:text-neutral-400">
+                <span class="font-mono text-[10px] text-theme-dim group-hover:text-theme-muted">
                   ↗
                 </span>
               </div>
-              <p class="text-[11px] text-neutral-500 line-clamp-2 leading-relaxed font-mono">
+              <p class="text-[11px] text-theme-secondary line-clamp-2 leading-relaxed font-mono">
                 {lab.focus}
               </p>
             </a>
@@ -177,10 +177,10 @@ const researchLabs = [
     <section>
       <div class="flex items-center justify-between mb-6">
         <div>
-          <h2 class="text-xs font-mono text-neutral-400 tracking-widest uppercase">
+          <h2 class="text-xs font-mono text-theme-muted tracking-widest uppercase">
             Publications & Technical Reports ({researchArticles.length})
           </h2>
-          <p class="text-[11px] text-neutral-500 font-mono mt-0.5">
+          <p class="text-[11px] text-theme-muted font-mono mt-0.5">
             Filtered using deterministic scientific publication keywords and verified research lab sources.
           </p>
         </div>
@@ -189,7 +189,7 @@ const researchLabs = [
             href="https://github.com/swaroophegde07/ai-pulse/issues/new?template=data_correction.yml&title=%5BData+Correction%5D%3A+Research+Publication+Inaccuracy+%28Research+Page%29"
             target="_blank"
             rel="noopener noreferrer"
-            class="font-mono text-[10px] text-neutral-400 hover:text-blue-400 transition-colors hidden sm:inline-flex items-center gap-1"
+            class="font-mono text-[10px] text-theme-muted hover:text-blue-500 transition-colors hidden sm:inline-flex items-center gap-1"
             title="Report inaccurate research data, lab attribution, or broken preprint links"
           >
             <span>Report a research-data issue</span>
@@ -197,7 +197,7 @@ const researchLabs = [
           </a>
           <a
             href={`${base}/news/`}
-            class="font-mono text-[10px] text-neutral-500 hover:text-emerald-400 transition-colors"
+            class="font-mono text-[10px] text-theme-muted hover:text-theme-accent transition-colors"
           >
             View all news →
           </a>
@@ -205,11 +205,11 @@ const researchLabs = [
       </div>
 
       <!-- Search and Lab Filter Toolbar -->
-      <div class="border border-neutral-800 bg-neutral-900/40 rounded-lg p-4 mb-6">
+      <div class="border border-theme-border bg-theme-surface rounded-lg p-4 mb-6">
         <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
           <div class="relative w-full sm:w-80">
             <label for="research-search-input" class="sr-only">Search research publications</label>
-            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-neutral-500">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-theme-muted">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
               </svg>
@@ -218,13 +218,13 @@ const researchLabs = [
               type="search"
               id="research-search-input"
               placeholder="Search papers, preprints, keywords..."
-              class="w-full bg-neutral-950 border border-neutral-800 rounded pl-9 pr-8 py-2 text-xs text-neutral-100 placeholder:text-neutral-600 font-mono focus:outline-none focus:border-purple-500"
+              class="w-full bg-theme-input border border-theme-border rounded pl-9 pr-8 py-2 text-xs text-theme-primary placeholder:text-theme-placeholder font-mono focus:outline-none focus:border-purple-500"
             />
             <button
               type="button"
               id="clear-research-search"
               style="display: none;"
-              class="absolute inset-y-0 right-0 pr-2.5 flex items-center text-neutral-500 hover:text-neutral-200 transition-colors cursor-pointer"
+              class="absolute inset-y-0 right-0 pr-2.5 flex items-center text-theme-muted hover:text-theme-primary transition-colors cursor-pointer"
               aria-label="Clear research search"
             >
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -237,7 +237,7 @@ const researchLabs = [
             <label for="research-lab-filter" class="sr-only">Filter by Lab</label>
             <select
               id="research-lab-filter"
-              class="w-full sm:w-auto bg-neutral-950 border border-neutral-800 rounded px-3 py-2 text-xs text-neutral-300 font-mono focus:outline-none focus:border-purple-500 cursor-pointer"
+              class="w-full sm:w-auto bg-theme-input border border-theme-border rounded px-3 py-2 text-xs text-theme-primary font-mono focus:outline-none focus:border-purple-500 cursor-pointer"
             >
               <option value="all">All Contributing Labs ({researchArticles.length})</option>
               {labList.map((lab) => <option value={lab.toLowerCase()}>{lab}</option>)}
@@ -245,13 +245,13 @@ const researchLabs = [
           </div>
         </div>
 
-        <div class="flex items-center justify-between pt-3 mt-3 border-t border-neutral-800/60 text-[11px] font-mono text-neutral-400">
+        <div class="flex items-center justify-between pt-3 mt-3 border-t border-theme-border-subtle text-[11px] font-mono text-theme-muted">
           <span id="research-count-label">Showing all {researchArticles.length} publications</span>
           <button
             type="button"
             id="reset-research-filters-btn"
             style="display: none;"
-            class="text-purple-400 hover:text-purple-300 underline underline-offset-4 cursor-pointer"
+            class="text-purple-600 dark:text-purple-400 hover:underline underline-offset-4 cursor-pointer"
           >
             Clear filters
           </button>
@@ -260,8 +260,8 @@ const researchLabs = [
 
       {
         researchArticles.length === 0 ? (
-          <div class="border border-neutral-800 rounded-lg p-10 text-center bg-neutral-900/30">
-            <p class="font-mono text-xs text-neutral-400">
+          <div class="border border-theme-border rounded-lg p-10 text-center bg-theme-surface">
+            <p class="font-mono text-xs text-theme-secondary">
               No research articles currently indexed. Google DeepMind, Microsoft Research, and The Gradient articles will appear here automatically.
             </p>
           </div>
@@ -297,27 +297,27 @@ const researchLabs = [
             <div
               id="no-research-matched"
               style="display: none;"
-              class="border border-neutral-800 rounded-lg p-12 text-center bg-neutral-900/30"
+              class="border border-theme-border rounded-lg p-12 text-center bg-theme-surface"
             >
-              <p class="font-mono text-xs text-neutral-400 mb-3">
+              <p class="font-mono text-xs text-theme-secondary mb-3">
                 No research articles match your search query or selected laboratory.
               </p>
               <button
                 type="button"
                 id="empty-research-reset-btn"
-                class="font-mono text-[10px] uppercase tracking-wider text-neutral-300 hover:text-white px-3 py-1.5 rounded border border-neutral-700 bg-neutral-800 hover:bg-neutral-700 transition-colors cursor-pointer"
+                class="font-mono text-[10px] uppercase tracking-wider text-theme-primary hover:text-theme-primary px-3 py-1.5 rounded border border-theme-border bg-theme-elevated hover:bg-theme-hover transition-colors cursor-pointer"
               >
                 Reset research filters
               </button>
             </div>
 
-            <div class="mt-12 pt-6 border-t border-neutral-800/80 flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] text-neutral-500">
+            <div class="mt-12 pt-6 border-t border-theme-border-subtle flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] text-theme-muted">
               <span>Notice a misattributed lab or broken paper link?</span>
               <a
                 href="https://github.com/swaroophegde07/ai-pulse/issues/new?template=data_correction.yml&title=%5BData+Correction%5D%3A+Research+Publication+Inaccuracy+%28Research+Page%29"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-neutral-400 hover:text-blue-400 transition-colors inline-flex items-center gap-1"
+                class="text-theme-muted hover:text-blue-500 transition-colors inline-flex items-center gap-1"
               >
                 <span>Report a research-data issue</span>
                 <span>↗</span>

@@ -23,11 +23,13 @@ import json
 import tempfile
 import time
 import unittest
-from datetime import datetime
+from datetime import UTC, datetime
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 from pipeline.run import (
+    backfill_recent_tldrs,
+    is_article_eligible_in_window,
     load_existing_feed,
     merge_records,
     prepare_article,
@@ -2217,6 +2219,194 @@ class TestArticleEnrichmentAndDeduplication(unittest.TestCase):
         ]
         merged = merge_records(existing, new_incoming, max_articles=10)
         self.assertEqual(len(merged), 2)
+
+
+# ===========================================================================
+# Recent News Date Window & Future Date Rejection Tests
+# ===========================================================================
+
+
+class TestRecentNewsDateFiltering(unittest.TestCase):
+    def setUp(self):
+        self.ref_now = datetime(2026, 10, 11, 14, 0, 0, tzinfo=UTC)
+
+    def test_excludes_future_dated_articles(self):
+        # 1 minute into the future
+        future_dt = "2026-10-11T14:01:00+00:00"
+        self.assertFalse(is_article_eligible_in_window(future_dt, 30.0, current_dt=self.ref_now))
+        self.assertFalse(is_article_eligible_in_window(future_dt, 168.0, current_dt=self.ref_now))
+
+        # Far future
+        far_future = "2026-12-01T00:00:00+00:00"
+        self.assertFalse(is_article_eligible_in_window(far_future, 30.0, current_dt=self.ref_now))
+        self.assertFalse(is_article_eligible_in_window(far_future, 168.0, current_dt=self.ref_now))
+
+    def test_thirty_hour_window_boundaries(self):
+        # Exactly current time: eligible
+        now_str = "2026-10-11T14:00:00+00:00"
+        self.assertTrue(is_article_eligible_in_window(now_str, 30.0, current_dt=self.ref_now))
+
+        # 29 hours ago: eligible
+        within_30h = "2026-10-10T09:00:00+00:00"
+        self.assertTrue(is_article_eligible_in_window(within_30h, 30.0, current_dt=self.ref_now))
+
+        # 31 hours ago: excluded from 30h, but eligible for 7 days
+        older_than_30h = "2026-10-10T07:00:00+00:00"
+        self.assertFalse(is_article_eligible_in_window(older_than_30h, 30.0, current_dt=self.ref_now))
+        self.assertTrue(is_article_eligible_in_window(older_than_30h, 168.0, current_dt=self.ref_now))
+
+    def test_seven_day_window_boundaries(self):
+        # 6 days ago: eligible
+        six_days_ago = "2026-10-05T14:00:00+00:00"
+        self.assertTrue(is_article_eligible_in_window(six_days_ago, 168.0, current_dt=self.ref_now))
+
+        # 8 days ago: excluded
+        eight_days_ago = "2026-10-03T14:00:00+00:00"
+        self.assertFalse(is_article_eligible_in_window(eight_days_ago, 168.0, current_dt=self.ref_now))
+
+    def test_invalid_or_missing_dates_excluded(self):
+        self.assertFalse(is_article_eligible_in_window(None, 30.0, current_dt=self.ref_now))
+        self.assertFalse(is_article_eligible_in_window("", 30.0, current_dt=self.ref_now))
+        self.assertFalse(is_article_eligible_in_window("invalid-date-string", 30.0, current_dt=self.ref_now))
+
+
+# ===========================================================================
+# Safe Bounded TL;DR Backfill Tests
+# ===========================================================================
+
+
+class TestRecentTLDRBackfill(unittest.TestCase):
+    def setUp(self):
+        self.now = datetime(2026, 10, 11, 14, 0, 0, tzinfo=UTC)
+
+    def test_backfill_skips_articles_older_than_seven_days(self):
+        old_art = {
+            "id": "old1",
+            "title": "Ancient Story",
+            "summary": "Old summary text.",
+            "url": "https://example.com/old",
+            "date": "2026-09-01T00:00:00+00:00",
+            "category": "News",
+        }
+        mock_client = MagicMock()
+        updated, skipped = backfill_recent_tldrs([old_art], client=mock_client)
+        self.assertEqual(updated, 0)
+        self.assertEqual(mock_client.models.generate_content.call_count, 0)
+        self.assertNotIn("key_points", old_art)
+
+    def test_backfill_skips_future_dated_articles(self):
+        future_art = {
+            "id": "future1",
+            "title": "Future Story",
+            "summary": "Future summary text.",
+            "url": "https://example.com/future",
+            "date": "2026-10-12T00:00:00+00:00",
+            "category": "News",
+        }
+        mock_client = MagicMock()
+        updated, skipped = backfill_recent_tldrs([future_art], client=mock_client)
+        self.assertEqual(updated, 0)
+        self.assertEqual(mock_client.models.generate_content.call_count, 0)
+        self.assertNotIn("key_points", future_art)
+
+    def test_backfill_skips_articles_with_already_valid_tldr(self):
+        valid_art = {
+            "id": "valid1",
+            "title": "Recent Story",
+            "summary": "Recent summary.",
+            "url": "https://example.com/recent",
+            "date": "2026-10-10T12:00:00+00:00",
+            "category": "News",
+            "key_points": [
+                "Specific event occurred yesterday.",
+                "Strategic implication for foundation models.",
+                "Impacts software engineering teams globally.",
+            ],
+        }
+        mock_client = MagicMock()
+        updated, skipped = backfill_recent_tldrs([valid_art], client=mock_client)
+        self.assertEqual(updated, 0)
+        self.assertEqual(mock_client.models.generate_content.call_count, 0)
+        self.assertEqual(len(valid_art["key_points"]), 3)
+
+    def test_backfill_updates_missing_tldr_and_preserves_all_metadata(self):
+        recent_art = {
+            "id": "rec1",
+            "title": "New Reasoning Architecture Drops",
+            "company": "DeepMind",
+            "source": "DeepMind Blog",
+            "summary": "DeepMind presented a novel reinforcement architecture.",
+            "url": "https://example.com/arch",
+            "date": "2026-10-10T10:00:00+00:00",
+            "category": "Research",
+            "tags": ["DeepMind", "Reasoning"],
+            "impact_score": 8,
+            "sources": [{"title": "Source 1", "url": "https://example.com/arch", "publisher": "DeepMind"}],
+        }
+
+        mock_client = MagicMock()
+        mock_resp = MagicMock()
+        mock_resp.text = json.dumps({
+            "summary": "Ignored alternative summary.",
+            "category": "Research",
+            "key_points": [
+                "DeepMind presented a novel reinforcement architecture.",
+                "Improves benchmark accuracy by 15 percent on competitive reasoning.",
+                "Engineers and researchers deploying frontier agent systems.",
+            ],
+            "tags": ["Extra Tag"],
+            "impact_score": 5,
+        })
+        mock_client.models.generate_content.return_value = mock_resp
+
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False) as f:
+            json.dump([recent_art], f)
+            tmp_path = Path(f.name)
+
+        try:
+            updated, remaining = backfill_recent_tldrs([recent_art], feed_path=tmp_path, client=mock_client)
+            self.assertEqual(updated, 1)
+            # Only key_points was updated
+            self.assertEqual(len(recent_art["key_points"]), 3)
+            self.assertEqual(recent_art["key_points"][0], "DeepMind presented a novel reinforcement architecture.")
+            # Existing metadata preserved strictly
+            self.assertEqual(recent_art["summary"], "DeepMind presented a novel reinforcement architecture.")
+            self.assertEqual(recent_art["tags"], ["DeepMind", "Reasoning"])
+            self.assertEqual(recent_art["impact_score"], 8)
+            self.assertEqual(recent_art["company"], "DeepMind")
+        finally:
+            tmp_path.unlink(missing_ok=True)
+
+    def test_backfill_preserves_article_on_gemini_failure(self):
+        recent_art = {
+            "id": "fail1",
+            "title": "Story with API Error",
+            "summary": "Original summary.",
+            "url": "https://example.com/fail",
+            "date": "2026-10-10T10:00:00+00:00",
+            "category": "News",
+        }
+        mock_client = MagicMock()
+        mock_client.models.generate_content.side_effect = Exception("429 RESOURCE_EXHAUSTED: Rate limit exceeded")
+
+        updated, remaining = backfill_recent_tldrs([recent_art], client=mock_client)
+        self.assertEqual(updated, 0)
+        self.assertNotIn("key_points", recent_art)
+        self.assertEqual(recent_art["summary"], "Original summary.")
+
+    def test_backfill_handles_missing_api_key_gracefully(self):
+        recent_art = {
+            "id": "nokey1",
+            "title": "Story Without Key",
+            "summary": "Original summary.",
+            "url": "https://example.com/nokey",
+            "date": "2026-10-10T10:00:00+00:00",
+            "category": "News",
+        }
+        with patch.dict(os.environ, {"GEMINI_API_KEY": ""}, clear=True):
+            updated, remaining = backfill_recent_tldrs([recent_art])
+            self.assertEqual(updated, 0)
+            self.assertNotIn("key_points", recent_art)
 
 
 if __name__ == "__main__":

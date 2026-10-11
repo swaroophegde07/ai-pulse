@@ -29,7 +29,7 @@ const navItems = [
 ];
 ---
 
-<header class="border-b border-neutral-800 bg-neutral-950/95 backdrop-blur-sm sticky top-0 z-50">
+<header class="border-b border-theme-border bg-theme-page/95 backdrop-blur-sm sticky top-0 z-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-14">
       <!-- Wordmark -->
@@ -39,12 +39,12 @@ const navItems = [
         aria-label="AI Pulse home"
       >
         <span
-          class="font-mono text-sm font-bold tracking-[0.25em] text-neutral-100 group-hover:text-emerald-400 transition-colors duration-200"
+          class="font-mono text-sm font-bold tracking-[0.25em] text-theme-primary group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors duration-200"
         >
           AI PULSE
         </span>
         <span
-          class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"
+          class="inline-block w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse"
           title="Automated intelligence pipeline active"
           aria-label="Automated intelligence pipeline active"
         ></span>
@@ -66,8 +66,8 @@ const navItems = [
                 href={item.href}
                 class={`font-mono text-xs tracking-wide px-3 py-2 rounded transition-colors duration-150 inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
                   isCurrent
-                    ? "text-emerald-400 bg-emerald-400/10 font-medium"
-                    : "text-neutral-400 hover:text-neutral-100 hover:bg-neutral-800/80"
+                    ? "text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 font-medium"
+                    : "text-theme-secondary hover:text-theme-primary hover:bg-theme-hover"
                 }`}
                 aria-current={isCurrent ? "page" : undefined}
               >
@@ -78,27 +78,79 @@ const navItems = [
         }
       </nav>
 
-      <!-- Secondary Desktop Feedback link -->
-      <div class="hidden md:flex items-center ml-2 pl-2 border-l border-neutral-800">
-        <a
-          href={`${base}/feedback/`}
-          class={`font-mono text-xs px-2.5 py-1.5 rounded transition-colors duration-150 inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
-            normalizedCurrent === "/feedback"
-              ? "text-emerald-400 bg-emerald-400/10 font-medium"
-              : "text-neutral-400 hover:text-neutral-100 hover:bg-neutral-800/80"
-          }`}
-          aria-current={normalizedCurrent === "/feedback" ? "page" : undefined}
-          aria-label="Submit feedback or report an issue"
+      <!-- Desktop Theme Switcher & Feedback -->
+      <div class="hidden md:flex items-center gap-3">
+        <!-- Segmented Theme Switcher -->
+        <div
+          class="theme-switcher inline-flex items-center p-0.5 rounded border border-theme-border bg-theme-elevated"
+          role="group"
+          aria-label="Color theme preference"
         >
-          <span>Feedback</span>
-        </a>
+          <button
+            type="button"
+            data-theme-value="light"
+            class="theme-btn px-2 py-1 rounded text-[11px] font-mono inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+            aria-label="Light theme"
+            title="Light theme"
+            aria-pressed="false"
+          >
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" stroke-width="2"></circle>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41m14.14-14.14l-1.41 1.41"></path>
+            </svg>
+            <span class="sr-only lg:not-sr-only">Light</span>
+          </button>
+          <button
+            type="button"
+            data-theme-value="dark"
+            class="theme-btn px-2 py-1 rounded text-[11px] font-mono inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+            aria-label="Dark theme"
+            title="Dark theme"
+            aria-pressed="false"
+          >
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+            <span class="sr-only lg:not-sr-only">Dark</span>
+          </button>
+          <button
+            type="button"
+            data-theme-value="system"
+            class="theme-btn px-2 py-1 rounded text-[11px] font-mono inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+            aria-label="System theme"
+            title="System theme"
+            aria-pressed="false"
+          >
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="2" y="3" width="20" height="14" rx="2" stroke-width="2"></rect>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 21h8m-4-4v4"></path>
+            </svg>
+            <span class="sr-only lg:not-sr-only">Auto</span>
+          </button>
+        </div>
+
+        <!-- Secondary Desktop Feedback link -->
+        <div class="border-l border-theme-border pl-3">
+          <a
+            href={`${base}/feedback/`}
+            class={`font-mono text-xs px-2.5 py-1.5 rounded transition-colors duration-150 inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
+              normalizedCurrent === "/feedback"
+                ? "text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 font-medium"
+                : "text-theme-muted hover:text-theme-primary hover:bg-theme-hover"
+            }`}
+            aria-current={normalizedCurrent === "/feedback" ? "page" : undefined}
+            aria-label="Submit feedback or report an issue"
+          >
+            <span>Feedback</span>
+          </a>
+        </div>
       </div>
 
       <!-- Mobile menu button -->
       <button
         type="button"
         id="mobile-menu-btn"
-        class="md:hidden inline-flex items-center justify-center w-11 h-11 -mr-2 rounded text-neutral-400 hover:text-neutral-100 hover:bg-neutral-800/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 transition-colors cursor-pointer"
+        class="md:hidden inline-flex items-center justify-center w-11 h-11 -mr-2 rounded text-theme-secondary hover:text-theme-primary hover:bg-theme-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 transition-colors cursor-pointer"
         aria-label="Open main menu"
         aria-expanded="false"
         aria-controls="mobile-nav"
@@ -141,7 +193,7 @@ const navItems = [
     <!-- Mobile nav dropdown -->
     <nav
       id="mobile-nav"
-      class="hidden md:hidden border-t border-neutral-800/80 py-3 space-y-1"
+      class="hidden md:hidden border-t border-theme-border/80 py-3 space-y-1"
       aria-label="Mobile navigation"
     >
       {
@@ -158,31 +210,84 @@ const navItems = [
               href={item.href}
               class={`mobile-nav-link flex items-center justify-between font-mono text-xs tracking-wide px-3 py-3 rounded-md min-h-[44px] transition-colors ${
                 isCurrent
-                  ? "text-emerald-400 bg-emerald-400/10 font-medium"
-                  : "text-neutral-300 hover:text-neutral-100 hover:bg-neutral-800/60 active:bg-neutral-800"
+                  ? "text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 font-medium"
+                  : "text-theme-secondary hover:text-theme-primary hover:bg-theme-hover active:bg-theme-selected"
               }`}
               aria-current={isCurrent ? "page" : undefined}
             >
               <span>{item.label}</span>
               {isCurrent && (
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400" aria-hidden="true"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400" aria-hidden="true"></span>
               )}
             </a>
           );
         })
       }
-      <div class="pt-2 mt-2 border-t border-neutral-800/80">
+
+      <!-- Mobile Theme Selector -->
+      <div class="pt-3 mt-2 border-t border-theme-border/80 flex items-center justify-between px-3 py-2">
+        <span class="font-mono text-xs text-theme-muted">Theme</span>
+        <div
+          class="theme-switcher inline-flex items-center p-0.5 rounded border border-theme-border bg-theme-elevated"
+          role="group"
+          aria-label="Mobile theme preference"
+        >
+          <button
+            type="button"
+            data-theme-value="light"
+            class="theme-btn px-2.5 py-1.5 rounded text-[11px] font-mono inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+            aria-label="Light theme"
+            title="Light theme"
+            aria-pressed="false"
+          >
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" stroke-width="2"></circle>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41m14.14-14.14l-1.41 1.41"></path>
+            </svg>
+            <span>Light</span>
+          </button>
+          <button
+            type="button"
+            data-theme-value="dark"
+            class="theme-btn px-2.5 py-1.5 rounded text-[11px] font-mono inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+            aria-label="Dark theme"
+            title="Dark theme"
+            aria-pressed="false"
+          >
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+            <span>Dark</span>
+          </button>
+          <button
+            type="button"
+            data-theme-value="system"
+            class="theme-btn px-2.5 py-1.5 rounded text-[11px] font-mono inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+            aria-label="System theme"
+            title="System theme"
+            aria-pressed="false"
+          >
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="2" y="3" width="20" height="14" rx="2" stroke-width="2"></rect>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 21h8m-4-4v4"></path>
+            </svg>
+            <span>Auto</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="pt-2 mt-2 border-t border-theme-border/80">
         <a
           href={`${base}/feedback/`}
           class={`mobile-nav-link flex items-center justify-between font-mono text-xs tracking-wide px-3 py-3 rounded-md min-h-[44px] transition-colors ${
             normalizedCurrent === "/feedback"
-              ? "text-emerald-400 bg-emerald-400/10 font-medium"
-              : "text-neutral-400 hover:text-neutral-100 hover:bg-neutral-800/60 active:bg-neutral-800"
+              ? "text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 font-medium"
+              : "text-theme-muted hover:text-theme-primary hover:bg-theme-hover active:bg-theme-selected"
           }`}
           aria-current={normalizedCurrent === "/feedback" ? "page" : undefined}
         >
           <span>Feedback &amp; Bug Reports</span>
-          <span class="font-mono text-[10px] text-neutral-500">↗</span>
+          <span class="font-mono text-[10px] text-theme-muted">↗</span>
         </a>
       </div>
     </nav>

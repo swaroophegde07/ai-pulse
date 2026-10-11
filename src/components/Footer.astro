@@ -45,15 +45,15 @@ const activeFeedsCount = (pipelineStatusData as any)?.feed_health?.active_source
 const activeBenchmarkCount = (pipelineStatusData as any)?.summary?.active_benchmark_sources || 2;
 ---
 
-<footer class="border-t border-neutral-800 mt-16">
+<footer class="border-t border-theme-border mt-16 bg-theme-page">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <!-- Brand -->
       <div class="flex flex-col gap-3">
-        <span class="font-mono text-xs font-bold tracking-[0.25em] text-neutral-100">
+        <span class="font-mono text-xs font-bold tracking-[0.25em] text-theme-primary">
           AI PULSE
         </span>
-        <p class="text-xs text-neutral-500 leading-relaxed max-w-xs">
+        <p class="text-xs text-theme-muted leading-relaxed max-w-xs">
           A minimalist intelligence dashboard aggregating AI industry news,
           research, and model developments from reliable public sources.
         </p>
@@ -61,16 +61,16 @@ const activeBenchmarkCount = (pipelineStatusData as any)?.summary?.active_benchm
 
       <!-- Data sources -->
       <div class="flex flex-col gap-3">
-        <h3 class="font-mono text-[10px] text-neutral-500 tracking-widest uppercase">
+        <h3 class="font-mono text-[10px] text-theme-muted tracking-widest uppercase">
           Contributing Sources
         </h3>
         {
           contributingSources.length > 0 ? (
             <ul class="flex flex-col gap-1.5">
               {contributingSources.map((src) => (
-                <li class="font-mono text-[11px] text-neutral-400 flex items-center justify-between">
+                <li class="font-mono text-[11px] text-theme-secondary flex items-center justify-between">
                   <span>{src.name}</span>
-                  <span class="text-[10px] text-neutral-600 font-mono">
+                  <span class="text-[10px] text-theme-dim font-mono">
                     {src.publisher}
                   </span>
                 </li>
@@ -78,10 +78,10 @@ const activeBenchmarkCount = (pipelineStatusData as any)?.summary?.active_benchm
             </ul>
           ) : (
             <div class="flex flex-col gap-1">
-              <span class="font-mono text-[11px] text-neutral-500">
+              <span class="font-mono text-[11px] text-theme-muted">
                 Awaiting initial ingestion
               </span>
-              <span class="text-[10px] text-neutral-600 leading-relaxed">
+              <span class="text-[10px] text-theme-dim leading-relaxed">
                 {sourcesData.length} public feeds configured in pipeline.
               </span>
             </div>
@@ -89,7 +89,7 @@ const activeBenchmarkCount = (pipelineStatusData as any)?.summary?.active_benchm
         }
         {
           contributingSources.length > 0 && pendingSources.length > 0 && (
-            <p class="text-[10px] text-neutral-600 font-mono pt-1 border-t border-neutral-900">
+            <p class="text-[10px] text-theme-dim font-mono pt-1 border-t border-theme-border-subtle">
               Also monitoring: {pendingSources.map((s) => s.name).join(", ")}
             </p>
           )
@@ -98,7 +98,7 @@ const activeBenchmarkCount = (pipelineStatusData as any)?.summary?.active_benchm
 
       <!-- Links -->
       <div class="flex flex-col gap-3">
-        <h3 class="font-mono text-[10px] text-neutral-500 tracking-widest uppercase">
+        <h3 class="font-mono text-[10px] text-theme-muted tracking-widest uppercase">
           Project
         </h3>
         <ul class="flex flex-col gap-1.5">
@@ -107,7 +107,7 @@ const activeBenchmarkCount = (pipelineStatusData as any)?.summary?.active_benchm
               href="https://github.com/swaroophegde07/ai-pulse"
               target="_blank"
               rel="noopener noreferrer"
-              class="font-mono text-[11px] text-neutral-400 hover:text-emerald-400 transition-colors inline-flex items-center gap-1 group"
+              class="font-mono text-[11px] text-theme-secondary hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-1 group"
               aria-label="View source repository on GitHub (opens in a new tab)"
             >
               <span>GitHub</span>
@@ -117,18 +117,18 @@ const activeBenchmarkCount = (pipelineStatusData as any)?.summary?.active_benchm
           <li>
             <a
               href={`${base}/feedback/`}
-              class="font-mono text-[11px] text-neutral-400 hover:text-emerald-400 transition-colors inline-flex items-center gap-1"
+              class="font-mono text-[11px] text-theme-secondary hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-1"
             >
               <span>Feedback &amp; Bug Reports</span>
             </a>
           </li>
           <li>
-            <span class="font-mono text-[11px] text-neutral-700">
+            <span class="font-mono text-[11px] text-theme-dim">
               Summaries generated by Gemini API
             </span>
           </li>
           <li>
-            <span class="font-mono text-[11px] text-neutral-700">
+            <span class="font-mono text-[11px] text-theme-dim">
               Updated twice daily via GitHub Actions
             </span>
           </li>
@@ -137,30 +137,30 @@ const activeBenchmarkCount = (pipelineStatusData as any)?.summary?.active_benchm
     </div>
 
     <!-- Bottom bar -->
-    <div class="mt-8 pt-6 border-t border-neutral-900 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-      <p class="font-mono text-[10px] text-neutral-700 tracking-wide">
+    <div class="mt-8 pt-6 border-t border-theme-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+      <p class="font-mono text-[10px] text-theme-dim tracking-wide">
         &copy; {currentYear} AI Pulse. Content belongs to respective publishers.
       </p>
-      <p class="font-mono text-[10px] text-neutral-700 tracking-wide">
+      <p class="font-mono text-[10px] text-theme-dim tracking-wide">
         AI-generated summaries may contain errors. Verify with original sources.
       </p>
     </div>
 
     <!-- Build & Provenance Identifiers -->
-    <div class="mt-4 pt-4 border-t border-neutral-900/60 flex flex-wrap items-center justify-between text-[10px] font-mono text-neutral-600 gap-2">
+    <div class="mt-4 pt-4 border-t border-theme-border-subtle flex flex-wrap items-center justify-between text-[10px] font-mono text-theme-dim gap-2">
       <div class="flex items-center gap-2">
-        <span>Build: <strong class="text-neutral-400 font-semibold">{buildSha}</strong></span>
+        <span>Build: <strong class="text-theme-secondary font-semibold">{buildSha}</strong></span>
         <span>&middot;</span>
         <span>{buildTimestamp}</span>
         <span>&middot;</span>
-        <span class="inline-flex items-center gap-1 text-emerald-400">
-          <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+        <span class="inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400">
+          <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400"></span>
           Pipeline: {pipelineHealth} ({activeFeedsCount} feeds, {activeBenchmarkCount} benchmark suites)
         </span>
       </div>
       <div class="flex items-center gap-4">
-        <span>Benchmarks data: <strong class="text-neutral-400">{benchmarkLastUpdated}</strong></span>
-        <span>Model catalog: <strong class="text-neutral-400">{modelsLastUpdated}</strong></span>
+        <span>Benchmarks data: <strong class="text-theme-secondary">{benchmarkLastUpdated}</strong></span>
+        <span>Model catalog: <strong class="text-theme-secondary">{modelsLastUpdated}</strong></span>
       </div>
     </div>
   </div>

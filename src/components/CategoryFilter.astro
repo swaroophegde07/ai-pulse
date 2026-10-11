@@ -15,7 +15,7 @@ const { categories, publishers, topics } = Astro.props;
   <div class="relative">
     <label for="article-search" class="sr-only">Search articles</label>
     <div
-      class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-neutral-500"
+      class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-theme-muted"
       aria-hidden="true"
     >
       <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -32,7 +32,7 @@ const { categories, publishers, topics } = Astro.props;
       type="search"
       role="searchbox"
       placeholder="Search articles by title, key points, tags, publisher…"
-      class="w-full bg-neutral-900 border border-neutral-800 rounded-md pl-9 pr-10 py-2.5 text-xs text-neutral-100 placeholder:text-neutral-600 font-mono focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/20 transition-colors"
+      class="w-full bg-theme-input border border-theme-border rounded-md pl-9 pr-10 py-2.5 text-xs text-theme-primary placeholder:text-theme-placeholder font-mono focus:outline-none focus:border-theme-border-accent focus:ring-1 focus:ring-emerald-500/20 transition-colors"
       aria-label="Search articles by title, publisher, summary, or category"
       autocomplete="off"
     />
@@ -40,7 +40,7 @@ const { categories, publishers, topics } = Astro.props;
       id="clear-search-btn"
       type="button"
       style="display: none;"
-      class="absolute inset-y-0 right-0 pr-3 flex items-center text-neutral-500 hover:text-neutral-200 transition-colors"
+      class="absolute inset-y-0 right-0 pr-3 flex items-center text-theme-muted hover:text-theme-primary transition-colors cursor-pointer"
       aria-label="Clear search input"
     >
       <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -55,7 +55,7 @@ const { categories, publishers, topics } = Astro.props;
       <button
         type="button"
         data-category="all"
-        class="category-btn active font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border transition-colors duration-150 border-neutral-700 text-neutral-200 bg-neutral-800 hover:border-neutral-600"
+        class="category-btn active font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border transition-colors duration-150 border-theme-border text-theme-primary bg-theme-elevated font-semibold hover:border-theme-border-accent"
         aria-pressed="true"
       >
         All
@@ -65,7 +65,7 @@ const { categories, publishers, topics } = Astro.props;
           <button
             type="button"
             data-category={cat.toLowerCase()}
-            class="category-btn font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border transition-colors duration-150 border-neutral-800 text-neutral-400 hover:text-neutral-200 hover:border-neutral-700"
+            class="category-btn font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border transition-colors duration-150 border-theme-border text-theme-muted hover:text-theme-primary hover:border-theme-border-accent bg-theme-surface"
             aria-pressed="false"
           >
             {cat}
@@ -77,7 +77,7 @@ const { categories, publishers, topics } = Astro.props;
         type="button"
         id="high-impact-view-btn"
         data-high-impact="false"
-        class="font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border transition-colors duration-150 border-neutral-800 text-amber-400/80 hover:text-amber-300 hover:border-amber-500/40"
+        class="font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border transition-colors duration-150 border-theme-border text-amber-500/90 hover:text-amber-500 hover:border-amber-500/40 bg-theme-surface"
         aria-pressed="false"
       >
         High Impact (<span id="high-impact-count">0</span>)
@@ -87,7 +87,7 @@ const { categories, publishers, topics } = Astro.props;
         type="button"
         id="saved-view-btn"
         data-saved-view="false"
-        class="font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border transition-colors duration-150 border-neutral-800 text-amber-500/80 hover:text-amber-400 hover:border-amber-500/40"
+        class="font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border transition-colors duration-150 border-theme-border text-amber-500/90 hover:text-amber-500 hover:border-amber-500/40 bg-theme-surface"
         aria-pressed="false"
       >
         Saved (<span id="saved-count">0</span>)
@@ -98,7 +98,7 @@ const { categories, publishers, topics } = Astro.props;
     <button
       type="button"
       id="toggle-filters-btn"
-      class="font-mono text-[11px] text-neutral-400 hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-400 transition-colors inline-flex items-center gap-1.5 py-1.5 px-2.5 rounded border border-neutral-800 hover:border-neutral-700 bg-neutral-900/60 cursor-pointer"
+      class="font-mono text-[11px] text-theme-secondary hover:text-emerald-600 dark:hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-500 transition-colors inline-flex items-center gap-1.5 py-1.5 px-2.5 rounded border border-theme-border hover:border-theme-border-accent bg-theme-surface cursor-pointer"
       aria-expanded="false"
       aria-controls="advanced-filters"
     >
@@ -106,24 +106,24 @@ const { categories, publishers, topics } = Astro.props;
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
       </svg>
       <span>Filters & Sort</span>
-      <span id="active-filters-count" class="hidden font-mono text-[9px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-1 rounded font-semibold">0</span>
+      <span id="active-filters-count" class="hidden font-mono text-[9px] bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 px-1 rounded font-semibold">0</span>
     </button>
   </div>
 
   <!-- Collapsible Secondary Filters (Date, Sort, Publisher, Topic) -->
   <div
     id="advanced-filters"
-    class="hidden border border-neutral-800/80 bg-neutral-950/60 rounded-lg p-4 space-y-4"
+    class="hidden border border-theme-border bg-theme-surface rounded-lg p-4 space-y-4"
   >
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       <!-- Date period filter -->
       <div>
-        <label for="date-filter" class="block font-mono text-[10px] text-neutral-500 uppercase tracking-wider mb-1.5">
+        <label for="date-filter" class="block font-mono text-[10px] text-theme-muted uppercase tracking-wider mb-1.5">
           Date Window
         </label>
         <select
           id="date-filter"
-          class="w-full bg-neutral-900 border border-neutral-800 rounded px-2.5 py-1.5 text-xs text-neutral-200 font-mono focus:outline-none focus:border-emerald-500/50"
+          class="w-full bg-theme-input border border-theme-border rounded px-2.5 py-1.5 text-xs text-theme-primary font-mono focus:outline-none focus:border-theme-border-accent"
         >
           <option value="any">Any Time</option>
           <option value="today">Today</option>
@@ -134,12 +134,12 @@ const { categories, publishers, topics } = Astro.props;
 
       <!-- Sorting filter -->
       <div>
-        <label for="sort-filter" class="block font-mono text-[10px] text-neutral-500 uppercase tracking-wider mb-1.5">
+        <label for="sort-filter" class="block font-mono text-[10px] text-theme-muted uppercase tracking-wider mb-1.5">
           Sort Order
         </label>
         <select
           id="sort-filter"
-          class="w-full bg-neutral-900 border border-neutral-800 rounded px-2.5 py-1.5 text-xs text-neutral-200 font-mono focus:outline-none focus:border-emerald-500/50"
+          class="w-full bg-theme-input border border-theme-border rounded px-2.5 py-1.5 text-xs text-theme-primary font-mono focus:outline-none focus:border-theme-border-accent"
         >
           <option value="newest">Newest First</option>
           <option value="important">Most Important</option>
@@ -149,12 +149,12 @@ const { categories, publishers, topics } = Astro.props;
 
       <!-- Publisher filter -->
       <div>
-        <label for="publisher-filter" class="block font-mono text-[10px] text-neutral-500 uppercase tracking-wider mb-1.5">
+        <label for="publisher-filter" class="block font-mono text-[10px] text-theme-muted uppercase tracking-wider mb-1.5">
           Publisher
         </label>
         <select
           id="publisher-filter"
-          class="w-full bg-neutral-900 border border-neutral-800 rounded px-2.5 py-1.5 text-xs text-neutral-200 font-mono focus:outline-none focus:border-emerald-500/50"
+          class="w-full bg-theme-input border border-theme-border rounded px-2.5 py-1.5 text-xs text-theme-primary font-mono focus:outline-none focus:border-theme-border-accent"
         >
           <option value="all">All Publishers</option>
           {publishers.map((pub) => <option value={pub.toLowerCase()}>{pub}</option>)}
@@ -163,12 +163,12 @@ const { categories, publishers, topics } = Astro.props;
 
       <!-- Topic taxonomy filter -->
       <div>
-        <label for="topic-filter" class="block font-mono text-[10px] text-neutral-500 uppercase tracking-wider mb-1.5">
+        <label for="topic-filter" class="block font-mono text-[10px] text-theme-muted uppercase tracking-wider mb-1.5">
           Topic Tag
         </label>
         <select
           id="topic-filter"
-          class="w-full bg-neutral-900 border border-neutral-800 rounded px-2.5 py-1.5 text-xs text-neutral-200 font-mono focus:outline-none focus:border-emerald-500/50"
+          class="w-full bg-theme-input border border-theme-border rounded px-2.5 py-1.5 text-xs text-theme-primary font-mono focus:outline-none focus:border-theme-border-accent"
         >
           <option value="all">All Topics</option>
           {topics.map((top) => <option value={top.toLowerCase()}>{top}</option>)}
@@ -179,14 +179,14 @@ const { categories, publishers, topics } = Astro.props;
 
   <!-- Live Result count and Clear active filters -->
   <div class="flex items-center justify-between flex-wrap gap-2 pt-1">
-    <p class="font-mono text-[11px] text-neutral-400 tracking-wide" id="result-count" aria-live="polite">
+    <p class="font-mono text-[11px] text-theme-muted tracking-wide" id="result-count" aria-live="polite">
       <!-- updated dynamically by JS -->
     </p>
     <button
       type="button"
       id="reset-all-filters-btn"
       style="display: none;"
-      class="font-mono text-[10px] text-emerald-400 hover:text-emerald-300 underline underline-offset-4"
+      class="font-mono text-[10px] text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 underline underline-offset-4 cursor-pointer"
     >
       Clear all filters
     </button>
@@ -287,16 +287,28 @@ const { categories, publishers, topics } = Astro.props;
           const isSaved = saved.includes(id);
           btn.setAttribute("aria-pressed", isSaved ? "true" : "false");
           if (isSaved) {
-            btn.classList.add("text-amber-400");
-            btn.classList.remove("text-neutral-600");
+            btn.classList.add("text-amber-500");
+            btn.classList.remove("text-theme-muted");
             icon.setAttribute("fill", "currentColor");
           } else {
-            btn.classList.remove("text-amber-400");
-            btn.classList.add("text-neutral-600");
+            btn.classList.remove("text-amber-500");
+            btn.classList.add("text-theme-muted");
             icon.setAttribute("fill", "none");
           }
         }
       });
+    }
+
+    function setCategoryBtnActive(btn: HTMLButtonElement, isActive: boolean) {
+      btn.classList.toggle("active", isActive);
+      btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+      if (isActive) {
+        btn.classList.add("text-theme-primary", "bg-theme-elevated", "font-semibold");
+        btn.classList.remove("text-theme-muted", "bg-theme-surface");
+      } else {
+        btn.classList.remove("text-theme-primary", "bg-theme-elevated", "font-semibold");
+        btn.classList.add("text-theme-muted", "bg-theme-surface");
+      }
     }
 
     // Attach bookmark handlers
@@ -360,15 +372,7 @@ const { categories, publishers, topics } = Astro.props;
       categoryBtns.forEach((b) => {
         const c = (b.dataset.category || "all").toLowerCase();
         const isActive = c === activeCategory;
-        b.classList.toggle("active", isActive);
-        b.setAttribute("aria-pressed", isActive ? "true" : "false");
-        if (isActive) {
-          b.classList.add("border-neutral-700", "text-neutral-200", "bg-neutral-800");
-          b.classList.remove("border-neutral-800", "text-neutral-400");
-        } else {
-          b.classList.remove("border-neutral-700", "text-neutral-200", "bg-neutral-800");
-          b.classList.add("border-neutral-800", "text-neutral-400");
-        }
+        setCategoryBtnActive(b, isActive);
       });
     }
 
@@ -609,28 +613,21 @@ const { categories, publishers, topics } = Astro.props;
       if (highImpactViewBtn) {
         highImpactViewBtn.setAttribute("data-high-impact", "false");
         highImpactViewBtn.setAttribute("aria-pressed", "false");
-        highImpactViewBtn.classList.remove("bg-amber-500/20", "text-amber-300", "border-amber-500/40");
-        highImpactViewBtn.classList.add("text-amber-400/80", "border-neutral-800");
+        highImpactViewBtn.classList.remove("bg-amber-500/20", "text-amber-500", "dark:text-amber-300", "border-amber-500/40");
+        highImpactViewBtn.classList.add("text-amber-500/90", "border-theme-border", "bg-theme-surface");
       }
 
       if (savedViewBtn) {
         savedViewBtn.setAttribute("data-saved-view", "false");
-        savedViewBtn.classList.remove("bg-amber-500/20", "text-amber-300");
-        savedViewBtn.classList.add("text-amber-500/80");
+        savedViewBtn.setAttribute("aria-pressed", "false");
+        savedViewBtn.classList.remove("bg-amber-500/20", "text-amber-500", "dark:text-amber-300", "border-amber-500/40");
+        savedViewBtn.classList.add("text-amber-500/90", "border-theme-border", "bg-theme-surface");
       }
 
       categoryBtns.forEach((b) => {
         const c = (b.dataset.category || "all").toLowerCase();
         const isActive = c === "all";
-        b.classList.toggle("active", isActive);
-        b.setAttribute("aria-pressed", isActive ? "true" : "false");
-        if (isActive) {
-          b.classList.add("border-neutral-700", "text-neutral-200", "bg-neutral-800");
-          b.classList.remove("border-neutral-800", "text-neutral-400");
-        } else {
-          b.classList.remove("border-neutral-700", "text-neutral-200", "bg-neutral-800");
-          b.classList.add("border-neutral-800", "text-neutral-400");
-        }
+        setCategoryBtnActive(b, isActive);
       });
 
       filterAndSort();
@@ -670,25 +667,19 @@ const { categories, publishers, topics } = Astro.props;
         if (highImpactViewBtn) {
           highImpactViewBtn.setAttribute("data-high-impact", "false");
           highImpactViewBtn.setAttribute("aria-pressed", "false");
-          highImpactViewBtn.classList.remove("bg-amber-500/20", "text-amber-300", "border-amber-500/40");
-          highImpactViewBtn.classList.add("text-amber-400/80", "border-neutral-800");
+          highImpactViewBtn.classList.remove("bg-amber-500/20", "text-amber-500", "dark:text-amber-300", "border-amber-500/40");
+          highImpactViewBtn.classList.add("text-amber-500/90", "border-theme-border", "bg-theme-surface");
         }
         if (savedViewBtn) {
-          savedViewBtn.classList.remove("bg-amber-500/20", "text-amber-300");
-          savedViewBtn.classList.add("text-amber-500/80");
+          savedViewBtn.setAttribute("data-saved-view", "false");
+          savedViewBtn.setAttribute("aria-pressed", "false");
+          savedViewBtn.classList.remove("bg-amber-500/20", "text-amber-500", "dark:text-amber-300", "border-amber-500/40");
+          savedViewBtn.classList.add("text-amber-500/90", "border-theme-border", "bg-theme-surface");
         }
 
         categoryBtns.forEach((b) => {
           const isActive = (b.dataset.category || "all").toLowerCase() === activeCategory;
-          b.classList.toggle("active", isActive);
-          b.setAttribute("aria-pressed", isActive ? "true" : "false");
-          if (isActive) {
-            b.classList.add("border-neutral-700", "text-neutral-200", "bg-neutral-800");
-            b.classList.remove("border-neutral-800", "text-neutral-400");
-          } else {
-            b.classList.remove("border-neutral-700", "text-neutral-200", "bg-neutral-800");
-            b.classList.add("border-neutral-800", "text-neutral-400");
-          }
+          setCategoryBtnActive(b, isActive);
         });
 
         currentPage = 1;
@@ -704,14 +695,16 @@ const { categories, publishers, topics } = Astro.props;
         if (activeHighImpactOnly) {
           activeSavedOnly = false;
           if (savedViewBtn) {
-            savedViewBtn.classList.remove("bg-amber-500/20", "text-amber-300");
-            savedViewBtn.classList.add("text-amber-500/80");
+            savedViewBtn.setAttribute("data-saved-view", "false");
+            savedViewBtn.setAttribute("aria-pressed", "false");
+            savedViewBtn.classList.remove("bg-amber-500/20", "text-amber-500", "dark:text-amber-300", "border-amber-500/40");
+            savedViewBtn.classList.add("text-amber-500/90", "border-theme-border", "bg-theme-surface");
           }
-          highImpactViewBtn.classList.add("bg-amber-500/20", "text-amber-300", "border-amber-500/40");
-          highImpactViewBtn.classList.remove("text-amber-400/80", "border-neutral-800");
+          highImpactViewBtn.classList.add("bg-amber-500/20", "text-amber-500", "dark:text-amber-300", "border-amber-500/40");
+          highImpactViewBtn.classList.remove("text-amber-500/90", "border-theme-border", "bg-theme-surface");
         } else {
-          highImpactViewBtn.classList.remove("bg-amber-500/20", "text-amber-300", "border-amber-500/40");
-          highImpactViewBtn.classList.add("text-amber-400/80", "border-neutral-800");
+          highImpactViewBtn.classList.remove("bg-amber-500/20", "text-amber-500", "dark:text-amber-300", "border-amber-500/40");
+          highImpactViewBtn.classList.add("text-amber-500/90", "border-theme-border", "bg-theme-surface");
         }
         currentPage = 1;
         filterAndSort();
@@ -725,22 +718,21 @@ const { categories, publishers, topics } = Astro.props;
         if (highImpactViewBtn) {
           highImpactViewBtn.setAttribute("data-high-impact", "false");
           highImpactViewBtn.setAttribute("aria-pressed", "false");
-          highImpactViewBtn.classList.remove("bg-amber-500/20", "text-amber-300", "border-amber-500/40");
-          highImpactViewBtn.classList.add("text-amber-400/80", "border-neutral-800");
+          highImpactViewBtn.classList.remove("bg-amber-500/20", "text-amber-500", "dark:text-amber-300", "border-amber-500/40");
+          highImpactViewBtn.classList.add("text-amber-500/90", "border-theme-border", "bg-theme-surface");
         }
         savedViewBtn.setAttribute("data-saved-view", activeSavedOnly ? "true" : "false");
         savedViewBtn.setAttribute("aria-pressed", activeSavedOnly ? "true" : "false");
         if (activeSavedOnly) {
-          savedViewBtn.classList.add("bg-amber-500/20", "text-amber-300");
-          savedViewBtn.classList.remove("text-amber-500/80");
+          savedViewBtn.classList.add("bg-amber-500/20", "text-amber-500", "dark:text-amber-300", "border-amber-500/40");
+          savedViewBtn.classList.remove("text-amber-500/90", "border-theme-border", "bg-theme-surface");
           // Deselect category pills visually
           categoryBtns.forEach((b) => {
-            b.classList.remove("border-neutral-700", "text-neutral-200", "bg-neutral-800");
-            b.classList.add("border-neutral-800", "text-neutral-400");
+            setCategoryBtnActive(b, false);
           });
         } else {
-          savedViewBtn.classList.remove("bg-amber-500/20", "text-amber-300");
-          savedViewBtn.classList.add("text-amber-500/80");
+          savedViewBtn.classList.remove("bg-amber-500/20", "text-amber-500", "dark:text-amber-300", "border-amber-500/40");
+          savedViewBtn.classList.add("text-amber-500/90", "border-theme-border", "bg-theme-surface");
         }
         currentPage = 1;
         filterAndSort();

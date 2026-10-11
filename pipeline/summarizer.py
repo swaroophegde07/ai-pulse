@@ -781,3 +781,10 @@ def summarize_articles(
         metrics["fallbacks"],
     )
     return results, metrics
+
+
+def backfill_recent_tldrs(*args, **kwargs):
+    """Safely backfill missing TL;DR key_points for recent existing articles."""
+    from pipeline.run import backfill_recent_tldrs as _impl
+    return _impl(*args, **kwargs)
+

@@ -107,24 +107,24 @@ const hasValidKeyPoints =
 
 // Category styling map.
 const categoryStyles: Record<string, string> = {
-  "News": "text-sky-400 bg-sky-400/10 border-sky-400/20",
-  "Research": "text-violet-400 bg-violet-400/10 border-violet-400/20",
-  "Benchmark": "text-amber-400 bg-amber-400/10 border-amber-400/20",
-  "Product Release": "text-emerald-400 bg-emerald-400/10 border-emerald-400/20",
-  "Opinion": "text-rose-400 bg-rose-400/10 border-rose-400/20",
+  "News": "text-sky-600 dark:text-sky-400 bg-sky-500/10 border-sky-500/20",
+  "Research": "text-violet-600 dark:text-violet-400 bg-violet-500/10 border-violet-500/20",
+  "Benchmark": "text-amber-600 dark:text-amber-400 bg-amber-500/10 border-amber-500/20",
+  "Product Release": "text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
+  "Opinion": "text-rose-600 dark:text-rose-400 bg-rose-500/10 border-rose-500/20",
 };
 const catStyle = categoryStyles[category] ?? categoryStyles["News"];
 
 const priorityStyles: Record<string, string> = {
-  "Must Know": "text-amber-300 bg-amber-400/10 border-amber-500/30",
-  "Deep Dive": "text-cyan-300 bg-cyan-400/10 border-cyan-500/30",
-  "Worth a Look": "text-neutral-400 bg-neutral-800/40 border-neutral-700/50",
+  "Must Know": "text-amber-600 dark:text-amber-300 bg-amber-500/10 border-amber-500/30",
+  "Deep Dive": "text-cyan-600 dark:text-cyan-300 bg-cyan-500/10 border-cyan-500/30",
+  "Worth a Look": "text-theme-muted bg-theme-elevated border-theme-border",
 };
 const prioStyle = priority_label ? (priorityStyles[priority_label] ?? priorityStyles["Worth a Look"]) : "";
 ---
 
 <article
-  class="group relative flex flex-col bg-neutral-900 border border-neutral-800 rounded-lg overflow-hidden hover:border-neutral-700 hover:bg-neutral-900/80 transition-all duration-200"
+  class="group relative flex flex-col bg-theme-surface border border-theme-border rounded-lg overflow-hidden hover:border-theme-border-accent hover:bg-theme-hover transition-all duration-200"
   data-id={id}
   data-title={title.toLowerCase()}
   data-company={company.toLowerCase()}
@@ -157,14 +157,14 @@ const prioStyle = priority_label ? (priorityStyles[priority_label] ?? prioritySt
         {
           impact_score !== undefined && impact_score !== null && impact_score >= 8 ? (
             <span
-              class="font-mono text-[9px] font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded border border-amber-500/40 bg-amber-500/10 text-amber-300"
+              class="font-mono text-[9px] font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded border border-amber-500/40 bg-amber-500/10 text-amber-500 dark:text-amber-300"
               title={`Editorial Impact Score: ${impact_score}/10`}
             >
               High Impact · {impact_score}/10
             </span>
           ) : impact_score !== undefined && impact_score !== null && impact_score >= 6 ? (
             <span
-              class="font-mono text-[9px] font-medium tracking-wider px-1.5 py-0.5 rounded border border-neutral-700 bg-neutral-800 text-neutral-300"
+              class="font-mono text-[9px] font-medium tracking-wider px-1.5 py-0.5 rounded border border-theme-border bg-theme-elevated text-theme-secondary"
               title={`Editorial Impact Score: ${impact_score}/10`}
             >
               Impact {impact_score}/10
@@ -180,13 +180,13 @@ const prioStyle = priority_label ? (priorityStyles[priority_label] ?? prioritySt
         }
       </div>
       <div class="flex items-center gap-2">
-        <span class="font-mono text-[10px] text-neutral-500 tracking-wide truncate max-w-[140px]" title={source_type ? `${company} (${source_type})` : company}>
+        <span class="font-mono text-[10px] text-theme-muted tracking-wide truncate max-w-[140px]" title={source_type ? `${company} (${source_type})` : company}>
           {isDemo && <span class="text-amber-600 mr-1">[DEMO]</span>}{company}
         </span>
         <!-- Bookmark button -->
         <button
           type="button"
-          class="bookmark-btn inline-flex items-center justify-center w-8 h-8 -mr-1.5 rounded text-neutral-500 hover:text-amber-400 hover:bg-neutral-800/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 transition-colors cursor-pointer"
+          class="bookmark-btn inline-flex items-center justify-center w-8 h-8 -mr-1.5 rounded text-theme-muted hover:text-amber-500 hover:bg-theme-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 transition-colors cursor-pointer"
           data-article-id={id}
           data-article-title={title}
           data-article-url={url}
@@ -201,12 +201,12 @@ const prioStyle = priority_label ? (priorityStyles[priority_label] ?? prioritySt
     </div>
 
     <!-- Title (Clickable) -->
-    <h3 class="text-sm font-semibold text-neutral-100 leading-snug group-hover:text-white transition-colors line-clamp-3">
+    <h3 class="text-sm font-semibold text-theme-primary leading-snug group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors line-clamp-3">
       <a
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        class="hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-400 rounded transition-colors"
+        class="hover:text-emerald-600 dark:hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-500 rounded transition-colors"
       >
         {title}
       </a>
@@ -215,25 +215,25 @@ const prioStyle = priority_label ? (priorityStyles[priority_label] ?? prioritySt
     <!-- Summary -->
     {
       summary_status === "publisher_excerpt" || summary_status === "unverified_excerpt" || (summary && summary.startsWith("[Automated summary unavailable] ") && summary.length > 40) ? (
-        <p class="text-xs text-neutral-400 leading-relaxed line-clamp-4">
-          <span class="text-neutral-500 font-mono text-[9px] mr-1 uppercase border border-neutral-800 bg-neutral-950 px-1 py-0.5 rounded tracking-wider">[Excerpt]</span>
+        <p class="text-xs text-theme-secondary leading-relaxed line-clamp-4">
+          <span class="text-theme-muted font-mono text-[9px] mr-1 uppercase border border-theme-border bg-theme-elevated px-1 py-0.5 rounded tracking-wider">[Excerpt]</span>
           {summary.replace("[Automated summary unavailable] ", "")}
         </p>
       ) : summary_status === "pending_quota" ? (
-        <p class="text-xs text-neutral-400 leading-relaxed line-clamp-4">
-          <span class="text-amber-500/80 font-mono text-[9px] mr-1.5 uppercase border border-amber-500/30 px-1 py-0.5 rounded bg-amber-500/10">Summary in queue</span>
+        <p class="text-xs text-theme-secondary leading-relaxed line-clamp-4">
+          <span class="text-amber-600 dark:text-amber-400 font-mono text-[9px] mr-1.5 uppercase border border-amber-500/30 px-1 py-0.5 rounded bg-amber-500/10">Summary in queue</span>
           {summary && !summary.startsWith("[Automated summary unavailable]") && summary.length > 20 ? (
             summary.replace("[Automated summary unavailable] ", "")
           ) : (
-            <span class="italic text-neutral-500">Summary pending quota refresh — read the original article.</span>
+            <span class="italic text-theme-muted">Summary pending quota refresh — read the original article.</span>
           )}
         </p>
       ) : !summary || summary.startsWith("[Automated summary unavailable]") ? (
-        <p class="text-xs text-neutral-500 italic leading-relaxed line-clamp-4">
+        <p class="text-xs text-theme-muted italic leading-relaxed line-clamp-4">
           Summary unavailable — read the original article.
         </p>
       ) : (
-        <p class="text-xs text-neutral-400 leading-relaxed line-clamp-4">
+        <p class="text-xs text-theme-secondary leading-relaxed line-clamp-4">
           {summary}
         </p>
       )
@@ -242,22 +242,22 @@ const prioStyle = priority_label ? (priorityStyles[priority_label] ?? prioritySt
     <!-- Three-point TL;DR Key Points (AI-generated TL;DR with explicit labels) -->
     {
       hasValidKeyPoints && (
-        <div class="bg-neutral-950/70 border border-neutral-800/80 rounded-md p-3 space-y-2 font-mono text-[11px] text-neutral-300">
-          <div class="text-[9px] uppercase tracking-wider text-neutral-500 font-semibold mb-1 flex items-center justify-between">
+        <div class="bg-theme-elevated border border-theme-border rounded-md p-3 space-y-2 font-mono text-[11px] text-theme-secondary">
+          <div class="text-[9px] uppercase tracking-wider text-theme-muted font-semibold mb-1 flex items-center justify-between">
             <span>AI-generated TL;DR</span>
-            <span class="text-[8px] text-emerald-400/80 font-medium">Synthesized Analysis</span>
+            <span class="text-[8px] text-emerald-600 dark:text-emerald-400 font-medium">Synthesized Analysis</span>
           </div>
           <div class="flex items-start gap-1.5">
-            <span class="text-emerald-400 font-bold shrink-0 text-[10px]">What happened:</span>
-            <span class="text-neutral-300 leading-snug">{key_points[0]}</span>
+            <span class="text-emerald-600 dark:text-emerald-400 font-bold shrink-0 text-[10px]">What happened:</span>
+            <span class="text-theme-secondary leading-snug">{key_points[0]}</span>
           </div>
           <div class="flex items-start gap-1.5">
-            <span class="text-emerald-400 font-bold shrink-0 text-[10px]">Why it matters:</span>
-            <span class="text-neutral-300 leading-snug">{key_points[1]}</span>
+            <span class="text-emerald-600 dark:text-emerald-400 font-bold shrink-0 text-[10px]">Why it matters:</span>
+            <span class="text-theme-secondary leading-snug">{key_points[1]}</span>
           </div>
           <div class="flex items-start gap-1.5">
-            <span class="text-emerald-400 font-bold shrink-0 text-[10px]">Who is affected:</span>
-            <span class="text-neutral-300 leading-snug">{key_points[2]}</span>
+            <span class="text-emerald-600 dark:text-emerald-400 font-bold shrink-0 text-[10px]">Who is affected:</span>
+            <span class="text-theme-secondary leading-snug">{key_points[2]}</span>
           </div>
         </div>
       )
@@ -266,8 +266,8 @@ const prioStyle = priority_label ? (priorityStyles[priority_label] ?? prioritySt
     <!-- Why it matters (if available, no TL;DR present, and not generic) -->
     {
       !hasValidKeyPoints && why_it_matters && !isGenericWhy(why_it_matters) && (
-        <div class="bg-neutral-950/60 border border-neutral-800/80 rounded px-2.5 py-1.5 text-[11px] text-neutral-400 font-mono leading-relaxed">
-          <span class="text-emerald-400/90 font-medium mr-1.5 uppercase tracking-wider text-[9px]">Why it matters:</span>
+        <div class="bg-theme-elevated border border-theme-border rounded px-2.5 py-1.5 text-[11px] text-theme-secondary font-mono leading-relaxed">
+          <span class="text-emerald-600 dark:text-emerald-400 font-medium mr-1.5 uppercase tracking-wider text-[9px]">Why it matters:</span>
           {why_it_matters}
         </div>
       )
@@ -280,7 +280,7 @@ const prioStyle = priority_label ? (priorityStyles[priority_label] ?? prioritySt
           {articleTags.slice(0, 5).map((t) => (
             <a
               href={`${base}/news/?q=${encodeURIComponent(t.toLowerCase())}`}
-              class="tag-pill text-[10px] font-mono text-neutral-400 bg-neutral-950/80 hover:text-emerald-300 hover:border-emerald-500/40 px-2 py-0.5 rounded border border-neutral-800/80 transition-colors"
+              class="tag-pill text-[10px] font-mono text-theme-muted bg-theme-elevated hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-theme-border-accent px-2 py-0.5 rounded border border-theme-border transition-colors"
               data-tag={t.toLowerCase()}
               title={`Filter articles tagged #${t}`}
             >
@@ -292,14 +292,14 @@ const prioStyle = priority_label ? (priorityStyles[priority_label] ?? prioritySt
     }
 
     <!-- Footer metadata & Links -->
-    <footer class="flex flex-col gap-1.5 pt-2 border-t border-neutral-800/60 mt-auto">
+    <footer class="flex flex-col gap-1.5 pt-2 border-t border-theme-border-subtle mt-auto">
       <div class="flex items-center justify-between gap-2 flex-wrap">
-        <span class="font-mono text-[10px] text-neutral-500 tracking-wide" title={source_type}>
+        <span class="font-mono text-[10px] text-theme-muted tracking-wide" title={source_type}>
           {source}
         </span>
         <time
           datetime={date ?? ""}
-          class="font-mono text-[10px] text-neutral-500 tracking-wide"
+          class="font-mono text-[10px] text-theme-muted tracking-wide"
           title={`Ingested: ${displayFetched}`}
         >
           {displayDate}
@@ -309,14 +309,14 @@ const prioStyle = priority_label ? (priorityStyles[priority_label] ?? prioritySt
       <!-- Merged coverage sources (if deduplicated) -->
       {
         sources && sources.length > 1 && (
-          <div class="font-mono text-[10px] text-neutral-500 flex flex-wrap items-center gap-1.5 pt-0.5">
-            <span class="text-neutral-600">Also reported by:</span>
+          <div class="font-mono text-[10px] text-theme-muted flex flex-wrap items-center gap-1.5 pt-0.5">
+            <span class="text-theme-dim">Also reported by:</span>
             {sources.slice(1).map((s) => (
               <a
                 href={s.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-neutral-400 hover:text-emerald-400 transition-colors inline-flex items-center gap-0.5"
+                class="text-theme-muted hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-0.5"
                 title={s.title || s.publisher || "Source link"}
               >
                 <span>{s.publisher || "Source"}</span>
@@ -332,7 +332,7 @@ const prioStyle = priority_label ? (priorityStyles[priority_label] ?? prioritySt
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-1.5 font-mono text-[10px] text-neutral-500 hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-400 rounded px-1 -mx-1 transition-colors duration-150 group/link mt-0.5 w-fit"
+        class="inline-flex items-center gap-1.5 font-mono text-[10px] text-theme-muted hover:text-emerald-600 dark:hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-500 rounded px-1 -mx-1 transition-colors duration-150 group/link mt-0.5 w-fit"
         aria-label={`Read full article: ${title} (opens in new tab)`}
       >
         <span>Read article</span>

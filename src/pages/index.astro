@@ -82,20 +82,30 @@ const isGenericWhy = (text?: string) =>
   text.includes("Introduces algorithmic methodologies");
 
 // Semantics for Today's AI Brief:
-// Check articles published within safe recency window (last 30 hours)
+// An article is eligible only when its publication timestamp is valid,
+// is not later than the current time, and falls within the relevant time window.
 const nowMs = Date.now();
-const articlesFromToday = sortedArticles.filter((a) => {
-  if (!a.date) return false;
-  const pubMs = new Date(a.date).getTime();
-  return (nowMs - pubMs <= 30 * 60 * 60 * 1000) && pubMs <= (nowMs + 24 * 60 * 60 * 1000);
-});
+const THIRTY_HOURS_MS = 30 * 60 * 60 * 1000;
+const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
 
-// Fallback pool strictly limited to past 7 days (never the full historical archive)
-const articlesFromPast7Days = sortedArticles.filter((a) => {
-  if (!a.date) return false;
-  const pubMs = new Date(a.date).getTime();
-  return (nowMs - pubMs <= 7 * 24 * 60 * 60 * 1000) && pubMs <= (nowMs + 24 * 60 * 60 * 1000);
-});
+function isEligibleInWindow(dateStr: string | null | undefined, windowMs: number, now: number): boolean {
+  if (!dateStr || typeof dateStr !== "string") return false;
+  const pubMs = new Date(dateStr).getTime();
+  if (isNaN(pubMs)) return false;
+  // Exclude future-dated articles: publication timestamp must not be later than current time
+  if (pubMs > now) return false;
+  // Must fall within the relevant time window
+  return (now - pubMs) <= windowMs;
+}
+
+const articlesFromToday = sortedArticles.filter((a) =>
+  isEligibleInWindow(a.date, THIRTY_HOURS_MS, nowMs)
+);
+
+// Fallback pool strictly limited to past 7 days (never the full historical archive, no future-dated)
+const articlesFromPast7Days = sortedArticles.filter((a) =>
+  isEligibleInWindow(a.date, SEVEN_DAYS_MS, nowMs)
+);
 
 type BriefMode = "today" | "recent" | "empty";
 let briefMode: BriefMode = "today";
@@ -180,31 +190,31 @@ function formatLastUpdated(iso: string | undefined): string {
 
   <main id="main-content">
     <!-- Hero / Intro Section -->
-    <section class="border-b border-neutral-800/60 bg-neutral-950">
+    <section class="border-b border-theme-border bg-theme-page">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
         <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
           <div class="max-w-2xl">
-            <div class="inline-flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase px-2.5 py-1 rounded border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 mb-3">
-              <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+            <div class="inline-flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase px-2.5 py-1 rounded border border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 mb-3">
+              <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400"></span>
               <span>Frontier Intelligence Stream</span>
             </div>
-            <h1 class="text-2xl sm:text-3xl font-bold text-neutral-100 tracking-tight mb-2">
+            <h1 class="text-2xl sm:text-3xl font-bold text-theme-primary tracking-tight mb-2">
               AI Intelligence Dashboard
             </h1>
-            <p class="text-sm text-neutral-400 leading-relaxed">
+            <p class="text-sm text-theme-secondary leading-relaxed">
               Objective news aggregation, verified model capabilities, empirical benchmarks, and research tracking. Filtered for high-signal developments with traceable provenance.
             </p>
           </div>
 
           <!-- Fast section jump navigation -->
           <nav aria-label="Page sections" class="flex items-center gap-2 flex-wrap font-mono text-[10px]">
-            <span class="text-neutral-500 uppercase tracking-wider">Jump to:</span>
-            <a href="#todays-brief" class="px-2.5 py-1 rounded border border-neutral-800 bg-neutral-900/60 text-neutral-300 hover:text-emerald-400 hover:border-neutral-700 transition-colors">Today's Brief</a>
-            <a href="#priority-intelligence" class="px-2.5 py-1 rounded border border-neutral-800 bg-neutral-900/60 text-neutral-300 hover:text-emerald-400 hover:border-neutral-700 transition-colors">Priority Intel</a>
-            <a href="#latest-coverage" class="px-2.5 py-1 rounded border border-neutral-800 bg-neutral-900/60 text-neutral-300 hover:text-emerald-400 hover:border-neutral-700 transition-colors">Latest News</a>
-            <a href="#intelligence-hubs" class="px-2.5 py-1 rounded border border-neutral-800 bg-neutral-900/60 text-neutral-300 hover:text-emerald-400 hover:border-neutral-700 transition-colors">Hubs</a>
-            <span class="text-neutral-700 hidden sm:inline">&middot;</span>
-            <a href={`${base}/feedback/`} class="px-2.5 py-1 rounded border border-neutral-800/80 bg-neutral-950 text-neutral-400 hover:text-emerald-400 hover:border-neutral-700 transition-colors" title="Send feedback or report an issue">Send Feedback</a>
+            <span class="text-theme-muted uppercase tracking-wider">Jump to:</span>
+            <a href="#todays-brief" class="px-2.5 py-1 rounded border border-theme-border bg-theme-surface text-theme-secondary hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-theme-border-accent transition-colors">Today's Brief</a>
+            <a href="#priority-intelligence" class="px-2.5 py-1 rounded border border-theme-border bg-theme-surface text-theme-secondary hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-theme-border-accent transition-colors">Priority Intel</a>
+            <a href="#latest-coverage" class="px-2.5 py-1 rounded border border-theme-border bg-theme-surface text-theme-secondary hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-theme-border-accent transition-colors">Latest News</a>
+            <a href="#intelligence-hubs" class="px-2.5 py-1 rounded border border-theme-border bg-theme-surface text-theme-secondary hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-theme-border-accent transition-colors">Hubs</a>
+            <span class="text-theme-muted hidden sm:inline">&middot;</span>
+            <a href={`${base}/feedback/`} class="px-2.5 py-1 rounded border border-theme-border bg-theme-surface text-theme-muted hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-theme-border-accent transition-colors" title="Send feedback or report an issue">Send Feedback</a>
           </nav>
         </div>
 
@@ -223,11 +233,11 @@ function formatLastUpdated(iso: string | undefined): string {
                 value: formatLastUpdated(lastUpdated),
               },
             ].map(({ label, value }) => (
-              <div class="bg-neutral-900/40 border border-neutral-800/80 rounded-lg p-3.5 flex flex-col justify-between">
-                <span class="font-mono text-[10px] text-neutral-500 tracking-wider uppercase">
+              <div class="bg-theme-surface border border-theme-border rounded-lg p-3.5 flex flex-col justify-between">
+                <span class="font-mono text-[10px] text-theme-muted tracking-wider uppercase">
                   {label}
                 </span>
-                <span class="font-mono text-sm font-semibold text-neutral-200 mt-1 truncate" title={value}>
+                <span class="font-mono text-sm font-semibold text-theme-primary mt-1 truncate" title={value}>
                   {value}
                 </span>
               </div>
@@ -238,24 +248,24 @@ function formatLastUpdated(iso: string | undefined): string {
     </section>
 
     <!-- Today's AI Brief Section -->
-    <section id="todays-brief" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-b border-neutral-900">
+    <section id="todays-brief" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-b border-theme-border">
       <div class="flex items-center justify-between mb-6">
         <div class="flex items-center gap-2 flex-wrap">
-          <span class="inline-block w-2 h-2 rounded-full bg-emerald-400"></span>
-          <h2 class="text-xs font-mono text-neutral-300 font-semibold tracking-widest uppercase">
+          <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400"></span>
+          <h2 class="text-xs font-mono text-theme-primary font-semibold tracking-widest uppercase">
             Today's AI Brief
           </h2>
           {
             briefMode === "today" ? (
-              <span class="font-mono text-[9px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded tracking-wide">
+              <span class="font-mono text-[9px] text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded tracking-wide">
                 Live Daily Coverage
               </span>
             ) : briefMode === "recent" ? (
-              <span class="font-mono text-[9px] text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded tracking-wide">
+              <span class="font-mono text-[9px] text-amber-500 dark:text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded tracking-wide">
                 Past 7 Days Highlights (limited coverage today)
               </span>
             ) : (
-              <span class="font-mono text-[9px] text-neutral-400 bg-neutral-800/50 border border-neutral-700/50 px-2 py-0.5 rounded tracking-wide">
+              <span class="font-mono text-[9px] text-theme-muted bg-theme-elevated border border-theme-border px-2 py-0.5 rounded tracking-wide">
                 No recent stories (past 7 days)
               </span>
             )
@@ -263,7 +273,7 @@ function formatLastUpdated(iso: string | undefined): string {
         </div>
         <a
           href={`${base}/news/?sort=important`}
-          class="font-mono text-[10px] text-neutral-500 hover:text-emerald-400 tracking-wide transition-colors"
+          class="font-mono text-[10px] text-theme-muted hover:text-emerald-600 dark:hover:text-emerald-400 tracking-wide transition-colors"
         >
           Priority stream →
         </a>
@@ -271,52 +281,52 @@ function formatLastUpdated(iso: string | undefined): string {
 
       {
         todaysBrief.length === 0 ? (
-          <div class="border border-neutral-800 rounded-lg p-8 text-center bg-neutral-900/30">
-            <p class="font-mono text-xs text-neutral-400 mb-1">No recent articles published in the past 7 days.</p>
-            <p class="font-mono text-[11px] text-neutral-600">The automated ingestion runs twice daily across monitored feeds. Explore latest stories below.</p>
+          <div class="border border-theme-border rounded-lg p-8 text-center bg-theme-surface">
+            <p class="font-mono text-xs text-theme-muted mb-1">No recent articles published in the past 7 days.</p>
+            <p class="font-mono text-[11px] text-theme-dim">The automated ingestion runs twice daily across monitored feeds. Explore latest stories below.</p>
           </div>
         ) : (
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             {todaysBrief.map((article) => (
-              <div class="bg-neutral-900/70 border border-neutral-800 rounded-lg p-5 flex flex-col justify-between hover:border-neutral-700 transition-colors">
+              <div class="bg-theme-surface border border-theme-border rounded-lg p-5 flex flex-col justify-between hover:border-theme-border-accent hover:bg-theme-hover transition-colors">
                 <div>
                   <div class="flex items-center justify-between gap-2 mb-2 flex-wrap">
                     <div class="flex items-center gap-1.5">
-                      <span class="font-mono text-[9px] text-amber-300 bg-amber-400/10 border border-amber-500/30 uppercase tracking-wider px-1.5 py-0.5 rounded">
+                      <span class="font-mono text-[9px] text-amber-500 dark:text-amber-300 bg-amber-500/10 border border-amber-500/30 uppercase tracking-wider px-1.5 py-0.5 rounded">
                         {article.priority_label || "Must Know"}
                       </span>
-                      <span class="font-mono text-[10px] text-neutral-400">
+                      <span class="font-mono text-[10px] text-theme-muted">
                         {article.company}
                       </span>
                     </div>
-                    <time class="font-mono text-[10px] text-neutral-600">
+                    <time class="font-mono text-[10px] text-theme-dim">
                       {article.date ? new Date(article.date).toLocaleDateString("en-US", { month: "short", day: "numeric" }) : ""}
                     </time>
                   </div>
-                  <h3 class="text-sm font-semibold text-neutral-100 mb-2 leading-snug">
-                    <a href={article.url} target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors">
+                  <h3 class="text-sm font-semibold text-theme-primary mb-2 leading-snug">
+                    <a href={article.url} target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                       {article.title}
                     </a>
                   </h3>
-                  <p class="text-xs text-neutral-400 leading-relaxed mb-3">
+                  <p class="text-xs text-theme-secondary leading-relaxed mb-3">
                     {article.summary}
                   </p>
                   {article.why_it_matters && !isGenericWhy(article.why_it_matters) && (
-                    <div class="bg-neutral-950/80 border border-neutral-800/80 rounded px-2.5 py-1.5 text-[11px] text-neutral-400 font-mono leading-relaxed mb-3">
-                      <span class="text-emerald-400/90 font-medium mr-1.5 uppercase tracking-wider text-[9px]">Why it matters:</span>
+                    <div class="bg-theme-elevated border border-theme-border rounded px-2.5 py-1.5 text-[11px] text-theme-secondary font-mono leading-relaxed mb-3">
+                      <span class="text-emerald-600 dark:text-emerald-400 font-medium mr-1.5 uppercase tracking-wider text-[9px]">Why it matters:</span>
                       {article.why_it_matters}
                     </div>
                   )}
                 </div>
-                <div class="pt-2 border-t border-neutral-800/60 flex items-center justify-between">
-                  <span class="font-mono text-[10px] text-neutral-600">
+                <div class="pt-2 border-t border-theme-border-subtle flex items-center justify-between">
+                  <span class="font-mono text-[10px] text-theme-dim">
                     {article.source}
                   </span>
                   <a
                     href={article.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="font-mono text-[10px] text-neutral-500 hover:text-emerald-400 inline-flex items-center gap-1"
+                    class="font-mono text-[10px] text-theme-muted hover:text-emerald-600 dark:hover:text-emerald-400 inline-flex items-center gap-1"
                   >
                     <span>Read source</span>
                     <span>↗</span>
@@ -332,19 +342,19 @@ function formatLastUpdated(iso: string | undefined): string {
     <!-- Priority Intelligence Section -->
     {
       priorityStories.length > 0 && (
-        <section id="priority-intelligence" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-b border-neutral-900">
+        <section id="priority-intelligence" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-b border-theme-border">
           <div class="flex items-center justify-between mb-6">
             <div>
-              <h2 class="text-xs font-mono text-neutral-300 font-semibold tracking-widest uppercase mb-1">
+              <h2 class="text-xs font-mono text-theme-primary font-semibold tracking-widest uppercase mb-1">
                 Priority Intelligence
               </h2>
-              <p class="text-[11px] font-mono text-neutral-500">
+              <p class="text-[11px] font-mono text-theme-muted">
                 High-signal architecture drops, benchmark results, and foundation model milestones.
               </p>
             </div>
             <a
               href={`${base}/news/?sort=important`}
-              class="font-mono text-[10px] text-neutral-500 hover:text-emerald-400 tracking-wide transition-colors"
+              class="font-mono text-[10px] text-theme-muted hover:text-emerald-600 dark:hover:text-emerald-400 tracking-wide transition-colors"
             >
               View all high-signal stories →
             </a>
@@ -352,28 +362,28 @@ function formatLastUpdated(iso: string | undefined): string {
 
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {priorityStories.map((article) => (
-              <div class="bg-neutral-900/50 border border-neutral-800 rounded-lg p-4 flex flex-col justify-between hover:border-neutral-700 transition-colors">
+              <div class="bg-theme-surface border border-theme-border rounded-lg p-4 flex flex-col justify-between hover:border-theme-border-accent hover:bg-theme-hover transition-colors">
                 <div>
                   <div class="flex items-center justify-between gap-1 mb-2">
-                    <span class="font-mono text-[9px] text-amber-400 bg-amber-400/10 border border-amber-500/30 uppercase tracking-wider px-1.5 py-0.5 rounded">
+                    <span class="font-mono text-[9px] text-amber-500 dark:text-amber-300 bg-amber-500/10 border border-amber-500/30 uppercase tracking-wider px-1.5 py-0.5 rounded">
                       {article.priority_label || "Must Know"}
                     </span>
-                    <time class="font-mono text-[9px] text-neutral-500">
+                    <time class="font-mono text-[9px] text-theme-dim">
                       {article.date ? new Date(article.date).toLocaleDateString("en-US", { month: "short", day: "numeric" }) : "Recent"}
                     </time>
                   </div>
-                  <h3 class="text-xs font-semibold text-neutral-200 mb-2 line-clamp-2 leading-snug">
-                    <a href={article.url} target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors">
+                  <h3 class="text-xs font-semibold text-theme-primary mb-2 line-clamp-2 leading-snug">
+                    <a href={article.url} target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                       {article.title}
                     </a>
                   </h3>
-                  <p class="text-[11px] text-neutral-400 line-clamp-3 leading-relaxed mb-3">
+                  <p class="text-[11px] text-theme-secondary line-clamp-3 leading-relaxed mb-3">
                     {article.summary}
                   </p>
                 </div>
-                <div class="pt-2 border-t border-neutral-800/60 flex items-center justify-between font-mono text-[10px]">
-                  <span class="text-neutral-500">{article.company}</span>
-                  <a href={article.url} target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-emerald-400">
+                <div class="pt-2 border-t border-theme-border-subtle flex items-center justify-between font-mono text-[10px]">
+                  <span class="text-theme-muted">{article.company}</span>
+                  <a href={article.url} target="_blank" rel="noopener noreferrer" class="text-theme-muted hover:text-emerald-600 dark:hover:text-emerald-400">
                     Source ↗
                   </a>
                 </div>
@@ -387,12 +397,12 @@ function formatLastUpdated(iso: string | undefined): string {
     <!-- Latest Articles Section -->
     <section id="latest-coverage" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <div class="flex items-center justify-between mb-6">
-        <h2 class="text-xs font-mono text-neutral-500 tracking-widest uppercase">
+        <h2 class="text-xs font-mono text-theme-muted tracking-widest uppercase">
           Latest Coverage
         </h2>
         <a
           href={`${base}/news/`}
-          class="font-mono text-[10px] text-neutral-500 hover:text-emerald-400 tracking-wide transition-colors"
+          class="font-mono text-[10px] text-theme-muted hover:text-emerald-600 dark:hover:text-emerald-400 tracking-wide transition-colors"
         >
           View all {realArticles.length} articles →
         </a>
@@ -400,11 +410,11 @@ function formatLastUpdated(iso: string | undefined): string {
 
       {
         latestArticles.length === 0 ? (
-          <div class="border border-neutral-800 rounded-lg p-12 text-center bg-neutral-900/30">
-            <p class="font-mono text-xs text-neutral-400 mb-2 font-medium">
+          <div class="border border-theme-border rounded-lg p-12 text-center bg-theme-surface">
+            <p class="font-mono text-xs text-theme-secondary mb-2 font-medium">
               No genuine news articles ingested yet.
             </p>
-            <p class="font-mono text-[11px] text-neutral-600 max-w-md mx-auto leading-relaxed">
+            <p class="font-mono text-[11px] text-theme-muted max-w-md mx-auto leading-relaxed">
               The automated ingestion pipeline runs twice daily across {sourcesData.length} public feeds.
             </p>
           </div>
@@ -441,7 +451,7 @@ function formatLastUpdated(iso: string | undefined): string {
 
     <!-- Intelligence Hub Sections -->
     <section id="intelligence-hubs" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
-      <h2 class="text-xs font-mono text-neutral-500 tracking-widest uppercase mb-4">
+      <h2 class="text-xs font-mono text-theme-muted tracking-widest uppercase mb-4">
         Intelligence Hubs
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -471,21 +481,21 @@ function formatLastUpdated(iso: string | undefined): string {
           ].map(({ title, tag, description, href }) => (
             <a
               href={href}
-              class="border border-neutral-800 bg-neutral-900/40 rounded-lg p-6 flex flex-col justify-between hover:border-neutral-700 transition-colors group"
+              class="border border-theme-border bg-theme-surface rounded-lg p-6 flex flex-col justify-between hover:border-theme-border-accent hover:bg-theme-hover transition-colors group"
             >
               <div>
                 <div class="flex items-center justify-between mb-2">
-                  <span class="font-mono text-[10px] text-emerald-400 tracking-widest uppercase">
+                  <span class="font-mono text-[10px] text-emerald-600 dark:text-emerald-400 tracking-widest uppercase">
                     {tag}
                   </span>
-                  <span class="font-mono text-xs text-neutral-500 group-hover:text-emerald-400 transition-colors">
+                  <span class="font-mono text-xs text-theme-muted group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                     →
                   </span>
                 </div>
-                <h3 class="text-sm font-semibold text-neutral-200 group-hover:text-neutral-100 transition-colors mb-2">
+                <h3 class="text-sm font-semibold text-theme-primary group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors mb-2">
                   {title}
                 </h3>
-                <p class="text-xs text-neutral-400 leading-relaxed font-mono">
+                <p class="text-xs text-theme-secondary leading-relaxed font-mono">
                   {description}
                 </p>
               </div>
@@ -494,11 +504,11 @@ function formatLastUpdated(iso: string | undefined): string {
         }
       </div>
 
-      <div class="mt-6 pt-4 border-t border-neutral-800/60 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-neutral-500">
+      <div class="mt-6 pt-4 border-t border-theme-border-subtle flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-theme-muted">
         <span>Help refine our coverage, models catalogue, and benchmark accuracy.</span>
         <a
           href={`${base}/feedback/`}
-          class="text-neutral-300 hover:text-emerald-400 transition-colors inline-flex items-center gap-1.5"
+          class="text-theme-secondary hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-1.5"
         >
           <span>Report an issue or suggest a feature</span>
           <span>→</span>

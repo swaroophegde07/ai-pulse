@@ -16,7 +16,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,14 +24,53 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
     <title>{title === "AI Pulse" ? title : `${title} — AI Pulse`}</title>
+
+    <!-- Early theme initialization to completely prevent Flash of Wrong Theme (FOUT) -->
+    <script is:inline>
+      (function () {
+        var STORAGE_KEY = "ai-pulse-theme";
+        var preference = "system";
+        try {
+          var saved = localStorage.getItem(STORAGE_KEY);
+          if (saved === "light" || saved === "dark" || saved === "system") {
+            preference = saved;
+          }
+        } catch (e) {
+          // Graceful fallback if localStorage is blocked
+        }
+
+        var isDark = false;
+        if (preference === "dark") {
+          isDark = true;
+        } else if (preference === "light") {
+          isDark = false;
+        } else {
+          isDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        }
+
+        var root = document.documentElement;
+        if (isDark) {
+          root.classList.add("dark");
+        } else {
+          root.classList.remove("dark");
+        }
+        root.setAttribute("data-theme-preference", preference);
+        root.setAttribute("data-theme-resolved", isDark ? "dark" : "light");
+        root.style.colorScheme = isDark ? "dark" : "light";
+      })();
+    </script>
   </head>
-  <body class="bg-neutral-950 text-neutral-100 min-h-screen antialiased selection:bg-emerald-500/20 selection:text-emerald-300">
+  <body class="bg-theme-page text-theme-primary min-h-screen antialiased">
     <a
       href="#main-content"
-      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:bg-emerald-400 focus:text-neutral-950 focus:font-mono focus:text-xs focus:font-bold focus:rounded focus:shadow-xl focus:ring-2 focus:ring-white"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:bg-emerald-500 focus:text-white focus:font-mono focus:text-xs focus:font-bold focus:rounded focus:shadow-xl focus:ring-2 focus:ring-emerald-400"
     >
       Skip to main content
     </a>
     <slot />
+
+    <script>
+      import "../scripts/theme";
+    </script>
   </body>
 </html>
