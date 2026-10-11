@@ -41,6 +41,8 @@ class BenchmarkRecord(TypedDict, total=False):
     score: float
     score_unit: str
     evaluation_date: str | None
+    benchmark_release_date: str | None
+    benchmark_version: str | None
     source: str
     source_url: str
     provenance: str
@@ -48,7 +50,6 @@ class BenchmarkRecord(TypedDict, total=False):
     notes: str | None
     model_version: str | None
     configuration: str | None
-    benchmark_version: str | None
     harness: str | None
 
 
@@ -101,7 +102,7 @@ def validate_benchmark_record(record: dict[str, Any]) -> bool:
 
 
 def get_measurement_key(r: dict[str, Any]) -> tuple:
-    """Derive full measurement identity key preserving model identity, version, configuration, and suite."""
+    """Derive full measurement identity key preserving model identity, version, configuration, suite, and release/evaluation date."""
     return (
         r.get("source"),
         r.get("canonical_id"),
@@ -109,6 +110,7 @@ def get_measurement_key(r: dict[str, Any]) -> tuple:
         r.get("configuration"),
         r.get("benchmark_name"),
         r.get("category"),
+        r.get("benchmark_release_date") or r.get("benchmark_version"),
         r.get("evaluation_date"),
     )
 

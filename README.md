@@ -306,12 +306,16 @@ To prevent data contamination between external providers and benchmark suites, m
 
 AI Pulse welcomes community contributions, bug reports, and data quality corrections. All feedback is organized through dedicated GitHub Issue Forms:
 
-* **[Report a Bug](https://github.com/swaroophegde07/ai-pulse/issues/new?template=bug_report.yml)**: Technical errors, broken filters, layout overflow, or mobile defects.
-* **[Suggest a Feature](https://github.com/swaroophegde07/ai-pulse/issues/new?template=feature_request.yml)**: Propose new RSS feeds, topic filters, or dashboard features.
-* **[Report Incorrect Data](https://github.com/swaroophegde07/ai-pulse/issues/new?template=data_correction.yml)**: Report inaccurate model specs, benchmark scores, or article summaries (with official primary citation).
-* **[Share General Feedback](https://github.com/swaroophegde07/ai-pulse/issues/new?template=general_feedback.yml)**: Usability feedback, design thoughts, and general suggestions.
+* **[Report a Bug](https://github.com/swaroophegde07/ai-pulse/issues/new?template=bug_report.yml)**: Technical errors, broken filters, layout overflow, or mobile defects (applies repository label `bug`).
+* **[Suggest a Feature](https://github.com/swaroophegde07/ai-pulse/issues/new?template=feature_request.yml)**: Propose new RSS feeds, topic filters, or dashboard features (applies repository label `enhancement`).
+* **[Report Incorrect Data](https://github.com/swaroophegde07/ai-pulse/issues/new?template=data_correction.yml)**: Report inaccurate model specs, benchmark scores, or article summaries (requests repository label `data-quality`).
+* **[Share General Feedback](https://github.com/swaroophegde07/ai-pulse/issues/new?template=general_feedback.yml)**: Usability feedback, design thoughts, and general suggestions (requests repository label `feedback`).
 
 Visitors can also access the dedicated web portal at **[/feedback/](https://swaroophegde07.github.io/ai-pulse/feedback/)**.
+
+> [!NOTE]
+> **Repository Label Setup Notice**: Adding labels to GitHub Issue Form YAML templates (`.github/ISSUE_TEMPLATE/*.yml`) does **not** create those labels in GitHub.
+> While `bug` and `enhancement` exist in standard GitHub repositories, the custom labels `data-quality` and `feedback` must be created manually by the repository owner in **GitHub > Issues > Labels** ([Manage Labels](https://github.com/swaroophegde07/ai-pulse/labels)). Until created, issues submitted via these templates will still open normally without error, but GitHub will skip attaching uncreated labels.
 
 ---
 

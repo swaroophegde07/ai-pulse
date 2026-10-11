@@ -32,6 +32,8 @@ interface BenchmarkRecord {
   score: number;
   score_unit: string;
   evaluation_date: string | null;
+  benchmark_release_date?: string | null;
+  benchmark_version?: string | null;
   source: string;
   source_url: string;
   provenance: string;
@@ -85,7 +87,8 @@ const validationReport = benchmarksData.metadata?.validation_report || {
   quarantined_count: 0,
   retained_count: benchmarks.length,
 };
-const lastEvalDate = benchmarksData.metadata?.health?.last_successful_evaluation_date || "2026-06-25";
+const lastReleaseDate = benchmarksData.metadata?.health?.last_benchmark_release_date || benchmarksData.metadata?.sources?.[1]?.release_date || "2026-06-25";
+const lastEvalDate = benchmarksData.metadata?.health?.last_successful_evaluation_date;
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 // Mapping from models.json ID to LiveBench canonical ID(s)
@@ -135,7 +138,12 @@ for (const m of models) {
   const pOutStr = m.pricing ? `$${m.pricing.output_per_1m.toFixed(2)}` : "Not specified";
 
   const evalDate = rRecord?.evaluation_date || cRecord?.evaluation_date;
-  const evalSource = rRecord ? `${rRecord.source} (${rRecord.evaluation_date || "Verified"})` : cRecord ? `${cRecord.source} (${cRecord.evaluation_date || "Verified"})` : "Not evaluated";
+  const benchRelease = rRecord?.benchmark_release_date || cRecord?.benchmark_release_date || rRecord?.benchmark_version || cRecord?.benchmark_version;
+  const evalSource = rRecord
+    ? `${rRecord.source} (${evalDate ? `Eval: ${evalDate}` : `Release: ${benchRelease || "Verified"}`})`
+    : cRecord
+    ? `${cRecord.source} (${evalDate ? `Eval: ${evalDate}` : `Release: ${benchRelease || "Verified"}`})`
+    : "Not evaluated";
 
   dynamicModelDatabase[m.id] = {
     name: m.name,
@@ -146,7 +154,7 @@ for (const m of models) {
     priceOut: pOutStr,
     license: m.license_type,
     evalSource: evalSource,
-    evalDate: evalDate || "Not available",
+    evalDate: evalDate || (benchRelease ? `Suite: ${benchRelease}` : "Not reported"),
   };
 }
 
@@ -215,7 +223,7 @@ const costEfficientModel = [...models]
         <div class="flex items-center gap-2">
           <span class="inline-block w-2 h-2 rounded-full bg-emerald-400"></span>
           <span class="font-mono text-xs font-semibold text-neutral-200">Data Integrity & Validation Report</span>
-          <span class="font-mono text-[10px] text-neutral-400">({lastEvalDate} Official Release)</span>
+          <span class="font-mono text-[10px] text-neutral-400">({lastEvalDate ? `Eval ${lastEvalDate} · Suite ${lastReleaseDate}` : `${lastReleaseDate} Benchmark Suite Release`})</span>
         </div>
         <div class="font-mono text-[10px] text-neutral-400">
           Source: Official LiveBench (Apache-2.0) & OpenRouter Catalog
@@ -356,7 +364,7 @@ const costEfficientModel = [...models]
             </p>
             <span class="text-neutral-700 hidden sm:inline">&middot;</span>
             <a
-              href="https://github.com/swaroophegde07/ai-pulse/issues/new?template=data_correction.yml&title=%5BData+Correction%5D%3A+Benchmark+Evaluation+Inaccuracy&affected_page=https%3A%2F%2Fswaroophegde07.github.io%2Fai-pulse%2Fbenchmarks%2F&entity_type=Benchmark+Result+%28Score%2C+Suite+Name%2C+Metric%2C+Category%29"
+              href="https://github.com/swaroophegde07/ai-pulse/issues/new?template=data_correction.yml&title=%5BData+Correction%5D%3A+Benchmark+Evaluation+Inaccuracy+%28Benchmarks+Page%29"
               target="_blank"
               rel="noopener noreferrer"
               class="hidden sm:inline-flex items-center gap-1 font-mono text-[10px] text-neutral-400 hover:text-blue-400 transition-colors"
@@ -447,8 +455,13 @@ const costEfficientModel = [...models]
                     {b.score.toFixed(1)} {b.score_unit === "Percentage" ? "%" : b.score_unit}
                   </td>
                   <td class="py-3.5 pr-4">
-                    <span class="text-[10px] text-neutral-500 block">{b.provenance}</span>
-                    <span class="text-[9px] text-neutral-600 block">{b.evaluation_date}</span>
+                    <span class="text-[10px] text-neutral-400 block">{b.provenance}</span>
+                    <span class="text-[9px] text-neutral-500 block font-mono">
+                      {b.evaluation_date ? `Eval: ${b.evaluation_date}` : "Eval date: Not reported"}
+                    </span>
+                    <span class="text-[9px] text-neutral-600 block font-mono">
+                      {b.benchmark_release_date ? `Suite: ${b.benchmark_release_date}` : (b.benchmark_version ? `Version: ${b.benchmark_version}` : "")}
+                    </span>
                   </td>
                   <td class="py-3.5 pr-6 text-right">
                     <a
@@ -487,7 +500,7 @@ const costEfficientModel = [...models]
       <div class="px-6 py-2.5 bg-neutral-950/60 border-t border-neutral-800/80 flex flex-wrap items-center justify-between gap-2 text-[10px] font-mono text-neutral-500">
         <span>Evaluations parsed from official LiveBench releases</span>
         <a
-          href="https://github.com/swaroophegde07/ai-pulse/issues/new?template=data_correction.yml&title=%5BData+Correction%5D%3A+Benchmark+Evaluation+Inaccuracy&affected_page=https%3A%2F%2Fswaroophegde07.github.io%2Fai-pulse%2Fbenchmarks%2F&entity_type=Benchmark+Result+%28Score%2C+Suite+Name%2C+Metric%2C+Category%29"
+          href="https://github.com/swaroophegde07/ai-pulse/issues/new?template=data_correction.yml&title=%5BData+Correction%5D%3A+Benchmark+Evaluation+Inaccuracy+%28Benchmarks+Page%29"
           target="_blank"
           rel="noopener noreferrer"
           class="text-neutral-400 hover:text-blue-400 transition-colors inline-flex items-center gap-1"

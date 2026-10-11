@@ -253,6 +253,14 @@ class LiveBenchAdapter(SourceAdapter):
             canonical_id = raw_model.lower()
             provider, display_name, config = infer_provider_and_display_name(raw_model)
 
+            # Check if upstream source provides an explicit model evaluation date
+            raw_eval_date = (
+                row.get("evaluation_date")
+                or row.get("eval_date")
+                or row.get("date")
+            )
+            eval_date = raw_eval_date.strip() if raw_eval_date and raw_eval_date.strip() else None
+
             # Resolve model identity against verified registry
             id_match = resolve_model_identity(raw_model, context_source="LiveBench")
             internal_model_id = id_match.matched_id if id_match.confidence >= 0.9 else None
@@ -291,14 +299,18 @@ class LiveBenchAdapter(SourceAdapter):
                         "category": mapped_cat,
                         "score": avg_score,
                         "score_unit": "Percentage",
-                        "evaluation_date": self.active_release,
+                        "evaluation_date": eval_date,
+                        "benchmark_release_date": self.active_release,
+                        "benchmark_version": self.active_release,
                         "source": "LiveBench",
                         "source_url": "https://livebench.ai/",
                         "provenance": "Independent Evaluation",
                         "retrieved_at": now_iso,
-                        "notes": f"LiveBench {self.active_release} release category average across {len(cat_scores)} tasks.",
+                        "notes": (
+                            f"LiveBench {self.active_release} release category average across {len(cat_scores)} tasks."
+                            + (f" Model evaluation date: {eval_date}." if eval_date else " Model evaluation date not reported by source.")
+                        ),
                         "configuration": config,
-                        "benchmark_version": self.active_release,
                     }
                     if validate_benchmark_record(rec):
                         records.append(rec)
@@ -316,14 +328,18 @@ class LiveBenchAdapter(SourceAdapter):
                     "category": "Composite",
                     "score": overall_score,
                     "score_unit": "Percentage",
-                    "evaluation_date": self.active_release,
+                    "evaluation_date": eval_date,
+                    "benchmark_release_date": self.active_release,
+                    "benchmark_version": self.active_release,
                     "source": "LiveBench",
                     "source_url": "https://livebench.ai/",
                     "provenance": "Independent Evaluation",
                     "retrieved_at": now_iso,
-                    "notes": f"LiveBench overall average across {len(all_scores)} verified subtasks.",
+                    "notes": (
+                        f"LiveBench overall average across {len(all_scores)} verified subtasks from {self.active_release} release."
+                        + (f" Model evaluation date: {eval_date}." if eval_date else " Model evaluation date not reported by source.")
+                    ),
                     "configuration": config,
-                    "benchmark_version": self.active_release,
                 }
                 if validate_benchmark_record(overall_rec):
                     records.append(overall_rec)

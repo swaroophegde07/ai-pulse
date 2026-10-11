@@ -1784,6 +1784,111 @@ class TestPipelineStatus(unittest.TestCase):
         self.assertIn("reason", benchlm)
 
 
+class TestBenchmarkDateSemantics(unittest.TestCase):
+    @patch("requests.get")
+    def test_livebench_adapter_date_semantics_default_null_eval_date(self, mock_get):
+        mock_table_resp = MagicMock()
+        mock_table_resp.raise_for_status.return_value = None
+        mock_table_resp.text = "model,theory_of_mind\no1,92.0\n"
+
+        mock_cat_resp = MagicMock()
+        mock_cat_resp.raise_for_status.return_value = None
+        mock_cat_resp.json.return_value = {"Reasoning": ["theory_of_mind"]}
+
+        mock_get.side_effect = [mock_table_resp, mock_cat_resp]
+
+        adapter = LiveBenchAdapter(release_date="2026-06-25")
+        records = adapter.fetch()
+        self.assertGreater(len(records), 0)
+        rec = records[0]
+
+        # Benchmark release date and version must match release
+        self.assertEqual(rec["benchmark_release_date"], "2026-06-25")
+        self.assertEqual(rec["benchmark_version"], "2026-06-25")
+        # evaluation_date must be None because LiveBench CSV does not provide per-model evaluation timestamps
+        self.assertIsNone(rec["evaluation_date"])
+        # retrieved_at must be populated with ISO datetime
+        self.assertIsNotNone(rec.get("retrieved_at"))
+        # notes must explain that evaluation date is not reported
+        self.assertIn("Model evaluation date not reported by source", rec.get("notes", ""))
+
+    @patch("requests.get")
+    def test_livebench_adapter_preserves_explicit_row_eval_date(self, mock_get):
+        mock_table_resp = MagicMock()
+        mock_table_resp.raise_for_status.return_value = None
+        mock_table_resp.text = "model,theory_of_mind,eval_date\no1,92.0,2026-07-01\n"
+
+        mock_cat_resp = MagicMock()
+        mock_cat_resp.raise_for_status.return_value = None
+        mock_cat_resp.json.return_value = {"Reasoning": ["theory_of_mind"]}
+
+        mock_get.side_effect = [mock_table_resp, mock_cat_resp]
+
+        adapter = LiveBenchAdapter(release_date="2026-06-25")
+        records = adapter.fetch()
+        self.assertGreater(len(records), 0)
+        rec = records[0]
+
+        self.assertEqual(rec["benchmark_release_date"], "2026-06-25")
+        self.assertEqual(rec["benchmark_version"], "2026-06-25")
+        self.assertEqual(rec["evaluation_date"], "2026-07-01")
+
+    def test_measurement_key_distinguishes_release_and_evaluation_dates(self):
+        from pipeline.benchmarks.base import get_measurement_key
+
+        rec1 = {
+            "canonical_id": "openai/o1",
+            "benchmark_name": "LiveBench (Reasoning)",
+            "evaluation_date": None,
+            "benchmark_release_date": "2026-06-25",
+            "benchmark_version": "2026-06-25",
+        }
+        rec2 = {
+            "canonical_id": "openai/o1",
+            "benchmark_name": "LiveBench (Reasoning)",
+            "evaluation_date": None,
+            "benchmark_release_date": "2026-07-25",
+            "benchmark_version": "2026-07-25",
+        }
+        rec3 = {
+            "canonical_id": "openai/o1",
+            "benchmark_name": "LiveBench (Reasoning)",
+            "evaluation_date": "2026-06-30",
+            "benchmark_release_date": "2026-06-25",
+            "benchmark_version": "2026-06-25",
+        }
+
+        key1 = get_measurement_key(rec1)
+        key2 = get_measurement_key(rec2)
+        key3 = get_measurement_key(rec3)
+
+        self.assertNotEqual(key1, key2)
+        self.assertNotEqual(key1, key3)
+        self.assertNotEqual(key2, key3)
+
+    def test_benchmarks_json_date_semantics_integrity(self):
+        bench_path = Path(__file__).parent.parent.parent / "src" / "data" / "benchmarks.json"
+        with bench_path.open("r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        benchmarks = data.get("benchmarks", [])
+        self.assertGreater(len(benchmarks), 0)
+        for b in benchmarks:
+            # All records must distinguish benchmark release/version from eval date
+            self.assertIn("benchmark_release_date", b)
+            self.assertIn("evaluation_date", b)
+            self.assertIn("retrieved_at", b)
+            # In LiveBench records where eval date is not reported, evaluation_date is None
+            if b.get("provenance") == "Independent Evaluation" and "not reported" in b.get("notes", ""):
+                self.assertIsNone(b["evaluation_date"])
+                self.assertIsNotNone(b["benchmark_release_date"])
+
+        # Check metadata health dates
+        health = data.get("metadata", {}).get("health", {})
+        self.assertIn("last_benchmark_release_date", health)
+        self.assertEqual(health["last_benchmark_release_date"], "2026-06-25")
+
+
 if __name__ == "__main__":
     unittest.main()
 
