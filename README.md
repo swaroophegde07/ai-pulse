@@ -185,18 +185,28 @@ npm run build
 
 ---
 
-## Automated Updates
+## Automated CI/CD Workflows
 
-The project uses a GitHub Actions workflow defined in [`.github/workflows/update-and-deploy.yml`](.github/workflows/update-and-deploy.yml).
+The repository uses two dedicated GitHub Actions workflows to cleanly separate production deployments from pull request quality checks:
 
-* **Twice-Daily Schedule:** Runs at `07:00 UTC` and `19:00 UTC` daily.
-* **Manual Dispatch:** Can be triggered on demand via **Actions → Update and Deploy → Run workflow**.
-* **Deployment Pipeline:**
+### 1. Production Ingestion & Deployment (`.github/workflows/update-and-deploy.yml`)
+* **Triggers:**
+  * **Push to `main`:** Deploys verified code changes merged via Pull Requests.
+  * **Twice-Daily Schedule:** Runs at `07:00 UTC` and `19:00 UTC` daily.
+  * **Manual Dispatch:** Can be triggered on demand via **Actions → Update and Deploy → Run workflow**.
+* **Pipeline Sequence:**
   1. Runs pipeline test suite (`pytest`).
-  2. Runs `python -m pipeline.run` with repository secret `GEMINI_API_KEY`.
-  3. Commits updated `src/data/feed.json` using `[skip ci]` to prevent recursive workflow triggers.
+  2. Runs `python -m pipeline.run` with repository secrets `GEMINI_API_KEY` and `DATA_SYNC_TOKEN` (admin bypass token).
+  3. Commits updated `src/data/feed.json`, `src/data/benchmarks.json`, and `src/data/models.json` using `[skip ci]`.
   4. Runs `npm run check` and `npm run build`.
-  5. Deploys the static `dist/` directory to GitHub Pages via `actions/deploy-pages`.
+  5. Deploys the static `dist/` bundle to GitHub Pages via `actions/deploy-pages`.
+
+### 2. On-Demand PR Quality Gate (`.github/workflows/pr-checks.yml`)
+* **Zero AI Credit Burn:** Does **not** run the ingestion pipeline, does **not** call the Gemini API, and does **not** deploy to GitHub Pages.
+* **Controlled Execution:** Does not run on every commit pushed to a branch. Runs only on demand when:
+  1. The PR is labeled with `run-checks`.
+  2. Manually triggered on the feature branch via **Actions → PR Quality Checks → Run workflow**.
+* **Validation Suite:** Runs `pytest` against mock fixtures, `npm run check` (Astro/TypeScript), and `npm run build`.
 
 ---
 
@@ -205,7 +215,8 @@ The project uses a GitHub Actions workflow defined in [`.github/workflows/update
 ```text
 ai-pulse/
 ├── .github/workflows/
-│   └── update-and-deploy.yml    # Ingestion, validation, build, and deployment workflow
+│   ├── update-and-deploy.yml    # Scheduled ingestion, Gemini summaries, build & deployment
+│   └── pr-checks.yml            # On-demand PR validation (0 AI credits, build & test checks)
 ├── pipeline/
 │   ├── run.py                   # Unified pipeline orchestrator & status reporter
 │   ├── scraper.py               # Feed parsing, URL normalization & deduplication
