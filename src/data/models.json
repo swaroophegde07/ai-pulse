@@ -84,7 +84,7 @@
     "api_available": true,
     "consumer_available": false,
     "pricing": {
-      "input_per_1m": 0.018,
+      "input_per_1m": 0.0162,
       "output_per_1m": 0.64,
       "unit": "USD"
     },
