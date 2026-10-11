@@ -1,5 +1,46 @@
 [
   {
+    "id": "10ff9df7a5585aaf",
+    "title": "Silicon Valley is falling in line with Trump’s attempt to rename AI",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "President Donald Trump announced a push to rebrand artificial intelligence as \"super intelligence.\" Silicon Valley leaders, including Elon Musk, have begun adopting this terminology.",
+    "summary_status": "generated",
+    "content_fingerprint": "07d0afbc5e03fe71",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1009406/silicon-valley-is-falling-in-line-with-trumps-attempt-to-rename-ai",
+    "date": "2026-10-11T18:33:56+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-11T20:30:25.027864+00:00",
+    "topics": [
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "President Trump announced an effort to rebrand artificial intelligence as super intelligence.",
+      "Prominent technology figures like Elon Musk adopted the new terminology for their entities, such as promising to rename SpaceXAI to SpaceXSI.",
+      "Silicon Valley executives and artificial intelligence industry participants are affected as terminology and political messaging shift."
+    ],
+    "tags": [
+      "Elon Musk",
+      "Artificial Intelligence",
+      "Super Intelligence",
+      "Donald Trump",
+      "Silicon Valley"
+    ],
+    "impact_score": 3,
+    "sources": [
+      {
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1009406/silicon-valley-is-falling-in-line-with-trumps-attempt-to-rename-ai",
+        "title": "Silicon Valley is falling in line with Trump’s attempt to rename AI",
+        "publisher": "The Verge"
+      }
+    ]
+  },
+  {
     "id": "a439fdc2654eaaf3",
     "title": "Learning to use local AI is exciting, overwhelming, and frustrating",
     "company": "The Verge",
