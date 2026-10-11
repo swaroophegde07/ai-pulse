@@ -84,6 +84,7 @@
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 4.5rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: var(--bg-page);

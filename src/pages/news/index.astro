@@ -4,7 +4,6 @@
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import NewsCard from "../../components/NewsCard.astro";
-import ReaderModal from "../../components/ReaderModal.astro";
 import CategoryFilter from "../../components/CategoryFilter.astro";
 import Footer from "../../components/Footer.astro";
 import sourcesData from "../../data/sources.json";
@@ -127,120 +126,118 @@ function formatLastUpdated(iso: string | undefined): string {
     </section>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <!-- Filter controls -->
-      <div class="mb-8">
-        <CategoryFilter
-          categories={categories}
-          publishers={distinctPublishers}
-          topics={distinctTopics}
-        />
-      </div>
-
-      <!-- Article grid -->
-      {
-        sortedArticles.length === 0 ? (
-          <div
-            id="empty-state"
-            class="border border-theme-border rounded-lg p-16 text-center bg-theme-surface"
-          >
-            <p class="font-mono text-xs text-theme-secondary mb-2 font-medium">
-              No genuine news articles ingested yet.
-            </p>
-            <p class="font-mono text-[11px] text-theme-muted max-w-md mx-auto leading-relaxed mb-4">
-              The automated ingestion pipeline runs twice daily across {sourcesData.length} public feeds,
-              or can be triggered on demand via GitHub Actions.
-            </p>
-            <p class="font-mono text-[10px] text-theme-dim">
-              Run locally: <code class="text-theme-muted">python3 -m pipeline.run</code>
-            </p>
-          </div>
-        ) : (
-          <>
-            <div
-              id="news-grid"
-              class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
-            >
-              {sortedArticles.map((article) => (
-                <NewsCard
-                  id={article.id}
-                  title={article.title}
-                  company={article.company}
-                  source={article.source}
-                  summary={article.summary}
-                  url={article.url}
-                  date={article.date}
-                  category={article.category}
-                  fetched_at={article.fetched_at}
-                  isDemo={false}
-                  topics={article.topics || []}
-                  tags={article.tags || []}
-                  key_points={article.key_points || []}
-                  impact_score={article.impact_score}
-                  sources={article.sources || []}
-                  priority_label={article.priority_label}
-                  priority_explanation={article.priority_explanation}
-                  why_it_matters={article.why_it_matters}
-                  source_type={article.source_type}
-                  summary_status={article.summary_status}
-                />
-              ))}
-            </div>
-
-            <!-- Empty state for filtered results -->
-            <div
-              id="empty-state"
-              style="display: none;"
-              class="border border-theme-border rounded-lg p-16 text-center mt-4 bg-theme-surface"
-            >
-              <p class="font-mono text-xs text-theme-secondary mb-1">
-                No articles match your search or filter criteria.
-              </p>
-              <p class="font-mono text-[10px] text-theme-muted mb-4">
-                Try a different keyword, publisher name, date window, or clear all filters.
-              </p>
-              <button
-                type="button"
-                id="reset-filter-btn"
-                class="btn-interactive font-mono text-[10px] uppercase tracking-wider text-theme-primary px-3 py-1.5 rounded border border-theme-border bg-theme-elevated hover:bg-theme-hover cursor-pointer"
+      <!-- Filter controls with slotted feed content to preserve sticky height boundary -->
+      <CategoryFilter
+        categories={categories}
+        publishers={distinctPublishers}
+        topics={distinctTopics}
+      >
+        <div class="mt-4">
+          <!-- Article grid -->
+          {
+            sortedArticles.length === 0 ? (
+              <div
+                id="empty-state"
+                class="border border-theme-border rounded-lg p-16 text-center bg-theme-surface"
               >
-                Clear all filters
-              </button>
-            </div>
+                <p class="font-mono text-xs text-theme-secondary mb-2 font-medium">
+                  No genuine news articles ingested yet.
+                </p>
+                <p class="font-mono text-[11px] text-theme-muted max-w-md mx-auto leading-relaxed mb-4">
+                  The automated ingestion pipeline runs twice daily across {sourcesData.length} public feeds,
+                  or can be triggered on demand via GitHub Actions.
+                </p>
+                <p class="font-mono text-[10px] text-theme-dim">
+                  Run locally: <code class="text-theme-muted">python3 -m pipeline.run</code>
+                </p>
+              </div>
+            ) : (
+              <>
+                <div
+                  id="news-grid"
+                  class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+                >
+                  {sortedArticles.map((article) => (
+                    <NewsCard
+                      id={article.id}
+                      title={article.title}
+                      company={article.company}
+                      source={article.source}
+                      summary={article.summary}
+                      url={article.url}
+                      date={article.date}
+                      category={article.category}
+                      fetched_at={article.fetched_at}
+                      isDemo={false}
+                      topics={article.topics || []}
+                      tags={article.tags || []}
+                      key_points={article.key_points || []}
+                      impact_score={article.impact_score}
+                      sources={article.sources || []}
+                      priority_label={article.priority_label}
+                      priority_explanation={article.priority_explanation}
+                      why_it_matters={article.why_it_matters}
+                      source_type={article.source_type}
+                      summary_status={article.summary_status}
+                    />
+                  ))}
+                </div>
 
-            <!-- Pagination Load More button -->
-            <div
-              id="pagination-controls"
-              class="mt-10 flex justify-center"
-              style="display: none;"
-            >
-              <button
-                type="button"
-                id="load-more-btn"
-                class="btn-interactive font-mono text-xs text-theme-secondary hover:text-theme-primary bg-theme-surface hover:bg-theme-hover border border-theme-border hover:border-theme-border-accent px-6 py-2.5 rounded-md cursor-pointer"
-              >
-                Load more articles ↓
-              </button>
-            </div>
+                <!-- Empty state for filtered results -->
+                <div
+                  id="empty-state"
+                  style="display: none;"
+                  class="border border-theme-border rounded-lg p-16 text-center mt-4 bg-theme-surface"
+                >
+                  <p class="font-mono text-xs text-theme-secondary mb-1">
+                    No articles match your search or filter criteria.
+                  </p>
+                  <p class="font-mono text-[10px] text-theme-muted mb-4">
+                    Try a different keyword, publisher name, date window, or clear all filters.
+                  </p>
+                  <button
+                    type="button"
+                    id="reset-filter-btn"
+                    class="btn-interactive font-mono text-[10px] uppercase tracking-wider text-theme-primary px-3 py-1.5 rounded border border-theme-border bg-theme-elevated hover:bg-theme-hover cursor-pointer"
+                  >
+                    Clear all filters
+                  </button>
+                </div>
 
-            <div class="mt-12 pt-6 border-t border-theme-border-subtle flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] text-theme-muted">
-              <span>Notice a misclassified article or broken link?</span>
-              <a
-                href="https://github.com/swaroophegde07/ai-pulse/issues/new?template=data_correction.yml&title=%5BData+Correction%5D%3A+Article+Summary+Inaccuracy+%28News+Page%29"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-theme-secondary hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-1"
-              >
-                <span>Report a news issue</span>
-                <span>↗</span>
-              </a>
-            </div>
-          </>
-        )
-      }
+                <!-- Pagination Load More button -->
+                <div
+                  id="pagination-controls"
+                  class="mt-10 flex justify-center"
+                  style="display: none;"
+                >
+                  <button
+                    type="button"
+                    id="load-more-btn"
+                    class="btn-interactive font-mono text-xs text-theme-secondary hover:text-theme-primary bg-theme-surface hover:bg-theme-hover border border-theme-border hover:border-theme-border-accent px-6 py-2.5 rounded-md cursor-pointer"
+                  >
+                    Load more articles ↓
+                  </button>
+                </div>
+
+                <div class="mt-12 pt-6 border-t border-theme-border-subtle flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] text-theme-muted">
+                  <span>Notice a misclassified article or broken link?</span>
+                  <a
+                    href="https://github.com/swaroophegde07/ai-pulse/issues/new?template=data_correction.yml&title=%5BData+Correction%5D%3A+Article+Summary+Inaccuracy+%28News+Page%29"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-theme-secondary hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-1"
+                  >
+                    <span>Report a news issue</span>
+                    <span>↗</span>
+                  </a>
+                </div>
+              </>
+            )
+          }
+        </div>
+      </CategoryFilter>
     </div>
   </main>
-
-  <ReaderModal />
 
   <Footer />
 </Layout>

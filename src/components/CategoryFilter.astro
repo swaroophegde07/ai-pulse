@@ -11,106 +11,109 @@ const { categories, publishers, topics } = Astro.props;
 ---
 
 <div class="flex flex-col gap-4" id="filter-bar">
-  <!-- Search input + Clear button -->
-  <div class="relative">
-    <label for="article-search" class="sr-only">Search articles</label>
-    <div
-      class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-theme-muted"
-      aria-hidden="true"
-    >
-      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-        ></path>
-      </svg>
-    </div>
-    <input
-      id="article-search"
-      type="search"
-      role="searchbox"
-      placeholder="Search articles by title, key points, tags, publisher…"
-      class="w-full bg-theme-input border border-theme-border rounded-md pl-9 pr-10 py-2.5 text-xs text-theme-primary placeholder:text-theme-placeholder font-mono focus:outline-none focus:border-theme-border-accent focus:ring-1 focus:ring-emerald-500/20 transition-colors"
-      aria-label="Search articles by title, publisher, summary, or category"
-      autocomplete="off"
-    />
-    <button
-      id="clear-search-btn"
-      type="button"
-      style="display: none;"
-      class="btn-interactive absolute inset-y-0 right-0 pr-3 flex items-center text-theme-muted hover:text-theme-primary cursor-pointer"
-      aria-label="Clear search input"
-    >
-      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-      </svg>
-    </button>
-  </div>
-
-  <!-- Primary Category & View Pills -->
-  <div class="flex items-center justify-between flex-wrap gap-2">
-    <div class="flex flex-wrap gap-1.5" role="toolbar" aria-label="Filter articles by category">
-      <button
-        type="button"
-        data-category="all"
-        class="category-btn chip-interactive active font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border border-theme-border text-theme-primary bg-theme-elevated font-semibold hover:border-theme-border-accent"
-        aria-pressed="true"
+  <!-- Sticky Search Input & Primary Category Controls -->
+  <div class="sticky top-14 z-30 bg-theme-page/95 backdrop-blur-sm border-b border-theme-border/60 pb-3 pt-3 transition-colors -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 space-y-3">
+    <!-- Search input + Clear button -->
+    <div class="relative">
+      <label for="article-search" class="sr-only">Search articles</label>
+      <div
+        class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-theme-muted"
+        aria-hidden="true"
       >
-        All
-      </button>
-      {
-        categories.map((cat) => (
-          <button
-            type="button"
-            data-category={cat.toLowerCase()}
-            class="category-btn chip-interactive font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border border-theme-border text-theme-muted hover:text-theme-primary hover:border-theme-border-accent bg-theme-surface"
-            aria-pressed="false"
-          >
-            {cat}
-          </button>
-        ))
-      }
-      <!-- High Impact articles view pill -->
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+          ></path>
+        </svg>
+      </div>
+      <input
+        id="article-search"
+        type="search"
+        role="searchbox"
+        placeholder="Search articles by title, key points, tags, publisher…"
+        class="w-full bg-theme-input border border-theme-border rounded-md pl-9 pr-10 py-2.5 text-xs text-theme-primary placeholder:text-theme-placeholder font-mono focus:outline-none focus:border-theme-border-accent focus:ring-1 focus:ring-emerald-500/20 transition-colors"
+        aria-label="Search articles by title, publisher, summary, or category"
+        autocomplete="off"
+      />
       <button
+        id="clear-search-btn"
         type="button"
-        id="high-impact-view-btn"
-        data-high-impact="false"
-        class="chip-interactive font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border border-theme-border text-amber-500/90 hover:text-amber-500 hover:border-amber-500/40 bg-theme-surface"
-        aria-pressed="false"
+        style="display: none;"
+        class="btn-interactive absolute inset-y-0 right-0 pr-3 flex items-center text-theme-muted hover:text-theme-primary cursor-pointer"
+        aria-label="Clear search input"
       >
-        High Impact (<span id="high-impact-count">0</span>)
-      </button>
-      <!-- Saved articles view pill -->
-      <button
-        type="button"
-        id="saved-view-btn"
-        data-saved-view="false"
-        class="chip-interactive font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border border-theme-border text-amber-500/90 hover:text-amber-500 hover:border-amber-500/40 bg-theme-surface"
-        aria-pressed="false"
-      >
-        Saved (<span id="saved-count">0</span>)
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
       </button>
     </div>
 
-    <!-- Toggle Advanced Filters -->
-    <button
-      type="button"
-      id="toggle-filters-btn"
-      class="btn-interactive font-mono text-[11px] text-theme-secondary hover:text-emerald-600 dark:hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-500 inline-flex items-center gap-1.5 py-1.5 px-2.5 rounded border border-theme-border hover:border-theme-border-accent bg-theme-surface cursor-pointer"
-      aria-expanded="false"
-      aria-controls="advanced-filters"
-    >
-      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
-      </svg>
-      <span>Filters & Sort</span>
-      <span id="active-filters-count" class="hidden font-mono text-[9px] bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 px-1 rounded font-semibold">0</span>
-    </button>
+    <!-- Primary Category & View Pills -->
+    <div class="flex items-center justify-between flex-wrap gap-2">
+      <div class="flex flex-wrap gap-1.5" role="toolbar" aria-label="Filter articles by category">
+        <button
+          type="button"
+          data-category="all"
+          class="category-btn chip-interactive active font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border border-theme-border text-theme-primary bg-theme-elevated font-semibold hover:border-theme-border-accent"
+          aria-pressed="true"
+        >
+          All
+        </button>
+        {
+          categories.map((cat) => (
+            <button
+              type="button"
+              data-category={cat.toLowerCase()}
+              class="category-btn chip-interactive font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border border-theme-border text-theme-muted hover:text-theme-primary hover:border-theme-border-accent bg-theme-surface"
+              aria-pressed="false"
+            >
+              {cat}
+            </button>
+          ))
+        }
+        <!-- High Impact articles view pill -->
+        <button
+          type="button"
+          id="high-impact-view-btn"
+          data-high-impact="false"
+          class="chip-interactive font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border border-theme-border text-amber-500/90 hover:text-amber-500 hover:border-amber-500/40 bg-theme-surface"
+          aria-pressed="false"
+        >
+          High Impact (<span id="high-impact-count">0</span>)
+        </button>
+        <!-- Saved articles view pill -->
+        <button
+          type="button"
+          id="saved-view-btn"
+          data-saved-view="false"
+          class="chip-interactive font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border border-theme-border text-amber-500/90 hover:text-amber-500 hover:border-amber-500/40 bg-theme-surface"
+          aria-pressed="false"
+        >
+          Saved (<span id="saved-count">0</span>)
+        </button>
+      </div>
+
+      <!-- Toggle Advanced Filters -->
+      <button
+        type="button"
+        id="toggle-filters-btn"
+        class="btn-interactive font-mono text-[11px] text-theme-secondary hover:text-emerald-600 dark:hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-500 inline-flex items-center gap-1.5 py-1.5 px-2.5 rounded border border-theme-border hover:border-theme-border-accent bg-theme-surface cursor-pointer shrink-0"
+        aria-expanded="false"
+        aria-controls="advanced-filters"
+      >
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
+        </svg>
+        <span>Filters & Sort</span>
+        <span id="active-filters-count" class="hidden font-mono text-[9px] bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 px-1 rounded font-semibold">0</span>
+      </button>
+    </div>
   </div>
 
-  <!-- Collapsible Secondary Filters (Date, Sort, Publisher, Topic) -->
+  <!-- Collapsible Secondary Filters (Date, Sort, Publisher, Topic) in normal flow -->
   <div
     id="advanced-filters"
     class="hidden border border-theme-border bg-theme-surface rounded-lg p-4 space-y-4"
@@ -191,6 +194,8 @@ const { categories, publishers, topics } = Astro.props;
       Clear all filters
     </button>
   </div>
+
+  <slot />
 </div>
 
 <script>

@@ -322,8 +322,11 @@ const articlePayload = JSON.stringify({
         </span>
         <time
           datetime={date ?? ""}
+          data-article-time="true"
+          data-pubdate={date ?? ""}
           class="font-mono text-[10px] text-theme-muted tracking-wide"
-          title={`Ingested: ${displayFetched}`}
+          title={date ? `Published: ${new Date(date).toUTCString()}${displayFetched ? ` · Ingested: ${displayFetched}` : ""}` : (displayFetched ? `Ingested: ${displayFetched}` : "Publication date unverified")}
+          aria-label={date ? `Published ${displayDate}` : "Publication date unverified"}
         >
           {displayDate}
         </time>

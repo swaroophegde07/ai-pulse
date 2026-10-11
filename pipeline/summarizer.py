@@ -25,6 +25,12 @@ from google import genai
 from google.genai import types
 from google.genai.errors import APIError
 
+from pipeline.scraper import (
+    are_titles_duplicate,
+    dates_compatible,
+    merge_source_into,
+    normalize_url,
+)
 from pipeline.sources import ALLOWED_CATEGORIES
 
 logger = logging.getLogger(__name__)
@@ -657,12 +663,55 @@ def summarize_articles(
     limiter = RateLimiter(requests_per_minute=rpm)
     circuit = CircuitBreaker()
 
-    # Index existing records by ID and canonical URL
+    # Index existing records by ID, canonical URL, and valid records list
     existing_by_id: dict[str, dict] = {}
+    existing_by_url: dict[str, dict] = {}
+    existing_valid_records: list[dict] = []
     if existing_records:
         for r in existing_records:
-            if isinstance(r, dict) and r.get("id"):
-                existing_by_id[r["id"]] = r
+            if isinstance(r, dict):
+                r_id = r.get("id")
+                if r_id:
+                    existing_by_id[r_id] = r
+                r_url = r.get("url")
+                if r_url:
+                    norm_url = normalize_url(r_url)
+                    if norm_url:
+                        existing_by_url[norm_url] = r
+                for s in r.get("sources") or []:
+                    if isinstance(s, dict) and s.get("url"):
+                        s_norm = normalize_url(s["url"])
+                        if s_norm and s_norm not in existing_by_url:
+                            existing_by_url[s_norm] = r
+                if is_summary_valid(r):
+                    existing_valid_records.append(r)
+
+    def _create_reused_article(incoming: dict, matched: dict, fp: str) -> dict:
+        reused = dict(incoming)
+        reused["summary"] = matched["summary"]
+        reused["category"] = matched.get("category", incoming.get("category", "News"))
+        reused["summary_status"] = "generated"
+        reused["content_fingerprint"] = fp
+        if matched.get("key_points"):
+            reused["key_points"] = matched["key_points"]
+        if matched.get("tags"):
+            reused["tags"] = matched["tags"]
+        elif matched.get("topics"):
+            reused["tags"] = matched["topics"]
+        if matched.get("impact_score") is not None:
+            reused["impact_score"] = matched["impact_score"]
+
+        # Ensure source attribution preserves both matched and incoming source
+        base_sources = matched.get("sources") or [
+            {
+                "title": matched.get("title", ""),
+                "url": matched.get("url", ""),
+                "publisher": matched.get("company", matched.get("source", "")),
+            }
+        ]
+        reused["sources"] = [dict(s) for s in base_sources]
+        merge_source_into(reused, incoming)
+        return reused
 
     metrics = {
         "considered": len(articles),
@@ -703,37 +752,58 @@ def summarize_articles(
         text = article.get("text", "")
         current_fp = compute_content_fingerprint(title, text)
 
-        # 1. Check if we have an existing valid summary with identical fingerprint
+        # 1. Check if we have an existing valid summary with identical ID & fingerprint
         existing = existing_by_id.get(art_id)
         if existing and is_summary_valid(existing):
             cached_fp = existing.get("content_fingerprint")
-            # If fingerprint matches, or if no fingerprint stored but valid generated summary exists
             if cached_fp == current_fp or not cached_fp:
-                reused = dict(article)
-                reused["summary"] = existing["summary"]
-                reused["category"] = existing.get("category", article.get("category", "News"))
-                reused["summary_status"] = "generated"
-                reused["content_fingerprint"] = current_fp
-                if existing.get("key_points"):
-                    reused["key_points"] = existing["key_points"]
-                if existing.get("tags"):
-                    reused["tags"] = existing["tags"]
-                elif existing.get("topics"):
-                    reused["tags"] = existing["topics"]
-                if existing.get("impact_score") is not None:
-                    reused["impact_score"] = existing["impact_score"]
-                reused["sources"] = existing.get("sources") or [
-                    {
-                        "title": reused.get("title", ""),
-                        "url": reused.get("url", ""),
-                        "publisher": reused.get("company", reused.get("source", "")),
-                    }
-                ]
+                reused = _create_reused_article(article, existing, current_fp)
                 results.append(reused)
                 metrics["skipped_cached"] += 1
                 continue
 
-        # 2. Check if circuit breaker is open or run budget reached
+        # 2. Check if an existing article shares the exact canonical URL
+        norm_art_url = normalize_url(article.get("url", ""))
+        existing_url_match = existing_by_url.get(norm_art_url)
+        if existing_url_match and is_summary_valid(existing_url_match):
+            reused = _create_reused_article(article, existing_url_match, current_fp)
+            results.append(reused)
+            metrics["skipped_cached"] += 1
+            continue
+
+        # 3. Check high-confidence duplicate title match against existing verified articles with compatible date
+        art_date = article.get("date")
+        matched_title_rec = None
+        for ev in existing_valid_records:
+            if are_titles_duplicate(title, ev.get("title", "")):
+                if dates_compatible(art_date, ev.get("date")):
+                    matched_title_rec = ev
+                    break
+        if matched_title_rec:
+            reused = _create_reused_article(article, matched_title_rec, current_fp)
+            results.append(reused)
+            metrics["skipped_cached"] += 1
+            continue
+
+        # 4. Check intra-batch duplicate match against earlier articles summarized in this run
+        matched_batch_res = None
+        for prev in results:
+            if prev.get("summary_status") == "generated":
+                prev_norm_url = normalize_url(prev.get("url", ""))
+                if norm_art_url and norm_art_url == prev_norm_url:
+                    matched_batch_res = prev
+                    break
+                if are_titles_duplicate(title, prev.get("title", "")):
+                    if dates_compatible(art_date, prev.get("date")):
+                        matched_batch_res = prev
+                        break
+        if matched_batch_res:
+            reused = _create_reused_article(article, matched_batch_res, current_fp)
+            results.append(reused)
+            metrics["skipped_cached"] += 1
+            continue
+
+        # 5. Check if circuit breaker is open or run budget reached
         if circuit.is_open or summaries_in_run >= max_per_run:
             deferred = dict(article)
             deferred["summary"] = make_fallback_summary(title, text)

@@ -19,6 +19,16 @@ interface FeedRecord {
   category: string;
   fetched_at: string;
   _demo?: boolean;
+  topics?: string[];
+  tags?: string[];
+  key_points?: string[];
+  impact_score?: number | null;
+  sources?: { title?: string; url: string; publisher?: string }[];
+  priority_label?: string;
+  priority_explanation?: string;
+  why_it_matters?: string;
+  source_type?: string;
+  summary_status?: string;
 }
 
 interface BenchmarkRecord {
@@ -814,6 +824,16 @@ const costEfficientModel = [...models]
                 category={article.category}
                 fetched_at={article.fetched_at}
                 isDemo={false}
+                topics={article.topics || []}
+                tags={article.tags || []}
+                key_points={article.key_points || []}
+                impact_score={article.impact_score}
+                sources={article.sources || []}
+                priority_label={article.priority_label}
+                priority_explanation={article.priority_explanation}
+                why_it_matters={article.why_it_matters}
+                source_type={article.source_type}
+                summary_status={article.summary_status}
               />
             ))}
           </div>

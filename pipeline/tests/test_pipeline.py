@@ -2409,6 +2409,244 @@ class TestRecentTLDRBackfill(unittest.TestCase):
             self.assertNotIn("key_points", recent_art)
 
 
+
+# ===========================================================================
+# Conservative Pre-Summarization Deduplication Tests
+# ===========================================================================
+
+
+class TestPreSummarizationDeduplication(unittest.TestCase):
+    def test_presummarization_canonical_url_match_skips_gemini(self):
+        existing = [
+            {
+                "id": "existing1",
+                "title": "OpenAI announces GPT-5.5 Developer Preview",
+                "company": "OpenAI",
+                "source": "OpenAI Blog",
+                "summary": "OpenAI has officially launched GPT-5.5 Developer Preview.",
+                "summary_status": "generated",
+                "url": "https://openai.com/index/gpt-5-5-preview?utm_source=rss",
+                "date": "2026-10-10T14:00:00+00:00",
+                "category": "Product Release",
+                "sources": [
+                    {
+                        "title": "OpenAI announces GPT-5.5 Developer Preview",
+                        "url": "https://openai.com/index/gpt-5-5-preview",
+                        "publisher": "OpenAI",
+                    }
+                ],
+            }
+        ]
+        # Incoming article with same canonical URL but different UTM tags / ID
+        incoming = [
+            {
+                "id": "new_feed_art",
+                "title": "OpenAI announces GPT-5.5 Developer Preview",
+                "company": "OpenAI",
+                "source": "OpenAI News",
+                "url": "https://openai.com/index/gpt-5-5-preview?utm_campaign=newsletter&ref=feed",
+                "text": "Full body text for GPT-5.5 Developer Preview.",
+                "date": "2026-10-10T14:00:00+00:00",
+                "category": "Product Release",
+            }
+        ]
+
+        with patch("pipeline.summarizer._get_client") as mock_get_client:
+            mock_client = MagicMock()
+            mock_get_client.return_value = mock_client
+
+            results, metrics = summarize_articles(incoming, existing_records=existing)
+
+            # Verification: zero Gemini calls made
+            self.assertEqual(metrics["skipped_cached"], 1)
+            self.assertEqual(metrics["requests_sent"], 0)
+            self.assertEqual(mock_client.models.generate_content.call_count, 0)
+            # Reused summary and sources verified
+            self.assertEqual(results[0]["summary"], "OpenAI has officially launched GPT-5.5 Developer Preview.")
+            self.assertEqual(results[0]["summary_status"], "generated")
+
+    def test_presummarization_cross_source_title_match_skips_gemini_and_merges_sources(self):
+        existing = [
+            {
+                "id": "verge1",
+                "title": "Anthropic releases Claude 3.7 Sonnet with hybrid reasoning - The Verge",
+                "company": "The Verge",
+                "source": "The Verge AI",
+                "summary": "Anthropic introduced Claude 3.7 Sonnet offering hybrid reasoning capabilities.",
+                "summary_status": "generated",
+                "url": "https://www.theverge.com/2026/10/10/claude-3-7-sonnet",
+                "date": "2026-10-10T15:00:00+00:00",
+                "category": "News",
+                "sources": [
+                    {
+                        "title": "Anthropic releases Claude 3.7 Sonnet with hybrid reasoning - The Verge",
+                        "url": "https://www.theverge.com/2026/10/10/claude-3-7-sonnet",
+                        "publisher": "The Verge",
+                    }
+                ],
+            }
+        ]
+        # Incoming syndicated coverage from TechCrunch of the exact same event
+        incoming = [
+            {
+                "id": "tc1",
+                "title": "Anthropic releases Claude 3.7 Sonnet with hybrid reasoning | TechCrunch",
+                "company": "TechCrunch",
+                "source": "TechCrunch AI",
+                "url": "https://techcrunch.com/2026/10/10/anthropic-claude-3-7-sonnet",
+                "text": "Anthropic launched Claude 3.7 Sonnet today with hybrid reasoning.",
+                "date": "2026-10-10T15:15:00+00:00",
+                "category": "News",
+            }
+        ]
+
+        with patch("pipeline.summarizer._get_client") as mock_get_client:
+            mock_client = MagicMock()
+            mock_get_client.return_value = mock_client
+
+            results, metrics = summarize_articles(incoming, existing_records=existing)
+
+            # Verification: zero Gemini calls made
+            self.assertEqual(metrics["skipped_cached"], 1)
+            self.assertEqual(metrics["requests_sent"], 0)
+            self.assertEqual(mock_client.models.generate_content.call_count, 0)
+            self.assertEqual(results[0]["summary"], "Anthropic introduced Claude 3.7 Sonnet offering hybrid reasoning capabilities.")
+            # Verified source attribution merged
+            sources_urls = [s["url"] for s in results[0]["sources"]]
+            self.assertIn("https://www.theverge.com/2026/10/10/claude-3-7-sonnet", sources_urls)
+            self.assertIn("https://techcrunch.com/2026/10/10/anthropic-claude-3-7-sonnet", sources_urls)
+
+    def test_presummarization_intra_batch_duplicate_skips_redundant_call(self):
+        # Two incoming articles in the SAME batch covering the same announcement
+        batch = [
+            {
+                "id": "art_a",
+                "title": "DeepSeek introduces DeepSeek-V3 Open Model - The Verge",
+                "company": "The Verge",
+                "source": "The Verge AI",
+                "url": "https://www.theverge.com/deepseek-v3",
+                "text": "DeepSeek announced DeepSeek-V3 with high performance.",
+                "date": "2026-10-10T12:00:00+00:00",
+                "category": "News",
+            },
+            {
+                "id": "art_b",
+                "title": "DeepSeek introduces DeepSeek-V3 Open Model | TechCrunch",
+                "company": "TechCrunch",
+                "source": "TechCrunch AI",
+                "url": "https://techcrunch.com/deepseek-v3",
+                "text": "DeepSeek released DeepSeek-V3 open model.",
+                "date": "2026-10-10T12:10:00+00:00",
+                "category": "News",
+            },
+        ]
+
+        with patch("pipeline.summarizer._get_client") as mock_get_client:
+            mock_client = MagicMock()
+            mock_resp = MagicMock()
+            mock_resp.text = json.dumps({
+                "summary": "DeepSeek announced DeepSeek-V3 with high inference performance.",
+                "category": "Product Release",
+                "tags": ["DeepSeek", "DeepSeek-V3"],
+            })
+            mock_client.models.generate_content.return_value = mock_resp
+            mock_get_client.return_value = mock_client
+
+            results, metrics = summarize_articles(batch, existing_records=[])
+
+            # Only 1 Gemini call for art_a; art_b reuses summary and merges attribution
+            self.assertEqual(metrics["requests_sent"], 1)
+            self.assertEqual(metrics["skipped_cached"], 1)
+            self.assertEqual(len(results), 2)
+            self.assertEqual(results[0]["summary"], results[1]["summary"])
+
+    def test_presummarization_preserves_distinct_stories_with_separate_summaries(self):
+        # Two distinct stories from the same company
+        batch = [
+            {
+                "id": "story_spec",
+                "title": "Google announces Gemini 2.5 Flash architecture",
+                "company": "Google DeepMind",
+                "source": "Google Blog",
+                "url": "https://blog.google/gemini-2-5-flash",
+                "text": "Architecture details for Gemini 2.5 Flash.",
+                "date": "2026-10-10T10:00:00+00:00",
+                "category": "Research",
+            },
+            {
+                "id": "story_price",
+                "title": "Google updates Cloud API pricing for Gemini models",
+                "company": "Google DeepMind",
+                "source": "Google Cloud",
+                "url": "https://cloud.google.com/gemini-pricing",
+                "text": "Cloud API pricing reductions for Gemini models.",
+                "date": "2026-10-10T11:00:00+00:00",
+                "category": "News",
+            },
+        ]
+
+        with patch("pipeline.summarizer._get_client") as mock_get_client:
+            mock_client = MagicMock()
+            mock_resp = MagicMock()
+            mock_resp.text = json.dumps({
+                "summary": "Valid distinct summary for each announcement.",
+                "category": "News",
+            })
+            mock_client.models.generate_content.return_value = mock_resp
+            mock_get_client.return_value = mock_client
+
+            results, metrics = summarize_articles(batch, existing_records=[])
+
+            # Both stories summarized independently (no false merge)
+            self.assertEqual(metrics["requests_sent"], 2)
+            self.assertEqual(metrics["skipped_cached"], 0)
+            self.assertEqual(len(results), 2)
+
+    def test_presummarization_incompatible_dates_not_merged(self):
+        existing = [
+            {
+                "id": "old_release",
+                "title": "OpenAI releases o1 reasoning model",
+                "company": "OpenAI",
+                "source": "OpenAI Blog",
+                "summary": "OpenAI released the o1 model series.",
+                "summary_status": "generated",
+                "url": "https://openai.com/o1",
+                "date": "2024-09-12T14:00:00+00:00",
+                "category": "Product Release",
+            }
+        ]
+        # Same headline but months later (e.g. later coverage or separate milestone)
+        incoming = [
+            {
+                "id": "new_coverage",
+                "title": "OpenAI releases o1 reasoning model",
+                "company": "The Verge",
+                "source": "The Verge AI",
+                "url": "https://theverge.com/o1-general-availability",
+                "text": "OpenAI has now made o1 generally available.",
+                "date": "2025-01-15T14:00:00+00:00",
+                "category": "News",
+            }
+        ]
+
+        with patch("pipeline.summarizer._get_client") as mock_get_client:
+            mock_client = MagicMock()
+            mock_resp = MagicMock()
+            mock_resp.text = json.dumps({
+                "summary": "OpenAI announced general availability of the o1 reasoning model.",
+                "category": "Product Release",
+            })
+            mock_client.models.generate_content.return_value = mock_resp
+            mock_get_client.return_value = mock_client
+
+            results, metrics = summarize_articles(incoming, existing_records=existing)
+
+            # Incompatible date (>48h) does not falsely merge
+            self.assertEqual(metrics["requests_sent"], 1)
+            self.assertEqual(metrics["skipped_cached"], 0)
+
+
 if __name__ == "__main__":
     unittest.main()
 

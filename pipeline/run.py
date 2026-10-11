@@ -28,7 +28,14 @@ import tempfile
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
-from pipeline.scraper import are_titles_duplicate, fetch_all_sources, normalize_title, normalize_url
+from pipeline.scraper import (
+    are_titles_duplicate,
+    dates_compatible,
+    fetch_all_sources,
+    merge_source_into,
+    normalize_title,
+    normalize_url,
+)
 from pipeline.sources import ALLOWED_CATEGORIES, SOURCES
 from pipeline.summarizer import (
     CircuitBreaker,
@@ -198,63 +205,8 @@ def write_feed_atomic(records: list[dict], feed_path: Path) -> None:
 DEFAULT_RETENTION_DAYS = 90
 
 
-def _merge_source_into(target_rec: dict, source_art: dict) -> None:
-    """Merge a source article's link and metadata into target_rec without duplicates."""
-    sources = target_rec.setdefault("sources", [])
-    seen_urls = {normalize_url(s.get("url", "")) for s in sources if isinstance(s, dict) and s.get("url")}
-
-    src_url = source_art.get("url") or ""
-    norm_src_url = normalize_url(src_url)
-    if norm_src_url and norm_src_url not in seen_urls:
-        seen_urls.add(norm_src_url)
-        sources.append({
-            "title": source_art.get("title", target_rec.get("title", "")),
-            "url": src_url,
-            "publisher": source_art.get("company", source_art.get("source", "")),
-        })
-
-    # Merge any sources list already present on source_art
-    for s in source_art.get("sources") or []:
-        if isinstance(s, dict) and s.get("url"):
-            norm_s_url = normalize_url(s["url"])
-            if norm_s_url and norm_s_url not in seen_urls:
-                seen_urls.add(norm_s_url)
-                sources.append(s)
-
-    # Merge tags
-    existing_tags = list(target_rec.get("tags") or target_rec.get("topics") or [])
-    new_tags = list(source_art.get("tags") or source_art.get("topics") or [])
-    for t in new_tags:
-        if t and t not in existing_tags and len(existing_tags) < 5:
-            existing_tags.append(t)
-    if existing_tags:
-        target_rec["tags"] = existing_tags
-
-    # Preserve key_points if target lacks them
-    if not target_rec.get("key_points") and source_art.get("key_points"):
-        target_rec["key_points"] = source_art["key_points"]
-
-    # Preserve highest impact score
-    s1 = target_rec.get("impact_score")
-    s2 = source_art.get("impact_score")
-    if s1 or s2:
-        target_rec["impact_score"] = max(s1 or 0, s2 or 0)
-
-
-def _dates_compatible(d1_str: str | None, d2_str: str | None, max_hours: int = 48) -> bool:
-    """Check if two publication dates are within max_hours of each other (or undated)."""
-    if not d1_str or not d2_str:
-        return True
-    try:
-        dt1 = datetime.fromisoformat(d1_str)
-        dt2 = datetime.fromisoformat(d2_str)
-        if dt1.tzinfo is None:
-            dt1 = dt1.replace(tzinfo=UTC)
-        if dt2.tzinfo is None:
-            dt2 = dt2.replace(tzinfo=UTC)
-        return abs((dt1 - dt2).total_seconds()) <= max_hours * 3600
-    except Exception:
-        return True
+_merge_source_into = merge_source_into
+_dates_compatible = dates_compatible
 
 
 def merge_records(

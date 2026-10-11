@@ -1,6 +1,7 @@
 ---
 // Layout.astro — base HTML shell for all AI Pulse pages
 import "../styles/global.css";
+import ReaderModal from "../components/ReaderModal.astro";
 
 interface Props {
   title?: string;
@@ -69,6 +70,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     </a>
     <slot />
 
+    <!-- Global Focused Intelligence Reader Modal -->
+    <ReaderModal />
+
     <!-- Global Futuristic HUD Toast Notification -->
     <div
       id="hud-toast"
@@ -84,6 +88,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
     <script>
       import "../scripts/theme";
+      import "../scripts/relativeTime";
 
       let toastTimer: number | null = null;
       window.addEventListener("ai-pulse:toast", (e: any) => {
