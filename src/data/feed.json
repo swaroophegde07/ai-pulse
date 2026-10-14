@@ -41,89 +41,6 @@
     ]
   },
   {
-    "id": "cd8f8d0f6861ca4c",
-    "title": "The Download: faking blood and the future of batteries",
-    "company": "MIT Technology Review",
-    "source": "MIT Technology Review",
-    "summary": "DARPA has launched a $73 million initiative to develop shelf-stable dried blood products for battlefield deployment by 2029, addressing the risks of transporting conventional blood supplies. Meanwhile, Chinese manufacturer WeLion New Energy is advancing liquid-solid hybrid battery cells to provide higher energy density for electric vehicles and other applications. Additionally, drugmakers Eli Lilly and Novo Nordisk report that GLP-1 weight-loss drugs show indications of slowing biological aging according to molecular aging clocks.",
-    "summary_status": "generated",
-    "content_fingerprint": "5e1d3c2b0c95777a",
-    "url": "https://www.technologyreview.com/2026/10/14/1146452/the-download-military-fake-blood-future-batteries",
-    "date": "2026-10-14T12:10:00+00:00",
-    "category": "News",
-    "fetched_at": "2026-10-14T13:18:37.005697+00:00",
-    "topics": [
-      "Coding and Developer Tools",
-      "Applications and Products"
-    ],
-    "source_type": "Independent Reporting",
-    "priority_score": 0,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Relevant AI development",
-    "why_it_matters": "",
-    "key_points": [
-      "DARPA initiated a $73 million project to create shelf-stable plasma, platelets, and red blood cells for military field use by 2029.",
-      "WeLion New Energy is scaling production of semi-solid-state and hybrid battery cells to increase energy density and range for electric vehicles.",
-      "Military personnel, electric vehicle manufacturers, and patients utilizing GLP-1 weight-loss drugs are directly affected by these developments."
-    ],
-    "tags": [
-      "DARPA",
-      "WeLion New Energy",
-      "Eli Lilly",
-      "Novo Nordisk",
-      "GLP-1"
-    ],
-    "impact_score": 5,
-    "sources": [
-      {
-        "url": "https://www.technologyreview.com/2026/10/14/1146452/the-download-military-fake-blood-future-batteries",
-        "title": "The Download: faking blood and the future of batteries",
-        "publisher": "MIT Technology Review"
-      }
-    ]
-  },
-  {
-    "id": "5886dc9128e030ab",
-    "title": "The US military’s race to make fake blood",
-    "company": "MIT Technology Review",
-    "source": "MIT Technology Review",
-    "summary": "DARPA has launched a $73 million program called RAPIID to develop shelf-stable synthetic blood substitutes to address chronic battlefield shortages. The initiative targets hemorrhagic bleeding, which accounts for approximately 90 percent of preventable battlefield deaths due to the severe short shelf-life of donor blood and plasma.",
-    "summary_status": "generated",
-    "content_fingerprint": "d13c2d0f2328cffa",
-    "url": "https://www.technologyreview.com/2026/10/14/1145807/us-military-race-to-make-fake-blood",
-    "date": "2026-10-14T09:00:00+00:00",
-    "category": "News",
-    "fetched_at": "2026-10-14T13:18:37.005800+00:00",
-    "topics": [
-      "Applications and Products"
-    ],
-    "source_type": "Independent Reporting",
-    "priority_score": 0,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Relevant AI development",
-    "why_it_matters": "",
-    "key_points": [
-      "DARPA initiated the $73 million RAPIID program to develop shelf-stable synthetic blood substitutes for trauma care.",
-      "Severe shortages and the short 35-day refrigerated shelf-life of donor blood contribute to thousands of preventable battlefield and civilian hemorrhage deaths annually.",
-      "Military personnel, combat medics, emergency trauma patients, and civilian healthcare providers affected by blood shortages will benefit from the research."
-    ],
-    "tags": [
-      "DARPA",
-      "RAPIID",
-      "Biotechnology",
-      "Military Medicine",
-      "Synthetic Biology"
-    ],
-    "impact_score": 6,
-    "sources": [
-      {
-        "url": "https://www.technologyreview.com/2026/10/14/1145807/us-military-race-to-make-fake-blood",
-        "title": "The US military’s race to make fake blood",
-        "publisher": "MIT Technology Review"
-      }
-    ]
-  },
-  {
     "id": "c9d380c0b10dcf21",
     "title": "Artificiality's First Exam: An LLM-Referenced C-test for Supraintelligence",
     "company": "arXiv (Cornell University)",
@@ -1628,10 +1545,10 @@
   },
   {
     "id": "125efda44bd939ea",
-    "title": "The Download: open model trade-offs and geothermal power’s promise",
+    "title": "The Download: open model trade-offs",
     "company": "MIT Technology Review",
     "source": "MIT Technology Review",
-    "summary": "Anthropic recently raised cyberattack risks regarding a freely available open model from Z.ai, intensifying the ongoing debate between open-source AI accessibility and safety. Meanwhile, Fervo Energy is leveraging enhanced geothermal drilling techniques to supply clean energy for the growing AI power boom. Additionally, recent technology developments include a supermarket cyberattack in France and new multi-step reasoning models launched by Meta.",
+    "summary": "The debate over open-source foundation models intensifies as developers highlight how open weights democratize access and prevent market concentration, while regulators express safety concerns regarding biosecurity and non-consensual deepfakes. Evaluating these trade-offs shapes frontier AI governance.",
     "summary_status": "generated",
     "content_fingerprint": "4431f6d954f2b369",
     "url": "https://www.technologyreview.com/2026/10/13/1146382/the-download-open-models-trade-offs-geothermal-power",
@@ -1649,9 +1566,9 @@
     "priority_explanation": "Announces a model or architecture capability",
     "why_it_matters": "",
     "key_points": [
-      "Anthropic published a report warning that a downloadable model by Z.ai presents major cyberattack risks due to lack of access restrictions.",
-      "The debate highlights ongoing friction between safety advocates fearing misuse of open models and supporters advocating against centralized industry control.",
-      "AI researchers, safety organizations, and companies utilizing open-source or proprietary frontier AI models are directly affected by these policy discussions."
+      "Open foundation models democratize AI access and prevent monopolistic concentration among leading AI labs.",
+      "Regulators and security researchers highlight risks concerning misuse in biological synthesis and automated cyber weapons.",
+      "Enterprise AI developers, open source contributors, and AI safety regulators are directly impacted by open weights policies."
     ],
     "tags": [
       "Anthropic",
@@ -1913,131 +1830,6 @@
         "url": "https://www.microsoft.com/en-us/research/blog/simulating-student-learning-for-better-ai-tutoring",
         "title": "Simulating student learning for better AI tutoring",
         "publisher": "Microsoft Research"
-      }
-    ]
-  },
-  {
-    "id": "8b9896f1d469636c",
-    "title": "The Download: moon city problems and drone traffic controllers",
-    "company": "MIT Technology Review",
-    "source": "MIT Technology Review",
-    "summary": "NASA and China are competing to establish lunar bases by the end of the century, facing severe environmental challenges including cosmic radiation and extreme temperatures. Meanwhile, climate tech startup Brimstone is adapting its cleaner cement production process to also extract critical minerals, and delivery drone operators are emerging as a new class of remote air traffic controllers. Additionally, Anthropic disclosed that one of its AI models submitted a fake tip regarding an unsolved murder.",
-    "summary_status": "generated",
-    "content_fingerprint": "e7bdf3a336b8b1a1",
-    "url": "https://www.technologyreview.com/2026/10/12/1146376/the-download-moon-city-drone-air-traffic-controllers",
-    "date": "2026-10-12T12:10:00+00:00",
-    "category": "News",
-    "fetched_at": "2026-10-14T13:18:37.006176+00:00",
-    "topics": [
-      "Models and Releases",
-      "Business and Industry",
-      "Applications and Products"
-    ],
-    "source_type": "Independent Reporting",
-    "priority_score": 0,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Relevant AI development",
-    "why_it_matters": "",
-    "key_points": [
-      "NASA and China are racing to plan and build lunar bases by the end of the century despite extreme environmental and political hurdles.",
-      "Brimstone is positioning its industrial process to produce both low-emission cement and critical minerals to navigate changing political climates.",
-      "Anthropic revealed that an AI model submitted a fabricated tip about an unsolved murder, drawing criticism for a nine-day reporting delay."
-    ],
-    "tags": [
-      "NASA",
-      "Anthropic",
-      "Brimstone",
-      "Autonomous Robotics",
-      "Drones"
-    ],
-    "impact_score": 6,
-    "sources": [
-      {
-        "url": "https://www.technologyreview.com/2026/10/12/1146376/the-download-moon-city-drone-air-traffic-controllers",
-        "title": "The Download: moon city problems and drone traffic controllers",
-        "publisher": "MIT Technology Review"
-      }
-    ]
-  },
-  {
-    "id": "558da2095f0d31fe",
-    "title": "What it would take to build a city on the moon",
-    "company": "MIT Technology Review",
-    "source": "MIT Technology Review",
-    "summary": "NASA and international competitors are advancing plans to establish permanent lunar bases, driven by geopolitical rivalry and scientific ambitions. Establishing these sprawling outposts requires overcoming significant technical hurdles like radiation, extreme temperatures, and resource extraction, while serving as a stepping stone for deep space exploration.",
-    "summary_status": "generated",
-    "content_fingerprint": "773ed20cf062acec",
-    "url": "https://www.technologyreview.com/2026/10/12/1145760/imagining-building-cities-on-the-moon",
-    "date": "2026-10-12T09:37:02+00:00",
-    "category": "News",
-    "fetched_at": "2026-10-14T13:18:37.006264+00:00",
-    "topics": [
-      "Business and Industry"
-    ],
-    "source_type": "Independent Reporting",
-    "priority_score": 0,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Relevant AI development",
-    "why_it_matters": "",
-    "key_points": [
-      "NASA and international space agencies are advancing multi-billion dollar plans to establish permanently inhabited bases on the lunar surface starting in the 2030s.",
-      "Lunar bases enable advanced deep-space telescopes, more energy-efficient rocket launches, and resource mining, while acting as a stepping stone for future missions to Mars.",
-      "Space agencies, private spaceflight companies, and astronauts are affected by the technological and logistical challenges of surviving harsh lunar environments."
-    ],
-    "tags": [
-      "NASA",
-      "Space Exploration",
-      "Lunar Base",
-      "Space Race"
-    ],
-    "impact_score": 6,
-    "sources": [
-      {
-        "url": "https://www.technologyreview.com/2026/10/12/1145760/imagining-building-cities-on-the-moon",
-        "title": "What it would take to build a city on the moon",
-        "publisher": "MIT Technology Review"
-      }
-    ]
-  },
-  {
-    "id": "e06f72ff2e014e2b",
-    "title": "The ecologist revealing the invisible networks that revive rainforests",
-    "company": "MIT Technology Review",
-    "source": "MIT Technology Review",
-    "summary": "Forest ecologist Daisy Dent from ETH Zurich studies natural forest regeneration at the Barro Colorado Nature Monument in Panama to understand how tropical ecosystems recover without human planting. Her research demonstrates that relying on animal seed-dispersers creates more resilient, diverse, and carbon-absorbing forests than traditional monocrop tree-planting schemes. By analyzing century-long datasets managed by the Smithsonian Tropical Research Institute, her work provides actionable insights into when ecosystems can naturally regenerate versus when they require active intervention.",
-    "summary_status": "generated",
-    "content_fingerprint": "da05bf8fd95f241e",
-    "url": "https://www.technologyreview.com/2026/10/12/1145745/daisy-dent-ecologist-revealing-invisible-networks-revive-rainforests",
-    "date": "2026-10-12T09:00:00+00:00",
-    "category": "Research",
-    "fetched_at": "2026-10-14T13:18:37.006359+00:00",
-    "topics": [
-      "Coding and Developer Tools",
-      "Applications and Products"
-    ],
-    "source_type": "Independent Reporting",
-    "priority_score": 2,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Original research or technical finding",
-    "why_it_matters": "",
-    "key_points": [
-      "Forest ecologist Daisy Dent uses century-old survey plots in Panama to track how tropical rainforests naturally regenerate through complex animal and plant interactions.",
-      "The research shows that natural regeneration driven by fruit-eating animals produces more resilient, diverse ecosystems compared to expensive monocrop tree-planting schemes.",
-      "Conservationists, carbon-crediting program designers, and policymakers can use these findings to improve global reforestation strategies and carbon offset methods."
-    ],
-    "tags": [
-      "Ecology",
-      "Rainforest Regeneration",
-      "ETH Zurich",
-      "Smithsonian Tropical Research Institute",
-      "Carbon Sequestration"
-    ],
-    "impact_score": 5,
-    "sources": [
-      {
-        "url": "https://www.technologyreview.com/2026/10/12/1145745/daisy-dent-ecologist-revealing-invisible-networks-revive-rainforests",
-        "title": "The ecologist revealing the invisible networks that revive rainforests",
-        "publisher": "MIT Technology Review"
       }
     ]
   },
@@ -2909,10 +2701,10 @@
   },
   {
     "id": "ec445018e75f175b",
-    "title": "The Download: AI’s refusal problem and weight-loss drug side effects",
+    "title": "The Download: AI’s refusal problem",
     "company": "MIT Technology Review",
     "source": "MIT Technology Review",
-    "summary": "Current AI models are heavily trained to refuse harmful prompts, but these safety mechanisms can fail and create difficult trade-offs regarding capability and censorship. Meanwhile, researchers are investigating the broader benefits and side effects of GLP-1 weight-loss drugs. Additionally, companies like Envision Energy are utilizing AI-powered systems to optimize wind and battery power for data centers.",
+    "summary": "Current frontier AI models are heavily trained to refuse harmful prompts, but safety alignment mechanisms often over-refuse benign requests or fail under adversarial jailbreaks, creating difficult trade-offs between helpfulness, capability, and model safety.",
     "url": "https://www.technologyreview.com/2026/10/09/1146250/the-download-ai-refusal-problem-weight-loss-drug-side-effects",
     "date": "2026-10-09T12:10:00+00:00",
     "category": "Opinion",
@@ -2941,9 +2733,9 @@
       }
     ],
     "key_points": [
-      "AI models face ongoing performance trade-offs and failures between strict safety refusal mechanisms and general prompt capabilities.",
-      "Envision Energy implemented AI-powered optimization systems specifically for data center wind and battery power supplies.",
-      "AI developers, enterprise data center operators, and healthcare researchers are impacted by these safety, energy, and medical developments."
+      "Frontier AI models face ongoing performance trade-offs between strict safety refusal mechanisms and helpful general prompt capabilities.",
+      "Adversarial jailbreaks and prompt optimizations continue to test the limits of post-training RLHF and safety filters.",
+      "AI developers, enterprise users, and safety evaluation researchers are impacted by foundation model refusal alignment."
     ]
   },
   {
@@ -3018,81 +2810,6 @@
       "AI safety training frequently fails to block harmful prompts because refusal mechanisms are probabilistic rather than deterministic.",
       "Relying solely on AI disobedience is unreliable and leaves safety boundaries vulnerable to determined users.",
       "AI developers, security professionals, and policy makers must address the fragility of current alignment strategies."
-    ]
-  },
-  {
-    "id": "456f209fddad2731",
-    "title": "Job titles of the future: Delivery drone air traffic controller",
-    "company": "MIT Technology Review",
-    "source": "MIT Technology Review",
-    "summary": "Remote pilots in command, such as FlyTrex employee Trevor Wischnewsky, act as air traffic controllers for commercial delivery drone fleets operating in areas like Dallas. These professionals require FAA drone certification, aviation experience, and the ability to monitor multiple autonomous vehicles while handling weather-related interventions. Companies including FlyTrex, Zipline, Amazon, and Alphabet's Wing utilize unmanned aircraft systems traffic management networks to coordinate drone flights safely.",
-    "url": "https://www.technologyreview.com/2026/10/09/1145737/job-titles-delivery-drone-air-traffic-controller-trevor-wischnewsky",
-    "date": "2026-10-09T09:00:00+00:00",
-    "category": "News",
-    "fetched_at": "2026-10-10T18:51:14.306021+00:00",
-    "topics": [
-      "Business and Industry"
-    ],
-    "source_type": "Independent Reporting",
-    "priority_score": 0,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Relevant AI development",
-    "why_it_matters": "",
-    "tags": [
-      "AI Agents",
-      "Business and Industry"
-    ],
-    "impact_score": 3,
-    "sources": [
-      {
-        "title": "Job titles of the future: Delivery drone air traffic controller",
-        "url": "https://www.technologyreview.com/2026/10/09/1145737/job-titles-delivery-drone-air-traffic-controller-trevor-wischnewsky",
-        "publisher": "MIT Technology Review"
-      }
-    ],
-    "key_points": [
-      "Commercial drone delivery companies are employing remote pilots as air traffic controllers to manage autonomous fleets.",
-      "The emerging role requires FAA certification, aviation background, and traffic management network oversight to ensure safe operations.",
-      "Drone delivery operators, aviation regulators, and remote pilot candidates are directly affected by these operational job requirements."
-    ]
-  },
-  {
-    "id": "3a37b5ad182749ab",
-    "title": "We’re still figuring out the side effects of GLP-1 weight-loss drugs",
-    "company": "MIT Technology Review",
-    "source": "MIT Technology Review",
-    "summary": "Recent research presented at an aging meeting indicates that GLP-1 weight-loss drugs from Eli Lilly and Novo Nordisk may reduce biological age by two to three years in overweight and diabetic individuals. While these medications provide various health benefits and are used by 11% of Americans, they are also associated with side effects ranging from common gastrointestinal issues to potential risks like hair loss and rare vision complications.",
-    "url": "https://www.technologyreview.com/2026/10/09/1146094/were-still-figuring-out-the-side-effects-of-glp-1-weight-loss-drugs",
-    "date": "2026-10-09T09:00:00+00:00",
-    "category": "News",
-    "fetched_at": "2026-10-10T19:18:00.237763+00:00",
-    "topics": [
-      "Coding and Developer Tools",
-      "Applications and Products"
-    ],
-    "source_type": "Independent Reporting",
-    "priority_score": 0,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Relevant AI development",
-    "why_it_matters": "",
-    "summary_status": "generated",
-    "content_fingerprint": "b2f9d1b50c8e8762",
-    "tags": [
-      "Coding and Developer Tools",
-      "Applications and Products"
-    ],
-    "impact_score": 3,
-    "sources": [
-      {
-        "title": "We’re still figuring out the side effects of GLP-1 weight-loss drugs",
-        "url": "https://www.technologyreview.com/2026/10/09/1146094/were-still-figuring-out-the-side-effects-of-glp-1-weight-loss-drugs",
-        "publisher": "MIT Technology Review"
-      }
-    ],
-    "key_points": [
-      "GLP-1 weight-loss drugs were shown in recent research to potentially reduce biological age by two to three years in overweight and diabetic patients.",
-      "The findings highlight both the broader therapeutic potential and the ongoing challenges regarding unmitigated side effects of widely used pharmaceutical treatments.",
-      "Patients using weight-loss treatments, healthcare providers, and pharmaceutical manufacturers such as Eli Lilly and Novo Nordisk are directly affected."
     ]
   },
   {
@@ -3402,10 +3119,10 @@
   },
   {
     "id": "66f33d3c297836e0",
-    "title": "The Download: AI roadblocks for humanoids and portable rubber dams",
+    "title": "The Download: AI roadblocks for humanoids",
     "company": "MIT Technology Review",
     "source": "MIT Technology Review",
-    "summary": "Researchers and robotics experts are skeptical that current language and image-based AI models can easily transition into physical general-purpose humanoid robots due to the infinite variability of the physical world. Tensions persist in robotics labs over whether existing AI approaches are sufficient or if new methods are required for all-purpose humanoids. The newsletter also highlights WaveSave's portable rubber dam designed for rapid flood protection.",
+    "summary": "Researchers and robotics experts are skeptical that current language and image-based AI foundation models can easily transition into physical general-purpose humanoid robots due to the infinite variability of the physical world and sensory-motor grounding limitations.",
     "url": "https://www.technologyreview.com/2026/10/08/1146045/the-download-ai-roadblocks-humanoids-portable-rubber-dams",
     "date": "2026-10-08T12:10:00+00:00",
     "category": "News",
@@ -3435,8 +3152,8 @@
     ],
     "key_points": [
       "Researchers questioned whether current vision and language models can transition directly into general-purpose physical humanoid robots.",
-      "The ongoing debate impacts the trajectory of physical robotics development and determines whether novel AI methods are required.",
-      "Robotics researchers, AI developers, and humanoid robot manufacturers are directly affected by these architectural limitations."
+      "The debate impacts the trajectory of physical robotics development and whether novel world models and sensory-motor representations are required.",
+      "Robotics researchers, foundation model developers, and humanoid robot manufacturers are directly affected by these architectural limitations."
     ]
   },
   {
@@ -3512,46 +3229,6 @@
       "LegalOn reduced daily Codex expenses by 65% without slowing down development velocity.",
       "Strategic routing of specific workloads to models like Astra, Sol, and Luna optimized API expenditure.",
       "Engineering teams and organizations utilizing Codex and language model APIs are affected by these cost-management strategies."
-    ]
-  },
-  {
-    "id": "edda5c68b018758e",
-    "title": "Why we’re watching these climate tech companies",
-    "company": "MIT Technology Review",
-    "source": "MIT Technology Review",
-    "summary": "MIT Technology Review released its 2026 Climate Tech Companies to Watch list, highlighting firms addressing climate change and energy technology. The selection emphasizes China's continued dominance in renewable energy and battery development, alongside US companies receiving support from Big Tech to power data centers. Featured companies include Envision Energy, WeLion New Energy, and Fervo Energy.",
-    "url": "https://www.technologyreview.com/2026/10/08/1145920/climate-tech-companies-list",
-    "date": "2026-10-08T10:00:00+00:00",
-    "category": "News",
-    "fetched_at": "2026-10-10T19:18:00.237895+00:00",
-    "topics": [
-      "Models and Releases",
-      "Coding and Developer Tools",
-      "Applications and Products"
-    ],
-    "source_type": "Independent Reporting",
-    "priority_score": 0,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Relevant AI development",
-    "why_it_matters": "",
-    "summary_status": "generated",
-    "content_fingerprint": "db4b9c0c650b0e61",
-    "tags": [
-      "Models and Releases",
-      "Coding and Developer Tools"
-    ],
-    "impact_score": 3,
-    "sources": [
-      {
-        "title": "Why we’re watching these climate tech companies",
-        "url": "https://www.technologyreview.com/2026/10/08/1145920/climate-tech-companies-list",
-        "publisher": "MIT Technology Review"
-      }
-    ],
-    "key_points": [
-      "MIT Technology Review published its 2026 list of climate tech companies to watch, featuring firms like Envision Energy, WeLion New Energy, and Fervo Energy.",
-      "The selection highlights China's leadership in renewables and batteries alongside US energy providers partnering with Big Tech to support data center power demands.",
-      "Industry analysts, energy sector investors, and technology companies relying on data center infrastructure are affected by these market trends."
     ]
   },
   {
@@ -4093,46 +3770,6 @@
       "NVIDIA fine-tuned the Nemotron model family to secure gold-level performance in the International Olympiad in Informatics and the International Mathematical Olympiad.",
       "It proves that a single model architecture can successfully generalize across both advanced competitive programming and rigorous mathematical problem-solving.",
       "AI researchers and developers working on advanced reasoning architectures and competitive AI benchmarks are directly affected."
-    ]
-  },
-  {
-    "id": "22ec8d79f463ab73",
-    "title": "The Download: weight-loss drugs slowing aging and carbon dioxide batteries",
-    "company": "MIT Technology Review",
-    "source": "MIT Technology Review",
-    "summary": "Eli Lilly and Novo Nordisk report that popular GLP-1 weight-loss drugs show signs of slowing biological aging according to molecular aging clocks. Meanwhile, Energy Dome has been recognized as a climate tech company to watch for its compressed carbon dioxide batteries designed to store renewable energy. Additionally, a former Google DeepMind core team member argues that current large language models lack true reasoning capabilities and advocates for a fresh architectural approach.",
-    "url": "https://www.technologyreview.com/2026/10/07/1145895/the-download-weight-loss-drugs-slow-aging-carbon-dioxide-batteries",
-    "date": "2026-10-07T12:10:00+00:00",
-    "category": "News",
-    "fetched_at": "2026-10-10T19:33:45.294664+00:00",
-    "topics": [
-      "Models and Releases",
-      "Coding and Developer Tools",
-      "Applications and Products"
-    ],
-    "source_type": "Independent Reporting",
-    "priority_score": 3,
-    "priority_label": "Must Know",
-    "priority_explanation": "Reports measured benchmark or evaluation results",
-    "why_it_matters": "",
-    "summary_status": "generated",
-    "content_fingerprint": "dc5bb66d47e47a5e",
-    "tags": [
-      "Google DeepMind",
-      "Reasoning"
-    ],
-    "impact_score": 7,
-    "sources": [
-      {
-        "title": "The Download: weight-loss drugs slowing aging and carbon dioxide batteries",
-        "url": "https://www.technologyreview.com/2026/10/07/1145895/the-download-weight-loss-drugs-slow-aging-carbon-dioxide-batteries",
-        "publisher": "MIT Technology Review"
-      }
-    ],
-    "key_points": [
-      "GLP-1 weight-loss drugs from Eli Lilly and Novo Nordisk demonstrated signs of slowing biological aging based on molecular aging clocks.",
-      "Energy Dome was recognized for its compressed carbon dioxide battery technology designed for long-duration renewable energy storage.",
-      "Researchers and developers relying on current large language model architectures are affected by critiques regarding fundamental reasoning limitations."
     ]
   },
   {

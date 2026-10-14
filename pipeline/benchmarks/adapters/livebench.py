@@ -1,8 +1,9 @@
 """
-LiveBench adapter for contamination-free LLM benchmark results across reasoning, coding, and math.
+LiveBench adapter for contamination-free LLM benchmark results across agentic, reasoning, and coding tasks.
 
-Discovers latest verified monthly releases and dynamically parses model evaluations
-without restrictive allowlists while preserving exact model identities and configurations.
+Supports both LiveBench 2.0 (long-horizon agentic benchmarks released 2026-10-13)
+and historical LiveBench 1.0 monthly releases, preserving exact model identities,
+release metadata, and evaluation configurations.
 """
 
 from __future__ import annotations
@@ -24,8 +25,14 @@ from pipeline.models.identity import resolve_model_identity
 
 logger = logging.getLogger(__name__)
 
+# Release date to underlying upstream file date mapping
+RELEASE_FILE_MAPPINGS: dict[str, str] = {
+    "2026-10-13": "2026-09-02",
+}
+
 # Ordered list of officially verified releases from LiveBench (newest first)
 VERIFIED_LIVEBENCH_RELEASES = [
+    "2026-10-13",
     "2026-06-25",
     "2026-01-08",
     "2025-12-23",
@@ -42,12 +49,63 @@ VERIFIED_LIVEBENCH_RELEASES = [
 DEFAULT_LIVEBENCH_RELEASE = VERIFIED_LIVEBENCH_RELEASES[0]
 
 
+def get_release_urls(release_date: str) -> list[tuple[str, str, str]]:
+    """Return candidate (table_url, categories_url, generation) tuples in priority order."""
+    file_key = RELEASE_FILE_MAPPINGS.get(release_date, release_date).replace("-", "_")
+    candidates = []
+
+    if release_date == "2026-10-13" or release_date >= "2026-09-01":
+        # LiveBench 2.0 candidate URLs
+        candidates.append((
+            f"https://livebench.ai/table_{file_key}.csv",
+            f"https://livebench.ai/categories_{file_key}.json",
+            "2.0",
+        ))
+        # Direct date fallback if upstream published table_2026_10_13.csv directly
+        direct_key = release_date.replace("-", "_")
+        if direct_key != file_key:
+            candidates.append((
+                f"https://livebench.ai/table_{direct_key}.csv",
+                f"https://livebench.ai/categories_{direct_key}.json",
+                "2.0",
+            ))
+    else:
+        # LiveBench 1.0 candidate URLs (both v1/ and root paths for historical compatibility)
+        candidates.append((
+            f"https://livebench.ai/v1/table_{file_key}.csv",
+            f"https://livebench.ai/v1/categories_{file_key}.json",
+            "1.0",
+        ))
+        candidates.append((
+            f"https://livebench.ai/table_{file_key}.csv",
+            f"https://livebench.ai/categories_{file_key}.json",
+            "1.0",
+        ))
+
+    return candidates
+
+
 def discover_latest_release(timeout: int = 10) -> tuple[str, bool]:
     """Discover the latest available LiveBench release.
 
     Returns:
         (release_date, is_fallback_or_stale)
     """
+    # 1. Probe LiveBench 2.0 release first
+    try:
+        t2_url = f"https://livebench.ai/table_{RELEASE_FILE_MAPPINGS['2026-10-13'].replace('-', '_')}.csv"
+        probe = requests.head(
+            t2_url,
+            timeout=timeout,
+            headers={"User-Agent": "AI-Pulse/1.0 (+https://github.com/swaroophegde07/ai-pulse)"},
+        )
+        if probe.ok:
+            logger.info("Discovered verified LiveBench 2.0 release: 2026-10-13")
+            return "2026-10-13", False
+    except Exception as exc:
+        logger.debug("LiveBench 2.0 direct probe failed: %s", exc)
+
+    # 2. Check dynamic JS discovery on livebench.ai
     try:
         resp = requests.get(
             "https://livebench.ai/",
@@ -55,7 +113,6 @@ def discover_latest_release(timeout: int = 10) -> tuple[str, bool]:
             headers={"User-Agent": "AI-Pulse/1.0 (+https://github.com/swaroophegde07/ai-pulse)"},
         )
         if resp.ok:
-            # Find main js file
             js_match = re.search(r'src=[\"\']([^\"\']*main\.[a-f0-9]+\.js)[\"\']', resp.text)
             if js_match:
                 js_url = js_match.group(1)
@@ -71,41 +128,29 @@ def discover_latest_release(timeout: int = 10) -> tuple[str, bool]:
                     timeout=timeout,
                     headers={"User-Agent": "AI-Pulse/1.0 (+https://github.com/swaroophegde07/ai-pulse)"},
                 )
-                if js_resp.ok:
-                    dates_match = re.search(r'(?:const|var|let)\s+pe\s*=\s*\[([^\]]+)\]', js_resp.text)
-                    if dates_match:
-                        raw_dates = re.findall(r'202\d[_-]\d{2}[_-]\d{2}', dates_match.group(1))
-                        valid_dates = sorted(set(d.replace("_", "-") for d in raw_dates))
-                        if valid_dates:
-                            latest_candidate = valid_dates[-1]
-                            t_url = f"https://livebench.ai/table_{latest_candidate.replace('-', '_')}.csv"
-                            probe = requests.head(
-                                t_url,
-                                timeout=timeout,
-                                headers={"User-Agent": "AI-Pulse/1.0 (+https://github.com/swaroophegde07/ai-pulse)"},
-                            )
-                            if probe.ok:
-                                logger.info("Discovered latest LiveBench release: %s", latest_candidate)
-                                return latest_candidate, False
+                if js_resp.ok and ("2026-10-13" in js_resp.text or "LiveBench 2.0" in js_resp.text):
+                    logger.info("Discovered LiveBench 2.0 from main JS bundle: 2026-10-13")
+                    return "2026-10-13", False
     except Exception as exc:
         logger.debug("LiveBench dynamic release discovery error: %s", exc)
 
-    # Check verified releases in order
+    # 3. Check verified releases in order
     for rel_date in VERIFIED_LIVEBENCH_RELEASES:
-        t_url = f"https://livebench.ai/table_{rel_date.replace('-', '_')}.csv"
-        try:
-            probe = requests.head(
-                t_url,
-                timeout=timeout,
-                headers={"User-Agent": "AI-Pulse/1.0 (+https://github.com/swaroophegde07/ai-pulse)"},
-            )
-            if probe.ok:
-                is_stale = rel_date != VERIFIED_LIVEBENCH_RELEASES[0]
-                return rel_date, is_stale
-        except Exception:
-            continue
+        for t_url, _, _ in get_release_urls(rel_date):
+            try:
+                probe = requests.head(
+                    t_url,
+                    timeout=timeout,
+                    headers={"User-Agent": "AI-Pulse/1.0 (+https://github.com/swaroophegde07/ai-pulse)"},
+                )
+                if probe.ok:
+                    is_stale = rel_date != VERIFIED_LIVEBENCH_RELEASES[0]
+                    return rel_date, is_stale
+            except Exception:
+                continue
 
-    return DEFAULT_LIVEBENCH_RELEASE, True
+    # Fallback to last verified 1.0 snapshot
+    return VERIFIED_LIVEBENCH_RELEASES[1], True
 
 
 def infer_provider_and_display_name(raw_model: str) -> tuple[str, str, str | None]:
@@ -179,7 +224,7 @@ def infer_provider_and_display_name(raw_model: str) -> tuple[str, str, str | Non
 
 
 class LiveBenchAdapter(SourceAdapter):
-    """Adapter for LiveBench monthly contamination-free benchmark suite."""
+    """Adapter for LiveBench benchmark suite across reasoning, agentic coding, and long-horizon tasks."""
 
     name = "LiveBench"
     source_url = "https://livebench.ai/"
@@ -190,6 +235,7 @@ class LiveBenchAdapter(SourceAdapter):
         self.specified_release = release_date
         self.active_release = release_date or DEFAULT_LIVEBENCH_RELEASE
         self.is_stale = False
+        self.generation = "2.0" if self.active_release == "2026-10-13" else "1.0"
 
     def fetch(self) -> list[BenchmarkRecord]:
         """Fetch and parse LiveBench evaluation results."""
@@ -198,52 +244,102 @@ class LiveBenchAdapter(SourceAdapter):
             self.active_release = discovered_date
             self.is_stale = is_stale
 
-        table_url = f"https://livebench.ai/table_{self.active_release.replace('-', '_')}.csv"
-        categories_url = f"https://livebench.ai/categories_{self.active_release.replace('-', '_')}.json"
+        candidate_urls = get_release_urls(self.active_release)
+        table_text: str | None = None
+        categories: dict[str, list[str]] | None = None
+        generation: str = "2.0" if self.active_release == "2026-10-13" else "1.0"
 
-        logger.info("Fetching LiveBench data for release %s from %s", self.active_release, table_url)
         now_iso = current_iso_timestamp()
 
-        try:
-            table_resp = requests.get(
-                table_url,
-                timeout=self.timeout,
-                headers={"User-Agent": "AI-Pulse/1.0 (+https://github.com/swaroophegde07/ai-pulse)"},
-            )
-            table_resp.raise_for_status()
+        for t_url, c_url, gen in candidate_urls:
+            try:
+                logger.info("Attempting to fetch LiveBench data from %s", t_url)
+                t_resp = requests.get(
+                    t_url,
+                    timeout=self.timeout,
+                    headers={"User-Agent": "AI-Pulse/1.0 (+https://github.com/swaroophegde07/ai-pulse)"},
+                )
+                t_resp.raise_for_status()
 
-            cat_resp = requests.get(
-                categories_url,
-                timeout=self.timeout,
-                headers={"User-Agent": "AI-Pulse/1.0 (+https://github.com/swaroophegde07/ai-pulse)"},
-            )
-            cat_resp.raise_for_status()
-            categories: dict[str, list[str]] = cat_resp.json()
-        except Exception as exc:
-            logger.warning("LiveBench remote fetch failed for release %s: %s", self.active_release, exc)
+                c_resp = requests.get(
+                    c_url,
+                    timeout=self.timeout,
+                    headers={"User-Agent": "AI-Pulse/1.0 (+https://github.com/swaroophegde07/ai-pulse)"},
+                )
+                c_resp.raise_for_status()
+
+                table_text = t_resp.text
+                categories = c_resp.json()
+                generation = gen
+                self.generation = gen
+                break
+            except Exception as exc:
+                logger.debug("Failed fetch for candidate (%s): %s", t_url, exc)
+                continue
+
+        if not table_text:
+            logger.warning("Could not fetch remote LiveBench data for release %s. Failing safely.", self.active_release)
             return []
 
-        csv_text = table_resp.text
-        reader = csv.DictReader(io.StringIO(csv_text))
+        return self.parse_table_data(
+            table_text=table_text,
+            categories=categories,
+            release_date=self.active_release,
+            generation=generation,
+        )
+
+    def parse_table_data(
+        self,
+        table_text: str,
+        categories: dict[str, list[str]] | None = None,
+        release_date: str = "2026-10-13",
+        generation: str = "2.0",
+    ) -> list[BenchmarkRecord]:
+        """Parse LiveBench CSV table and category mappings into normalized BenchmarkRecords."""
+        reader = csv.DictReader(io.StringIO(table_text))
         rows = list(reader)
 
         if not rows:
-            logger.warning("LiveBench CSV returned 0 rows for release %s.", self.active_release)
+            logger.warning("LiveBench CSV returned 0 rows for release %s.", release_date)
             return []
 
-        # Category mapping into allowed standard categories
+        # Category mapping supporting both LiveBench 2.0 and LiveBench 1.0 categories
         allowed_cat_map = {
+            # LiveBench 2.0 categories
+            "Long-Horizon": "Agentic",
+            "long_horizon": "Agentic",
+            "Browser": "Browser Use",
+            "browser": "Browser Use",
+            "Research": "Research",
+            "research": "Research",
+            "Design": "Design",
+            "design_layout": "Design",
+            "Data Analysis": "Data Analysis",
+            "data_analysis": "Data Analysis",
             "Reasoning": "Reasoning",
+            "reasoning": "Reasoning",
             "Coding": "Coding",
+            "coding": "Coding",
+            # LiveBench 1.0 categories
             "Agentic Coding": "Agentic Coding",
             "Mathematics": "Mathematics",
-            "Data Analysis": "Data Analysis",
             "Language": "Language",
             "IF": "Instruction Following",
             "Instruction Following": "Instruction Following",
         }
 
+        # If categories dict was not provided (e.g. direct 2.0 CSV with column-level categories), infer from fieldnames
+        if not categories:
+            categories = {}
+            for field in reader.fieldnames or []:
+                if field in allowed_cat_map or field.title() in allowed_cat_map:
+                    categories[field] = [field]
+
         records: list[BenchmarkRecord] = []
+        is_v2 = (generation == "2.0" or release_date == "2026-10-13")
+        bench_version = "2.0" if is_v2 else release_date
+        suite_prefix = "LiveBench 2.0" if is_v2 else "LiveBench"
+        now_iso = current_iso_timestamp()
 
         for row in rows:
             raw_model = row.get("model", "").strip()
@@ -272,7 +368,7 @@ class LiveBenchAdapter(SourceAdapter):
             all_scores: list[float] = []
 
             for cat_name, task_list in categories.items():
-                mapped_cat = allowed_cat_map.get(cat_name)
+                mapped_cat = allowed_cat_map.get(cat_name) or allowed_cat_map.get(cat_name.title())
                 if not mapped_cat:
                     continue
 
@@ -295,19 +391,19 @@ class LiveBenchAdapter(SourceAdapter):
                         "internal_model_id": internal_model_id,
                         "match_confidence": match_confidence,
                         "provider": provider,
-                        "benchmark_name": f"LiveBench ({mapped_cat})",
+                        "benchmark_name": f"{suite_prefix} ({mapped_cat})",
                         "category": mapped_cat,
                         "score": avg_score,
                         "score_unit": "Percentage",
                         "evaluation_date": eval_date,
-                        "benchmark_release_date": self.active_release,
-                        "benchmark_version": self.active_release,
+                        "benchmark_release_date": release_date,
+                        "benchmark_version": bench_version,
                         "source": "LiveBench",
                         "source_url": "https://livebench.ai/",
                         "provenance": "Independent Evaluation",
                         "retrieved_at": now_iso,
                         "notes": (
-                            f"LiveBench {self.active_release} release category average across {len(cat_scores)} tasks."
+                            f"{suite_prefix} ({release_date}) release category average across {len(cat_scores)} tasks."
                             + (f" Model evaluation date: {eval_date}." if eval_date else " Model evaluation date not reported by source.")
                         ),
                         "configuration": config,
@@ -324,19 +420,19 @@ class LiveBenchAdapter(SourceAdapter):
                     "internal_model_id": internal_model_id,
                     "match_confidence": match_confidence,
                     "provider": provider,
-                    "benchmark_name": "LiveBench Overall Average",
+                    "benchmark_name": f"{suite_prefix} Overall Average",
                     "category": "Composite",
                     "score": overall_score,
                     "score_unit": "Percentage",
                     "evaluation_date": eval_date,
-                    "benchmark_release_date": self.active_release,
-                    "benchmark_version": self.active_release,
+                    "benchmark_release_date": release_date,
+                    "benchmark_version": bench_version,
                     "source": "LiveBench",
                     "source_url": "https://livebench.ai/",
                     "provenance": "Independent Evaluation",
                     "retrieved_at": now_iso,
                     "notes": (
-                        f"LiveBench overall average across {len(all_scores)} verified subtasks from {self.active_release} release."
+                        f"{suite_prefix} overall arithmetic mean of category averages across {len(all_scores)} verified subtasks from {release_date} release."
                         + (f" Model evaluation date: {eval_date}." if eval_date else " Model evaluation date not reported by source.")
                     ),
                     "configuration": config,
@@ -345,9 +441,10 @@ class LiveBenchAdapter(SourceAdapter):
                     records.append(overall_rec)
 
         logger.info(
-            "Successfully parsed %d benchmark records from LiveBench release %s across %d models.",
+            "Successfully parsed %d benchmark records from LiveBench %s release %s across %d models.",
             len(records),
-            self.active_release,
+            generation,
+            release_date,
             len(rows),
         )
         return records
@@ -360,7 +457,13 @@ class LiveBenchAdapter(SourceAdapter):
             "source": self.name,
             "url": self.source_url,
             "status": status_desc,
-            "description": "Contamination-free evaluations with monthly updated problems across reasoning, coding, and mathematics.",
+            "description": (
+                "LiveBench 2.0 contamination-free long-horizon AI benchmark evaluating models on real agentic work "
+                "(decks, research reports, bug fixes, apps that run for hours) alongside objective reasoning, coding, and data analysis."
+                if self.generation == "2.0"
+                else "Contamination-free evaluations with monthly updated problems across reasoning, coding, and mathematics."
+            ),
             "attribution": "LiveBench is an open-source evaluation benchmark created by researchers at Abacus.ai, NYU, and UC Berkeley. Released under Apache-2.0.",
             "release_date": self.active_release,
+            "generation": self.generation,
         }

@@ -237,7 +237,17 @@ const articlePayload = JSON.stringify({
 
     <!-- Summary -->
     {
-      summary_status === "publisher_excerpt" || summary_status === "unverified_excerpt" || (summary && summary.startsWith("[Automated summary unavailable] ") && summary.length > 40) ? (
+      hasValidKeyPoints && (!summary || summary.startsWith("[Automated summary unavailable]") || summary_status === "pending_quota") ? (
+        <div class="flex items-center gap-2 py-0.5">
+          <span class="inline-flex items-center gap-1.5 text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded font-medium">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Priority TL;DR Briefing</span>
+          </span>
+          <span class="text-[10px] font-mono text-theme-muted">
+            {summary_status === "pending_quota" ? "Extended narrative in queue" : "Executive 3-point briefing"}
+          </span>
+        </div>
+      ) : summary_status === "publisher_excerpt" || summary_status === "unverified_excerpt" || (summary && summary.startsWith("[Automated summary unavailable] ") && summary.length > 40) ? (
         <p class="text-xs text-theme-secondary leading-relaxed line-clamp-4">
           <span class="text-theme-muted font-mono text-[9px] mr-1 uppercase border border-theme-border bg-theme-elevated px-1 py-0.5 rounded tracking-wider">[Excerpt]</span>
           {summary.replace("[Automated summary unavailable] ", "")}

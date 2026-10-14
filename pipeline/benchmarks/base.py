@@ -12,11 +12,15 @@ from typing import Any, TypedDict
 logger = logging.getLogger(__name__)
 
 ALLOWED_BENCHMARK_CATEGORIES: list[str] = [
+    "Agentic",
     "Reasoning",
     "Coding",
+    "Browser Use",
+    "Data Analysis",
+    "Research",
+    "Design",
     "Agentic Coding",
     "Mathematics",
-    "Data Analysis",
     "Language",
     "Instruction Following",
     "Composite",

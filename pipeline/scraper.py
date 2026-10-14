@@ -23,6 +23,7 @@ from urllib.parse import urlparse, urlunparse
 import feedparser
 
 from pipeline.sources import SOURCES, Source
+from pipeline.relevance import is_article_ai_relevant, split_mixed_newsletter
 
 logger = logging.getLogger(__name__)
 
@@ -111,12 +112,68 @@ def normalize_title(title: str) -> str:
     return " ".join(text.split())
 
 
+_COMMON_STOP_WORDS = frozenset([
+    "a", "an", "the", "in", "on", "at", "for", "with", "and", "to", "is", "its", "it",
+    "from", "by", "as", "of", "new", "how", "why", "what", "are", "be", "has", "have",
+    "will", "can", "into", "over", "after", "about", "that", "this", "these", "those",
+])
+
+
+def are_articles_closely_related(
+    art1: dict,
+    art2: dict,
+    max_hours: int = 48,
+) -> bool:
+    """Detect if two articles are closely related coverage of the same underlying development.
+
+    Groups related sources where appropriate without deleting genuinely distinct follow-up stories:
+    - Must be within max_hours publication window (or undated).
+    - Distinct specific model variants (e.g. Sonnet vs Haiku, Flash vs Pro, GPT-4 vs o1) are NEVER grouped.
+    - Matches exact normalized titles, high Jaccard token overlap (>= 0.85), or high salient keyword overlap (>= 0.60)
+      when they share the same key subject.
+    """
+    if not dates_compatible(art1.get("date"), art2.get("date"), max_hours=max_hours):
+        return False
+
+    t1 = normalize_title(art1.get("title", ""))
+    t2 = normalize_title(art2.get("title", ""))
+    if not t1 or not t2:
+        return False
+    if t1 == t2:
+        return True
+
+    words1 = [w for w in t1.split() if w not in _COMMON_STOP_WORDS and len(w) > 2]
+    words2 = [w for w in t2.split() if w not in _COMMON_STOP_WORDS and len(w) > 2]
+    if len(words1) < 3 or len(words2) < 3:
+        return False
+
+    set1, set2 = set(words1), set(words2)
+
+    # Distinct model variant check: prevent merging different models from the same family
+    model_variants = {
+        "sonnet", "haiku", "opus", "mini", "flash", "pro", "r1", "v3", "o1", "o3",
+        "canvas", "sora", "large", "medium", "small", "base", "max", "ultra",
+    }
+    m1 = set1 & model_variants
+    m2 = set2 & model_variants
+    if m1 and m2 and m1 != m2:
+        return False
+
+    intersection = set1 & set2
+    union = set1 | set2
+    jaccard = len(intersection) / len(union)
+    dice = (2.0 * len(intersection)) / (len(set1) + len(set2))
+
+    return jaccard >= 0.50 or dice >= 0.60
+
+
 def are_titles_duplicate(title1: str, title2: str) -> bool:
     """Determine if two article titles indicate the exact same reporting.
 
     Uses conservative matching:
     - Exact match after normalization.
     - Or Jaccard token overlap >= 0.85 when both titles have at least 5 words.
+    - Respects distinct model variants.
     """
     n1 = normalize_title(title1)
     n2 = normalize_title(title2)
@@ -127,6 +184,17 @@ def are_titles_duplicate(title1: str, title2: str) -> bool:
 
     words1 = set(n1.split())
     words2 = set(n2.split())
+
+    # Distinct model variant check
+    model_variants = {
+        "sonnet", "haiku", "opus", "mini", "flash", "pro", "r1", "v3", "o1", "o3",
+        "canvas", "sora", "large", "medium", "small", "base", "max", "ultra",
+    }
+    m1 = words1 & model_variants
+    m2 = words2 & model_variants
+    if m1 and m2 and m1 != m2:
+        return False
+
     if len(words1) >= 5 and len(words2) >= 5:
         intersection = words1 & words2
         union = words1 | words2
@@ -335,21 +403,32 @@ def fetch_feed(source: Source, max_entries: int = MAX_ENTRIES_PER_SOURCE) -> lis
         text = extract_text(entry)
         pub_date = parse_date(entry)
 
-        articles.append(
-            {
-                "id": article_id,
-                "title": title.strip(),
-                "company": source["publisher"],
-                "source": source["name"],
-                "url": canon_url,
-                "raw_url": raw_url,
-                "date": pub_date,
-                "category": source["category"],
-                "text": text,
-            }
-        )
+        candidate = {
+            "id": article_id,
+            "title": title.strip(),
+            "company": source["publisher"],
+            "source": source["name"],
+            "url": canon_url,
+            "raw_url": raw_url,
+            "date": pub_date,
+            "category": source["category"],
+            "text": text,
+        }
 
-    logger.info("Fetched %d articles from '%s'", len(articles), name)
+        # Handle mixed newsletters or single stories through the relevance gate
+        sub_articles = split_mixed_newsletter(candidate)
+        for art in sub_articles:
+            is_rel, reason = is_article_ai_relevant(
+                art["title"],
+                art.get("text", ""),
+                tags=[art["category"]],
+            )
+            if not is_rel:
+                logger.info("Filtered non-AI article: '%s' (%s)", art["title"], reason)
+                continue
+            articles.append(art)
+
+    logger.info("Fetched %d relevant AI articles from '%s'", len(articles), name)
     return articles
 
 
