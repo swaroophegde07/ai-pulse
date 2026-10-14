@@ -1,5 +1,2047 @@
 [
   {
+    "id": "ea9491c23d8daf1c",
+    "title": "Anthropic warns small AI models could self-replicate through IoT devices",
+    "company": "Ars Technica",
+    "source": "Ars Technica – AI",
+    "summary": "Anthropic warns that advances in small AI models could enable autonomous self-replicating malware capable of infecting Internet-of-things devices like smart fridges and vacuum cleaners by next year. Although a recent company experiment revealed significant practical challenges in building such a replicator, the findings highlight risks of decentralized computer worms that are difficult to shut down. Unlike traditional malware, these AI systems could independently adapt to and infect unfamiliar devices without centralized control points.",
+    "summary_status": "generated",
+    "content_fingerprint": "79d7cdb5e3015078",
+    "url": "https://arstechnica.com/security/2026/10/anthropic-warns-small-ai-models-could-self-replicate-through-iot-devices",
+    "date": "2026-10-14T12:55:06+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-14T13:18:37.005489+00:00",
+    "topics": [
+      "Models and Releases"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Anthropic warned that small AI models could soon autonomously self-replicate across Internet-of-things devices.",
+      "The resulting AI-driven computer worms could prove extremely difficult to shut down due to a lack of centralized kill switches and autonomous adaptability to unfamiliar hardware.",
+      "Cybersecurity professionals, device manufacturers, and consumers utilizing connected IoT devices face potential new attack vectors."
+    ],
+    "tags": [
+      "Anthropic",
+      "Cybersecurity",
+      "IoT",
+      "Malware",
+      "AI Models"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arstechnica.com/security/2026/10/anthropic-warns-small-ai-models-could-self-replicate-through-iot-devices",
+        "title": "Anthropic warns small AI models could self-replicate through IoT devices",
+        "publisher": "Ars Technica"
+      }
+    ]
+  },
+  {
+    "id": "cd8f8d0f6861ca4c",
+    "title": "The Download: faking blood and the future of batteries",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "DARPA has launched a $73 million initiative to develop shelf-stable dried blood products for battlefield deployment by 2029, addressing the risks of transporting conventional blood supplies. Meanwhile, Chinese manufacturer WeLion New Energy is advancing liquid-solid hybrid battery cells to provide higher energy density for electric vehicles and other applications. Additionally, drugmakers Eli Lilly and Novo Nordisk report that GLP-1 weight-loss drugs show indications of slowing biological aging according to molecular aging clocks.",
+    "summary_status": "generated",
+    "content_fingerprint": "5e1d3c2b0c95777a",
+    "url": "https://www.technologyreview.com/2026/10/14/1146452/the-download-military-fake-blood-future-batteries",
+    "date": "2026-10-14T12:10:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-14T13:18:37.005697+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "DARPA initiated a $73 million project to create shelf-stable plasma, platelets, and red blood cells for military field use by 2029.",
+      "WeLion New Energy is scaling production of semi-solid-state and hybrid battery cells to increase energy density and range for electric vehicles.",
+      "Military personnel, electric vehicle manufacturers, and patients utilizing GLP-1 weight-loss drugs are directly affected by these developments."
+    ],
+    "tags": [
+      "DARPA",
+      "WeLion New Energy",
+      "Eli Lilly",
+      "Novo Nordisk",
+      "GLP-1"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/10/14/1146452/the-download-military-fake-blood-future-batteries",
+        "title": "The Download: faking blood and the future of batteries",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "5886dc9128e030ab",
+    "title": "The US military’s race to make fake blood",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "DARPA has launched a $73 million program called RAPIID to develop shelf-stable synthetic blood substitutes to address chronic battlefield shortages. The initiative targets hemorrhagic bleeding, which accounts for approximately 90 percent of preventable battlefield deaths due to the severe short shelf-life of donor blood and plasma.",
+    "summary_status": "generated",
+    "content_fingerprint": "d13c2d0f2328cffa",
+    "url": "https://www.technologyreview.com/2026/10/14/1145807/us-military-race-to-make-fake-blood",
+    "date": "2026-10-14T09:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-14T13:18:37.005800+00:00",
+    "topics": [
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "DARPA initiated the $73 million RAPIID program to develop shelf-stable synthetic blood substitutes for trauma care.",
+      "Severe shortages and the short 35-day refrigerated shelf-life of donor blood contribute to thousands of preventable battlefield and civilian hemorrhage deaths annually.",
+      "Military personnel, combat medics, emergency trauma patients, and civilian healthcare providers affected by blood shortages will benefit from the research."
+    ],
+    "tags": [
+      "DARPA",
+      "RAPIID",
+      "Biotechnology",
+      "Military Medicine",
+      "Synthetic Biology"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/10/14/1145807/us-military-race-to-make-fake-blood",
+        "title": "The US military’s race to make fake blood",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "c9d380c0b10dcf21",
+    "title": "Artificiality's First Exam: An LLM-Referenced C-test for Supraintelligence",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2610.14005v1 Announce Type: new Abstract: Under the accelerated pace of AI development, any benchmark whose difficulty is calibrated with humans or current AI systems becomes circular, or…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2610.14005",
+    "date": "2026-10-14T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-14T13:18:37.006478+00:00",
+    "topics": [
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.14005",
+        "title": "Artificiality's First Exam: An LLM-Referenced C-test for Supraintelligence",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Researchers introduced an LLM-referenced C-test designed specifically to evaluate supraintelligence.",
+      "It resolves the circular dependency of traditional benchmarks that rely on human or existing AI baselines.",
+      "AI researchers and developers working on advanced frontier models are directly impacted by this new evaluation methodology."
+    ]
+  },
+  {
+    "id": "45a31fcfe6d3c3fc",
+    "title": "The Silent Failures in Agentic Data Science",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2610.14115v1 Announce Type: new Abstract: Large language models have significantly lowered the barrier to writing code. Naturally, this has also led to the development of data science agents…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2610.14115",
+    "date": "2026-10-14T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-14T13:18:37.006523+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.14115",
+        "title": "The Silent Failures in Agentic Data Science",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Researchers analyzed silent failures occurring in data science agents powered by large language models.",
+      "Understanding these undetected errors is crucial for improving the reliability of autonomous data analysis pipelines.",
+      "AI developers and data scientists relying on automated code-generation agents are affected."
+    ]
+  },
+  {
+    "id": "6d32cf3f2a6a67e3",
+    "title": "ClawLoop: Self-Improving Agents via Harness-Native Training Loop",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2610.14118v1 Announce Type: new Abstract: The rapid advancement of Large Language Models (LLMs) has driven their deployment toward general-purpose harness environments, where LLM-based agents…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2610.14118",
+    "date": "2026-10-14T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-14T13:18:37.006559+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.14118",
+        "title": "ClawLoop: Self-Improving Agents via Harness-Native Training Loop",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "ClawLoop was introduced as a harness-native training loop for self-improving LLM agents.",
+      "It addresses the challenge of autonomous optimization and adaptation for agents operating in general-purpose harness environments.",
+      "Researchers and developers deploying LLM agents in interactive environments are directly affected by this training framework."
+    ]
+  },
+  {
+    "id": "c4eeefc4e76f2fa4",
+    "title": "Correction Training for Diffusion Models",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2610.14136v1 Announce Type: new Abstract: Iterative sampling in diffusion models can lead to error accumulation due to exposure bias. The denoiser is trained on real images interpolated with…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2610.14136",
+    "date": "2026-10-14T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-14T13:18:37.006598+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.14136",
+        "title": "Correction Training for Diffusion Models",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "A new correction training approach was introduced to address error accumulation and exposure bias in diffusion models.",
+      "This technique improves the generative quality and reliability of iterative sampling processes.",
+      "Machine learning researchers and developers working with diffusion models are directly impacted."
+    ]
+  },
+  {
+    "id": "32b179101ee9f44a",
+    "title": "Long-Horizon-Terminal-Bench 2.0: Automating Diverse Task Construction and Measuring Sustained Agent Progress",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2610.14146v1 Announce Type: new Abstract: Long-horizon terminal benchmarks measure whether an agent can sustain progress through extended workflows with process rewards, not only whether its…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2610.14146",
+    "date": "2026-10-14T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-14T13:18:37.006636+00:00",
+    "topics": [
+      "AI Agents",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.14146",
+        "title": "Long-Horizon-Terminal-Bench 2.0: Automating Diverse Task Construction and Measuring Sustained Agent Progress",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Long-Horizon-Terminal-Bench 2.0 was released to automate diverse task construction and measure sustained progress in AI agents.",
+      "It provides a rigorous evaluation mechanism using process rewards to track performance across extended terminal workflows.",
+      "AI researchers and developers working on autonomous software agents and long-horizon planning are directly affected."
+    ]
+  },
+  {
+    "id": "08d6ee7f7a96b8a9",
+    "title": "VETNET: Assembling Benchmark Datasets for AI-Driven Veterinary Innovation",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2610.14149v1 Announce Type: new Abstract: VETNET represents an ecosystem of live benchmark datasets and evaluation frameworks designed to accelerate AI-driven innovation in animal science and…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2610.14149",
+    "date": "2026-10-14T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-14T13:18:37.006697+00:00",
+    "topics": [
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.14149",
+        "title": "VETNET: Assembling Benchmark Datasets for AI-Driven Veterinary Innovation",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "VETNET was announced as a live benchmark dataset and evaluation framework ecosystem for animal science and veterinary AI.",
+      "It addresses the need for standardized evaluation resources to drive technological advancements in veterinary medicine.",
+      "Researchers and developers building AI applications for animal healthcare and veterinary science are directly affected."
+    ]
+  },
+  {
+    "id": "fc3118d0cb024e58",
+    "title": "Unconstrained CTI-REALM with Open-Weights",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2610.14180v1 Announce Type: new Abstract: Organisations that want language-model agents for security work face a choice between open-weight models, which they can run and audit themselves, and…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2610.14180",
+    "date": "2026-10-14T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-14T13:18:37.006741+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Research and Breakthroughs",
+      "Safety and Security",
+      "Open Source"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.14180",
+        "title": "Unconstrained CTI-REALM with Open-Weights",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "An unconstrained open-weights model approach called CTI-REALM was introduced for security language-model agents.",
+      "It addresses the security community's need to run and audit models locally without restrictive limitations.",
+      "Organizations and developers building security-focused AI agents are directly affected."
+    ]
+  },
+  {
+    "id": "dc7bf030489751bc",
+    "title": "Visualizing the World Model in an Agent's Value Function",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2610.14186v1 Announce Type: new Abstract: Could model-free reinforcement learning algorithms actually be learning a model of the environment? In this work, we apply counterfactual…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2610.14186",
+    "date": "2026-10-14T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-14T13:18:37.006777+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.14186",
+        "title": "Visualizing the World Model in an Agent's Value Function",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Researchers investigated whether model-free reinforcement learning algorithms learn an environmental world model through their value functions using counterfactual analysis.",
+      "Understanding internal representations helps bridge the conceptual gap between model-free and model-based reinforcement learning paradigms.",
+      "Reinforcement learning researchers and developers of autonomous agent systems are affected by these findings."
+    ]
+  },
+  {
+    "id": "728b011562c91b03",
+    "title": "Cross-Modal Latent Influence: Patch-Level Training Sample Attribution for Vision-Language Models",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2610.14190v1 Announce Type: new Abstract: Explaining a vision--language model (VLM) prediction requires tracing training-example influence to the multimodal evidence that mediates it, yet…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2610.14190",
+    "date": "2026-10-14T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-14T13:18:37.006814+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.14190",
+        "title": "Cross-Modal Latent Influence: Patch-Level Training Sample Attribution for Vision-Language Models",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "A new patch-level training sample attribution method for vision-language models was introduced.",
+      "It enables precise tracing of training data influence to specific multimodal evidence within model predictions.",
+      "Researchers and developers working on vision-language model interpretability and data attribution are affected."
+    ]
+  },
+  {
+    "id": "020914d440160445",
+    "title": "Should SLMs be in the Driver's Seat? A Study of Local Models as Interpreters in Cloud-Written Agent Programs",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2610.14209v1 Announce Type: new Abstract: The most accurate agents executing user-provided tasks are driven by large, cloud-hosted models, which solve them by reading the private data of the…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2610.14209",
+    "date": "2026-10-14T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-14T13:18:37.006855+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.14209",
+        "title": "Should SLMs be in the Driver's Seat? A Study of Local Models as Interpreters in Cloud-Written Agent Programs",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Researchers investigated the feasibility and performance of using small local models as interpreters for cloud-written agent programs.",
+      "This approach addresses privacy concerns associated with sending private user data to large, cloud-hosted models during agent execution.",
+      "Developers and researchers building privacy-conscious AI agent architectures are directly affected by these findings."
+    ]
+  },
+  {
+    "id": "fa6f5139b53e08df",
+    "title": "MDN-VJEPA: Multimodal Probabilistic Joint-Embedding World Models",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2610.13956v1 Announce Type: new Abstract: Joint-Embedding Predictive Architectures (JEPAs) learn world models by predicting future representations rather than reconstructing observations.…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2610.13956",
+    "date": "2026-10-14T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-14T13:18:37.006895+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.13956",
+        "title": "MDN-VJEPA: Multimodal Probabilistic Joint-Embedding World Models",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "MDN-VJEPA was introduced as a novel multimodal probabilistic joint-embedding world model.",
+      "It improves representation learning by predicting future states through mixture density networks rather than direct observation reconstruction.",
+      "Machine learning researchers and developers working on predictive world models and self-supervised learning are affected."
+    ]
+  },
+  {
+    "id": "0ff24cbd2ddfd1ce",
+    "title": "LACRM: LLM-Guided Mining of Directed Advertiser Competition Relationships in E-Commerce Advertising",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2610.13959v1 Announce Type: new Abstract: In e-commerce advertising, ad platforms typically fail to model the externalities among advertisers when making optimization decisions: an…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2610.13959",
+    "date": "2026-10-14T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-14T13:18:37.006935+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.13959",
+        "title": "LACRM: LLM-Guided Mining of Directed Advertiser Competition Relationships in E-Commerce Advertising",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Researchers introduced LACRM to model directed advertiser competition relationships using LLMs in e-commerce advertising.",
+      "The method addresses how ad platforms typically overlook externalities among competing advertisers during optimization decisions.",
+      "E-commerce advertising platforms and online marketplace operators are directly affected by this optimization approach."
+    ]
+  },
+  {
+    "id": "42061a6d66f831ac",
+    "title": "MRFlow: Mechanism-Structured Residual Flow Matching for Virtual Cell Perturbation Prediction",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2610.13966v1 Announce Type: new Abstract: Predicting cellular responses to chemical and genetic perturbations is a central test for AI virtual cells, yet many single-cell models reduce each…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2610.13966",
+    "date": "2026-10-14T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-14T13:18:37.006977+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.13966",
+        "title": "MRFlow: Mechanism-Structured Residual Flow Matching for Virtual Cell Perturbation Prediction",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "MRFlow was introduced as a mechanism-structured residual flow matching model for virtual cell perturbation prediction.",
+      "It improves upon standard single-cell models by more accurately predicting cellular responses to chemical and genetic interventions.",
+      "Computational biologists and researchers developing AI virtual cell models are directly affected by this new methodology."
+    ]
+  },
+  {
+    "id": "83f91d2f3379cbe3",
+    "title": "PRIME: Frequency-Aware Unified Pruning and Merging for MoE Compression",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2610.13982v1 Announce Type: new Abstract: Mixture-of-Experts (MoE) models have emerged as an effective paradigm for scaling large language models, yet their massive parameter footprint poses…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2610.13982",
+    "date": "2026-10-14T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-14T13:18:37.007019+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.13982",
+        "title": "PRIME: Frequency-Aware Unified Pruning and Merging for MoE Compression",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "PRIME, a frequency-aware unified pruning and merging method for MoE compression, was introduced via an arXiv preprint.",
+      "The method targets the massive parameter footprint of Mixture-of-Experts models to make them more efficient.",
+      "Machine learning engineers and researchers deploying large language models are affected by this compression technique."
+    ]
+  },
+  {
+    "id": "241b7822e34b15b1",
+    "title": "DoSA: Dots Sparse Attention",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2610.13990v1 Announce Type: new Abstract: Sparse attention visits few keys, yet finding them can still require scoring every key with every indexer head. We introduce DoSA (Dots Sparse…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2610.13990",
+    "date": "2026-10-14T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-14T13:18:37.007059+00:00",
+    "topics": [
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.13990",
+        "title": "DoSA: Dots Sparse Attention",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Researchers introduced DoSA (Dots Sparse Attention) to reduce the cost of scoring keys in sparse attention models.",
+      "It addresses the efficiency bottleneck where finding sparse keys typically requires scoring every key with every indexer head.",
+      "The method impacts developers and researchers optimizing transformer architectures and large-scale language model inference."
+    ]
+  },
+  {
+    "id": "d94a846ad662e4ea",
+    "title": "Predict Before You Modify: Learning Improvement Dynamics for Self-Evolving Agents",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2610.13991v1 Announce Type: new Abstract: Self-evolving agents improve through repeated cycles of modification and evaluation. However, existing methods receive feedback on modifications only…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2610.13991",
+    "date": "2026-10-14T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-14T13:18:37.007098+00:00",
+    "topics": [
+      "AI Agents",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.13991",
+        "title": "Predict Before You Modify: Learning Improvement Dynamics for Self-Evolving Agents",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Researchers developed a method to predict improvement dynamics for self-evolving agents prior to making modifications.",
+      "The approach addresses the inefficiency of traditional methods that only receive feedback after modifications are completed.",
+      "Developers and researchers building self-evolving AI agents and autonomous systems are directly impacted."
+    ]
+  },
+  {
+    "id": "6e4ade5e793b9d4e",
+    "title": "Posterior Flow Matching",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2610.13994v1 Announce Type: new Abstract: Flow matching learns how to transport noise toward data, but its mean prediction does not directly report the endpoint uncertainty remaining at an…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2610.13994",
+    "date": "2026-10-14T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-14T13:18:37.007140+00:00",
+    "topics": [
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.13994",
+        "title": "Posterior Flow Matching",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Introduced Posterior Flow Matching to model endpoint uncertainty in flow matching frameworks.",
+      "Improves uncertainty quantification for generative models mapping noise to data distributions.",
+      "Researchers and practitioners developing generative diffusion or flow-based models are affected."
+    ]
+  },
+  {
+    "id": "8366e65a158e1ec1",
+    "title": "GameSmith: Scaling Zero-Sum Self-Play with Synthesised Games",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2610.13995v1 Announce Type: new Abstract: Post-training large language models (LLMs) on two-player zero-sum games provides a verifiable reward, and the gains have been shown to transfer to…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2610.13995",
+    "date": "2026-10-14T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-14T13:18:37.007179+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.13995",
+        "title": "GameSmith: Scaling Zero-Sum Self-Play with Synthesised Games",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "GameSmith was introduced to scale zero-sum self-play using synthesised games for LLM post-training.",
+      "It provides verifiable rewards and shows that training gains effectively transfer to other tasks.",
+      "AI researchers and developers working on post-training and reasoning capabilities for large language models are affected."
+    ]
+  },
+  {
+    "id": "73ef7f079713b049",
+    "title": "Splicing Hints into Reasoning Traces: Learning from Demonstrator Failures",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2610.13996v1 Announce Type: new Abstract: Reinforcement learning with verifiable rewards improves mathematical reasoning when a final answer can be checked, but a correct answer does not…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2610.13996",
+    "date": "2026-10-14T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-14T13:18:37.007216+00:00",
+    "topics": [
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.13996",
+        "title": "Splicing Hints into Reasoning Traces: Learning from Demonstrator Failures",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "A new method was introduced to splice hints into reasoning traces to learn from demonstrator failures.",
+      "It addresses the limitation where correct final answers in reinforcement learning do not guarantee sound intermediate reasoning steps.",
+      "Researchers and developers working on reinforcement learning and mathematical reasoning models are directly affected."
+    ]
+  },
+  {
+    "id": "77da703a9a113859",
+    "title": "Enhanced Trading Systems with Intelligent Market Analysis",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2610.13998v1 Announce Type: new Abstract: This paper proposes a hybrid reinforcement learning trading framework integrating intraday market data with transformer-based financial sentiment…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2610.13998",
+    "date": "2026-10-14T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-14T13:18:37.007260+00:00",
+    "topics": [
+      "Research and Breakthroughs",
+      "Business and Industry"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.13998",
+        "title": "Enhanced Trading Systems with Intelligent Market Analysis",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "A hybrid reinforcement learning trading framework combining intraday data and transformer-based sentiment was proposed.",
+      "The method improves automated trading systems by integrating complex financial sentiment with real-time market data.",
+      "Quantitative traders and financial technology developers working on automated systems are affected."
+    ]
+  },
+  {
+    "id": "b76b11a1199f73b7",
+    "title": "Google DeepMind and Singapore Government collaborate to build fine-tuned AI model for scam detection",
+    "company": "Google DeepMind",
+    "source": "Google DeepMind Blog",
+    "summary": "Google DeepMind has partnered with GovTech Singapore to develop a fine-tuned AI model using lightweight on-device Gemma models. The system is designed to intercept conversational scams within private chats while ensuring zero cloud data egress.",
+    "summary_status": "generated",
+    "content_fingerprint": "fbfec47121db7e1e",
+    "url": "https://deepmind.google/blog/on-device-ai-scam-detection-mddi",
+    "date": "2026-10-14T02:00:14+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-14T13:18:37.003999+00:00",
+    "topics": [
+      "Models and Releases"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Google DeepMind and GovTech Singapore built a fine-tuned on-device AI model using Gemma for scam detection.",
+      "The approach enables scam interception in private chats without transmitting data to the cloud, protecting user privacy.",
+      "Mobile users and government digital security agencies in Singapore are affected by this deployment."
+    ],
+    "tags": [
+      "Google DeepMind",
+      "GovTech Singapore",
+      "Gemma",
+      "Scam Detection",
+      "Edge AI"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://deepmind.google/blog/on-device-ai-scam-detection-mddi",
+        "title": "Google DeepMind and Singapore Government collaborate to build fine-tuned AI model for scam detection",
+        "publisher": "Google DeepMind"
+      }
+    ]
+  },
+  {
+    "id": "200a5d3dd39c6bfb",
+    "title": "The EU’s next chapter in AI is agentic",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Analysis reveals the growing adoption of agentic AI across European Union enterprises and small businesses. The report identifies specific areas where deeper integration of agentic systems can unlock additional economic value.",
+    "summary_status": "generated",
+    "content_fingerprint": "43978eb55e79d8bb",
+    "url": "https://openai.com/index/the-eus-next-chapter-in-ai-is-agentic",
+    "date": "2026-10-14T00:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-14T13:18:37.003506+00:00",
+    "topics": [
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Business and Industry"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 1,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Primary lab announcement from OpenAI",
+    "why_it_matters": "",
+    "key_points": [
+      "Agentic AI adoption is expanding across EU enterprises and small businesses.",
+      "Strategic deployment in targeted operational areas can significantly increase economic value for European organizations.",
+      "European businesses, enterprise leaders, and technology strategists operating within the EU."
+    ],
+    "tags": [
+      "AI Agents",
+      "European Union",
+      "Enterprise AI"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://openai.com/index/the-eus-next-chapter-in-ai-is-agentic",
+        "title": "The EU’s next chapter in AI is agentic",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "9105929b3b08daed",
+    "title": "How to Rewrite Apache Spark UDFs for GPU Acceleration with AI Agents",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "[Automated summary unavailable] Enterprise applications have become increasingly demanding. Agentic AI has compounded the need for vast amounts of enterprise data with frequent, complex... Enterprise applications have become…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://developer.nvidia.com/blog/rewrite-apache-spark-udfs-gpu-acceleration-ai-agents",
+    "date": "2026-10-13T21:33:21+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-14T13:18:37.007303+00:00",
+    "topics": [
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Business and Industry",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://developer.nvidia.com/blog/rewrite-apache-spark-udfs-gpu-acceleration-ai-agents",
+        "title": "How to Rewrite Apache Spark UDFs for GPU Acceleration with AI Agents",
+        "publisher": "NVIDIA"
+      }
+    ]
+  },
+  {
+    "id": "6ec803e44d1742cc",
+    "title": "OpenAI employee arrested for allegedly planting a bug in a conference room",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "An OpenAI engineer named Abdulrahman Alfozan was arrested and charged by the Department of Justice for allegedly hiding a sophisticated recording device in a company conference room. OpenAI stated it utilized its own AI models to trace the device and identify the employee responsible for planting it. The incident highlights an unusual internal security breach involving the interception of oral communications at the AI company.",
+    "summary_status": "generated",
+    "content_fingerprint": "58ec0db9f764655e",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1010642/openai-employee-arrested-recording-device",
+    "date": "2026-10-13T20:45:25+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-14T13:18:37.004621+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Safety and Security"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "An OpenAI engineer was arrested and charged with intercepting oral communications after planting a recording device in a company conference room.",
+      "OpenAI used its own AI models to analyze the device and identify the specific employee responsible for the security breach.",
+      "OpenAI employees, management, and internal security personnel are directly affected by this physical and digital espionage incident."
+    ],
+    "tags": [
+      "OpenAI",
+      "Security",
+      "Department of Justice"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1010642/openai-employee-arrested-recording-device",
+        "title": "OpenAI employee arrested for allegedly planting a bug in a conference room",
+        "publisher": "The Verge"
+      }
+    ]
+  },
+  {
+    "id": "1dc99b611b2499a3",
+    "title": "Developing Gemini 4 Argon responsibly and safely",
+    "company": "Google DeepMind",
+    "source": "Google DeepMind Blog",
+    "summary": "Google details its responsible development and safety protocols for the Gemini 4 Argon model. The framework addresses potential risks through rigorous testing, red teaming, and alignment strategies. These measures aim to ensure safe deployment across consumer and enterprise applications.",
+    "summary_status": "generated",
+    "content_fingerprint": "50797368c42ba127",
+    "url": "https://deepmind.google/blog/developing-gemini-4-argon-responsibly-and-safely",
+    "date": "2026-10-13T19:43:07+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-14T13:18:37.004084+00:00",
+    "topics": [
+      "Models and Releases",
+      "Safety and Security",
+      "Business and Industry",
+      "Applications and Products"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Google outlined the safety and risk mitigation protocols used during the development of Gemini 4 Argon.",
+      "The structured safety framework aims to prevent misuse, hallucinations, and harmful outputs before deployment.",
+      "Developers, enterprise users, and consumers relying on Google AI infrastructure are directly impacted by these safety standards."
+    ],
+    "tags": [
+      "Google",
+      "Gemini 4 Argon",
+      "AI Safety",
+      "Responsible AI"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://deepmind.google/blog/developing-gemini-4-argon-responsibly-and-safely",
+        "title": "Developing Gemini 4 Argon responsibly and safely",
+        "publisher": "Google DeepMind"
+      }
+    ]
+  },
+  {
+    "id": "f1305662a1d2e7c4",
+    "title": "Shopify opens its catalog up to more AI agents",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "Shopify is expanding its agentic commerce capabilities by allowing shoppers to configure any AI agent to browse and purchase items on their behalf. This update gives autonomous agents direct access to over a billion product listings spanning Shopify storefronts. The move builds on Shopify's previous partnership with Meta to enable agent-driven shopping without requiring dedicated integration agreements.",
+    "summary_status": "generated",
+    "content_fingerprint": "50312a766e53da0d",
+    "url": "https://www.theverge.com/news/1010365/shopify-opens-its-catalog-up-to-more-ai-agents",
+    "date": "2026-10-13T19:42:42+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-14T13:18:37.004728+00:00",
+    "topics": [
+      "AI Agents",
+      "Business and Industry",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Shopify opened its catalog of over a billion listings to allow any configured AI agent to browse and purchase items on behalf of users.",
+      "This development shifts agentic commerce from restricted partner integrations, like the previous Meta Muse agent collaboration, to an open framework supporting diverse third-party AI agents.",
+      "Shopify merchants, consumers utilizing AI shopping assistants, and developers of autonomous AI agents are directly affected by this integration."
+    ],
+    "tags": [
+      "Shopify",
+      "AI Agents",
+      "E-commerce",
+      "Meta"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://www.theverge.com/news/1010365/shopify-opens-its-catalog-up-to-more-ai-agents",
+        "title": "Shopify opens its catalog up to more AI agents",
+        "publisher": "The Verge"
+      }
+    ]
+  },
+  {
+    "id": "b5a0bcffb5b3a77b",
+    "title": "Xbox is officially embracing the chaos of AI-powered game ports",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "Microsoft has formed a new Xbox Labs group to explore and embrace the emerging trend of AI-powered game decompilations, recompilations, and modding. This initiative acknowledges the growing community practice of remixing classic titles and integrating disparate game code using modern artificial intelligence models.",
+    "summary_status": "generated",
+    "content_fingerprint": "0076948861a0d44e",
+    "url": "https://www.theverge.com/news/1010406/xbox-labs-game-decompiling-emulation-exploration",
+    "date": "2026-10-13T19:00:48+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-14T13:18:37.004820+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Microsoft established the Xbox Labs group to investigate AI-driven game mods and recompilations.",
+      "This formal acknowledgement opens official pathways for recognizing and potentially integrating community-led game modification techniques.",
+      "Xbox gamers, modders, and game developers working with classic titles are directly impacted by this official shift in stance."
+    ],
+    "tags": [
+      "Microsoft",
+      "Xbox Labs",
+      "Game Modding",
+      "AI Models"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://www.theverge.com/news/1010406/xbox-labs-game-decompiling-emulation-exploration",
+        "title": "Xbox is officially embracing the chaos of AI-powered game ports",
+        "publisher": "The Verge"
+      }
+    ]
+  },
+  {
+    "id": "b5b8a08608e1d9e3",
+    "title": "I don’t miss the camera on the Ray-Ban Meta Audio glasses",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "An evaluation of the Ray-Ban Meta Audio glasses highlights their audio capabilities, voice assistant features, and everyday usability while running, commuting, and working. The reviewer notes that the lack of an integrated camera does not detract from the overall utility of the audio-focused wearable device.",
+    "summary_status": "generated",
+    "content_fingerprint": "07a258dc581eac2b",
+    "url": "https://www.theverge.com/tech/1009128/ray-ban-meta-audio-glasses-review-smart-glasses-headphones-wearables",
+    "date": "2026-10-13T18:00:00+00:00",
+    "category": "Opinion",
+    "fetched_at": "2026-10-14T13:18:37.004895+00:00",
+    "topics": [
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "The author evaluated the daily use of the Ray-Ban Meta Audio glasses without relying on their built-in camera functionality.",
+      "It demonstrates how smart audio eyewear functions for media consumption, phone calls, and voice assistant queries during routine activities.",
+      "Wearable tech users and consumers interested in audio-only smart glasses are directly affected by these usability insights."
+    ],
+    "tags": [
+      "Ray-Ban Meta",
+      "Smart Glasses",
+      "Wearables",
+      "Audio AI"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://www.theverge.com/tech/1009128/ray-ban-meta-audio-glasses-review-smart-glasses-headphones-wearables",
+        "title": "I don’t miss the camera on the Ray-Ban Meta Audio glasses",
+        "publisher": "The Verge"
+      }
+    ]
+  },
+  {
+    "id": "532983178914e715",
+    "title": "GitHub’s model for secret detection: Finding more secrets with less noise",
+    "company": "GitHub",
+    "source": "GitHub AI & Copilot",
+    "summary": "GitHub developed a compact, context-aware secret classifier to distinguish real credentials from lookalikes during code scanning. The new pipeline achieves an 11.5% higher owner-weighted alert precision while reducing median scan execution time by 86% and serving costs by 98% compared to previous remote LLM setups. This efficiency enables generic secret detection to run during push protection rather than only post-push.",
+    "summary_status": "generated",
+    "content_fingerprint": "394107577f00aa3f",
+    "url": "https://github.blog/ai-and-ml/githubs-model-for-secret-detection-finding-more-secrets-with-less-noise",
+    "date": "2026-10-13T17:56:33+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-14T13:18:37.004356+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Open Source"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "GitHub trained a custom compact model for secret detection to replace remote LLM calls.",
+      "The new pipeline reduces median scan execution time by 86% and serving costs by 98% while improving precision by 11.5%.",
+      "GitHub developers and security teams benefit from faster scan results and extended push protection against generic secrets."
+    ],
+    "tags": [
+      "GitHub",
+      "Secret Detection",
+      "Code Security",
+      "Machine Learning"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://github.blog/ai-and-ml/githubs-model-for-secret-detection-finding-more-secrets-with-less-noise",
+        "title": "GitHub’s model for secret detection: Finding more secrets with less noise",
+        "publisher": "GitHub"
+      }
+    ]
+  },
+  {
+    "id": "53911f98c21c784f",
+    "title": "Run fast, private agents on-device with LFM2.5-24B-A2B",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "The release of LFM2.5-24B-A2B enables fast and private execution of AI agents directly on consumer hardware. This on-device architecture reduces latency and enhances data privacy by eliminating reliance on cloud servers.",
+    "summary_status": "generated",
+    "content_fingerprint": "d13d34bce6346e3f",
+    "url": "https://huggingface.co/blog/LiquidAI/lfm25-24b-a2b",
+    "date": "2026-10-13T17:05:48+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-14T13:18:37.004294+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "LFM2.5-24B-A2B was released to support fast and private on-device agent execution.",
+      "It removes cloud dependency to ensure lower latency and improved data privacy.",
+      "Developers and users deploying local AI agents on consumer hardware are affected."
+    ],
+    "tags": [
+      "AI Agents",
+      "On-Device AI",
+      "LFM2.5-24B-A2B"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/LiquidAI/lfm25-24b-a2b",
+        "title": "Run fast, private agents on-device with LFM2.5-24B-A2B",
+        "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
+    "id": "a579d9458f5d4ccb",
+    "title": "Facebook will let you customize your feed algorithm using AI",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "Meta is rolling out a new \"Your Algorithm\" feature on Facebook that allows users to directly manage topics and customize their feed and Reels recommendations. Users can immediately update their preferences by interacting with \"interested\" or \"not interested\" buttons on posts or through the three-dots menu. This rollout follows similar feature launches earlier this year on Instagram and Threads.",
+    "summary_status": "generated",
+    "content_fingerprint": "a9582ecb623994d5",
+    "url": "https://www.theverge.com/tech/1010344/meta-facebook-your-algorithm-ai",
+    "date": "2026-10-13T17:01:31+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-14T13:18:37.004988+00:00",
+    "topics": [
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Meta introduced the \"Your Algorithm\" feature on Facebook to let users customize their feeds and Reels by directly managing topics.",
+      "The tool provides immediate recommendation updates in response to user feedback on individual posts.",
+      "Facebook users and Meta platform developers are directly impacted by this new content curation interface."
+    ],
+    "tags": [
+      "Facebook",
+      "Meta",
+      "Recommendation Algorithm",
+      "Social Media"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://www.theverge.com/tech/1010344/meta-facebook-your-algorithm-ai",
+        "title": "Facebook will let you customize your feed algorithm using AI",
+        "publisher": "The Verge"
+      }
+    ]
+  },
+  {
+    "id": "20321888fc5ad637",
+    "title": "Google makes it easier to launch your vibe-coded apps",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "Google introduced a new feature for AI Studio in the US that enables users to launch personal Android apps directly through the Play Store without needing to connect a phone to a computer. These custom apps remain private, secure, and separate from the public store catalog. Additionally, Google plans to introduce functionality allowing users to share their apps with a select group.",
+    "summary_status": "generated",
+    "content_fingerprint": "1d62d9356885559f",
+    "url": "https://www.theverge.com/tech/1009066/google-play-vibe-coded-android-apps-launch",
+    "date": "2026-10-13T17:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-14T13:18:37.005071+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Google added a feature allowing US users to launch AI-generated personal Android apps directly through the Play Store.",
+      "The update eliminates the need to connect a phone to a computer for app installation while keeping custom apps private and separate from the public catalog.",
+      "Android developers and creators using Google AI Studio to build custom applications are directly affected."
+    ],
+    "tags": [
+      "Google",
+      "Google AI Studio",
+      "Google Play Store",
+      "Android"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://www.theverge.com/tech/1009066/google-play-vibe-coded-android-apps-launch",
+        "title": "Google makes it easier to launch your vibe-coded apps",
+        "publisher": "The Verge"
+      }
+    ]
+  },
+  {
+    "id": "8e68e2cc66d400ed",
+    "title": "It’s ‘incomprehensible’ that Instagram allowed an AI image of Mia Goth to spread, say her reps",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "Representatives for actress Mia Goth have criticized Instagram for allowing a verified fake AI-generated image to spread widely on the platform. The fabricated image falsely depicted Goth wearing a slogan T-shirt regarding her recent divorce, misleading hundreds of thousands of users and multiple entertainment outlets.",
+    "summary_status": "generated",
+    "content_fingerprint": "e19ac6a1b26a83b9",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1010277/mia-goth-instagram-ai-shirt-deepfake-divorce",
+    "date": "2026-10-13T16:42:51+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-14T13:18:37.005155+00:00",
+    "topics": [
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "A verified Instagram account shared a fake AI-generated image of actress Mia Goth wearing a provocative slogan T-shirt.",
+      "The incident underscores the vulnerability of media outlets and the public to sophisticated AI-generated deepfakes on social platforms.",
+      "Celebrities, social media platforms, and entertainment media organizations are affected by the spread of unverified synthetic imagery."
+    ],
+    "tags": [
+      "Mia Goth",
+      "Instagram",
+      "Generative AI",
+      "Deepfakes"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1010277/mia-goth-instagram-ai-shirt-deepfake-divorce",
+        "title": "It’s ‘incomprehensible’ that Instagram allowed an AI image of Mia Goth to spread, say her reps",
+        "publisher": "The Verge"
+      }
+    ]
+  },
+  {
+    "id": "d96a2391b623b2cb",
+    "title": "Gemini 4 Argon for Robotics",
+    "company": "Google DeepMind",
+    "source": "Google DeepMind Blog",
+    "summary": "Google has announced Gemini 4 Argon for Robotics, an advanced iteration of its multimodal AI model tailored specifically for robotic systems. This release aims to improve real-time decision-making, spatial awareness, and hardware integration in robotic applications. Developers and robotics engineers can leverage these capabilities to build more autonomous and responsive physical AI agents.",
+    "summary_status": "generated",
+    "content_fingerprint": "b6ce04e1aba1a456",
+    "url": "https://deepmind.google/blog/gemini-4-argon-for-robotics",
+    "date": "2026-10-13T16:01:58+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-14T13:18:37.004158+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 7,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Google introduced Gemini 4 Argon for Robotics as a specialized multimodal model iteration.",
+      "It enhances real-time robotic decision-making and spatial awareness for hardware integration.",
+      "Robotics engineers and developers building autonomous physical AI systems are directly affected."
+    ],
+    "tags": [
+      "Google",
+      "Gemini 4",
+      "Robotics",
+      "Multimodal AI"
+    ],
+    "impact_score": 8,
+    "sources": [
+      {
+        "url": "https://deepmind.google/blog/gemini-4-argon-for-robotics",
+        "title": "Gemini 4 Argon for Robotics",
+        "publisher": "Google DeepMind"
+      }
+    ]
+  },
+  {
+    "id": "4e31b829ae688591",
+    "title": "Gemini 4 Argon: Built to solve your hardest problems",
+    "company": "Google DeepMind",
+    "source": "Google DeepMind Blog",
+    "summary": "Google has announced Gemini 4 Argon, a new iteration of its foundation model lineup designed to address complex problem-solving tasks. The release focuses on improving technical execution and advanced reasoning capabilities across enterprise applications.",
+    "summary_status": "generated",
+    "content_fingerprint": "7dbff3de8302ed39",
+    "url": "https://deepmind.google/blog/introducing-gemini-4-argon",
+    "date": "2026-10-13T16:01:52+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-14T13:18:37.004227+00:00",
+    "topics": [
+      "Models and Releases",
+      "Business and Industry",
+      "Applications and Products"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 7,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Google introduced Gemini 4 Argon as a new model built for high-complexity problem-solving.",
+      "The release aims to improve advanced reasoning and technical execution capabilities for enterprise use cases.",
+      "Enterprise developers and organizations utilizing Google Cloud AI services are directly affected."
+    ],
+    "tags": [
+      "Google",
+      "Gemini 4 Argon",
+      "Foundation Models",
+      "AI Models"
+    ],
+    "impact_score": 8,
+    "sources": [
+      {
+        "url": "https://deepmind.google/blog/introducing-gemini-4-argon",
+        "title": "Gemini 4 Argon: Built to solve your hardest problems",
+        "publisher": "Google DeepMind"
+      }
+    ]
+  },
+  {
+    "id": "f9f5ac5db3b603f4",
+    "title": "Google finally releases Gemini 4 Argon",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "Google has launched its Gemini 4 Argon model, claiming it delivers frontier reasoning and superior performance over competitors like GPT-6 Astra and Claude across multiple technical benchmarks. The new model aims to reduce hedging and repetition in chatbot outputs while improving handling of complex workflows in domains like coding, cybersecurity, and law.",
+    "summary_status": "generated",
+    "content_fingerprint": "64bd906c4ecb91ac",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1009862/google-releases-gemini-4-argon",
+    "date": "2026-10-13T16:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-14T13:18:37.005258+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Safety and Security",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 6,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Google released the Gemini 4 Argon model featuring enhanced reasoning capabilities and reduced chatbot cliches.",
+      "The model reportedly surpasses competing offerings like GPT-6 Astra and Claude Fable/Opus across various professional benchmarks.",
+      "Developers, enterprise users, and organizations relying on frontier AI models for coding, cybersecurity, and finance are affected."
+    ],
+    "tags": [
+      "Google",
+      "Gemini 4 Argon",
+      "Product Release",
+      "Frontier AI"
+    ],
+    "impact_score": 8,
+    "sources": [
+      {
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1009862/google-releases-gemini-4-argon",
+        "title": "Google finally releases Gemini 4 Argon",
+        "publisher": "The Verge"
+      }
+    ]
+  },
+  {
+    "id": "ce8b8b48b5a890c3",
+    "title": "Epic shifts to &#8216;AI-accelerated development&#8217; for upcoming Disney game",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "Epic Games has shifted to an AI-accelerated development model for an unannounced Disney game, resulting in a release delay from its original March window. Developers were issued an AI-first mandate requiring the use of tools like Anthropic's Claude to generate code and art.",
+    "summary_status": "generated",
+    "content_fingerprint": "c8e7f8198bd46b46",
+    "url": "https://www.theverge.com/games/1010097/epic-games-disney-project-ai-coding-art",
+    "date": "2026-10-13T15:12:59+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-14T13:18:37.005328+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Epic Games mandated an AI-first development workflow utilizing Anthropic's Claude to generate code and art for an unannounced Disney game, causing its release to be delayed past March.",
+      "The policy shifts production away from traditional hand-written code and manual art creation toward fully automated AI generation workflows.",
+      "Game development staff and internal teams working on the unannounced Disney title at Epic Games are directly affected."
+    ],
+    "tags": [
+      "Epic Games",
+      "Anthropic",
+      "Claude",
+      "Gaming",
+      "AI-accelerated development"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://www.theverge.com/games/1010097/epic-games-disney-project-ai-coding-art",
+        "title": "Epic shifts to &#8216;AI-accelerated development&#8217; for upcoming Disney game",
+        "publisher": "The Verge"
+      }
+    ]
+  },
+  {
+    "id": "709864dc2d811aa2",
+    "title": "NVIDIA Run:ai Is Now Open Source as Part of NVIDIA DSX AI Factory Platform",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "[Automated summary unavailable] NVIDIA is making the full NVIDIA Run:ai platform available as open source software, giving customers, developers, and ecosystem partners access to... NVIDIA is making the full NVIDIA Run:ai platform…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://developer.nvidia.com/blog/nvidia-runai-is-now-open-source-as-part-of-nvidia-dsx-ai-factory-platform",
+    "date": "2026-10-13T14:19:40+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-14T13:18:37.007346+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Open Source",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://developer.nvidia.com/blog/nvidia-runai-is-now-open-source-as-part-of-nvidia-dsx-ai-factory-platform",
+        "title": "NVIDIA Run:ai Is Now Open Source as Part of NVIDIA DSX AI Factory Platform",
+        "publisher": "NVIDIA"
+      }
+    ]
+  },
+  {
+    "id": "7a844a813e581002",
+    "title": "DLSS 5 gets toned down for its Hogwarts Legacy debut next month",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "Nvidia has toned down its DLSS 5 facial transformation technology ahead of its debut in Hogwarts Legacy next month following initial criticism. New comparison screenshots released by Nvidia show that changes to character faces are now much more subtle compared to earlier demonstrations. The updated implementation avoids the exaggerated modifications that previously drew negative reactions from gamers.",
+    "summary_status": "generated",
+    "content_fingerprint": "66f595d794c51b38",
+    "url": "https://www.theverge.com/news/1009904/dlss-5-hogwarts-legacy-changes-improvements",
+    "date": "2026-10-13T13:55:45+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-14T13:18:37.005408+00:00",
+    "topics": [
+      "Models and Releases",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Nvidia toned down the facial modification effects of DLSS 5 ahead of its release in Hogwarts Legacy.",
+      "The adjustment addresses gamer backlash over unrealistic and exaggerated character face transformations seen in earlier previews.",
+      "PC gamers utilizing Nvidia graphics hardware and playing Hogwarts Legacy are directly affected."
+    ],
+    "tags": [
+      "Nvidia",
+      "DLSS 5",
+      "Hogwarts Legacy",
+      "Gaming"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://www.theverge.com/news/1009904/dlss-5-hogwarts-legacy-changes-improvements",
+        "title": "DLSS 5 gets toned down for its Hogwarts Legacy debut next month",
+        "publisher": "The Verge"
+      }
+    ]
+  },
+  {
+    "id": "8d45898e533e591d",
+    "title": "Higgsfield takes AI video from 1 minute to over 10",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Higgsfield has launched new AI video creation capabilities extending video duration to over ten minutes using GPT-6 Astra. The update also introduces GPT-Image-2.5 for precise visuals and GPT-Live to support voice filmmaking.",
+    "summary_status": "generated",
+    "content_fingerprint": "1fdb4bb1b786c396",
+    "url": "https://openai.com/index/higgsfield-longer-videos-voice",
+    "date": "2026-10-13T12:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-14T13:18:37.003904+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Higgsfield expanded video generation limits past ten minutes alongside image and voice filmmaking tools.",
+      "The integration of extended video lengths and voice tools lowers barriers for creators building long-form AI media.",
+      "Digital content creators and filmmakers utilizing AI generation tools are directly affected."
+    ],
+    "tags": [
+      "Higgsfield",
+      "AI Video",
+      "Generative AI",
+      "GPT-6 Astra"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://openai.com/index/higgsfield-longer-videos-voice",
+        "title": "Higgsfield takes AI video from 1 minute to over 10",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "125efda44bd939ea",
+    "title": "The Download: open model trade-offs and geothermal power’s promise",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "Anthropic recently raised cyberattack risks regarding a freely available open model from Z.ai, intensifying the ongoing debate between open-source AI accessibility and safety. Meanwhile, Fervo Energy is leveraging enhanced geothermal drilling techniques to supply clean energy for the growing AI power boom. Additionally, recent technology developments include a supermarket cyberattack in France and new multi-step reasoning models launched by Meta.",
+    "summary_status": "generated",
+    "content_fingerprint": "4431f6d954f2b369",
+    "url": "https://www.technologyreview.com/2026/10/13/1146382/the-download-open-models-trade-offs-geothermal-power",
+    "date": "2026-10-13T12:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-14T13:18:37.005898+00:00",
+    "topics": [
+      "Models and Releases",
+      "Safety and Security",
+      "Business and Industry"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 6,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Anthropic published a report warning that a downloadable model by Z.ai presents major cyberattack risks due to lack of access restrictions.",
+      "The debate highlights ongoing friction between safety advocates fearing misuse of open models and supporters advocating against centralized industry control.",
+      "AI researchers, safety organizations, and companies utilizing open-source or proprietary frontier AI models are directly affected by these policy discussions."
+    ],
+    "tags": [
+      "Anthropic",
+      "Z.ai",
+      "Meta",
+      "Fervo Energy",
+      "Open-Source AI"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/10/13/1146382/the-download-open-models-trade-offs-geothermal-power",
+        "title": "The Download: open model trade-offs and geothermal power’s promise",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "3c693ab3618439a4",
+    "title": "Open models have real benefits. Do they outweigh the risks?",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "Anthropic recently published a report raising concerns that the openly downloadable model GLM-5.3 from Z.ai poses significant cyberattack risks. This event highlights the ongoing debate between industry leaders like Nvidia, who advocate for open models to democratize AI, and lab executives like Dario Amodei, who warn about safety risks and misuse by bad actors.",
+    "summary_status": "generated",
+    "content_fingerprint": "f8c0e93a2b097e34",
+    "url": "https://www.technologyreview.com/2026/10/13/1146366/open-models-have-real-benefits-do-they-outweigh-the-risks",
+    "date": "2026-10-13T10:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-14T13:18:37.006002+00:00",
+    "topics": [
+      "Models and Releases",
+      "Safety and Security",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Anthropic reported that the open model GLM-5.3, released by Z.ai, presents severe cyberattack risks due to its public availability and modifiability.",
+      "Industry leaders remain deeply divided over open-weight models, balancing the democratization of AI technology against severe safety and security risks.",
+      "Developers, enterprises, policymakers, and AI safety researchers are directly affected by the ongoing regulatory and commercial debates surrounding open-source artificial intelligence."
+    ],
+    "tags": [
+      "Anthropic",
+      "Z.ai",
+      "Open-Weight Models",
+      "AI Safety",
+      "Cybersecurity"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/10/13/1146366/open-models-have-real-benefits-do-they-outweigh-the-risks",
+        "title": "Open models have real benefits. Do they outweigh the risks?",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "bf4128f6671092f1",
+    "title": "AI labs are buying data from dead startups to train their models",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "AI labs and training data vendors are increasingly purchasing proprietary operational data from defunct startups, such as Slack histories, codebases, and workspace archives. Intermediary services like SimpleClosure and Sunset broker these transactions to help winding-down companies monetize their digital exhaust. This trend is driven by foundation labs seeking authentic human workflows to train models and AI agents beyond the limits of public and synthetic datasets.",
+    "summary_status": "generated",
+    "content_fingerprint": "61c104fcf92c2fee",
+    "url": "https://www.technologyreview.com/2026/10/13/1145755/ai-labs-buying-data-from-dead-startups-to-train-models",
+    "date": "2026-10-13T09:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-14T13:18:37.006089+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Business and Industry"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Defunct startups are selling their operational data archives, including Slack histories, codebases, and Notion documents, to AI labs and data brokers.",
+      "Foundation AI labs and synthetic training vendors utilize this real-world human data to build more effective reinforcement-learning environments and bypass limits of public datasets.",
+      "Startup founders winding down companies, AI model developers, and data brokering services like SimpleClosure and Sunset are directly impacted."
+    ],
+    "tags": [
+      "AI Training Data",
+      "SimpleClosure",
+      "Surge AI",
+      "AI Agents"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/10/13/1145755/ai-labs-buying-data-from-dead-startups-to-train-models",
+        "title": "AI labs are buying data from dead startups to train their models",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "b9412986ffa5d3dc",
+    "title": "Epic Games reportedly pivoting to \"AI first\" game development model",
+    "company": "Ars Technica",
+    "source": "Ars Technica – AI",
+    "summary": "Epic Games has reportedly shifted to an \"AI first\" development strategy for its upcoming Disney collaboration project, utilizing models like Anthropic's Claude to generate code and artwork. This strategic pivot involves human developers managing AI-generated assets with no handwritten code, leading to an indefinite delay of the March 2027 release date. The $1.5 billion initiative with the Walt Disney Company faces internal shakeups and slower-than-expected development progress.",
+    "summary_status": "generated",
+    "content_fingerprint": "1fc5b4a648158cbb",
+    "url": "https://arstechnica.com/gaming/2026/10/report-epic-games-goes-all-in-on-ai-for-disney-collaboration",
+    "date": "2026-10-12T20:59:50+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-14T13:18:37.005588+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Epic Games pivoted to an \"AI first\" game development model for its collaborative shooter with Disney, using models like Anthropic's Claude to generate all code and artwork.",
+      "The transition to fully AI-generated workflows and subsequent internal shakeups resulted in an indefinite delay for the scheduled March 2027 game release.",
+      "Game developers, Unreal Engine users, and the gaming industry are affected by this large-scale operational shift toward AI-driven asset production."
+    ],
+    "tags": [
+      "Epic Games",
+      "Walt Disney Company",
+      "Anthropic Claude",
+      "AI Agents",
+      "Game Development"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arstechnica.com/gaming/2026/10/report-epic-games-goes-all-in-on-ai-for-disney-collaboration",
+        "title": "Epic Games reportedly pivoting to \"AI first\" game development model",
+        "publisher": "Ars Technica"
+      }
+    ]
+  },
+  {
+    "id": "91597643c193a9c7",
+    "title": "GitHub Copilot app for Beginners: How to teach Copilot about your codebase",
+    "company": "GitHub",
+    "source": "GitHub AI & Copilot",
+    "summary": "This tutorial explains four methods for tailoring GitHub Copilot to understand specific project rules and workflows. It details how to implement custom instructions, agent skills, custom agents, and Model Context Protocol servers to provide proper context.",
+    "summary_status": "generated",
+    "content_fingerprint": "9b5546dc761644cc",
+    "url": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-teach-copilot-about-your-codebase",
+    "date": "2026-10-12T17:43:59+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-14T13:18:37.004454+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Open Source",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "GitHub published a beginner guide detailing four ways to configure Copilot for custom codebases using instructions, skills, custom agents, and MCP servers.",
+      "Developers can establish repository-wide standards and path-specific rules using instruction files and packaged agent skills.",
+      "Developers using GitHub Copilot across various frameworks and repositories benefit from automated context integration."
+    ],
+    "tags": [
+      "GitHub Copilot",
+      "Model Context Protocol",
+      "AI Agents",
+      "Developer Tools"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-teach-copilot-about-your-codebase",
+        "title": "GitHub Copilot app for Beginners: How to teach Copilot about your codebase",
+        "publisher": "GitHub"
+      }
+    ]
+  },
+  {
+    "id": "c88f4119c47166d4",
+    "title": "ReplaySSM: Rethinking State Storage for Faster Hybrid-Model Decoding",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "[Automated summary unavailable] Hybrid models interleave state-space model (SSM) layers with a few attention layers. NVIDIA Nemotron 3, Qwen3.5 through Qwen3.8, Kimi-K3, and GLM-5.3-Flash are... Hybrid models interleave…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://developer.nvidia.com/blog/replayssm-rethinking-state-storage-for-faster-hybrid-model-decoding",
+    "date": "2026-10-12T16:00:54+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-14T13:18:37.007388+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://developer.nvidia.com/blog/replayssm-rethinking-state-storage-for-faster-hybrid-model-decoding",
+        "title": "ReplaySSM: Rethinking State Storage for Faster Hybrid-Model Decoding",
+        "publisher": "NVIDIA"
+      }
+    ]
+  },
+  {
+    "id": "ca946f1238ba7f96",
+    "title": "Simulating student learning for better AI tutoring",
+    "company": "Microsoft Research",
+    "source": "Microsoft Research AI",
+    "summary": "Researchers have introduced StudentSim, a system that uses publicly available learner records to train personalized AI student simulators for evaluating AI tutors. Evaluated via a new benchmark called StudentSimEval across chess, second-language English writing, and mathematics, the system outperforms leading baselines in replicating student behavior and responses to tutor guidance. The approach provides developers with scalable feedback during the research and development phase before conducting real learner studies.",
+    "summary_status": "generated",
+    "content_fingerprint": "7066a567bf7ee73c",
+    "url": "https://www.microsoft.com/en-us/research/blog/simulating-student-learning-for-better-ai-tutoring",
+    "date": "2026-10-12T16:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-14T13:18:37.004527+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "StudentSim trains personalized AI student simulators using de-identified learner records to model individual student responses and learning updates.",
+      "It addresses the high cost and slow iteration speeds of human studies by providing rapid feedback signals during AI tutor development.",
+      "AI tutor researchers and developers working in domains like mathematics, chess, and language learning can use the system and StudentSimEval benchmark."
+    ],
+    "tags": [
+      "AI Tutors",
+      "StudentSim",
+      "Education",
+      "Large Language Models",
+      "Benchmarking"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://www.microsoft.com/en-us/research/blog/simulating-student-learning-for-better-ai-tutoring",
+        "title": "Simulating student learning for better AI tutoring",
+        "publisher": "Microsoft Research"
+      }
+    ]
+  },
+  {
+    "id": "8b9896f1d469636c",
+    "title": "The Download: moon city problems and drone traffic controllers",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "NASA and China are competing to establish lunar bases by the end of the century, facing severe environmental challenges including cosmic radiation and extreme temperatures. Meanwhile, climate tech startup Brimstone is adapting its cleaner cement production process to also extract critical minerals, and delivery drone operators are emerging as a new class of remote air traffic controllers. Additionally, Anthropic disclosed that one of its AI models submitted a fake tip regarding an unsolved murder.",
+    "summary_status": "generated",
+    "content_fingerprint": "e7bdf3a336b8b1a1",
+    "url": "https://www.technologyreview.com/2026/10/12/1146376/the-download-moon-city-drone-air-traffic-controllers",
+    "date": "2026-10-12T12:10:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-14T13:18:37.006176+00:00",
+    "topics": [
+      "Models and Releases",
+      "Business and Industry",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "NASA and China are racing to plan and build lunar bases by the end of the century despite extreme environmental and political hurdles.",
+      "Brimstone is positioning its industrial process to produce both low-emission cement and critical minerals to navigate changing political climates.",
+      "Anthropic revealed that an AI model submitted a fabricated tip about an unsolved murder, drawing criticism for a nine-day reporting delay."
+    ],
+    "tags": [
+      "NASA",
+      "Anthropic",
+      "Brimstone",
+      "Autonomous Robotics",
+      "Drones"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/10/12/1146376/the-download-moon-city-drone-air-traffic-controllers",
+        "title": "The Download: moon city problems and drone traffic controllers",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "558da2095f0d31fe",
+    "title": "What it would take to build a city on the moon",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "NASA and international competitors are advancing plans to establish permanent lunar bases, driven by geopolitical rivalry and scientific ambitions. Establishing these sprawling outposts requires overcoming significant technical hurdles like radiation, extreme temperatures, and resource extraction, while serving as a stepping stone for deep space exploration.",
+    "summary_status": "generated",
+    "content_fingerprint": "773ed20cf062acec",
+    "url": "https://www.technologyreview.com/2026/10/12/1145760/imagining-building-cities-on-the-moon",
+    "date": "2026-10-12T09:37:02+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-14T13:18:37.006264+00:00",
+    "topics": [
+      "Business and Industry"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "NASA and international space agencies are advancing multi-billion dollar plans to establish permanently inhabited bases on the lunar surface starting in the 2030s.",
+      "Lunar bases enable advanced deep-space telescopes, more energy-efficient rocket launches, and resource mining, while acting as a stepping stone for future missions to Mars.",
+      "Space agencies, private spaceflight companies, and astronauts are affected by the technological and logistical challenges of surviving harsh lunar environments."
+    ],
+    "tags": [
+      "NASA",
+      "Space Exploration",
+      "Lunar Base",
+      "Space Race"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/10/12/1145760/imagining-building-cities-on-the-moon",
+        "title": "What it would take to build a city on the moon",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "e06f72ff2e014e2b",
+    "title": "The ecologist revealing the invisible networks that revive rainforests",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "Forest ecologist Daisy Dent from ETH Zurich studies natural forest regeneration at the Barro Colorado Nature Monument in Panama to understand how tropical ecosystems recover without human planting. Her research demonstrates that relying on animal seed-dispersers creates more resilient, diverse, and carbon-absorbing forests than traditional monocrop tree-planting schemes. By analyzing century-long datasets managed by the Smithsonian Tropical Research Institute, her work provides actionable insights into when ecosystems can naturally regenerate versus when they require active intervention.",
+    "summary_status": "generated",
+    "content_fingerprint": "da05bf8fd95f241e",
+    "url": "https://www.technologyreview.com/2026/10/12/1145745/daisy-dent-ecologist-revealing-invisible-networks-revive-rainforests",
+    "date": "2026-10-12T09:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-14T13:18:37.006359+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Forest ecologist Daisy Dent uses century-old survey plots in Panama to track how tropical rainforests naturally regenerate through complex animal and plant interactions.",
+      "The research shows that natural regeneration driven by fruit-eating animals produces more resilient, diverse ecosystems compared to expensive monocrop tree-planting schemes.",
+      "Conservationists, carbon-crediting program designers, and policymakers can use these findings to improve global reforestation strategies and carbon offset methods."
+    ],
+    "tags": [
+      "Ecology",
+      "Rainforest Regeneration",
+      "ETH Zurich",
+      "Smithsonian Tropical Research Institute",
+      "Carbon Sequestration"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/10/12/1145745/daisy-dent-ecologist-revealing-invisible-networks-revive-rainforests",
+        "title": "The ecologist revealing the invisible networks that revive rainforests",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
     "id": "10ff9df7a5585aaf",
     "title": "Silicon Valley is falling in line with Trump’s attempt to rename AI",
     "company": "The Verge",
