@@ -600,6 +600,7 @@ def backfill_recent_tldrs(
     client: Any = None,
     max_backfill: int | None = None,
     days: int = 7,
+    current_dt: datetime | None = None,
 ) -> tuple[int, int]:
     """Safely backfill missing or invalid TL;DR key_points for recent existing articles.
 
@@ -625,7 +626,9 @@ def backfill_recent_tldrs(
     if not records:
         return (0, 0)
 
-    now = datetime.now(UTC)
+    now = current_dt or datetime.now(UTC)
+    if now.tzinfo is None:
+        now = now.replace(tzinfo=UTC)
     window_hours = float(days * 24)
 
     # 1. Identify candidates published within past `days` window, not future-dated, lacking valid TL;DR

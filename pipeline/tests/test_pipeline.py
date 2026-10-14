@@ -23,7 +23,7 @@ import json
 import tempfile
 import time
 import unittest
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 
@@ -2285,11 +2285,11 @@ class TestRecentTLDRBackfill(unittest.TestCase):
             "title": "Ancient Story",
             "summary": "Old summary text.",
             "url": "https://example.com/old",
-            "date": "2026-09-01T00:00:00+00:00",
+            "date": (self.now - timedelta(days=30)).isoformat(),
             "category": "News",
         }
         mock_client = MagicMock()
-        updated, skipped = backfill_recent_tldrs([old_art], client=mock_client)
+        updated, skipped = backfill_recent_tldrs([old_art], client=mock_client, current_dt=self.now)
         self.assertEqual(updated, 0)
         self.assertEqual(mock_client.models.generate_content.call_count, 0)
         self.assertNotIn("key_points", old_art)
@@ -2300,11 +2300,11 @@ class TestRecentTLDRBackfill(unittest.TestCase):
             "title": "Future Story",
             "summary": "Future summary text.",
             "url": "https://example.com/future",
-            "date": "2026-10-12T00:00:00+00:00",
+            "date": (self.now + timedelta(days=2)).isoformat(),
             "category": "News",
         }
         mock_client = MagicMock()
-        updated, skipped = backfill_recent_tldrs([future_art], client=mock_client)
+        updated, skipped = backfill_recent_tldrs([future_art], client=mock_client, current_dt=self.now)
         self.assertEqual(updated, 0)
         self.assertEqual(mock_client.models.generate_content.call_count, 0)
         self.assertNotIn("key_points", future_art)
@@ -2315,7 +2315,7 @@ class TestRecentTLDRBackfill(unittest.TestCase):
             "title": "Recent Story",
             "summary": "Recent summary.",
             "url": "https://example.com/recent",
-            "date": "2026-10-10T12:00:00+00:00",
+            "date": (self.now - timedelta(days=1)).isoformat(),
             "category": "News",
             "key_points": [
                 "Specific event occurred yesterday.",
@@ -2324,7 +2324,7 @@ class TestRecentTLDRBackfill(unittest.TestCase):
             ],
         }
         mock_client = MagicMock()
-        updated, skipped = backfill_recent_tldrs([valid_art], client=mock_client)
+        updated, skipped = backfill_recent_tldrs([valid_art], client=mock_client, current_dt=self.now)
         self.assertEqual(updated, 0)
         self.assertEqual(mock_client.models.generate_content.call_count, 0)
         self.assertEqual(len(valid_art["key_points"]), 3)
@@ -2337,7 +2337,7 @@ class TestRecentTLDRBackfill(unittest.TestCase):
             "source": "DeepMind Blog",
             "summary": "DeepMind presented a novel reinforcement architecture.",
             "url": "https://example.com/arch",
-            "date": "2026-10-10T10:00:00+00:00",
+            "date": (self.now - timedelta(days=1)).isoformat(),
             "category": "Research",
             "tags": ["DeepMind", "Reasoning"],
             "impact_score": 8,
@@ -2364,7 +2364,7 @@ class TestRecentTLDRBackfill(unittest.TestCase):
             tmp_path = Path(f.name)
 
         try:
-            updated, remaining = backfill_recent_tldrs([recent_art], feed_path=tmp_path, client=mock_client)
+            updated, remaining = backfill_recent_tldrs([recent_art], feed_path=tmp_path, client=mock_client, current_dt=self.now)
             self.assertEqual(updated, 1)
             # Only key_points was updated
             self.assertEqual(len(recent_art["key_points"]), 3)
@@ -2383,13 +2383,13 @@ class TestRecentTLDRBackfill(unittest.TestCase):
             "title": "Story with API Error",
             "summary": "Original summary.",
             "url": "https://example.com/fail",
-            "date": "2026-10-10T10:00:00+00:00",
+            "date": (self.now - timedelta(days=1)).isoformat(),
             "category": "News",
         }
         mock_client = MagicMock()
         mock_client.models.generate_content.side_effect = Exception("429 RESOURCE_EXHAUSTED: Rate limit exceeded")
 
-        updated, remaining = backfill_recent_tldrs([recent_art], client=mock_client)
+        updated, remaining = backfill_recent_tldrs([recent_art], client=mock_client, current_dt=self.now)
         self.assertEqual(updated, 0)
         self.assertNotIn("key_points", recent_art)
         self.assertEqual(recent_art["summary"], "Original summary.")
@@ -2400,11 +2400,11 @@ class TestRecentTLDRBackfill(unittest.TestCase):
             "title": "Story Without Key",
             "summary": "Original summary.",
             "url": "https://example.com/nokey",
-            "date": "2026-10-10T10:00:00+00:00",
+            "date": (self.now - timedelta(days=1)).isoformat(),
             "category": "News",
         }
         with patch.dict(os.environ, {"GEMINI_API_KEY": ""}, clear=True):
-            updated, remaining = backfill_recent_tldrs([recent_art])
+            updated, remaining = backfill_recent_tldrs([recent_art], current_dt=self.now)
             self.assertEqual(updated, 0)
             self.assertNotIn("key_points", recent_art)
 
