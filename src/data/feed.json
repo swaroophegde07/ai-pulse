@@ -1,5 +1,422 @@
 [
   {
+    "id": "0a3035ce11f254c3",
+    "title": "The AI race is back on",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "Google and Meta have both unveiled new frontier AI models that rival leading systems from OpenAI and Anthropic. This rapid development shifts the competitive landscape, challenging the perception that Anthropic and OpenAI held a commanding lead in the market.",
+    "summary_status": "generated",
+    "content_fingerprint": "973dd3d9ec484b0c",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1011311/the-ai-race-is-back-on",
+    "date": "2026-10-14T19:06:03+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-14T22:00:47.969884+00:00",
+    "topics": [
+      "Models and Releases",
+      "Business and Industry"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Google and Meta released new frontier models challenging OpenAI and Anthropic.",
+      "The announcements narrow perceived technological gaps and intensify competition in the AI sector.",
+      "AI developers, competitors, and enterprise users evaluating frontier models are directly affected."
+    ],
+    "tags": [
+      "Google",
+      "Meta",
+      "OpenAI",
+      "Anthropic",
+      "AI Race"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1011311/the-ai-race-is-back-on",
+        "title": "The AI race is back on",
+        "publisher": "The Verge"
+      }
+    ]
+  },
+  {
+    "id": "45dfe01c4dcdbd6b",
+    "title": "Now that Character.AI is going bankrupt, what happens to all of its users&#8217; data?",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "A coalition of 40 bipartisan state attorneys general, led by New York Attorney General Letitia James, has filed a notice of interest in Character.AI's Chapter 11 bankruptcy case. The intervention aims to enforce regulatory protections and address data privacy risks concerning the potential sale or transfer of consumer data and assets to Disney.",
+    "summary_status": "generated",
+    "content_fingerprint": "5e035b834616189d",
+    "url": "https://www.theverge.com/policy/1011417/new-york-ag-characterai-bankruptcy",
+    "date": "2026-10-14T18:47:54+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-14T22:00:47.969947+00:00",
+    "topics": [
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Forty state attorneys general intervened in Character.AI's Chapter 11 bankruptcy proceedings to demand strict consumer data protections during asset sales.",
+      "The regulatory intervention highlights growing scrutiny over how user data is handled and transferred when distressed AI startups undergo liquidation or acquisitions.",
+      "Users of Character.AI and corporate entities involved in its bankruptcy proceedings and asset acquisitions, such as Disney, are directly affected."
+    ],
+    "tags": [
+      "Character.AI",
+      "Disney",
+      "Letitia James",
+      "AI Regulation",
+      "Data Privacy"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://www.theverge.com/policy/1011417/new-york-ag-characterai-bankruptcy",
+        "title": "Now that Character.AI is going bankrupt, what happens to all of its users&#8217; data?",
+        "publisher": "The Verge"
+      }
+    ]
+  },
+  {
+    "id": "7a9def3c48c7ae7b",
+    "title": "YouTube sticks new labels on AI-generated songs",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "YouTube is introducing a new 'Made with AI' label for music tracks that are altered or fully generated using artificial intelligence tools, such as generative models for composition and vocals. The platform requires music partners to disclose generative AI usage and may utilize additional signals to automatically detect undisclosed AI-generated tracks. This labeling system begins rolling out to users to provide greater transparency around synthetic media on the platform.",
+    "summary_status": "generated",
+    "content_fingerprint": "4f07a51618436dfe",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1011369/youtube-music-ai-label",
+    "date": "2026-10-14T18:22:56+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-14T22:00:47.970019+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "YouTube introduced a 'Made with AI' label for music tracks created or altered using generative AI models like those for composition and vocals.",
+      "This establishes a formal disclosure requirement for music uploaders and introduces automated detection signals for undisguised synthetic tracks.",
+      "YouTube creators, music partners, and platform listeners are affected by increased transparency regarding AI-generated content."
+    ],
+    "tags": [
+      "YouTube",
+      "Generative AI",
+      "AI Music",
+      "Content Moderation"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1011369/youtube-music-ai-label",
+        "title": "YouTube sticks new labels on AI-generated songs",
+        "publisher": "The Verge"
+      }
+    ]
+  },
+  {
+    "id": "4036f92f054c1062",
+    "title": "Researchers use AI to design proteins that cut up other proteins",
+    "company": "Ars Technica",
+    "source": "Ars Technica – AI",
+    "summary": "Researchers utilized AI-based protein design tools to replace the majority of two protease types while retaining their catalytic cores. The resulting engineered enzymes were successfully tuned to cleave specific proteins linked to neurological diseases. This approach bypasses traditional evolutionary diversification to create custom protein-digesting enzymes.",
+    "summary_status": "generated",
+    "content_fingerprint": "67667f91793dbdf1",
+    "url": "https://arstechnica.com/science/2026/10/researchers-use-ai-to-design-proteins-that-cut-up-other-proteins",
+    "date": "2026-10-14T17:10:15+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-14T22:00:47.970407+00:00",
+    "topics": [
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers used AI tools to design custom proteases by replacing everything outside the catalytic core of existing enzymes.",
+      "The breakthrough enables the precise tuning of enzymes to cleave specific target proteins, such as those associated with neurological diseases.",
+      "Biochemists, therapeutic developers, and researchers studying protein degradation and neurodegenerative diseases are directly affected."
+    ],
+    "tags": [
+      "AI Protein Design",
+      "Proteases",
+      "Enzymes",
+      "Biotechnology",
+      "Neurological Diseases"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arstechnica.com/science/2026/10/researchers-use-ai-to-design-proteins-that-cut-up-other-proteins",
+        "title": "Researchers use AI to design proteins that cut up other proteins",
+        "publisher": "Ars Technica"
+      }
+    ]
+  },
+  {
+    "id": "bce858a37e75c4f0",
+    "title": "My AI doppelganger tells me what to eat",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "Verge senior reviewer Victoria Song tests a digital twin application that consumes daily metabolic and body composition data to provide personalized dietary recommendations. The newsletter details a 100-day personal experiment tracking morning routines, smart scale data integration, and medication logging into the app. This feature is part of the weekly Optimizer newsletter covering lifestyle and wellness technology.",
+    "summary_status": "generated",
+    "content_fingerprint": "78265b0c64c52169",
+    "url": "https://www.theverge.com/column/1011264/digital-twin-metabolism-ai-twin-health",
+    "date": "2026-10-14T17:00:00+00:00",
+    "category": "Opinion",
+    "fetched_at": "2026-10-14T22:00:47.970085+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "A senior reviewer tested a digital twin application that ingests personal metabolic and body composition data over 100 days.",
+      "The experiment highlights the integration of consumer health tracking devices with AI-driven dietary personalization tools.",
+      "Readers of the Optimizer newsletter and consumers interested in quantified-self applications are directly affected."
+    ],
+    "tags": [
+      "Digital Twin",
+      "Health Tech",
+      "Wearables",
+      "The Verge"
+    ],
+    "impact_score": 3,
+    "sources": [
+      {
+        "url": "https://www.theverge.com/column/1011264/digital-twin-metabolism-ai-twin-health",
+        "title": "My AI doppelganger tells me what to eat",
+        "publisher": "The Verge"
+      }
+    ]
+  },
+  {
+    "id": "52cefc42575c00ab",
+    "title": "OpenAI claims an ex-employee took its product plans and presented them to Apple",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "OpenAI alleges in a legal filing that a former employee stole over 100 files containing product plans, unreleased device images, and engineering data before joining Apple. The employee reportedly sent the documents to a personal account and presented them to Apple leadership. This dispute marks a significant escalation in the trade secrets legal battle between the two companies.",
+    "summary_status": "generated",
+    "content_fingerprint": "f1320b341d071605",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1011276/openai-employee-unreleased-product-plans",
+    "date": "2026-10-14T16:43:24+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-14T22:00:47.970147+00:00",
+    "topics": [
+      "Models and Releases",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "OpenAI accused an unnamed former employee of exfiltrating over 100 proprietary product and engineering files and presenting them to Apple leadership.",
+      "The incident highlights ongoing corporate espionage and trade secret vulnerabilities involving sensitive hardware plans and unreleased device data.",
+      "OpenAI and Apple are directly affected by this legal conflict over intellectual property theft and unauthorized data retention."
+    ],
+    "tags": [
+      "OpenAI",
+      "Apple",
+      "Trade Secrets",
+      "Legal Disputes"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1011276/openai-employee-unreleased-product-plans",
+        "title": "OpenAI claims an ex-employee took its product plans and presented them to Apple",
+        "publisher": "The Verge"
+      }
+    ]
+  },
+  {
+    "id": "d98fc085b7493311",
+    "title": "Optimizing Agent Reliability and Tool Calling Efficiency for Chip Design Using NVIDIA NeMo Gym",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "Nvidia NeMo Gym is applied to optimize AI agent reliability and tool calling efficiency for complex chip design workflows. The framework addresses the challenge of undetected errors propagating through multistage engineering pipelines.",
+    "summary_status": "generated",
+    "content_fingerprint": "670a83ab6527226a",
+    "url": "https://developer.nvidia.com/blog/optimizing-agent-reliability-and-tool-calling-efficiency-for-chip-design-using-nvidia-nemo-gym",
+    "date": "2026-10-14T16:10:45+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-14T22:00:47.970531+00:00",
+    "topics": [
+      "AI Agents",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Nvidia NeMo Gym was utilized to evaluate and refine AI agents for chip design workflows.",
+      "It mitigates the risk of early undetected errors propagating through downstream engineering stages.",
+      "Chip design teams and AI developers building production automation workflows are directly affected."
+    ],
+    "tags": [
+      "Nvidia",
+      "NeMo Gym",
+      "AI Agents",
+      "Chip Design"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://developer.nvidia.com/blog/optimizing-agent-reliability-and-tool-calling-efficiency-for-chip-design-using-nvidia-nemo-gym",
+        "title": "Optimizing Agent Reliability and Tool Calling Efficiency for Chip Design Using NVIDIA NeMo Gym",
+        "publisher": "NVIDIA"
+      }
+    ]
+  },
+  {
+    "id": "0ffd9a974781584f",
+    "title": "Microsoft has a new machine learning tool to improve weather forecasts",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "Microsoft researchers have developed a new machine learning tool designed to improve weather forecast accuracy two to six weeks in advance, addressing the typical reliability drop-off of traditional models. The findings were published in the journal Nature, and the software has been released as open-source. This development positions Microsoft alongside other technology companies like Google and Nvidia in the AI weather forecasting space.",
+    "summary_status": "generated",
+    "content_fingerprint": "25a6f000a1ad1c9e",
+    "url": "https://www.theverge.com/science/1011127/ai-weather-forecast-microsoft",
+    "date": "2026-10-14T16:05:21+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-14T22:00:47.970206+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Microsoft researchers created a machine learning tool that improves weather forecasts two to six weeks in advance.",
+      "The tool provides a cost-effective alternative that extends reliable forecasting horizons beyond the traditional two-week limit.",
+      "Farmers, emergency responders, and meteorologists are affected by this open-source software release."
+    ],
+    "tags": [
+      "Microsoft",
+      "Weather Forecasting",
+      "Machine Learning",
+      "Open-Source"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://www.theverge.com/science/1011127/ai-weather-forecast-microsoft",
+        "title": "Microsoft has a new machine learning tool to improve weather forecasts",
+        "publisher": "The Verge"
+      }
+    ]
+  },
+  {
+    "id": "bddfffa0852196a7",
+    "title": "Square’s new kiosk lets you talk to AI for help with your order",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "Square has introduced the Square Kiosk, a 21.5-inch ordering hardware device featuring an integrated conversational AI voice agent. The system utilizes presence detection and a real-time voice layer to let customers place orders, ask menu questions, and make modifications using natural speech. This release targets merchants and businesses using Square's point-of-sale ecosystem to streamline customer ordering experiences.",
+    "summary_status": "generated",
+    "content_fingerprint": "28c457f04588b662",
+    "url": "https://www.theverge.com/tech/1009086/square-kiosk",
+    "date": "2026-10-14T16:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-14T22:00:47.970263+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Square launched the Square Kiosk hardware featuring a 21.5-inch touchscreen and a real-time conversational AI voice layer.",
+      "The conversational AI understands merchant menus and allows customers to order, ask questions, and request modifications naturally.",
+      "Merchants using Square's point-of-sale ecosystem and customers interacting with ordering kiosks are directly affected."
+    ],
+    "tags": [
+      "Square",
+      "Square Kiosk",
+      "Conversational AI",
+      "Hardware",
+      "Point of Sale"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://www.theverge.com/tech/1009086/square-kiosk",
+        "title": "Square’s new kiosk lets you talk to AI for help with your order",
+        "publisher": "The Verge"
+      }
+    ]
+  },
+  {
+    "id": "1a514aa5591417c5",
+    "title": "Android is using AI to suss out scammers in Google Messages",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "Google is rolling out an enhanced protection setting in Google Messages that utilizes cloud-based Gemini AI models to analyze conversations with unrecognized senders for potential scams. This feature builds on existing scam detection tools by evaluating a sender's true intentions in slow-burn conversations. The update aims to protect mobile users from evolving fraud tactics directly within their messaging application.",
+    "summary_status": "generated",
+    "content_fingerprint": "32e8b4377f39686c",
+    "url": "https://www.theverge.com/tech/1010928/android-scam-protection-enhanced-protection-google-messages",
+    "date": "2026-10-14T16:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-14T22:00:47.970339+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Google introduced an enhanced protection setting in Google Messages powered by cloud-based Gemini AI models to evaluate potential scammer intentions.",
+      "This capability extends local scam detection mechanisms to securely analyze slow-burn conversations from unrecognized senders in the cloud.",
+      "Android users utilizing Google Messages who receive texts from unrecognized numbers are affected by this new fraud defense."
+    ],
+    "tags": [
+      "Google Messages",
+      "Gemini AI",
+      "Android",
+      "Scam Detection"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://www.theverge.com/tech/1010928/android-scam-protection-enhanced-protection-google-messages",
+        "title": "Android is using AI to suss out scammers in Google Messages",
+        "publisher": "The Verge"
+      }
+    ]
+  },
+  {
     "id": "3fcbdb0ebb6d7b0a",
     "title": "Anthropic’s self-replicating AI warning is alarming deja vu",
     "company": "The Verge",
@@ -118,6 +535,49 @@
         "url": "https://arstechnica.com/security/2026/10/anthropic-warns-small-ai-models-could-self-replicate-through-iot-devices",
         "title": "Anthropic warns small AI models could self-replicate through IoT devices",
         "publisher": "Ars Technica"
+      }
+    ]
+  },
+  {
+    "id": "57c3309db5bedcde",
+    "title": "Amp puts AI agents to work beyond code with OpenAI models",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Amp integrates OpenAI models, including GPT-6 Astra, Ultrafast, GPT-Live-1, and Sign in with ChatGPT, to expand AI agent capabilities beyond coding tasks. The platform enables agents to perform broader workflows leveraging these new model integrations and authentication features.",
+    "summary_status": "generated",
+    "content_fingerprint": "0cd4e761299ed0ea",
+    "url": "https://openai.com/index/amp-beyond-coding",
+    "date": "2026-10-14T12:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-14T22:00:47.969687+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Amp integrated GPT-6 Astra, Ultrafast, GPT-Live-1, and Sign in with ChatGPT to extend AI agent capabilities beyond code.",
+      "It enables AI agents to handle complex non-coding workflows using advanced OpenAI model architectures and authentication.",
+      "Developers and users utilizing Amp for automated workflows and AI agents are directly affected."
+    ],
+    "tags": [
+      "Amp",
+      "OpenAI",
+      "AI Agents",
+      "GPT-6 Astra"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://openai.com/index/amp-beyond-coding",
+        "title": "Amp puts AI agents to work beyond code with OpenAI models",
+        "publisher": "OpenAI"
       }
     ]
   },

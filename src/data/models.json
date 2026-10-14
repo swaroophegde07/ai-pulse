@@ -216,7 +216,7 @@
     "api_available": true,
     "consumer_available": false,
     "pricing": {
-      "input_per_1m": 0.0202,
+      "input_per_1m": 0.0158,
       "output_per_1m": 0.891,
       "unit": "USD"
     },
@@ -909,8 +909,8 @@
     "api_available": true,
     "consumer_available": false,
     "pricing": {
-      "input_per_1m": 0.4225,
-      "output_per_1m": 0.8449,
+      "input_per_1m": 0.36,
+      "output_per_1m": 0.72,
       "unit": "USD"
     },
     "documentation_url": "https://openrouter.ai/deepseek/deepseek-v4-pro",
@@ -1042,16 +1042,16 @@
     "api_available": true,
     "consumer_available": false,
     "pricing": {
-      "input_per_1m": 2.0,
-      "output_per_1m": 10.0,
+      "input_per_1m": 4.0,
+      "output_per_1m": 20.0,
       "unit": "USD"
     },
     "documentation_url": "https://openrouter.ai/openai/gpt-5.6-sol-pro",
     "source_url": "https://openrouter.ai/openai/gpt-5.6-sol-pro",
-    "last_verified": "2026-10-11",
+    "last_verified": "2026-10-14",
     "verification_sources": {
-      "telemetry": "OpenRouter (2026-10-11)",
-      "pricing": "OpenRouter (2026-10-11)"
+      "telemetry": "OpenRouter (2026-10-14)",
+      "pricing": "OpenRouter (2026-10-14)"
     },
     "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
     "is_featured_frontier": false
@@ -1075,16 +1075,16 @@
     "api_available": true,
     "consumer_available": false,
     "pricing": {
-      "input_per_1m": 2.0,
-      "output_per_1m": 10.0,
+      "input_per_1m": 4.0,
+      "output_per_1m": 20.0,
       "unit": "USD"
     },
     "documentation_url": "https://openrouter.ai/openai/gpt-5.6-sol",
     "source_url": "https://openrouter.ai/openai/gpt-5.6-sol",
-    "last_verified": "2026-10-11",
+    "last_verified": "2026-10-14",
     "verification_sources": {
-      "telemetry": "OpenRouter (2026-10-11)",
-      "pricing": "OpenRouter (2026-10-11)"
+      "telemetry": "OpenRouter (2026-10-14)",
+      "pricing": "OpenRouter (2026-10-14)"
     },
     "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
     "is_featured_frontier": false
