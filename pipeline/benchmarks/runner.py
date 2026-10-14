@@ -37,12 +37,12 @@ DEFAULT_BENCHMARKS_PATH = REPO_ROOT / "src" / "data" / "benchmarks.json"
 BENCHMARK_METHODOLOGY_STANDARDS = [
     {
         "name": "LiveBench",
-        "category": "Reasoning & Coding",
-        "description": "Contamination-free benchmark with monthly released questions across reasoning, coding, and math.",
+        "category": "Agentic, Reasoning & Coding",
+        "description": "LiveBench 2.0: Contamination-free long-horizon AI benchmark evaluating models on real agentic tasks (bug fixes, decks, research reports, web apps) alongside objective reasoning and coding.",
         "eval_type": "Independent Automated Harness",
         "reference_url": "https://livebench.ai/",
-        "benchmark_version": "Monthly Release",
-        "methodological_limitations": "Evaluates objective reasoning and automated code execution; does not measure open-ended creative writing.",
+        "benchmark_version": "2.0 (Long-Horizon)",
+        "methodological_limitations": "Evaluates objective reasoning, real-world tasks, and automated execution; individual category scores are not directly comparable without methodology weighting.",
     },
     {
         "name": "SWE-bench Verified",

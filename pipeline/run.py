@@ -28,7 +28,9 @@ import tempfile
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
+from pipeline.relevance import is_article_ai_relevant
 from pipeline.scraper import (
+    are_articles_closely_related,
     are_titles_duplicate,
     dates_compatible,
     fetch_all_sources,
@@ -214,6 +216,7 @@ def merge_records(
     new_articles: list[dict],
     max_articles: int,
     retention_days: int | None = None,
+    filter_relevance: bool = False,
 ) -> list[dict]:
     """Merge *new_articles* into *existing*, deduplicate, sort, and trim.
 
@@ -232,7 +235,17 @@ def merge_records(
 
     # Exclude demo records from live dataset
     clean_existing = [r for r in existing if not r.get("_demo")]
-    clean_new = [r for r in new_articles if not r.get("_demo")]
+    clean_new = [
+        r for r in new_articles
+        if not r.get("_demo") and (
+            not filter_relevance
+            or is_article_ai_relevant(
+                r.get("title", ""),
+                r.get("summary", "") or r.get("text", ""),
+                source_name=r.get("source", ""),
+            )[0]
+        )
+    ]
 
     # Ensure existing records have sources initialized
     for r in clean_existing:
@@ -277,27 +290,26 @@ def merge_records(
             _merge_source_into(existing_rec, article)
             continue
 
-        # 3. Obvious title duplicate of same event
-        found_title_duplicate = False
+        # 3. Duplicate or closely related coverage of same underlying development
+        found_related = False
         art_title = article.get("title", "")
         art_date = article.get("date")
 
         for existing_id, existing_rec in list(seen_ids.items()):
-            if are_titles_duplicate(art_title, existing_rec.get("title", "")):
-                if _dates_compatible(art_date, existing_rec.get("date")):
-                    # Duplicate coverage of same event
-                    _merge_source_into(existing_rec, article)
-                    # If incoming article has AI summary and existing doesn't, upgrade
-                    if article.get("summary_status") == "generated" and existing_rec.get("summary_status") != "generated":
-                        existing_rec["summary"] = article["summary"]
-                        existing_rec["summary_status"] = "generated"
-                        if article.get("key_points"):
-                            existing_rec["key_points"] = article["key_points"]
-                    merged_duplicates += 1
-                    found_title_duplicate = True
-                    break
+            if are_articles_closely_related(article, existing_rec):
+                # Closely related coverage of same development — group into sources
+                _merge_source_into(existing_rec, article)
+                # If incoming article has AI summary and existing doesn't, upgrade
+                if article.get("summary_status") == "generated" and existing_rec.get("summary_status") != "generated":
+                    existing_rec["summary"] = article["summary"]
+                    existing_rec["summary_status"] = "generated"
+                    if article.get("key_points"):
+                        existing_rec["key_points"] = article["key_points"]
+                merged_duplicates += 1
+                found_related = True
+                break
 
-        if found_title_duplicate:
+        if found_related:
             continue
 
         # 4. New unique article
@@ -896,7 +908,7 @@ def run_pipeline(
             logger.warning("Skipping invalid record: %s", art.get("url"))
 
     # 5. Merge, sort, trim.
-    merged = merge_records(existing, prepared, max_articles)
+    merged = merge_records(existing, prepared, max_articles, filter_relevance=True)
 
     # 6. Safe, bounded backfill for recent existing articles missing valid TL;DR
     try:

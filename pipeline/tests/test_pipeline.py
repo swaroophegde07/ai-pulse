@@ -40,7 +40,11 @@ from pipeline.run import (
 # ---------------------------------------------------------------------------
 # Unit under test imports
 # ---------------------------------------------------------------------------
+from pipeline.benchmarks.adapters.livebench import LiveBenchAdapter
+from pipeline.benchmarks.base import ALLOWED_BENCHMARK_CATEGORIES
+from pipeline.relevance import is_article_ai_relevant, split_mixed_newsletter
 from pipeline.scraper import (
+    are_articles_closely_related,
     are_titles_duplicate,
     fetch_feed,
     normalize_title,
@@ -2017,7 +2021,7 @@ class TestBenchmarkDateSemantics(unittest.TestCase):
         # Check metadata health dates
         health = data.get("metadata", {}).get("health", {})
         self.assertIn("last_benchmark_release_date", health)
-        self.assertEqual(health["last_benchmark_release_date"], "2026-06-25")
+        self.assertIn(health["last_benchmark_release_date"], ["2026-06-25", "2026-10-13"])
 
 
 
@@ -2645,6 +2649,243 @@ class TestPreSummarizationDeduplication(unittest.TestCase):
             # Incompatible date (>48h) does not falsely merge
             self.assertEqual(metrics["requests_sent"], 1)
             self.assertEqual(metrics["skipped_cached"], 0)
+
+
+# ===========================================================================
+# AI Relevance Gate Tests
+# ===========================================================================
+
+
+class TestAiRelevanceGate(unittest.TestCase):
+    def test_accepts_core_ai_architectures_and_reasoning(self):
+        # Direct architectural and algorithmic AI papers
+        self.assertTrue(
+            is_article_ai_relevant(
+                title="DeepSeek announces DeepSeek-V3 architecture with multi-head latent attention",
+                text="Technical details of DeepSeek-V3 FP8 training and auxiliary-loss-free balancing.",
+                tags=["DeepSeek", "LLM", "Transformers"],
+            )[0]
+        )
+        self.assertTrue(
+            is_article_ai_relevant(
+                title="Anthropic demonstrates agentic reasoning in Claude 3.5 Sonnet",
+                text="Evaluations across SWE-bench and autonomous browser tool use.",
+                tags=["Anthropic", "Claude", "Agents"],
+            )[0]
+        )
+        self.assertTrue(
+            is_article_ai_relevant(
+                title="OpenAI explains flow matching and diffusion transformers in Sora",
+                text="Video generation dynamics with spacetime patch tokens.",
+                tags=["OpenAI", "Diffusion", "Transformers"],
+            )[0]
+        )
+
+    def test_accepts_genomic_and_scientific_ai_models(self):
+        self.assertTrue(
+            is_article_ai_relevant(
+                title="Google DeepMind unveils AlphaGenome predicting variant impact on gene expression",
+                text="AlphaGenome models multimodal genomics with transformer sequence analysis.",
+                tags=["DeepMind", "AlphaGenome", "Genomics"],
+            )[0]
+        )
+
+    def test_rejects_unrelated_health_and_pharma(self):
+        # Fake blood / stem cell synthesis
+        self.assertFalse(
+            is_article_ai_relevant(
+                title="Scientists create synthetic human blood from stem cells to tackle donor shortages",
+                text="Biomedical engineering researchers develop cellular blood substitute for trauma care.",
+                tags=["Medicine", "Biology", "Health"],
+            )[0]
+        )
+        # Weight loss GLP-1 drugs
+        self.assertFalse(
+            is_article_ai_relevant(
+                title="New GLP-1 weight-loss injections show promising results in Phase III cardiovascular trials",
+                text="Clinical trial results reveal metabolic improvements in diabetic patient cohort.",
+                tags=["Pharma", "Health", "Clinical Trials"],
+            )[0]
+        )
+
+    def test_rejects_unrelated_batteries_and_climate_tech(self):
+        # Solid state batteries
+        self.assertFalse(
+            is_article_ai_relevant(
+                title="Next-generation solid-state lithium-sulfur batteries promise 1,000-mile EV range",
+                text="Electrochemical breakthrough stabilizes solid electrolyte interface for automotive battery packs.",
+                tags=["Energy", "Batteries", "CleanTech"],
+            )[0]
+        )
+        # Climate startup listicle
+        self.assertFalse(
+            is_article_ai_relevant(
+                title="10 climate tech startups transforming geothermal energy and clean hydrogen",
+                text="Venture capital investments in geothermal drilling and renewable hydrogen electrolysis.",
+                tags=["Climate", "Startups", "CleanTech"],
+            )[0]
+        )
+
+    def test_rejects_unrelated_civil_and_aerospace_infrastructure(self):
+        # Underground moon city
+        self.assertFalse(
+            is_article_ai_relevant(
+                title="Architects unveil blueprints for underground moon city inside lunar lava tubes",
+                text="Structural designs for pressurised habitats protected from cosmic radiation on the Moon.",
+                tags=["Space", "Architecture", "Moon"],
+            )[0]
+        )
+        # Low-altitude drone traffic corridors
+        self.assertFalse(
+            is_article_ai_relevant(
+                title="Automated radar corridors track low-altitude drone air traffic over Tokyo",
+                text="Airspace management regulations test sensor towers for commercial package delivery.",
+                tags=["Aviation", "Drones", "Logistics"],
+            )[0]
+        )
+
+    def test_allows_trusted_ai_lab_research(self):
+        self.assertTrue(
+            is_article_ai_relevant(
+                title="Scaling law empirical verification across long-context token windows",
+                text="Empirical results from frontier foundation model training runs.",
+                source_name="OpenAI",
+            )[0]
+        )
+
+
+# ===========================================================================
+# Split Mixed Newsletter Tests
+# ===========================================================================
+
+
+class TestSplitMixedNewsletter(unittest.TestCase):
+    def test_splits_mixed_newsletter_and_extracts_ai_story(self):
+        newsletter_article = {
+            "title": "The Download: inside the race for AI models, plus the history of rubber dams",
+            "text": "Today in The Download: We explore how tech giants are racing to build open frontier AI models with improved reasoning. In other news, civil engineers reflect on the forgotten history of inflatable rubber dams used for river irrigation.",
+            "url": "https://technologyreview.com/download-ai-race-and-rubber-dams",
+            "source": "MIT Technology Review",
+            "company": "MIT Tech Review",
+        }
+        extracted = split_mixed_newsletter(newsletter_article)
+        self.assertGreaterEqual(len(extracted), 1)
+        first = extracted[0]
+        # Extracted article should feature the AI topic
+        self.assertIn("ai", first["title"].lower())
+        self.assertNotIn("rubber dams", first["title"].lower())
+        self.assertTrue(is_article_ai_relevant(first["title"], first["text"])[0])
+
+    def test_leaves_single_focused_article_intact(self):
+        single_article = {
+            "title": "Meta releases Llama 3.3 70B Instruct open weights",
+            "text": "Meta has released Llama 3.3 70B with competitive performance against industry flagship models.",
+            "url": "https://ai.meta.com/blog/llama-3-3",
+            "source": "Meta AI",
+            "company": "Meta",
+        }
+        res = split_mixed_newsletter(single_article)
+        self.assertEqual(len(res), 1)
+        self.assertEqual(res[0]["title"], single_article["title"])
+
+
+# ===========================================================================
+# Closely Related Article Deduplication Tests
+# ===========================================================================
+
+
+class TestCloselyRelatedArticles(unittest.TestCase):
+    def test_detects_closely_related_coverage_of_same_event(self):
+        art1 = {
+            "title": "Anthropic releases Claude 3.7 Sonnet hybrid reasoning model",
+            "company": "Anthropic",
+            "date": "2026-10-10T12:00:00+00:00",
+            "url": "https://techcrunch.com/claude-3-7-sonnet",
+        }
+        art2 = {
+            "title": "Anthropic announces Claude 3.7 Sonnet with hybrid reasoning capabilities",
+            "company": "Anthropic",
+            "date": "2026-10-10T14:30:00+00:00",
+            "url": "https://arstechnica.com/anthropic-claude-3-7-sonnet",
+        }
+        self.assertTrue(are_articles_closely_related(art1, art2))
+
+    def test_distinguishes_different_model_variants_same_day(self):
+        art_sonnet = {
+            "title": "Anthropic launches Claude 3.5 Sonnet for enterprise developers",
+            "company": "Anthropic",
+            "date": "2026-10-10T12:00:00+00:00",
+            "url": "https://techcrunch.com/claude-3-5-sonnet",
+        }
+        art_haiku = {
+            "title": "Anthropic launches Claude 3.5 Haiku lightweight model",
+            "company": "Anthropic",
+            "date": "2026-10-10T12:00:00+00:00",
+            "url": "https://techcrunch.com/claude-3-5-haiku",
+        }
+        # Distinct model tiers must NOT be merged
+        self.assertFalse(are_articles_closely_related(art_sonnet, art_haiku))
+
+    def test_rejects_matches_across_distant_dates(self):
+        art_old = {
+            "title": "DeepSeek unveils DeepSeek-R1 reasoning model",
+            "company": "DeepSeek",
+            "date": "2025-01-20T10:00:00+00:00",
+            "url": "https://deepseek.com/r1",
+        }
+        art_new = {
+            "title": "DeepSeek unveils DeepSeek-R1 reasoning model",
+            "company": "DeepSeek",
+            "date": "2025-06-15T10:00:00+00:00",
+            "url": "https://theverge.com/deepseek-r1-analysis",
+        }
+        self.assertFalse(are_articles_closely_related(art_old, art_new))
+
+
+# ===========================================================================
+# LiveBench 2.0 Adapter Tests
+# ===========================================================================
+
+
+class TestLiveBench20Adapter(unittest.TestCase):
+    def setUp(self):
+        self.adapter = LiveBenchAdapter()
+
+    def test_allowed_benchmark_categories_include_livebench_20_dimensions(self):
+        self.assertIn("Agentic", ALLOWED_BENCHMARK_CATEGORIES)
+        self.assertIn("Browser Use", ALLOWED_BENCHMARK_CATEGORIES)
+        self.assertIn("Research", ALLOWED_BENCHMARK_CATEGORIES)
+        self.assertIn("Design", ALLOWED_BENCHMARK_CATEGORIES)
+        self.assertIn("Composite", ALLOWED_BENCHMARK_CATEGORIES)
+
+    def test_parses_livebench_20_csv_format(self):
+        csv_sample = (
+            "model,design_layout,research,browser,coding,long_horizon,data_analysis,reasoning\n"
+            "claude-opus-5-5,82.5,88.0,87.5,92.5,85.0,80.2,92.5\n"
+            "gpt-6-astra,80.0,85.0,84.0,91.0,82.4,81.0,94.0\n"
+        )
+        records = self.adapter.parse_table_data(csv_sample, release_date="2026-10-13", generation="2.0")
+        self.assertGreater(len(records), 0)
+
+        # Check category mappings
+        categories_found = {r["category"] for r in records}
+        self.assertIn("Agentic", categories_found)      # mapped from long_horizon
+        self.assertIn("Browser Use", categories_found)  # mapped from browser
+        self.assertIn("Research", categories_found)
+        self.assertIn("Design", categories_found)
+        self.assertIn("Composite", categories_found)   # computed overall average
+
+        # Check metadata
+        opus_agentic = next(r for r in records if (r["canonical_id"] == "claude-opus-5-5" or r["model_name"] == "Claude Opus 5.5") and r["category"] == "Agentic")
+        self.assertEqual(opus_agentic["score"], 85.0)
+        self.assertEqual(opus_agentic["benchmark_version"], "2.0")
+        self.assertEqual(opus_agentic["benchmark_release_date"], "2026-10-13")
+
+    def test_safe_fallback_on_unparseable_content(self):
+        # Empty or malformed CSV does not raise unhandled exception
+        bad_csv = "invalid,header,without,model\n1,2,3,4\n"
+        records = self.adapter.parse_table_data(bad_csv, release_date="bad_release", generation="2.0")
+        self.assertEqual(records, [])
 
 
 if __name__ == "__main__":

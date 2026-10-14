@@ -334,8 +334,14 @@
 
       // Summary
       if (summaryEl) {
-        const cleanSummary = (article.summary || "").replace("[Automated summary unavailable] ", "");
-        summaryEl.textContent = cleanSummary || "Summary unavailable — visit the original article.";
+        const cleanSummary = (article.summary || "").replace("[Automated summary unavailable] ", "").trim();
+        if (cleanSummary && cleanSummary.length > 0 && !cleanSummary.startsWith("Summary pending quota refresh")) {
+          summaryEl.textContent = cleanSummary;
+        } else if (hasPoints) {
+          summaryEl.textContent = "Detailed narrative summary pending. Please consult the verified AI-Synthesized Briefing above or visit the original source.";
+        } else {
+          summaryEl.textContent = "Summary unavailable — visit the original article.";
+        }
       }
 
       // Entity tags
