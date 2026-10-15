@@ -53,7 +53,10 @@ from pipeline.models.updates import (
     extract_dates,
     extract_provider_claims,
     generate_update_id,
+    is_date_or_timeframe_string,
+    is_generic_title,
     is_safe_official_url,
+    is_substantive_model_update,
     load_model_updates,
     merge_model_updates,
     normalize_update_url,
@@ -671,6 +674,282 @@ class TestModelUpdates(unittest.TestCase):
         if fam_update:
             self.assertIsNone(fam_update.get("model_id"))
             self.assertEqual(fam_update.get("scope"), "model_family")
+
+    # 29. Mistral HTML parser rejects 'Get started' and filter bar dumps
+    def test_29_mistral_html_parser_rejects_get_started_and_filter_bars(self):
+        mistral_html = """
+        <div class="sidebar">
+          <a href="/vibe/get-started">Get started</a>
+          <a href="/resources/ambassadors">Ambassadors</a>
+        </div>
+        <div class="filter">TypeAllFeatureImprovementAreaAllCloudStudioVibe</div>
+        <main>
+          <h1>Release notes</h1>
+          <h2>Latest updates</h2>
+          <h2>Key capabilities</h2>
+          <article>
+            <h2>Managed Deployments</h2>
+            <span>Oct 9, 2026</span>
+            <p>Deploy custom Mistral models directly into your virtual private cloud with dedicated capacity.</p>
+            <a href="/resources/release-notes#managed-deployments">Learn more</a>
+            <a href="/resources/ambassadors">Join Ambassadors</a>
+          </article>
+        </main>
+        """
+        source: ModelUpdateSource = {
+            "id": "mistral_release_notes",
+            "provider_id": "mistral",
+            "provider_name": "Mistral AI",
+            "display_name": "Mistral AI Release Notes",
+            "url": "https://docs.mistral.ai/resources/release-notes",
+            "source_type": "official_primary_source",
+            "access_method": "html",
+            "update_categories": ["model_release"],
+            "enabled": True,
+        }
+        records = parse_html_changelog(mistral_html, source, base_url="https://docs.mistral.ai/resources/release-notes")
+        self.assertEqual(len(records), 1)
+        rec = records[0]
+        self.assertEqual(rec["title"], "Managed Deployments")
+        self.assertEqual(rec["published_at"], "2026-10-09")
+        self.assertEqual(rec["source_url"], "https://docs.mistral.ai/resources/release-notes")
+        self.assertNotIn("Ambassadors", rec["source_url"])
+        self.assertTrue(validate_update_record(rec))
+
+    # 30. xAI HTML parser rejects month headings and status page
+    def test_30_xai_html_parser_rejects_month_headings_and_status_page(self):
+        xai_html = """
+        <nav class="nav"><a href="https://status.x.ai/">Status Page</a><a href="https://console.x.ai/">Tokenizer Playground</a></nav>
+        <main>
+          <h1>Release Notes</h1>
+          <h2>September 2025</h2>
+          <h2>September</h2>
+          <div class="card">
+            <h3>Structured Outputs</h3>
+            <p>Structured Outputs ensure model outputs strictly follow a developer-defined JSON schema.</p>
+            <a href="/developers/model-capabilities/text/structured-outputs">Read docs</a>
+            <a href="https://status.x.ai/">System Status</a>
+          </div>
+        </main>
+        """
+        source: ModelUpdateSource = {
+            "id": "xai_api_release_notes",
+            "provider_id": "xai",
+            "provider_name": "xAI",
+            "display_name": "xAI API Release Notes",
+            "url": "https://docs.x.ai/developers/release-notes",
+            "source_type": "official_primary_source",
+            "access_method": "html",
+            "update_categories": ["model_release"],
+            "enabled": True,
+        }
+        records = parse_html_changelog(xai_html, source, base_url="https://docs.x.ai/developers/release-notes")
+        self.assertEqual(len(records), 1)
+        rec = records[0]
+        self.assertEqual(rec["title"], "Structured Outputs")
+        self.assertEqual(rec["source_url"], "https://docs.x.ai/developers/model-capabilities/text/structured-outputs")
+        self.assertNotIn("status.x.ai", rec["source_url"])
+        self.assertTrue(validate_update_record(rec))
+
+    # 31. Cohere HTML parser rejects model spec tables and RSS headers
+    def test_31_cohere_html_parser_rejects_model_tables_and_rss_banners(self):
+        cohere_html = """
+        <div class="header">
+          <h1>Changelog</h1>
+          <span>Subscribe via RSS</span>
+        </div>
+        <div class="spec-table">
+          <p>Model Name: north-small-translate-1-0 Context Length: 16K input, 4K output</p>
+        </div>
+        <div class="entry">
+          <h2>Announcing Cohere's Embed 5 Models</h2>
+          <span>September 30, 2026</span>
+          <p>Cohere introduces Embed 5 multilingual embedding models with enhanced retrieval performance.</p>
+          <a href="/v2/docs/cohere-embed">Read announcement</a>
+        </div>
+        """
+        source: ModelUpdateSource = {
+            "id": "cohere_changelog",
+            "provider_id": "cohere",
+            "provider_name": "Cohere",
+            "display_name": "Cohere API Changelog",
+            "url": "https://docs.cohere.com/v2/changelog",
+            "source_type": "official_primary_source",
+            "access_method": "html",
+            "update_categories": ["model_release"],
+            "enabled": True,
+        }
+        records = parse_html_changelog(cohere_html, source, base_url="https://docs.cohere.com/v2/changelog")
+        self.assertEqual(len(records), 1)
+        rec = records[0]
+        self.assertEqual(rec["title"], "Announcing Cohere's Embed 5 Models")
+        self.assertEqual(rec["published_at"], "2026-09-30")
+        self.assertEqual(rec["source_url"], "https://docs.cohere.com/v2/docs/cohere-embed")
+        self.assertTrue(validate_update_record(rec))
+
+    # 32. Anthropic HTML parser handles ordinal dates and derives sentence titles
+    def test_32_anthropic_html_parser_handles_ordinal_dates_and_sentence_headlines(self):
+        anthropic_html = """
+        <div class="changelog">
+          <section>
+            <h3>September 4th, 2024</h3>
+            <p>We have retired the Claude 1 and Instant models. Read more in Model deprecations.</p>
+            <a href="/docs/en/about-claude/model-deprecations">Deprecations info</a>
+          </section>
+          <section>
+            <h2>February 24, 2025</h2>
+            <h3>Claude 3.7 Sonnet and hybrid reasoning</h3>
+            <p>Anthropic releases Claude 3.7 Sonnet, introducing controllable thinking tokens.</p>
+            <a href="/docs/en/release-notes/claude-3-7">Read announcement</a>
+          </section>
+        </div>
+        """
+        source: ModelUpdateSource = {
+            "id": "anthropic_claude_release_notes",
+            "provider_id": "anthropic",
+            "provider_name": "Anthropic",
+            "display_name": "Claude Platform Release Notes",
+            "url": "https://platform.claude.com/docs/en/release-notes/overview",
+            "source_type": "official_primary_source",
+            "access_method": "html",
+            "update_categories": ["model_release"],
+            "enabled": True,
+        }
+        records = parse_html_changelog(anthropic_html, source, base_url="https://platform.claude.com/docs/en/release-notes/overview")
+        self.assertEqual(len(records), 2)
+        # Verify first entry: lone date heading was NOT assigned as title
+        rec1 = next(r for r in records if "Claude 1" in r["title"] or "retired" in r["title"])
+        self.assertNotEqual(rec1["title"], "September 4th, 2024")
+        self.assertEqual(rec1["published_at"], "2024-09-04")
+        self.assertEqual(rec1["source_url"], "https://platform.claude.com/docs/en/about-claude/model-deprecations")
+        self.assertTrue(validate_update_record(rec1))
+
+        # Verify second entry
+        rec2 = next(r for r in records if "Claude 3.7" in r["title"])
+        self.assertEqual(rec2["title"], "Claude 3.7 Sonnet and hybrid reasoning")
+        self.assertEqual(rec2["published_at"], "2025-02-24")
+        self.assertEqual(rec2["model_id"], "anthropic/claude-3-7-sonnet")
+        self.assertTrue(validate_update_record(rec2))
+
+    # 33. DeepSeek HTML parser rejects lone model anchors without updates
+    def test_33_deepseek_html_parser_rejects_lone_model_anchors(self):
+        deepseek_html = """
+        <div class="content">
+          <h2>deepseek-reasonerâ\x80\x8b</h2>
+          <h2>deepseek-coderâ\x80\x8b</h2>
+          <article>
+            <h2>deepseek-coder & deepseek-chat Upgraded to DeepSeek V2.5 Model</h2>
+            <p>Date: 2024-09-05. Upgraded both models to V2.5 architecture with unified chat and code capabilities.</p>
+            <a href="/updates#v2-5">Read details</a>
+          </article>
+        </div>
+        """
+        source: ModelUpdateSource = {
+            "id": "deepseek_api_updates",
+            "provider_id": "deepseek",
+            "provider_name": "DeepSeek",
+            "display_name": "DeepSeek API Updates",
+            "url": "https://api-docs.deepseek.com/updates/",
+            "source_type": "official_primary_source",
+            "access_method": "html",
+            "update_categories": ["model_release"],
+            "enabled": True,
+        }
+        records = parse_html_changelog(deepseek_html, source, base_url="https://api-docs.deepseek.com/updates/")
+        self.assertEqual(len(records), 1)
+        rec = records[0]
+        self.assertIn("DeepSeek V2.5", rec["title"])
+        self.assertNotIn("deepseek-reasoner", rec["title"])
+        self.assertTrue(validate_update_record(rec))
+
+    # 34. Card URL isolation strictly prevents trailing link inheritance across cards
+    def test_34_card_url_isolation_does_not_leak_trailing_links(self):
+        html = """
+        <main>
+          <section>
+            <h2>Announcing Grok 2 Vision</h2>
+            <p>Grok 2 Vision brings image reasoning capabilities.</p>
+            <a href="/developers/model-capabilities/images/generation">Card 1 Link</a>
+          </section>
+          <section>
+            <h2>Grok Voice Streaming Mode Update</h2>
+            <p>Low-latency streaming mode is now available for real-time speech interaction.</p>
+          </section>
+          <footer>
+            <a href="/terms">Terms of Service</a>
+          </footer>
+        </main>
+        """
+        source: ModelUpdateSource = {
+            "id": "xai_api_release_notes",
+            "provider_id": "xai",
+            "provider_name": "xAI",
+            "display_name": "xAI API Release Notes",
+            "url": "https://docs.x.ai/developers/release-notes",
+            "source_type": "official_primary_source",
+            "access_method": "html",
+            "update_categories": ["model_release"],
+            "enabled": True,
+        }
+        records = parse_html_changelog(html, source, base_url="https://docs.x.ai/developers/release-notes")
+        self.assertEqual(len(records), 2)
+        # Card 1 has its explicit link
+        self.assertEqual(records[0]["source_url"], "https://docs.x.ai/developers/model-capabilities/images/generation")
+        # Card 2 must NOT inherit Card 1's link or the footer link; must fall back to base_url
+        self.assertEqual(records[1]["source_url"], "https://docs.x.ai/developers/release-notes")
+
+    # 35. Pre-persistence quality gate rejects malformed, generic, or navigation records
+    def test_35_pre_persistence_quality_gate_rejects_malformed_records(self):
+        base_record = {
+            "id": "1122334455667788",
+            "provider_id": "openai",
+            "provider_name": "OpenAI",
+            "title": "OpenAI o3-mini Launch",
+            "summary": "Substantive announcement of o3-mini model.",
+            "update_type": "model_release",
+            "scope": "model",
+            "model_name": "OpenAI o3-mini",
+            "model_family": "o-series",
+            "model_id": "openai/o3-mini",
+            "published_at": "2025-01-31",
+            "detected_at": "2025-01-31T18:00:00Z",
+            "source_type": "official_primary_source",
+            "source_url": "https://openai.com/index/openai-o3-mini",
+            "verification_status": "official_source",
+            "source_id": "openai_news",
+        }
+        # Legitimate record passes
+        self.assertTrue(is_substantive_model_update(base_record))
+        self.assertTrue(validate_update_record(base_record))
+
+        # Lone date title rejected
+        r_date = dict(base_record, title="September 4th, 2024")
+        self.assertFalse(is_substantive_model_update(r_date))
+        self.assertFalse(validate_update_record(r_date))
+
+        # Generic title rejected
+        r_generic = dict(base_record, title="Get started")
+        self.assertFalse(is_substantive_model_update(r_generic))
+        self.assertFalse(validate_update_record(r_generic))
+
+        r_relnotes = dict(base_record, title="Release notes")
+        self.assertFalse(is_substantive_model_update(r_relnotes))
+
+        # Lone model name rejected
+        r_model = dict(base_record, title="deepseek-reasoner", summary="deepseek-reasoner")
+        self.assertFalse(is_substantive_model_update(r_model))
+
+        # Disallowed status URL rejected
+        r_status = dict(base_record, source_url="https://status.x.ai/")
+        self.assertFalse(is_substantive_model_update(r_status))
+
+        # Fwlink URL rejected
+        r_fwlink = dict(base_record, source_url="https://go.microsoft.com/fwlink?linkid=2295127")
+        self.assertFalse(is_substantive_model_update(r_fwlink))
+
+        # Parameter block dump rejected
+        r_dump = dict(base_record, title="Model Name: north-small Context Length: 16K")
+        self.assertFalse(is_substantive_model_update(r_dump))
 
 
 if __name__ == "__main__":

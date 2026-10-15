@@ -95,6 +95,10 @@ DISALLOWED_DOMAINS = frozenset([
     "reddit.com",
     "pinterest.com",
     "unverifiedtracker.com",
+    "status.x.ai",
+    "status.openai.com",
+    "status.anthropic.com",
+    "status.mistral.ai",
 ])
 
 DISALLOWED_PATHS = frozenset([
@@ -116,6 +120,8 @@ DISALLOWED_PATHS = frozenset([
     "/cookie-policy",
     "/contact",
     "/contact-us",
+    "/resources/ambassadors",
+    "/support/community",
 ])
 
 CHROME_TITLE_PATTERNS = [
@@ -133,6 +139,70 @@ CHROME_TITLE_PATTERNS = [
     re.compile(r"\bcareers\b", re.IGNORECASE),
     re.compile(r"^Terms of servicePrivacy policy", re.IGNORECASE),
     re.compile(r"(?:webpackChunk|function\s*\(|Object\.defineProperty|void 0|var |const |window\.|document\.)"),
+]
+
+# Generic heading patterns that represent documentation structure or navigation, not model updates
+GENERIC_HEADING_PATTERNS = [
+    re.compile(r"^\s*(?:get\s+started(?:\s+with.*)?)\s*$", re.IGNORECASE),
+    re.compile(r"^\s*(?:latest\s+updates?)\s*$", re.IGNORECASE),
+    re.compile(r"^\s*(?:release\s+notes?)\s*$", re.IGNORECASE),
+    re.compile(r"^\s*(?:overview)\s*$", re.IGNORECASE),
+    re.compile(r"^\s*(?:key\s+capabilities|capabilities)\s*$", re.IGNORECASE),
+    re.compile(r"^\s*(?:status\s+page|system\s+status)\s*$", re.IGNORECASE),
+    re.compile(r"^\s*(?:what's\s+new|whats\s+new)\s*$", re.IGNORECASE),
+    re.compile(r"^\s*(?:table\s+of\s+contents|navigation\s+menu|navigation)\s*$", re.IGNORECASE),
+    re.compile(r"^\s*(?:quickstart|introduction|intro|faq)\s*$", re.IGNORECASE),
+    re.compile(r"^\s*(?:community\s+support|provide\s+feedback|feedback|support|resources)\s*$", re.IGNORECASE),
+    re.compile(r"^\s*(?:replit\s*&\s*spacexsi|tokenizer\s+playground)\s*$", re.IGNORECASE),
+    re.compile(r"^\s*(?:microsoft\s+azure\s+blog|azure\s+updates\s*\|\s*microsoft\s+azure)\s*$", re.IGNORECASE),
+]
+
+# Lone date or timeframe patterns (e.g. 'September 4th, 2024', 'September 2025', 'September')
+LONE_DATE_OR_TIMEFRAME_PATTERNS = [
+    re.compile(
+        r"^\s*(?:(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4})\s*$",
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r"^\s*(?:(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\s+\d{4})\s*$",
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r"^\s*(?:January|February|March|April|May|June|July|August|September|October|November|December)\s*$",
+        re.IGNORECASE,
+    ),
+    re.compile(r"^\s*\d{4}-\d{2}-\d{2}\s*$"),
+    re.compile(
+        r"^\s*(?:\d{1,2}(?:st|nd|rd|th)?\s+(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\s+\d{4})\s*$",
+        re.IGNORECASE,
+    ),
+]
+
+# Lone model identifier patterns without an update action
+LONE_MODEL_NAME_PATTERNS = [
+    re.compile(r"^\s*deepseek-(?:reasoner|coder|chat)[â€‹\s\u200b]*$", re.IGNORECASE),
+    re.compile(r"^\s*(?:gpt-4o|gpt-4|claude-3-5-sonnet|claude-3-7-sonnet|gemini-2-0-flash)[â€‹\s\u200b]*$", re.IGNORECASE),
+]
+
+# Parameter tables, filter bars, and navigation dumps
+PARAMETER_OR_MENU_DUMP_PATTERNS = [
+    re.compile(r"TypeAllFeatureImprovementAreaAll", re.IGNORECASE),
+    re.compile(r"Subscribe\s+via\s+RSS", re.IGNORECASE),
+    re.compile(r"(?:Model\s+Name\s*:|Context\s+Length\s*:|Size\s*:|Architecture\s*:)", re.IGNORECASE),
+    re.compile(r"responses\s+createreasoning", re.IGNORECASE),
+    re.compile(r"Workspace\s+analytics\s+Usage\s+Insights", re.IGNORECASE),
+    re.compile(r"What's\s+new\s+Models\s+Pricing\s+Glossary", re.IGNORECASE),
+    re.compile(r"WebRTC\s+WebRTC\s+with\s+WARP", re.IGNORECASE),
+    re.compile(r"Sign-in\s+with\s+ChatGPT\s+Agents", re.IGNORECASE),
+    re.compile(r"Shell\s+Computer\s+use\s+Apply\s+Patch", re.IGNORECASE),
+    re.compile(r"Learn\s+about\s+the\s+latest\s+Microsoft\s+Security", re.IGNORECASE),
+    re.compile(r"Get\s+answers\s+to\s+your\s+questions\s+from\s+Microsoft", re.IGNORECASE),
+    re.compile(r"Trigger\s+workspace\s+agent\s+runs", re.IGNORECASE),
+    re.compile(r"UI\s+guidelines\s+Optimize\s+Metadata", re.IGNORECASE),
+    re.compile(r"Skills\s+Tool\s+search\s+Programmatic", re.IGNORECASE),
+    re.compile(r"Text\s+generation\s+Code\s+generation\s+Structured", re.IGNORECASE),
+    re.compile(r"Voice\s+agents\s+Connect\s+voice", re.IGNORECASE),
+    re.compile(r"Web\s+search\s+File\s+search\s+Retrieval", re.IGNORECASE),
 ]
 
 FUTURE_DEPRECATION_PATTERN = re.compile(
@@ -206,6 +276,10 @@ def is_safe_official_url(url: str, provider_id: str = "") -> bool:
         if host == dis or host.endswith("." + dis):
             return False
 
+    # Disallow status pages (e.g. status.x.ai, status.openai.com) and redirector services
+    if host.startswith("status.") or "fwlink" in clean or "linkid=" in clean:
+        return False
+
     # Disallow utility, legal, login, or cookie paths
     clean_path = parsed.path.rstrip("/").lower()
     if clean_path in DISALLOWED_PATHS:
@@ -272,6 +346,28 @@ def generate_update_id(source_url: str, provider_id: str, title: str) -> str:
 # ---------------------------------------------------------------------------
 
 
+def is_date_or_timeframe_string(text: str) -> bool:
+    """Check if a string represents solely a date, month, or timeframe rather than an announcement."""
+    if not text or not isinstance(text, str):
+        return False
+    clean = text.strip()
+    return any(p.match(clean) for p in LONE_DATE_OR_TIMEFRAME_PATTERNS)
+
+
+def is_generic_title(title: str) -> bool:
+    """Check if a title is a generic documentation heading, page chrome, or lone model name."""
+    if not title or not isinstance(title, str):
+        return True
+    clean = re.sub(r"[â\x80\x8b\u200b\ufeff\x80\x8b]+", "", title).strip()
+    if len(clean) < 4:
+        return True
+    if any(p.search(clean) for p in GENERIC_HEADING_PATTERNS):
+        return True
+    if any(p.search(clean) for p in LONE_MODEL_NAME_PATTERNS):
+        return True
+    return False
+
+
 def is_irrelevant_or_chrome(title: str, text: str = "") -> bool:
     """Detect whether a title or summary is page chrome, navigation, legal text, or JavaScript."""
     t_clean = title.strip()
@@ -289,6 +385,11 @@ def is_irrelevant_or_chrome(title: str, text: str = "") -> bool:
         if pat.search(t_clean):
             return True
 
+    # Check against parameter or menu dump patterns
+    for pat in PARAMETER_OR_MENU_DUMP_PATTERNS:
+        if pat.search(t_clean) or pat.search(text):
+            return True
+
     # Excessively long title with multiple dates or headings (concatenation bug)
     if len(t_clean) > 220:
         return True
@@ -298,6 +399,57 @@ def is_irrelevant_or_chrome(title: str, text: str = "") -> bool:
         return True
 
     return False
+
+
+def is_substantive_model_update(record: dict) -> bool:
+    """Pre-persistence quality gate ensuring an update is genuine, informative,
+    and not page chrome, navigation, lone dates, or parameter dumps."""
+    if not isinstance(record, dict):
+        return False
+
+    title = (record.get("title") or "").strip()
+    summary = (record.get("summary") or "").strip()
+    url = (record.get("source_url") or "").strip()
+    provider_id = (record.get("provider_id") or "").strip()
+
+    # Title length constraints (genuine titles are between 5 and 180 chars)
+    if len(title) < 5 or len(title) > 180:
+        return False
+
+    # Clean zero-width space and mojibake
+    norm_title = re.sub(r"[â\x80\x8b\u200b\ufeff\x80\x8b]+", "", title).strip()
+    if not norm_title or len(norm_title) < 4:
+        return False
+
+    # Reject lone dates or timeframes as titles
+    if is_date_or_timeframe_string(norm_title):
+        return False
+
+    # Reject generic headings
+    if is_generic_title(norm_title):
+        return False
+
+    # If title is just a model name and summary is identical or empty, reject
+    if norm_title.lower() in ("deepseek-reasoner", "deepseek-coder", "deepseek-chat", "gpt-4o", "gpt-4"):
+        return False
+
+    # Reject page chrome / legal / scripts
+    if is_irrelevant_or_chrome(norm_title, summary):
+        return False
+
+    # Reject parameter blocks or navigation menu dumps in title or summary
+    for pat in PARAMETER_OR_MENU_DUMP_PATTERNS:
+        if pat.search(norm_title) or pat.search(summary):
+            return False
+
+    # URL must be valid official provider link and not disallowed utility/status
+    if not is_safe_official_url(url, provider_id):
+        return False
+
+    if any(bad in url for bad in ("status.x.ai", "support/community", "ambassadors", "fwlink")):
+        return False
+
+    return True
 
 
 # ---------------------------------------------------------------------------
@@ -327,8 +479,11 @@ def parse_date_string(raw: Any) -> str | None:
     if not text:
         return None
 
+    # Strip ordinal suffixes from numbers (e.g. 'September 4th, 2024' -> 'September 4, 2024')
+    clean_text = re.sub(r"\b(\d{1,2})(?:st|nd|rd|th)\b", r"\1", text, flags=re.IGNORECASE)
+
     # Check ISO formats (e.g. 2025-01-31, 2025-01-31T12:00:00Z)
-    iso_match = re.search(r"\b(\d{4}-\d{2}-\d{2})(?:T(\d{2}:\d{2}:\d{2})(?:\.\d+)?(?:Z|[+-]\d{2}:?\d{2})?)?\b", text)
+    iso_match = re.search(r"\b(\d{4}-\d{2}-\d{2})(?:T(\d{2}:\d{2}:\d{2})(?:\.\d+)?(?:Z|[+-]\d{2}:?\d{2})?)?\b", clean_text)
     if iso_match:
         date_part = iso_match.group(1)
         time_part = iso_match.group(2)
@@ -338,7 +493,7 @@ def parse_date_string(raw: Any) -> str | None:
 
     # Try RFC 2822 / 822 format (e.g. 'Thu, 31 Jan 2025 15:00:00 GMT')
     try:
-        parsed_tuple = email.utils.parsedate_to_datetime(text)
+        parsed_tuple = email.utils.parsedate_to_datetime(clean_text)
         if parsed_tuple:
             return parsed_tuple.strftime("%Y-%m-%dT%H:%M:%SZ")
     except Exception:
@@ -355,17 +510,37 @@ def parse_date_string(raw: Any) -> str | None:
     ]
     for fmt in common_formats:
         try:
-            dt = datetime.strptime(text, fmt)
+            dt = datetime.strptime(clean_text, fmt)
             return dt.strftime("%Y-%m-%d")
         except ValueError:
             continue
 
     # Attempt regex for Month Day, Year
-    match = re.search(r"\b(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\s+(\d{1,2}),?\s+(\d{4})\b", text, re.IGNORECASE)
+    match = re.search(
+        r"\b(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\s+(\d{1,2}),?\s+(\d{4})\b",
+        clean_text,
+        re.IGNORECASE,
+    )
     if match:
         month_str, day_str, year_str = match.groups()
         clean_str = f"{month_str} {day_str} {year_str}"
         for fmt in ("%B %d %Y", "%b %d %Y"):
+            try:
+                dt = datetime.strptime(clean_str, fmt)
+                return dt.strftime("%Y-%m-%d")
+            except ValueError:
+                continue
+
+    # Day Month Year (e.g. 4 September 2024, 24 Feb 2025)
+    match_dmy = re.search(
+        r"\b(\d{1,2})\s+(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?),?\s+(\d{4})\b",
+        clean_text,
+        re.IGNORECASE,
+    )
+    if match_dmy:
+        day_str, month_str, year_str = match_dmy.groups()
+        clean_str = f"{day_str} {month_str} {year_str}"
+        for fmt in ("%d %B %Y", "%d %b %Y"):
             try:
                 dt = datetime.strptime(clean_str, fmt)
                 return dt.strftime("%Y-%m-%d")
@@ -628,13 +803,14 @@ def resolve_update_model(
 
 
 # ---------------------------------------------------------------------------
-# HTML Changelog Parser (Hardened against navigation, footers, and scripts)
+# HTML Changelog Parsers (Provider-Specific & Card-Isolated)
 # ---------------------------------------------------------------------------
 
 
 class ChangelogHTMLParser(HTMLParser):
-    """Resilient, hardened HTML parser for official changelog pages.
-    Guarantees page chrome, navigation, footers, scripts, and social links are rejected."""
+    """Resilient, card-isolated HTML parser for official changelog pages.
+    Guarantees page chrome, navigation, footers, scripts, and social links are rejected,
+    and isolates URLs, dates, and titles strictly to their individual announcement cards."""
 
     IGNORED_TAGS = frozenset([
         "script",
@@ -651,6 +827,20 @@ class ChangelogHTMLParser(HTMLParser):
         "link",
     ])
 
+    IGNORED_CLASS_KEYWORDS = frozenset([
+        "sidebar",
+        "toc",
+        "menu",
+        "nav",
+        "footer",
+        "filter",
+        "pagination",
+        "breadcrumb",
+        "banner",
+        "modal",
+        "cookie",
+    ])
+
     def __init__(self, base_url: str, provider_id: str = ""):
         super().__init__()
         self.base_url = base_url
@@ -662,60 +852,58 @@ class ChangelogHTMLParser(HTMLParser):
         self._current_text: list[str] = []
         self._current_title = ""
         self._current_date: str | None = None
-        self._current_url = base_url
+        self._card_url: str | None = None
         self._in_heading = False
+        self._in_a = False
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]):
         self._current_tag = tag
         attr_dict = {k.lower(): (v or "") for k, v in attrs}
+        cls = attr_dict.get("class", "").lower()
+        elem_id = attr_dict.get("id", "").lower()
 
-        # Check ignored elements
-        if tag in self.IGNORED_TAGS or "nav" in attr_dict.get("class", "").lower() or "footer" in attr_dict.get("class", "").lower():
+        is_ignored_container = (
+            tag in self.IGNORED_TAGS
+            or any(kw in cls for kw in self.IGNORED_CLASS_KEYWORDS)
+            or any(kw in elem_id for kw in self.IGNORED_CLASS_KEYWORDS)
+        )
+        if is_ignored_container or self._ignored_depth > 0:
             self._ignored_depth += 1
             return
 
-        if self._ignored_depth > 0:
-            return
-
-        if tag in ("h1", "h2", "h3", "h4"):
-            # If we already have a title and text, flush previous entry before starting new section
-            if self._current_title and "".join(self._current_text).strip():
-                self._flush_entry()
+        if tag in ("h1", "h2", "h3", "h4", "h5"):
             self._in_heading = True
             self._heading_text = []
 
         elif tag in ("article", "section"):
-            if self._current_title and "".join(self._current_text).strip():
+            if self._current_title or "".join(self._current_text).strip():
                 self._flush_entry()
 
-        elif tag == "a" and "href" in attr_dict:
-            href = attr_dict["href"]
+        elif tag == "a":
+            self._in_a = True
+            href = attr_dict.get("href", "").strip()
             if href and not href.startswith(("#", "javascript:", "mailto:", "tel:")):
                 resolved = urljoin(self.base_url, href)
-                # Only associate URL if it is a secure official provider link
                 if is_safe_official_url(resolved, self.provider_id):
-                    self._current_url = resolved
+                    # Do not assign utility or support URLs
+                    if not any(bad in resolved for bad in ("status.", "support/community", "ambassadors", "fwlink")):
+                        if not self._card_url:
+                            self._card_url = resolved
 
     def handle_endtag(self, tag: str):
-        if tag in self.IGNORED_TAGS:
-            self._ignored_depth = max(0, self._ignored_depth - 1)
-            return
-
         if self._ignored_depth > 0:
+            self._ignored_depth -= 1
             return
 
-        if tag in ("h1", "h2", "h3", "h4"):
+        if tag == "a":
+            self._in_a = False
+
+        elif tag in ("h1", "h2", "h3", "h4", "h5"):
             self._in_heading = False
             raw_h = "".join(self._heading_text).strip()
             self._heading_text = []
-
             if raw_h:
-                parsed_dt = parse_date_string(raw_h)
-                if parsed_dt:
-                    self._current_date = parsed_dt
-                else:
-                    if not is_irrelevant_or_chrome(raw_h):
-                        self._current_title = raw_h
+                self._process_heading(raw_h)
 
         elif tag in ("article", "section"):
             if self._current_title or "".join(self._current_text).strip():
@@ -732,27 +920,80 @@ class ChangelogHTMLParser(HTMLParser):
         if self._in_heading:
             self._heading_text.append(data)
         else:
-            # Inline date discovery if date not yet established
+            # Skip UI button labels in announcement text
+            if self._in_a and cleaned.lower() in (
+                "learn more", "read more", "show more", "show less",
+                "read announcement", "read release announcement", "view docs"
+            ):
+                return
+
+            # Check if this standalone text block is a date/timeframe
+            if is_date_or_timeframe_string(cleaned):
+                dt = parse_date_string(cleaned)
+                if dt and not self._current_date:
+                    self._current_date = dt
+                return
+
             if not self._current_date:
                 dt = parse_date_string(cleaned)
                 if dt:
                     self._current_date = dt
             self._current_text.append(data)
 
+    def _process_heading(self, raw_h: str):
+        # 1. Date heading (e.g. 'February 24, 2025' or 'September 4th, 2024')
+        dt = parse_date_string(raw_h)
+        if dt:
+            if self._current_title and "".join(self._current_text).strip():
+                self._flush_entry()
+            self._current_date = dt
+            return
+
+        # 2. Timeframe heading (e.g. 'September 2025', 'September')
+        if is_date_or_timeframe_string(raw_h):
+            if self._current_title and "".join(self._current_text).strip():
+                self._flush_entry()
+            return
+
+        # 3. Generic heading (e.g. 'Get started', 'Release notes', 'Status Page')
+        if is_generic_title(raw_h):
+            return
+
+        # 4. Announcement title
+        if self._current_title and "".join(self._current_text).strip():
+            self._flush_entry()
+        self._current_title = raw_h
+
     def _flush_entry(self):
         text_body = " ".join("".join(self._current_text).split()).strip()
-        title = self._current_title or (text_body[:80] if len(text_body) > 15 else "")
+        text_body = re.sub(r"[â\x80\x8b\u200b\ufeff\x80\x8b]+", "", text_body).strip()
 
-        # Guard against empty, chrome, or irrelevant text
-        if title and not is_irrelevant_or_chrome(title, text_body):
-            # Extract published_at vs effective_at
+        title = self._current_title
+        if not title and text_body:
+            # If no explicit heading, extract first substantive sentence (not exceeding 120 chars)
+            first_sent = text_body.split(".")[0].strip()
+            if 10 <= len(first_sent) <= 120 and not is_generic_title(first_sent) and not is_date_or_timeframe_string(first_sent):
+                title = first_sent
+
+        if title:
+            title = re.sub(r"[â\x80\x8b\u200b\ufeff\x80\x8b]+", "", title).strip()
+            # If title has a concatenated date suffix (e.g. '...September 29, 2025'), extract it cleanly
+            date_match = re.search(
+                r"((?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4})$",
+                title,
+                re.IGNORECASE,
+            )
+            if date_match:
+                extracted_date_str = date_match.group(1)
+                parsed_extracted = parse_date_string(extracted_date_str)
+                if parsed_extracted and not self._current_date:
+                    self._current_date = parsed_extracted
+                title = title[:date_match.start()].strip()
+
+        if title and not is_generic_title(title) and not is_date_or_timeframe_string(title):
             pub_date, eff_date = extract_dates(text_body, self._current_date)
-
             summary = text_body[:300] if text_body else title
-            # Validate URL before storing
-            url = self._current_url
-            if not is_safe_official_url(url, self.provider_id):
-                url = self.base_url
+            url = self._card_url or self.base_url
 
             self.entries.append({
                 "title": title,
@@ -764,9 +1005,8 @@ class ChangelogHTMLParser(HTMLParser):
 
         # Reset per-entry state
         self._current_title = ""
-        self._current_date = None
         self._current_text = []
-        self._current_url = self.base_url
+        self._card_url = None
 
     def close(self):
         super().close()
@@ -774,29 +1014,107 @@ class ChangelogHTMLParser(HTMLParser):
             self._flush_entry()
 
 
-def parse_html_changelog(
-    html_content: str,
-    source: ModelUpdateSource,
-    base_url: str,
-) -> list[ModelUpdateRecord]:
-    """Parse an HTML changelog into structured ModelUpdateRecord items with boundary and safety checks."""
-    provider_id = source["provider_id"]
+def parse_anthropic_changelog(html_content: str, source: ModelUpdateSource, base_url: str) -> list[ModelUpdateRecord]:
+    """Provider-specific parser for Anthropic Claude platform release notes."""
+    parser = ChangelogHTMLParser(base_url, provider_id="anthropic")
+    try:
+        parser.feed(html_content)
+        parser.close()
+    except Exception as exc:
+        logger.warning("Error parsing Anthropic HTML changelog: %s", exc)
+    return _build_update_records_from_entries(parser.entries, source, base_url)
+
+
+def parse_mistral_changelog(html_content: str, source: ModelUpdateSource, base_url: str) -> list[ModelUpdateRecord]:
+    """Provider-specific parser for Mistral AI documentation release notes."""
+    parser = ChangelogHTMLParser(base_url, provider_id="mistral")
+    try:
+        parser.feed(html_content)
+        parser.close()
+    except Exception as exc:
+        logger.warning("Error parsing Mistral HTML changelog: %s", exc)
+    return _build_update_records_from_entries(parser.entries, source, base_url)
+
+
+def parse_cohere_changelog(html_content: str, source: ModelUpdateSource, base_url: str) -> list[ModelUpdateRecord]:
+    """Provider-specific parser for Cohere API changelog."""
+    parser = ChangelogHTMLParser(base_url, provider_id="cohere")
+    try:
+        parser.feed(html_content)
+        parser.close()
+    except Exception as exc:
+        logger.warning("Error parsing Cohere HTML changelog: %s", exc)
+    return _build_update_records_from_entries(parser.entries, source, base_url)
+
+
+def parse_xai_changelog(html_content: str, source: ModelUpdateSource, base_url: str) -> list[ModelUpdateRecord]:
+    """Provider-specific parser for xAI API release notes."""
+    parser = ChangelogHTMLParser(base_url, provider_id="xai")
+    try:
+        parser.feed(html_content)
+        parser.close()
+    except Exception as exc:
+        logger.warning("Error parsing xAI HTML changelog: %s", exc)
+    return _build_update_records_from_entries(parser.entries, source, base_url)
+
+
+def parse_deepseek_changelog(html_content: str, source: ModelUpdateSource, base_url: str) -> list[ModelUpdateRecord]:
+    """Provider-specific parser for DeepSeek API updates."""
+    parser = ChangelogHTMLParser(base_url, provider_id="deepseek")
+    try:
+        parser.feed(html_content)
+        parser.close()
+    except Exception as exc:
+        logger.warning("Error parsing DeepSeek HTML changelog: %s", exc)
+    return _build_update_records_from_entries(parser.entries, source, base_url)
+
+
+def parse_google_gemini_changelog(html_content: str, source: ModelUpdateSource, base_url: str) -> list[ModelUpdateRecord]:
+    """Provider-specific parser for Google Gemini API changelog."""
+    parser = ChangelogHTMLParser(base_url, provider_id="google")
+    try:
+        parser.feed(html_content)
+        parser.close()
+    except Exception as exc:
+        logger.warning("Error parsing Google Gemini HTML changelog: %s", exc)
+    return _build_update_records_from_entries(parser.entries, source, base_url)
+
+
+def parse_generic_changelog(html_content: str, source: ModelUpdateSource, base_url: str) -> list[ModelUpdateRecord]:
+    """Fallback generic HTML changelog parser."""
+    provider_id = source.get("provider_id", "")
     parser = ChangelogHTMLParser(base_url, provider_id=provider_id)
     try:
         parser.feed(html_content)
         parser.close()
     except Exception as exc:
-        logger.warning("Error parsing HTML changelog for %s: %s", source.get("id"), exc)
+        logger.warning("Error parsing generic HTML changelog for %s: %s", source.get("id"), exc)
+    return _build_update_records_from_entries(parser.entries, source, base_url)
 
+
+HTML_SOURCE_PARSERS: dict[str, Any] = {
+    "anthropic_claude_release_notes": parse_anthropic_changelog,
+    "mistral_release_notes": parse_mistral_changelog,
+    "cohere_changelog": parse_cohere_changelog,
+    "xai_api_release_notes": parse_xai_changelog,
+    "deepseek_api_updates": parse_deepseek_changelog,
+    "google_gemini_changelog": parse_google_gemini_changelog,
+}
+
+
+def _build_update_records_from_entries(
+    entries: list[dict[str, Any]],
+    source: ModelUpdateSource,
+    base_url: str,
+) -> list[ModelUpdateRecord]:
+    """Convert parsed HTML card entries into validated ModelUpdateRecord objects."""
     records: list[ModelUpdateRecord] = []
     now_iso = datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
+    provider_id = source.get("provider_id", "")
 
-    for raw_entry in parser.entries:
+    for raw_entry in entries:
         title = raw_entry["title"].strip()
         summary = raw_entry["summary"].strip()
-
-        if is_irrelevant_or_chrome(title, summary):
-            continue
 
         raw_url = raw_entry.get("url") or base_url
         if not is_safe_official_url(raw_url, provider_id):
@@ -836,6 +1154,19 @@ def parse_html_changelog(
             records.append(record)
 
     return records
+
+
+def parse_html_changelog(
+    html_content: str,
+    source: ModelUpdateSource,
+    base_url: str,
+) -> list[ModelUpdateRecord]:
+    """Parse an HTML changelog into structured ModelUpdateRecord items with source-specific dispatch."""
+    source_id = source.get("id", "")
+    parser_fn = HTML_SOURCE_PARSERS.get(source_id)
+    if parser_fn:
+        return parser_fn(html_content, source, base_url)
+    return parse_generic_changelog(html_content, source, base_url)
 
 
 # ---------------------------------------------------------------------------
@@ -963,9 +1294,8 @@ def validate_update_record(record: dict) -> bool:
         logger.warning("Invalid or unsafe source_url '%s': %r", url, record.get("id"))
         return False
 
-    title = record.get("title", "")
-    if is_irrelevant_or_chrome(title, record.get("summary", "")):
-        logger.warning("Record rejected as page chrome or invalid title: %r", title)
+    if not is_substantive_model_update(record):
+        logger.warning("Record rejected as not substantive or invalid: %r", record.get("title"))
         return False
 
     return True
