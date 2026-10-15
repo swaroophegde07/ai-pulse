@@ -1,5 +1,47 @@
 [
   {
+    "id": "c7c9cc2b493a13af",
+    "title": "Friends don&#8217;t let friends feed their data to AI agents",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "Meta's Muse AI personal assistant has achieved millions of downloads and reached No. 1 on Apple's App Store shortly after its release. The application raises privacy concerns by capturing and processing data not only from its users but also from unconsenting individuals around them.",
+    "summary_status": "generated",
+    "content_fingerprint": "be3b606bdccb22bc",
+    "url": "https://www.theverge.com/tech/1011938/muse-ai-data-friends-consent",
+    "date": "2026-10-15T16:21:45+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-15T16:53:51.443747+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Meta released the Muse AI personal assistant, which quickly hit the top of Apple's App Store with millions of downloads.",
+      "The application aggregates personal data from both users and unconsenting bystanders, raising significant privacy concerns.",
+      "Consumers, friends, family members, and anyone interacting with users of the application are affected by the widespread data collection."
+    ],
+    "tags": [
+      "Meta",
+      "Muse",
+      "AI Agents",
+      "Data Privacy"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://www.theverge.com/tech/1011938/muse-ai-data-friends-consent",
+        "title": "Friends don&#8217;t let friends feed their data to AI agents",
+        "publisher": "The Verge"
+      }
+    ]
+  },
+  {
     "id": "c04bb70f1b05d38a",
     "title": "NVIDIA Nemotron 3.5 Super VL Powers Specialized Agents with Multimodal Reasoning",
     "company": "NVIDIA",
@@ -46,6 +88,48 @@
     ]
   },
   {
+    "id": "b7e6e91e4028317e",
+    "title": "How Windows is being optimized for Nvidia’s RTX Spark laptops",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "Microsoft and Nvidia recently showcased the first wave of RTX Spark laptops in San Francisco, featuring Arm-based chips and powerful GPUs designed for AI workloads. The new computing platform represents a significant shift from traditional x64 architecture toward Arm-based Windows machines optimized for artificial intelligence.",
+    "summary_status": "generated",
+    "content_fingerprint": "f2cb038a68a4ae16",
+    "url": "https://www.theverge.com/tech/1011996/microsoft-windows-rtx-spark-platform-changes-notepad",
+    "date": "2026-10-15T14:30:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-15T16:53:51.443849+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Microsoft and Nvidia launched the first wave of Arm-based RTX Spark laptops running Windows.",
+      "The platform combines Arm-based processors with powerful GPUs specifically tailored for future AI workloads.",
+      "Windows users and hardware developers targeting the AI PC market are directly impacted by this architecture shift."
+    ],
+    "tags": [
+      "Nvidia",
+      "Microsoft",
+      "RTX Spark",
+      "Arm",
+      "AI PCs"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://www.theverge.com/tech/1011996/microsoft-windows-rtx-spark-platform-changes-notepad",
+        "title": "How Windows is being optimized for Nvidia’s RTX Spark laptops",
+        "publisher": "The Verge"
+      }
+    ]
+  },
+  {
     "id": "bd42108ff227ced5",
     "title": "Nobody is safe from celebrity AI deepfakes",
     "company": "The Verge",
@@ -82,6 +166,47 @@
       {
         "url": "https://www.theverge.com/report/1011927/instagram-celebrity-ai-slop-likeness-taylor-swift-mia-goth",
         "title": "Nobody is safe from celebrity AI deepfakes",
+        "publisher": "The Verge"
+      }
+    ]
+  },
+  {
+    "id": "ffc7b43ee50f74cc",
+    "title": "Google launches its &#8216;universal&#8217; online shopping cart ahead of the holidays",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "Google has launched its Universal Cart tool in the US across the Gemini app and Google Search. The feature allows users to save and organize products from multiple different online retailers into a single unified digital space. It is designed to assist consumers with holiday shopping by integrating AI-assisted product discovery directly with multi-retailer storage.",
+    "summary_status": "generated",
+    "content_fingerprint": "5e0ad84ecdf5dff8",
+    "url": "https://www.theverge.com/tech/1011797/google-ai-universal-cart-shopping-tool-launch",
+    "date": "2026-10-15T13:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-15T16:53:51.443955+00:00",
+    "topics": [
+      "Models and Releases",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Google released its Universal Cart tool across the Gemini app and Google Search in the US.",
+      "The tool enables users to consolidate and save products from multiple different online retailers into one unified space.",
+      "Online shoppers and retailers integrated with Google Search and Gemini are affected by this new unified shopping capability."
+    ],
+    "tags": [
+      "Google",
+      "Gemini",
+      "E-commerce",
+      "AI Shopping"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://www.theverge.com/tech/1011797/google-ai-universal-cart-shopping-tool-launch",
+        "title": "Google launches its &#8216;universal&#8217; online shopping cart ahead of the holidays",
         "publisher": "The Verge"
       }
     ]
