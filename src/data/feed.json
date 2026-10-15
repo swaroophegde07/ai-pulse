@@ -1,5 +1,465 @@
 [
   {
+    "id": "7eb214d807f45e74",
+    "title": "Lotus: Learning to Understand Time-series by Learning to Forecast",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduce forecast grounding, a pretraining principle that requires language-aligned time-series representations to remain predictive of future signal evolution. They instantiate this principle in LOTUS, a model that combines raw patches with spectral representations and achieves top performance on TSRBench while using minimal trainable parameters. The approach enables compact time-series language models to outperform models 25 to 50 times their size.",
+    "summary_status": "generated",
+    "content_fingerprint": "1326429005a94c50",
+    "url": "https://arxiv.org/abs/2610.18877",
+    "date": "2026-10-15T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-15T12:28:15.484091+00:00",
+    "topics": [
+      "Models and Releases",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed forecast grounding and LOTUS, a pretraining principle and model that maps time-series patches into the LLM embedding space to predict future evolution.",
+      "This method preserves critical temporal and spectral information, allowing compact models to outperform models 25 to 50 times their size by 3.36% on TSRBench.",
+      "Time-series researchers and developers building efficient language-aligned time-series forecasting systems are directly affected."
+    ],
+    "tags": [
+      "Time-Series",
+      "Language Models",
+      "Forecasting",
+      "Pretraining",
+      "TSRBench"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.18877",
+        "title": "Lotus: Learning to Understand Time-series by Learning to Forecast",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "0d0e88ba1d1de519",
+    "title": "Inverse Reasoning Models for Efficient Post-Training and Verification from Answer-Only Data",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduce a self-distillation technique using answer-only data for reasoning LLMs, training an inverse reasoning model to generate latent chain-of-thought sequences conditioned on answers. Evaluated on Qwen3-0.6B for Countdown and GSM8K tasks, this offline approach roughly doubles hard-prompt pass@1 performance after GRPO saturation and doubles as an accurate test-time verifier. The method bypasses the compute inefficiencies of reinforcement learning and the supervision bottlenecks of missing reasoning traces.",
+    "summary_status": "generated",
+    "content_fingerprint": "bf16cb265e9f9bc4",
+    "url": "https://arxiv.org/abs/2610.18878",
+    "date": "2026-10-15T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-15T12:28:15.484166+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "An inverse reasoning model was trained to generate chain-of-thought sequences conditioned solely on answer-only data as latent variables.",
+      "The approach doubles pass@1 on hard prompts after GRPO saturation and improves best-of-n test-time verification accuracy from 0.753 to 0.969 on Countdown.",
+      "AI researchers and developers working on post-training reasoning models and continual learning can leverage this method to utilize answer-only datasets."
+    ],
+    "tags": [
+      "Reasoning LLMs",
+      "Post-Training",
+      "Self-Distillation",
+      "Qwen3",
+      "Chain-of-Thought"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.18878",
+        "title": "Inverse Reasoning Models for Efficient Post-Training and Verification from Answer-Only Data",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "10cdad4b06e67e8e",
+    "title": "Do Vision CIL Methods Transfer to Protein? A Diagnostic Benchmark of Frozen Protein Encoders",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This research evaluates nine representative class-incremental learning methods across five protein encoders and two enzyme function datasets to test their transferability from computer vision. The diagnostic benchmark reveals that vision-based CIL methods fail to transfer reliably due to weak gradient stability signals, heterogeneous embedding geometry, and mismatched covariance assumptions. These findings demonstrate that continual-learning design must adapt to the specific geometry of protein representations rather than treating encoders as passive feature extractors.",
+    "summary_status": "generated",
+    "content_fingerprint": "6af86367ca4208a9",
+    "url": "https://arxiv.org/abs/2610.18879",
+    "date": "2026-10-15T04:00:00+00:00",
+    "category": "Benchmark",
+    "fetched_at": "2026-10-15T12:28:15.484240+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Evaluated nine class-incremental learning methods across five protein encoders and two enzyme datasets, finding that no existing vision CIL method transfers reliably to protein sequence and structure encoders.",
+      "Identified root causes of failure including weak gradient-based stability signals, embedding geometry heterogeneity, and scaling mismatches in covariance assumptions.",
+      "Protein bioinformatics researchers and machine learning engineers developing continual learning algorithms for protein function annotation."
+    ],
+    "tags": [
+      "Protein Function Annotation",
+      "Class-Incremental Learning",
+      "Protein Encoders",
+      "Representation Learning"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.18879",
+        "title": "Do Vision CIL Methods Transfer to Protein? A Diagnostic Benchmark of Frozen Protein Encoders",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "9b1d61365688c400",
+    "title": "Do Perturbation Predictors Learn Gene Interactions? Diagnosing Extrapolation in Agentic Screening",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This study evaluates whether machine-learning perturbation predictors can learn unseen gene interactions during out-of-distribution screening. The authors introduce additive disagreement (AD) as a metric to measure model deviation from simple additive predictions of single-gene effects. Across eight models and three Perturb-seq datasets, specialised neural predictors do not consistently outperform the additive baseline, and larger deviations from linearity correlate with higher prediction errors.",
+    "summary_status": "generated",
+    "content_fingerprint": "85a9e319f53da276",
+    "url": "https://arxiv.org/abs/2610.18880",
+    "date": "2026-10-15T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-15T12:28:15.484316+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Evaluated eight machine-learning perturbation prediction models across three Perturb-seq datasets to test generalization on unseen gene combinations.",
+      "Showed that specialised neural predictors do not consistently outperform a simple additive baseline, and higher additive disagreement correlates with greater prediction error.",
+      "Introduced additive disagreement as a robust confidence signal to guide decision-making in agentic perturbation-screening workflows."
+    ],
+    "tags": [
+      "Perturb-seq",
+      "Gene Interactions",
+      "Out-of-Distribution Generalization",
+      "AI Agents",
+      "Computational Biology"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.18880",
+        "title": "Do Perturbation Predictors Learn Gene Interactions? Diagnosing Extrapolation in Agentic Screening",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "e88304f86f8d96c2",
+    "title": "Token Utility for On-Policy Distillation via Local Trust-Region Optimization",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduce a token utility formulation for on-policy distillation derived directly from the distillation objective using the categorical Fisher matrix and logit gradients. Instantiated as Fisher Utility Weighting (FUW), the method applies continuous, mean-normalized token weighting that improves mathematical reasoning performance across multiple student-teacher pairs. The approach outperforms uniform on-policy distillation on mathematical reasoning benchmarks under both reverse-KL and forward-KL objectives.",
+    "summary_status": "generated",
+    "content_fingerprint": "29de045431ab0dc1",
+    "url": "https://arxiv.org/abs/2610.18883",
+    "date": "2026-10-15T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-15T12:28:15.484395+00:00",
+    "topics": [
+      "Benchmarks and Evaluations",
+      "Policy and Regulation",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Derived a closed-form token utility for on-policy distillation based on the categorical Fisher matrix and logit gradients under a local KL budget.",
+      "Provides a principled way to perform continuous token weighting, termed Fisher Utility Weighting (FUW), aligning token selection with the specific distillation objective.",
+      "Improves mathematical reasoning performance by 1.08 to 4.0 macro points across Qwen3 student-teacher pairs compared to uniform on-policy distillation."
+    ],
+    "tags": [
+      "On-Policy Distillation",
+      "Fisher Information",
+      "Mathematical Reasoning",
+      "Qwen3"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.18883",
+        "title": "Token Utility for On-Policy Distillation via Local Trust-Region Optimization",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "06cf1e386b2c99c3",
+    "title": "PMO-Dock: Benchmarking Docking, Specificity, and Generalization in Molecular Optimization",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduce PMO-Dock, a standardized benchmark and protocol for docking-based molecular optimization featuring 25 tasks across hit generation, lead optimization, and specificity testing. The evaluation framework enforces strict oracle budgets and separates validation tasks from held-out test tasks to measure true generalization and sample efficiency. Benchmarking four distinct optimization methods reveals that no single approach dominates universally across all tasks, highlighting the necessity for method-dependent selection strategies in drug discovery.",
+    "summary_status": "generated",
+    "content_fingerprint": "fa2ec3a203c558cb",
+    "url": "https://arxiv.org/abs/2610.19011",
+    "date": "2026-10-15T04:00:00+00:00",
+    "category": "Benchmark",
+    "fetched_at": "2026-10-15T12:28:15.484468+00:00",
+    "topics": [
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "PMO-Dock was introduced as a standardized benchmark and evaluation protocol consisting of 25 tasks for docking-based molecular optimization.",
+      "The benchmark matters because it establishes a rigorous framework with strict oracle budgets and held-out test tasks to evaluate generalization and sample efficiency reliably.",
+      "Computational drug discovery researchers, molecular optimization algorithm developers, and AI-driven drug design teams are directly affected by these evaluation standards."
+    ],
+    "tags": [
+      "PMO-Dock",
+      "Molecular Optimization",
+      "Drug Discovery",
+      "Benchmarking"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.19011",
+        "title": "PMO-Dock: Benchmarking Docking, Specificity, and Generalization in Molecular Optimization",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "8dd94844f1a252fb",
+    "title": "Data Density Scaling Laws for Image Self-Distillation",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers examine data density scaling laws for image self-distillation models across multiple datasets including ImageNet, Waymo, and Ego4D. They demonstrate that sample repetition can sometimes outperform training on larger unique sample sets, challenging conventional scaling assumptions. A modified Chinchilla-style scaling law is proposed to account for unique samples and sample repetition.",
+    "summary_status": "generated",
+    "content_fingerprint": "27d6672815e0d0e4",
+    "url": "https://arxiv.org/abs/2610.19013",
+    "date": "2026-10-15T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-15T12:28:15.484546+00:00",
+    "topics": [
+      "Models and Releases",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Repeated training on smaller random subsets of image data can outperform training on larger unique sample sets for self-distillation models.",
+      "A modified Chinchilla-style scaling law is introduced to account for unique sample counts and repetition factors in data-compute trade-offs.",
+      "Researchers and practitioners training computer vision and self-distillation models on datasets like ImageNet, Waymo, and Ego4D are affected."
+    ],
+    "tags": [
+      "Self-Distillation",
+      "Scaling Laws",
+      "Computer Vision",
+      "ImageNet"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.19013",
+        "title": "Data Density Scaling Laws for Image Self-Distillation",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "632c15cdcac17eff",
+    "title": "Scaling Cheap Synthetic Pretraining Improves Indoor Radio-Map Prediction",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduce an automated layout generator and a fast open-source approximate ray tracer to produce 128 million synthetic indoor radio-map samples. Pretraining ResNet-101 and Swin-T encoder-decoders on this synthetic data reduces downstream prediction error by 15% across five indoor tasks. The findings demonstrate predictable power-law data-scaling trends for radio-map prediction using cheap simulated data.",
+    "summary_status": "generated",
+    "content_fingerprint": "7300d94080092537",
+    "url": "https://arxiv.org/abs/2610.19015",
+    "date": "2026-10-15T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-15T12:28:15.484612+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "A new pipeline generates 128M synthetic indoor radio-map samples using an automated layout generator and a fast approximate ray tracer.",
+      "Pretrained ResNet-101 models achieve a 15% average error reduction on indoor radio-map prediction tasks and display reliable power-law data-scaling trends.",
+      "Wireless network engineers and researchers working on indoor pathloss prediction and radio-map estimation are affected."
+    ],
+    "tags": [
+      "Radio-Map Prediction",
+      "Synthetic Data",
+      "Ray Tracing",
+      "ResNet-101",
+      "Swin-T"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.19015",
+        "title": "Scaling Cheap Synthetic Pretraining Improves Indoor Radio-Map Prediction",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "ffb85f062b50cf3f",
+    "title": "How Many Ranks Does a Token Need? A Noise-Floor Squelch for Rank-One LoRA Experts",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "The authors introduce SQUELCH, a router-free mixture of rank-one experts for Low-Rank Adaptation (LoRA) that dynamically determines per-token rank allocation using a robust noise-floor threshold and Stein's unbiased risk estimate. SQUELCH eliminates cross-talk noise and redundant components without adding trainable parameters, improving performance across commonsense reasoning, knowledge, math, code, and GLUE tasks using LLaMA-3.1-8B, Qwen3, and DeBERTaV3.",
+    "summary_status": "generated",
+    "content_fingerprint": "16b486b84718f48e",
+    "url": "https://arxiv.org/abs/2610.19033",
+    "date": "2026-10-15T04:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-10-15T12:28:15.484679+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "SQUELCH was introduced as a router-free mixture of rank-one LoRA experts that soft-thresholds token responses against a robust noise floor determined by Stein's unbiased risk estimate.",
+      "It improves performance by 2.2-3.2 points over standard LoRA and 0.8-1.2 points over mixture baselines while activating an average of only 8.6 out of 32 components per token, adding zero trainable parameters.",
+      "Machine learning researchers and practitioners deploying models like LLaMA, Qwen, and DeBERTaV3 with LoRA adaptation are directly affected."
+    ],
+    "tags": [
+      "LoRA",
+      "Mixture of Experts",
+      "Parameter-Efficient Fine-Tuning",
+      "LLaMA",
+      "Qwen"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.19033",
+        "title": "How Many Ranks Does a Token Need? A Noise-Floor Squelch for Rank-One LoRA Experts",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "e10522981d38e793",
+    "title": "McKinsey is making job applicants spar with a fake AI client",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "Consulting firm McKinsey & Company is implementing a 10-minute AI simulation of a client into the interview process for entry-level business-analyst candidates. Human assessors will observe the interaction and evaluate the candidates' performance rather than letting the AI score them.",
+    "summary_status": "generated",
+    "content_fingerprint": "325f939000181ab4",
+    "url": "https://www.theverge.com/news/1011654/mckinsey-ai-client-interview",
+    "date": "2026-10-14T22:53:31+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-15T12:28:15.483681+00:00",
+    "topics": [
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "McKinsey & Company introduced an AI simulation of a client for entry-level business-analyst candidate interviews.",
+      "The tool replicates common day-to-day scenarios while human evaluators score the candidates' performance in person.",
+      "Undergraduate applicants seeking business-analyst roles in select offices are affected by this testing phase."
+    ],
+    "tags": [
+      "McKinsey & Company",
+      "AI Simulation",
+      "Hiring"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://www.theverge.com/news/1011654/mckinsey-ai-client-interview",
+        "title": "McKinsey is making job applicants spar with a fake AI client",
+        "publisher": "The Verge"
+      }
+    ]
+  },
+  {
+    "id": "9194e801adbca278",
+    "title": "Eight states sue OpenAI, saying ChatGPT isn&#8217;t safe for kids",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "Eight US states have filed separate lawsuits against OpenAI, alleging that the company misled consumers and endangered children by prioritizing profits over safety with ChatGPT. The complaints claim OpenAI violated local consumer protection laws by failing to warn users about the chatbot's potential harms, referencing cases involving the mental health and safety of teenagers and adults.",
+    "summary_status": "generated",
+    "content_fingerprint": "1d1ebc771536ea02",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1011500/openai-state-lawsuits-chatgpt-safety",
+    "date": "2026-10-14T21:11:28+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-15T12:28:15.483760+00:00",
+    "topics": [
+      "Models and Releases",
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Attorneys general from Iowa, Kansas, Nebraska, West Virginia, Arkansas, Arizona, Idaho, and Montana filed lawsuits against OpenAI accusing it of harming children and misleading consumers regarding ChatGPT safety.",
+      "The legal actions argue that OpenAI violated consumer protection laws by omitting warnings about risks associated with its chatbot, pointing to tragic incidents involving teens and adults.",
+      "OpenAI and developers of consumer-facing generative AI chatbots face escalating legal risks and potential regulatory restrictions regarding minor safety and consumer protection."
+    ],
+    "tags": [
+      "OpenAI",
+      "ChatGPT",
+      "Legal and Regulation",
+      "Safety"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1011500/openai-state-lawsuits-chatgpt-safety",
+        "title": "Eight states sue OpenAI, saying ChatGPT isn&#8217;t safe for kids",
+        "publisher": "The Verge"
+      }
+    ]
+  },
+  {
     "id": "0a3035ce11f254c3",
     "title": "The AI race is back on",
     "company": "The Verge",
@@ -621,6 +1081,46 @@
       {
         "url": "https://openai.com/index/third-moment-research",
         "title": "How Third Moment Research runs 10,000 agents for 36+ hours",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "94ee28b93f9d2d83",
+    "title": "How Block is building AI-powered security with OpenAI technology",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Block is integrating OpenAI technology into its security operations to accelerate threat investigations. The security team can now investigate threats faster and generate proposed patches within minutes.",
+    "summary_status": "generated",
+    "content_fingerprint": "c79f89cedf2365a2",
+    "url": "https://openai.com/index/block-ai-powered-security",
+    "date": "2026-10-14T07:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-15T12:28:15.483412+00:00",
+    "topics": [
+      "Safety and Security"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Block integrated OpenAI technology to power its security operations and threat investigation workflows.",
+      "The implementation enables security teams to investigate threats faster and generate proposed patches in minutes.",
+      "Block security engineers and enterprise defense operations are directly impacted by this AI integration."
+    ],
+    "tags": [
+      "Block",
+      "OpenAI",
+      "AI Security",
+      "Threat Detection"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://openai.com/index/block-ai-powered-security",
+        "title": "How Block is building AI-powered security with OpenAI technology",
         "publisher": "OpenAI"
       }
     ]
