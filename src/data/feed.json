@@ -1,5 +1,172 @@
 [
   {
+    "id": "43032a6db2e0b8c5",
+    "title": "Trump posts AI-edited photo to brag about White House restoration work",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "Donald Trump shared photos on Truth Social depicting White House renovations, with one image flagged by Google's AI detector as created or edited using OpenAI. Social media users and online observers identified structural inconsistencies, such as uneven steps that do not match the original unedited photograph.",
+    "summary_status": "generated",
+    "content_fingerprint": "21b6a0ec2cd0aa35",
+    "url": "https://www.theverge.com/policy/1012445/donald-trump-ai-photo-white-house-rennovation-column",
+    "date": "2026-10-15T21:09:33+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-15T21:54:08.605399+00:00",
+    "topics": [
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Donald Trump posted an AI-edited photo on Truth Social claiming to show White House restorations.",
+      "The image contained visible structural flaws, including mismatched steps, and was flagged by Google's AI detector.",
+      "Social media users and political observers are impacted as political figures increasingly utilize generative AI imagery."
+    ],
+    "tags": [
+      "Donald Trump",
+      "Generative AI",
+      "OpenAI",
+      "Social Media"
+    ],
+    "impact_score": 3,
+    "sources": [
+      {
+        "url": "https://www.theverge.com/policy/1012445/donald-trump-ai-photo-white-house-rennovation-column",
+        "title": "Trump posts AI-edited photo to brag about White House restoration work",
+        "publisher": "The Verge"
+      }
+    ]
+  },
+  {
+    "id": "e85c6a5b67dae4b4",
+    "title": "Bluesky&#8217;s AI tool now lets you make games and apps to share on social",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "Bluesky has expanded its Attie AI tool to allow users to generate small social apps like games, polls, and dashboards using natural language prompts. CEO Toni Schneider described the feature as social vibe coding intended for community engagement. The generated applications can be published and shared as standalone websites.",
+    "summary_status": "generated",
+    "content_fingerprint": "4db12bc56a010135",
+    "url": "https://www.theverge.com/tech/1012374/bluesky-ai-attie-small-social-games-apps",
+    "date": "2026-10-15T19:57:16+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-15T21:54:08.605500+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Bluesky updated its Attie AI tool to enable users to create small apps such as games, polls, and dashboards directly from text prompts.",
+      "The feature introduces community-driven vibe coding, allowing users to quickly build and share interactive web experiences.",
+      "Bluesky platform users and community creators gain new tools to generate custom social applications."
+    ],
+    "tags": [
+      "Bluesky",
+      "AI Tools",
+      "Generative AI",
+      "Social Media"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://www.theverge.com/tech/1012374/bluesky-ai-attie-small-social-games-apps",
+        "title": "Bluesky&#8217;s AI tool now lets you make games and apps to share on social",
+        "publisher": "The Verge"
+      }
+    ]
+  },
+  {
+    "id": "a4dc299544df68f2",
+    "title": "Meta and Apple team up to make Muse AI models run better on Macs",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "Meta announced the release of the Muse Spark Open AI model, claiming it is the most capable US open-weight model to date. The companies collaborated to ensure the model runs locally on desktop hardware using two Apple M5 Ultra Mac Studios and the MLX framework.",
+    "summary_status": "generated",
+    "content_fingerprint": "9523366a6b764a9b",
+    "url": "https://www.theverge.com/news/1012293/meta-apple-muse-spark-open-ai-model-mlx",
+    "date": "2026-10-15T18:15:36+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-15T21:54:08.605623+00:00",
+    "topics": [
+      "Models and Releases",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Meta released the Muse Spark Open AI model and collaborated with Apple to optimize its performance on Mac hardware using the MLX framework.",
+      "The collaboration enables running a state-of-the-art open-weight model locally on desktop hardware like the M5 Ultra Mac Studio.",
+      "Developers, Apple hardware users, and Meta's open-source ecosystem are directly affected by this integration."
+    ],
+    "tags": [
+      "Meta",
+      "Apple",
+      "Muse Spark",
+      "Open-Source"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://www.theverge.com/news/1012293/meta-apple-muse-spark-open-ai-model-mlx",
+        "title": "Meta and Apple team up to make Muse AI models run better on Macs",
+        "publisher": "The Verge"
+      }
+    ]
+  },
+  {
+    "id": "93a3c6a05f584f10",
+    "title": "Scale Agentic Coding Workflows with Meta’s Muse Spark Open on NVIDIA GB300 NVL72",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "Meta has released Muse Spark Open, an 816B mixture-of-experts coding model with 42B active parameters and a 1-million-token context window. Trained on NVIDIA GB300 NVL72 Blackwell Ultra infrastructure, the model is optimized for agentic coding workflows, featuring improved first-attempt accuracy and tool calling. It enables deep codebase understanding across entire software repositories.",
+    "summary_status": "generated",
+    "content_fingerprint": "0e712dcbba9a8e8a",
+    "url": "https://developer.nvidia.com/blog/scale-agentic-coding-workflows-with-metas-muse-spark-open-on-nvidia-gb300-nvl72",
+    "date": "2026-10-15T18:00:01+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-15T21:54:08.606267+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Meta released Muse Spark Open, an 816B mixture-of-experts model trained specifically for agentic coding workflows.",
+      "The model provides a 1M token context window and runs on NVIDIA GB300 NVL72 Blackwell Ultra hardware to enable deep codebase analysis and reliable tool calling.",
+      "Software engineers, development teams, and enterprises deploying large-scale automated coding agents are directly affected."
+    ],
+    "tags": [
+      "Meta",
+      "Muse Spark Open",
+      "NVIDIA GB300 NVL72",
+      "AI Agents",
+      "Mixture-of-Experts"
+    ],
+    "impact_score": 8,
+    "sources": [
+      {
+        "url": "https://developer.nvidia.com/blog/scale-agentic-coding-workflows-with-metas-muse-spark-open-on-nvidia-gb300-nvl72",
+        "title": "Scale Agentic Coding Workflows with Meta’s Muse Spark Open on NVIDIA GB300 NVL72",
+        "publisher": "NVIDIA"
+      }
+    ]
+  },
+  {
     "id": "c7c9cc2b493a13af",
     "title": "Friends don&#8217;t let friends feed their data to AI agents",
     "company": "The Verge",
@@ -7588,41 +7755,6 @@
         "title": "Do text embeddings perfectly encode text?",
         "url": "https://thegradient.pub/text-embedding-inversion",
         "publisher": "The Gradient"
-      }
-    ]
-  },
-  {
-    "id": "5ff0bcef74701c64",
-    "title": "Visual Studio Code 1.142 (Insiders)",
-    "company": "Microsoft VS Code",
-    "source": "VS Code Updates",
-    "summary": "Visual Studio Code released version 1.142 to the Insiders channel. Users can review the full release notes to learn about the latest updates and features included in this build.",
-    "url": "https://code.visualstudio.com/updates/v1_142",
-    "date": null,
-    "category": "Product Release",
-    "fetched_at": "2026-10-10T19:18:00.236981+00:00",
-    "topics": [
-      "Models and Releases",
-      "Coding and Developer Tools",
-      "Applications and Products"
-    ],
-    "source_type": "Technical Publication",
-    "priority_score": 3,
-    "priority_label": "Must Know",
-    "priority_explanation": "Announces a model or architecture capability",
-    "why_it_matters": "",
-    "summary_status": "generated",
-    "content_fingerprint": "d8e401213b79bf19",
-    "tags": [
-      "Microsoft VS Code",
-      "Models and Releases"
-    ],
-    "impact_score": 7,
-    "sources": [
-      {
-        "title": "Visual Studio Code 1.142 (Insiders)",
-        "url": "https://code.visualstudio.com/updates/v1_142",
-        "publisher": "Microsoft VS Code"
       }
     ]
   }

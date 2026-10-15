@@ -84,16 +84,16 @@
     "api_available": true,
     "consumer_available": false,
     "pricing": {
-      "input_per_1m": 0.016,
+      "input_per_1m": 0.0061,
       "output_per_1m": 0.64,
       "unit": "USD"
     },
     "documentation_url": "https://openrouter.ai/deepseek/deepseek-v4-flash-0731",
     "source_url": "https://openrouter.ai/deepseek/deepseek-v4-flash-0731",
-    "last_verified": "2026-10-14",
+    "last_verified": "2026-10-15",
     "verification_sources": {
-      "telemetry": "OpenRouter (2026-10-14)",
-      "pricing": "OpenRouter (2026-10-14)"
+      "telemetry": "OpenRouter (2026-10-15)",
+      "pricing": "OpenRouter (2026-10-15)"
     },
     "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
     "is_featured_frontier": false
@@ -216,8 +216,8 @@
     "api_available": true,
     "consumer_available": false,
     "pricing": {
-      "input_per_1m": 0.0216,
-      "output_per_1m": 0.72,
+      "input_per_1m": 0.15,
+      "output_per_1m": 0.6,
       "unit": "USD"
     },
     "documentation_url": "https://openrouter.ai/deepseek/deepseek-v4.1-flash",
@@ -381,16 +381,16 @@
     "api_available": true,
     "consumer_available": false,
     "pricing": {
-      "input_per_1m": 0.75,
-      "output_per_1m": 3.75,
+      "input_per_1m": 0.825,
+      "output_per_1m": 4.125,
       "unit": "USD"
     },
     "documentation_url": "https://openrouter.ai/google/gemini-3.8-flash",
     "source_url": "https://openrouter.ai/google/gemini-3.8-flash",
-    "last_verified": "2026-10-11",
+    "last_verified": "2026-10-15",
     "verification_sources": {
-      "telemetry": "OpenRouter (2026-10-11)",
-      "pricing": "OpenRouter (2026-10-11)"
+      "telemetry": "OpenRouter (2026-10-15)",
+      "pricing": "OpenRouter (2026-10-15)"
     },
     "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
     "is_featured_frontier": false
@@ -909,8 +909,8 @@
     "api_available": true,
     "consumer_available": false,
     "pricing": {
-      "input_per_1m": 0.4072,
-      "output_per_1m": 0.8143,
+      "input_per_1m": 0.3633,
+      "output_per_1m": 0.7266,
       "unit": "USD"
     },
     "documentation_url": "https://openrouter.ai/deepseek/deepseek-v4-pro",
