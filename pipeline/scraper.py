@@ -116,6 +116,33 @@ _COMMON_STOP_WORDS = frozenset([
     "a", "an", "the", "in", "on", "at", "for", "with", "and", "to", "is", "its", "it",
     "from", "by", "as", "of", "new", "how", "why", "what", "are", "be", "has", "have",
     "will", "can", "into", "over", "after", "about", "that", "this", "these", "those",
+    "your", "our",
+])
+
+_GENERIC_ORGANIZATION_AND_AI = frozenset([
+    "ai", "artificial", "intelligence", "model", "models", "google", "openai", "anthropic",
+    "meta", "microsoft", "deepmind", "hugging", "face", "nvidia", "tech", "app", "apps",
+])
+
+_ORGANIZATION_NAMES = frozenset([
+    "epic", "google", "apple", "amazon", "microsoft", "meta", "nvidia", "openai", "anthropic",
+])
+
+_MODEL_VARIANTS = frozenset([
+    "sonnet", "haiku", "opus", "mini", "flash", "pro", "r1", "v3", "o1", "o3",
+    "canvas", "sora", "large", "medium", "small", "base", "max", "ultra",
+])
+
+_SUBDOMAIN_ASPECTS = frozenset([
+    "robotics", "robot", "robots", "safety", "safely", "responsibly", "alignment",
+    "chip", "chips", "hardware", "preview", "evaluations", "evaluation", "eval", "evals",
+    "red-teaming", "red team", "governance", "policy", "pricing", "insiders", "lawsuit", "homicide", "murder",
+])
+
+_RELEASE_ACTIONS = frozenset([
+    "release", "releases", "released", "launch", "launches", "launched",
+    "unveils", "unveil", "unveiled", "announces", "announced", "introducing", "introduced",
+    "built", "available", "arrives", "debut", "debuts", "rolls out", "rolling out",
 ])
 
 
@@ -128,9 +155,12 @@ def are_articles_closely_related(
 
     Groups related sources where appropriate without deleting genuinely distinct follow-up stories:
     - Must be within max_hours publication window (or undated).
+    - Distinct software versions (e.g. 1.141 vs 1.140) are NEVER grouped.
     - Distinct specific model variants (e.g. Sonnet vs Haiku, Flash vs Pro, GPT-4 vs o1) are NEVER grouped.
-    - Matches exact normalized titles, high Jaccard token overlap (>= 0.85), or high salient keyword overlap (>= 0.60)
-      when they share the same key subject.
+    - Distinct subdomains/aspects (e.g. robotics vs general release, safety vs general release) are NEVER grouped.
+    - Distinct organization subjects (e.g. Epic Games vs Google) are NEVER grouped.
+    - Matches exact normalized titles, high Jaccard token overlap (>= 0.50), Dice overlap (>= 0.60),
+      or shared specific model compound release coverage (e.g. Gemini 4 Argon release + The Verge coverage).
     """
     if not dates_compatible(art1.get("date"), art2.get("date"), max_hours=max_hours):
         return False
@@ -142,21 +172,37 @@ def are_articles_closely_related(
     if t1 == t2:
         return True
 
-    words1 = [w for w in t1.split() if w not in _COMMON_STOP_WORDS and len(w) > 2]
-    words2 = [w for w in t2.split() if w not in _COMMON_STOP_WORDS and len(w) > 2]
-    if len(words1) < 3 or len(words2) < 3:
+    # Software / release version check (e.g. 1.141 vs 1.140, v0.6.3 vs v0.6.2)
+    raw_t1 = (art1.get("title") or "").lower()
+    raw_t2 = (art2.get("title") or "").lower()
+    v1 = set(re.findall(r"\bv?(\d+(?:\.\d+)+)\b", raw_t1))
+    v2 = set(re.findall(r"\bv?(\d+(?:\.\d+)+)\b", raw_t2))
+    if v1 and v2 and v1 != v2:
+        return False
+
+    words1 = [w for w in t1.split() if w not in _COMMON_STOP_WORDS and len(w) > 1]
+    words2 = [w for w in t2.split() if w not in _COMMON_STOP_WORDS and len(w) > 1]
+    if len(words1) < 2 or len(words2) < 2:
         return False
 
     set1, set2 = set(words1), set(words2)
 
+    # Distinct organization subjects (e.g. Epic vs Google)
+    o1 = set1 & _ORGANIZATION_NAMES
+    o2 = set2 & _ORGANIZATION_NAMES
+    if o1 and o2 and o1 != o2:
+        return False
+
     # Distinct model variant check: prevent merging different models from the same family
-    model_variants = {
-        "sonnet", "haiku", "opus", "mini", "flash", "pro", "r1", "v3", "o1", "o3",
-        "canvas", "sora", "large", "medium", "small", "base", "max", "ultra",
-    }
-    m1 = set1 & model_variants
-    m2 = set2 & model_variants
+    m1 = set1 & _MODEL_VARIANTS
+    m2 = set2 & _MODEL_VARIANTS
     if m1 and m2 and m1 != m2:
+        return False
+
+    # Distinct subdomain/aspect check (e.g. Robotics vs general release, Safety vs general release)
+    s1 = set1 & _SUBDOMAIN_ASPECTS
+    s2 = set2 & _SUBDOMAIN_ASPECTS
+    if s1 != s2:
         return False
 
     intersection = set1 & set2
@@ -164,7 +210,17 @@ def are_articles_closely_related(
     jaccard = len(intersection) / len(union)
     dice = (2.0 * len(intersection)) / (len(set1) + len(set2))
 
-    return jaccard >= 0.50 or dice >= 0.60
+    if jaccard >= 0.50 or dice >= 0.60:
+        return True
+
+    # Shared specific model compound release coverage (excluding generic terms like 'ai', 'google', 'model')
+    specific_inter = intersection - _GENERIC_ORGANIZATION_AND_AI
+    if len(specific_inter) >= 2 or any(entity in specific_inter for entity in ["argon", "retrochimera", "skala"]):
+        has_release = bool((set1 & _RELEASE_ACTIONS) or (set2 & _RELEASE_ACTIONS))
+        if has_release and not s1 and not s2:
+            return True
+
+    return False
 
 
 def are_titles_duplicate(title1: str, title2: str) -> bool:

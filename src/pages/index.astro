@@ -194,7 +194,7 @@ function formatLastUpdated(iso: string | undefined): string {
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 animate-reveal">
         <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
           <div class="max-w-2xl">
-            <div class="inline-flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase px-2.5 py-1 rounded border border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 mb-3">
+            <div class="inline-flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase px-2.5 py-1 rounded border border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 mb-3">
               <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400"></span>
               <span>Frontier Intelligence Stream</span>
             </div>
@@ -209,12 +209,12 @@ function formatLastUpdated(iso: string | undefined): string {
           <!-- Fast section jump navigation -->
           <nav aria-label="Page sections" class="flex items-center gap-2 flex-wrap font-mono text-[10px]">
             <span class="text-theme-muted uppercase tracking-wider">Jump to:</span>
-            <a href="#todays-brief" class="px-2.5 py-1 rounded border border-theme-border bg-theme-surface text-theme-secondary hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-theme-border-accent transition-colors">Today's Brief</a>
-            <a href="#priority-intelligence" class="px-2.5 py-1 rounded border border-theme-border bg-theme-surface text-theme-secondary hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-theme-border-accent transition-colors">Priority Intel</a>
-            <a href="#latest-coverage" class="px-2.5 py-1 rounded border border-theme-border bg-theme-surface text-theme-secondary hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-theme-border-accent transition-colors">Latest News</a>
-            <a href="#intelligence-hubs" class="px-2.5 py-1 rounded border border-theme-border bg-theme-surface text-theme-secondary hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-theme-border-accent transition-colors">Hubs</a>
+            <a href="#todays-brief" class="px-2.5 py-1 rounded border border-theme-border bg-theme-surface text-theme-secondary hover:text-emerald-700 dark:hover:text-emerald-400 hover:border-theme-border-accent transition-colors">Today's Brief</a>
+            <a href="#priority-intelligence" class="px-2.5 py-1 rounded border border-theme-border bg-theme-surface text-theme-secondary hover:text-emerald-700 dark:hover:text-emerald-400 hover:border-theme-border-accent transition-colors">Priority Intel</a>
+            <a href="#latest-coverage" class="px-2.5 py-1 rounded border border-theme-border bg-theme-surface text-theme-secondary hover:text-emerald-700 dark:hover:text-emerald-400 hover:border-theme-border-accent transition-colors">Latest News</a>
+            <a href="#intelligence-hubs" class="px-2.5 py-1 rounded border border-theme-border bg-theme-surface text-theme-secondary hover:text-emerald-700 dark:hover:text-emerald-400 hover:border-theme-border-accent transition-colors">Hubs</a>
             <span class="text-theme-muted hidden sm:inline">&middot;</span>
-            <a href={`${base}/feedback/`} class="px-2.5 py-1 rounded border border-theme-border bg-theme-surface text-theme-muted hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-theme-border-accent transition-colors" title="Send feedback or report an issue">Send Feedback</a>
+            <a href={`${base}/feedback/`} class="px-2.5 py-1 rounded border border-theme-border bg-theme-surface text-theme-muted hover:text-emerald-700 dark:hover:text-emerald-400 hover:border-theme-border-accent transition-colors" title="Send feedback or report an issue">Send Feedback</a>
           </nav>
         </div>
 
@@ -261,11 +261,11 @@ function formatLastUpdated(iso: string | undefined): string {
           </h2>
           {
             briefMode === "today" ? (
-              <span class="font-mono text-[9px] text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded tracking-wide">
+              <span class="font-mono text-[9px] text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded tracking-wide">
                 Live Daily Coverage
               </span>
             ) : briefMode === "recent" ? (
-              <span class="font-mono text-[9px] text-amber-500 dark:text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded tracking-wide">
+              <span class="font-mono text-[9px] text-amber-800 dark:text-amber-300 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded tracking-wide">
                 Past 7 Days Highlights (limited coverage today)
               </span>
             ) : (
@@ -277,7 +277,7 @@ function formatLastUpdated(iso: string | undefined): string {
         </div>
         <a
           href={`${base}/news/?sort=important`}
-          class="font-mono text-[10px] text-theme-muted hover:text-emerald-600 dark:hover:text-emerald-400 tracking-wide transition-colors"
+          class="font-mono text-[10px] text-theme-muted hover:text-emerald-700 dark:hover:text-emerald-400 tracking-wide transition-colors"
         >
           Priority stream →
         </a>
@@ -296,7 +296,7 @@ function formatLastUpdated(iso: string | undefined): string {
                 <div>
                   <div class="flex items-center justify-between gap-2 mb-2 flex-wrap">
                     <div class="flex items-center gap-1.5">
-                      <span class="font-mono text-[9px] text-amber-500 dark:text-amber-300 bg-amber-500/10 border border-amber-500/30 uppercase tracking-wider px-1.5 py-0.5 rounded">
+                      <span class="font-mono text-[9px] text-amber-800 dark:text-amber-300 bg-amber-500/10 border border-amber-500/30 uppercase tracking-wider px-1.5 py-0.5 rounded">
                         {article.priority_label || "Must Know"}
                       </span>
                       <span class="font-mono text-[10px] text-theme-muted">
@@ -308,7 +308,7 @@ function formatLastUpdated(iso: string | undefined): string {
                     </time>
                   </div>
                   <h3 class="text-sm font-semibold text-theme-primary mb-2 leading-snug">
-                    <a href={article.url} target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                    <a href={article.url} target="_blank" rel="noopener noreferrer" class="hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors">
                       {article.title}
                     </a>
                   </h3>
@@ -317,7 +317,7 @@ function formatLastUpdated(iso: string | undefined): string {
                   </p>
                   {article.why_it_matters && !isGenericWhy(article.why_it_matters) && (
                     <div class="bg-theme-elevated border border-theme-border rounded px-2.5 py-1.5 text-[11px] text-theme-secondary font-mono leading-relaxed mb-3">
-                      <span class="text-emerald-600 dark:text-emerald-400 font-medium mr-1.5 uppercase tracking-wider text-[9px]">Why it matters:</span>
+                      <span class="text-emerald-700 dark:text-emerald-400 font-medium mr-1.5 uppercase tracking-wider text-[9px]">Why it matters:</span>
                       {article.why_it_matters}
                     </div>
                   )}
@@ -330,7 +330,7 @@ function formatLastUpdated(iso: string | undefined): string {
                     href={article.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="font-mono text-[10px] text-theme-muted hover:text-emerald-600 dark:hover:text-emerald-400 inline-flex items-center gap-1"
+                    class="font-mono text-[10px] text-theme-muted hover:text-emerald-700 dark:hover:text-emerald-400 inline-flex items-center gap-1"
                   >
                     <span>Read source</span>
                     <span>↗</span>
@@ -358,7 +358,7 @@ function formatLastUpdated(iso: string | undefined): string {
             </div>
             <a
               href={`${base}/news/?sort=important`}
-              class="font-mono text-[10px] text-theme-muted hover:text-emerald-600 dark:hover:text-emerald-400 tracking-wide transition-colors"
+              class="font-mono text-[10px] text-theme-muted hover:text-emerald-700 dark:hover:text-emerald-400 tracking-wide transition-colors"
             >
               View all high-signal stories →
             </a>
@@ -369,7 +369,7 @@ function formatLastUpdated(iso: string | undefined): string {
               <div class="bg-theme-surface border border-theme-border rounded-lg p-4 flex flex-col justify-between hover:border-theme-border-accent hover:bg-theme-hover transition-colors">
                 <div>
                   <div class="flex items-center justify-between gap-1 mb-2">
-                    <span class="font-mono text-[9px] text-amber-500 dark:text-amber-300 bg-amber-500/10 border border-amber-500/30 uppercase tracking-wider px-1.5 py-0.5 rounded">
+                    <span class="font-mono text-[9px] text-amber-800 dark:text-amber-300 bg-amber-500/10 border border-amber-500/30 uppercase tracking-wider px-1.5 py-0.5 rounded">
                       {article.priority_label || "Must Know"}
                     </span>
                     <time class="font-mono text-[9px] text-theme-dim">
@@ -377,7 +377,7 @@ function formatLastUpdated(iso: string | undefined): string {
                     </time>
                   </div>
                   <h3 class="text-xs font-semibold text-theme-primary mb-2 line-clamp-2 leading-snug">
-                    <a href={article.url} target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                    <a href={article.url} target="_blank" rel="noopener noreferrer" class="hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors">
                       {article.title}
                     </a>
                   </h3>
@@ -387,7 +387,7 @@ function formatLastUpdated(iso: string | undefined): string {
                 </div>
                 <div class="pt-2 border-t border-theme-border-subtle flex items-center justify-between font-mono text-[10px]">
                   <span class="text-theme-muted">{article.company}</span>
-                  <a href={article.url} target="_blank" rel="noopener noreferrer" class="text-theme-muted hover:text-emerald-600 dark:hover:text-emerald-400">
+                  <a href={article.url} target="_blank" rel="noopener noreferrer" class="text-theme-muted hover:text-emerald-700 dark:hover:text-emerald-400">
                     Source ↗
                   </a>
                 </div>
@@ -406,7 +406,7 @@ function formatLastUpdated(iso: string | undefined): string {
         </h2>
         <a
           href={`${base}/news/`}
-          class="font-mono text-[10px] text-theme-muted hover:text-emerald-600 dark:hover:text-emerald-400 tracking-wide transition-colors"
+          class="font-mono text-[10px] text-theme-muted hover:text-emerald-700 dark:hover:text-emerald-400 tracking-wide transition-colors"
         >
           View all {realArticles.length} articles →
         </a>
@@ -489,14 +489,14 @@ function formatLastUpdated(iso: string | undefined): string {
             >
               <div>
                 <div class="flex items-center justify-between mb-2">
-                  <span class="font-mono text-[10px] text-emerald-600 dark:text-emerald-400 tracking-widest uppercase">
+                  <span class="font-mono text-[10px] text-emerald-700 dark:text-emerald-400 tracking-widest uppercase">
                     {tag}
                   </span>
-                  <span class="font-mono text-xs text-theme-muted group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                  <span class="font-mono text-xs text-theme-muted group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
                     →
                   </span>
                 </div>
-                <h3 class="text-sm font-semibold text-theme-primary group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors mb-2">
+                <h3 class="text-sm font-semibold text-theme-primary group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors mb-2">
                   {title}
                 </h3>
                 <p class="text-xs text-theme-secondary leading-relaxed font-mono">
@@ -512,7 +512,7 @@ function formatLastUpdated(iso: string | undefined): string {
         <span>Help refine our coverage, models catalogue, and benchmark accuracy.</span>
         <a
           href={`${base}/feedback/`}
-          class="text-theme-secondary hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-1.5"
+          class="text-theme-secondary hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-1.5"
         >
           <span>Report an issue or suggest a feature</span>
           <span>→</span>

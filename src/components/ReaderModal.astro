@@ -75,7 +75,7 @@
       <!-- Title -->
       <h2
         id="reader-modal-title"
-        class="text-lg sm:text-xl font-bold text-theme-primary leading-snug"
+        class="font-sans text-lg sm:text-xl font-bold text-theme-primary leading-snug"
       >
       </h2>
 
@@ -88,27 +88,27 @@
       <!-- AI-Generated TL;DR Container -->
       <div
         id="reader-modal-tldr-box"
-        class="bg-theme-elevated border border-theme-border rounded-lg p-3.5 space-y-2.5 font-mono text-xs text-theme-secondary"
+        class="bg-theme-elevated border border-theme-border rounded-lg p-3.5 space-y-2.5 text-theme-secondary"
       >
-        <div class="text-[9px] uppercase tracking-wider text-theme-muted font-semibold mb-1 flex items-center justify-between">
+        <div class="font-mono text-[9px] uppercase tracking-wider text-theme-muted font-semibold mb-1 flex items-center justify-between">
           <span class="flex items-center gap-1.5">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
             AI-Synthesized Briefing
           </span>
-          <span class="text-[9px] text-emerald-600 dark:text-emerald-400 font-medium">Verified Analysis</span>
+          <span class="text-[9px] text-emerald-700 dark:text-emerald-400 font-medium">Verified Analysis</span>
         </div>
-        <div class="space-y-2 text-[11px] leading-relaxed">
+        <div class="space-y-2 leading-relaxed">
           <div class="flex items-start gap-2">
-            <span class="text-emerald-600 dark:text-emerald-400 font-bold shrink-0">What happened:</span>
-            <span id="reader-modal-point-1" class="text-theme-secondary"></span>
+            <span class="font-mono text-emerald-700 dark:text-emerald-400 font-bold shrink-0 text-xs">What happened:</span>
+            <span id="reader-modal-point-1" class="font-sans text-[13.5px] text-theme-secondary"></span>
           </div>
           <div class="flex items-start gap-2">
-            <span class="text-emerald-600 dark:text-emerald-400 font-bold shrink-0">Why it matters:</span>
-            <span id="reader-modal-point-2" class="text-theme-secondary"></span>
+            <span class="font-mono text-emerald-700 dark:text-emerald-400 font-bold shrink-0 text-xs">Why it matters:</span>
+            <span id="reader-modal-point-2" class="font-sans text-[13.5px] text-theme-secondary"></span>
           </div>
           <div class="flex items-start gap-2">
-            <span class="text-emerald-600 dark:text-emerald-400 font-bold shrink-0">Who is affected:</span>
-            <span id="reader-modal-point-3" class="text-theme-secondary"></span>
+            <span class="font-mono text-emerald-700 dark:text-emerald-400 font-bold shrink-0 text-xs">Who is affected:</span>
+            <span id="reader-modal-point-3" class="font-sans text-[13.5px] text-theme-secondary"></span>
           </div>
         </div>
       </div>
@@ -116,10 +116,10 @@
       <!-- Single Why It Matters fallback (when TL;DR points not available) -->
       <div
         id="reader-modal-why-box"
-        class="hidden bg-theme-elevated border border-theme-border rounded px-3 py-2 text-xs text-theme-secondary font-mono leading-relaxed"
+        class="hidden bg-theme-elevated border border-theme-border rounded px-3 py-2 text-theme-secondary leading-relaxed"
       >
-        <span class="text-emerald-600 dark:text-emerald-400 font-semibold mr-1.5 uppercase tracking-wider text-[10px]">Why it matters:</span>
-        <span id="reader-modal-why-text"></span>
+        <span class="font-mono text-emerald-700 dark:text-emerald-400 font-semibold mr-1.5 uppercase tracking-wider text-[10px]">Why it matters:</span>
+        <span id="reader-modal-why-text" class="font-sans text-[13.5px] text-theme-secondary"></span>
       </div>
 
       <!-- Summary / Excerpt -->
@@ -127,7 +127,7 @@
         <h3 class="font-mono text-[10px] text-theme-muted uppercase tracking-wider">Executive Summary</h3>
         <p
           id="reader-modal-summary"
-          class="text-xs sm:text-sm text-theme-secondary leading-relaxed"
+          class="font-sans text-[13.5px] sm:text-sm text-theme-secondary leading-relaxed"
         >
         </p>
       </div>
@@ -151,7 +151,7 @@
         <button
           type="button"
           id="reader-bookmark-action"
-          class="btn-interactive inline-flex items-center gap-1.5 font-mono text-xs px-3 py-1.5 rounded border border-theme-border hover:border-theme-border-accent text-theme-muted hover:text-amber-500 bg-theme-elevated cursor-pointer"
+          class="btn-interactive inline-flex items-center gap-1.5 font-mono text-xs px-3 py-1.5 rounded border border-theme-border hover:border-theme-border-accent text-theme-muted hover:text-amber-800 dark:hover:text-amber-300 bg-theme-elevated cursor-pointer"
         >
           <svg id="reader-bookmark-icon" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
@@ -262,10 +262,10 @@
       if (bookmarkIcon) {
         bookmarkIcon.setAttribute("fill", saved ? "currentColor" : "none");
         if (saved) {
-          bookmarkIcon.parentElement?.classList.add("text-amber-500");
+          bookmarkIcon.parentElement?.classList.add("text-amber-800", "dark:text-amber-300");
           bookmarkIcon.parentElement?.classList.remove("text-theme-muted");
         } else {
-          bookmarkIcon.parentElement?.classList.remove("text-amber-500");
+          bookmarkIcon.parentElement?.classList.remove("text-amber-800", "dark:text-amber-300");
           bookmarkIcon.parentElement?.classList.add("text-theme-muted");
         }
       }
@@ -288,12 +288,21 @@
       // Category badge
       if (catEl) {
         catEl.textContent = article.category;
+        const catMap: Record<string, string> = {
+          "News": "text-sky-700 dark:text-sky-400 bg-sky-500/10 border-sky-500/20",
+          "Research": "text-violet-700 dark:text-violet-400 bg-violet-500/10 border-violet-500/20",
+          "Benchmark": "text-amber-800 dark:text-amber-300 bg-amber-500/10 border-amber-500/20",
+          "Product Release": "text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
+          "Opinion": "text-rose-700 dark:text-rose-400 bg-rose-500/10 border-rose-500/20",
+        };
+        const cStyle = catMap[article.category] || catMap["News"];
+        catEl.className = `font-mono text-[10px] font-medium tracking-widest uppercase px-2 py-0.5 rounded border ${cStyle}`;
       }
 
       // Impact score badge
       if (impactEl) {
         if (typeof article.impact_score === "number" && article.impact_score >= 8) {
-          impactEl.className = "font-mono text-[9px] font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded border border-amber-500/40 bg-amber-500/10 text-amber-500 dark:text-amber-300";
+          impactEl.className = "font-mono text-[9px] font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded border border-amber-500/40 bg-amber-500/10 text-amber-800 dark:text-amber-300";
           impactEl.textContent = `High Impact · ${article.impact_score}/10`;
           impactEl.classList.remove("hidden");
         } else if (typeof article.impact_score === "number" && article.impact_score >= 6) {
@@ -352,7 +361,7 @@
           const baseUrl = document.querySelector<HTMLAnchorElement>("a[href*='/news/']")?.href || "/ai-pulse/news/";
           tagsEl.innerHTML = tags.map((t) => `
             <a href="${baseUrl}?q=${encodeURIComponent(t.toLowerCase())}"
-               class="tag-pill chip-interactive text-[10px] font-mono text-theme-muted bg-theme-elevated hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-theme-border-accent px-2 py-0.5 rounded border border-theme-border"
+               class="tag-pill chip-interactive text-[10px] font-mono text-theme-muted bg-theme-elevated hover:text-emerald-700 dark:hover:text-emerald-400 hover:border-theme-border-accent px-2 py-0.5 rounded border border-theme-border"
                data-tag="${t.toLowerCase()}">
                #${t}
             </a>
@@ -368,7 +377,7 @@
           sourcesContainer.classList.remove("hidden");
           sourcesEl.innerHTML = article.sources.slice(1).map((s) => `
             <a href="${s.url}" target="_blank" rel="noopener noreferrer"
-               class="text-theme-muted hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-1 border border-theme-border px-2 py-0.5 rounded bg-theme-elevated">
+               class="text-theme-muted hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-1 border border-theme-border px-2 py-0.5 rounded bg-theme-elevated">
               <span>${s.publisher || "Source"}</span>
               <span>↗</span>
             </a>
@@ -540,11 +549,11 @@
           const nowSaved = !isSaved;
           btn.setAttribute("aria-pressed", nowSaved ? "true" : "false");
           if (nowSaved) {
-            btn.classList.add("text-amber-500");
+            btn.classList.add("text-amber-800", "dark:text-amber-300");
             btn.classList.remove("text-theme-muted");
             icon.setAttribute("fill", "currentColor");
           } else {
-            btn.classList.remove("text-amber-500");
+            btn.classList.remove("text-amber-800", "dark:text-amber-300");
             btn.classList.add("text-theme-muted");
             icon.setAttribute("fill", "none");
           }

@@ -93,12 +93,12 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/data/feed.json src/data/benchmarks.json src/data/models.json
+          git add src/data/feed.json src/data/benchmarks.json src/data/models.json src/data/model-updates.json
           # Only commit if the files changed.
           if git diff --staged --quiet; then
             echo "No changes to data files — nothing to commit."
           else
-            git commit -m "chore: update feed, benchmark, and model catalog data [skip ci]"
+            git commit -m "chore: update feed, benchmark, model catalog, and model updates data [skip ci]"
             git push
           fi
           echo "commit_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"

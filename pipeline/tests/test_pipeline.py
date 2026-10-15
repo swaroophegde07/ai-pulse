@@ -33,6 +33,7 @@ from pipeline.run import (
     load_existing_feed,
     merge_records,
     prepare_article,
+    reconcile_existing_feed,
     validate_record,
     write_feed_atomic,
 )
@@ -2753,6 +2754,87 @@ class TestAiRelevanceGate(unittest.TestCase):
             )[0]
         )
 
+    def test_rejects_mixed_newsletter_false_positive_with_incidental_mention(self):
+        # Known false positive record: "The Download: drone traffic controllers" with peripheral Anthropic footnote
+        is_rel, reason = is_article_ai_relevant(
+            title="The Download: drone traffic controllers",
+            text="Testing radar drone traffic controller systems across commercial air corridors. In brief: Anthropic tests model.",
+            source_name="MIT Technology Review",
+        )
+        self.assertFalse(is_rel)
+        self.assertTrue("drone traffic controllers" in reason.lower() or "unrelated topic" in reason.lower())
+
+    def test_rejects_non_ai_entertainment_and_industrial_distractors(self):
+        # DistroKid music royalties
+        self.assertFalse(
+            is_article_ai_relevant(
+                title="DistroKid announces direct digital distribution for indie musicians",
+                text="Music distribution platform simplifies royalty payouts and track uploads.",
+            )[0]
+        )
+        # Cage matches
+        self.assertFalse(
+            is_article_ai_relevant(
+                title="Human cage matches and underground martial arts fight clubs gain popularity",
+                text="Combat sports promoters organize unlicensed martial arts tournaments.",
+            )[0]
+        )
+        # Brimstone kiln
+        self.assertFalse(
+            is_article_ai_relevant(
+                title="Brimstone raises funding for zero-carbon cement and kiln technologies",
+                text="Decarbonizing industrial concrete manufacturing with calcium silicate rocks.",
+            )[0]
+        )
+
+    def test_accepts_cross_domain_ml_breakthroughs(self):
+        # Space weather risk prediction
+        self.assertTrue(
+            is_article_ai_relevant(
+                title="Machine learning model predicts geomagnetic storms and space weather risks",
+                text="Researchers train deep neural networks on solar wind telemetry to forecast solar coronal mass ejections.",
+            )[0]
+        )
+        # Skala genomic interpretation
+        self.assertTrue(
+            is_article_ai_relevant(
+                title="Skala: deep learning for pathogenic variant effect prediction across non-coding human genomes",
+                text="Transformer-based genome sequence model predicts regulatory mutation effects.",
+            )[0]
+        )
+        # RetroChimera retrosynthesis
+        self.assertTrue(
+            is_article_ai_relevant(
+                title="RetroChimera: AI retrosynthesis models accelerate organic molecule drug discovery",
+                text="Deep neural generative models map reaction pathways for chemical synthesis.",
+            )[0]
+        )
+        # Surrogate plasma physics
+        self.assertTrue(
+            is_article_ai_relevant(
+                title="Surrogate models and gradient-boosting predict plasma turbulence in fusion reactors",
+                text="Machine learning surrogates accelerate magnetohydrodynamic simulation runs.",
+            )[0]
+        )
+
+    def test_dedicated_source_audit(self):
+        # Verified feed cs.AI accepted
+        self.assertTrue(
+            is_article_ai_relevant(
+                title="Empirical scaling laws for multi-modal reasoning architectures",
+                text="Analysis of cross-entropy loss across parameter scales.",
+                source_name="arXiv cs.AI",
+            )[0]
+        )
+        # Non-AI category under broad publisher without AI terms does not bypass
+        self.assertFalse(
+            is_article_ai_relevant(
+                title="Ergodic properties of non-Markovian Brownian motion in random media",
+                text="Stochastic calculus proofs for anomalous diffusion in porous rocks.",
+                source_name="arXiv math.PR",
+            )[0]
+        )
+
 
 # ===========================================================================
 # Split Mixed Newsletter Tests
@@ -2787,6 +2869,24 @@ class TestSplitMixedNewsletter(unittest.TestCase):
         res = split_mixed_newsletter(single_article)
         self.assertEqual(len(res), 1)
         self.assertEqual(res[0]["title"], single_article["title"])
+
+    def test_split_mixed_newsletter_does_not_create_fragment_urls(self):
+        newsletter = {
+            "title": "The Download: AI reasoning advancements, plus electric cargo ships",
+            "text": "First story: Frontier models achieve new milestones in multi-step planning and tool use. Second story: Marine cargo ships transition to hydrogen fuel cells.",
+            "url": "https://technologyreview.com/download-ai-and-cargo-ships",
+            "source": "MIT Technology Review",
+            "company": "MIT Tech Review",
+        }
+        segments = split_mixed_newsletter(newsletter)
+        self.assertGreaterEqual(len(segments), 1)
+        for seg in segments:
+            # Must NOT invent #section or #fragment URLs
+            self.assertNotIn("#", seg["url"])
+            self.assertEqual(seg["url"], "https://technologyreview.com/download-ai-and-cargo-ships")
+            # Must assign unique deterministic 16-char ID
+            self.assertIn("id", seg)
+            self.assertEqual(len(seg["id"]), 16)
 
 
 # ===========================================================================
@@ -2841,6 +2941,60 @@ class TestCloselyRelatedArticles(unittest.TestCase):
         }
         self.assertFalse(are_articles_closely_related(art_old, art_new))
 
+    def test_groups_gemini_4_argon_announcement_and_media_coverage(self):
+        deepmind_art = {
+            "title": "Gemini 4 Argon: Built to solve your hardest problems",
+            "company": "Google DeepMind",
+            "date": "2026-10-14T09:00:00+00:00",
+            "url": "https://deepmind.google/discover/blog/gemini-4-argon/",
+        }
+        verge_art = {
+            "title": "Google finally releases Gemini 4 Argon",
+            "company": "The Verge",
+            "date": "2026-10-14T11:15:00+00:00",
+            "url": "https://theverge.com/ai/gemini-4-argon-launch",
+        }
+        # Shared specific model compound ("Gemini 4 Argon") with release framing on same day should be merged
+        self.assertTrue(are_articles_closely_related(deepmind_art, verge_art))
+
+    def test_keeps_subdomain_robotics_and_safety_distinct(self):
+        core_art = {
+            "title": "Gemini 4 Argon: Built to solve your hardest problems",
+            "company": "Google DeepMind",
+            "date": "2026-10-14T09:00:00+00:00",
+            "url": "https://deepmind.google/discover/blog/gemini-4-argon/",
+        }
+        robotics_art = {
+            "title": "Gemini 4 Argon in Robotics: Spatial intelligence for physical manipulation",
+            "company": "Google DeepMind",
+            "date": "2026-10-14T09:30:00+00:00",
+            "url": "https://deepmind.google/discover/blog/gemini-4-argon-robotics/",
+        }
+        safety_art = {
+            "title": "Evaluating Gemini 4 Argon responsibly and safely",
+            "company": "Google DeepMind",
+            "date": "2026-10-14T09:45:00+00:00",
+            "url": "https://deepmind.google/discover/blog/gemini-4-argon-safety/",
+        }
+        # Subdomain / aspect specializations must NOT be collapsed into the primary release
+        self.assertFalse(are_articles_closely_related(core_art, robotics_art))
+        self.assertFalse(are_articles_closely_related(core_art, safety_art))
+
+    def test_distinguishes_software_release_versions_and_divergent_subjects(self):
+        v141 = {
+            "title": "vLLM releases v0.6.3 with optimized speculative decoding",
+            "company": "vLLM",
+            "date": "2026-10-14T10:00:00+00:00",
+            "url": "https://github.com/vllm-project/vllm/releases/tag/v0.6.3",
+        }
+        v140 = {
+            "title": "vLLM releases v0.6.2 with optimized speculative decoding",
+            "company": "vLLM",
+            "date": "2026-10-14T10:00:00+00:00",
+            "url": "https://github.com/vllm-project/vllm/releases/tag/v0.6.2",
+        }
+        self.assertFalse(are_articles_closely_related(v141, v140))
+
 
 # ===========================================================================
 # LiveBench 2.0 Adapter Tests
@@ -2886,6 +3040,96 @@ class TestLiveBench20Adapter(unittest.TestCase):
         bad_csv = "invalid,header,without,model\n1,2,3,4\n"
         records = self.adapter.parse_table_data(bad_csv, release_date="bad_release", generation="2.0")
         self.assertEqual(records, [])
+
+
+# ===========================================================================
+# Reconcile Existing Feed Tests
+# ===========================================================================
+
+
+class TestReconcileExistingFeed(unittest.TestCase):
+    def test_reconciles_feed_strips_fragments_removes_distractors_and_merges_coverage(self):
+        sample_records = [
+            {
+                "id": "aaa111",
+                "title": "Gemini 4 Argon: Built to solve your hardest problems",
+                "company": "Google DeepMind",
+                "source": "Google DeepMind",
+                "date": "2026-10-14T09:00:00+00:00",
+                "fetched_at": "2026-10-14T09:00:00+00:00",
+                "url": "https://deepmind.google/blog/gemini-4-argon/#intro",
+                "summary": "DeepMind releases Gemini 4 Argon frontier reasoning model.",
+                "category": "Product Release",
+            },
+            {
+                "id": "bbb222",
+                "title": "Google finally releases Gemini 4 Argon",
+                "company": "The Verge",
+                "source": "The Verge",
+                "date": "2026-10-14T11:00:00+00:00",
+                "fetched_at": "2026-10-14T11:00:00+00:00",
+                "url": "https://theverge.com/gemini-4-argon#comments",
+                "summary": "The Verge reports on Google releasing Gemini 4 Argon.",
+                "category": "News",
+            },
+            {
+                "id": "ccc333",
+                "title": "The Download: drone traffic controllers",
+                "company": "MIT Tech Review",
+                "source": "MIT Technology Review",
+                "date": "2026-10-14T12:00:00+00:00",
+                "fetched_at": "2026-10-14T12:00:00+00:00",
+                "url": "https://technologyreview.com/download-drones",
+                "summary": "Drone air traffic control towers. In brief: Anthropic model.",
+                "category": "News",
+            },
+            {
+                "id": "ddd444",
+                "title": "Machine learning predicts space weather risks",
+                "company": "arXiv",
+                "source": "arXiv cs.LG",
+                "date": "2026-10-14T13:00:00+00:00",
+                "fetched_at": "2026-10-14T13:00:00+00:00",
+                "url": "https://arxiv.org/abs/2610.12345",
+                "summary": "Deep surrogate models forecast solar flares and coronal mass ejections.",
+                "category": "Research",
+            },
+        ]
+        with tempfile.TemporaryDirectory() as tmpdir:
+            feed_file = Path(tmpdir) / "feed.json"
+            feed_file.write_text(json.dumps(sample_records, indent=2), encoding="utf-8")
+
+            # Run 1: reconcile
+            report1 = reconcile_existing_feed(feed_path=feed_file)
+            self.assertEqual(report1["total_removed"], 1)
+            self.assertEqual(report1["total_merged_coverage"], 1)
+            self.assertEqual(report1["fragment_urls_cleaned"], 2)
+
+            with open(feed_file, "r", encoding="utf-8") as f:
+                reconciled1 = json.load(f)
+
+            self.assertEqual(len(reconciled1), 2)
+            # Fragment removed from canonical base
+            self.assertEqual(reconciled1[0]["url"], "https://deepmind.google/blog/gemini-4-argon/")
+            # Merged source
+            self.assertIn("sources", reconciled1[0])
+            self.assertEqual(len(reconciled1[0]["sources"]), 1)
+            self.assertEqual(reconciled1[0]["sources"][0]["url"], "https://theverge.com/gemini-4-argon")
+            # Drone traffic distractor removed
+            titles = [r["title"] for r in reconciled1]
+            self.assertNotIn("The Download: drone traffic controllers", titles)
+            self.assertIn("Machine learning predicts space weather risks", titles)
+
+            # Run 2: idempotency test
+            report2 = reconcile_existing_feed(feed_path=feed_file)
+            self.assertEqual(report2["total_removed"], 0)
+            self.assertEqual(report2["total_merged_coverage"], 0)
+            self.assertEqual(report2["fragment_urls_cleaned"], 0)
+
+            with open(feed_file, "r", encoding="utf-8") as f:
+                reconciled2 = json.load(f)
+
+            self.assertEqual(reconciled1, reconciled2)
 
 
 if __name__ == "__main__":

@@ -79,7 +79,7 @@ const { categories, publishers, topics } = Astro.props;
           type="button"
           id="high-impact-view-btn"
           data-high-impact="false"
-          class="chip-interactive font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border border-theme-border text-amber-500/90 hover:text-amber-500 hover:border-amber-500/40 bg-theme-surface"
+          class="chip-interactive font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border border-theme-border text-amber-800 dark:text-amber-300 hover:text-amber-900 dark:hover:text-amber-200 hover:border-amber-500/40 bg-theme-surface"
           aria-pressed="false"
         >
           High Impact (<span id="high-impact-count">0</span>)
@@ -89,7 +89,7 @@ const { categories, publishers, topics } = Astro.props;
           type="button"
           id="saved-view-btn"
           data-saved-view="false"
-          class="chip-interactive font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border border-theme-border text-amber-500/90 hover:text-amber-500 hover:border-amber-500/40 bg-theme-surface"
+          class="chip-interactive font-mono text-[10px] tracking-widest uppercase px-3 py-1.5 rounded border border-theme-border text-amber-800 dark:text-amber-300 hover:text-amber-900 dark:hover:text-amber-200 hover:border-amber-500/40 bg-theme-surface"
           aria-pressed="false"
         >
           Saved (<span id="saved-count">0</span>)
@@ -100,7 +100,7 @@ const { categories, publishers, topics } = Astro.props;
       <button
         type="button"
         id="toggle-filters-btn"
-        class="btn-interactive font-mono text-[11px] text-theme-secondary hover:text-emerald-600 dark:hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-500 inline-flex items-center gap-1.5 py-1.5 px-2.5 rounded border border-theme-border hover:border-theme-border-accent bg-theme-surface cursor-pointer shrink-0"
+        class="btn-interactive font-mono text-[11px] text-theme-secondary hover:text-emerald-700 dark:hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-500 inline-flex items-center gap-1.5 py-1.5 px-2.5 rounded border border-theme-border hover:border-theme-border-accent bg-theme-surface cursor-pointer shrink-0"
         aria-expanded="false"
         aria-controls="advanced-filters"
       >
@@ -108,7 +108,7 @@ const { categories, publishers, topics } = Astro.props;
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
         </svg>
         <span>Filters & Sort</span>
-        <span id="active-filters-count" class="hidden font-mono text-[9px] bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 px-1 rounded font-semibold">0</span>
+        <span id="active-filters-count" class="hidden font-mono text-[9px] bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30 px-1 rounded font-semibold">0</span>
       </button>
     </div>
   </div>
@@ -189,7 +189,7 @@ const { categories, publishers, topics } = Astro.props;
       type="button"
       id="reset-all-filters-btn"
       style="display: none;"
-      class="btn-interactive font-mono text-[10px] text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 underline underline-offset-4 cursor-pointer"
+      class="btn-interactive font-mono text-[10px] text-emerald-700 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-300 underline underline-offset-4 cursor-pointer"
     >
       Clear all filters
     </button>
@@ -298,11 +298,11 @@ const { categories, publishers, topics } = Astro.props;
           const isSaved = saved.includes(id);
           btn.setAttribute("aria-pressed", isSaved ? "true" : "false");
           if (isSaved) {
-            btn.classList.add("text-amber-500");
+            btn.classList.add("text-amber-800", "dark:text-amber-300");
             btn.classList.remove("text-theme-muted");
             icon.setAttribute("fill", "currentColor");
           } else {
-            btn.classList.remove("text-amber-500");
+            btn.classList.remove("text-amber-800", "dark:text-amber-300");
             btn.classList.add("text-theme-muted");
             icon.setAttribute("fill", "none");
           }
@@ -624,15 +624,15 @@ const { categories, publishers, topics } = Astro.props;
       if (highImpactViewBtn) {
         highImpactViewBtn.setAttribute("data-high-impact", "false");
         highImpactViewBtn.setAttribute("aria-pressed", "false");
-        highImpactViewBtn.classList.remove("bg-amber-500/20", "text-amber-500", "dark:text-amber-300", "border-amber-500/40");
-        highImpactViewBtn.classList.add("text-amber-500/90", "border-theme-border", "bg-theme-surface");
+        highImpactViewBtn.classList.remove("bg-amber-500/20", "text-amber-800", "dark:text-amber-300", "border-amber-500/40");
+        highImpactViewBtn.classList.add("text-amber-800", "dark:text-amber-300", "border-theme-border", "bg-theme-surface");
       }
 
       if (savedViewBtn) {
         savedViewBtn.setAttribute("data-saved-view", "false");
         savedViewBtn.setAttribute("aria-pressed", "false");
-        savedViewBtn.classList.remove("bg-amber-500/20", "text-amber-500", "dark:text-amber-300", "border-amber-500/40");
-        savedViewBtn.classList.add("text-amber-500/90", "border-theme-border", "bg-theme-surface");
+        savedViewBtn.classList.remove("bg-amber-500/20", "text-amber-800", "dark:text-amber-300", "border-amber-500/40");
+        savedViewBtn.classList.add("text-amber-800", "dark:text-amber-300", "border-theme-border", "bg-theme-surface");
       }
 
       categoryBtns.forEach((b) => {
@@ -678,14 +678,14 @@ const { categories, publishers, topics } = Astro.props;
         if (highImpactViewBtn) {
           highImpactViewBtn.setAttribute("data-high-impact", "false");
           highImpactViewBtn.setAttribute("aria-pressed", "false");
-          highImpactViewBtn.classList.remove("bg-amber-500/20", "text-amber-500", "dark:text-amber-300", "border-amber-500/40");
-          highImpactViewBtn.classList.add("text-amber-500/90", "border-theme-border", "bg-theme-surface");
+          highImpactViewBtn.classList.remove("bg-amber-500/20", "border-amber-500/40");
+          highImpactViewBtn.classList.add("text-amber-800", "dark:text-amber-300", "border-theme-border", "bg-theme-surface");
         }
         if (savedViewBtn) {
           savedViewBtn.setAttribute("data-saved-view", "false");
           savedViewBtn.setAttribute("aria-pressed", "false");
-          savedViewBtn.classList.remove("bg-amber-500/20", "text-amber-500", "dark:text-amber-300", "border-amber-500/40");
-          savedViewBtn.classList.add("text-amber-500/90", "border-theme-border", "bg-theme-surface");
+          savedViewBtn.classList.remove("bg-amber-500/20", "border-amber-500/40");
+          savedViewBtn.classList.add("text-amber-800", "dark:text-amber-300", "border-theme-border", "bg-theme-surface");
         }
 
         categoryBtns.forEach((b) => {
@@ -708,14 +708,14 @@ const { categories, publishers, topics } = Astro.props;
           if (savedViewBtn) {
             savedViewBtn.setAttribute("data-saved-view", "false");
             savedViewBtn.setAttribute("aria-pressed", "false");
-            savedViewBtn.classList.remove("bg-amber-500/20", "text-amber-500", "dark:text-amber-300", "border-amber-500/40");
-            savedViewBtn.classList.add("text-amber-500/90", "border-theme-border", "bg-theme-surface");
+            savedViewBtn.classList.remove("bg-amber-500/20", "border-amber-500/40");
+            savedViewBtn.classList.add("text-amber-800", "dark:text-amber-300", "border-theme-border", "bg-theme-surface");
           }
-          highImpactViewBtn.classList.add("bg-amber-500/20", "text-amber-500", "dark:text-amber-300", "border-amber-500/40");
-          highImpactViewBtn.classList.remove("text-amber-500/90", "border-theme-border", "bg-theme-surface");
+          highImpactViewBtn.classList.add("bg-amber-500/20", "border-amber-500/40");
+          highImpactViewBtn.classList.remove("border-theme-border", "bg-theme-surface");
         } else {
-          highImpactViewBtn.classList.remove("bg-amber-500/20", "text-amber-500", "dark:text-amber-300", "border-amber-500/40");
-          highImpactViewBtn.classList.add("text-amber-500/90", "border-theme-border", "bg-theme-surface");
+          highImpactViewBtn.classList.remove("bg-amber-500/20", "border-amber-500/40");
+          highImpactViewBtn.classList.add("text-amber-800", "dark:text-amber-300", "border-theme-border", "bg-theme-surface");
         }
         currentPage = 1;
         filterAndSort();
@@ -729,21 +729,21 @@ const { categories, publishers, topics } = Astro.props;
         if (highImpactViewBtn) {
           highImpactViewBtn.setAttribute("data-high-impact", "false");
           highImpactViewBtn.setAttribute("aria-pressed", "false");
-          highImpactViewBtn.classList.remove("bg-amber-500/20", "text-amber-500", "dark:text-amber-300", "border-amber-500/40");
-          highImpactViewBtn.classList.add("text-amber-500/90", "border-theme-border", "bg-theme-surface");
+          highImpactViewBtn.classList.remove("bg-amber-500/20", "border-amber-500/40");
+          highImpactViewBtn.classList.add("text-amber-800", "dark:text-amber-300", "border-theme-border", "bg-theme-surface");
         }
         savedViewBtn.setAttribute("data-saved-view", activeSavedOnly ? "true" : "false");
         savedViewBtn.setAttribute("aria-pressed", activeSavedOnly ? "true" : "false");
         if (activeSavedOnly) {
-          savedViewBtn.classList.add("bg-amber-500/20", "text-amber-500", "dark:text-amber-300", "border-amber-500/40");
-          savedViewBtn.classList.remove("text-amber-500/90", "border-theme-border", "bg-theme-surface");
+          savedViewBtn.classList.add("bg-amber-500/20", "border-amber-500/40");
+          savedViewBtn.classList.remove("border-theme-border", "bg-theme-surface");
           // Deselect category pills visually
           categoryBtns.forEach((b) => {
             setCategoryBtnActive(b, false);
           });
         } else {
-          savedViewBtn.classList.remove("bg-amber-500/20", "text-amber-500", "dark:text-amber-300", "border-amber-500/40");
-          savedViewBtn.classList.add("text-amber-500/90", "border-theme-border", "bg-theme-surface");
+          savedViewBtn.classList.remove("bg-amber-500/20", "border-amber-500/40");
+          savedViewBtn.classList.add("text-amber-800", "dark:text-amber-300", "border-theme-border", "bg-theme-surface");
         }
         currentPage = 1;
         filterAndSort();
