@@ -1,0 +1,252 @@
+[
+  {
+    "id": "openai_news",
+    "provider_id": "openai",
+    "provider_name": "OpenAI",
+    "display_name": "OpenAI News & Releases",
+    "url": "https://openai.com/news/rss.xml",
+    "source_type": "official_primary_source",
+    "access_method": "rss",
+    "update_categories": [
+      "model_release",
+      "capability_change",
+      "product_update",
+      "research_release"
+    ],
+    "enabled": true,
+    "notes": "Official OpenAI News RSS feed covering model launches (o3-mini, o1, GPT-4o), research releases, and platform capabilities."
+  },
+  {
+    "id": "openai_api_changelog",
+    "provider_id": "openai",
+    "provider_name": "OpenAI",
+    "display_name": "OpenAI API Changelog",
+    "url": "https://developers.openai.com/api/docs/changelog",
+    "source_type": "official_primary_source",
+    "access_method": "html",
+    "update_categories": [
+      "model_release",
+      "capability_change",
+      "api_availability",
+      "pricing_change",
+      "context_window_change",
+      "deprecation"
+    ],
+    "enabled": true,
+    "notes": "Official OpenAI developer API changelog for API model versions, structured outputs, pricing, context windows, and deprecations."
+  },
+  {
+    "id": "anthropic_news",
+    "provider_id": "anthropic",
+    "provider_name": "Anthropic",
+    "display_name": "Anthropic Newsroom",
+    "url": "https://www.anthropic.com/news/rss",
+    "source_type": "official_primary_source",
+    "access_method": "rss",
+    "update_categories": [
+      "model_release",
+      "capability_change",
+      "research_release"
+    ],
+    "enabled": true,
+    "notes": "Official Anthropic RSS feed covering Claude model announcements, capability upgrades, and research publications."
+  },
+  {
+    "id": "anthropic_claude_release_notes",
+    "provider_id": "anthropic",
+    "provider_name": "Anthropic",
+    "display_name": "Claude Platform Release Notes",
+    "url": "https://platform.claude.com/docs/en/release-notes/overview",
+    "source_type": "official_primary_source",
+    "access_method": "html",
+    "update_categories": [
+      "model_release",
+      "capability_change",
+      "api_availability",
+      "pricing_change",
+      "deprecation"
+    ],
+    "enabled": true,
+    "notes": "Technical release notes for the Claude developer platform, model endpoints, extended thinking, and computer use."
+  },
+  {
+    "id": "google_deepmind_blog",
+    "provider_id": "google",
+    "provider_name": "Google DeepMind",
+    "display_name": "Google DeepMind Blog",
+    "url": "https://deepmind.google/blog/rss.xml",
+    "source_type": "official_primary_source",
+    "access_method": "rss",
+    "update_categories": [
+      "model_release",
+      "capability_change",
+      "research_release"
+    ],
+    "enabled": true,
+    "notes": "Official Google DeepMind RSS feed covering Gemini and Gemma frontier model architectures, AlphaFold, and scientific breakthroughs."
+  },
+  {
+    "id": "google_gemini_changelog",
+    "provider_id": "google",
+    "provider_name": "Google DeepMind",
+    "display_name": "Google Gemini API Changelog",
+    "url": "https://ai.google.dev/gemini-api/docs/changelog",
+    "source_type": "official_primary_source",
+    "access_method": "html",
+    "update_categories": [
+      "model_release",
+      "capability_change",
+      "api_availability",
+      "pricing_change",
+      "context_window_change",
+      "deprecation"
+    ],
+    "enabled": true,
+    "notes": "Official Google Gemini API developer changelog for model checkpoints (Gemini 2.0 Flash/Pro, 1.5 Pro/Flash), pricing tiers, and context limits."
+  },
+  {
+    "id": "meta_ai_blog",
+    "provider_id": "meta",
+    "provider_name": "Meta AI",
+    "display_name": "Meta AI Blog",
+    "url": "https://ai.meta.com/blog/rss.xml",
+    "source_type": "official_primary_source",
+    "access_method": "rss",
+    "update_categories": [
+      "model_release",
+      "capability_change",
+      "research_release"
+    ],
+    "enabled": true,
+    "notes": "Official Meta AI research blog for open-weight Llama family releases (Llama 3.3, 3.2, 3.1) and technical documentation."
+  },
+  {
+    "id": "meta_newsroom",
+    "provider_id": "meta",
+    "provider_name": "Meta AI",
+    "display_name": "Meta Newsroom (AI)",
+    "url": "https://about.fb.com/news/category/technology/artificial-intelligence/",
+    "source_type": "official_primary_source",
+    "access_method": "html",
+    "update_categories": [
+      "model_release",
+      "product_update"
+    ],
+    "enabled": true,
+    "notes": "Corporate newsroom for major Llama releases and consumer Meta AI assistant updates. Filtered strictly to AI developments."
+  },
+  {
+    "id": "deepseek_api_updates",
+    "provider_id": "deepseek",
+    "provider_name": "DeepSeek",
+    "display_name": "DeepSeek API Updates",
+    "url": "https://api-docs.deepseek.com/updates/",
+    "source_type": "official_primary_source",
+    "access_method": "html",
+    "update_categories": [
+      "model_release",
+      "capability_change",
+      "api_availability",
+      "pricing_change",
+      "context_window_change"
+    ],
+    "enabled": true,
+    "notes": "Official DeepSeek documentation updates covering DeepSeek-R1, DeepSeek-V3, reasoning endpoints, and API pricing."
+  },
+  {
+    "id": "mistral_release_notes",
+    "provider_id": "mistral",
+    "provider_name": "Mistral AI",
+    "display_name": "Mistral AI Release Notes",
+    "url": "https://docs.mistral.ai/resources/release-notes",
+    "source_type": "official_primary_source",
+    "access_method": "html",
+    "update_categories": [
+      "model_release",
+      "capability_change",
+      "api_availability",
+      "pricing_change"
+    ],
+    "enabled": true,
+    "notes": "Official Mistral documentation release notes covering Mistral Large, Pixtral, Devstral, and Codestral endpoints."
+  },
+  {
+    "id": "cohere_changelog",
+    "provider_id": "cohere",
+    "provider_name": "Cohere",
+    "display_name": "Cohere API Changelog",
+    "url": "https://docs.cohere.com/v2/changelog",
+    "source_type": "official_primary_source",
+    "access_method": "html",
+    "update_categories": [
+      "model_release",
+      "capability_change",
+      "api_availability",
+      "deprecation"
+    ],
+    "enabled": true,
+    "notes": "Official Cohere v2 changelog for Command R+, Embed, Rerank, and API platform updates."
+  },
+  {
+    "id": "xai_api_release_notes",
+    "provider_id": "xai",
+    "provider_name": "xAI",
+    "display_name": "xAI API Release Notes",
+    "url": "https://docs.x.ai/developers/release-notes",
+    "source_type": "official_primary_source",
+    "access_method": "html",
+    "update_categories": [
+      "model_release",
+      "capability_change",
+      "api_availability",
+      "pricing_change"
+    ],
+    "enabled": true,
+    "notes": "Official xAI API developer release notes covering Grok-2, Grok-2 mini, vision endpoints, and API capabilities."
+  },
+  {
+    "id": "xai_grok_consumer_notes",
+    "provider_id": "xai",
+    "provider_name": "xAI",
+    "display_name": "Grok Web Release Notes",
+    "url": "https://grok.com/release-notes",
+    "source_type": "official_primary_source",
+    "access_method": "manual_only",
+    "update_categories": [
+      "product_update"
+    ],
+    "enabled": false,
+    "notes": "Grok consumer web interface release notes. Client-side SPA rendered with JavaScript without a public feed; designated as manual-only."
+  },
+  {
+    "id": "huggingface_blog",
+    "provider_id": "huggingface",
+    "provider_name": "Hugging Face",
+    "display_name": "Hugging Face Blog",
+    "url": "https://huggingface.co/blog/feed.xml",
+    "source_type": "official_primary_source",
+    "access_method": "atom",
+    "update_categories": [
+      "model_release",
+      "research_release"
+    ],
+    "enabled": true,
+    "notes": "Official Hugging Face Blog feed covering major open-weights releases, SmolLM, and open-source AI community benchmarks."
+  },
+  {
+    "id": "microsoft_azure_ai_updates",
+    "provider_id": "microsoft",
+    "provider_name": "Microsoft",
+    "display_name": "Azure AI Updates",
+    "url": "https://azure.microsoft.com/en-us/updates/?category=ai-machine-learning",
+    "source_type": "official_primary_source",
+    "access_method": "html",
+    "update_categories": [
+      "model_release",
+      "capability_change",
+      "api_availability"
+    ],
+    "enabled": true,
+    "notes": "Official Azure AI service updates covering Phi model series availability, Azure OpenAI model versions, and foundry services."
+  }
+]

@@ -1053,6 +1053,13 @@ def run_pipeline(
     except Exception as b_exc:
         logger.warning("Benchmark pipeline execution error (non-fatal): %s", b_exc)
 
+    # 8b. Run official model updates synchronization (fails safely without corrupting news feed).
+    try:
+        from pipeline.models.updates import sync_model_updates
+        sync_model_updates()
+    except Exception as u_exc:
+        logger.warning("Model updates synchronization error (non-fatal): %s", u_exc)
+
     # 9. Generate pipeline status snapshot recording health across feeds and benchmarks.
     try:
         generate_pipeline_status(feed_records=merged)
@@ -1071,6 +1078,11 @@ if __name__ == "__main__":
     if "--reconcile-feed" in sys.argv:
         stats = reconcile_existing_feed()
         logger.info("Reconciliation complete: %s", stats)
+        sys.exit(0)
+    if "--update-model-notes" in sys.argv:
+        from pipeline.models.updates import sync_model_updates
+        total, added = sync_model_updates()
+        logger.info("Model updates sync complete: %d total records (%d added).", total, added)
         sys.exit(0)
     try:
         added = run_pipeline()

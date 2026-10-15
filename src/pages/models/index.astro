@@ -1,11 +1,12 @@
 ---
-// src/pages/models/index.astro — Model Tracker
+// src/pages/models/index.astro — Model Tracker & Official Changelog
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import NewsCard from "../../components/NewsCard.astro";
 import Footer from "../../components/Footer.astro";
 import feedData from "../../data/feed.json";
 import modelsData from "../../data/models.json";
+import modelUpdatesData from "../../data/model-updates.json";
 
 interface FeedRecord {
   id: string;
@@ -57,6 +58,26 @@ interface ModelRecord {
   verification_sources?: Record<string, string>;
 }
 
+interface ModelUpdateRecord {
+  id: string;
+  provider_id: string;
+  provider_name: string;
+  title: string;
+  summary: string;
+  update_type: string;
+  scope: string;
+  model_name?: string | null;
+  model_family?: string | null;
+  model_id?: string | null;
+  published_at?: string | null;
+  detected_at: string;
+  source_type: string;
+  source_url: string;
+  verification_status: string;
+  source_id: string;
+  provider_claims?: string[];
+}
+
 const feed = feedData as FeedRecord[];
 const models = (modelsData as ModelRecord[]).slice().sort((a, b) => {
   const da = a.release_date ? new Date(a.release_date).getTime() : 0;
@@ -66,6 +87,27 @@ const models = (modelsData as ModelRecord[]).slice().sort((a, b) => {
 });
 const featuredFrontierModels = models.filter((m) => m.is_featured_frontier);
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+// Sort model updates chronologically descending
+const modelUpdates = (modelUpdatesData as ModelUpdateRecord[]).slice().sort((a, b) => {
+  const da = a.published_at ? new Date(a.published_at).getTime() : 0;
+  const db = b.published_at ? new Date(b.published_at).getTime() : 0;
+  if (da !== db) return db - da;
+  return new Date(b.detected_at).getTime() - new Date(a.detected_at).getTime();
+});
+
+// Map model IDs to their official update records
+const updatesByModelId = new Map<string, ModelUpdateRecord[]>();
+for (const u of modelUpdates) {
+  if (u.model_id) {
+    const list = updatesByModelId.get(u.model_id) || [];
+    list.push(u);
+    updatesByModelId.set(u.model_id, list);
+  }
+}
+
+// Providers for model updates filter
+const updateProviders = ["All", ...Array.from(new Set(modelUpdates.map((u) => u.provider_name)))];
 
 // Only real articles
 const realArticles = feed.filter((a) => !a._demo);
@@ -91,33 +133,89 @@ function formatTokens(tokens: number): string {
   return `${Math.round(tokens / 1000)}k`;
 }
 
+function formatUpdateTypeLabel(t: string): string {
+  switch (t) {
+    case "model_release":
+      return "Model Release";
+    case "capability_change":
+      return "Capability";
+    case "pricing_change":
+      return "Pricing";
+    case "context_window_change":
+      return "Context Window";
+    case "api_availability":
+      return "API";
+    case "modality_change":
+      return "Modality";
+    case "deprecation":
+      return "Deprecation";
+    case "product_update":
+      return "Product";
+    case "research_release":
+      return "Research";
+    default:
+      return t.replace(/_/g, " ");
+  }
+}
+
+function getUpdateBadgeClass(t: string): string {
+  switch (t) {
+    case "model_release":
+      return "border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400";
+    case "capability_change":
+      return "border-blue-500/30 bg-blue-500/10 text-blue-700 dark:text-blue-400";
+    case "pricing_change":
+      return "border-amber-500/30 bg-amber-500/10 text-amber-800 dark:text-amber-400";
+    case "context_window_change":
+      return "border-cyan-500/30 bg-cyan-500/10 text-cyan-800 dark:text-cyan-400";
+    case "api_availability":
+      return "border-indigo-500/30 bg-indigo-500/10 text-indigo-700 dark:text-indigo-400";
+    case "deprecation":
+      return "border-rose-500/30 bg-rose-500/10 text-rose-700 dark:text-rose-400";
+    case "product_update":
+      return "border-purple-500/30 bg-purple-500/10 text-purple-700 dark:text-purple-400";
+    case "research_release":
+      return "border-teal-500/30 bg-teal-500/10 text-teal-800 dark:text-teal-400";
+    default:
+      return "border-theme-border bg-theme-elevated text-theme-secondary";
+  }
+}
+
 const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))];
 ---
 
-<Layout title="AI Models Tracker — AI Pulse">
+<Layout title="AI Models Tracker & Official Changelog — AI Pulse">
   <Header currentPath="/models/" />
 
   <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
     <!-- Header banner -->
     <div class="mb-10 animate-reveal">
       <div class="inline-flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase px-2.5 py-1 rounded border border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 mb-3">
-        <span>Verified Specifications</span>
+        <span>Verified Specifications &amp; Official Changelogs</span>
       </div>
       <h1 class="text-2xl sm:text-3xl font-bold text-theme-primary tracking-tight mb-2">
-        Model Tracker
+        Model Tracker &amp; Updates
       </h1>
       <p class="text-sm text-theme-secondary leading-relaxed max-w-3xl">
-        Frontier architecture specifications, verified context windows, API & consumer pricing, modalities, and open-weights licensing across leading research labs.
+        Frontier architecture specifications, verified context windows, API &amp; consumer pricing, modalities, open-weights licensing, and traceable official release notes across leading research labs.
       </p>
     </div>
 
     <!-- Quick stats overview -->
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
       <div class="border border-theme-border bg-theme-surface p-4 rounded-lg">
         <span class="font-mono text-[10px] text-theme-muted tracking-widest uppercase block mb-1">
           Cataloged Models
         </span>
         <span class="font-mono text-xl font-bold text-theme-primary">{models.length}</span>
+      </div>
+      <div class="border border-theme-border bg-theme-surface p-4 rounded-lg">
+        <span class="font-mono text-[10px] text-theme-muted tracking-widest uppercase block mb-1">
+          Official Updates
+        </span>
+        <span class="font-mono text-xl font-bold text-blue-700 dark:text-blue-400">
+          {modelUpdates.length}
+        </span>
       </div>
       <div class="border border-theme-border bg-theme-surface p-4 rounded-lg">
         <span class="font-mono text-[10px] text-theme-muted tracking-widest uppercase block mb-1">
@@ -161,71 +259,358 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {
-          featuredFrontierModels.map((m) => (
-            <div class="border border-theme-border bg-theme-surface rounded-lg p-5 flex flex-col justify-between hover:border-theme-border-accent transition-colors">
-              <div>
-                <div class="flex items-center justify-between gap-2 mb-2.5">
-                  <span class="font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded border border-theme-border bg-theme-elevated text-theme-secondary">
-                    {m.provider}
-                  </span>
-                  <span
-                    class={`font-mono text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded border ${
-                      m.license_type.includes("Open")
-                        ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400"
-                        : "border-blue-500/30 bg-blue-500/10 text-blue-600 dark:text-blue-400"
-                    }`}
+          featuredFrontierModels.map((m) => {
+            const historyCount = (updatesByModelId.get(m.id) || []).length;
+            return (
+              <div class="border border-theme-border bg-theme-surface rounded-lg p-5 flex flex-col justify-between hover:border-theme-border-accent transition-colors">
+                <div>
+                  <div class="flex items-center justify-between gap-2 mb-2.5">
+                    <span class="font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded border border-theme-border bg-theme-elevated text-theme-secondary">
+                      {m.provider}
+                    </span>
+                    <span
+                      class={`font-mono text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded border ${
+                        m.license_type.includes("Open")
+                          ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400"
+                          : "border-blue-500/30 bg-blue-500/10 text-blue-600 dark:text-blue-400"
+                      }`}
+                    >
+                      {m.license_type}
+                    </span>
+                  </div>
+
+                  <h3 class="text-sm font-bold text-theme-primary mb-1">
+                    {m.name}
+                  </h3>
+                  <p class="text-[11px] text-theme-secondary mb-4 line-clamp-2">
+                    {m.notes || `${m.provider} foundation model in the ${m.family} family.`}
+                  </p>
+
+                  <div class="grid grid-cols-2 gap-2 text-[11px] font-mono border-t border-theme-border-subtle pt-3 mb-3">
+                    <div>
+                      <span class="text-[10px] text-theme-muted block">Context Window</span>
+                      <span class="font-semibold text-theme-primary">
+                        {formatTokens(m.context_window)} tokens
+                      </span>
+                    </div>
+                    <div>
+                      <span class="text-[10px] text-theme-muted block">Pricing / 1M In/Out</span>
+                      <span class="font-semibold text-theme-primary">
+                        {m.pricing
+                          ? `$${m.pricing.input_per_1m.toFixed(2)} / $${m.pricing.output_per_1m.toFixed(2)}`
+                          : "Not specified"}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex items-center justify-between pt-2 border-t border-theme-border-subtle font-mono text-[10px]">
+                  <button
+                    type="button"
+                    class="view-changelog-btn inline-flex items-center gap-1.5 text-theme-primary hover:text-theme-accent transition-colors cursor-pointer"
+                    data-model-id={m.id}
+                    data-model-name={m.name}
+                    data-provider={m.provider}
                   >
-                    {m.license_type}
-                  </span>
-                </div>
-
-                <h3 class="text-sm font-bold text-theme-primary mb-1">
-                  {m.name}
-                </h3>
-                <p class="text-[11px] text-theme-secondary mb-4 line-clamp-2">
-                  {m.notes || `${m.provider} foundation model in the ${m.family} family.`}
-                </p>
-
-                <div class="grid grid-cols-2 gap-2 text-[11px] font-mono border-t border-theme-border-subtle pt-3 mb-3">
-                  <div>
-                    <span class="text-[10px] text-theme-muted block">Context Window</span>
-                    <span class="font-semibold text-theme-primary">
-                      {formatTokens(m.context_window)} tokens
+                    <span>Changelog</span>
+                    <span class={`px-1 py-0.2 rounded text-[9px] ${
+                      historyCount > 0
+                        ? "bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-bold"
+                        : "bg-theme-elevated text-theme-muted"
+                    }`}>
+                      {historyCount}
                     </span>
-                  </div>
-                  <div>
-                    <span class="text-[10px] text-theme-muted block">Pricing / 1M In/Out</span>
-                    <span class="font-semibold text-theme-primary">
-                      {m.pricing
-                        ? `$${m.pricing.input_per_1m.toFixed(2)} / $${m.pricing.output_per_1m.toFixed(2)}`
-                        : "Not specified"}
-                    </span>
-                  </div>
+                  </button>
+                  <a
+                    href={m.documentation_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-theme-muted hover:text-theme-accent transition-colors inline-flex items-center gap-1"
+                  >
+                    Docs ↗
+                  </a>
                 </div>
               </div>
-
-              <div class="flex items-center justify-between pt-2 border-t border-theme-border-subtle font-mono text-[10px]">
-                <span class="text-theme-muted">
-                  Released: {m.release_date || "Active"}
-                </span>
-                <a
-                  href={m.documentation_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-theme-muted hover:text-theme-accent transition-colors inline-flex items-center gap-1"
-                >
-                  Docs ↗
-                </a>
-              </div>
-            </div>
-          ))
+            );
+          })
         }
+      </div>
+    </section>
+
+    <!-- Dedicated Official Model Updates & Release Notes Section -->
+    <section id="model-updates" class="mb-14 border border-theme-border bg-theme-surface rounded-lg p-5 sm:p-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+        <div>
+          <div class="inline-flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase px-2 py-0.5 rounded border border-blue-500/30 bg-blue-500/10 text-blue-700 dark:text-blue-400 mb-1.5">
+            <span>Official Release Notes</span>
+          </div>
+          <h2 class="text-base sm:text-lg font-bold text-theme-primary tracking-tight">
+            Official Model Updates &amp; Changelog
+          </h2>
+          <p class="text-xs text-theme-muted font-mono mt-0.5">
+            Verified model releases, API capabilities, pricing updates, and deprecations from official lab sources.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 text-[11px] font-mono text-theme-muted">
+          <span id="update-count-label">Showing {modelUpdates.length} updates</span>
+        </div>
+      </div>
+
+      <!-- Controls: Search + Provider Filter + Update Type + Time Period -->
+      <div class="flex flex-col gap-3.5 mb-6">
+        <div class="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center justify-between">
+          <!-- Text Search -->
+          <div class="w-full sm:w-80 relative">
+            <label for="update-search-input" class="sr-only">Search model updates</label>
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-theme-muted">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+            </div>
+            <input
+              type="search"
+              id="update-search-input"
+              placeholder="Search updates, models, providers..."
+              class="w-full bg-theme-input border border-theme-border rounded pl-9 pr-8 py-2 text-xs text-theme-primary placeholder:text-theme-placeholder font-mono focus:outline-none focus:border-theme-accent"
+            />
+            <button
+              type="button"
+              id="clear-update-search"
+              style="display: none;"
+              class="absolute inset-y-0 right-0 pr-2.5 flex items-center text-theme-muted hover:text-theme-primary transition-colors cursor-pointer"
+              aria-label="Clear update search"
+            >
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Time Period filter -->
+          <div class="flex items-center gap-1.5" role="group" aria-label="Filter updates by time period">
+            <span class="text-[10px] font-mono text-theme-muted mr-1 hidden sm:inline">Time:</span>
+            <button
+              type="button"
+              class="update-time-btn font-mono text-[10px] uppercase tracking-wider px-2.5 py-1 rounded border border-theme-border bg-theme-elevated text-theme-primary transition-colors cursor-pointer"
+              data-time="all"
+              aria-pressed="true"
+            >
+              All
+            </button>
+            <button
+              type="button"
+              class="update-time-btn font-mono text-[10px] uppercase tracking-wider px-2.5 py-1 rounded border border-theme-border text-theme-secondary hover:text-theme-primary hover:border-theme-border-accent transition-colors cursor-pointer"
+              data-time="30d"
+              aria-pressed="false"
+            >
+              30 Days
+            </button>
+            <button
+              type="button"
+              class="update-time-btn font-mono text-[10px] uppercase tracking-wider px-2.5 py-1 rounded border border-theme-border text-theme-secondary hover:text-theme-primary hover:border-theme-border-accent transition-colors cursor-pointer"
+              data-time="7d"
+              aria-pressed="false"
+            >
+              7 Days
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter rows: Providers & Update Types -->
+        <div class="flex flex-wrap items-center gap-1.5 text-xs">
+          <span class="text-[10px] font-mono text-theme-muted mr-1">Provider:</span>
+          <button
+            type="button"
+            class="update-provider-btn font-mono text-[10px] uppercase tracking-wider px-2.5 py-1 rounded border border-theme-border bg-theme-elevated text-theme-primary transition-colors cursor-pointer"
+            data-provider="all"
+            aria-pressed="true"
+          >
+            All
+          </button>
+          {
+            updateProviders.filter((p) => p !== "All").map((prov) => (
+              <button
+                type="button"
+                class="update-provider-btn font-mono text-[10px] uppercase tracking-wider px-2.5 py-1 rounded border border-theme-border text-theme-secondary hover:text-theme-primary hover:border-theme-border-accent transition-colors cursor-pointer"
+                data-provider={prov.toLowerCase()}
+                aria-pressed="false"
+              >
+                {prov}
+              </button>
+            ))
+          }
+        </div>
+
+        <div class="flex flex-wrap items-center gap-1.5 text-xs">
+          <span class="text-[10px] font-mono text-theme-muted mr-1">Type:</span>
+          <button
+            type="button"
+            class="update-type-btn font-mono text-[10px] uppercase tracking-wider px-2.5 py-1 rounded border border-theme-border bg-theme-elevated text-theme-primary transition-colors cursor-pointer"
+            data-type="all"
+            aria-pressed="true"
+          >
+            All Types
+          </button>
+          <button
+            type="button"
+            class="update-type-btn font-mono text-[10px] uppercase tracking-wider px-2.5 py-1 rounded border border-theme-border text-theme-secondary hover:text-theme-primary hover:border-theme-border-accent transition-colors cursor-pointer"
+            data-type="model_release"
+            aria-pressed="false"
+          >
+            Model Releases
+          </button>
+          <button
+            type="button"
+            class="update-type-btn font-mono text-[10px] uppercase tracking-wider px-2.5 py-1 rounded border border-theme-border text-theme-secondary hover:text-theme-primary hover:border-theme-border-accent transition-colors cursor-pointer"
+            data-type="capability_change"
+            aria-pressed="false"
+          >
+            Capabilities
+          </button>
+          <button
+            type="button"
+            class="update-type-btn font-mono text-[10px] uppercase tracking-wider px-2.5 py-1 rounded border border-theme-border text-theme-secondary hover:text-theme-primary hover:border-theme-border-accent transition-colors cursor-pointer"
+            data-type="pricing_change"
+            aria-pressed="false"
+          >
+            Pricing
+          </button>
+          <button
+            type="button"
+            class="update-type-btn font-mono text-[10px] uppercase tracking-wider px-2.5 py-1 rounded border border-theme-border text-theme-secondary hover:text-theme-primary hover:border-theme-border-accent transition-colors cursor-pointer"
+            data-type="api_availability"
+            aria-pressed="false"
+          >
+            API
+          </button>
+          <button
+            type="button"
+            class="update-type-btn font-mono text-[10px] uppercase tracking-wider px-2.5 py-1 rounded border border-theme-border text-theme-secondary hover:text-theme-primary hover:border-theme-border-accent transition-colors cursor-pointer"
+            data-type="deprecation"
+            aria-pressed="false"
+          >
+            Deprecations
+          </button>
+        </div>
+      </div>
+
+      <!-- Updates List / Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="updates-list">
+        {
+          modelUpdates.map((u) => {
+            const hasClaims = u.provider_claims && u.provider_claims.length > 0;
+            return (
+              <article
+                class="update-card border border-theme-border bg-theme-surface hover:border-theme-border-accent rounded-lg p-4 flex flex-col justify-between transition-colors"
+                data-id={u.id}
+                data-title={u.title.toLowerCase()}
+                data-summary={u.summary.toLowerCase()}
+                data-provider={u.provider_name.toLowerCase()}
+                data-provider-id={u.provider_id.toLowerCase()}
+                data-model={u.model_name ? u.model_name.toLowerCase() : ""}
+                data-family={u.model_family ? u.model_family.toLowerCase() : ""}
+                data-model-id={u.model_id || ""}
+                data-type={u.update_type}
+                data-scope={u.scope}
+                data-published={u.published_at || ""}
+              >
+                <div>
+                  <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                    <div class="flex items-center gap-1.5 flex-wrap">
+                      <span class="font-mono text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded border border-theme-border bg-theme-elevated text-theme-secondary">
+                        {u.provider_name}
+                      </span>
+                      <span
+                        class={`font-mono text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded border ${getUpdateBadgeClass(
+                          u.update_type
+                        )}`}
+                      >
+                        {formatUpdateTypeLabel(u.update_type)}
+                      </span>
+                      <span class="font-mono text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded border border-theme-border-subtle bg-theme-elevated/50 text-theme-muted">
+                        Scope: {u.scope}
+                      </span>
+                    </div>
+                    <time class="font-mono text-[10px] text-theme-muted whitespace-nowrap">
+                      {u.published_at || "Date unconfirmed"}
+                    </time>
+                  </div>
+
+                  <h3 class="text-sm font-bold text-theme-primary mb-1.5 leading-snug">
+                    <a
+                      href={u.source_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="hover:text-theme-accent transition-colors"
+                    >
+                      {u.title}
+                    </a>
+                  </h3>
+
+                  <p class="text-xs text-theme-secondary leading-relaxed mb-3">
+                    {u.summary}
+                  </p>
+
+                  {hasClaims && (
+                    <div class="mb-3 text-[10px] font-mono p-2 rounded border border-amber-500/30 bg-amber-500/10 text-amber-800 dark:text-amber-300">
+                      <span>⚠️ Provider claim — not an independent benchmark result.</span>
+                    </div>
+                  )}
+                </div>
+
+                <div class="flex items-center justify-between pt-2.5 border-t border-theme-border-subtle font-mono text-[10px]">
+                  <div>
+                    {u.model_name ? (
+                      <span class="inline-flex items-center gap-1 text-theme-secondary font-medium">
+                        <span>Model:</span>
+                        <span class="text-theme-primary">{u.model_name}</span>
+                      </span>
+                    ) : u.model_family ? (
+                      <span class="inline-flex items-center gap-1 text-theme-muted">
+                        <span>Family:</span>
+                        <span class="text-theme-secondary">{u.model_family}</span>
+                      </span>
+                    ) : (
+                      <span class="text-theme-dim">General Platform</span>
+                    )}
+                  </div>
+                  <a
+                    href={u.source_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-theme-muted hover:text-theme-accent transition-colors inline-flex items-center gap-1"
+                    aria-label={`Official source for ${u.title} (opens in new tab)`}
+                  >
+                    <span>Official Source</span>
+                    <span>↗</span>
+                  </a>
+                </div>
+              </article>
+            );
+          })
+        }
+      </div>
+
+      <!-- Empty State -->
+      <div
+        id="no-updates-matched"
+        style="display: none;"
+        class="p-12 text-center font-mono text-xs text-theme-muted bg-theme-elevated/30 rounded-lg mt-4"
+      >
+        <p class="mb-3 text-theme-secondary">No model updates match the selected filters or search query.</p>
+        <button
+          type="button"
+          id="reset-updates-filter-btn"
+          class="font-mono text-[10px] uppercase tracking-wider text-theme-primary px-3 py-1.5 rounded border border-theme-border bg-theme-elevated hover:bg-theme-hover transition-colors cursor-pointer"
+        >
+          Reset update filters
+        </button>
       </div>
     </section>
 
     <!-- Complete Model Catalogue: Interactive Filters & Search -->
     <div class="border border-theme-border bg-theme-surface rounded-lg p-5 mb-8">
-      <div class="flex flex-col sm:row gap-4 justify-between items-start sm:items-center">
+      <div class="flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center">
         <!-- Search -->
         <div class="w-full sm:w-72 relative">
           <label for="model-search-input" class="sr-only">Search models</label>
@@ -257,7 +642,7 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
         <div class="flex flex-wrap gap-2" role="toolbar" aria-label="Filter models by category">
           <button
             type="button"
-            class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-theme-border bg-theme-elevated text-theme-primary transition-colors"
+            class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-theme-border bg-theme-elevated text-theme-primary transition-colors cursor-pointer"
             data-filter="all"
             aria-pressed="true"
           >
@@ -265,7 +650,7 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
           </button>
           <button
             type="button"
-            class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-theme-border text-theme-secondary hover:text-theme-primary hover:border-theme-border-accent transition-colors"
+            class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-theme-border text-theme-secondary hover:text-theme-primary hover:border-theme-border-accent transition-colors cursor-pointer"
             data-filter="reasoning"
             aria-pressed="false"
           >
@@ -273,7 +658,7 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
           </button>
           <button
             type="button"
-            class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-theme-border text-theme-secondary hover:text-theme-primary hover:border-theme-border-accent transition-colors"
+            class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-theme-border text-theme-secondary hover:text-theme-primary hover:border-theme-border-accent transition-colors cursor-pointer"
             data-filter="coding"
             aria-pressed="false"
           >
@@ -281,7 +666,7 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
           </button>
           <button
             type="button"
-            class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-theme-border text-theme-secondary hover:text-theme-primary hover:border-theme-border-accent transition-colors"
+            class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-theme-border text-theme-secondary hover:text-theme-primary hover:border-theme-border-accent transition-colors cursor-pointer"
             data-filter="multimodal"
             aria-pressed="false"
           >
@@ -289,7 +674,7 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
           </button>
           <button
             type="button"
-            class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-theme-border text-theme-secondary hover:text-theme-primary hover:border-theme-border-accent transition-colors"
+            class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-theme-border text-theme-secondary hover:text-theme-primary hover:border-theme-border-accent transition-colors cursor-pointer"
             data-filter="open"
             aria-pressed="false"
           >
@@ -297,7 +682,7 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
           </button>
           <button
             type="button"
-            class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-theme-border text-theme-secondary hover:text-theme-primary hover:border-theme-border-accent transition-colors"
+            class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-theme-border text-theme-secondary hover:text-theme-primary hover:border-theme-border-accent transition-colors cursor-pointer"
             data-filter="historical"
             aria-pressed="false"
           >
@@ -338,7 +723,7 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
 
       <div class="overflow-x-auto custom-scrollbar">
         <div class="block sm:hidden text-[10px] text-theme-muted font-mono px-6 py-2 bg-theme-elevated/80 border-b border-theme-border-subtle">
-          Swipe table horizontally for pricing & context details →
+          Swipe table horizontally for pricing &amp; context details →
         </div>
         <table class="w-full text-left text-xs font-mono" id="models-table">
           <thead>
@@ -350,98 +735,123 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
               <th class="py-3.5 pr-4 font-medium">Modalities</th>
               <th class="py-3.5 pr-4 font-medium cursor-pointer hover:text-theme-primary select-none" data-sort="price">Pricing (In / Out per 1M)</th>
               <th class="py-3.5 pr-4 font-medium">Availability</th>
+              <th class="py-3.5 pr-4 font-medium">Changelog</th>
               <th class="py-3.5 pr-6 text-right font-medium">Docs</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-theme-border-subtle text-theme-secondary">
             {
-              models.map((m) => (
-                <tr
-                  class="model-row hover:bg-theme-hover transition-colors"
-                  data-name={m.name.toLowerCase()}
-                  data-provider={m.provider.toLowerCase()}
-                  data-family={m.family.toLowerCase()}
-                  data-license={m.license_type.toLowerCase()}
-                  data-category={(m.category || "").toLowerCase()}
-                  data-modalities={(m.input_modalities || []).join(" ").toLowerCase()}
-                  data-status={(m.lifecycle_status || "").toLowerCase()}
-                  data-frontier={m.is_featured_frontier ? "true" : "false"}
-                  data-release={m.release_date || ""}
-                  data-context={m.context_window}
-                  data-price={m.pricing ? m.pricing.input_per_1m : 999999}
-                >
-                  <td class="py-4 pl-6 pr-4">
-                    <div class="flex items-center gap-2">
-                      <span class="font-semibold text-theme-primary">{m.name}</span>
-                      {m.category && (
-                        <span class="text-[9px] font-mono px-1.5 py-0.5 rounded border border-theme-border bg-theme-elevated text-theme-muted">
-                          {m.category}
-                        </span>
-                      )}
-                    </div>
-                  </td>
-                  <td class="py-4 pr-4 text-theme-primary font-medium">{m.provider}</td>
-                  <td class="py-4 pr-4 font-mono text-[11px] text-theme-secondary whitespace-nowrap">
-                    {m.release_date || "Active"}
-                  </td>
-                  <td class="py-4 pr-4 text-emerald-700 dark:text-emerald-400 font-semibold whitespace-nowrap">
-                    {formatTokens(m.context_window)} tokens
-                  </td>
-                  <td class="py-4 pr-4">
-                    <div class="text-[11px] text-theme-secondary">
-                      In: {(m.input_modalities || ["text"]).join(", ")}
-                    </div>
-                    <div class="text-[10px] text-theme-muted">
-                      Out: {(m.output_modalities || ["text"]).join(", ")}
-                    </div>
-                  </td>
-                  <td class="py-4 pr-4">
-                    {m.pricing ? (
-                      <div>
-                        <span class="text-theme-primary font-medium">
-                          ${m.pricing.input_per_1m.toFixed(2)}
-                        </span>{" "}
-                        /{" "}
-                        <span class="text-theme-secondary">
-                          ${m.pricing.output_per_1m.toFixed(2)}
-                        </span>
+              models.map((m) => {
+                const historyCount = (updatesByModelId.get(m.id) || []).length;
+                return (
+                  <tr
+                    class="model-row hover:bg-theme-hover transition-colors"
+                    data-name={m.name.toLowerCase()}
+                    data-provider={m.provider.toLowerCase()}
+                    data-family={m.family.toLowerCase()}
+                    data-license={m.license_type.toLowerCase()}
+                    data-category={(m.category || "").toLowerCase()}
+                    data-modalities={(m.input_modalities || []).join(" ").toLowerCase()}
+                    data-status={(m.lifecycle_status || "").toLowerCase()}
+                    data-frontier={m.is_featured_frontier ? "true" : "false"}
+                    data-release={m.release_date || ""}
+                    data-context={m.context_window}
+                    data-price={m.pricing ? m.pricing.input_per_1m : 999999}
+                  >
+                    <td class="py-4 pl-6 pr-4">
+                      <div class="flex items-center gap-2">
+                        <span class="font-semibold text-theme-primary">{m.name}</span>
+                        {m.category && (
+                          <span class="text-[9px] font-mono px-1.5 py-0.5 rounded border border-theme-border bg-theme-elevated text-theme-muted">
+                            {m.category}
+                          </span>
+                        )}
                       </div>
-                    ) : (
-                      <span class="text-theme-dim">Not verified</span>
-                    )}
-                  </td>
-                  <td class="py-4 pr-4">
-                    <span
-                      class={`inline-block px-2 py-0.5 rounded text-[10px] ${
-                        (m.license_type || "").includes("Open")
-                          ? "border border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400"
-                          : "border border-theme-border bg-theme-elevated text-theme-secondary"
-                      }`}
-                    >
-                      {m.license_type}
-                    </span>
-                    <div class="text-[9px] text-theme-muted mt-1 font-mono">
-                      {m.verification_sources?.telemetry
-                        ? `Telemetry: ${m.verification_sources.telemetry}`
-                        : m.consumer_available
-                          ? "API + Web Chat"
-                          : "API Only"}
-                    </div>
-                  </td>
-                  <td class="py-4 pr-6 text-right">
-                    <a
-                      href={m.documentation_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="inline-flex items-center gap-1 font-mono text-[10px] text-theme-muted hover:text-theme-accent transition-colors"
-                      aria-label={`Official docs for ${m.name} (opens in new tab)`}
-                    >
-                      <span>Docs</span>
-                      <span>↗</span>
-                    </a>
-                  </td>
-                </tr>
-              ))
+                    </td>
+                    <td class="py-4 pr-4 text-theme-primary font-medium">{m.provider}</td>
+                    <td class="py-4 pr-4 font-mono text-[11px] text-theme-secondary whitespace-nowrap">
+                      {m.release_date || "Active"}
+                    </td>
+                    <td class="py-4 pr-4 text-emerald-700 dark:text-emerald-400 font-semibold whitespace-nowrap">
+                      {formatTokens(m.context_window)} tokens
+                    </td>
+                    <td class="py-4 pr-4">
+                      <div class="text-[11px] text-theme-secondary">
+                        In: {(m.input_modalities || ["text"]).join(", ")}
+                      </div>
+                      <div class="text-[10px] text-theme-muted">
+                        Out: {(m.output_modalities || ["text"]).join(", ")}
+                      </div>
+                    </td>
+                    <td class="py-4 pr-4">
+                      {m.pricing ? (
+                        <div>
+                          <span class="text-theme-primary font-medium">
+                            ${m.pricing.input_per_1m.toFixed(2)}
+                          </span>{" "}
+                          /{" "}
+                          <span class="text-theme-secondary">
+                            ${m.pricing.output_per_1m.toFixed(2)}
+                          </span>
+                        </div>
+                      ) : (
+                        <span class="text-theme-dim">Not verified</span>
+                      )}
+                    </td>
+                    <td class="py-4 pr-4">
+                      <span
+                        class={`inline-block px-2 py-0.5 rounded text-[10px] ${
+                          (m.license_type || "").includes("Open")
+                            ? "border border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400"
+                            : "border border-theme-border bg-theme-elevated text-theme-secondary"
+                        }`}
+                      >
+                        {m.license_type}
+                      </span>
+                      <div class="text-[9px] text-theme-muted mt-1 font-mono">
+                        {m.verification_sources?.telemetry
+                          ? `Telemetry: ${m.verification_sources.telemetry}`
+                          : m.consumer_available
+                            ? "API + Web Chat"
+                            : "API Only"}
+                      </div>
+                    </td>
+                    <td class="py-4 pr-4">
+                      <button
+                        type="button"
+                        class="view-changelog-btn inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-[10px] font-mono border border-theme-border bg-theme-elevated hover:bg-theme-hover hover:border-theme-border-accent text-theme-primary transition-colors cursor-pointer"
+                        data-model-id={m.id}
+                        data-model-name={m.name}
+                        data-provider={m.provider}
+                        aria-label={`View official release history for ${m.name}`}
+                      >
+                        <span>History</span>
+                        <span
+                          class={`px-1 rounded text-[9px] ${
+                            historyCount > 0
+                              ? "bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-bold"
+                              : "bg-theme-surface text-theme-muted"
+                          }`}
+                        >
+                          {historyCount}
+                        </span>
+                      </button>
+                    </td>
+                    <td class="py-4 pr-6 text-right">
+                      <a
+                        href={m.documentation_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-1 font-mono text-[10px] text-theme-muted hover:text-theme-accent transition-colors"
+                        aria-label={`Official docs for ${m.name} (opens in new tab)`}
+                      >
+                        <span>Docs</span>
+                        <span>↗</span>
+                      </a>
+                    </td>
+                  </tr>
+                );
+              })
             }
           </tbody>
         </table>
@@ -456,7 +866,7 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
         <button
           type="button"
           id="reset-models-filter-btn"
-          class="font-mono text-[10px] uppercase tracking-wider text-theme-primary hover:text-theme-primary px-3 py-1.5 rounded border border-theme-border bg-theme-elevated hover:bg-theme-hover transition-colors cursor-pointer"
+          class="font-mono text-[10px] uppercase tracking-wider text-theme-primary px-3 py-1.5 rounded border border-theme-border bg-theme-elevated hover:bg-theme-hover transition-colors cursor-pointer"
         >
           Reset model filters
         </button>
@@ -481,7 +891,7 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
       <div class="flex items-center justify-between mb-6">
         <div>
           <h2 class="text-xs font-mono text-theme-muted tracking-widest uppercase">
-            Model Releases & Architecture Coverage ({modelArticles.length})
+            Model Releases &amp; Architecture Coverage ({modelArticles.length})
           </h2>
           <p class="text-[11px] text-theme-muted font-mono mt-0.5">
             Verified release announcements and model drop coverage from provider blogs.
@@ -532,13 +942,386 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
         )
       }
     </section>
+
+    <!-- Accessible Modal for Model-Specific Changelog History -->
+    <div
+      id="model-changelog-modal"
+      class="fixed inset-0 z-50 items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+      style="display: none;"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-model-title"
+    >
+      <div class="bg-theme-surface border border-theme-border rounded-lg max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl animate-reveal">
+        <div class="p-5 border-b border-theme-border flex items-center justify-between">
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span id="modal-model-provider" class="font-mono text-[10px] uppercase px-2 py-0.5 rounded border border-theme-border bg-theme-elevated text-theme-secondary"></span>
+              <span id="modal-update-count" class="font-mono text-[9px] uppercase px-1.5 py-0.5 rounded border border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 font-bold"></span>
+            </div>
+            <h3 id="modal-model-title" class="text-base font-bold text-theme-primary"></h3>
+          </div>
+          <button
+            type="button"
+            id="close-changelog-modal"
+            class="text-theme-muted hover:text-theme-primary p-2 rounded hover:bg-theme-elevated transition-colors cursor-pointer"
+            aria-label="Close changelog modal"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div id="modal-changelog-body" class="p-5 overflow-y-auto space-y-4 text-xs font-mono custom-scrollbar">
+          <!-- Populated dynamically -->
+        </div>
+
+        <div class="p-4 border-t border-theme-border-subtle bg-theme-elevated/40 flex items-center justify-between font-mono text-[10px] text-theme-muted">
+          <span>Official provider disclosures &amp; release notes</span>
+          <div class="flex items-center gap-2">
+            <button
+              type="button"
+              id="jump-to-timeline-btn"
+              class="px-3 py-1.5 rounded border border-theme-border hover:bg-theme-hover text-theme-primary transition-colors cursor-pointer"
+            >
+              Filter in Timeline ↓
+            </button>
+            <button
+              type="button"
+              id="close-modal-bottom-btn"
+              class="px-3 py-1.5 rounded border border-theme-border hover:bg-theme-hover text-theme-secondary transition-colors cursor-pointer"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 
   <Footer />
 </Layout>
 
+<!-- JSON Data payload for client-side modal rendering -->
+<script id="model-updates-data" type="application/json" set:html={JSON.stringify(modelUpdates)} />
+
 <script>
   (function () {
+    // -------------------------------------------------------------------------
+    // 1. Model Updates Feed Filtering
+    // -------------------------------------------------------------------------
+    const updateSearchInput = document.getElementById("update-search-input") as HTMLInputElement | null;
+    const clearUpdateSearchBtn = document.getElementById("clear-update-search") as HTMLButtonElement | null;
+    const updateProviderBtns = document.querySelectorAll<HTMLButtonElement>(".update-provider-btn");
+    const updateTypeBtns = document.querySelectorAll<HTMLButtonElement>(".update-type-btn");
+    const updateTimeBtns = document.querySelectorAll<HTMLButtonElement>(".update-time-btn");
+    const updateCards = document.querySelectorAll<HTMLElement>(".update-card");
+    const updateCountLabel = document.getElementById("update-count-label");
+    const updateEmptyState = document.getElementById("no-updates-matched");
+    const resetUpdatesFilterBtn = document.getElementById("reset-updates-filter-btn") as HTMLButtonElement | null;
+
+    let updateSearch = "";
+    let updateProvider = "all";
+    let updateType = "all";
+    let updateTime = "all";
+
+    function filterUpdates() {
+      let visible = 0;
+      const now = Date.now();
+      const DAY_MS = 24 * 60 * 60 * 1000;
+
+      updateCards.forEach((card) => {
+        const title = card.dataset.title || "";
+        const summary = card.dataset.summary || "";
+        const provider = card.dataset.provider || "";
+        const model = card.dataset.model || "";
+        const family = card.dataset.family || "";
+        const type = card.dataset.type || "";
+        const publishedStr = card.dataset.published || "";
+
+        // Text Search
+        const matchesSearch =
+          !updateSearch ||
+          title.includes(updateSearch) ||
+          summary.includes(updateSearch) ||
+          provider.includes(updateSearch) ||
+          model.includes(updateSearch) ||
+          family.includes(updateSearch);
+
+        // Provider Filter
+        const matchesProvider = updateProvider === "all" || provider === updateProvider;
+
+        // Type Filter
+        const matchesType = updateType === "all" || type === updateType;
+
+        // Time Period Filter
+        let matchesTime = true;
+        if (updateTime === "7d") {
+          const pubTime = publishedStr ? new Date(publishedStr).getTime() : 0;
+          matchesTime = pubTime > 0 && now - pubTime <= 7 * DAY_MS;
+        } else if (updateTime === "30d") {
+          const pubTime = publishedStr ? new Date(publishedStr).getTime() : 0;
+          matchesTime = pubTime > 0 && now - pubTime <= 30 * DAY_MS;
+        }
+
+        const show = matchesSearch && matchesProvider && matchesType && matchesTime;
+        card.style.display = show ? "" : "none";
+        if (show) visible++;
+      });
+
+      if (updateCountLabel) {
+        updateCountLabel.textContent = `Showing ${visible} of ${updateCards.length} updates`;
+      }
+      if (updateEmptyState) {
+        updateEmptyState.style.display = visible === 0 ? "block" : "none";
+      }
+      if (clearUpdateSearchBtn) {
+        clearUpdateSearchBtn.style.display = updateSearch ? "" : "none";
+      }
+    }
+
+    if (updateSearchInput) {
+      updateSearchInput.addEventListener("input", (e) => {
+        updateSearch = (e.target as HTMLInputElement).value.toLowerCase().trim();
+        filterUpdates();
+      });
+
+      updateSearchInput.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && updateSearchInput.value) {
+          updateSearchInput.value = "";
+          updateSearch = "";
+          filterUpdates();
+        }
+      });
+    }
+
+    if (clearUpdateSearchBtn) {
+      clearUpdateSearchBtn.addEventListener("click", () => {
+        if (updateSearchInput) updateSearchInput.value = "";
+        updateSearch = "";
+        filterUpdates();
+        updateSearchInput?.focus();
+      });
+    }
+
+    updateProviderBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        updateProviderBtns.forEach((b) => {
+          b.classList.remove("bg-theme-elevated", "text-theme-primary");
+          b.classList.add("text-theme-secondary");
+          b.setAttribute("aria-pressed", "false");
+        });
+        btn.classList.remove("text-theme-secondary");
+        btn.classList.add("bg-theme-elevated", "text-theme-primary");
+        btn.setAttribute("aria-pressed", "true");
+        updateProvider = btn.dataset.provider || "all";
+        filterUpdates();
+      });
+    });
+
+    updateTypeBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        updateTypeBtns.forEach((b) => {
+          b.classList.remove("bg-theme-elevated", "text-theme-primary");
+          b.classList.add("text-theme-secondary");
+          b.setAttribute("aria-pressed", "false");
+        });
+        btn.classList.remove("text-theme-secondary");
+        btn.classList.add("bg-theme-elevated", "text-theme-primary");
+        btn.setAttribute("aria-pressed", "true");
+        updateType = btn.dataset.type || "all";
+        filterUpdates();
+      });
+    });
+
+    updateTimeBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        updateTimeBtns.forEach((b) => {
+          b.classList.remove("bg-theme-elevated", "text-theme-primary");
+          b.classList.add("text-theme-secondary");
+          b.setAttribute("aria-pressed", "false");
+        });
+        btn.classList.remove("text-theme-secondary");
+        btn.classList.add("bg-theme-elevated", "text-theme-primary");
+        btn.setAttribute("aria-pressed", "true");
+        updateTime = btn.dataset.time || "all";
+        filterUpdates();
+      });
+    });
+
+    if (resetUpdatesFilterBtn) {
+      resetUpdatesFilterBtn.addEventListener("click", () => {
+        if (updateSearchInput) updateSearchInput.value = "";
+        updateSearch = "";
+        updateProvider = "all";
+        updateType = "all";
+        updateTime = "all";
+
+        updateProviderBtns.forEach((b) => {
+          const isAll = (b.dataset.provider || "all") === "all";
+          b.setAttribute("aria-pressed", isAll ? "true" : "false");
+          b.classList.toggle("bg-theme-elevated", isAll);
+          b.classList.toggle("text-theme-primary", isAll);
+          b.classList.toggle("text-theme-secondary", !isAll);
+        });
+
+        updateTypeBtns.forEach((b) => {
+          const isAll = (b.dataset.type || "all") === "all";
+          b.setAttribute("aria-pressed", isAll ? "true" : "false");
+          b.classList.toggle("bg-theme-elevated", isAll);
+          b.classList.toggle("text-theme-primary", isAll);
+          b.classList.toggle("text-theme-secondary", !isAll);
+        });
+
+        updateTimeBtns.forEach((b) => {
+          const isAll = (b.dataset.time || "all") === "all";
+          b.setAttribute("aria-pressed", isAll ? "true" : "false");
+          b.classList.toggle("bg-theme-elevated", isAll);
+          b.classList.toggle("text-theme-primary", isAll);
+          b.classList.toggle("text-theme-secondary", !isAll);
+        });
+
+        filterUpdates();
+      });
+    }
+
+    // -------------------------------------------------------------------------
+    // 2. Model-Specific Changelog Modal
+    // -------------------------------------------------------------------------
+    const modal = document.getElementById("model-changelog-modal");
+    const modalTitle = document.getElementById("modal-model-title");
+    const modalProvider = document.getElementById("modal-model-provider");
+    const modalCount = document.getElementById("modal-update-count");
+    const modalBody = document.getElementById("modal-changelog-body");
+    const closeModalBtn = document.getElementById("close-changelog-modal");
+    const closeModalBottomBtn = document.getElementById("close-modal-bottom-btn");
+    const jumpToTimelineBtn = document.getElementById("jump-to-timeline-btn");
+
+    let activeModalModelName = "";
+
+    // Load full JSON updates from data script tag
+    let allUpdatesData: any[] = [];
+    try {
+      const dataScript = document.getElementById("model-updates-data");
+      if (dataScript && dataScript.textContent) {
+        allUpdatesData = JSON.parse(dataScript.textContent);
+      }
+    } catch (e) {
+      console.warn("Could not parse embedded model updates data:", e);
+    }
+
+    function openModelModal(modelId: string, modelName: string, provider: string) {
+      if (!modal || !modalTitle || !modalProvider || !modalCount || !modalBody) return;
+
+      activeModalModelName = modelName;
+      modalTitle.textContent = modelName;
+      modalProvider.textContent = provider;
+
+      // Filter updates matching this model ID or model name
+      const matchingUpdates = allUpdatesData.filter(
+        (u) =>
+          (u.model_id && u.model_id === modelId) ||
+          (u.model_name && u.model_name.toLowerCase() === modelName.toLowerCase())
+      );
+
+      modalCount.textContent = `${matchingUpdates.length} verified ${
+        matchingUpdates.length === 1 ? "update" : "updates"
+      }`;
+
+      if (matchingUpdates.length === 0) {
+        modalBody.innerHTML = `
+          <div class="p-8 text-center bg-theme-elevated/30 rounded border border-theme-border-subtle">
+            <p class="text-theme-primary font-medium mb-1">No tracked official release notes yet</p>
+            <p class="text-theme-muted text-[11px] leading-relaxed max-w-md mx-auto">
+              No historical changelog records are associated with this specific model checkpoint yet. Official release notes will appear here automatically when published by ${provider}.
+            </p>
+          </div>
+        `;
+      } else {
+        modalBody.innerHTML = matchingUpdates
+          .map((u) => {
+            const hasClaims = u.provider_claims && u.provider_claims.length > 0;
+            return `
+            <div class="p-4 border border-theme-border bg-theme-surface rounded-lg space-y-2">
+              <div class="flex items-center justify-between gap-2 flex-wrap">
+                <span class="px-2 py-0.5 rounded text-[9px] uppercase border border-theme-border bg-theme-elevated text-theme-primary font-bold">
+                  ${(u.update_type || "model_release").replace(/_/g, " ")}
+                </span>
+                <span class="text-theme-muted text-[10px]">
+                  ${u.published_at || "Date unconfirmed"}
+                </span>
+              </div>
+              <h4 class="text-sm font-bold text-theme-primary leading-snug">
+                ${u.title}
+              </h4>
+              <p class="text-xs text-theme-secondary leading-relaxed">
+                ${u.summary}
+              </p>
+              ${
+                hasClaims
+                  ? `<div class="text-[10px] p-2 rounded border border-amber-500/30 bg-amber-500/10 text-amber-800 dark:text-amber-300">
+                      ⚠️ Provider claim — not an independent benchmark result.
+                    </div>`
+                  : ""
+              }
+              <div class="pt-2 border-t border-theme-border-subtle flex items-center justify-between text-[10px]">
+                <span class="text-theme-muted">Scope: ${u.scope || "model"}</span>
+                <a href="${u.source_url}" target="_blank" rel="noopener noreferrer" class="text-theme-muted hover:text-theme-accent inline-flex items-center gap-1">
+                  <span>Official Source</span>
+                  <span>↗</span>
+                </a>
+              </div>
+            </div>
+          `;
+          })
+          .join("");
+      }
+
+      modal.style.display = "flex";
+      closeModalBtn?.focus();
+    }
+
+    function closeModal() {
+      if (modal) modal.style.display = "none";
+    }
+
+    document.querySelectorAll<HTMLButtonElement>(".view-changelog-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const modelId = btn.dataset.modelId || "";
+        const modelName = btn.dataset.modelName || "";
+        const provider = btn.dataset.provider || "";
+        openModelModal(modelId, modelName, provider);
+      });
+    });
+
+    closeModalBtn?.addEventListener("click", closeModal);
+    closeModalBottomBtn?.addEventListener("click", closeModal);
+
+    modal?.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal && modal.style.display === "flex") {
+        closeModal();
+      }
+    });
+
+    jumpToTimelineBtn?.addEventListener("click", () => {
+      closeModal();
+      if (updateSearchInput && activeModalModelName) {
+        updateSearchInput.value = activeModalModelName;
+        updateSearch = activeModalModelName.toLowerCase();
+        filterUpdates();
+        const section = document.getElementById("model-updates");
+        section?.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+
+    // -------------------------------------------------------------------------
+    // 3. Existing Model Catalogue Table Search & Filtering (Preserved 100%)
+    // -------------------------------------------------------------------------
     const searchInput = document.getElementById("model-search-input") as HTMLInputElement | null;
     const filterButtons = document.querySelectorAll<HTMLButtonElement>(".model-filter-btn");
     const rows = document.querySelectorAll<HTMLTableRowElement>(".model-row");
@@ -625,15 +1408,15 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
           if (sortKey === "release") {
             const da = a.dataset.release ? new Date(a.dataset.release).getTime() : 0;
             const db = b.dataset.release ? new Date(b.dataset.release).getTime() : 0;
-            return modelSortAsc ? (da - db) : (db - da);
+            return modelSortAsc ? da - db : db - da;
           } else if (sortKey === "context") {
             const ca = parseInt(a.dataset.context || "0", 10);
             const cb = parseInt(b.dataset.context || "0", 10);
-            return modelSortAsc ? (ca - cb) : (cb - ca);
+            return modelSortAsc ? ca - cb : cb - ca;
           } else if (sortKey === "price") {
             const pa = parseFloat(a.dataset.price || "999999");
             const pb = parseFloat(b.dataset.price || "999999");
-            return modelSortAsc ? (pa - pb) : (pb - pa);
+            return modelSortAsc ? pa - pb : pb - pa;
           } else {
             const va = a.dataset[sortKey] || "";
             const vb = b.dataset[sortKey] || "";
