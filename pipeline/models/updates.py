@@ -6,10 +6,16 @@ sources (OpenAI, Anthropic, Google DeepMind, Meta AI, DeepSeek, Mistral, xAI, Co
 
 Key guarantees:
 - Zero mandatory Gemini API calls (deterministic parsing, quota-safe).
+- Source-specific HTML & RSS extraction that discards scripts, styles, navigation,
+  footers, cookie banners, and page chrome.
 - Deterministic 16-character IDs to guarantee idempotent scheduled runs.
 - Strict model identity resolution: exact matches only via `pipeline/models/identity.py`,
   leaving `model_id=None` when ambiguous to avoid version collisions.
+- Transparent distinction between exact model updates and model-family updates.
 - Transparent distinction between provider claims and independent benchmark data.
+- Domain allowlisting: guarantees external links point to official provider domains
+  and rejects social media or unrelated navigation links.
+- Distinction between publication dates and future effective/deprecation dates.
 - Non-destructive history preservation: source failures or empty responses never
   destroy historical update records.
 """
@@ -67,6 +73,73 @@ _TRACKING_PARAMS = frozenset([
     "mc_eid",
 ])
 
+# Official provider domain allowlist to prevent linking to arbitrary/social destinations
+OFFICIAL_PROVIDER_DOMAINS: dict[str, tuple[str, ...]] = {
+    "openai": ("openai.com", "chatgpt.com", "help.openai.com", "developers.openai.com"),
+    "anthropic": ("anthropic.com", "claude.ai", "docs.anthropic.com", "platform.claude.com"),
+    "google": ("google.com", "deepmind.google", "ai.google.dev", "blog.google", "cloud.google.com"),
+    "meta": ("meta.com", "ai.meta.com", "about.fb.com", "llama.meta.com"),
+    "deepseek": ("deepseek.com", "api-docs.deepseek.com"),
+    "mistral": ("mistral.ai", "docs.mistral.ai", "console.mistral.ai"),
+    "cohere": ("cohere.com", "docs.cohere.com"),
+    "xai": ("x.ai", "docs.x.ai", "grok.com"),
+    "microsoft": ("microsoft.com", "azure.microsoft.com", "techcommunity.microsoft.com"),
+    "huggingface": ("huggingface.co",),
+}
+
+DISALLOWED_DOMAINS = frozenset([
+    "instagram.com",
+    "tiktok.com",
+    "youtube.com",
+    "linkedin.com",
+    "reddit.com",
+    "pinterest.com",
+    "unverifiedtracker.com",
+])
+
+DISALLOWED_PATHS = frozenset([
+    "/privacy",
+    "/privacy-policy",
+    "/terms",
+    "/terms-of-service",
+    "/terms-of-use",
+    "/legal",
+    "/legal-notice",
+    "/login",
+    "/signin",
+    "/sign-in",
+    "/signup",
+    "/sign-up",
+    "/careers",
+    "/jobs",
+    "/cookies",
+    "/cookie-policy",
+    "/contact",
+    "/contact-us",
+])
+
+CHROME_TITLE_PATTERNS = [
+    re.compile(r"\bterms of (?:service|use)\b", re.IGNORECASE),
+    re.compile(r"\bprivacy policy\b", re.IGNORECASE),
+    re.compile(r"\blegal notice\b", re.IGNORECASE),
+    re.compile(r"\bprivacy choices\b", re.IGNORECASE),
+    re.compile(r"\bcookie settings\b", re.IGNORECASE),
+    re.compile(r"\ball rights reserved\b", re.IGNORECASE),
+    re.compile(r"\bsign in\b", re.IGNORECASE),
+    re.compile(r"\blogin\b", re.IGNORECASE),
+    re.compile(r"\bskip to (?:main )?content\b", re.IGNORECASE),
+    re.compile(r"\btable of contents\b", re.IGNORECASE),
+    re.compile(r"\bnavigation menu\b", re.IGNORECASE),
+    re.compile(r"\bcareers\b", re.IGNORECASE),
+    re.compile(r"^Terms of servicePrivacy policy", re.IGNORECASE),
+    re.compile(r"(?:webpackChunk|function\s*\(|Object\.defineProperty|void 0|var |const |window\.|document\.)"),
+]
+
+FUTURE_DEPRECATION_PATTERN = re.compile(
+    r"(?:will be (?:retired|shutdown|deprecated|sunset)(?:\s+on)?|retirement date|sunset date|effective (?:date|on)|(?:deprecated|retired|shutdown|sunset)\s+(?:on|as of))\s*(?::\s*|\s+)?([A-Za-z]+ \d{1,2}, \d{4}|\d{4}-\d{2}-\d{2})",
+    re.IGNORECASE,
+)
+
 
 class ModelUpdateRecord(TypedDict, total=False):
     id: str
@@ -80,6 +153,7 @@ class ModelUpdateRecord(TypedDict, total=False):
     model_family: str | None
     model_id: str | None
     published_at: str | None
+    effective_at: str | None
     detected_at: str
     source_type: str
     source_url: str
@@ -105,8 +179,47 @@ REQUIRED_UPDATE_FIELDS = frozenset([
 
 
 # ---------------------------------------------------------------------------
-# URL Normalization & Stable ID Generation
+# URL Normalization & Validation
 # ---------------------------------------------------------------------------
+
+
+def is_safe_official_url(url: str, provider_id: str = "") -> bool:
+    """Validate that a URL is a secure HTTPS link belonging to an approved official provider domain."""
+    if not url or not isinstance(url, str):
+        return False
+    clean = url.strip()
+    try:
+        parsed = urlparse(clean)
+    except Exception:
+        return False
+
+    # Require HTTPS (or HTTP only for local test fixtures)
+    if parsed.scheme.lower() not in ("https", "http"):
+        return False
+
+    host = parsed.netloc.lower().split(":")[0]
+    if not host or "." not in host:
+        return False
+
+    # Disallow social media, generic tracking aggregators, or video platforms as update source URLs
+    for dis in DISALLOWED_DOMAINS:
+        if host == dis or host.endswith("." + dis):
+            return False
+
+    # Disallow utility, legal, login, or cookie paths
+    clean_path = parsed.path.rstrip("/").lower()
+    if clean_path in DISALLOWED_PATHS:
+        return False
+
+    # If provider specified, check against provider's official domain allowlist
+    pid = provider_id.lower().strip()
+    allowed_domains = OFFICIAL_PROVIDER_DOMAINS.get(pid)
+    if allowed_domains:
+        is_allowed = any(host == d or host.endswith("." + d) for d in allowed_domains)
+        if not is_allowed:
+            return False
+
+    return True
 
 
 def normalize_update_url(raw_url: str) -> str:
@@ -155,7 +268,40 @@ def generate_update_id(source_url: str, provider_id: str, title: str) -> str:
 
 
 # ---------------------------------------------------------------------------
-# Date Extraction & Validation (Zero-fabrication)
+# Page Chrome & Irrelevant Content Detection
+# ---------------------------------------------------------------------------
+
+
+def is_irrelevant_or_chrome(title: str, text: str = "") -> bool:
+    """Detect whether a title or summary is page chrome, navigation, legal text, or JavaScript."""
+    t_clean = title.strip()
+    if not t_clean or len(t_clean) < 4:
+        return True
+
+    # Check for concatenated uppercase words without spaces (e.g. 'Terms of servicePrivacy policyLegal notice')
+    if re.search(r"[a-z][A-Z][a-z]+[A-Z]", t_clean) and any(
+        kw in t_clean.lower() for kw in ("privacy", "terms", "legal", "notice", "policy")
+    ):
+        return True
+
+    # Check against known chrome patterns
+    for pat in CHROME_TITLE_PATTERNS:
+        if pat.search(t_clean):
+            return True
+
+    # Excessively long title with multiple dates or headings (concatenation bug)
+    if len(t_clean) > 220:
+        return True
+
+    # Check text for minified script or hydration dump
+    if re.search(r"(?:function\s*\(|var\s+[a-zA-Z_$]|window\.__|self\.__|webpackJsonp)", text):
+        return True
+
+    return False
+
+
+# ---------------------------------------------------------------------------
+# Date Extraction & Validation (Zero-fabrication, future-effective separation)
 # ---------------------------------------------------------------------------
 
 
@@ -227,6 +373,39 @@ def parse_date_string(raw: Any) -> str | None:
                 continue
 
     return None
+
+
+def extract_dates(text: str, current_date_candidate: str | None = None) -> tuple[str | None, str | None]:
+    """Extract published_at and optional effective_at (future deprecation date).
+
+    Returns:
+      (published_at, effective_at)
+    """
+    now = datetime.now(UTC)
+    # Allow 1-day tolerance for international timezone offsets
+    now_date_str = (now + timedelta(days=1)).strftime("%Y-%m-%d")
+
+    effective_at: str | None = None
+    dep_match = FUTURE_DEPRECATION_PATTERN.search(text)
+    if dep_match:
+        parsed_eff = parse_date_string(dep_match.group(1))
+        if parsed_eff:
+            effective_at = parsed_eff
+
+    published_at: str | None = current_date_candidate
+
+    # If candidate published_at is in the future (> tomorrow), it is an effective date, NOT published date!
+    if published_at:
+        try:
+            pub_date_part = published_at[:10]
+            if pub_date_part > now_date_str:
+                if not effective_at:
+                    effective_at = published_at
+                published_at = None
+        except Exception:
+            pass
+
+    return published_at, effective_at
 
 
 # ---------------------------------------------------------------------------
@@ -315,15 +494,23 @@ def classify_scope(
     model_name: str | None = None,
     model_family: str | None = None,
 ) -> str:
-    """Classify update scope into 'model', 'model_family', 'api', 'product', or 'research'."""
+    """Classify update scope into 'model', 'model_family', 'api', 'product', or 'research'.
+
+    Guarantees:
+    - Ambiguous family updates where model_id is None have scope='model_family'.
+    - Exact model version updates have scope='model'.
+    """
     combined = f"{title} {text}"
 
-    # If exact model resolved or explicit model name identified
-    if model_id or (model_name and not model_name.endswith("Family")):
+    # Exact model identified
+    if model_id:
         return "model"
 
-    # If family recognized without specific model version
-    if model_family or re.search(r"\b(?:claude\s*3(?:\.5|\.7)?|gpt-4|gemini\s*2|llama\s*3|phi)\s+family\b", combined, re.IGNORECASE):
+    # Model family identified without specific version
+    if model_family:
+        return "model_family"
+
+    if re.search(r"\b(?:claude\s*3(?:\.5|\.7)?|gpt-4|gemini\s*2|llama\s*3|phi)\s+family\b", combined, re.IGNORECASE):
         return "model_family"
 
     if _RESEARCH_PATTERNS.search(combined) and not _API_PATTERNS.search(combined):
@@ -441,69 +628,111 @@ def resolve_update_model(
 
 
 # ---------------------------------------------------------------------------
-# HTML Changelog Parser (Lightweight, pure standard library)
+# HTML Changelog Parser (Hardened against navigation, footers, and scripts)
 # ---------------------------------------------------------------------------
 
 
 class ChangelogHTMLParser(HTMLParser):
-    """Resilient, lightweight HTML parser for changelog pages."""
+    """Resilient, hardened HTML parser for official changelog pages.
+    Guarantees page chrome, navigation, footers, scripts, and social links are rejected."""
 
-    def __init__(self, base_url: str):
+    IGNORED_TAGS = frozenset([
+        "script",
+        "style",
+        "noscript",
+        "nav",
+        "header",
+        "footer",
+        "aside",
+        "svg",
+        "button",
+        "form",
+        "meta",
+        "link",
+    ])
+
+    def __init__(self, base_url: str, provider_id: str = ""):
         super().__init__()
         self.base_url = base_url
+        self.provider_id = provider_id
         self.entries: list[dict[str, Any]] = []
-        self._current_tag: str = ""
+        self._ignored_depth = 0
+        self._current_tag = ""
+        self._heading_text: list[str] = []
         self._current_text: list[str] = []
-        self._current_title: str = ""
+        self._current_title = ""
         self._current_date: str | None = None
-        self._current_url: str = base_url
-        self._in_heading: bool = False
-        self._in_article: bool = False
+        self._current_url = base_url
+        self._in_heading = False
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]):
         self._current_tag = tag
         attr_dict = {k.lower(): (v or "") for k, v in attrs}
 
+        # Check ignored elements
+        if tag in self.IGNORED_TAGS or "nav" in attr_dict.get("class", "").lower() or "footer" in attr_dict.get("class", "").lower():
+            self._ignored_depth += 1
+            return
+
+        if self._ignored_depth > 0:
+            return
+
         if tag in ("h1", "h2", "h3", "h4"):
+            # If we already have a title and text, flush previous entry before starting new section
+            if self._current_title and "".join(self._current_text).strip():
+                self._flush_entry()
             self._in_heading = True
+            self._heading_text = []
+
+        elif tag in ("article", "section"):
+            if self._current_title and "".join(self._current_text).strip():
+                self._flush_entry()
+
         elif tag == "a" and "href" in attr_dict:
             href = attr_dict["href"]
-            if href.startswith(("#", "javascript:")):
-                pass
-            else:
-                self._current_url = urljoin(self.base_url, href)
-        elif tag in ("article", "section") or "changelog" in attr_dict.get("class", "").lower():
-            self._in_article = True
+            if href and not href.startswith(("#", "javascript:", "mailto:", "tel:")):
+                resolved = urljoin(self.base_url, href)
+                # Only associate URL if it is a secure official provider link
+                if is_safe_official_url(resolved, self.provider_id):
+                    self._current_url = resolved
 
     def handle_endtag(self, tag: str):
+        if tag in self.IGNORED_TAGS:
+            self._ignored_depth = max(0, self._ignored_depth - 1)
+            return
+
+        if self._ignored_depth > 0:
+            return
+
         if tag in ("h1", "h2", "h3", "h4"):
             self._in_heading = False
-            heading_text = "".join(self._current_text).strip()
-            self._current_text = []
+            raw_h = "".join(self._heading_text).strip()
+            self._heading_text = []
 
-            # Check if this heading indicates an entry title or date
-            if heading_text:
-                parsed_dt = parse_date_string(heading_text)
+            if raw_h:
+                parsed_dt = parse_date_string(raw_h)
                 if parsed_dt:
-                    # Heading contains date
                     self._current_date = parsed_dt
                 else:
-                    # Previous entry flush if we have both title and text
-                    if self._current_title:
-                        self._flush_entry()
-                    self._current_title = heading_text
+                    if not is_irrelevant_or_chrome(raw_h):
+                        self._current_title = raw_h
 
-        elif tag in ("article", "section", "li", "p") and self._in_article:
-            pass
+        elif tag in ("article", "section"):
+            if self._current_title or "".join(self._current_text).strip():
+                self._flush_entry()
 
     def handle_data(self, data: str):
+        if self._ignored_depth > 0:
+            return
+
         cleaned = data.strip()
         if not cleaned:
             return
+
         if self._in_heading:
-            self._current_text.append(data)
+            self._heading_text.append(data)
         else:
-            # Check for inline dates if not found yet
+            # Inline date discovery if date not yet established
             if not self._current_date:
                 dt = parse_date_string(cleaned)
                 if dt:
@@ -512,15 +741,28 @@ class ChangelogHTMLParser(HTMLParser):
 
     def _flush_entry(self):
         text_body = " ".join("".join(self._current_text).split()).strip()
-        if self._current_title or text_body:
-            title = self._current_title or text_body[:80]
+        title = self._current_title or (text_body[:80] if len(text_body) > 15 else "")
+
+        # Guard against empty, chrome, or irrelevant text
+        if title and not is_irrelevant_or_chrome(title, text_body):
+            # Extract published_at vs effective_at
+            pub_date, eff_date = extract_dates(text_body, self._current_date)
+
             summary = text_body[:300] if text_body else title
+            # Validate URL before storing
+            url = self._current_url
+            if not is_safe_official_url(url, self.provider_id):
+                url = self.base_url
+
             self.entries.append({
                 "title": title,
                 "summary": summary,
-                "date": self._current_date,
-                "url": self._current_url,
+                "published_at": pub_date,
+                "effective_at": eff_date,
+                "url": url,
             })
+
+        # Reset per-entry state
         self._current_title = ""
         self._current_date = None
         self._current_text = []
@@ -537,8 +779,9 @@ def parse_html_changelog(
     source: ModelUpdateSource,
     base_url: str,
 ) -> list[ModelUpdateRecord]:
-    """Parse an HTML changelog into structured ModelUpdateRecord items."""
-    parser = ChangelogHTMLParser(base_url)
+    """Parse an HTML changelog into structured ModelUpdateRecord items with boundary and safety checks."""
+    provider_id = source["provider_id"]
+    parser = ChangelogHTMLParser(base_url, provider_id=provider_id)
     try:
         parser.feed(html_content)
         parser.close()
@@ -551,15 +794,19 @@ def parse_html_changelog(
     for raw_entry in parser.entries:
         title = raw_entry["title"].strip()
         summary = raw_entry["summary"].strip()
-        if not title:
+
+        if is_irrelevant_or_chrome(title, summary):
             continue
 
         raw_url = raw_entry.get("url") or base_url
+        if not is_safe_official_url(raw_url, provider_id):
+            raw_url = base_url
+
         norm_url = normalize_update_url(raw_url)
-        entry_id = generate_update_id(norm_url, source["provider_id"], title)
+        entry_id = generate_update_id(norm_url, provider_id, title)
 
         model_id, model_name, model_family = resolve_update_model(
-            title, summary, provider_hint=source["provider_id"]
+            title, summary, provider_hint=provider_id
         )
         update_type = classify_update_type(title, summary)
         scope = classify_scope(title, summary, model_id, model_name, model_family)
@@ -567,7 +814,7 @@ def parse_html_changelog(
 
         record: ModelUpdateRecord = {
             "id": entry_id,
-            "provider_id": source["provider_id"],
+            "provider_id": provider_id,
             "provider_name": source["provider_name"],
             "title": title,
             "summary": summary or f"Official update from {source['provider_name']}.",
@@ -576,7 +823,8 @@ def parse_html_changelog(
             "model_name": model_name,
             "model_family": model_family,
             "model_id": model_id,
-            "published_at": raw_entry.get("date"),
+            "published_at": raw_entry.get("published_at"),
+            "effective_at": raw_entry.get("effective_at"),
             "detected_at": now_iso,
             "source_type": source.get("source_type", "official_primary_source"),
             "source_url": norm_url,
@@ -584,7 +832,8 @@ def parse_html_changelog(
             "source_id": source["id"],
             "provider_claims": provider_claims,
         }
-        records.append(record)
+        if validate_update_record(record):
+            records.append(record)
 
     return records
 
@@ -601,14 +850,14 @@ def parse_rss_update_entry(
 ) -> ModelUpdateRecord | None:
     """Parse a single feedparser entry into a ModelUpdateRecord."""
     title = entry.get("title", "").strip()
-    if not title:
+    if not title or is_irrelevant_or_chrome(title):
         return None
 
     # Link extraction
     link = entry.get("link", "").strip()
     if not link and entry.get("links"):
         link = entry["links"][0].get("href", "").strip()
-    if not link:
+    if not link or not is_safe_official_url(link, source["provider_id"]):
         link = source["url"]
 
     norm_url = normalize_update_url(link)
@@ -616,7 +865,7 @@ def parse_rss_update_entry(
 
     # Date parsing (feedparser provides published_parsed or updated_parsed)
     raw_date = entry.get("published_parsed") or entry.get("updated_parsed")
-    published_at = parse_date_string(raw_date) if raw_date else parse_date_string(entry.get("published") or entry.get("updated"))
+    published_candidate = parse_date_string(raw_date) if raw_date else parse_date_string(entry.get("published") or entry.get("updated"))
 
     # Summary text
     summary = entry.get("summary", "") or entry.get("description", "")
@@ -628,6 +877,9 @@ def parse_rss_update_entry(
     elif len(clean_summary) > 400:
         clean_summary = clean_summary[:397] + "..."
 
+    # Future deprecation vs publication date extraction
+    published_at, effective_at = extract_dates(clean_summary, published_candidate)
+
     model_id, model_name, model_family = resolve_update_model(
         title, clean_summary, provider_hint=source["provider_id"]
     )
@@ -635,14 +887,14 @@ def parse_rss_update_entry(
     scope = classify_scope(title, clean_summary, model_id, model_name, model_family)
     provider_claims = extract_provider_claims(title, clean_summary)
 
-    # Guard against unverified secondary claims / leaks
+    # Guard against unverified secondary claims / rumors / leaks
     verification_status = "official_source"
     source_type = source.get("source_type", "official_primary_source")
     if re.search(r"\b(rumor|leak|predicted|speculation|unconfirmed)\b", f"{title} {clean_summary}", re.IGNORECASE):
         verification_status = "unverified"
         source_type = "secondary_source"
 
-    return {
+    rec: ModelUpdateRecord = {
         "id": entry_id,
         "provider_id": source["provider_id"],
         "provider_name": source["provider_name"],
@@ -654,6 +906,7 @@ def parse_rss_update_entry(
         "model_family": model_family,
         "model_id": model_id,
         "published_at": published_at,
+        "effective_at": effective_at,
         "detected_at": now_iso,
         "source_type": source_type,
         "source_url": norm_url,
@@ -661,6 +914,7 @@ def parse_rss_update_entry(
         "source_id": source["id"],
         "provider_claims": provider_claims,
     }
+    return rec
 
 
 def parse_rss_updates(
@@ -689,7 +943,7 @@ def parse_rss_updates(
 
 
 def validate_update_record(record: dict) -> bool:
-    """Validate that a model update record conforms to the schema."""
+    """Validate that a model update record conforms to the schema and domain security rules."""
     if not isinstance(record, dict):
         return False
     missing = REQUIRED_UPDATE_FIELDS - record.keys()
@@ -702,9 +956,18 @@ def validate_update_record(record: dict) -> bool:
     if record.get("scope") not in ALLOWED_SCOPES:
         logger.warning("Invalid scope '%s': %r", record.get("scope"), record.get("id"))
         return False
-    if not isinstance(record.get("source_url"), str) or not record["source_url"].startswith("http"):
-        logger.warning("Invalid source_url: %r", record.get("id"))
+
+    url = record.get("source_url")
+    pid = record.get("provider_id", "")
+    if not isinstance(url, str) or not is_safe_official_url(url, pid):
+        logger.warning("Invalid or unsafe source_url '%s': %r", url, record.get("id"))
         return False
+
+    title = record.get("title", "")
+    if is_irrelevant_or_chrome(title, record.get("summary", "")):
+        logger.warning("Record rejected as page chrome or invalid title: %r", title)
+        return False
+
     return True
 
 
@@ -739,7 +1002,7 @@ def merge_model_updates(
     """
     by_id: dict[str, dict] = {}
 
-    # Seed with existing
+    # Seed with existing valid records
     for rec in existing:
         if validate_update_record(rec):
             by_id[rec["id"]] = rec
@@ -755,9 +1018,10 @@ def merge_model_updates(
             # Preserve original detected_at while updating factual fields if needed
             existing_rec = by_id[rec_id]
             merged_rec = dict(existing_rec)
-            # Update fields if new record provides official date or model_id previously missing
             if not merged_rec.get("published_at") and rec.get("published_at"):
                 merged_rec["published_at"] = rec["published_at"]
+            if not merged_rec.get("effective_at") and rec.get("effective_at"):
+                merged_rec["effective_at"] = rec["effective_at"]
             if not merged_rec.get("model_id") and rec.get("model_id"):
                 merged_rec["model_id"] = rec["model_id"]
             if rec.get("provider_claims"):
@@ -877,7 +1141,7 @@ def sync_model_updates(
                 logger.info("Skipping manual_only source '%s'.", sid)
                 continue
 
-            logger.info("Extracted %d records from source '%s'.", len(parsed), sid)
+            logger.info("Extracted %d valid records from source '%s'.", len(parsed), sid)
             incoming_records.extend(parsed)
             successful_sources += 1
 

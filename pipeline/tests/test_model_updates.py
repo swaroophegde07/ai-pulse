@@ -29,6 +29,7 @@ from __future__ import annotations
 import json
 import tempfile
 import unittest
+from datetime import UTC, datetime
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 
@@ -49,8 +50,10 @@ from pipeline.models.sources import (
 from pipeline.models.updates import (
     classify_scope,
     classify_update_type,
+    extract_dates,
     extract_provider_claims,
     generate_update_id,
+    is_safe_official_url,
     load_model_updates,
     merge_model_updates,
     normalize_update_url,
@@ -482,6 +485,194 @@ class TestModelUpdates(unittest.TestCase):
         self.assertIn("model-updates", content)
         self.assertIn("model-changelog-modal", content)
 
+    # 21. HTML changelog scraper rejects navigation, footer, JS, and page chrome
+    def test_21_html_changelog_parser_rejects_chrome_and_scripts(self):
+        html_with_chrome = """
+        <html>
+        <head><script>var x = 123; function track() {}</script><style>.nav { color: red; }</style></head>
+        <body>
+          <nav>
+            <a href="/home">Home</a>
+            <a href="/docs">Docs</a>
+          </nav>
+          <main>
+            <section>
+              <h2>Claude 3.7 Sonnet Hybrid Reasoning Architecture</h2>
+              <p>Anthropic introduces hybrid reasoning with controllable thinking tokens in Claude 3.7 Sonnet.</p>
+              <a href="https://anthropic.com/news/claude-3-7-sonnet">Announcement</a>
+            </section>
+          </main>
+          <footer>
+            <p>Terms of service Privacy policy Cookie preferences Copyright 2026 Anthropic.</p>
+            <a href="https://instagram.com/anthropic">Follow us on Instagram</a>
+          </footer>
+        </body>
+        </html>
+        """
+        source = {
+            "id": "anthropic_news",
+            "provider_id": "anthropic",
+            "provider_name": "Anthropic",
+            "url": "https://anthropic.com/news",
+            "source_type": "official_primary_source",
+        }
+        records = parse_html_changelog(html_with_chrome, source, base_url="https://anthropic.com/news")
+        self.assertEqual(len(records), 1)
+        self.assertIn("Claude 3.7 Sonnet", records[0]["title"])
+        self.assertNotIn("Terms of service", records[0]["summary"])
+        self.assertNotIn("track()", records[0]["summary"])
+        self.assertEqual(records[0]["model_id"], "anthropic/claude-3-7-sonnet")
+
+    # 22. Safe official URL allowlist rejects unauthorized and social domains
+    def test_22_safe_official_url_allowlist_rejects_unauthorized_and_social_domains(self):
+        # Official domains pass
+        self.assertTrue(is_safe_official_url("https://openai.com/index/o3-mini", "openai"))
+        self.assertTrue(is_safe_official_url("https://anthropic.com/news/claude-3-7-sonnet", "anthropic"))
+        self.assertTrue(is_safe_official_url("https://deepmind.google/technologies/gemini/", "google"))
+
+        # Social links and arbitrary domains rejected
+        self.assertFalse(is_safe_official_url("https://instagram.com/openai", "openai"))
+        self.assertFalse(is_safe_official_url("https://tiktok.com/@anthropic", "anthropic"))
+        self.assertFalse(is_safe_official_url("https://youtube.com/watch?v=123", "google"))
+        self.assertFalse(is_safe_official_url("http://insecure-http.com/news", "openai"))
+        self.assertFalse(is_safe_official_url("javascript:alert(1)", "openai"))
+
+    # 23. Extract dates separates future deprecation/effective dates from publication dates
+    def test_23_extract_dates_separates_future_deprecation_from_publication(self):
+        summary = "Model checkpoint gpt-4-0314 will be deprecated on 2026-12-31. Users should migrate to gpt-4o."
+        pub_at, eff_at = extract_dates(summary, "2026-03-15T00:00:00Z")
+        self.assertEqual(pub_at, "2026-03-15T00:00:00Z")
+        self.assertEqual(eff_at, "2026-12-31")
+
+        # Future candidate publication date (> tomorrow) is moved to effective_at
+        future_candidate = "2028-06-01T00:00:00Z"
+        pub_at2, eff_at2 = extract_dates("Generic announcement text", future_candidate)
+        self.assertIsNone(pub_at2)
+        self.assertEqual(eff_at2, future_candidate)
+
+    # 24. Frontier Reasoning filter strictly excludes models with category General Chat & Language
+    def test_24_frontier_reasoning_filter_excludes_general_chat_models(self):
+        models_path = REPO_ROOT / "src" / "data" / "models.json"
+        with open(models_path, "r", encoding="utf-8") as f:
+            models = json.load(f)
+
+        # Verified test models
+        gpt_4o = next(m for m in models if m["id"] == "openai/gpt-4o")
+        o3_mini = next(m for m in models if m["id"] == "openai/o3-mini")
+
+        # gpt-4o is a featured frontier model, but category is General Chat & Language
+        self.assertTrue(gpt_4o.get("is_featured_frontier"))
+        self.assertEqual(gpt_4o.get("category"), "General Chat & Language")
+
+        # o3-mini is Frontier Reasoning & Chat
+        self.assertTrue(o3_mini.get("is_featured_frontier"))
+        self.assertIn("Reasoning", o3_mini.get("category", ""))
+
+        # The filter logic in models/index.astro: category.includes("reasoning")
+        def is_reasoning_filter_match(m):
+            return "reasoning" in (m.get("category") or "").lower()
+
+        self.assertFalse(is_reasoning_filter_match(gpt_4o))
+        self.assertTrue(is_reasoning_filter_match(o3_mini))
+
+    # 25. Historical model filter reflects 0 catalogued historical models and guards state
+    def test_25_historical_model_filter_and_count_logic(self):
+        models_path = REPO_ROOT / "src" / "data" / "models.json"
+        with open(models_path, "r", encoding="utf-8") as f:
+            models = json.load(f)
+
+        def is_historical(m):
+            s = (m.get("lifecycle_status") or "").lower()
+            return "deprecated" in s or "historical" in s or "archive" in s
+
+        historical_count = len([m for m in models if is_historical(m)])
+        self.assertEqual(historical_count, 0, "No models currently in models.json are deprecated or historical")
+
+    # 26. 7-day and 30-day date filters strictly reject future dates and missing dates
+    def test_26_date_window_filters_reject_future_and_invalid_dates(self):
+        now_ms = 1776268800000  # Fixed epoch reference
+        day_ms = 24 * 60 * 60 * 1000
+
+        def match_time_filter(published_str: str | None, window: str) -> bool:
+            if not published_str:
+                return False
+            try:
+                dt = datetime.fromisoformat(published_str.replace("Z", "+00:00"))
+                pub_time = int(dt.timestamp() * 1000)
+            except Exception:
+                return False
+
+            if window == "7d":
+                return pub_time > 0 and pub_time <= now_ms and (now_ms - pub_time) <= 7 * day_ms
+            elif window == "30d":
+                return pub_time > 0 and pub_time <= now_ms and (now_ms - pub_time) <= 30 * day_ms
+            return True
+
+        # Past 3 days: valid in 7d and 30d
+        three_days_ago = datetime.fromtimestamp((now_ms - 3 * day_ms) / 1000, tz=UTC).isoformat()
+        self.assertTrue(match_time_filter(three_days_ago, "7d"))
+        self.assertTrue(match_time_filter(three_days_ago, "30d"))
+
+        # Past 15 days: valid in 30d, invalid in 7d
+        fifteen_days_ago = datetime.fromtimestamp((now_ms - 15 * day_ms) / 1000, tz=UTC).isoformat()
+        self.assertFalse(match_time_filter(fifteen_days_ago, "7d"))
+        self.assertTrue(match_time_filter(fifteen_days_ago, "30d"))
+
+        # Future date: MUST be rejected by both
+        future_date = datetime.fromtimestamp((now_ms + 2 * day_ms) / 1000, tz=UTC).isoformat()
+        self.assertFalse(match_time_filter(future_date, "7d"))
+        self.assertFalse(match_time_filter(future_date, "30d"))
+
+        # Missing or invalid date: MUST be rejected
+        self.assertFalse(match_time_filter(None, "7d"))
+        self.assertFalse(match_time_filter("invalid-date", "7d"))
+
+    # 27. Model pricing precision formatting helper preserves sub-cent rates
+    def test_27_model_pricing_precision_formatting(self):
+        def format_price(num: float | None) -> str:
+            if num is None:
+                return "0.00"
+            if num == 0:
+                return "0.00"
+            rounded = round(num, 4)
+            if rounded >= 1 and rounded == int(rounded):
+                return f"{rounded:.2f}"
+            s = f"{rounded:g}"
+            parts = s.split(".")
+            if len(parts) == 1:
+                return f"{parts[0]}.00"
+            if len(parts[1]) == 1:
+                return f"{parts[0]}.{parts[1]}0"
+            return s
+
+        self.assertEqual(format_price(0.0), "0.00")
+        self.assertEqual(format_price(2.0), "2.00")
+        self.assertEqual(format_price(10.0), "10.00")
+        self.assertEqual(format_price(0.1), "0.10")
+        self.assertEqual(format_price(0.66), "0.66")
+        self.assertEqual(format_price(0.016), "0.016")
+        self.assertEqual(format_price(0.0238), "0.0238")
+        self.assertEqual(format_price(0.0008), "0.0008")
+
+    # 28. Two-level model history cleanly separates exact model updates from family announcements
+    def test_28_two_level_model_history_exact_vs_family_separation(self):
+        updates_path = REPO_ROOT / "src" / "data" / "model-updates.json"
+        with open(updates_path, "r", encoding="utf-8") as f:
+            updates = json.load(f)
+
+        # Find exact updates for claude-3-5-sonnet
+        exact_claude = [u for u in updates if u.get("model_id") == "anthropic/claude-3-5-sonnet"]
+        self.assertGreaterEqual(len(exact_claude), 1)
+        for u in exact_claude:
+            self.assertEqual(u["scope"], "model")
+
+        # Test ambiguous / family update separation
+        fam_update = next((u for u in updates if u.get("model_family") == "Llama 3.2"), None)
+        if fam_update:
+            self.assertIsNone(fam_update.get("model_id"))
+            self.assertEqual(fam_update.get("scope"), "model_family")
+
 
 if __name__ == "__main__":
     unittest.main()
+

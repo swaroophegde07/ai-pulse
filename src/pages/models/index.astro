@@ -96,14 +96,66 @@ const modelUpdates = (modelUpdatesData as ModelUpdateRecord[]).slice().sort((a, 
   return new Date(b.detected_at).getTime() - new Date(a.detected_at).getTime();
 });
 
-// Map model IDs to their official update records
-const updatesByModelId = new Map<string, ModelUpdateRecord[]>();
+// Group exact updates by model_id and family updates by family
+const exactUpdatesByModelId = new Map<string, ModelUpdateRecord[]>();
+const familyUpdatesByFamily = new Map<string, ModelUpdateRecord[]>();
+
 for (const u of modelUpdates) {
   if (u.model_id) {
-    const list = updatesByModelId.get(u.model_id) || [];
+    const list = exactUpdatesByModelId.get(u.model_id) || [];
     list.push(u);
-    updatesByModelId.set(u.model_id, list);
+    exactUpdatesByModelId.set(u.model_id, list);
   }
+  if (u.model_family) {
+    const key = u.model_family.toLowerCase();
+    const list = familyUpdatesByFamily.get(key) || [];
+    list.push(u);
+    familyUpdatesByFamily.set(key, list);
+  }
+}
+
+// Model counts for category filters
+const reasoningModelsCount = models.filter((m) =>
+  (m.category || "").toLowerCase().includes("reasoning")
+).length;
+
+const codingModelsCount = models.filter((m) => {
+  const cat = (m.category || "").toLowerCase();
+  const name = m.name.toLowerCase();
+  return cat.includes("coding") || name.includes("code") || name.includes("devstral") || name.includes("codestral");
+}).length;
+
+const multimodalModelsCount = models.filter((m) => {
+  const mods = (m.input_modalities || []).join(" ").toLowerCase() + " " + (m.output_modalities || []).join(" ").toLowerCase();
+  const name = m.name.toLowerCase();
+  return mods.includes("image") || mods.includes("audio") || mods.includes("vision") || name.includes("vision") || name.includes("omni");
+}).length;
+
+const openWeightsModelsCount = models.filter((m) =>
+  m.license_type.toLowerCase().includes("open")
+).length;
+
+const historicalModelsCount = models.filter((m) => {
+  const s = (m.lifecycle_status || "").toLowerCase();
+  return s.includes("deprecated") || s.includes("historical") || s.includes("archive");
+}).length;
+
+function formatPrice(num: number | null | undefined): string {
+  if (num === null || num === undefined || isNaN(num)) return "0.00";
+  if (num === 0) return "0.00";
+  const rounded = Number(num.toFixed(4));
+  if (rounded >= 1 && Number.isInteger(rounded)) {
+    return rounded.toFixed(2);
+  }
+  const str = rounded.toString();
+  const parts = str.split(".");
+  if (parts.length === 1) {
+    return `${parts[0]}.00`;
+  }
+  if (parts[1].length === 1) {
+    return `${parts[0]}.${parts[1]}0`;
+  }
+  return str;
 }
 
 // Providers for model updates filter
@@ -260,7 +312,18 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {
           featuredFrontierModels.map((m) => {
-            const historyCount = (updatesByModelId.get(m.id) || []).length;
+            const exactCount = (exactUpdatesByModelId.get(m.id) || []).length;
+            const familyKey = (m.family || "").toLowerCase();
+            const familyCount = (familyUpdatesByFamily.get(familyKey) || []).length;
+            const totalCount = exactCount + familyCount;
+            let badgeText = "0";
+            if (exactCount > 0 && familyCount > 0) {
+              badgeText = `${exactCount} (+${familyCount} fam)`;
+            } else if (exactCount > 0) {
+              badgeText = `${exactCount}`;
+            } else if (familyCount > 0) {
+              badgeText = `${familyCount} fam`;
+            }
             return (
               <div class="border border-theme-border bg-theme-surface rounded-lg p-5 flex flex-col justify-between hover:border-theme-border-accent transition-colors">
                 <div>
@@ -297,7 +360,7 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
                       <span class="text-[10px] text-theme-muted block">Pricing / 1M In/Out</span>
                       <span class="font-semibold text-theme-primary">
                         {m.pricing
-                          ? `$${m.pricing.input_per_1m.toFixed(2)} / $${m.pricing.output_per_1m.toFixed(2)}`
+                          ? `$${formatPrice(m.pricing.input_per_1m)} / $${formatPrice(m.pricing.output_per_1m)}`
                           : "Not specified"}
                       </span>
                     </div>
@@ -310,15 +373,23 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
                     class="view-changelog-btn inline-flex items-center gap-1.5 text-theme-primary hover:text-theme-accent transition-colors cursor-pointer"
                     data-model-id={m.id}
                     data-model-name={m.name}
+                    data-model-family={m.family}
                     data-provider={m.provider}
+                    title={
+                      exactCount > 0
+                        ? `${exactCount} exact checkpoint ${exactCount === 1 ? 'update' : 'updates'}${familyCount > 0 ? `, ${familyCount} ${m.family} family updates` : ''}`
+                        : familyCount > 0
+                          ? `${familyCount} ${m.family} family updates`
+                          : "No updates recorded yet"
+                    }
                   >
                     <span>Changelog</span>
                     <span class={`px-1 py-0.2 rounded text-[9px] ${
-                      historyCount > 0
+                      totalCount > 0
                         ? "bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-bold"
                         : "bg-theme-elevated text-theme-muted"
                     }`}>
-                      {historyCount}
+                      {badgeText}
                     </span>
                   </button>
                   <a
@@ -654,7 +725,7 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
             data-filter="reasoning"
             aria-pressed="false"
           >
-            Frontier Reasoning
+            Frontier Reasoning ({reasoningModelsCount})
           </button>
           <button
             type="button"
@@ -662,7 +733,7 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
             data-filter="coding"
             aria-pressed="false"
           >
-            Coding
+            Coding ({codingModelsCount})
           </button>
           <button
             type="button"
@@ -670,7 +741,7 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
             data-filter="multimodal"
             aria-pressed="false"
           >
-            Multimodal
+            Multimodal ({multimodalModelsCount})
           </button>
           <button
             type="button"
@@ -678,15 +749,21 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
             data-filter="open"
             aria-pressed="false"
           >
-            Open Weights
+            Open Weights ({openWeightsModelsCount})
           </button>
           <button
             type="button"
-            class="model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-theme-border text-theme-secondary hover:text-theme-primary hover:border-theme-border-accent transition-colors cursor-pointer"
+            class={`model-filter-btn font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded border border-theme-border transition-colors ${
+              historicalModelsCount === 0
+                ? "opacity-50 cursor-not-allowed text-theme-muted"
+                : "text-theme-secondary hover:text-theme-primary hover:border-theme-border-accent cursor-pointer"
+            }`}
             data-filter="historical"
+            disabled={historicalModelsCount === 0}
+            title={historicalModelsCount === 0 ? "No deprecated or historical models currently cataloged" : undefined}
             aria-pressed="false"
           >
-            Historical
+            Historical ({historicalModelsCount})
           </button>
         </div>
       </div>
@@ -742,7 +819,18 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
           <tbody class="divide-y divide-theme-border-subtle text-theme-secondary">
             {
               models.map((m) => {
-                const historyCount = (updatesByModelId.get(m.id) || []).length;
+                const exactCount = (exactUpdatesByModelId.get(m.id) || []).length;
+                const familyKey = (m.family || "").toLowerCase();
+                const familyCount = (familyUpdatesByFamily.get(familyKey) || []).length;
+                const totalCount = exactCount + familyCount;
+                let badgeText = "0";
+                if (exactCount > 0 && familyCount > 0) {
+                  badgeText = `${exactCount} (+${familyCount} fam)`;
+                } else if (exactCount > 0) {
+                  badgeText = `${exactCount}`;
+                } else if (familyCount > 0) {
+                  badgeText = `${familyCount} fam`;
+                }
                 return (
                   <tr
                     class="model-row hover:bg-theme-hover transition-colors"
@@ -787,11 +875,11 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
                       {m.pricing ? (
                         <div>
                           <span class="text-theme-primary font-medium">
-                            ${m.pricing.input_per_1m.toFixed(2)}
+                            ${formatPrice(m.pricing.input_per_1m)}
                           </span>{" "}
                           /{" "}
                           <span class="text-theme-secondary">
-                            ${m.pricing.output_per_1m.toFixed(2)}
+                            ${formatPrice(m.pricing.output_per_1m)}
                           </span>
                         </div>
                       ) : (
@@ -822,18 +910,26 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
                         class="view-changelog-btn inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-[10px] font-mono border border-theme-border bg-theme-elevated hover:bg-theme-hover hover:border-theme-border-accent text-theme-primary transition-colors cursor-pointer"
                         data-model-id={m.id}
                         data-model-name={m.name}
+                        data-model-family={m.family}
                         data-provider={m.provider}
                         aria-label={`View official release history for ${m.name}`}
+                        title={
+                          exactCount > 0
+                            ? `${exactCount} exact checkpoint ${exactCount === 1 ? 'update' : 'updates'}${familyCount > 0 ? `, ${familyCount} ${m.family} family updates` : ''}`
+                            : familyCount > 0
+                              ? `${familyCount} ${m.family} family updates`
+                              : "No updates recorded yet"
+                        }
                       >
                         <span>History</span>
                         <span
                           class={`px-1 rounded text-[9px] ${
-                            historyCount > 0
+                            totalCount > 0
                               ? "bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-bold"
                               : "bg-theme-surface text-theme-muted"
                           }`}
                         >
-                          {historyCount}
+                          {badgeText}
                         </span>
                       </button>
                     </td>
@@ -1059,10 +1155,10 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
         let matchesTime = true;
         if (updateTime === "7d") {
           const pubTime = publishedStr ? new Date(publishedStr).getTime() : 0;
-          matchesTime = pubTime > 0 && now - pubTime <= 7 * DAY_MS;
+          matchesTime = !isNaN(pubTime) && pubTime > 0 && pubTime <= now && (now - pubTime) <= 7 * DAY_MS;
         } else if (updateTime === "30d") {
           const pubTime = publishedStr ? new Date(publishedStr).getTime() : 0;
-          matchesTime = pubTime > 0 && now - pubTime <= 30 * DAY_MS;
+          matchesTime = !isNaN(pubTime) && pubTime > 0 && pubTime <= now && (now - pubTime) <= 30 * DAY_MS;
         }
 
         const show = matchesSearch && matchesProvider && matchesType && matchesTime;
@@ -1199,6 +1295,7 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
     const jumpToTimelineBtn = document.getElementById("jump-to-timeline-btn");
 
     let activeModalModelName = "";
+    let lastFocusedElement: HTMLElement | null = null;
 
     // Load full JSON updates from data script tag
     let allUpdatesData: any[] = [];
@@ -1211,71 +1308,180 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
       console.warn("Could not parse embedded model updates data:", e);
     }
 
-    function openModelModal(modelId: string, modelName: string, provider: string) {
+    function isSafeUrl(rawUrl: string): boolean {
+      if (!rawUrl || typeof rawUrl !== "string") return false;
+      try {
+        const parsed = new URL(rawUrl);
+        if (parsed.protocol !== "https:" && parsed.protocol !== "http:") return false;
+        const hostname = parsed.hostname.toLowerCase();
+        const ALLOWED = [
+          "openai.com",
+          "anthropic.com",
+          "google.com",
+          "deepmind.google",
+          "deepseek.com",
+          "meta.com",
+          "ai.meta.com",
+          "mistral.ai",
+          "cohere.com",
+          "x.ai",
+          "microsoft.com",
+          "huggingface.co",
+          "github.com",
+        ];
+        return ALLOWED.some((d) => hostname === d || hostname.endsWith("." + d));
+      } catch {
+        return false;
+      }
+    }
+
+    function createUpdateItemElement(u: any, isExact: boolean): HTMLElement {
+      const card = document.createElement("div");
+      card.className = "p-4 border border-theme-border bg-theme-surface rounded-lg space-y-2 mb-3";
+
+      const topRow = document.createElement("div");
+      topRow.className = "flex items-center justify-between gap-2 flex-wrap";
+
+      const typeSpan = document.createElement("span");
+      typeSpan.className = "px-2 py-0.5 rounded text-[9px] uppercase border border-theme-border bg-theme-elevated text-theme-primary font-bold";
+      typeSpan.textContent = (u.update_type || "model_release").replace(/_/g, " ");
+
+      const dateSpan = document.createElement("span");
+      dateSpan.className = "text-theme-muted text-[10px]";
+      dateSpan.textContent = u.published_at || "Date unconfirmed";
+
+      topRow.appendChild(typeSpan);
+      topRow.appendChild(dateSpan);
+      card.appendChild(topRow);
+
+      const titleEl = document.createElement("h4");
+      titleEl.className = "text-sm font-bold text-theme-primary leading-snug";
+      titleEl.textContent = u.title || "Untitled update";
+      card.appendChild(titleEl);
+
+      const summaryEl = document.createElement("p");
+      summaryEl.className = "text-xs text-theme-secondary leading-relaxed";
+      summaryEl.textContent = u.summary || "";
+      card.appendChild(summaryEl);
+
+      if (u.provider_claims && Array.isArray(u.provider_claims) && u.provider_claims.length > 0) {
+        const claimDiv = document.createElement("div");
+        claimDiv.className = "text-[10px] p-2 rounded border border-amber-500/30 bg-amber-500/10 text-amber-800 dark:text-amber-300";
+        claimDiv.textContent = "⚠️ Provider claim — not an independent benchmark result.";
+        card.appendChild(claimDiv);
+      }
+
+      const bottomRow = document.createElement("div");
+      bottomRow.className = "pt-2 border-t border-theme-border-subtle flex items-center justify-between text-[10px]";
+
+      const scopeSpan = document.createElement("span");
+      scopeSpan.className = "text-theme-muted";
+      scopeSpan.textContent = `Scope: ${u.scope || (isExact ? "model" : "model_family")}`;
+      bottomRow.appendChild(scopeSpan);
+
+      const safeUrl = isSafeUrl(u.source_url) ? u.source_url : "#";
+      const linkEl = document.createElement("a");
+      linkEl.href = safeUrl;
+      if (safeUrl !== "#") {
+        linkEl.target = "_blank";
+        linkEl.rel = "noopener noreferrer";
+      }
+      linkEl.className = "text-theme-muted hover:text-theme-accent inline-flex items-center gap-1";
+
+      const linkText = document.createElement("span");
+      linkText.textContent = "Official Source";
+      const linkArrow = document.createElement("span");
+      linkArrow.textContent = "↗";
+      linkEl.appendChild(linkText);
+      linkEl.appendChild(linkArrow);
+      bottomRow.appendChild(linkEl);
+
+      card.appendChild(bottomRow);
+      return card;
+    }
+
+    function openModelModal(modelId: string, modelName: string, modelFamily: string, provider: string) {
       if (!modal || !modalTitle || !modalProvider || !modalCount || !modalBody) return;
 
+      lastFocusedElement = document.activeElement as HTMLElement | null;
       activeModalModelName = modelName;
       modalTitle.textContent = modelName;
       modalProvider.textContent = provider;
 
-      // Filter updates matching this model ID or model name
-      const matchingUpdates = allUpdatesData.filter(
+      // 1. Separate exact checkpoint updates from broad family announcements
+      const exactUpdates = allUpdatesData.filter(
         (u) =>
           (u.model_id && u.model_id === modelId) ||
           (u.model_name && u.model_name.toLowerCase() === modelName.toLowerCase())
       );
 
-      modalCount.textContent = `${matchingUpdates.length} verified ${
-        matchingUpdates.length === 1 ? "update" : "updates"
-      }`;
+      const familyKey = (modelFamily || "").toLowerCase();
+      const familyUpdates = allUpdatesData.filter(
+        (u) =>
+          !exactUpdates.includes(u) &&
+          u.model_family &&
+          u.model_family.toLowerCase() === familyKey &&
+          (u.scope === "model_family" || !u.model_id)
+      );
 
-      if (matchingUpdates.length === 0) {
-        modalBody.innerHTML = `
-          <div class="p-8 text-center bg-theme-elevated/30 rounded border border-theme-border-subtle">
-            <p class="text-theme-primary font-medium mb-1">No tracked official release notes yet</p>
-            <p class="text-theme-muted text-[11px] leading-relaxed max-w-md mx-auto">
-              No historical changelog records are associated with this specific model checkpoint yet. Official release notes will appear here automatically when published by ${provider}.
-            </p>
-          </div>
-        `;
+      const total = exactUpdates.length + familyUpdates.length;
+      modalCount.textContent = `${total} verified ${total === 1 ? "entry" : "entries"}`;
+
+      modalBody.replaceChildren();
+
+      if (total === 0) {
+        const emptyBox = document.createElement("div");
+        emptyBox.className = "p-8 text-center bg-theme-elevated/30 rounded border border-theme-border-subtle";
+        const p1 = document.createElement("p");
+        p1.className = "text-theme-primary font-medium mb-1";
+        p1.textContent = "No tracked official release notes yet";
+        const p2 = document.createElement("p");
+        p2.className = "text-theme-muted text-[11px] leading-relaxed max-w-md mx-auto";
+        p2.textContent = `No historical changelog records are associated with ${modelName} or the ${modelFamily} family yet. Official release notes will appear here automatically when published by ${provider}.`;
+        emptyBox.appendChild(p1);
+        emptyBox.appendChild(p2);
+        modalBody.appendChild(emptyBox);
       } else {
-        modalBody.innerHTML = matchingUpdates
-          .map((u) => {
-            const hasClaims = u.provider_claims && u.provider_claims.length > 0;
-            return `
-            <div class="p-4 border border-theme-border bg-theme-surface rounded-lg space-y-2">
-              <div class="flex items-center justify-between gap-2 flex-wrap">
-                <span class="px-2 py-0.5 rounded text-[9px] uppercase border border-theme-border bg-theme-elevated text-theme-primary font-bold">
-                  ${(u.update_type || "model_release").replace(/_/g, " ")}
-                </span>
-                <span class="text-theme-muted text-[10px]">
-                  ${u.published_at || "Date unconfirmed"}
-                </span>
-              </div>
-              <h4 class="text-sm font-bold text-theme-primary leading-snug">
-                ${u.title}
-              </h4>
-              <p class="text-xs text-theme-secondary leading-relaxed">
-                ${u.summary}
-              </p>
-              ${
-                hasClaims
-                  ? `<div class="text-[10px] p-2 rounded border border-amber-500/30 bg-amber-500/10 text-amber-800 dark:text-amber-300">
-                      ⚠️ Provider claim — not an independent benchmark result.
-                    </div>`
-                  : ""
-              }
-              <div class="pt-2 border-t border-theme-border-subtle flex items-center justify-between text-[10px]">
-                <span class="text-theme-muted">Scope: ${u.scope || "model"}</span>
-                <a href="${u.source_url}" target="_blank" rel="noopener noreferrer" class="text-theme-muted hover:text-theme-accent inline-flex items-center gap-1">
-                  <span>Official Source</span>
-                  <span>↗</span>
-                </a>
-              </div>
-            </div>
-          `;
-          })
-          .join("");
+        if (exactUpdates.length > 0) {
+          const secHeader = document.createElement("div");
+          secHeader.className = "flex items-center justify-between pb-1 mb-2 border-b border-theme-border-subtle";
+          const hTitle = document.createElement("h4");
+          hTitle.className = "text-xs font-bold text-theme-primary tracking-wide uppercase";
+          hTitle.textContent = `Exact Model Updates (${exactUpdates.length})`;
+          const badge = document.createElement("span");
+          badge.className = "font-mono text-[9px] px-1.5 py-0.5 rounded border border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 font-bold";
+          badge.textContent = "Checkpoint-Specific";
+          secHeader.appendChild(hTitle);
+          secHeader.appendChild(badge);
+          modalBody.appendChild(secHeader);
+
+          exactUpdates.forEach((u) => {
+            modalBody.appendChild(createUpdateItemElement(u, true));
+          });
+        } else if (familyUpdates.length > 0) {
+          const noteBox = document.createElement("div");
+          noteBox.className = "p-3 rounded border border-blue-500/30 bg-blue-500/10 text-blue-700 dark:text-blue-300 text-[11px] mb-3";
+          noteBox.textContent = `No checkpoint-specific updates verified for ${modelName} yet. Showing ${familyUpdates.length} general ${modelFamily} family announcements below:`;
+          modalBody.appendChild(noteBox);
+        }
+
+        if (familyUpdates.length > 0) {
+          const famHeader = document.createElement("div");
+          famHeader.className = `flex items-center justify-between pb-1 ${exactUpdates.length > 0 ? "mt-5" : ""} mb-2 border-b border-theme-border-subtle`;
+          const fTitle = document.createElement("h4");
+          fTitle.className = "text-xs font-bold text-theme-secondary tracking-wide uppercase";
+          fTitle.textContent = `${modelFamily} Family Announcements (${familyUpdates.length})`;
+          const fBadge = document.createElement("span");
+          fBadge.className = "font-mono text-[9px] px-1.5 py-0.5 rounded border border-theme-border bg-theme-elevated text-theme-muted";
+          fBadge.textContent = "Family-Wide";
+          famHeader.appendChild(fTitle);
+          famHeader.appendChild(fBadge);
+          modalBody.appendChild(famHeader);
+
+          familyUpdates.forEach((u) => {
+            modalBody.appendChild(createUpdateItemElement(u, false));
+          });
+        }
       }
 
       modal.style.display = "flex";
@@ -1284,14 +1490,19 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
 
     function closeModal() {
       if (modal) modal.style.display = "none";
+      if (lastFocusedElement) {
+        lastFocusedElement.focus();
+        lastFocusedElement = null;
+      }
     }
 
     document.querySelectorAll<HTMLButtonElement>(".view-changelog-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
         const modelId = btn.dataset.modelId || "";
         const modelName = btn.dataset.modelName || "";
+        const modelFamily = btn.dataset.modelFamily || "";
         const provider = btn.dataset.provider || "";
-        openModelModal(modelId, modelName, provider);
+        openModelModal(modelId, modelName, modelFamily, provider);
       });
     });
 
@@ -1344,7 +1555,6 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
         const category = row.dataset.category || "";
         const modalities = row.dataset.modalities || "";
         const status = row.dataset.status || "";
-        const isFrontier = row.dataset.frontier === "true";
 
         const matchesSearch =
           !currentSearch ||
@@ -1354,9 +1564,9 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
 
         let matchesFilter = true;
         if (currentFilter === "reasoning") {
-          matchesFilter = category.includes("reasoning") || isFrontier;
+          matchesFilter = category.includes("reasoning");
         } else if (currentFilter === "coding") {
-          matchesFilter = category.includes("coding") || name.includes("code") || name.includes("devstral");
+          matchesFilter = category.includes("coding") || name.includes("code") || name.includes("devstral") || name.includes("codestral");
         } else if (currentFilter === "multimodal") {
           matchesFilter = modalities.includes("image") || modalities.includes("audio") || modalities.includes("vision") || name.includes("vision") || name.includes("omni");
         } else if (currentFilter === "open") {
@@ -1468,6 +1678,7 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
 
     filterButtons.forEach((btn) => {
       btn.addEventListener("click", () => {
+        if (btn.disabled) return;
         filterButtons.forEach((b) => {
           b.classList.remove("bg-theme-elevated", "text-theme-primary");
           b.classList.add("text-theme-secondary");
@@ -1494,7 +1705,7 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
           if (isAll) {
             b.classList.add("bg-theme-elevated", "text-theme-primary");
             b.classList.remove("text-theme-secondary");
-          } else {
+          } else if (!b.disabled) {
             b.classList.remove("bg-theme-elevated", "text-theme-primary");
             b.classList.add("text-theme-secondary");
           }
