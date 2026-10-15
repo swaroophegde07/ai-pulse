@@ -23,7 +23,7 @@
     "display_name": "OpenAI API Changelog",
     "url": "https://developers.openai.com/api/docs/changelog",
     "source_type": "official_primary_source",
-    "access_method": "html",
+    "access_method": "manual_only",
     "update_categories": [
       "model_release",
       "capability_change",
@@ -32,8 +32,8 @@
       "context_window_change",
       "deprecation"
     ],
-    "enabled": true,
-    "notes": "Official OpenAI developer API changelog for API model versions, structured outputs, pricing, context windows, and deprecations."
+    "enabled": false,
+    "notes": "Official OpenAI developer API changelog. Dynamic client-side documentation portal renders site-wide navigation in static HTML; designated as manual_only to avoid capturing sidebar menus. Automated updates use official openai_news RSS."
   },
   {
     "id": "anthropic_news",
@@ -240,13 +240,13 @@
     "display_name": "Azure AI Updates",
     "url": "https://azure.microsoft.com/en-us/updates/?category=ai-machine-learning",
     "source_type": "official_primary_source",
-    "access_method": "html",
+    "access_method": "manual_only",
     "update_categories": [
       "model_release",
       "capability_change",
       "api_availability"
     ],
-    "enabled": true,
-    "notes": "Official Azure AI service updates covering Phi model series availability, Azure OpenAI model versions, and foundry services."
+    "enabled": false,
+    "notes": "Official Azure AI service updates. Portal requires dynamic client-side JavaScript rendering; designated as manual_only to avoid capturing site-wide support and community navigation."
   }
 ]
