@@ -107,7 +107,7 @@ const activeBenchmarkCount = (pipelineStatusData as any)?.summary?.active_benchm
               href="https://github.com/swaroophegde07/ai-pulse"
               target="_blank"
               rel="noopener noreferrer"
-              class="font-mono text-[11px] text-theme-secondary hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-1 group"
+              class="font-mono text-[11px] text-theme-secondary hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-1 group"
               aria-label="View source repository on GitHub (opens in a new tab)"
             >
               <span>GitHub</span>
@@ -117,7 +117,7 @@ const activeBenchmarkCount = (pipelineStatusData as any)?.summary?.active_benchm
           <li>
             <a
               href={`${base}/feedback/`}
-              class="font-mono text-[11px] text-theme-secondary hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-1"
+              class="font-mono text-[11px] text-theme-secondary hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-1"
             >
               <span>Feedback &amp; Bug Reports</span>
             </a>
@@ -142,7 +142,7 @@ const activeBenchmarkCount = (pipelineStatusData as any)?.summary?.active_benchm
         &copy; {currentYear} AI Pulse. Content belongs to respective publishers.
       </p>
       <div
-        class="order-1 md:order-2 inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-amber-500/30 bg-amber-500/10 text-amber-700 dark:text-amber-300 font-mono text-[11px] font-medium shadow-sm"
+        class="order-1 md:order-2 inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-amber-500/30 bg-amber-500/10 text-amber-800 dark:text-amber-300 font-mono text-[11px] font-medium shadow-sm"
         role="note"
         aria-label="AI summary accuracy notice"
       >
@@ -163,7 +163,7 @@ const activeBenchmarkCount = (pipelineStatusData as any)?.summary?.active_benchm
         <span>&middot;</span>
         <span>{buildTimestamp}</span>
         <span>&middot;</span>
-        <span class="inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400">
+        <span class="inline-flex items-center gap-1 text-emerald-700 dark:text-emerald-400">
           <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400"></span>
           Pipeline: {pipelineHealth} ({activeFeedsCount} feeds, {activeBenchmarkCount} benchmark suites)
         </span>

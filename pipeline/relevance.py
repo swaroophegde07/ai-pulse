@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 _AI_CORE_TERMS = re.compile(
     r"\b("
     r"artificial\s+intelligence|"
-    r"machine\s+learning|"
+    r"machine\s+learning(?:\s+pipeline|\s+models?|\s+systems?|\s+algorithms?)?|"
     r"deep\s+learning|"
     r"neural\s+networks?|"
     r"deep\s+neural|"
@@ -44,23 +44,30 @@ _AI_CORE_TERMS = re.compile(
     r"pre-?training|fine-?tuning|distillation|pruning|quantization|"
     r"ai\s+agents?|agentic\s+ai|agentic\s+reasoning|agentic\s+coding|agentic|"
     r"autonomous\s+agents?|self-evolving\s+agents?|tool-using\s+agents?|"
-    r"computer-use\s+agents?|computer-use|"
+    r"computer-use\s+agents?|computer-use|data\s+(?:analytics\s+)?agents?|agent\s+harness|"
     r"reinforcement\s+learning|rlhf|rlaif|self-play|"
     r"reasoning\s+traces?|chain-of-thought|"
     r"prompt\s+engineering|in-context\s+learning|"
     r"ai\s+safety|ai\s+alignment|ai\s+evaluations?|ai\s+benchmarks?|"
     r"ai\s+governance|ai\s+regulation|ai\s+policy|"
     r"synthetic\s+data|synthid|"
-    r"humanoid\s+robots?|physical\s+robotics|robotics\s+ai|"
-    r"computer\s+vision|natural\s+language\s+processing|nlp|"
+    r"humanoid\s+robots?|physical\s+robotics|robotics\s+ai|robot\s+learning|mechanical\s+intelligence|"
+    r"computer\s+vision|natural\s+language(?:\s+processing|\s+questions?|\s+understanding)?|nlp|"
     r"vector\s+databases?|retrieval-?augmented\s+generation|rag|"
     r"embeddings?|text\s+embeddings?|"
     r"text-to-speech|voice\s+cloning|speech\s+recognition|asr|tts|"
     r"vision-?language|multimodal\s+models?|multimodal|"
-    r"open\s+models?|open-?weights?|"
+    r"open\s+models?|open-?weights?|model\s+weights?|"
     r"vibe-cod(ing|ed)|copilot|codex|"
     r"alphagenome|alphafold|alphazero|"
-    r"agi|artificial\s+general\s+intelligence"
+    r"agi|artificial\s+general\s+intelligence|"
+    r"scaling\s+laws?|"
+    r"gradient-boosting|gradient\s+boosted|xgboost|lightgbm|"
+    r"surrogate\s+models?|physics-informed\s+neural|pinns?|"
+    r"retrosynthesis\s+models?|exchange-correlation\s+functional|"
+    r"dlss(?:\s+\d+)?|deep\s+learning\s+super\s+sampling|neural\s+rendering|"
+    r"context-aware\s+(?:secret\s+)?classifier|secret\s+classifier|"
+    r"gpu\s+cluster(?:\s+configuration|\s+scheduling)?"
     r")\b",
     re.IGNORECASE,
 )
@@ -81,7 +88,8 @@ _AI_NAMED_ENTITIES = re.compile(
     r"midjourney|stable\s+diffusion|"
     r"perplexity|"
     r"livebench|swe-bench|mmlu|humaneval|"
-    r"megatron|cuopt|doca\s+gpunetio|tensorrt"
+    r"megatron|cuopt|doca\s+gpunetio|tensorrt|"
+    r"retrochimera|skala|kgmon"
     r")\b",
     re.IGNORECASE,
 )
@@ -93,10 +101,10 @@ _UNRELATED_DISTRACTORS = re.compile(
     r"glp-1|weight-loss\s+drugs?|ozempic|wegovy|tirzepatide|biological\s+age(?!\s+clock\s+model)|"
     r"solid-state\s+batter(?:y|ies)|lithium-ion|carbon\s+dioxide\s+batter(?:y|ies)|compressed\s+co2|future\s+of\s+batteries|"
     r"moon\s+city|cities\s+on\s+the\s+moon|lunar\s+base|lunar\s+surface|moon\s+city\s+problems|"
-    r"delivery\s+drone\s+air\s+traffic|drone\s+air\s+traffic|unmanned\s+aircraft\s+traffic|"
+    r"delivery\s+drone\s+air\s+traffic|drone\s+air\s+traffic|unmanned\s+aircraft\s+traffic|drone\s+traffic\s+controllers?|drone\s+traffic|delivery\s+drones?|drones?|"
     r"portable\s+rubber\s+dams?|rubber\s+dams?|flood\s+defen[sc]e|"
     r"rainforests?|natural\s+forest\s+regeneration|seed-dispersers?|tropical\s+ecosystems?|"
-    r"climate\s+tech\s+companies\s+to\s+watch|climate\s+tech\s+companies\s+list|"
+    r"climate\s+tech\s+companies\s+to\s+watch|climate\s+tech\s+companies\s+list|brimstone|"
     r"geothermal\s+power’s\s+promise|geothermal\s+power|"
     r"cage\s+matches|distrokid"
     r")\b",
@@ -106,14 +114,22 @@ _UNRELATED_DISTRACTORS = re.compile(
 # AI explicitly in title: e.g. "AI", "AI's", "AI-powered", "industrial AI", "AGI"
 _AI_WORD_BOUNDARY = re.compile(r"\b(AI('s|s)?|AGI)\b|AI-[A-Za-z]+|[A-Za-z]+-AI\b")
 
-# Dedicated primary AI sources where published research is inherently AI-focused
+# Dedicated primary AI sources where published research is inherently AI-focused.
+# Note: Broad categories (such as unclassified arXiv, general research publishers) are excluded
+# so individual articles must be evaluated.
 _DEDICATED_AI_SOURCES = frozenset([
     "arXiv cs.AI (Artificial Intelligence)",
     "arXiv cs.LG (Machine Learning)",
+    "arXiv cs.AI",
+    "arXiv cs.LG",
     "Google DeepMind Blog",
+    "Google DeepMind",
     "OpenAI News",
+    "OpenAI",
     "Anthropic News",
+    "Anthropic",
     "Hugging Face Blog",
+    "Hugging Face",
     "The Gradient",
 ])
 
@@ -151,17 +167,14 @@ def is_article_ai_relevant(
     if distractor_match_title and not has_title_ai:
         return False, f"Title focuses on unrelated topic ({distractor_match_title.group(0)}) without AI centrality"
 
-    # If from dedicated AI research lab/archive and no unrelated distractor
-    is_dedicated_source = (
-        source_name in _DEDICATED_AI_SOURCES
-        or any(d in source_name.lower() for d in ["openai", "anthropic", "deepmind", "hugging face", "arxiv", "the gradient"])
-    )
+    # Dedicated AI source check (exact match on verified AI feeds, no loose substring bypass)
+    is_dedicated_source = source_name in _DEDICATED_AI_SOURCES
     if is_dedicated_source and not distractor_match_title:
         return True, f"Verified publication from dedicated AI source ({source_name})"
 
     # Positive title AI signal
     if has_title_ai:
-        # If title also matched a distractor (e.g. AI-designed viruses vs fake blood), verify AI substantive presence
+        # If title also matched a distractor, verify AI substantive presence
         if distractor_match_title:
             body_ai = len(_AI_CORE_TERMS.findall(combined_body)) + len(_AI_WORD_BOUNDARY.findall(combined_body))
             if body_ai >= 2 or has_ai_word_in_title:
@@ -169,7 +182,7 @@ def is_article_ai_relevant(
             return False, f"Distractor topic with only passing AI reference ({distractor_match_title.group(0)})"
         return True, "Title substantively centers on AI / machine learning"
 
-    # For titles without explicit AI terminology (e.g. "Do text embeddings perfectly encode text?"):
+    # For titles without explicit AI terminology (e.g. cross-domain ML applications like space weather, molecular synthesis):
     body_ai_count = (
         len(_AI_WORD_BOUNDARY.findall(combined_body))
         + len(_AI_CORE_TERMS.findall(combined_body))
@@ -177,16 +190,19 @@ def is_article_ai_relevant(
     )
 
     if distractor_match_title:
-        # Title has distractor. Even if body mentions AI in passing, reject unless AI heavily dominates.
+        # Title has distractor. Even if body mentions AI in passing, reject.
         return False, f"Body only mentions AI peripherally in unrelated story ({distractor_match_title.group(0)})"
 
     # Check body substantive threshold for articles
     if body_ai_count >= 2:
         return True, f"Substantive AI discussion throughout text ({body_ai_count} signals)"
 
-    # If tags explicitly assert AI
+    # If tags or topics explicitly assert AI
     if tags:
-        ai_tags = [t for t in tags if any(k in t.lower() for k in ["model", "agent", "coding", "llm", "ai", "research", "machine learning"])]
+        ai_tags = [
+            t for t in tags
+            if any(k in t.lower() for k in ["model", "agent", "coding", "llm", "ai", "research", "machine learning", "safety & alignment"])
+        ]
         if ai_tags and body_ai_count >= 1:
             return True, f"AI validated via category tags ({', '.join(ai_tags)}) and text signals"
 
@@ -195,21 +211,23 @@ def is_article_ai_relevant(
 
 
 def split_mixed_newsletter(article: dict[str, Any]) -> list[dict[str, Any]]:
-    """Separate mixed newsletters (e.g. 'The Download: <part1> and <part2>') into individual stories.
+    """Separate mixed newsletters into individual stories where possible.
 
     Filters out unrelated portions and produces clean, focused articles for the AI-relevant parts.
-    If no part is AI-relevant, returns an empty list.
+    Never invents URL fragments (#...). If no part is AI-relevant, returns an empty list.
     """
     title = article.get("title", "")
     url = article.get("url", "")
     text = article.get("text", "")
     summary = article.get("summary", "")
+    source_name = article.get("source", "")
+    tags = article.get("tags")
 
     # Look for newsletter header pattern like "The Download: <story1> and <story2>"
     download_match = re.match(r"^(The Download:\s*)(.+)$", title, re.IGNORECASE)
     if not download_match:
         # Not a recognized newsletter format; return single article if AI-relevant, else []
-        is_rel, _ = is_article_ai_relevant(title, text, summary, article.get("tags"), article.get("source", ""))
+        is_rel, _ = is_article_ai_relevant(title, text, summary, tags, source_name)
         return [article] if is_rel else []
 
     prefix = download_match.group(1)
@@ -224,7 +242,7 @@ def split_mixed_newsletter(article: dict[str, Any]) -> list[dict[str, Any]]:
             segments.append(cleaned)
 
     if len(segments) <= 1:
-        is_rel, _ = is_article_ai_relevant(title, text, summary, article.get("tags"), article.get("source", ""))
+        is_rel, _ = is_article_ai_relevant(title, text, summary, tags, source_name)
         return [article] if is_rel else []
 
     text_paras = [p.strip() for p in (text or summary).split("\n\n") if p.strip()]
@@ -242,21 +260,26 @@ def split_mixed_newsletter(article: dict[str, Any]) -> list[dict[str, Any]]:
         seg_text = "\n\n".join(matching_paras) if matching_paras else text
 
         # Evaluate relevance of this individual segment
-        is_rel, reason = is_article_ai_relevant(seg_title, seg_text, tags=article.get("tags"))
+        is_rel, reason = is_article_ai_relevant(
+            seg_title,
+            text=seg_text,
+            tags=tags,
+            source_name=source_name,
+        )
         if is_rel:
             import hashlib
             from pipeline.scraper import normalize_url, stable_id
 
             canon_base = normalize_url(url)
-            seg_slug = re.sub(r"[^\w]+", "-", segment.lower()).strip("-")
-            child_url = f"{canon_base}#{seg_slug}"
-            child_id = stable_id(child_url)
+            # Never invent fragment identifiers (#...). Use canonical base URL.
+            # Stable ID incorporates the segment title for distinct identity without inventing URLs.
+            child_id = hashlib.sha256(f"{canon_base}::{seg_title}".encode()).hexdigest()[:16]
 
             child_art = dict(article)
             child_art["id"] = child_id
             child_art["title"] = seg_title
-            child_art["url"] = child_url
-            child_art["raw_url"] = child_url
+            child_art["url"] = canon_base
+            child_art["raw_url"] = canon_base
             if matching_paras:
                 child_art["text"] = seg_text
             extracted_articles.append(child_art)

@@ -69,7 +69,7 @@ const navItems = [
                 href={item.href}
                 class={`font-mono text-xs tracking-wide px-3 py-2 rounded transition-colors duration-150 inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
                   isCurrent
-                    ? "text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 font-medium"
+                    ? "text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 font-medium"
                     : "text-theme-secondary hover:text-theme-primary hover:bg-theme-hover"
                 }`}
                 aria-current={isCurrent ? "page" : undefined}
@@ -138,7 +138,7 @@ const navItems = [
             href={`${base}/feedback/`}
             class={`font-mono text-xs px-2.5 py-1.5 rounded transition-colors duration-150 inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
               normalizedCurrent === "/feedback"
-                ? "text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 font-medium"
+                ? "text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 font-medium"
                 : "text-theme-muted hover:text-theme-primary hover:bg-theme-hover"
             }`}
             aria-current={normalizedCurrent === "/feedback" ? "page" : undefined}
@@ -213,7 +213,7 @@ const navItems = [
               href={item.href}
               class={`mobile-nav-link flex items-center justify-between font-mono text-xs tracking-wide px-3 py-3 rounded-md min-h-[44px] transition-colors ${
                 isCurrent
-                  ? "text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 font-medium"
+                  ? "text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 font-medium"
                   : "text-theme-secondary hover:text-theme-primary hover:bg-theme-hover active:bg-theme-selected"
               }`}
               aria-current={isCurrent ? "page" : undefined}
@@ -284,7 +284,7 @@ const navItems = [
           href={`${base}/feedback/`}
           class={`mobile-nav-link flex items-center justify-between font-mono text-xs tracking-wide px-3 py-3 rounded-md min-h-[44px] transition-colors ${
             normalizedCurrent === "/feedback"
-              ? "text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 font-medium"
+              ? "text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 font-medium"
               : "text-theme-muted hover:text-theme-primary hover:bg-theme-hover active:bg-theme-selected"
           }`}
           aria-current={normalizedCurrent === "/feedback" ? "page" : undefined}

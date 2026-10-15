@@ -107,17 +107,17 @@ const hasValidKeyPoints =
 
 // Category styling map.
 const categoryStyles: Record<string, string> = {
-  "News": "text-sky-600 dark:text-sky-400 bg-sky-500/10 border-sky-500/20",
-  "Research": "text-violet-600 dark:text-violet-400 bg-violet-500/10 border-violet-500/20",
-  "Benchmark": "text-amber-600 dark:text-amber-400 bg-amber-500/10 border-amber-500/20",
-  "Product Release": "text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
-  "Opinion": "text-rose-600 dark:text-rose-400 bg-rose-500/10 border-rose-500/20",
+  "News": "text-sky-700 dark:text-sky-400 bg-sky-500/10 border-sky-500/20",
+  "Research": "text-violet-700 dark:text-violet-400 bg-violet-500/10 border-violet-500/20",
+  "Benchmark": "text-amber-800 dark:text-amber-300 bg-amber-500/10 border-amber-500/20",
+  "Product Release": "text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
+  "Opinion": "text-rose-700 dark:text-rose-400 bg-rose-500/10 border-rose-500/20",
 };
 const catStyle = categoryStyles[category] ?? categoryStyles["News"];
 
 const priorityStyles: Record<string, string> = {
-  "Must Know": "text-amber-600 dark:text-amber-300 bg-amber-500/10 border-amber-500/30",
-  "Deep Dive": "text-cyan-600 dark:text-cyan-300 bg-cyan-500/10 border-cyan-500/30",
+  "Must Know": "text-amber-800 dark:text-amber-300 bg-amber-500/10 border-amber-500/30",
+  "Deep Dive": "text-cyan-700 dark:text-cyan-300 bg-cyan-500/10 border-cyan-500/30",
   "Worth a Look": "text-theme-muted bg-theme-elevated border-theme-border",
 };
 const prioStyle = priority_label ? (priorityStyles[priority_label] ?? priorityStyles["Worth a Look"]) : "";
@@ -180,7 +180,7 @@ const articlePayload = JSON.stringify({
         {
           impact_score !== undefined && impact_score !== null && impact_score >= 8 ? (
             <span
-              class="font-mono text-[9px] font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded border border-amber-500/40 bg-amber-500/10 text-amber-500 dark:text-amber-300"
+              class="font-mono text-[9px] font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded border border-amber-500/40 bg-amber-500/10 text-amber-800 dark:text-amber-300"
               title={`Editorial Impact Score: ${impact_score}/10`}
             >
               High Impact · {impact_score}/10
@@ -204,12 +204,12 @@ const articlePayload = JSON.stringify({
       </div>
       <div class="flex items-center gap-2">
         <span class="font-mono text-[10px] text-theme-muted tracking-wide truncate max-w-[140px]" title={source_type ? `${company} (${source_type})` : company}>
-          {isDemo && <span class="text-amber-600 mr-1">[DEMO]</span>}{company}
+          {isDemo && <span class="text-amber-800 dark:text-amber-300 mr-1">[DEMO]</span>}{company}
         </span>
         <!-- Bookmark button -->
         <button
           type="button"
-          class="bookmark-btn inline-flex items-center justify-center w-8 h-8 -mr-1.5 rounded text-theme-muted hover:text-amber-500 hover:bg-theme-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 active:scale-90 transition-all duration-150 cursor-pointer"
+          class="bookmark-btn inline-flex items-center justify-center w-8 h-8 -mr-1.5 rounded text-theme-muted hover:text-amber-800 dark:hover:text-amber-300 hover:bg-theme-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 active:scale-90 transition-all duration-150 cursor-pointer"
           data-article-id={id}
           data-article-title={title}
           data-article-url={url}
@@ -224,12 +224,12 @@ const articlePayload = JSON.stringify({
     </div>
 
     <!-- Title (Clickable) -->
-    <h3 class="text-sm font-semibold text-theme-primary leading-snug group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors line-clamp-3">
+    <h3 class="font-sans text-[15px] sm:text-base font-semibold text-theme-primary leading-snug group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors line-clamp-3">
       <a
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        class="hover:text-emerald-600 dark:hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-500 rounded transition-colors"
+        class="hover:text-emerald-700 dark:hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-500 rounded transition-colors"
       >
         {title}
       </a>
@@ -239,7 +239,7 @@ const articlePayload = JSON.stringify({
     {
       hasValidKeyPoints && (!summary || summary.startsWith("[Automated summary unavailable]") || summary_status === "pending_quota") ? (
         <div class="flex items-center gap-2 py-0.5">
-          <span class="inline-flex items-center gap-1.5 text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded font-medium">
+          <span class="inline-flex items-center gap-1.5 text-[10px] font-mono text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded font-medium">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
             <span>Priority TL;DR Briefing</span>
           </span>
@@ -248,13 +248,13 @@ const articlePayload = JSON.stringify({
           </span>
         </div>
       ) : summary_status === "publisher_excerpt" || summary_status === "unverified_excerpt" || (summary && summary.startsWith("[Automated summary unavailable] ") && summary.length > 40) ? (
-        <p class="text-xs text-theme-secondary leading-relaxed line-clamp-4">
+        <p class="font-sans text-[13.5px] sm:text-sm text-theme-secondary leading-relaxed line-clamp-4">
           <span class="text-theme-muted font-mono text-[9px] mr-1 uppercase border border-theme-border bg-theme-elevated px-1 py-0.5 rounded tracking-wider">[Excerpt]</span>
           {summary.replace("[Automated summary unavailable] ", "")}
         </p>
       ) : summary_status === "pending_quota" ? (
-        <p class="text-xs text-theme-secondary leading-relaxed line-clamp-4">
-          <span class="text-amber-600 dark:text-amber-400 font-mono text-[9px] mr-1.5 uppercase border border-amber-500/30 px-1 py-0.5 rounded bg-amber-500/10">Summary in queue</span>
+        <p class="font-sans text-[13.5px] sm:text-sm text-theme-secondary leading-relaxed line-clamp-4">
+          <span class="text-amber-800 dark:text-amber-300 font-mono text-[9px] mr-1.5 uppercase border border-amber-500/30 px-1 py-0.5 rounded bg-amber-500/10">Summary in queue</span>
           {summary && !summary.startsWith("[Automated summary unavailable]") && summary.length > 20 ? (
             summary.replace("[Automated summary unavailable] ", "")
           ) : (
@@ -262,11 +262,11 @@ const articlePayload = JSON.stringify({
           )}
         </p>
       ) : !summary || summary.startsWith("[Automated summary unavailable]") ? (
-        <p class="text-xs text-theme-muted italic leading-relaxed line-clamp-4">
+        <p class="font-sans text-[13.5px] sm:text-sm text-theme-muted italic leading-relaxed line-clamp-4">
           Summary unavailable — read the original article.
         </p>
       ) : (
-        <p class="text-xs text-theme-secondary leading-relaxed line-clamp-4">
+        <p class="font-sans text-[13.5px] sm:text-sm text-theme-secondary leading-relaxed line-clamp-4">
           {summary}
         </p>
       )
@@ -275,22 +275,22 @@ const articlePayload = JSON.stringify({
     <!-- Three-point TL;DR Key Points (AI-generated TL;DR with explicit labels) -->
     {
       hasValidKeyPoints && (
-        <div class="bg-theme-elevated border border-theme-border rounded-md p-3 space-y-2 font-mono text-[11px] text-theme-secondary">
-          <div class="text-[9px] uppercase tracking-wider text-theme-muted font-semibold mb-1 flex items-center justify-between">
+        <div class="bg-theme-elevated border border-theme-border rounded-md p-3 space-y-2 text-theme-secondary">
+          <div class="font-mono text-[9px] uppercase tracking-wider text-theme-muted font-semibold mb-1 flex items-center justify-between">
             <span>AI-generated TL;DR</span>
-            <span class="text-[8px] text-emerald-600 dark:text-emerald-400 font-medium">Synthesized Analysis</span>
+            <span class="text-[8px] text-emerald-700 dark:text-emerald-400 font-medium">Synthesized Analysis</span>
           </div>
           <div class="flex items-start gap-1.5">
-            <span class="text-emerald-600 dark:text-emerald-400 font-bold shrink-0 text-[10px]">What happened:</span>
-            <span class="text-theme-secondary leading-snug">{key_points[0]}</span>
+            <span class="font-mono text-emerald-700 dark:text-emerald-400 font-bold shrink-0 text-[10px]">What happened:</span>
+            <span class="font-sans text-[13px] text-theme-secondary leading-snug">{key_points[0]}</span>
           </div>
           <div class="flex items-start gap-1.5">
-            <span class="text-emerald-600 dark:text-emerald-400 font-bold shrink-0 text-[10px]">Why it matters:</span>
-            <span class="text-theme-secondary leading-snug">{key_points[1]}</span>
+            <span class="font-mono text-emerald-700 dark:text-emerald-400 font-bold shrink-0 text-[10px]">Why it matters:</span>
+            <span class="font-sans text-[13px] text-theme-secondary leading-snug">{key_points[1]}</span>
           </div>
           <div class="flex items-start gap-1.5">
-            <span class="text-emerald-600 dark:text-emerald-400 font-bold shrink-0 text-[10px]">Who is affected:</span>
-            <span class="text-theme-secondary leading-snug">{key_points[2]}</span>
+            <span class="font-mono text-emerald-700 dark:text-emerald-400 font-bold shrink-0 text-[10px]">Who is affected:</span>
+            <span class="font-sans text-[13px] text-theme-secondary leading-snug">{key_points[2]}</span>
           </div>
         </div>
       )
@@ -299,9 +299,9 @@ const articlePayload = JSON.stringify({
     <!-- Why it matters (if available, no TL;DR present, and not generic) -->
     {
       !hasValidKeyPoints && why_it_matters && !isGenericWhy(why_it_matters) && (
-        <div class="bg-theme-elevated border border-theme-border rounded px-2.5 py-1.5 text-[11px] text-theme-secondary font-mono leading-relaxed">
-          <span class="text-emerald-600 dark:text-emerald-400 font-medium mr-1.5 uppercase tracking-wider text-[9px]">Why it matters:</span>
-          {why_it_matters}
+        <div class="bg-theme-elevated border border-theme-border rounded px-2.5 py-1.5 text-theme-secondary leading-relaxed">
+          <span class="font-mono text-emerald-700 dark:text-emerald-400 font-medium mr-1.5 uppercase tracking-wider text-[9px]">Why it matters:</span>
+          <span class="font-sans text-[13px] text-theme-secondary">{why_it_matters}</span>
         </div>
       )
     }
@@ -313,7 +313,7 @@ const articlePayload = JSON.stringify({
           {articleTags.slice(0, 5).map((t) => (
             <a
               href={`${base}/news/?q=${encodeURIComponent(t.toLowerCase())}`}
-              class="tag-pill chip-interactive text-[10px] font-mono text-theme-muted bg-theme-elevated hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-theme-border-accent px-2 py-0.5 rounded border border-theme-border"
+              class="tag-pill chip-interactive text-[10px] font-mono text-theme-muted bg-theme-elevated hover:text-emerald-700 dark:hover:text-emerald-400 hover:border-theme-border-accent px-2 py-0.5 rounded border border-theme-border"
               data-tag={t.toLowerCase()}
               title={`Filter articles tagged #${t}`}
             >
@@ -352,7 +352,7 @@ const articlePayload = JSON.stringify({
                 href={s.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-theme-muted hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-0.5"
+                class="text-theme-muted hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-0.5"
                 title={s.title || s.publisher || "Source link"}
               >
                 <span>{s.publisher || "Source"}</span>
@@ -369,7 +369,7 @@ const articlePayload = JSON.stringify({
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-1.5 font-mono text-[10px] text-theme-muted hover:text-emerald-600 dark:hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-500 rounded px-1 -mx-1 transition-colors duration-150 group/link w-fit"
+          class="inline-flex items-center gap-1.5 font-mono text-[10px] text-theme-muted hover:text-emerald-700 dark:hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-500 rounded px-1 -mx-1 transition-colors duration-150 group/link w-fit"
           aria-label={`Read full article: ${title} (opens in new tab)`}
         >
           <span>Read source</span>
@@ -392,7 +392,7 @@ const articlePayload = JSON.stringify({
         <!-- Expand / Focused Reader Trigger Button -->
         <button
           type="button"
-          class="expand-btn btn-interactive inline-flex items-center gap-1 font-mono text-[10px] text-theme-muted hover:text-emerald-600 dark:hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-500 rounded px-1.5 py-0.5 hover:bg-theme-elevated transition-colors cursor-pointer"
+          class="expand-btn btn-interactive inline-flex items-center gap-1 font-mono text-[10px] text-theme-muted hover:text-emerald-700 dark:hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-500 rounded px-1.5 py-0.5 hover:bg-theme-elevated transition-colors cursor-pointer"
           data-expand-id={id}
           title="Expand briefing into focused reader view"
           aria-label={`Expand full briefing for ${title}`}

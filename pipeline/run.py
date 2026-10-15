@@ -28,7 +28,7 @@ import tempfile
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
-from pipeline.relevance import is_article_ai_relevant
+from pipeline.relevance import _UNRELATED_DISTRACTORS, is_article_ai_relevant
 from pipeline.scraper import (
     are_articles_closely_related,
     are_titles_duplicate,
@@ -377,6 +377,133 @@ def merge_records(
 
     all_records.sort(key=sort_key, reverse=True)
     return all_records[:max_articles]
+
+
+def reconcile_existing_feed(
+    feed_path: Path | None = None,
+    dry_run: bool = False,
+) -> dict[str, Any]:
+    """Audit and reconcile existing records in feed.json.
+
+    - Removes confirmed false positives and non-AI distractors (e.g. 'The Download: drone traffic controllers').
+    - Cleans URL fragment identifiers without breaking canonical URLs.
+    - Groups related coverage of identical events (e.g. Gemini 4 Argon general announcement + The Verge media coverage)
+      into secondary sources ('Also reported by').
+    - Strictly preserves distinct follow-ups (robotics, safety, alignment) and valid research.
+    - Fully idempotent across repeated executions.
+
+    Returns:
+        Audit report dict with counts and details.
+    """
+    if feed_path is None:
+        env_path = os.environ.get("FEED_PATH", "")
+        feed_path = Path(env_path) if env_path else DEFAULT_FEED_PATH
+
+    records = load_existing_feed(feed_path)
+    total_initial = len(records)
+    logger.info("Starting feed reconciliation on %d records at %s...", total_initial, feed_path)
+
+    # 1. Clean fragment URLs & filter confirmed non-AI distractor false positives
+    cleaned: list[dict] = []
+    removed_records: list[dict[str, str]] = []
+    fragment_urls_cleaned = 0
+
+    for r in records:
+        # Clean fragment from URL if present
+        url = r.get("url", "")
+        if "#" in url:
+            clean_url = url.split("#")[0]
+            r["url"] = clean_url
+            fragment_urls_cleaned += 1
+            if "sources" in r and isinstance(r["sources"], list):
+                for s in r["sources"]:
+                    if isinstance(s, dict) and "#" in s.get("url", ""):
+                        s["url"] = s["url"].split("#")[0]
+
+        title = r.get("title", "")
+        summary = r.get("summary", "") or r.get("text", "")
+        source = r.get("source", "")
+        tags = r.get("tags")
+
+        is_rel, reason = is_article_ai_relevant(
+            title,
+            text=summary,
+            tags=tags,
+            source_name=source,
+        )
+
+        distractor_match = _UNRELATED_DISTRACTORS.search(title)
+        # Confirmed distractor without AI centrality
+        if not is_rel and distractor_match:
+            removed_records.append({"id": r.get("id", ""), "title": title, "reason": reason})
+            logger.info("Reconciliation removed distractor: '%s' (%s)", title, reason)
+            continue
+
+        # Known false positive newsletter segment
+        if r.get("id") == "8b9896f1d469636c":
+            removed_records.append({"id": r["id"], "title": title, "reason": "Explicit non-AI mixed newsletter false positive"})
+            logger.info("Reconciliation removed known false positive: '%s'", title)
+            continue
+
+        cleaned.append(r)
+
+    # 2. Conservative event-level deduplication / source grouping
+    grouped: list[dict] = []
+    merged_count = 0
+    merged_details: list[dict[str, str]] = []
+
+    for item in cleaned:
+        merged = False
+        for existing in grouped:
+            if are_articles_closely_related(existing, item):
+                # Prefer lab announcement as primary representation
+                if item.get("source_type") in ["Primary Source", "Research Laboratory"] and existing.get("source_type") not in ["Primary Source", "Research Laboratory"]:
+                    _merge_source_into(item, existing)
+                    grouped[grouped.index(existing)] = item
+                    primary_rec, secondary_rec = item, existing
+                else:
+                    _merge_source_into(existing, item)
+                    primary_rec, secondary_rec = existing, item
+
+                merged_count += 1
+                merged = True
+                merged_details.append({
+                    "primary_id": primary_rec.get("id", ""),
+                    "primary_title": primary_rec.get("title", ""),
+                    "secondary_id": secondary_rec.get("id", ""),
+                    "secondary_title": secondary_rec.get("title", ""),
+                })
+                logger.info(
+                    "Grouped secondary coverage '%s' into primary '%s'",
+                    secondary_rec.get("title"),
+                    primary_rec.get("title"),
+                )
+                break
+
+        if not merged:
+            grouped.append(item)
+
+    report = {
+        "feed_path": str(feed_path),
+        "total_evaluated": total_initial,
+        "total_retained": len(grouped),
+        "total_removed": len(removed_records),
+        "removed_records": removed_records,
+        "total_merged_coverage": merged_count,
+        "merged_coverage": merged_details,
+        "fragment_urls_cleaned": fragment_urls_cleaned,
+    }
+
+    if not dry_run:
+        write_feed_atomic(grouped, feed_path)
+        logger.info(
+            "Feed reconciliation complete. Retained %d records (%d removed, %d merged).",
+            len(grouped),
+            len(removed_records),
+            merged_count,
+        )
+
+    return report
 
 
 # ---------------------------------------------------------------------------
@@ -940,6 +1067,10 @@ if __name__ == "__main__":
     if "--backfill-tldr" in sys.argv:
         updated, remaining = backfill_recent_tldrs()
         logger.info("Backfill complete: %d updated, %d remaining/skipped.", updated, remaining)
+        sys.exit(0)
+    if "--reconcile-feed" in sys.argv:
+        stats = reconcile_existing_feed()
+        logger.info("Reconciliation complete: %s", stats)
         sys.exit(0)
     try:
         added = run_pipeline()
