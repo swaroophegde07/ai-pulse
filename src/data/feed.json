@@ -1,5 +1,92 @@
 [
   {
+    "id": "c04bb70f1b05d38a",
+    "title": "NVIDIA Nemotron 3.5 Super VL Powers Specialized Agents with Multimodal Reasoning",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "NVIDIA released Nemotron 3.5 Super VL, an open and customizable multimodal model designed for complex enterprise workflows and specialized AI agents. The model features a 120B-parameter mixture-of-experts architecture that activates 12B parameters per token to handle tasks like reading documents and calling tools.",
+    "summary_status": "generated",
+    "content_fingerprint": "33dff80c3e5a38e4",
+    "url": "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-super-vl-powers-specialized-agents-with-multimodal-reasoning",
+    "date": "2026-10-15T15:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-15T15:38:21.232912+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Research and Breakthroughs",
+      "Business and Industry",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 6,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "NVIDIA introduced the Nemotron 3.5 Super VL open multimodal model with a 120B mixture-of-experts architecture activating 12B parameters.",
+      "It enables specialized AI agents to handle complex, multi-step enterprise workflows involving document reading, policy compliance, and tool calling.",
+      "Enterprise developers and organizations building always-on, multimodal AI agents are directly affected."
+    ],
+    "tags": [
+      "NVIDIA",
+      "Nemotron",
+      "Multimodal",
+      "AI Agents",
+      "Mixture-of-Experts"
+    ],
+    "impact_score": 8,
+    "sources": [
+      {
+        "url": "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-super-vl-powers-specialized-agents-with-multimodal-reasoning",
+        "title": "NVIDIA Nemotron 3.5 Super VL Powers Specialized Agents with Multimodal Reasoning",
+        "publisher": "NVIDIA"
+      }
+    ]
+  },
+  {
+    "id": "bd42108ff227ced5",
+    "title": "Nobody is safe from celebrity AI deepfakes",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "An Instagram account with over a million followers and a verified checkmark posted a deceptive deepfake image of actress Mia Goth. The incident highlights the growing vulnerability of celebrities to sophisticated AI-generated deepfakes on mainstream social media platforms.",
+    "summary_status": "generated",
+    "content_fingerprint": "347460a9a5ee317d",
+    "url": "https://www.theverge.com/report/1011927/instagram-celebrity-ai-slop-likeness-taylor-swift-mia-goth",
+    "date": "2026-10-15T14:03:42+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-15T15:38:21.232104+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Safety and Security"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "A verified Instagram account with over a million followers posted a fake image of actress Mia Goth paired with specific audio.",
+      "The spread of convincing celebrity deepfakes on verified platforms underscores ongoing moderation and authentication vulnerabilities.",
+      "Public figures, social media platforms, and users consuming celebrity content are directly affected by synthetic media manipulation."
+    ],
+    "tags": [
+      "Deepfakes",
+      "Instagram",
+      "Synthetic Media",
+      "Misinformation"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://www.theverge.com/report/1011927/instagram-celebrity-ai-slop-likeness-taylor-swift-mia-goth",
+        "title": "Nobody is safe from celebrity AI deepfakes",
+        "publisher": "The Verge"
+      }
+    ]
+  },
+  {
     "id": "7eb214d807f45e74",
     "title": "Lotus: Learning to Understand Time-series by Learning to Forecast",
     "company": "arXiv (Cornell University)",
