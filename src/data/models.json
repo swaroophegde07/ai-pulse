@@ -84,16 +84,16 @@
     "api_available": true,
     "consumer_available": false,
     "pricing": {
-      "input_per_1m": 0.0061,
-      "output_per_1m": 0.64,
+      "input_per_1m": 0.0049,
+      "output_per_1m": 1.28,
       "unit": "USD"
     },
     "documentation_url": "https://openrouter.ai/deepseek/deepseek-v4-flash-0731",
     "source_url": "https://openrouter.ai/deepseek/deepseek-v4-flash-0731",
-    "last_verified": "2026-10-15",
+    "last_verified": "2026-10-16",
     "verification_sources": {
-      "telemetry": "OpenRouter (2026-10-15)",
-      "pricing": "OpenRouter (2026-10-15)"
+      "telemetry": "OpenRouter (2026-10-16)",
+      "pricing": "OpenRouter (2026-10-16)"
     },
     "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
     "is_featured_frontier": false
@@ -216,16 +216,16 @@
     "api_available": true,
     "consumer_available": false,
     "pricing": {
-      "input_per_1m": 0.15,
-      "output_per_1m": 0.6,
+      "input_per_1m": 0.036,
+      "output_per_1m": 0.684,
       "unit": "USD"
     },
     "documentation_url": "https://openrouter.ai/deepseek/deepseek-v4.1-flash",
     "source_url": "https://openrouter.ai/deepseek/deepseek-v4.1-flash",
-    "last_verified": "2026-10-15",
+    "last_verified": "2026-10-16",
     "verification_sources": {
-      "telemetry": "OpenRouter (2026-10-15)",
-      "pricing": "OpenRouter (2026-10-15)"
+      "telemetry": "OpenRouter (2026-10-16)",
+      "pricing": "OpenRouter (2026-10-16)"
     },
     "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
     "is_featured_frontier": true
@@ -909,16 +909,16 @@
     "api_available": true,
     "consumer_available": false,
     "pricing": {
-      "input_per_1m": 0.3633,
-      "output_per_1m": 0.7266,
+      "input_per_1m": 0.9553,
+      "output_per_1m": 1.9105,
       "unit": "USD"
     },
     "documentation_url": "https://openrouter.ai/deepseek/deepseek-v4-pro",
     "source_url": "https://openrouter.ai/deepseek/deepseek-v4-pro",
-    "last_verified": "2026-10-15",
+    "last_verified": "2026-10-16",
     "verification_sources": {
-      "telemetry": "OpenRouter (2026-10-15)",
-      "pricing": "OpenRouter (2026-10-15)"
+      "telemetry": "OpenRouter (2026-10-16)",
+      "pricing": "OpenRouter (2026-10-16)"
     },
     "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
     "is_featured_frontier": false
@@ -2691,17 +2691,17 @@
     "api_available": true,
     "consumer_available": true,
     "pricing": {
-      "input_per_1m": 0.32,
-      "output_per_1m": 0.89,
+      "input_per_1m": 0.2574,
+      "output_per_1m": 1.0287,
       "unit": "USD"
     },
     "documentation_url": "https://api-docs.deepseek.com/",
     "source_url": "https://github.com/deepseek-ai/DeepSeek-V3",
-    "last_verified": "2026-10-11",
+    "last_verified": "2026-10-16",
     "notes": "671B MoE base/instruct model utilizing multi-head latent attention (MLA).",
     "verification_sources": {
-      "telemetry": "OpenRouter (2026-10-11)",
-      "pricing": "OpenRouter (2026-10-11)"
+      "telemetry": "OpenRouter (2026-10-16)",
+      "pricing": "OpenRouter (2026-10-16)"
     },
     "category": "General Chat & Language",
     "is_featured_frontier": true
@@ -2783,17 +2783,17 @@
     "api_available": true,
     "consumer_available": true,
     "pricing": {
-      "input_per_1m": 0.59,
-      "output_per_1m": 0.79,
+      "input_per_1m": 0.1,
+      "output_per_1m": 0.32,
       "unit": "USD"
     },
     "documentation_url": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama3_3/",
     "source_url": "https://ai.meta.com/blog/llama-3-3/",
-    "last_verified": "2026-10-14",
+    "last_verified": "2026-10-16",
     "notes": "Open-weights 70B dense model matching capabilities of Llama 3.1 405B at a fraction of compute.",
     "verification_sources": {
-      "telemetry": "OpenRouter (2026-10-14)",
-      "pricing": "OpenRouter (2026-10-14)"
+      "telemetry": "OpenRouter (2026-10-16)",
+      "pricing": "OpenRouter (2026-10-16)"
     },
     "category": "General Chat & Language",
     "is_featured_frontier": true
