@@ -14,6 +14,18 @@ const bugReportUrl = `${ISSUES_URL}?template=bug_report.yml`;
 const featureRequestUrl = `${ISSUES_URL}?template=feature_request.yml`;
 const dataCorrectionUrl = `${ISSUES_URL}?template=data_correction.yml`;
 const generalFeedbackUrl = `${ISSUES_URL}?template=general_feedback.yml`;
+
+// =========================================================================
+// Tally Embed Configuration
+// =========================================================================
+// Set your official Tally Form ID (e.g. "laDzeN") or full embed URL below.
+// Leave as empty string ("") until the form is published in Tally.
+// When set, the official responsive Tally embed will activate automatically.
+const TALLY_FORM_ID = "laDzeN";
+const cleanFormId = TALLY_FORM_ID.trim().replace(/^https?:\/\/tally\.so\/(?:embed\/|r\/)?/, "").replace(/\?.*$/, "");
+const TALLY_EMBED_URL = cleanFormId
+  ? `https://tally.so/embed/${cleanFormId}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`
+  : "";
 ---
 
 <Layout title="Feedback & Bug Reports — AI Pulse">
@@ -30,176 +42,320 @@ const generalFeedbackUrl = `${ISSUES_URL}?template=general_feedback.yml`;
       </h1>
       <p class="text-sm text-theme-secondary leading-relaxed">
         Found a bug, spotted incorrect AI information, or have an idea for a better experience?
-        Your feedback directly helps improve AI Pulse. Select the category below to submit a structured report.
+        Your feedback directly helps improve AI Pulse. Choose between quick no-account feedback or structured developer issues below.
       </p>
     </div>
 
-    <!-- Reporting Options Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-      <!-- Option A: Report a Bug -->
-      <section class="border border-theme-border bg-theme-surface rounded-lg p-6 flex flex-col justify-between hover:border-theme-border-accent transition-colors">
-        <div>
-          <div class="flex items-center justify-between mb-3">
-            <span class="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded border border-rose-500/30 bg-rose-500/10 text-rose-600 dark:text-rose-400">
-              <span class="w-1.5 h-1.5 rounded-full bg-rose-500" aria-hidden="true"></span>
-              Defect Report
-            </span>
-            <span class="font-mono text-[11px] text-theme-muted">GitHub Issue Form</span>
-          </div>
-          <h2 class="text-base font-semibold text-theme-primary mb-2">
-            Report a Bug
-          </h2>
-          <p class="text-xs text-theme-secondary leading-relaxed mb-4">
-            Notice something broken on the website? Report technical or visual defects, including:
-          </p>
-          <ul class="text-xs text-theme-muted space-y-1.5 mb-6 list-disc list-inside font-mono text-[11px]">
-            <li>Search or filter malfunction</li>
-            <li>Mobile layout crowding or horizontal overflow</li>
-            <li>Navigation drawer or link issues</li>
-            <li>Client-side scripting or localStorage errors</li>
-            <li>Broken internal or external destination links</li>
-          </ul>
+    <!-- 1. Primary Section: Quick Feedback (Tally) -->
+    <section class="mb-14" aria-labelledby="quick-feedback-heading">
+      <div class="mb-5">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded border border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 font-semibold">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500" aria-hidden="true"></span>
+            Primary Option • No Account Required
+          </span>
+          <span class="text-xs text-theme-muted font-mono">•</span>
+          <span class="text-xs text-theme-muted font-mono">Simple &amp; Fast</span>
         </div>
-        <div class="pt-4 border-t border-theme-border-subtle">
-          <div class="text-[11px] text-theme-muted font-mono mb-3">
-            Submits a structured public issue with environment and reproduction steps.
-          </div>
-          <a
-            href={bugReportUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-4 py-2.5 rounded bg-theme-elevated hover:bg-theme-hover border border-theme-border hover:border-theme-border-accent text-xs font-mono font-medium text-theme-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-theme-accent"
-            aria-label="Report a bug via GitHub Issue Form (opens in new tab)"
-          >
-            <span>Report a bug</span>
-            <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-      </section>
+        <h2 id="quick-feedback-heading" class="text-xl sm:text-2xl font-bold text-theme-primary tracking-tight mb-2">
+          Quick Feedback
+        </h2>
+        <p class="text-sm text-theme-secondary leading-relaxed max-w-3xl">
+          Have an idea, found incorrect information, or noticed something that needs fixing? Share your feedback without creating a GitHub account.
+        </p>
+      </div>
 
-      <!-- Option B: Suggest a Feature -->
-      <section class="border border-theme-border bg-theme-surface rounded-lg p-6 flex flex-col justify-between hover:border-theme-border-accent transition-colors">
-        <div>
-          <div class="flex items-center justify-between mb-3">
-            <span class="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded border border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500" aria-hidden="true"></span>
-              Enhancement
-            </span>
-            <span class="font-mono text-[11px] text-theme-muted">GitHub Issue Form</span>
-          </div>
-          <h2 class="text-base font-semibold text-theme-primary mb-2">
-            Suggest a Feature
-          </h2>
-          <p class="text-xs text-theme-secondary leading-relaxed mb-4">
-            Have an idea to make AI Pulse more actionable for AI practitioners? Suggest:
-          </p>
-          <ul class="text-xs text-theme-muted space-y-1.5 mb-6 list-disc list-inside font-mono text-[11px]">
-            <li>New RSS feeds from verified research labs or blogs</li>
-            <li>Advanced filtering or topic categorisation options</li>
-            <li>Model catalogue metrics (context windows, license flags)</li>
-            <li>Benchmark suites or leaderboard comparison views</li>
-            <li>Research feed and paper discovery improvements</li>
-          </ul>
+      <!-- Quick Feedback Pillars -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
+        <div class="border border-theme-border bg-theme-surface rounded-lg p-3 text-xs">
+          <span class="font-mono text-emerald-700 dark:text-emerald-400 block font-semibold mb-0.5">✓ No GitHub Account</span>
+          <span class="text-theme-muted text-[11px] leading-tight block">Submit directly from any web browser</span>
         </div>
-        <div class="pt-4 border-t border-theme-border-subtle">
-          <div class="text-[11px] text-theme-muted font-mono mb-3">
-            Submits a proposal detailing problem statement, solution, and user value.
-          </div>
-          <a
-            href={featureRequestUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-4 py-2.5 rounded bg-theme-elevated hover:bg-theme-hover border border-theme-border hover:border-theme-border-accent text-xs font-mono font-medium text-theme-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-theme-accent"
-            aria-label="Suggest a feature via GitHub Issue Form (opens in new tab)"
-          >
-            <span>Suggest a feature</span>
-            <span aria-hidden="true">↗</span>
-          </a>
+        <div class="border border-theme-border bg-theme-surface rounded-lg p-3 text-xs">
+          <span class="font-mono text-emerald-700 dark:text-emerald-400 block font-semibold mb-0.5">✓ No Tally Sign-in</span>
+          <span class="text-theme-muted text-[11px] leading-tight block">Respondents do not need a Tally account</span>
         </div>
-      </section>
+        <div class="border border-theme-border bg-theme-surface rounded-lg p-3 text-xs">
+          <span class="font-mono text-emerald-700 dark:text-emerald-400 block font-semibold mb-0.5">✓ Optional Email</span>
+          <span class="text-theme-muted text-[11px] leading-tight block">Only include if you would like a reply</span>
+        </div>
+        <div class="border border-theme-border bg-theme-surface rounded-lg p-3 text-xs">
+          <span class="font-mono text-emerald-700 dark:text-emerald-400 block font-semibold mb-0.5">✓ Private Review</span>
+          <span class="text-theme-muted text-[11px] leading-tight block">Will not become a public GitHub issue</span>
+        </div>
+      </div>
 
-      <!-- Option C: Report Incorrect Data -->
-      <section class="border border-theme-border bg-theme-surface rounded-lg p-6 flex flex-col justify-between hover:border-theme-border-accent transition-colors">
-        <div>
-          <div class="flex items-center justify-between mb-3">
-            <span class="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded border border-blue-500/30 bg-blue-500/10 text-blue-600 dark:text-blue-400">
-              <span class="w-1.5 h-1.5 rounded-full bg-blue-500" aria-hidden="true"></span>
-              Data Quality
-            </span>
-            <span class="font-mono text-[11px] text-theme-muted">GitHub Issue Form</span>
+      <!-- Tally Form Embed Container -->
+      <div class="border border-theme-border bg-theme-surface rounded-lg overflow-hidden transition-colors">
+        {cleanFormId && (
+          <div class="p-2 sm:p-4">
+            <iframe
+              data-tally-src={TALLY_EMBED_URL}
+              src={TALLY_EMBED_URL}
+              loading="lazy"
+              width="100%"
+              height="520"
+              title="AI Pulse Quick Feedback Form"
+              class="w-full min-h-[480px] border-0"
+            ></iframe>
+            <script is:inline src="https://tally.so/widgets/embed.js"></script>
           </div>
-          <h2 class="text-base font-semibold text-theme-primary mb-2">
-            Report Incorrect Data
-          </h2>
-          <p class="text-xs text-theme-secondary leading-relaxed mb-4">
-            AI Pulse strives for factual integrity. Help us identify and correct inaccuracies:
-          </p>
-          <ul class="text-xs text-theme-muted space-y-1.5 mb-6 list-disc list-inside font-mono text-[11px]">
-            <li>Incorrect or outdated model specifications or pricing</li>
-            <li>Discrepant benchmark scores, evaluation dates, or categories</li>
-            <li>Inaccurate AI article summaries or headline mismatches</li>
-            <li>Broken primary source links or publisher misattributions</li>
-            <li>Misclassified topics or missing license indicators</li>
-          </ul>
-        </div>
-        <div class="pt-4 border-t border-theme-border-subtle">
-          <div class="text-[11px] text-theme-muted font-mono mb-3">
-            Submits a report for maintainer review. Requires official supporting citation.
-          </div>
-          <a
-            href={dataCorrectionUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-4 py-2.5 rounded bg-blue-500/15 hover:bg-blue-500/25 border border-blue-500/30 hover:border-blue-500/50 text-xs font-mono font-medium text-blue-600 dark:text-blue-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
-            aria-label="Report a data issue via GitHub Issue Form (opens in new tab)"
-          >
-            <span>Report a data issue</span>
-            <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-      </section>
+        )}
 
-      <!-- Option D: General Feedback -->
-      <section class="border border-theme-border bg-theme-surface rounded-lg p-6 flex flex-col justify-between hover:border-theme-border-accent transition-colors">
-        <div>
-          <div class="flex items-center justify-between mb-3">
-            <span class="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded border border-purple-500/30 bg-purple-500/10 text-purple-600 dark:text-purple-400">
-              <span class="w-1.5 h-1.5 rounded-full bg-purple-500" aria-hidden="true"></span>
-              Feedback
-            </span>
-            <span class="font-mono text-[11px] text-theme-muted">GitHub Issue Form</span>
+        {!cleanFormId && (
+          <div class="p-6 sm:p-8">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-theme-border-subtle">
+              <div>
+                <span class="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded border border-blue-500/30 bg-blue-500/10 text-blue-600 dark:text-blue-400 font-medium mb-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-blue-500" aria-hidden="true"></span>
+                  Form Embed Slot Ready
+                </span>
+                <h3 class="text-base font-semibold text-theme-primary">
+                  Tally Quick Feedback Form
+                </h3>
+                <p class="text-xs text-theme-secondary mt-1 max-w-xl leading-relaxed">
+                  The embedded form will render here seamlessly once the official Tally form ID or embed snippet is configured.
+                  Submissions are reviewed directly by the maintainer.
+                </p>
+              </div>
+              <div class="flex-shrink-0 font-mono text-[11px] text-theme-muted bg-theme-elevated px-3 py-2 rounded border border-theme-border self-start sm:self-auto">
+                Status: Embed Snippet Pending
+              </div>
+            </div>
+
+            <div class="pt-6">
+              <h4 class="text-xs font-mono uppercase tracking-wider text-theme-muted mb-3">
+                Feedback Categories Covered in Form:
+              </h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                <div class="p-3 rounded border border-theme-border-subtle bg-theme-elevated/40 text-xs">
+                  <span class="font-semibold text-theme-primary block mb-0.5">&bull; Report a Website Bug</span>
+                  <span class="text-theme-muted text-[11px] leading-tight block">Visual defects, broken links, search or filter issues</span>
+                </div>
+                <div class="p-3 rounded border border-theme-border-subtle bg-theme-elevated/40 text-xs">
+                  <span class="font-semibold text-theme-primary block mb-0.5">&bull; Report Incorrect Information</span>
+                  <span class="text-theme-muted text-[11px] leading-tight block">Model specs, pricing discrepancies, benchmark scores</span>
+                </div>
+                <div class="p-3 rounded border border-theme-border-subtle bg-theme-elevated/40 text-xs">
+                  <span class="font-semibold text-theme-primary block mb-0.5">&bull; Suggest a Feature</span>
+                  <span class="text-theme-muted text-[11px] leading-tight block">Dashboard tools, comparison views, workflow ideas</span>
+                </div>
+                <div class="p-3 rounded border border-theme-border-subtle bg-theme-elevated/40 text-xs">
+                  <span class="font-semibold text-theme-primary block mb-0.5">&bull; Suggest a News / Paper Source</span>
+                  <span class="text-theme-muted text-[11px] leading-tight block">Authoritative AI research labs, RSS feeds, preprints</span>
+                </div>
+                <div class="p-3 rounded border border-theme-border-subtle bg-theme-elevated/40 text-xs">
+                  <span class="font-semibold text-theme-primary block mb-0.5">&bull; Share General Feedback</span>
+                  <span class="text-theme-muted text-[11px] leading-tight block">Usability thoughts, readability, overall impressions</span>
+                </div>
+                <div class="p-3 rounded border border-theme-border-subtle bg-theme-elevated/40 text-xs">
+                  <span class="font-semibold text-theme-primary block mb-0.5">&bull; Other Inquiries</span>
+                  <span class="text-theme-muted text-[11px] leading-tight block">General questions or observations for the maintainer</span>
+                </div>
+              </div>
+
+              <div class="mt-4 pt-4 border-t border-theme-border-subtle flex flex-wrap items-center justify-between gap-3 text-xs text-theme-muted font-mono">
+                <span>Fields: Category (required) &bull; Details (required) &bull; Reference URL (optional) &bull; Email (optional)</span>
+                <span class="text-[11px] text-theme-secondary">Configurable in Tally.so dashboard</span>
+              </div>
+            </div>
           </div>
-          <h2 class="text-base font-semibold text-theme-primary mb-2">
-            Share General Feedback
-          </h2>
-          <p class="text-xs text-theme-secondary leading-relaxed mb-4">
-            Have thoughts that don't fit into bugs or specific features? Share your perspective:
-          </p>
-          <ul class="text-xs text-theme-muted space-y-1.5 mb-6 list-disc list-inside font-mono text-[11px]">
-            <li>General usability impressions and scannability feedback</li>
-            <li>Information density and layout readability thoughts</li>
-            <li>Editorial tone and summary quality perspectives</li>
-            <li>Accessibility observations or keyboard workflow notes</li>
-            <li>Any other questions or ideas for the maintainer</li>
-          </ul>
+        )}
+      </div>
+    </section>
+
+    <!-- 2. Developer Feedback (GitHub Issue Forms) -->
+    <section class="mb-14" aria-labelledby="developer-feedback-heading">
+      <div class="mb-6">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded border border-theme-border bg-theme-surface text-theme-muted">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+            </svg>
+            Developer Workflow
+          </span>
+          <span class="text-xs text-theme-muted font-mono">•</span>
+          <span class="text-xs text-theme-muted font-mono">Structured Tracking</span>
         </div>
-        <div class="pt-4 border-t border-theme-border-subtle">
-          <div class="text-[11px] text-theme-muted font-mono mb-3">
-            Submits general community feedback categorized by product area.
+        <h2 id="developer-feedback-heading" class="text-xl sm:text-2xl font-bold text-theme-primary tracking-tight mb-2">
+          Developer Feedback
+        </h2>
+        <p class="text-sm text-theme-secondary leading-relaxed max-w-3xl mb-2">
+          Prefer structured issue tracking? Developers and GitHub users can submit a detailed report directly to the AI Pulse repository.
+        </p>
+        <p class="text-xs text-theme-muted font-mono flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500" aria-hidden="true"></span>
+          GitHub submissions require a GitHub account and are publicly visible.
+        </p>
+      </div>
+
+      <!-- Reporting Options Grid (4 Preserved GitHub Cards) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Option A: Report a Bug -->
+        <section class="border border-theme-border bg-theme-surface rounded-lg p-6 flex flex-col justify-between hover:border-theme-border-accent transition-colors">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded border border-rose-500/30 bg-rose-500/10 text-rose-600 dark:text-rose-400">
+                <span class="w-1.5 h-1.5 rounded-full bg-rose-500" aria-hidden="true"></span>
+                Defect Report
+              </span>
+              <span class="font-mono text-[11px] text-theme-muted">GitHub Issue Form</span>
+            </div>
+            <h3 class="text-base font-semibold text-theme-primary mb-2">
+              Report a Bug
+            </h3>
+            <p class="text-xs text-theme-secondary leading-relaxed mb-4">
+              Notice something broken on the website? Report technical or visual defects, including:
+            </p>
+            <ul class="text-xs text-theme-muted space-y-1.5 mb-6 list-disc list-inside font-mono text-[11px]">
+              <li>Search or filter malfunction</li>
+              <li>Mobile layout crowding or horizontal overflow</li>
+              <li>Navigation drawer or link issues</li>
+              <li>Client-side scripting or localStorage errors</li>
+              <li>Broken internal or external destination links</li>
+            </ul>
           </div>
-          <a
-            href={generalFeedbackUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-4 py-2.5 rounded bg-theme-elevated hover:bg-theme-hover border border-theme-border hover:border-theme-border-accent text-xs font-mono font-medium text-theme-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-theme-accent"
-            aria-label="Share general feedback via GitHub Issue Form (opens in new tab)"
-          >
-            <span>Share feedback</span>
-            <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-      </section>
-    </div>
+          <div class="pt-4 border-t border-theme-border-subtle">
+            <div class="text-[11px] text-theme-muted font-mono mb-3">
+              Submits a structured public issue with environment and reproduction steps.
+            </div>
+            <a
+              href={bugReportUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-4 py-2.5 rounded bg-theme-elevated hover:bg-theme-hover border border-theme-border hover:border-theme-border-accent text-xs font-mono font-medium text-theme-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-theme-accent"
+              aria-label="Report a bug via GitHub Issue Form (opens in new tab)"
+            >
+              <span>Report a bug</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- Option B: Suggest a Feature -->
+        <section class="border border-theme-border bg-theme-surface rounded-lg p-6 flex flex-col justify-between hover:border-theme-border-accent transition-colors">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded border border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500" aria-hidden="true"></span>
+                Enhancement
+              </span>
+              <span class="font-mono text-[11px] text-theme-muted">GitHub Issue Form</span>
+            </div>
+            <h3 class="text-base font-semibold text-theme-primary mb-2">
+              Suggest a Feature
+            </h3>
+            <p class="text-xs text-theme-secondary leading-relaxed mb-4">
+              Have an idea to make AI Pulse more actionable for AI practitioners? Suggest:
+            </p>
+            <ul class="text-xs text-theme-muted space-y-1.5 mb-6 list-disc list-inside font-mono text-[11px]">
+              <li>New RSS feeds from verified research labs or blogs</li>
+              <li>Advanced filtering or topic categorisation options</li>
+              <li>Model catalogue metrics (context windows, license flags)</li>
+              <li>Benchmark suites or leaderboard comparison views</li>
+              <li>Research feed and paper discovery improvements</li>
+            </ul>
+          </div>
+          <div class="pt-4 border-t border-theme-border-subtle">
+            <div class="text-[11px] text-theme-muted font-mono mb-3">
+              Submits a proposal detailing problem statement, solution, and user value.
+            </div>
+            <a
+              href={featureRequestUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-4 py-2.5 rounded bg-theme-elevated hover:bg-theme-hover border border-theme-border hover:border-theme-border-accent text-xs font-mono font-medium text-theme-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-theme-accent"
+              aria-label="Suggest a feature via GitHub Issue Form (opens in new tab)"
+            >
+              <span>Suggest a feature</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- Option C: Report Incorrect Data -->
+        <section class="border border-theme-border bg-theme-surface rounded-lg p-6 flex flex-col justify-between hover:border-theme-border-accent transition-colors">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded border border-blue-500/30 bg-blue-500/10 text-blue-600 dark:text-blue-400">
+                <span class="w-1.5 h-1.5 rounded-full bg-blue-500" aria-hidden="true"></span>
+                Data Quality
+              </span>
+              <span class="font-mono text-[11px] text-theme-muted">GitHub Issue Form</span>
+            </div>
+            <h3 class="text-base font-semibold text-theme-primary mb-2">
+              Report Incorrect Data
+            </h3>
+            <p class="text-xs text-theme-secondary leading-relaxed mb-4">
+              AI Pulse strives for factual integrity. Help us identify and correct inaccuracies:
+            </p>
+            <ul class="text-xs text-theme-muted space-y-1.5 mb-6 list-disc list-inside font-mono text-[11px]">
+              <li>Incorrect or outdated model specifications or pricing</li>
+              <li>Discrepant benchmark scores, evaluation dates, or categories</li>
+              <li>Inaccurate AI article summaries or headline mismatches</li>
+              <li>Broken primary source links or publisher misattributions</li>
+              <li>Misclassified topics or missing license indicators</li>
+            </ul>
+          </div>
+          <div class="pt-4 border-t border-theme-border-subtle">
+            <div class="text-[11px] text-theme-muted font-mono mb-3">
+              Submits a report for maintainer review. Requires official supporting citation.
+            </div>
+            <a
+              href={dataCorrectionUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-4 py-2.5 rounded bg-blue-500/15 hover:bg-blue-500/25 border border-blue-500/30 hover:border-blue-500/50 text-xs font-mono font-medium text-blue-600 dark:text-blue-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+              aria-label="Report a data issue via GitHub Issue Form (opens in new tab)"
+            >
+              <span>Report a data issue</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- Option D: General Feedback -->
+        <section class="border border-theme-border bg-theme-surface rounded-lg p-6 flex flex-col justify-between hover:border-theme-border-accent transition-colors">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded border border-purple-500/30 bg-purple-500/10 text-purple-600 dark:text-purple-400">
+                <span class="w-1.5 h-1.5 rounded-full bg-purple-500" aria-hidden="true"></span>
+                Feedback
+              </span>
+              <span class="font-mono text-[11px] text-theme-muted">GitHub Issue Form</span>
+            </div>
+            <h3 class="text-base font-semibold text-theme-primary mb-2">
+              Share General Feedback
+            </h3>
+            <p class="text-xs text-theme-secondary leading-relaxed mb-4">
+              Have thoughts that don't fit into bugs or specific features? Share your perspective:
+            </p>
+            <ul class="text-xs text-theme-muted space-y-1.5 mb-6 list-disc list-inside font-mono text-[11px]">
+              <li>General usability impressions and scannability feedback</li>
+              <li>Information density and layout readability thoughts</li>
+              <li>Editorial tone and summary quality perspectives</li>
+              <li>Accessibility observations or keyboard workflow notes</li>
+              <li>Any other questions or ideas for the maintainer</li>
+            </ul>
+          </div>
+          <div class="pt-4 border-t border-theme-border-subtle">
+            <div class="text-[11px] text-theme-muted font-mono mb-3">
+              Submits general community feedback categorized by product area.
+            </div>
+            <a
+              href={generalFeedbackUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-4 py-2.5 rounded bg-theme-elevated hover:bg-theme-hover border border-theme-border hover:border-theme-border-accent text-xs font-mono font-medium text-theme-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-theme-accent"
+              aria-label="Share general feedback via GitHub Issue Form (opens in new tab)"
+            >
+              <span>Share feedback</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </section>
+      </div>
+    </section>
 
     <!-- How Reports Are Handled -->
     <section class="border border-theme-border bg-theme-surface rounded-lg p-6 mb-10">
@@ -208,9 +364,9 @@ const generalFeedbackUrl = `${ISSUES_URL}?template=general_feedback.yml`;
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-theme-secondary leading-relaxed">
         <div>
-          <span class="font-mono text-emerald-700 dark:text-emerald-400 block mb-1 font-semibold">1. Public Issue Triage</span>
+          <span class="font-mono text-emerald-700 dark:text-emerald-400 block mb-1 font-semibold">1. Review &amp; Triage</span>
           <p>
-            Reports are filed directly in our open-source GitHub repository issue tracker where they are categorized by type, label, and priority.
+            Quick feedback submissions are reviewed directly by the maintainer. Developer issues are tracked in our open-source GitHub repository where they are categorized by type, label, and priority.
           </p>
         </div>
         <div>
@@ -231,19 +387,31 @@ const generalFeedbackUrl = `${ISSUES_URL}?template=general_feedback.yml`;
     <!-- Security & Privacy Safeguards Notice -->
     <section class="border border-amber-500/20 bg-amber-500/5 rounded-lg p-6 mb-10">
       <div class="flex items-start gap-3">
-        <span class="text-amber-800 dark:text-amber-300 text-base" aria-hidden="true">⚠</span>
-        <div class="text-xs space-y-2">
-          <h3 class="font-semibold text-theme-primary">
+        <span class="text-amber-800 dark:text-amber-300 text-base flex-shrink-0 mt-0.5" aria-hidden="true">⚠</span>
+        <div class="text-xs space-y-3">
+          <h3 class="font-semibold text-theme-primary text-sm">
             Security &amp; Privacy Notice
           </h3>
-          <p class="text-theme-secondary leading-relaxed">
-            AI Pulse is an open-source project hosted on GitHub Pages. Issue submissions are publicly visible to all repository visitors.
-            <strong>Never include sensitive information</strong> such as passwords, API keys, private tokens, or confidential personal data in reports.
-          </p>
-          <p class="text-theme-muted">
-            <strong>Security-sensitive vulnerabilities:</strong> Do not disclose security vulnerabilities through public issue forms.
-            Please consult the repository <a href="https://github.com/swaroophegde07/ai-pulse#security-and-private-reporting" class="text-amber-800 dark:text-amber-300 underline hover:text-amber-900 dark:hover:text-amber-200" target="_blank" rel="noopener noreferrer">Security Policy</a> for private reporting guidance.
-          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-theme-secondary leading-relaxed">
+            <div class="space-y-1">
+              <span class="font-semibold font-mono text-theme-primary block">Quick Feedback (Tally)</span>
+              <p>
+                Feedback submitted via Tally is collected privately and reviewed by the AI Pulse maintainer. Submissions do not automatically become public GitHub issues. Providing an email address is strictly optional and only used if a direct response is requested. Never submit passwords, API keys, access tokens, or confidential personal data.
+              </p>
+            </div>
+            <div class="space-y-1">
+              <span class="font-semibold font-mono text-theme-primary block">Developer Feedback (GitHub)</span>
+              <p>
+                GitHub issue submissions require a GitHub sign-in and are publicly visible to all repository visitors on our open-source issue tracker. Never include private credentials, proprietary code, or confidential contact details in public issues.
+              </p>
+            </div>
+          </div>
+          <div class="pt-2 border-t border-amber-500/20 text-theme-muted">
+            <p>
+              <strong>Security-sensitive vulnerabilities:</strong> Do not disclose security vulnerabilities through ordinary feedback forms or public GitHub issues.
+              Please consult the repository <a href="https://github.com/swaroophegde07/ai-pulse#security-and-private-reporting" class="text-amber-800 dark:text-amber-300 underline hover:text-amber-900 dark:hover:text-amber-200" target="_blank" rel="noopener noreferrer">Security Policy</a> for private reporting guidance.
+            </p>
+          </div>
         </div>
       </div>
     </section>
