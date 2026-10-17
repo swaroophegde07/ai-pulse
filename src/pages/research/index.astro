@@ -218,8 +218,11 @@ const researchLabs = [
               type="search"
               id="research-search-input"
               placeholder="Search papers, preprints, keywords..."
-              class="w-full bg-theme-input border border-theme-border rounded pl-9 pr-8 py-2 text-xs text-theme-primary placeholder:text-theme-placeholder font-mono focus:outline-none focus:border-purple-500"
+              class="w-full bg-theme-input border border-theme-border rounded pl-9 pr-14 py-2 text-xs text-theme-primary placeholder:text-theme-placeholder font-mono focus:outline-none focus:border-purple-500"
             />
+            <div class="absolute inset-y-0 right-0 pr-2.5 flex items-center gap-1.5 pointer-events-none">
+              <kbd class="hidden sm:inline-block px-1.5 py-0.5 text-[9px] font-mono text-theme-muted bg-theme-elevated border border-theme-border rounded shadow-xs" title="Press / to search">/</kbd>
+            </div>
             <button
               type="button"
               id="clear-research-search"
@@ -233,11 +236,25 @@ const researchLabs = [
             </button>
           </div>
 
-          <div class="flex items-center gap-3 w-full sm:w-auto">
+          <div class="flex items-center gap-2.5 w-full sm:w-auto flex-wrap">
+            <button
+              type="button"
+              id="saved-research-btn"
+              data-saved="false"
+              class="chip-interactive font-mono text-xs uppercase tracking-wider px-3 py-2 rounded border border-theme-border text-amber-800 dark:text-amber-300 hover:text-amber-900 dark:hover:text-amber-200 hover:border-amber-500/40 bg-theme-surface shrink-0 cursor-pointer flex items-center gap-1.5"
+              aria-pressed="false"
+              title="Show only bookmarked papers"
+            >
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+              <span>Saved (<span id="saved-research-count">0</span>)</span>
+            </button>
+
             <label for="research-lab-filter" class="sr-only">Filter by Lab</label>
             <select
               id="research-lab-filter"
-              class="w-full sm:w-auto bg-theme-input border border-theme-border rounded px-3 py-2 text-xs text-theme-primary font-mono focus:outline-none focus:border-purple-500 cursor-pointer"
+              class="flex-1 sm:flex-initial bg-theme-input border border-theme-border rounded px-3 py-2 text-xs text-theme-primary font-mono focus:outline-none focus:border-purple-500 cursor-pointer"
             >
               <option value="all">All Contributing Labs ({researchArticles.length})</option>
               {labList.map((lab) => <option value={lab.toLowerCase()}>{lab}</option>)}
@@ -340,14 +357,71 @@ const researchLabs = [
     const countLabel = document.getElementById("research-count-label");
     const resetBtn = document.getElementById("reset-research-filters-btn") as HTMLButtonElement | null;
     const emptyResetBtn = document.getElementById("empty-research-reset-btn") as HTMLButtonElement | null;
+    const savedBtn = document.getElementById("saved-research-btn") as HTMLButtonElement | null;
+    const savedCountEl = document.getElementById("saved-research-count");
     const grid = document.getElementById("research-grid");
     const emptyState = document.getElementById("no-research-matched");
 
     if (!grid) return;
     const articles = Array.from(grid.querySelectorAll<HTMLElement>("article"));
 
+    const BOOKMARK_STORAGE_KEY = "ai_pulse_bookmarks";
+    function getBookmarks(): Set<string> {
+      try {
+        const stored = localStorage.getItem(BOOKMARK_STORAGE_KEY);
+        if (stored) {
+          return new Set(JSON.parse(stored));
+        }
+      } catch (e) {
+        // graceful fallback if localStorage is blocked
+      }
+      return new Set();
+    }
+
+    let bookmarks = getBookmarks();
+    let isSavedView = false;
     let currentSearch = "";
     let currentLab = "all";
+
+    function updateBookmarkUI() {
+      if (savedCountEl) {
+        const researchIds = new Set(articles.map((a) => a.dataset.id).filter(Boolean));
+        const matched = Array.from(bookmarks).filter((id) => researchIds.has(id)).length;
+        savedCountEl.textContent = String(matched);
+      }
+      articles.forEach((art) => {
+        const id = art.dataset.id || "";
+        const isSaved = bookmarks.has(id);
+        const btn = art.querySelector<HTMLButtonElement>(".bookmark-btn");
+        const icon = btn?.querySelector<SVGElement>("svg polygon");
+        if (btn && icon) {
+          if (isSaved) {
+            btn.classList.add("text-amber-800", "dark:text-amber-300");
+            btn.classList.remove("text-theme-muted");
+            icon.setAttribute("fill", "currentColor");
+          } else {
+            btn.classList.remove("text-amber-800", "dark:text-amber-300");
+            btn.classList.add("text-theme-muted");
+            icon.setAttribute("fill", "none");
+          }
+        }
+      });
+    }
+
+    function toggleBookmark(id: string) {
+      if (bookmarks.has(id)) {
+        bookmarks.delete(id);
+      } else {
+        bookmarks.add(id);
+      }
+      try {
+        localStorage.setItem(BOOKMARK_STORAGE_KEY, JSON.stringify(Array.from(bookmarks)));
+      } catch (e) {}
+      updateBookmarkUI();
+      if (isSavedView) {
+        filterResearch();
+      }
+    }
 
     function filterResearch() {
       let visible = 0;
@@ -357,6 +431,7 @@ const researchLabs = [
         const summary = (art.dataset.summary || "").toLowerCase();
         const tags = (art.dataset.tags || "").toLowerCase();
         const keypoints = (art.dataset.keypoints || "").toLowerCase();
+        const artId = art.dataset.id || "";
 
         const matchesSearch =
           !currentSearch ||
@@ -367,14 +442,17 @@ const researchLabs = [
           keypoints.includes(currentSearch);
 
         const matchesLab = currentLab === "all" || company === currentLab;
+        const matchesSaved = !isSavedView || (artId ? bookmarks.has(artId) : false);
 
-        const show = matchesSearch && matchesLab;
+        const show = matchesSearch && matchesLab && matchesSaved;
         art.style.display = show ? "" : "none";
         if (show) visible++;
       });
 
       if (countLabel) {
-        if (visible === articles.length && !currentSearch && currentLab === "all") {
+        if (isSavedView) {
+          countLabel.textContent = `Showing ${visible} saved publication${visible !== 1 ? "s" : ""}`;
+        } else if (visible === articles.length && !currentSearch && currentLab === "all") {
           countLabel.textContent = `Showing all ${articles.length} publications`;
         } else if (visible === 0) {
           countLabel.textContent = "No matching publications";
@@ -385,9 +463,17 @@ const researchLabs = [
 
       if (emptyState) {
         emptyState.style.display = visible === 0 ? "block" : "none";
+        const emptyMsg = emptyState.querySelector("p");
+        if (emptyMsg) {
+          if (isSavedView && visible === 0) {
+            emptyMsg.textContent = "You have not saved any research publications yet. Click the bookmark star icon on any paper to save it for quick reference.";
+          } else {
+            emptyMsg.textContent = "No research publications match your search or filter criteria.";
+          }
+        }
       }
 
-      const hasFilter = currentSearch !== "" || currentLab !== "all";
+      const hasFilter = currentSearch !== "" || currentLab !== "all" || isSavedView;
       if (resetBtn) resetBtn.style.display = hasFilter ? "" : "none";
       if (clearSearchBtn) clearSearchBtn.style.display = currentSearch ? "" : "none";
     }
@@ -395,10 +481,54 @@ const researchLabs = [
     function resetFilters() {
       if (searchInput) searchInput.value = "";
       if (labSelect) labSelect.value = "all";
+      if (savedBtn) {
+        isSavedView = false;
+        savedBtn.dataset.saved = "false";
+        savedBtn.setAttribute("aria-pressed", "false");
+        savedBtn.classList.remove("bg-amber-500/10", "border-amber-500/40");
+      }
       currentSearch = "";
       currentLab = "all";
       filterResearch();
     }
+
+    if (savedBtn) {
+      savedBtn.addEventListener("click", () => {
+        isSavedView = !isSavedView;
+        savedBtn.dataset.saved = isSavedView ? "true" : "false";
+        savedBtn.setAttribute("aria-pressed", isSavedView ? "true" : "false");
+        savedBtn.classList.toggle("bg-amber-500/10", isSavedView);
+        savedBtn.classList.toggle("border-amber-500/40", isSavedView);
+        filterResearch();
+      });
+    }
+
+    // Attach bookmark handlers
+    articles.forEach((article) => {
+      const btn = article.querySelector<HTMLButtonElement>(".bookmark-btn");
+      if (btn) {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const id = article.dataset.id || "";
+          toggleBookmark(id);
+        });
+      }
+    });
+
+    // Keyboard shortcut '/' to focus search
+    window.addEventListener("keydown", (e) => {
+      if (
+        e.key === "/" &&
+        !["INPUT", "TEXTAREA", "SELECT"].includes((document.activeElement as HTMLElement)?.tagName)
+      ) {
+        e.preventDefault();
+        searchInput?.focus();
+      }
+    });
+
+    // Initialize bookmark states on load
+    updateBookmarkUI();
 
     if (searchInput) {
       searchInput.addEventListener("input", (e) => {

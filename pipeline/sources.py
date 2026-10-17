@@ -55,6 +55,7 @@ ALLOWED_TOPICS: list[str] = [
     "Open Source",
     "Infrastructure and Hardware",
     "Applications and Products",
+    "Opinion and Analysis",
 ]
 
 # Path to the shared sources.json
