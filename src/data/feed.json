@@ -247,6 +247,47 @@
     ]
   },
   {
+    "id": "b104b2eb2432e412",
+    "title": "The Download: failed social media bans",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "France and Australia have implemented or attempted legislative restrictions to bar minors from accessing major social media platforms, though early evidence indicates children easily bypass these age limits. Meanwhile, Form Energy is developing iron-based batteries designed to store renewable energy for up to 100 hours using a reversible rusting process. Additionally, the Federal Trade Commission has issued subpoenas to OpenAI and Anthropic regarding potential consumer harms as AI companies face growing legal liability.",
+    "summary_status": "generated",
+    "content_fingerprint": "bf472f74eda5a90d",
+    "url": "https://www.technologyreview.com/2026/10/16/1146864/the-download-failed-social-media-bans-and-extending-pets-lives",
+    "date": "2026-10-16T12:10:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-17T21:12:57.135575+00:00",
+    "topics": [
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "France and the UK joined Australia and the EU in pursuing or enacting legislative bans and age restrictions on social media for minors.",
+      "Form Energy advanced iron-based battery technology capable of storing electricity for 100 hours using a reversible rusting process.",
+      "The FTC issued subpoenas to OpenAI and Anthropic concerning consumer harms as AI firms face rising legal liabilities."
+    ],
+    "tags": [
+      "Form Energy",
+      "OpenAI",
+      "Anthropic",
+      "FTC",
+      "Climate Tech"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/10/16/1146864/the-download-failed-social-media-bans-and-extending-pets-lives",
+        "title": "The Download: failed social media bans",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
     "id": "a828bd7f7dff23d5",
     "title": "The World Won't Wait: Evaluating and Teaching Agents Under a Live Clock",
     "company": "arXiv (Cornell University)",
@@ -1975,6 +2016,49 @@
         "url": "https://arxiv.org/abs/2610.19033",
         "title": "How Many Ranks Does a Token Need? A Noise-Floor Squelch for Rank-One LoRA Experts",
         "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "b734a6066c595494",
+    "title": "LaTeX renderer",
+    "company": "Simon Willison's Weblog",
+    "source": "Simon Willison – AI",
+    "summary": "An AI-generated tool has been built using Claude Code (Opus 5.5 Extra) to render LaTeX directly from URL fragment hashes, adopting design patterns from Tiny Little Office. The application features integrated compression, an interactive editor, Gist loading capabilities, and security controls via sandboxed iframes. It utilizes libraries such as MathJax, Pako, faster-latex, and DOMPurify to execute rendering and sanitization.",
+    "summary_status": "generated",
+    "content_fingerprint": "973a544c36a933b8",
+    "url": "https://simonwillison.net/2026/Oct/15/latex",
+    "date": "2026-10-15T02:07:28+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-17T21:12:57.135950+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "A developer built a LaTeX rendering web tool using Claude Code that stores document data in URL fragment hashes and features custom compression.",
+      "The implementation provides bookmarkable and shareable LaTeX documents alongside XSS protection using sandboxed iframes.",
+      "Developers, researchers, and users who share technical documents or mathematical notations via web links are affected."
+    ],
+    "tags": [
+      "Claude Code",
+      "LaTeX",
+      "Web Development",
+      "Generative AI"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://simonwillison.net/2026/Oct/15/latex",
+        "title": "LaTeX renderer",
+        "publisher": "Simon Willison's Weblog"
       }
     ]
   },
@@ -7986,72 +8070,6 @@
         "title": "Microsoft stops insisting you need a \"Copilot+ PC\"",
         "url": "https://arstechnica.com/gadgets/2026/09/microsoft-stops-insisting-you-need-a-copilot-pc",
         "publisher": "Ars Technica"
-      }
-    ]
-  },
-  {
-    "id": "d5158f51ec389770",
-    "title": "Trump admin using AI to deny medical care for seniors in disastrous experiment",
-    "company": "Ars Technica",
-    "source": "Ars Technica – AI",
-    "summary": "The Trump administration launched a pilot program called WISeR that uses artificial intelligence to manage prior authorizations for Medicare patients. Media reports and federal documents obtained by the Electronic Frontier Foundation revealed technical issues, treatment delays, and problematic care denials. The Government Accountability Office found that officials did not follow proper procedures when establishing the initiative.",
-    "url": "https://arstechnica.com/health/2026/09/trump-admin-using-ai-to-deny-medical-care-for-seniors-in-disastrous-experiment",
-    "date": "2026-09-25T11:00:28+00:00",
-    "category": "News",
-    "fetched_at": "2026-10-10T18:51:14.305771+00:00",
-    "topics": [
-      "Models and Releases"
-    ],
-    "source_type": "Independent Reporting",
-    "priority_score": 0,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Relevant AI development",
-    "why_it_matters": "",
-    "tags": [
-      "Models and Releases"
-    ],
-    "impact_score": 8,
-    "sources": [
-      {
-        "title": "Trump admin using AI to deny medical care for seniors in disastrous experiment",
-        "url": "https://arstechnica.com/health/2026/09/trump-admin-using-ai-to-deny-medical-care-for-seniors-in-disastrous-experiment",
-        "publisher": "Ars Technica"
-      }
-    ]
-  },
-  {
-    "id": "4135fa3a00799524",
-    "title": "When chat is the wrong UI",
-    "company": "GitHub",
-    "source": "GitHub AI & Copilot",
-    "summary": "The article critiques the standard chat interface as the default UI for large language models, arguing that task-oriented, customizable interfaces are often more effective. It introduces the concept of a canvas—a full-stack application running within the GitHub Copilot app—that allows bi-directional communication between an agent and a custom user interface.",
-    "url": "https://github.blog/ai-and-ml/github-copilot/when-chat-is-the-wrong-ui",
-    "date": "2026-09-24T20:00:00+00:00",
-    "category": "Opinion",
-    "fetched_at": "2026-10-10T18:51:14.303924+00:00",
-    "topics": [
-      "Models and Releases",
-      "AI Agents",
-      "Coding and Developer Tools",
-      "Open Source",
-      "Applications and Products"
-    ],
-    "source_type": "Technical Publication",
-    "priority_score": 0,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Relevant AI development",
-    "why_it_matters": "",
-    "tags": [
-      "GitHub",
-      "Microsoft",
-      "AI Agents"
-    ],
-    "impact_score": 3,
-    "sources": [
-      {
-        "title": "When chat is the wrong UI",
-        "url": "https://github.blog/ai-and-ml/github-copilot/when-chat-is-the-wrong-ui",
-        "publisher": "GitHub"
       }
     ]
   }
