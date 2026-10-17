@@ -180,5 +180,31 @@
     "access_method": "Public RSS",
     "attribution": "NVIDIA Corporation",
     "notes": "CUDA, TensorRT, Blackwell/Hopper GPU cluster architectures, and Nemotron."
+  },
+  {
+    "id": "opencode-updates",
+    "name": "OpenCode Updates",
+    "url": "https://github.com/anomalyco/opencode/releases.atom",
+    "publisher": "OpenCode",
+    "website": "https://opencode.ai",
+    "source_type": "Technical Publication",
+    "category": "Product Release",
+    "topics": ["Coding and Developer Tools", "AI Agents", "Open Source"],
+    "access_method": "Public Atom",
+    "attribution": "OpenCode / Anomaly",
+    "notes": "Open-source AI coding agent releases, terminal tools, and developer workflows."
+  },
+  {
+    "id": "simon-willison-ai",
+    "name": "Simon Willison – AI",
+    "url": "https://simonwillison.net/tags/ai.atom",
+    "publisher": "Simon Willison's Weblog",
+    "website": "https://simonwillison.net/tags/ai/",
+    "source_type": "Analysis or Commentary",
+    "category": "Opinion",
+    "topics": ["Coding and Developer Tools", "Research and Breakthroughs", "Safety and Security"],
+    "access_method": "Public Atom",
+    "attribution": "Simon Willison",
+    "notes": "Independent engineering analysis, LLM benchmarking, prompt injection research, and developer tools."
   }
 ]

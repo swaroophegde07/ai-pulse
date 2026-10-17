@@ -24,6 +24,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+    <link rel="alternate" type="application/rss+xml" title="AI Pulse — Curated AI Intelligence Feed" href={`${base}/feed.xml`} />
     <title>{title === "AI Pulse" ? title : `${title} — AI Pulse`}</title>
 
     <!-- Early theme initialization to completely prevent Flash of Wrong Theme (FOUT) -->

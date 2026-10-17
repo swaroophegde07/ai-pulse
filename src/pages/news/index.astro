@@ -33,6 +33,7 @@ interface FeedRecord {
 }
 
 const feed = feedData as FeedRecord[];
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 const categories = [
   "News",
@@ -102,24 +103,39 @@ function formatLastUpdated(iso: string | undefined): string {
               </span>
               <span class="inline-flex items-center gap-1 text-[10px] text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5 rounded">
                 <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400"></span>
-                14/14 Feeds Active
+                {sourcesData.length}/{sourcesData.length} Feeds Monitored
               </span>
             </p>
           </div>
-          <div class="flex flex-col sm:items-end gap-1">
+          <div class="flex flex-col sm:items-end gap-1.5">
             <p class="font-mono text-[10px] text-theme-muted tracking-wide">
               Last ingestion: {formatLastUpdated(lastUpdated)}
             </p>
-            <a
-              href="https://github.com/swaroophegde07/ai-pulse/issues/new?template=data_correction.yml&title=%5BData+Correction%5D%3A+Article+Summary+Inaccuracy+%28News+Page%29"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="font-mono text-[10px] text-theme-muted hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-1"
-              title="Report inaccurate article summaries, broken links, or misclassifications"
-            >
-              <span>Report a news issue</span>
-              <span>↗</span>
-            </a>
+            <div class="flex items-center gap-2.5 flex-wrap">
+              <a
+                href={`${base}/feed.xml`}
+                target="_blank"
+                class="font-mono text-[10px] text-amber-700 dark:text-amber-400 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 px-2 py-0.5 rounded transition-colors inline-flex items-center gap-1 font-medium"
+                title="Subscribe via RSS / Atom feed"
+              >
+                <svg class="w-2.5 h-2.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <circle cx="6.18" cy="17.82" r="2.18"></circle>
+                  <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"></path>
+                </svg>
+                <span>RSS Feed</span>
+              </a>
+              <span class="text-theme-border font-mono text-[10px]">·</span>
+              <a
+                href="https://github.com/swaroophegde07/ai-pulse/issues/new?template=data_correction.yml&title=%5BData+Correction%5D%3A+Article+Summary+Inaccuracy+%28News+Page%29"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="font-mono text-[10px] text-theme-muted hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-1"
+                title="Report inaccurate article summaries, broken links, or misclassifications"
+              >
+                <span>Report a news issue</span>
+                <span>↗</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
