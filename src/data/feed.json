@@ -1,5 +1,45 @@
 [
   {
+    "id": "9732b2763df5a67a",
+    "title": "How Itaú is building generative AI for its entire customer base",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Brazilian bank Itaú is deploying generative AI across its entire customer and employee base using a conversational interface named ia.i and a governance platform called IARA. These tools implement the bank's AI First strategy within a highly regulated financial sector.",
+    "summary_status": "generated",
+    "content_fingerprint": "715eaa985d88c039",
+    "url": "https://openai.com/index/itau-generative-ai",
+    "date": "2026-10-16T19:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-17T11:22:32.574667+00:00",
+    "topics": [
+      "Policy and Regulation"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Itaú introduced the ia.i conversational interface and the IARA governance platform to deploy generative AI for customers and employees.",
+      "The deployment demonstrates how heavily regulated financial institutions can scale artificial intelligence applications securely and strategically.",
+      "Bank customers, employees, and financial technology developers working in heavily regulated markets are directly impacted."
+    ],
+    "tags": [
+      "Itaú",
+      "Generative AI",
+      "Conversational AI",
+      "AI Governance"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://openai.com/index/itau-generative-ai",
+        "title": "How Itaú is building generative AI for its entire customer base",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
     "id": "e9e1470690b03f80",
     "title": "Roundtables: A Conversation With the Creator of AI-Designed Viruses",
     "company": "MIT Technology Review",
@@ -891,6 +931,47 @@
         "url": "https://huggingface.co/blog/reflection-beam",
         "title": "Welcome Beam: a 501B open model you can own, customize, and scale",
         "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
+    "id": "b6756c0a180ee554",
+    "title": "Benefit Street Partners answers questions faster with Codex",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Benefit Street Partners developer Anant Kumar utilizes Codex to accelerate code review processes and answer questions faster. The tool assists in building applications used to compare loan valuations and analyze credit agreements.",
+    "summary_status": "generated",
+    "content_fingerprint": "4f58b7f7e76655b4",
+    "url": "https://openai.com/index/benefit-street-partners",
+    "date": "2026-10-16T00:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-17T11:22:32.574918+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Anant Kumar uses Codex for code review and faster query resolution at Benefit Street Partners.",
+      "The integration accelerates the development of tools designed for comparing loan valuations and analyzing credit agreements.",
+      "Financial technology developers and credit analysis teams working with code generation tools are directly affected."
+    ],
+    "tags": [
+      "Codex",
+      "Benefit Street Partners",
+      "Code Review",
+      "Financial Technology"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://openai.com/index/benefit-street-partners",
+        "title": "Benefit Street Partners answers questions faster with Codex",
+        "publisher": "OpenAI"
       }
     ]
   },
@@ -7889,77 +7970,6 @@
         "title": "Improving synthesis prediction of small molecules at scale with RetroChimera",
         "url": "https://www.microsoft.com/en-us/research/blog/improving-synthesis-prediction-of-small-molecules-at-scale-with-retrochimera",
         "publisher": "Microsoft Research"
-      }
-    ]
-  },
-  {
-    "id": "b02dba448db72934",
-    "title": "Should you read the code, is RAG dead, and did Skills kill MCP?",
-    "company": "GitHub",
-    "source": "GitHub AI & Copilot",
-    "summary": "Common AI-related hot takes discussed on the GitHub Podcast, focusing on the necessity of reviewing AI-generated code and the expectations around AI tool usage in software engineering hiring. It argues that while AI shifts the effort of development, developers remain responsible for understanding and owning the outcomes of generated code. Furthermore, hiring signals prioritize technical judgment and fluency over absolute dependence on or rejection of AI tools.",
-    "url": "https://github.blog/ai-and-ml/should-you-read-the-code-is-rag-dead-and-did-skills-kill-mcp",
-    "date": "2026-09-18T15:00:00+00:00",
-    "category": "Opinion",
-    "fetched_at": "2026-10-10T19:18:00.236851+00:00",
-    "topics": [
-      "Coding and Developer Tools",
-      "Open Source"
-    ],
-    "source_type": "Technical Publication",
-    "priority_score": 0,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Relevant AI development",
-    "why_it_matters": "",
-    "summary_status": "generated",
-    "content_fingerprint": "34e6a7e8b4d4904f",
-    "tags": [
-      "GitHub",
-      "Coding and Developer Tools"
-    ],
-    "impact_score": 3,
-    "sources": [
-      {
-        "title": "Should you read the code, is RAG dead, and did Skills kill MCP?",
-        "url": "https://github.blog/ai-and-ml/should-you-read-the-code-is-rag-dead-and-did-skills-kill-mcp",
-        "publisher": "GitHub"
-      }
-    ]
-  },
-  {
-    "id": "71ca52f40c8e50d8",
-    "title": "Migrating the GitHub Copilot runtime to Rust, using Copilot",
-    "company": "GitHub",
-    "source": "GitHub AI & Copilot",
-    "summary": "GitHub migrated its Copilot agent runtime from TypeScript on Node.js to over 800,000 lines of production Rust. AI agents authored the majority of the code across 128 incremental pull requests managed primarily by a single developer over a few months. This rewrite resulted in orders-of-magnitude performance improvements across the shared runtime that powers various applications including the Copilot CLI, app, and SDK.",
-    "url": "https://github.blog/ai-and-ml/generative-ai/migrating-the-github-copilot-runtime-to-rust-using-copilot",
-    "date": "2026-09-17T00:26:43+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-10-10T19:18:00.236896+00:00",
-    "topics": [
-      "AI Agents",
-      "Coding and Developer Tools",
-      "Open Source",
-      "Applications and Products"
-    ],
-    "source_type": "Technical Publication",
-    "priority_score": 3,
-    "priority_label": "Must Know",
-    "priority_explanation": "Announces a model or architecture capability",
-    "why_it_matters": "",
-    "summary_status": "generated",
-    "content_fingerprint": "a8efd88f575de01d",
-    "tags": [
-      "GitHub",
-      "Microsoft",
-      "AI Agents"
-    ],
-    "impact_score": 7,
-    "sources": [
-      {
-        "title": "Migrating the GitHub Copilot runtime to Rust, using Copilot",
-        "url": "https://github.blog/ai-and-ml/generative-ai/migrating-the-github-copilot-runtime-to-rust-using-copilot",
-        "publisher": "GitHub"
       }
     ]
   }
