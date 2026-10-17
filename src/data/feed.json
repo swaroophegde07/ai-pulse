@@ -1017,6 +1017,46 @@
     ]
   },
   {
+    "id": "c462dfdce3bb5a72",
+    "title": "Sega pulls Total War: Shogun 2 remaster from sale following disastrous launch",
+    "company": "The Verge",
+    "source": "The Verge – AI",
+    "summary": "Sega has removed Total War: Shogun 2 - Complete Edition from digital storefronts following severe user backlash over technical bugs and poorly implemented AI upscaling. The remaster launched with promised visual upgrades and modernized controls, but quickly accumulated an \"Overwhelmingly Negative\" user rating on Steam. Players and community members identified glaring artifacts in game artwork that point to low-quality generative AI usage.",
+    "summary_status": "generated",
+    "content_fingerprint": "b10e3f957ddec200",
+    "url": "https://www.theverge.com/games/1012512/sega-total-war-shogun-2-remaster-pulled",
+    "date": "2026-10-15T22:35:55+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-17T13:26:01.531107+00:00",
+    "topics": [
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Sega pulled Total War: Shogun 2 - Complete Edition from digital stores due to heavy criticism over bugs and AI-generated visual assets.",
+      "The botched launch highlights growing consumer backlash against poorly integrated AI upscaling and artwork in commercial video game remasters.",
+      "PC strategy gamers, Sega, and the Total War development community are directly affected by the product withdrawal."
+    ],
+    "tags": [
+      "Sega",
+      "Total War",
+      "Gaming",
+      "AI Upscaling"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://www.theverge.com/games/1012512/sega-total-war-shogun-2-remaster-pulled",
+        "title": "Sega pulls Total War: Shogun 2 remaster from sale following disastrous launch",
+        "publisher": "The Verge"
+      }
+    ]
+  },
+  {
     "id": "43032a6db2e0b8c5",
     "title": "Trump posts AI-edited photo to brag about White House restoration work",
     "company": "The Verge",
@@ -7938,38 +7978,6 @@
         "title": "Microsoft disrupts AI-assisted platform that compromised 12,000 accounts",
         "url": "https://arstechnica.com/security/2026/09/microsoft-disrupts-ai-assisted-platform-that-compromised-12000",
         "publisher": "Ars Technica"
-      }
-    ]
-  },
-  {
-    "id": "b5c50a1bc3bd0622",
-    "title": "Improving synthesis prediction of small molecules at scale with RetroChimera",
-    "company": "Microsoft Research",
-    "source": "Microsoft Research AI",
-    "summary": "The retrosynthesis model RetroChimera, published in the journal Nature, automatically proposes high-quality synthesis routes for small molecules by combining two models with complementary strengths. The implementation and model weights have been open-sourced to accelerate research in medicine and materials science. Blind tests showed that PhD-level chemists preferred its reaction predictions over prior models and recorded literature reactions.",
-    "url": "https://www.microsoft.com/en-us/research/blog/improving-synthesis-prediction-of-small-molecules-at-scale-with-retrochimera",
-    "date": "2026-09-21T15:30:19+00:00",
-    "category": "Research",
-    "fetched_at": "2026-10-10T18:51:14.304730+00:00",
-    "topics": [
-      "Models and Releases",
-      "Applications and Products"
-    ],
-    "source_type": "Research Laboratory",
-    "priority_score": 2,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Original research or technical finding",
-    "why_it_matters": "",
-    "tags": [
-      "Microsoft Research",
-      "Open-Source AI"
-    ],
-    "impact_score": 5,
-    "sources": [
-      {
-        "title": "Improving synthesis prediction of small molecules at scale with RetroChimera",
-        "url": "https://www.microsoft.com/en-us/research/blog/improving-synthesis-prediction-of-small-molecules-at-scale-with-retrochimera",
-        "publisher": "Microsoft Research"
       }
     ]
   }
