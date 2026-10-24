@@ -209,6 +209,7 @@ function formatLastUpdated(iso: string | undefined): string {
           <!-- Fast section jump navigation -->
           <nav aria-label="Page sections" class="flex items-center gap-2 flex-wrap font-mono text-[10px]">
             <span class="text-theme-muted uppercase tracking-wider">Jump to:</span>
+            <a href="#why-ai-pulse" class="px-2.5 py-1 rounded border border-theme-border bg-theme-surface text-theme-secondary hover:text-emerald-700 dark:hover:text-emerald-400 hover:border-theme-border-accent transition-colors">Why AI Pulse?</a>
             <a href="#todays-brief" class="px-2.5 py-1 rounded border border-theme-border bg-theme-surface text-theme-secondary hover:text-emerald-700 dark:hover:text-emerald-400 hover:border-theme-border-accent transition-colors">Today's Brief</a>
             <a href="#priority-intelligence" class="px-2.5 py-1 rounded border border-theme-border bg-theme-surface text-theme-secondary hover:text-emerald-700 dark:hover:text-emerald-400 hover:border-theme-border-accent transition-colors">Priority Intel</a>
             <a href="#latest-coverage" class="px-2.5 py-1 rounded border border-theme-border bg-theme-surface text-theme-secondary hover:text-emerald-700 dark:hover:text-emerald-400 hover:border-theme-border-accent transition-colors">Latest News</a>
@@ -247,6 +248,448 @@ function formatLastUpdated(iso: string | undefined): string {
               </div>
             ))
           }
+        </div>
+      </div>
+    </section>
+
+    <!-- Why AI Pulse? Value Proposition & Information Landscape -->
+    <section id="why-ai-pulse" class="border-b border-theme-border bg-theme-surface py-12 sm:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Introduction -->
+        <div class="max-w-3xl mb-12 animate-reveal">
+          <div class="inline-flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase px-2.5 py-1 rounded border border-blue-500/30 bg-blue-500/10 text-blue-600 dark:text-blue-400 mb-3">
+            <span>Why AI Pulse?</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-theme-primary tracking-tight mb-2">
+            Why AI Pulse?
+          </h2>
+          <p class="text-sm font-semibold font-mono text-emerald-700 dark:text-emerald-400 mb-3">
+            AI news is everywhere. Understanding what matters shouldn't be hard.
+          </p>
+          <p class="text-xs sm:text-sm text-theme-secondary leading-relaxed">
+            AI Pulse brings AI news, research, model releases, specifications, pricing, and benchmark information together in one searchable dashboard. Discover a development, explore the models behind it, and follow the links to the original sources.
+          </p>
+        </div>
+
+        <!-- 3 Benefit Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-14">
+          <!-- Card 1: Follow AI Developments -->
+          <div class="border border-theme-border bg-theme-page rounded-lg p-6 flex flex-col justify-between hover:border-theme-border-accent transition-colors shadow-sm">
+            <div>
+              <span class="font-mono text-[10px] text-emerald-700 dark:text-emerald-400 uppercase tracking-widest font-semibold block mb-2">
+                Follow AI Developments
+              </span>
+              <h3 class="text-base font-semibold text-theme-primary mb-2.5">
+                AI Developments in One Place
+              </h3>
+              <p class="text-xs text-theme-secondary leading-relaxed mb-4">
+                Discover AI industry updates from multiple research organisations, AI companies, developer platforms, and publications through one searchable feed.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-theme-border-subtle">
+              <a
+                href={`${base}/news/`}
+                class="font-mono text-xs text-theme-primary hover:text-emerald-700 dark:hover:text-emerald-400 font-medium inline-flex items-center gap-1.5 transition-colors"
+              >
+                <span>Explore AI News</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2: Connect News with Models -->
+          <div class="border border-theme-border bg-theme-page rounded-lg p-6 flex flex-col justify-between hover:border-theme-border-accent transition-colors shadow-sm">
+            <div>
+              <span class="font-mono text-[10px] text-cyan-700 dark:text-cyan-400 uppercase tracking-widest font-semibold block mb-2">
+                Connect News with Models
+              </span>
+              <h3 class="text-base font-semibold text-theme-primary mb-2.5">
+                Go Beyond the Headlines
+              </h3>
+              <p class="text-xs text-theme-secondary leading-relaxed mb-4">
+                Explore model specifications, pricing, context windows, release history, research, and benchmark information without assembling the entire picture manually across separate websites.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-theme-border-subtle flex items-center gap-3 font-mono text-xs">
+              <a
+                href={`${base}/models/`}
+                class="text-theme-primary hover:text-cyan-700 dark:hover:text-cyan-400 font-medium inline-flex items-center gap-1 transition-colors"
+              >
+                <span>Models</span>
+                <span aria-hidden="true">→</span>
+              </a>
+              <span class="text-theme-border-subtle">&middot;</span>
+              <a
+                href={`${base}/research/`}
+                class="text-theme-primary hover:text-cyan-700 dark:hover:text-cyan-400 font-medium inline-flex items-center gap-1 transition-colors"
+              >
+                <span>Research</span>
+                <span aria-hidden="true">→</span>
+              </a>
+              <span class="text-theme-border-subtle">&middot;</span>
+              <a
+                href={`${base}/benchmarks/`}
+                class="text-theme-primary hover:text-cyan-700 dark:hover:text-cyan-400 font-medium inline-flex items-center gap-1 transition-colors"
+              >
+                <span>Benchmarks</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3: Follow the Evidence -->
+          <div class="border border-theme-border bg-theme-page rounded-lg p-6 flex flex-col justify-between hover:border-theme-border-accent transition-colors shadow-sm">
+            <div>
+              <span class="font-mono text-[10px] text-purple-700 dark:text-purple-400 uppercase tracking-widest font-semibold block mb-2">
+                Follow the Evidence
+              </span>
+              <h3 class="text-base font-semibold text-theme-primary mb-2.5">
+                Explore the Original Sources
+              </h3>
+              <p class="text-xs text-theme-secondary leading-relaxed mb-4">
+                Follow source links to investigate announcements and supporting information. Use benchmark results as evidence to examine, not as a universal ranking of every model.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-theme-border-subtle flex items-center gap-3 font-mono text-xs">
+              <a
+                href={`${base}/benchmarks/`}
+                class="text-theme-primary hover:text-purple-700 dark:hover:text-purple-400 font-medium inline-flex items-center gap-1.5 transition-colors"
+              >
+                <span>Examine Benchmarks</span>
+                <span aria-hidden="true">→</span>
+              </a>
+              <span class="text-theme-border-subtle">&middot;</span>
+              <a
+                href={`${base}/news/`}
+                class="text-theme-secondary hover:text-purple-700 dark:hover:text-purple-400 font-medium inline-flex items-center gap-1 transition-colors"
+              >
+                <span>News Sources</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Competitor Comparison: Landscape Context -->
+        <div class="border-t border-theme-border-subtle pt-10 mb-10">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-3 mb-3">
+            <div>
+              <span class="font-mono text-[10px] text-theme-muted uppercase tracking-widest block mb-1">
+                Landscape Context &middot; Complementary Role
+              </span>
+              <h3 class="text-lg sm:text-xl font-bold text-theme-primary tracking-tight">
+                How AI Pulse Fits into the AI Information Landscape
+              </h3>
+            </div>
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-theme-elevated border border-theme-border-subtle text-[11px] font-mono text-theme-dim">
+              <span>Qualitative product focus &middot; Not a quality or performance ranking</span>
+            </div>
+          </div>
+          <p class="text-xs text-theme-secondary leading-relaxed max-w-3xl mb-8">
+            Specialist platforms provide outstanding dedicated services for their target workflows. AI Pulse does not replace these specialists; it connects news, models, research, and benchmark evidence into one cohesive, searchable dashboard.
+          </p>
+
+          <!-- Desktop Comparison Table -->
+          <div class="hidden md:block border border-theme-border rounded-lg overflow-hidden bg-theme-page mb-8 shadow-sm">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="border-b border-theme-border bg-theme-elevated text-[11px] font-mono uppercase tracking-wider text-theme-muted">
+                  <th scope="col" class="py-3 px-4 font-semibold w-1/4">Platform or Category</th>
+                  <th scope="col" class="py-3 px-4 font-semibold w-5/12">Main Focus</th>
+                  <th scope="col" class="py-3 px-4 font-semibold w-5/12">How AI Pulse Complements It</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-theme-border-subtle text-xs leading-relaxed">
+                <!-- TLDR AI -->
+                <tr class="hover:bg-theme-hover transition-colors">
+                  <td class="py-3.5 px-4 align-top">
+                    <a
+                      href="https://tldr.tech/ai"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="font-semibold text-theme-primary hover:text-emerald-700 dark:hover:text-emerald-400 inline-flex items-center gap-1 transition-colors"
+                    >
+                      <span>TLDR AI</span>
+                      <span class="text-[10px] text-theme-dim" aria-hidden="true">↗</span>
+                    </a>
+                    <span class="block font-mono text-[10px] text-theme-muted mt-0.5">Curated AI Newsletter</span>
+                  </td>
+                  <td class="py-3.5 px-4 text-theme-secondary align-top">
+                    Daily 5-minute curated email newsletter summarizing model releases, research papers, and developer tools for inbox reading.
+                  </td>
+                  <td class="py-3.5 px-4 text-theme-secondary align-top">
+                    Provides an interactive, searchable web dashboard where news items link directly to model specs, token pricing, and empirical benchmarks without inbox clutter.
+                  </td>
+                </tr>
+
+                <!-- The Rundown AI -->
+                <tr class="hover:bg-theme-hover transition-colors">
+                  <td class="py-3.5 px-4 align-top">
+                    <a
+                      href="https://www.therundown.ai/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="font-semibold text-theme-primary hover:text-emerald-700 dark:hover:text-emerald-400 inline-flex items-center gap-1 transition-colors"
+                    >
+                      <span>The Rundown AI</span>
+                      <span class="text-[10px] text-theme-dim" aria-hidden="true">↗</span>
+                    </a>
+                    <span class="block font-mono text-[10px] text-theme-muted mt-0.5">AI Media &amp; Applied Guides</span>
+                  </td>
+                  <td class="py-3.5 px-4 text-theme-secondary align-top">
+                    High-cadence news coverage, practical guides, and workflow tutorials focusing on commercial AI tools and workplace applications.
+                  </td>
+                  <td class="py-3.5 px-4 text-theme-secondary align-top">
+                    Complements broad product coverage with structured technical specifications, chronological model release logs, and direct source provenance across 14 monitored feeds.
+                  </td>
+                </tr>
+
+                <!-- Hugging Face Daily Papers -->
+                <tr class="hover:bg-theme-hover transition-colors">
+                  <td class="py-3.5 px-4 align-top">
+                    <a
+                      href="https://huggingface.co/papers"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="font-semibold text-theme-primary hover:text-emerald-700 dark:hover:text-emerald-400 inline-flex items-center gap-1 transition-colors"
+                    >
+                      <span>Hugging Face Papers</span>
+                      <span class="text-[10px] text-theme-dim" aria-hidden="true">↗</span>
+                    </a>
+                    <span class="block font-mono text-[10px] text-theme-muted mt-0.5">Research Paper Discovery</span>
+                  </td>
+                  <td class="py-3.5 px-4 text-theme-secondary align-top">
+                    Community-curated discovery tracking daily trending machine learning preprints on arXiv with peer discussions and dataset links.
+                  </td>
+                  <td class="py-3.5 px-4 text-theme-secondary align-top">
+                    Connects foundational research preprints to commercial production models, API pricing telemetry, and standardized multi-benchmark evaluation results.
+                  </td>
+                </tr>
+
+                <!-- Artificial Analysis -->
+                <tr class="hover:bg-theme-hover transition-colors">
+                  <td class="py-3.5 px-4 align-top">
+                    <a
+                      href="https://artificialanalysis.ai/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="font-semibold text-theme-primary hover:text-emerald-700 dark:hover:text-emerald-400 inline-flex items-center gap-1 transition-colors"
+                    >
+                      <span>Artificial Analysis</span>
+                      <span class="text-[10px] text-theme-dim" aria-hidden="true">↗</span>
+                    </a>
+                    <span class="block font-mono text-[10px] text-theme-muted mt-0.5">Model &amp; Host Benchmarking</span>
+                  </td>
+                  <td class="py-3.5 px-4 text-theme-secondary align-top">
+                    Independent empirical benchmarking of LLMs and API providers focusing on latency, token throughput, price-performance, and host comparisons.
+                  </td>
+                  <td class="py-3.5 px-4 text-theme-secondary align-top">
+                    Contextualizes benchmark evaluations (e.g. LiveBench) alongside daily company announcements, open-weights licensing, research preprints, and release histories.
+                  </td>
+                </tr>
+
+                <!-- OpenRouter -->
+                <tr class="hover:bg-theme-hover transition-colors">
+                  <td class="py-3.5 px-4 align-top">
+                    <a
+                      href="https://openrouter.ai/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="font-semibold text-theme-primary hover:text-emerald-700 dark:hover:text-emerald-400 inline-flex items-center gap-1 transition-colors"
+                    >
+                      <span>OpenRouter</span>
+                      <span class="text-[10px] text-theme-dim" aria-hidden="true">↗</span>
+                    </a>
+                    <span class="block font-mono text-[10px] text-theme-muted mt-0.5">Inference &amp; Model Routing</span>
+                  </td>
+                  <td class="py-3.5 px-4 text-theme-secondary align-top">
+                    Unified inference API gateway providing live token pricing, context limits, and routing across dozens of commercial and open LLMs.
+                  </td>
+                  <td class="py-3.5 px-4 text-theme-secondary align-top">
+                    Utilizes verified pricing telemetry from OpenRouter to enrich an analytical dashboard cross-referenced with news, research papers, and evaluation metrics.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Mobile Comparison Cards (no horizontal scroll) -->
+          <div class="block md:hidden space-y-3.5 mb-8">
+            <!-- TLDR AI -->
+            <div class="border border-theme-border rounded-lg p-4 bg-theme-page">
+              <div class="flex items-center justify-between mb-2">
+                <a
+                  href="https://tldr.tech/ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="font-semibold text-sm text-theme-primary hover:text-emerald-700 dark:hover:text-emerald-400 inline-flex items-center gap-1"
+                >
+                  <span>TLDR AI</span>
+                  <span class="text-xs text-theme-dim" aria-hidden="true">↗</span>
+                </a>
+                <span class="font-mono text-[9px] text-theme-muted bg-theme-elevated border border-theme-border-subtle px-2 py-0.5 rounded">
+                  Curated Newsletter
+                </span>
+              </div>
+              <div class="space-y-2 text-xs">
+                <div>
+                  <span class="font-mono text-[10px] text-theme-muted uppercase tracking-wider block">Main Focus:</span>
+                  <p class="text-theme-secondary leading-relaxed">Daily 5-minute curated email digest of AI news, research, and tools for inbox reading.</p>
+                </div>
+                <div>
+                  <span class="font-mono text-[10px] text-emerald-700 dark:text-emerald-400 uppercase tracking-wider block">How AI Pulse Complements:</span>
+                  <p class="text-theme-secondary leading-relaxed">Interactive web feed connecting news to model specs, pricing, and benchmarks without inbox clutter.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- The Rundown AI -->
+            <div class="border border-theme-border rounded-lg p-4 bg-theme-page">
+              <div class="flex items-center justify-between mb-2">
+                <a
+                  href="https://www.therundown.ai/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="font-semibold text-sm text-theme-primary hover:text-emerald-700 dark:hover:text-emerald-400 inline-flex items-center gap-1"
+                >
+                  <span>The Rundown AI</span>
+                  <span class="text-xs text-theme-dim" aria-hidden="true">↗</span>
+                </a>
+                <span class="font-mono text-[9px] text-theme-muted bg-theme-elevated border border-theme-border-subtle px-2 py-0.5 rounded">
+                  Media &amp; Guides
+                </span>
+              </div>
+              <div class="space-y-2 text-xs">
+                <div>
+                  <span class="font-mono text-[10px] text-theme-muted uppercase tracking-wider block">Main Focus:</span>
+                  <p class="text-theme-secondary leading-relaxed">Fast-paced daily newsletter, media coverage, and practical guides on applied AI tools.</p>
+                </div>
+                <div>
+                  <span class="font-mono text-[10px] text-emerald-700 dark:text-emerald-400 uppercase tracking-wider block">How AI Pulse Complements:</span>
+                  <p class="text-theme-secondary leading-relaxed">Adds structured technical specs, chronological model release logs, and full provenance across 14 feeds.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hugging Face Papers -->
+            <div class="border border-theme-border rounded-lg p-4 bg-theme-page">
+              <div class="flex items-center justify-between mb-2">
+                <a
+                  href="https://huggingface.co/papers"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="font-semibold text-sm text-theme-primary hover:text-emerald-700 dark:hover:text-emerald-400 inline-flex items-center gap-1"
+                >
+                  <span>Hugging Face Papers</span>
+                  <span class="text-xs text-theme-dim" aria-hidden="true">↗</span>
+                </a>
+                <span class="font-mono text-[9px] text-theme-muted bg-theme-elevated border border-theme-border-subtle px-2 py-0.5 rounded">
+                  Research Discovery
+                </span>
+              </div>
+              <div class="space-y-2 text-xs">
+                <div>
+                  <span class="font-mono text-[10px] text-theme-muted uppercase tracking-wider block">Main Focus:</span>
+                  <p class="text-theme-secondary leading-relaxed">Community-driven feed tracking daily trending arXiv machine learning preprints and discussions.</p>
+                </div>
+                <div>
+                  <span class="font-mono text-[10px] text-emerald-700 dark:text-emerald-400 uppercase tracking-wider block">How AI Pulse Complements:</span>
+                  <p class="text-theme-secondary leading-relaxed">Connects academic preprints to production models, API pricing telemetry, and benchmark evaluations.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Artificial Analysis -->
+            <div class="border border-theme-border rounded-lg p-4 bg-theme-page">
+              <div class="flex items-center justify-between mb-2">
+                <a
+                  href="https://artificialanalysis.ai/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="font-semibold text-sm text-theme-primary hover:text-emerald-700 dark:hover:text-emerald-400 inline-flex items-center gap-1"
+                >
+                  <span>Artificial Analysis</span>
+                  <span class="text-xs text-theme-dim" aria-hidden="true">↗</span>
+                </a>
+                <span class="font-mono text-[9px] text-theme-muted bg-theme-elevated border border-theme-border-subtle px-2 py-0.5 rounded">
+                  Benchmarking
+                </span>
+              </div>
+              <div class="space-y-2 text-xs">
+                <div>
+                  <span class="font-mono text-[10px] text-theme-muted uppercase tracking-wider block">Main Focus:</span>
+                  <p class="text-theme-secondary leading-relaxed">Independent benchmarking of LLMs and hosting providers for latency, throughput, and pricing.</p>
+                </div>
+                <div>
+                  <span class="font-mono text-[10px] text-emerald-700 dark:text-emerald-400 uppercase tracking-wider block">How AI Pulse Complements:</span>
+                  <p class="text-theme-secondary leading-relaxed">Pairs benchmark evidence with real-time news, licensing details, release logs, and research reports.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- OpenRouter -->
+            <div class="border border-theme-border rounded-lg p-4 bg-theme-page">
+              <div class="flex items-center justify-between mb-2">
+                <a
+                  href="https://openrouter.ai/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="font-semibold text-sm text-theme-primary hover:text-emerald-700 dark:hover:text-emerald-400 inline-flex items-center gap-1"
+                >
+                  <span>OpenRouter</span>
+                  <span class="text-xs text-theme-dim" aria-hidden="true">↗</span>
+                </a>
+                <span class="font-mono text-[9px] text-theme-muted bg-theme-elevated border border-theme-border-subtle px-2 py-0.5 rounded">
+                  Inference &amp; Routing
+                </span>
+              </div>
+              <div class="space-y-2 text-xs">
+                <div>
+                  <span class="font-mono text-[10px] text-theme-muted uppercase tracking-wider block">Main Focus:</span>
+                  <p class="text-theme-secondary leading-relaxed">Unified API gateway providing live pricing, context limits, and routing across models.</p>
+                </div>
+                <div>
+                  <span class="font-mono text-[10px] text-emerald-700 dark:text-emerald-400 uppercase tracking-wider block">How AI Pulse Complements:</span>
+                  <p class="text-theme-secondary leading-relaxed">Uses OpenRouter pricing data to enrich an analytical dashboard cross-referenced with news and benchmarks.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Concluding Statement & Call to Action -->
+        <div class="border border-theme-border bg-theme-page rounded-lg p-6 flex flex-col lg:flex-row lg:items-center justify-between gap-5 shadow-sm">
+          <div class="max-w-xl">
+            <p class="text-xs sm:text-sm text-theme-primary font-medium leading-relaxed mb-1">
+              AI Pulse doesn't replace specialist AI news, research, or model evaluation platforms. It connects the different pieces of AI information in one place.
+            </p>
+            <p class="text-[11px] font-mono text-theme-muted">
+              Explore the dashboard across our three core intelligence streams:
+            </p>
+          </div>
+          <div class="flex items-center gap-2.5 flex-wrap sm:flex-nowrap shrink-0">
+            <a
+              href={`${base}/news/`}
+              class="px-3.5 py-2 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white font-mono text-xs font-semibold tracking-wide transition-colors shadow-sm inline-flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            >
+              <span>Explore AI News</span>
+              <span aria-hidden="true">→</span>
+            </a>
+            <a
+              href={`${base}/models/`}
+              class="px-3.5 py-2 rounded-md border border-theme-border bg-theme-surface hover:bg-theme-elevated text-theme-primary font-mono text-xs font-medium tracking-wide transition-colors inline-flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-theme-border-accent"
+            >
+              <span>Browse Models</span>
+              <span aria-hidden="true">→</span>
+            </a>
+            <a
+              href={`${base}/benchmarks/`}
+              class="px-3.5 py-2 rounded-md border border-theme-border bg-theme-surface hover:bg-theme-elevated text-theme-primary font-mono text-xs font-medium tracking-wide transition-colors inline-flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-theme-border-accent"
+            >
+              <span>Explore Benchmarks</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
