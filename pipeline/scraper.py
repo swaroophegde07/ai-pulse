@@ -396,7 +396,7 @@ def extract_text(entry: Any) -> str:
     summary = (
         getattr(entry, "summary", None) or getattr(entry, "description", None) or ""
     )
-    if summary:
+    if summary and isinstance(summary, str):
         summary = re.sub(r"<[^>]+>", " ", summary)
         summary = html.unescape(summary)
         return " ".join(summary.split())[:4000]
@@ -409,14 +409,36 @@ def extract_text(entry: Any) -> str:
 # ---------------------------------------------------------------------------
 
 
-def fetch_feed(source: Source, max_entries: int = MAX_ENTRIES_PER_SOURCE) -> list[dict]:
+def fetch_feed(
+    source: Source,
+    max_entries: int = MAX_ENTRIES_PER_SOURCE,
+    outcome: dict[str, Any] | None = None,
+) -> list[dict]:
     """Fetch *source* RSS feed and return a list of raw article dicts.
 
     Returns an empty list on failure (network error, parse error, etc.).
     Failures are logged as warnings so callers can continue with other feeds.
+    If *outcome* dict is provided, populates it with:
+      - status: 'active' | 'empty_response' | 'fetch_failed' | 'parse_failed' | 'disabled'
+      - checked_at: ISO-8601 UTC timestamp or None
+      - articles_count: number of relevant articles returned
+      - error: optional error string
     """
-    name = source["name"]
-    url = source["url"]
+    name = source.get("name", "")
+    url = source.get("url", "")
+    is_enabled = source.get("enabled", True) is not False
+
+    if not is_enabled:
+        logger.info("Skipping disabled source: %s", name)
+        if outcome is not None:
+            outcome.update({
+                "status": "disabled",
+                "checked_at": None,
+                "articles_count": 0,
+            })
+        return []
+
+    checked_at = datetime.now(UTC).isoformat()
     logger.info("Fetching feed: %s (%s)", name, url)
 
     try:
@@ -431,14 +453,48 @@ def fetch_feed(source: Source, max_entries: int = MAX_ENTRIES_PER_SOURCE) -> lis
         )
     except Exception as exc:
         logger.warning("Failed to fetch feed '%s': %s", name, exc)
+        if outcome is not None:
+            outcome.update({
+                "status": "fetch_failed",
+                "checked_at": checked_at,
+                "error": str(exc),
+                "articles_count": 0,
+            })
         return []
 
-    if feed.bozo:
+    status_code = getattr(feed, "status", None)
+    if isinstance(status_code, int) and status_code >= 400:
+        logger.warning("Feed '%s' returned HTTP status %d", name, status_code)
+        if outcome is not None:
+            outcome.update({
+                "status": "fetch_failed",
+                "checked_at": checked_at,
+                "error": f"HTTP {status_code}",
+                "articles_count": 0,
+            })
+        return []
+
+    if getattr(feed, "bozo", False):
         exc = feed.get("bozo_exception")
         logger.warning("Feed '%s' parsed with errors (bozo): %s", name, exc)
-        # Still attempt to use entries if any were parsed.
+        if not getattr(feed, "entries", None):
+            is_fetch_err = (
+                isinstance(exc, (IOError, OSError))
+                or "urllib" in str(type(exc)).lower()
+                or "socket" in str(type(exc)).lower()
+                or "http" in str(type(exc)).lower()
+            )
+            failure_status = "fetch_failed" if is_fetch_err else "parse_failed"
+            if outcome is not None:
+                outcome.update({
+                    "status": failure_status,
+                    "checked_at": checked_at,
+                    "error": str(exc),
+                    "articles_count": 0,
+                })
+            return []
 
-    entries = feed.entries or []
+    entries = getattr(feed, "entries", None) or []
     articles: list[dict] = []
 
     seen_urls: set[str] = set()
@@ -493,6 +549,14 @@ def fetch_feed(source: Source, max_entries: int = MAX_ENTRIES_PER_SOURCE) -> lis
                 continue
             articles.append(art)
 
+    final_status = "active" if articles else "empty_response"
+    if outcome is not None:
+        outcome.update({
+            "status": final_status,
+            "checked_at": checked_at,
+            "articles_count": len(articles),
+        })
+
     logger.info("Fetched %d relevant AI articles from '%s'", len(articles), name)
     return articles
 
@@ -500,11 +564,14 @@ def fetch_feed(source: Source, max_entries: int = MAX_ENTRIES_PER_SOURCE) -> lis
 def fetch_all_sources(
     sources: list[Source] | None = None,
     delay: float = 0.5,
+    outcomes: dict[str, Any] | None = None,
 ) -> list[dict]:
     """Fetch all configured sources and return deduplicated raw articles.
 
     *delay* is the number of seconds to wait between feed requests to be
     polite to remote servers.
+    *outcomes*, if provided, is populated with per-source outcome dicts mapping
+    source['name'] -> outcome dict.
 
     Articles are deduplicated across sources by stable ID.
     """
@@ -515,9 +582,12 @@ def fetch_all_sources(
     seen_ids: set[str] = set()
 
     for i, source in enumerate(sources):
-        if i > 0:
+        if i > 0 and delay > 0:
             time.sleep(delay)
-        articles = fetch_feed(source)
+        source_outcome: dict[str, Any] = {}
+        articles = fetch_feed(source, outcome=source_outcome)
+        if outcomes is not None:
+            outcomes[source["name"]] = source_outcome
         for article in articles:
             if article["id"] in seen_ids:
                 logger.debug("Cross-feed duplicate skipped: %s", article["url"])

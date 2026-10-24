@@ -1,9 +1,10 @@
 {
-  "generated_at": "2026-10-24T15:57:09.754961+00:00",
+  "generated_at": "2026-10-24T16:52:34.827238+00:00",
   "overall_status": "degraded",
   "feed_health": {
     "total_configured_sources": 15,
-    "active_sources": 14,
+    "enabled_sources": 14,
+    "active_sources": 13,
     "total_retained_articles": 305
   },
   "rss_sources": [
@@ -14,7 +15,7 @@
       "category": "Product Release",
       "status": "active",
       "retained_articles_count": 34,
-      "last_checked": "2026-10-24T15:57:09.754961+00:00"
+      "last_checked": null
     },
     {
       "name": "Google DeepMind Blog",
@@ -23,7 +24,7 @@
       "category": "Research",
       "status": "active",
       "retained_articles_count": 14,
-      "last_checked": "2026-10-24T15:57:09.754961+00:00"
+      "last_checked": null
     },
     {
       "name": "Hugging Face Blog",
@@ -32,7 +33,7 @@
       "category": "News",
       "status": "active",
       "retained_articles_count": 20,
-      "last_checked": "2026-10-24T15:57:09.754961+00:00"
+      "last_checked": null
     },
     {
       "name": "GitHub AI & Copilot",
@@ -41,7 +42,7 @@
       "category": "Product Release",
       "status": "active",
       "retained_articles_count": 14,
-      "last_checked": "2026-10-24T15:57:09.754961+00:00"
+      "last_checked": null
     },
     {
       "name": "VS Code Updates",
@@ -50,7 +51,7 @@
       "category": "Product Release",
       "status": "active",
       "retained_articles_count": 2,
-      "last_checked": "2026-10-24T15:57:09.754961+00:00"
+      "last_checked": null
     },
     {
       "name": "Microsoft Research AI",
@@ -59,7 +60,7 @@
       "category": "Research",
       "status": "active",
       "retained_articles_count": 13,
-      "last_checked": "2026-10-24T15:57:09.754961+00:00"
+      "last_checked": null
     },
     {
       "name": "The Gradient",
@@ -68,7 +69,7 @@
       "category": "Research",
       "status": "active",
       "retained_articles_count": 10,
-      "last_checked": "2026-10-24T15:57:09.754961+00:00"
+      "last_checked": null
     },
     {
       "name": "Ars Technica – AI",
@@ -77,7 +78,7 @@
       "category": "News",
       "status": "active",
       "retained_articles_count": 15,
-      "last_checked": "2026-10-24T15:57:09.754961+00:00"
+      "last_checked": null
     },
     {
       "name": "MIT Technology Review",
@@ -86,7 +87,7 @@
       "category": "News",
       "status": "active",
       "retained_articles_count": 25,
-      "last_checked": "2026-10-24T15:57:09.754961+00:00"
+      "last_checked": null
     },
     {
       "name": "arXiv cs.AI (Artificial Intelligence)",
@@ -95,7 +96,7 @@
       "category": "Research",
       "status": "active",
       "retained_articles_count": 63,
-      "last_checked": "2026-10-24T15:57:09.754961+00:00"
+      "last_checked": null
     },
     {
       "name": "arXiv cs.LG (Machine Learning)",
@@ -104,7 +105,7 @@
       "category": "Research",
       "status": "active",
       "retained_articles_count": 56,
-      "last_checked": "2026-10-24T15:57:09.754961+00:00"
+      "last_checked": null
     },
     {
       "name": "Anthropic News",
@@ -113,7 +114,7 @@
       "category": "Product Release",
       "status": "disabled",
       "retained_articles_count": 0,
-      "last_checked": "2026-10-24T15:57:09.754961+00:00"
+      "last_checked": null
     },
     {
       "name": "NVIDIA Developer Blog",
@@ -122,7 +123,7 @@
       "category": "Product Release",
       "status": "active",
       "retained_articles_count": 24,
-      "last_checked": "2026-10-24T15:57:09.754961+00:00"
+      "last_checked": null
     },
     {
       "name": "OpenCode Updates",
@@ -131,7 +132,7 @@
       "category": "Product Release",
       "status": "empty_response",
       "retained_articles_count": 0,
-      "last_checked": "2026-10-24T15:57:09.754961+00:00"
+      "last_checked": null
     },
     {
       "name": "Simon Willison – AI",
@@ -140,7 +141,7 @@
       "category": "Opinion",
       "status": "active",
       "retained_articles_count": 15,
-      "last_checked": "2026-10-24T15:57:09.754961+00:00"
+      "last_checked": null
     }
   ],
   "benchmark_sources": [
@@ -152,6 +153,7 @@
       "provenance": "Independent Evaluation",
       "url": "https://livebench.ai/",
       "license": "Apache-2.0",
+      "last_known_good_timestamp": "2026-10-24T06:46:46.596051+00:00",
       "last_retrieval_time": "2026-10-24T11:50:54.490204+00:00",
       "last_successful_evaluation_date": null,
       "warnings": [

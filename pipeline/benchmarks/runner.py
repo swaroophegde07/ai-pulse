@@ -237,10 +237,28 @@ def run_benchmark_pipeline(benchmarks_path: Path | None = None) -> dict[str, Any
     # Health check & Empty dataset protection
     health_status = "stale_fallback" if used_cached_fallback else "healthy"
     health_warnings: list[str] = []
+
+    existing_meta = existing.get("metadata", {})
+    existing_health = existing_meta.get("health", {})
+    existing_last_known_good = (
+        existing_health.get("last_known_good_timestamp")
+        or existing_meta.get("last_known_good_timestamp")
+    )
+    if not existing_last_known_good:
+        for w in existing_health.get("warnings", []):
+            if "Preserved last-known-good benchmark snapshot from " in w:
+                existing_last_known_good = w.split("Preserved last-known-good benchmark snapshot from ")[1].rstrip(".")
+                break
+    if not existing_last_known_good:
+        existing_last_known_good = existing_meta.get("last_updated")
+
     if used_cached_fallback:
+        last_known_good_timestamp = existing_last_known_good
         health_warnings.append(
-            f"Preserved last-known-good benchmark snapshot from {existing.get('metadata', {}).get('last_updated', 'previous run')}."
+            f"Preserved last-known-good benchmark snapshot from {last_known_good_timestamp or 'previous run'}."
         )
+    else:
+        last_known_good_timestamp = now_iso
 
     if not validated_benchmarks:
         if existing.get("benchmarks"):
@@ -251,11 +269,13 @@ def run_benchmark_pipeline(benchmarks_path: Path | None = None) -> dict[str, Any
             )
             validated_benchmarks = existing["benchmarks"]
             health_status = "stale_fallback"
+            last_known_good_timestamp = existing_last_known_good
             health_warnings.append(
-                f"Preserved last-known-good benchmark snapshot from {existing.get('metadata', {}).get('last_updated', 'previous run')}."
+                f"Preserved last-known-good benchmark snapshot from {last_known_good_timestamp or 'previous run'}."
             )
         else:
             health_status = "empty"
+            last_known_good_timestamp = None
             health_warnings.append("No benchmark records available from any source.")
 
     # 2. Fetch OpenRouter model telemetry (pricing and context lengths)
@@ -273,6 +293,7 @@ def run_benchmark_pipeline(benchmarks_path: Path | None = None) -> dict[str, Any
     output_payload: dict[str, Any] = {
         "metadata": {
             "last_updated": now_iso,
+            "last_known_good_timestamp": last_known_good_timestamp,
             "total_benchmark_records": len(validated_benchmarks),
             "total_model_metrics": len(openrouter_metrics),
             "status": health_status,
@@ -298,6 +319,7 @@ def run_benchmark_pipeline(benchmarks_path: Path | None = None) -> dict[str, Any
                     next((b.get("benchmark_release_date") for b in validated_benchmarks if b.get("benchmark_release_date")), None)
                 ),
                 "last_retrieval_time": now_iso,
+                "last_known_good_timestamp": last_known_good_timestamp,
                 "warnings": health_warnings,
             },
             "sources": provenance_notices,

@@ -110,8 +110,21 @@ const validationReport = benchmarksData.metadata?.validation_report || {
 const benchmarkStatus = benchmarksData.metadata?.status || benchmarksData.metadata?.health?.status || "active";
 const isStaleFallback = benchmarkStatus === "stale_fallback" || benchmarkStatus === "degraded" || benchmarkStatus === "fallback";
 const lastReleaseDate = benchmarksData.metadata?.health?.last_benchmark_release_date || benchmarksData.metadata?.sources?.[1]?.release_date || "2026-10-13";
-const lastRetrievalTime = benchmarksData.metadata?.health?.last_retrieval_time || benchmarksData.metadata?.last_updated;
+const lastKnownGoodTimestamp = benchmarksData.metadata?.health?.last_known_good_timestamp || benchmarksData.metadata?.last_known_good_timestamp || null;
+const lastRetrievalTime = benchmarksData.metadata?.health?.last_retrieval_time || null;
 const lastEvalDate = benchmarksData.metadata?.health?.last_successful_evaluation_date;
+
+function formatUtcTimestamp(isoStr: string | null | undefined): string | null {
+  if (!isoStr) return null;
+  try {
+    const d = new Date(isoStr);
+    return isNaN(d.getTime()) ? null : `${d.toISOString().slice(0, 16).replace("T", " ")} UTC`;
+  } catch {
+    return null;
+  }
+}
+const formattedSnapshotTime = formatUtcTimestamp(lastKnownGoodTimestamp);
+const formattedRetrievalTime = formatUtcTimestamp(lastRetrievalTime);
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 // Mapping from models.json ID to LiveBench canonical ID(s)
@@ -309,7 +322,7 @@ const costEfficientModel = [...models]
           </svg>
           <div class="leading-relaxed">
             <strong class="font-semibold uppercase text-[10px] tracking-wider block sm:inline">Notice: Stale Fallback Snapshot.</strong>
-            <span> Upstream benchmark refresh was degraded or unavailable during the latest run. To prevent disruption, AI Pulse is presenting the preserved last-known-good benchmark dataset (Release: {lastReleaseDate}{lastRetrievalTime ? `, snapshot preserved at ${new Date(lastRetrievalTime).toISOString().slice(0, 16)}Z` : ""}).</span>
+            <span> Upstream benchmark refresh was degraded or unavailable during the latest run. To prevent disruption, AI Pulse is presenting the preserved last-known-good benchmark dataset (Release: {lastReleaseDate}{formattedSnapshotTime ? `, snapshot preserved at ${formattedSnapshotTime}` : ""}{formattedRetrievalTime ? `, latest retrieval attempted at ${formattedRetrievalTime}` : ""}).</span>
           </div>
         </div>
       )}

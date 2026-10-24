@@ -3279,19 +3279,45 @@ class TestMaintenanceQualityAndHealthPass(unittest.TestCase):
         self.assertEqual(articles[0]["date"], "2026-10-20T12:00:00+00:00")
 
     def test_pipeline_status_reflects_benchmark_stale_fallback_and_degraded_overall(self):
-        """Verify generate_pipeline_status derives LiveBench release from metadata and reports degraded when benchmarks are stale fallback."""
+        """Verify generate_pipeline_status derives LiveBench release from metadata and reports degraded when benchmarks are stale fallback using controlled fixture."""
         from pipeline.run import generate_pipeline_status
         with tempfile.TemporaryDirectory() as tmpdir:
+            bench_file = Path(tmpdir) / "benchmarks.json"
+            bench_data = {
+                "metadata": {
+                    "status": "stale_fallback",
+                    "last_updated": "2026-10-24T11:50:54.490204+00:00",
+                    "last_known_good_timestamp": "2026-10-24T06:46:46.596051+00:00",
+                    "health": {
+                        "status": "stale_fallback",
+                        "last_benchmark_release_date": "2026-10-13",
+                        "last_retrieval_time": "2026-10-24T11:50:54.490204+00:00",
+                        "last_known_good_timestamp": "2026-10-24T06:46:46.596051+00:00",
+                        "warnings": [
+                            "Preserved last-known-good benchmark snapshot from 2026-10-24T06:46:46.596051+00:00."
+                        ],
+                    },
+                },
+                "benchmarks": [],
+            }
+            bench_file.write_text(json.dumps(bench_data), encoding="utf-8")
+
             status_file = Path(tmpdir) / "pipeline-status.json"
-            status = generate_pipeline_status(status_path=status_file, feed_records=[])
+            status = generate_pipeline_status(
+                status_path=status_file,
+                feed_records=[],
+                benchmarks_path=bench_file,
+            )
 
             # Truthful degraded status because benchmarks are in stale_fallback
             self.assertEqual(status["overall_status"], "degraded")
 
-            # LiveBench status matches benchmarks.json
+            # LiveBench status matches fixture metadata
             livebench = next(s for s in status["benchmark_sources"] if s["name"] == "LiveBench")
             self.assertEqual(livebench["status"], "stale_fallback")
             self.assertEqual(livebench["release"], "2026-10-13")
+            self.assertEqual(livebench["last_known_good_timestamp"], "2026-10-24T06:46:46.596051+00:00")
+            self.assertEqual(livebench["last_retrieval_time"], "2026-10-24T11:50:54.490204+00:00")
 
             # Anthropic News is disabled
             anthropic_news = next(s for s in status["rss_sources"] if s["name"] == "Anthropic News")
@@ -3301,6 +3327,313 @@ class TestMaintenanceQualityAndHealthPass(unittest.TestCase):
             rss_names = [s["name"] for s in status["rss_sources"]]
             self.assertNotIn("The Verge – AI", rss_names)
             self.assertNotIn("The Verge", rss_names)
+
+    def test_pipeline_status_reports_healthy_when_benchmarks_and_feeds_are_healthy(self):
+        """Verify pipeline status reports healthy when both benchmarks and feeds are healthy."""
+        from pipeline.run import generate_pipeline_status
+        with tempfile.TemporaryDirectory() as tmpdir:
+            bench_file = Path(tmpdir) / "benchmarks.json"
+            bench_data = {
+                "metadata": {
+                    "status": "healthy",
+                    "last_updated": "2026-10-24T12:00:00+00:00",
+                    "last_known_good_timestamp": "2026-10-24T12:00:00+00:00",
+                    "health": {
+                        "status": "healthy",
+                        "last_benchmark_release_date": "2026-10-24",
+                        "last_retrieval_time": "2026-10-24T12:00:00+00:00",
+                        "last_known_good_timestamp": "2026-10-24T12:00:00+00:00",
+                        "warnings": [],
+                    },
+                },
+                "benchmarks": [],
+            }
+            bench_file.write_text(json.dumps(bench_data), encoding="utf-8")
+
+            status_file = Path(tmpdir) / "pipeline-status.json"
+            status = generate_pipeline_status(
+                status_path=status_file,
+                feed_records=[{"source": "OpenAI News", "id": "1"}],
+                benchmarks_path=bench_file,
+            )
+            self.assertEqual(status["overall_status"], "healthy")
+            livebench = next(s for s in status["benchmark_sources"] if s["name"] == "LiveBench")
+            self.assertEqual(livebench["status"], "active")
+            self.assertEqual(livebench["last_known_good_timestamp"], "2026-10-24T12:00:00+00:00")
+
+    def test_successful_source_marked_active(self):
+        """Verify a successful source fetch records status 'active' and populates pipeline status accordingly."""
+        from pipeline.scraper import fetch_feed
+        from pipeline.run import generate_pipeline_status
+
+        mock_entry = MagicMock()
+        mock_entry.get.side_effect = lambda k, d=None: {
+            "title": "OpenAI announces new AI capability",
+            "link": "https://openai.com/news/new-ai-cap",
+            "summary": "Full article about AI and LLM reasoning.",
+        }.get(k, d)
+        mock_entry.title = "OpenAI announces new AI capability"
+        mock_entry.link = "https://openai.com/news/new-ai-cap"
+        mock_entry.summary = "Full article about AI and LLM reasoning."
+        mock_entry.description = "Full article about AI and LLM reasoning."
+        mock_entry.content = []
+        mock_entry.published_parsed = time.gmtime()
+
+        mock_feed = MagicMock()
+        mock_feed.status = 200
+        mock_feed.bozo = False
+        mock_feed.entries = [mock_entry]
+
+        source = {
+            "name": "OpenAI News",
+            "url": "https://openai.com/news/rss.xml",
+            "publisher": "OpenAI",
+            "category": "Product Release",
+        }
+        outcome = {}
+        with patch("pipeline.scraper.feedparser.parse", return_value=mock_feed):
+            articles = fetch_feed(source, outcome=outcome)
+
+        self.assertEqual(len(articles), 1)
+        self.assertEqual(outcome.get("status"), "active")
+        self.assertIsNotNone(outcome.get("checked_at"))
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            status_file = Path(tmpdir) / "status.json"
+            bench_file = Path(tmpdir) / "benchmarks.json"
+            bench_file.write_text(json.dumps({"metadata": {"status": "healthy", "health": {"status": "healthy"}}}), encoding="utf-8")
+            status = generate_pipeline_status(
+                status_path=status_file,
+                feed_records=articles,
+                source_outcomes={"OpenAI News": outcome},
+                benchmarks_path=bench_file,
+            )
+            source_status = next(s for s in status["rss_sources"] if s["name"] == "OpenAI News")
+            self.assertEqual(source_status["status"], "active")
+            self.assertEqual(source_status["last_checked"], outcome["checked_at"])
+
+    def test_failed_source_with_old_retained_articles_marked_failed_and_degrades_overall(self):
+        """Verify that a source with old retained articles is marked fetch_failed when current fetch fails, degrading overall status."""
+        from pipeline.scraper import fetch_feed
+        from pipeline.run import generate_pipeline_status
+
+        source = {
+            "name": "Google DeepMind Blog",
+            "url": "https://deepmind.google/blog/rss.xml",
+            "publisher": "Google DeepMind",
+            "category": "Research",
+        }
+        outcome = {}
+        with patch("pipeline.scraper.feedparser.parse", side_effect=Exception("Connection refused")):
+            articles = fetch_feed(source, outcome=outcome)
+
+        self.assertEqual(len(articles), 0)
+        self.assertEqual(outcome.get("status"), "fetch_failed")
+        self.assertIn("Connection refused", outcome.get("error", ""))
+
+        # Old retained articles exist for this source
+        retained = [
+            {"id": "dm1", "source": "Google DeepMind Blog", "title": "AlphaFold 3", "url": "https://deepmind.google/alphafold3"}
+        ]
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            status_file = Path(tmpdir) / "status.json"
+            bench_file = Path(tmpdir) / "benchmarks.json"
+            # Even with healthy benchmarks, feed failure must degrade overall_status
+            bench_file.write_text(json.dumps({"metadata": {"status": "healthy", "health": {"status": "healthy"}}}), encoding="utf-8")
+            status = generate_pipeline_status(
+                status_path=status_file,
+                feed_records=retained,
+                source_outcomes={"Google DeepMind Blog": outcome},
+                benchmarks_path=bench_file,
+            )
+            dm_status = next(s for s in status["rss_sources"] if s["name"] == "Google DeepMind Blog")
+            self.assertEqual(dm_status["status"], "fetch_failed")
+            self.assertEqual(dm_status["retained_articles_count"], 1)
+            self.assertEqual(status["overall_status"], "degraded")
+
+    def test_empty_response_source_distinguished_from_failure(self):
+        """Verify an empty feed response (HTTP 200, 0 entries) is marked empty_response, not failed."""
+        from pipeline.scraper import fetch_feed
+        from pipeline.run import generate_pipeline_status
+
+        mock_feed = MagicMock()
+        mock_feed.status = 200
+        mock_feed.bozo = False
+        mock_feed.entries = []
+
+        source = {
+            "name": "VS Code Updates",
+            "url": "https://code.visualstudio.com/feed.xml",
+            "publisher": "Microsoft VS Code",
+            "category": "Product Release",
+        }
+        outcome = {}
+        with patch("pipeline.scraper.feedparser.parse", return_value=mock_feed):
+            articles = fetch_feed(source, outcome=outcome)
+
+        self.assertEqual(len(articles), 0)
+        self.assertEqual(outcome.get("status"), "empty_response")
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            status_file = Path(tmpdir) / "status.json"
+            bench_file = Path(tmpdir) / "benchmarks.json"
+            bench_file.write_text(json.dumps({"metadata": {"status": "healthy", "health": {"status": "healthy"}}}), encoding="utf-8")
+            status = generate_pipeline_status(
+                status_path=status_file,
+                feed_records=[],
+                source_outcomes={"VS Code Updates": outcome},
+                benchmarks_path=bench_file,
+            )
+            vs_status = next(s for s in status["rss_sources"] if s["name"] == "VS Code Updates")
+            self.assertEqual(vs_status["status"], "empty_response")
+            # An empty response without failures should not degrade overall_status on healthy benchmarks
+            self.assertEqual(status["overall_status"], "healthy")
+
+    def test_one_source_failure_does_not_stop_other_sources(self):
+        """Verify fetch_all_sources continues to ingest other sources when one source fails."""
+        from pipeline.scraper import fetch_all_sources
+
+        mock_entry = MagicMock()
+        mock_entry.get.side_effect = lambda k, d=None: {
+            "title": "Hugging Face releases new model",
+            "link": "https://huggingface.co/blog/new-model",
+            "summary": "Post about transformers and deep learning.",
+        }.get(k, d)
+        mock_entry.title = "Hugging Face releases new model"
+        mock_entry.link = "https://huggingface.co/blog/new-model"
+        mock_entry.summary = "Post about transformers and deep learning."
+        mock_entry.description = "Post about transformers and deep learning."
+        mock_entry.content = []
+        mock_entry.published_parsed = time.gmtime()
+
+        good_feed = MagicMock()
+        good_feed.status = 200
+        good_feed.bozo = False
+        good_feed.entries = [mock_entry]
+
+        sources = [
+            {"name": "Failing Source", "url": "https://failing.example.com/rss", "publisher": "Failing", "category": "News"},
+            {"name": "Hugging Face Blog", "url": "https://huggingface.co/blog/feed.xml", "publisher": "Hugging Face", "category": "News"},
+        ]
+
+        def parse_side_effect(url, **kwargs):
+            if "failing" in url:
+                raise ConnectionError("Host unreachable")
+            return good_feed
+
+        outcomes = {}
+        with patch("pipeline.scraper.feedparser.parse", side_effect=parse_side_effect):
+            articles = fetch_all_sources(sources=sources, delay=0, outcomes=outcomes)
+
+        self.assertEqual(len(articles), 1)
+        self.assertEqual(articles[0]["source"], "Hugging Face Blog")
+        self.assertEqual(outcomes["Failing Source"]["status"], "fetch_failed")
+        self.assertEqual(outcomes["Hugging Face Blog"]["status"], "active")
+
+    def test_zero_articles_updates_health_and_preserves_feed(self):
+        """Verify run_pipeline updates pipeline-status.json and preserves existing feed when no new articles are found."""
+        from pipeline.run import run_pipeline
+
+        existing_feed = [
+            {
+                "id": "existing1",
+                "title": "Existing Valid Article",
+                "company": "OpenAI",
+                "source": "OpenAI News",
+                "summary": "Existing summary.",
+                "url": "https://openai.com/existing",
+                "date": "2026-10-20T12:00:00+00:00",
+                "category": "Product Release",
+            }
+        ]
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            feed_file = Path(tmpdir) / "feed.json"
+            feed_file.write_text(json.dumps(existing_feed), encoding="utf-8")
+            status_file = Path(tmpdir) / "pipeline-status.json"
+
+            empty_outcomes = {"OpenAI News": {"status": "empty_response", "checked_at": "2026-10-24T12:00:00Z", "articles_count": 0}}
+
+            def mock_fetch(sources=None, delay=0.5, outcomes=None):
+                if outcomes is not None:
+                    outcomes.update(empty_outcomes)
+                return []
+
+            with patch("pipeline.run.DEFAULT_FEED_PATH", feed_file), \
+                 patch("pipeline.run.DEFAULT_STATUS_PATH", status_file), \
+                 patch("pipeline.run.fetch_all_sources", side_effect=mock_fetch):
+                ret = run_pipeline(sources=[{"name": "OpenAI News", "url": "https://openai.com/rss", "publisher": "OpenAI", "category": "News"}])
+
+            self.assertEqual(ret, 0)
+
+            # 1. Existing feed was preserved
+            preserved_feed = json.loads(feed_file.read_text(encoding="utf-8"))
+            self.assertEqual(len(preserved_feed), 1)
+            self.assertEqual(preserved_feed[0]["id"], "existing1")
+
+            # 2. Pipeline status was still updated
+            self.assertTrue(status_file.exists())
+            status_data = json.loads(status_file.read_text(encoding="utf-8"))
+            openai_status = next(s for s in status_data["rss_sources"] if s["name"] == "OpenAI News")
+            self.assertEqual(openai_status["status"], "empty_response")
+
+    def test_benchmark_fallback_snapshot_preserves_distinct_last_known_good_timestamp(self):
+        """Verify that when benchmark fallback snapshot is used, last_known_good_timestamp is preserved and distinct from last_retrieval_time."""
+        from pipeline.benchmarks.runner import run_benchmark_pipeline
+
+        existing_snapshot = {
+            "metadata": {
+                "last_updated": "2026-10-24T06:46:46.596051+00:00",
+                "last_known_good_timestamp": "2026-10-24T06:46:46.596051+00:00",
+                "status": "healthy",
+                "health": {
+                    "status": "healthy",
+                    "last_retrieval_time": "2026-10-24T06:46:46.596051+00:00",
+                    "last_known_good_timestamp": "2026-10-24T06:46:46.596051+00:00",
+                    "warnings": [],
+                },
+            },
+            "benchmarks": [
+                {
+                    "model_name": "Claude 3.7 Sonnet",
+                    "canonical_id": "claude-3-7-sonnet",
+                    "provider": "Anthropic",
+                    "benchmark_name": "LiveBench",
+                    "category": "Composite",
+                    "score": 85.5,
+                    "score_unit": "%",
+                    "evaluation_date": None,
+                    "source": "LiveBench",
+                    "source_url": "https://livebench.ai/",
+                    "provenance": "Independent Evaluation",
+                    "retrieved_at": "2026-10-24T06:46:46.596051+00:00",
+                }
+            ],
+            "model_metrics": [],
+            "benchmark_standards": [],
+        }
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            bench_path = Path(tmpdir) / "benchmarks.json"
+            bench_path.write_text(json.dumps(existing_snapshot), encoding="utf-8")
+
+            # Mock LiveBenchAdapter.fetch to return empty
+            with patch("pipeline.benchmarks.adapters.livebench.LiveBenchAdapter.fetch", return_value=[]), \
+                 patch("pipeline.benchmarks.adapters.openrouter.OpenRouterAdapter.fetch_metrics", return_value=[]), \
+                 patch("pipeline.models.updater.sync_models_catalog"):
+                result = run_benchmark_pipeline(benchmarks_path=bench_path)
+
+            meta = result["metadata"]
+            health = meta["health"]
+
+            self.assertEqual(health["status"], "stale_fallback")
+            # last_known_good_timestamp is preserved from the 06:46 snapshot
+            self.assertEqual(health["last_known_good_timestamp"], "2026-10-24T06:46:46.596051+00:00")
+            self.assertEqual(meta["last_known_good_timestamp"], "2026-10-24T06:46:46.596051+00:00")
+            # last_retrieval_time is updated to the current attempt time
+            self.assertNotEqual(health["last_retrieval_time"], health["last_known_good_timestamp"])
+            self.assertTrue(any("2026-10-24T06:46:46.596051+00:00" in w for w in health["warnings"]))
 
 
 if __name__ == "__main__":

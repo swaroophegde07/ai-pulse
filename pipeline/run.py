@@ -893,15 +893,21 @@ def backfill_recent_tldrs(
 def generate_pipeline_status(
     status_path: Path | None = None,
     feed_records: list[dict] | None = None,
-    source_outcomes: dict[str, str] | None = None,
+    source_outcomes: dict[str, Any] | None = None,
+    benchmarks_path: Path | None = None,
+    sources: list[Source] | None = None,
 ) -> dict[str, Any]:
     """Generate structured pipeline status snapshot recording health across feeds and benchmarks."""
     target_path = status_path or DEFAULT_STATUS_PATH
     now_iso = datetime.now(UTC).isoformat()
 
     # Load all sources including disabled ones, excluding The Verge
-    from pipeline.sources import load_sources
-    all_sources = load_sources(include_disabled=True)
+    if sources is not None:
+        all_sources = list(sources)
+    else:
+        from pipeline.sources import load_sources
+        all_sources = load_sources(include_disabled=True)
+
     all_sources = [
         s for s in all_sources
         if "theverge.com" not in normalize_url(s.get("url") or "")
@@ -919,11 +925,18 @@ def generate_pipeline_status(
         s_name = s.get("name", "")
         matching_count = sum(1 for r in feed_data if r.get("source") == s_name)
         is_enabled = s.get("enabled", True) is not False
+        outcome = source_outcomes.get(s_name) if source_outcomes else None
+
+        last_checked = None
 
         if not is_enabled:
             status = "disabled"
-        elif source_outcomes and s_name in source_outcomes:
-            status = source_outcomes[s_name]
+        elif outcome is not None:
+            if isinstance(outcome, dict):
+                status = outcome.get("status", "active")
+                last_checked = outcome.get("checked_at")
+            else:
+                status = str(outcome)
             if status in ("failure", "fetch_failed", "parse_failed"):
                 has_feed_failure = True
         elif matching_count > 0:
@@ -938,27 +951,34 @@ def generate_pipeline_status(
             "category": s.get("category", "News"),
             "status": status,
             "retained_articles_count": matching_count,
-            "last_checked": now_iso,
+            "last_checked": last_checked,
         })
 
     # Read benchmarks.json metadata to reflect truthful upstream status
-    benchmarks_path = REPO_ROOT / "src" / "data" / "benchmarks.json"
+    target_benchmarks_path = benchmarks_path or (REPO_ROOT / "src" / "data" / "benchmarks.json")
     bench_status = "active"
     livebench_status = "active"
     livebench_release = "2026-10-13"
     bench_health_warnings: list[str] = []
     bench_last_retrieval: str | None = None
+    bench_last_known_good: str | None = None
     bench_last_eval_date: str | None = None
 
-    if benchmarks_path.exists():
+    if target_benchmarks_path.exists():
         try:
-            with open(benchmarks_path, "r", encoding="utf-8") as bf:
+            with open(target_benchmarks_path, "r", encoding="utf-8") as bf:
                 b_data = json.load(bf)
             b_meta = b_data.get("metadata", {})
             b_health = b_meta.get("health", {})
             meta_status = b_meta.get("status") or b_health.get("status") or "active"
             livebench_release = b_health.get("last_benchmark_release_date") or "2026-10-13"
             bench_last_retrieval = b_health.get("last_retrieval_time")
+            bench_last_known_good = b_health.get("last_known_good_timestamp") or b_meta.get("last_known_good_timestamp")
+            if not bench_last_known_good:
+                for w in b_health.get("warnings", []):
+                    if "Preserved last-known-good benchmark snapshot from " in w:
+                        bench_last_known_good = w.split("Preserved last-known-good benchmark snapshot from ")[1].rstrip(".")
+                        break
             bench_last_eval_date = b_health.get("last_successful_evaluation_date")
             bench_health_warnings = b_health.get("warnings") or []
             if meta_status in ("stale_fallback", "degraded", "fallback"):
@@ -977,6 +997,7 @@ def generate_pipeline_status(
             "provenance": "Independent Evaluation",
             "url": "https://livebench.ai/",
             "license": "Apache-2.0",
+            "last_known_good_timestamp": bench_last_known_good,
             "last_retrieval_time": bench_last_retrieval,
             "last_successful_evaluation_date": bench_last_eval_date,
             "warnings": bench_health_warnings,
@@ -1013,7 +1034,8 @@ def generate_pipeline_status(
         },
     ]
 
-    overall_status = "degraded" if (bench_status == "stale_fallback" or has_feed_failure) else "healthy"
+    overall_status = "degraded" if (bench_status in ("stale_fallback", "degraded", "failure", "fallback") or has_feed_failure) else "healthy"
+    active_sources_count = sum(1 for s in rss_list if s.get("status") == "active")
     enabled_sources_count = len([s for s in all_sources if s.get("enabled", True) is not False])
 
     status_payload: dict[str, Any] = {
@@ -1021,7 +1043,8 @@ def generate_pipeline_status(
         "overall_status": overall_status,
         "feed_health": {
             "total_configured_sources": len(all_sources),
-            "active_sources": enabled_sources_count,
+            "enabled_sources": enabled_sources_count,
+            "active_sources": active_sources_count,
             "total_retained_articles": len(feed_data),
         },
         "rss_sources": rss_list,
@@ -1157,10 +1180,15 @@ def run_pipeline(
     existing_ids = {r["id"] for r in existing}
     logger.info("Loaded %d existing articles.", len(existing))
 
-    # 2. Fetch new articles from RSS feeds.
-    raw_articles = fetch_all_sources(sources=sources)
+    # 2. Fetch new articles from RSS feeds with per-source outcome tracking.
+    source_outcomes: dict[str, Any] = {}
+    raw_articles = fetch_all_sources(sources=sources, outcomes=source_outcomes)
     if not raw_articles:
-        logger.warning("No articles fetched from any source. Exiting early.")
+        logger.warning("No articles fetched from any source. Updating pipeline health and preserving feed.")
+        try:
+            generate_pipeline_status(feed_records=existing, source_outcomes=source_outcomes)
+        except Exception as s_exc:
+            logger.warning("Pipeline status generation error (non-fatal): %s", s_exc)
         return 0
 
     # 3. Identify candidate articles to summarize:
@@ -1219,7 +1247,7 @@ def run_pipeline(
 
     # 9. Generate pipeline status snapshot recording health across feeds and benchmarks.
     try:
-        generate_pipeline_status(feed_records=merged)
+        generate_pipeline_status(feed_records=merged, source_outcomes=source_outcomes)
     except Exception as s_exc:
         logger.warning("Pipeline status generation error (non-fatal): %s", s_exc)
 

@@ -41,7 +41,7 @@ const modelsLastUpdated = Array.isArray(modelsData) && modelsData[0]?.last_verif
   ? modelsData[0].last_verified
   : "Not recorded";
 const pipelineHealth = (pipelineStatusData as any)?.overall_status || "healthy";
-const activeFeedsCount = (pipelineStatusData as any)?.feed_health?.active_sources || sourcesData.length;
+const activeFeedsCount = (pipelineStatusData as any)?.feed_health?.active_sources ?? sourcesData.length;
 const activeBenchmarkCount = (pipelineStatusData as any)?.summary?.active_benchmark_sources || 2;
 ---
 

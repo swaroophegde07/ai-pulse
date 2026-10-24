@@ -1,6 +1,7 @@
 {
   "metadata": {
     "last_updated": "2026-10-24T11:50:54.490204+00:00",
+    "last_known_good_timestamp": "2026-10-24T06:46:46.596051+00:00",
     "total_benchmark_records": 392,
     "total_model_metrics": 268,
     "status": "stale_fallback",
@@ -22,6 +23,7 @@
       "last_successful_evaluation_date": null,
       "last_benchmark_release_date": "2026-10-13",
       "last_retrieval_time": "2026-10-24T11:50:54.490204+00:00",
+      "last_known_good_timestamp": "2026-10-24T06:46:46.596051+00:00",
       "warnings": [
         "Preserved last-known-good benchmark snapshot from 2026-10-24T06:46:46.596051+00:00."
       ]
