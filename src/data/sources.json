@@ -91,19 +91,6 @@
     "notes": "Long-form peer perspective, essays, and technical interviews."
   },
   {
-    "id": "the-verge",
-    "name": "The Verge – AI",
-    "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
-    "publisher": "The Verge",
-    "website": "https://www.theverge.com/ai-artificial-intelligence",
-    "source_type": "Independent Reporting",
-    "category": "News",
-    "topics": ["Business and Industry", "Policy and Regulation", "Applications and Products"],
-    "access_method": "Public RSS",
-    "attribution": "The Verge / Vox Media",
-    "notes": "Mainstream tech journalism covering consumer AI, regulation, and business."
-  },
-  {
     "id": "ars-technica",
     "name": "Ars Technica – AI",
     "url": "https://arstechnica.com/tag/ai/feed/",
@@ -166,7 +153,8 @@
     "topics": ["Models and Releases", "Safety and Security", "AI Agents"],
     "access_method": "Public RSS",
     "attribution": "Anthropic",
-    "notes": "Claude frontier model releases, interpretability research, and alignment policies."
+    "enabled": false,
+    "notes": "Official Anthropic newsroom does not provide a public RSS/Atom feed (endpoint returns HTTP 404). Disabled until official RSS support is provided or an official HTML news parser is integrated."
   },
   {
     "id": "nvidia-developer",

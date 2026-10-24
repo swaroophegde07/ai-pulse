@@ -233,11 +233,17 @@ def merge_records(
         env_ret = os.environ.get("RETENTION_DAYS")
         retention_days = int(env_ret) if env_ret else 0
 
-    # Exclude demo records from live dataset
-    clean_existing = [r for r in existing if not r.get("_demo")]
+    def _is_verge(rec: dict) -> bool:
+        url = normalize_url(rec.get("url") or "")
+        company = (rec.get("company") or "").lower()
+        source = (rec.get("source") or "").lower()
+        return "theverge.com" in url or "the verge" in company or "the verge" in source
+
+    # Exclude demo records and The Verge from live dataset
+    clean_existing = [r for r in existing if not r.get("_demo") and not _is_verge(r)]
     clean_new = [
         r for r in new_articles
-        if not r.get("_demo") and (
+        if not r.get("_demo") and not _is_verge(r) and (
             not filter_relevance
             or is_article_ai_relevant(
                 r.get("title", ""),
@@ -247,7 +253,7 @@ def merge_records(
         )
     ]
 
-    # Ensure existing records have sources initialized
+    # Ensure records have sources initialized and strip any The Verge secondary references
     for r in clean_existing:
         if "sources" not in r or not r["sources"]:
             r["sources"] = [
@@ -256,6 +262,22 @@ def merge_records(
                     "url": r.get("url", ""),
                     "publisher": r.get("company", r.get("source", "")),
                 }
+            ]
+        else:
+            r["sources"] = [
+                s for s in r["sources"]
+                if isinstance(s, dict)
+                and "theverge.com" not in normalize_url(s.get("url") or "")
+                and "the verge" not in (s.get("publisher") or "").lower()
+            ]
+
+    for r in clean_new:
+        if "sources" in r and r["sources"]:
+            r["sources"] = [
+                s for s in r["sources"]
+                if isinstance(s, dict)
+                and "theverge.com" not in normalize_url(s.get("url") or "")
+                and "the verge" not in (s.get("publisher") or "").lower()
             ]
 
     seen_ids: dict[str, dict] = {r["id"]: r for r in clean_existing}
@@ -871,38 +893,97 @@ def backfill_recent_tldrs(
 def generate_pipeline_status(
     status_path: Path | None = None,
     feed_records: list[dict] | None = None,
+    source_outcomes: dict[str, str] | None = None,
 ) -> dict[str, Any]:
     """Generate structured pipeline status snapshot recording health across feeds and benchmarks."""
     target_path = status_path or DEFAULT_STATUS_PATH
     now_iso = datetime.now(UTC).isoformat()
 
+    # Load all sources including disabled ones, excluding The Verge
+    from pipeline.sources import load_sources
+    all_sources = load_sources(include_disabled=True)
+    all_sources = [
+        s for s in all_sources
+        if "theverge.com" not in normalize_url(s.get("url") or "")
+        and "the verge" not in (s.get("name") or "").lower()
+        and "the verge" not in (s.get("publisher") or "").lower()
+    ]
+
+    feed_data = feed_records if feed_records is not None else load_existing_feed(DEFAULT_FEED_PATH)
+
     # RSS feed health summaries
     rss_list = []
-    feed_data = feed_records or []
-    for s in SOURCES:
+    has_feed_failure = False
+
+    for s in all_sources:
         s_name = s.get("name", "")
         matching_count = sum(1 for r in feed_data if r.get("source") == s_name)
+        is_enabled = s.get("enabled", True) is not False
+
+        if not is_enabled:
+            status = "disabled"
+        elif source_outcomes and s_name in source_outcomes:
+            status = source_outcomes[s_name]
+            if status in ("failure", "fetch_failed", "parse_failed"):
+                has_feed_failure = True
+        elif matching_count > 0:
+            status = "active"
+        else:
+            status = "empty_response"
+
         rss_list.append({
             "name": s_name,
             "publisher": s.get("publisher", ""),
             "url": s.get("url", ""),
             "category": s.get("category", "News"),
-            "status": "active" if s.get("enabled", True) else "disabled",
+            "status": status,
             "retained_articles_count": matching_count,
             "last_checked": now_iso,
         })
+
+    # Read benchmarks.json metadata to reflect truthful upstream status
+    benchmarks_path = REPO_ROOT / "src" / "data" / "benchmarks.json"
+    bench_status = "active"
+    livebench_status = "active"
+    livebench_release = "2026-10-13"
+    bench_health_warnings: list[str] = []
+    bench_last_retrieval: str | None = None
+    bench_last_eval_date: str | None = None
+
+    if benchmarks_path.exists():
+        try:
+            with open(benchmarks_path, "r", encoding="utf-8") as bf:
+                b_data = json.load(bf)
+            b_meta = b_data.get("metadata", {})
+            b_health = b_meta.get("health", {})
+            meta_status = b_meta.get("status") or b_health.get("status") or "active"
+            livebench_release = b_health.get("last_benchmark_release_date") or "2026-10-13"
+            bench_last_retrieval = b_health.get("last_retrieval_time")
+            bench_last_eval_date = b_health.get("last_successful_evaluation_date")
+            bench_health_warnings = b_health.get("warnings") or []
+            if meta_status in ("stale_fallback", "degraded", "fallback"):
+                livebench_status = "stale_fallback"
+                bench_status = "stale_fallback"
+        except Exception as exc:
+            logger.warning("Failed to read benchmarks metadata: %s", exc)
 
     # Benchmark and telemetry sources status
     bench_list = [
         {
             "name": "LiveBench",
             "type": "Benchmark Suite",
-            "status": "active",
-            "release": "2026-06-25",
+            "status": livebench_status,
+            "release": livebench_release,
             "provenance": "Independent Evaluation",
             "url": "https://livebench.ai/",
             "license": "Apache-2.0",
-            "notes": "Contamination-free evaluations with monthly updated problems across reasoning, coding, and mathematics."
+            "last_retrieval_time": bench_last_retrieval,
+            "last_successful_evaluation_date": bench_last_eval_date,
+            "warnings": bench_health_warnings,
+            "notes": (
+                "Contamination-free evaluations with monthly updated problems across reasoning, coding, and mathematics."
+                + (" (Preserved last-known-good fallback snapshot; live refresh degraded.)" if livebench_status == "stale_fallback" else "")
+            ),
         },
         {
             "name": "OpenRouter Telemetry",
@@ -910,7 +991,7 @@ def generate_pipeline_status(
             "status": "active",
             "role": "Model catalogue & token pricing telemetry",
             "url": "https://openrouter.ai/",
-            "notes": "Verified context lengths and input/output token pricing per 1M tokens."
+            "notes": "Verified context lengths and input/output token pricing per 1M tokens.",
         },
         {
             "name": "BenchLM",
@@ -932,19 +1013,23 @@ def generate_pipeline_status(
         },
     ]
 
+    overall_status = "degraded" if (bench_status == "stale_fallback" or has_feed_failure) else "healthy"
+    enabled_sources_count = len([s for s in all_sources if s.get("enabled", True) is not False])
+
     status_payload: dict[str, Any] = {
         "generated_at": now_iso,
-        "overall_status": "healthy",
+        "overall_status": overall_status,
         "feed_health": {
-            "total_configured_sources": len(SOURCES),
-            "active_sources": len([s for s in SOURCES if s.get("enabled", True)]),
+            "total_configured_sources": len(all_sources),
+            "active_sources": enabled_sources_count,
             "total_retained_articles": len(feed_data),
         },
         "rss_sources": rss_list,
         "benchmark_sources": bench_list,
         "summary": {
-            "total_rss_sources": len(SOURCES),
-            "active_benchmark_sources": 2,
+            "total_rss_sources": len(all_sources),
+            "active_benchmark_sources": 1 if livebench_status == "stale_fallback" else 2,
+            "fallback_benchmark_sources": 1 if livebench_status == "stale_fallback" else 0,
             "disabled_benchmark_sources": 3,
         },
     }

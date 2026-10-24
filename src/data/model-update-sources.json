@@ -48,8 +48,8 @@
       "capability_change",
       "research_release"
     ],
-    "enabled": true,
-    "notes": "Official Anthropic RSS feed covering Claude model announcements, capability upgrades, and research publications."
+    "enabled": false,
+    "notes": "Official Anthropic newsroom does not provide a public RSS/Atom feed (endpoint returns HTTP 404). Model releases and capability updates are tracked via official HTML platform release notes."
   },
   {
     "id": "anthropic_claude_release_notes",

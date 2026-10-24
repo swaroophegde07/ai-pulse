@@ -2158,19 +2158,19 @@ class TestArticleEnrichmentAndDeduplication(unittest.TestCase):
         existing = [
             {
                 "id": "article1",
-                "title": "Anthropic releases Claude 3.5 Sonnet - The Verge",
-                "company": "The Verge",
-                "source": "The Verge AI",
+                "title": "Anthropic releases Claude 3.5 Sonnet - VentureBeat",
+                "company": "VentureBeat",
+                "source": "VentureBeat AI",
                 "summary": "Anthropic has released its updated Claude 3.5 Sonnet model with enhanced coding capabilities.",
-                "url": "https://www.theverge.com/2026/10/10/claude-3-5-sonnet",
+                "url": "https://venturebeat.com/ai/2026/10/10/claude-3-5-sonnet",
                 "date": "2026-10-10T14:00:00+00:00",
                 "category": "News",
                 "fetched_at": "2026-10-10T14:10:00+00:00",
                 "sources": [
                     {
-                        "title": "Anthropic releases Claude 3.5 Sonnet - The Verge",
-                        "url": "https://www.theverge.com/2026/10/10/claude-3-5-sonnet",
-                        "publisher": "The Verge",
+                        "title": "Anthropic releases Claude 3.5 Sonnet - VentureBeat",
+                        "url": "https://venturebeat.com/ai/2026/10/10/claude-3-5-sonnet",
+                        "publisher": "VentureBeat",
                     }
                 ],
             }
@@ -2200,7 +2200,7 @@ class TestArticleEnrichmentAndDeduplication(unittest.TestCase):
         # Should have merged source from TechCrunch without duplicate URLs
         self.assertEqual(len(primary["sources"]), 2)
         urls = [s["url"] for s in primary["sources"]]
-        self.assertIn("https://www.theverge.com/2026/10/10/claude-3-5-sonnet", urls)
+        self.assertIn("https://venturebeat.com/ai/2026/10/10/claude-3-5-sonnet", urls)
         self.assertIn("https://techcrunch.com/2026/10/10/anthropic-claude-3-5-sonnet?ref=feed", urls)
         # Preserved/upgraded impact_score and tags
         self.assertEqual(primary.get("impact_score"), 8)
@@ -2225,10 +2225,10 @@ class TestArticleEnrichmentAndDeduplication(unittest.TestCase):
             {
                 "id": "story2",
                 "title": "OpenAI expands ChatGPT Advanced Voice mode in Europe",
-                "company": "The Verge",
-                "source": "The Verge AI",
+                "company": "Ars Technica",
+                "source": "Ars Technica AI",
                 "summary": "OpenAI is rolling out its Advanced Voice mode feature to users in the EU.",
-                "url": "https://www.theverge.com/openai-advanced-voice-europe",
+                "url": "https://arstechnica.com/ai/openai-advanced-voice-europe",
                 "date": "2026-10-10T11:00:00+00:00",
                 "category": "News",
                 "fetched_at": "2026-10-10T11:05:00+00:00",
@@ -3076,12 +3076,12 @@ class TestReconcileExistingFeed(unittest.TestCase):
             {
                 "id": "bbb222",
                 "title": "Google finally releases Gemini 4 Argon",
-                "company": "The Verge",
-                "source": "The Verge",
+                "company": "VentureBeat",
+                "source": "VentureBeat",
                 "date": "2026-10-14T11:00:00+00:00",
                 "fetched_at": "2026-10-14T11:00:00+00:00",
-                "url": "https://theverge.com/gemini-4-argon#comments",
-                "summary": "The Verge reports on Google releasing Gemini 4 Argon.",
+                "url": "https://venturebeat.com/ai/gemini-4-argon#comments",
+                "summary": "VentureBeat reports on Google releasing Gemini 4 Argon.",
                 "category": "News",
             },
             {
@@ -3126,7 +3126,7 @@ class TestReconcileExistingFeed(unittest.TestCase):
             # Merged source
             self.assertIn("sources", reconciled1[0])
             self.assertEqual(len(reconciled1[0]["sources"]), 1)
-            self.assertEqual(reconciled1[0]["sources"][0]["url"], "https://theverge.com/gemini-4-argon")
+            self.assertEqual(reconciled1[0]["sources"][0]["url"], "https://venturebeat.com/ai/gemini-4-argon")
             # Drone traffic distractor removed
             titles = [r["title"] for r in reconciled1]
             self.assertNotIn("The Download: drone traffic controllers", titles)
@@ -3144,8 +3144,168 @@ class TestReconcileExistingFeed(unittest.TestCase):
             self.assertEqual(reconciled1, reconciled2)
 
 
+class TestMaintenanceQualityAndHealthPass(unittest.TestCase):
+    """Regression test suite for maintenance pass quality and source health fixes."""
+
+    def test_the_verge_excluded_from_fallback_and_configured_sources(self):
+        """Ensure The Verge is not present in default fallback sources or sources.json."""
+        from pipeline.sources import _DEFAULT_SOURCES, load_sources
+
+        for src in _DEFAULT_SOURCES:
+            self.assertNotIn("the verge", src.get("name", "").lower())
+            self.assertNotIn("theverge.com", src.get("url", "").lower())
+            self.assertNotIn("the verge", src.get("publisher", "").lower())
+
+        all_sources = load_sources(include_disabled=True)
+        for src in all_sources:
+            self.assertNotIn("the verge", src.get("name", "").lower())
+            self.assertNotIn("theverge.com", src.get("url", "").lower())
+            self.assertNotIn("the verge", src.get("publisher", "").lower())
+
+    def test_merge_records_strictly_rejects_the_verge_primary_and_secondary(self):
+        """Verify merge_records prevents The Verge from being reintroduced as primary or secondary."""
+        existing = [
+            {
+                "id": "existing_valid",
+                "title": "Google DeepMind Releases Gemini 4 Argon",
+                "company": "Google DeepMind",
+                "source": "Google DeepMind Blog",
+                "url": "https://deepmind.google/blog/gemini-4-argon/",
+                "date": "2026-10-14T10:00:00+00:00",
+                "category": "Research",
+                "summary": "Google DeepMind releases Gemini 4 Argon.",
+                "sources": [
+                    {
+                        "title": "Google DeepMind Releases Gemini 4 Argon",
+                        "url": "https://deepmind.google/blog/gemini-4-argon/",
+                        "publisher": "Google DeepMind",
+                    },
+                    {
+                        "title": "The Verge on Gemini 4",
+                        "url": "https://www.theverge.com/ai/gemini-4-argon-launch",
+                        "publisher": "The Verge",
+                    },
+                ],
+            }
+        ]
+
+        new_articles = [
+            # Verge primary article — must be completely dropped
+            {
+                "id": "verge_primary",
+                "title": "The Verge: Gemini 4 Hands-on Review",
+                "company": "The Verge",
+                "source": "The Verge – AI",
+                "url": "https://www.theverge.com/gemini-4-review",
+                "date": "2026-10-14T11:00:00+00:00",
+                "category": "News",
+                "summary": "Hands-on review of Gemini 4.",
+            },
+            # Valid non-Verge article with Verge secondary source — Verge secondary must be stripped
+            {
+                "id": "techcrunch_article",
+                "title": "TechCrunch Analysis of Gemini 4",
+                "company": "TechCrunch",
+                "source": "TechCrunch AI",
+                "url": "https://techcrunch.com/gemini-4-analysis",
+                "date": "2026-10-14T12:00:00+00:00",
+                "category": "News",
+                "summary": "TechCrunch analysis of Gemini 4.",
+                "sources": [
+                    {
+                        "title": "TechCrunch Analysis",
+                        "url": "https://techcrunch.com/gemini-4-analysis",
+                        "publisher": "TechCrunch",
+                    },
+                    {
+                        "title": "The Verge Coverage",
+                        "url": "https://www.theverge.com/gemini-4-analysis",
+                        "publisher": "The Verge",
+                    },
+                ],
+            },
+        ]
+
+        merged = merge_records(existing, new_articles, filter_relevance=False)
+
+        # 1. Verge primary was not added
+        urls = [r["url"] for r in merged]
+        self.assertNotIn("https://www.theverge.com/gemini-4-review", urls)
+
+        # 2. Existing record had Verge secondary stripped
+        deepmind_rec = next(r for r in merged if r["id"] == "existing_valid")
+        for s in deepmind_rec["sources"]:
+            self.assertNotIn("theverge.com", s["url"])
+            self.assertNotIn("the verge", s.get("publisher", "").lower())
+
+        # 3. New non-Verge article had Verge secondary stripped
+        tc_rec = next(r for r in merged if r["id"] == "techcrunch_article")
+        for s in tc_rec["sources"]:
+            self.assertNotIn("theverge.com", s["url"])
+            self.assertNotIn("the verge", s.get("publisher", "").lower())
+
+    def test_opencode_atom_release_parsing_and_relevance(self):
+        """Verify OpenCode Atom releases with bare version titles are parsed, prefixed, and preserved without network calls."""
+        from pipeline.scraper import fetch_feed
+        from pipeline.sources import Source
+
+        atom_xml = """<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Release notes from opencode</title>
+  <entry>
+    <id>tag:github.com,2008:Repository/123456/v1.0.50</id>
+    <updated>2026-10-20T12:00:00Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/anomalyco/opencode/releases/tag/v1.0.50"/>
+    <title>v1.0.50</title>
+    <content type="html">&lt;p&gt;OpenCode v1.0.50 introduces enhanced terminal agent workflows and prompt caching.&lt;/p&gt;</content>
+  </entry>
+</feed>"""
+        source: Source = {
+            "name": "OpenCode Updates",
+            "url": "https://github.com/anomalyco/opencode/releases.atom",
+            "publisher": "OpenCode",
+            "category": "Product Release",
+        }
+
+        import feedparser
+        parsed = feedparser.parse(atom_xml)
+        with patch("pipeline.scraper.feedparser.parse", return_value=parsed):
+            articles = fetch_feed(source)
+
+        self.assertEqual(len(articles), 1)
+        self.assertEqual(articles[0]["title"], "OpenCode v1.0.50")
+        self.assertEqual(articles[0]["company"], "OpenCode")
+        self.assertEqual(articles[0]["url"], "https://github.com/anomalyco/opencode/releases/tag/v1.0.50")
+        self.assertEqual(articles[0]["date"], "2026-10-20T12:00:00+00:00")
+
+    def test_pipeline_status_reflects_benchmark_stale_fallback_and_degraded_overall(self):
+        """Verify generate_pipeline_status derives LiveBench release from metadata and reports degraded when benchmarks are stale fallback."""
+        from pipeline.run import generate_pipeline_status
+        with tempfile.TemporaryDirectory() as tmpdir:
+            status_file = Path(tmpdir) / "pipeline-status.json"
+            status = generate_pipeline_status(status_path=status_file, feed_records=[])
+
+            # Truthful degraded status because benchmarks are in stale_fallback
+            self.assertEqual(status["overall_status"], "degraded")
+
+            # LiveBench status matches benchmarks.json
+            livebench = next(s for s in status["benchmark_sources"] if s["name"] == "LiveBench")
+            self.assertEqual(livebench["status"], "stale_fallback")
+            self.assertEqual(livebench["release"], "2026-10-13")
+
+            # Anthropic News is disabled
+            anthropic_news = next(s for s in status["rss_sources"] if s["name"] == "Anthropic News")
+            self.assertEqual(anthropic_news["status"], "disabled")
+
+            # The Verge is not present anywhere
+            rss_names = [s["name"] for s in status["rss_sources"]]
+            self.assertNotIn("The Verge – AI", rss_names)
+            self.assertNotIn("The Verge", rss_names)
+
+
 if __name__ == "__main__":
     unittest.main()
+
 
 
 

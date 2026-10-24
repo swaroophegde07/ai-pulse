@@ -177,8 +177,20 @@ const activeBenchmarkCount = (pipelineStatusData as any)?.summary?.active_benchm
         <span>&middot;</span>
         <span>{buildTimestamp}</span>
         <span>&middot;</span>
-        <span class="inline-flex items-center gap-1 text-emerald-700 dark:text-emerald-400">
-          <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400"></span>
+        <span class={`inline-flex items-center gap-1 ${
+          pipelineHealth === "healthy"
+            ? "text-emerald-700 dark:text-emerald-400"
+            : pipelineHealth === "degraded"
+            ? "text-amber-700 dark:text-amber-400"
+            : "text-rose-700 dark:text-rose-400"
+        }`}>
+          <span class={`inline-block w-1.5 h-1.5 rounded-full ${
+            pipelineHealth === "healthy"
+              ? "bg-emerald-500 dark:bg-emerald-400"
+              : pipelineHealth === "degraded"
+              ? "bg-amber-500 dark:bg-amber-400"
+              : "bg-rose-500 dark:bg-rose-400"
+          }`}></span>
           Pipeline: {pipelineHealth} ({activeFeedsCount} feeds, {activeBenchmarkCount} benchmark suites)
         </span>
       </div>

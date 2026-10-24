@@ -294,7 +294,8 @@ def merge_source_into(target_rec: dict, source_art: dict) -> None:
 
     src_url = source_art.get("url") or ""
     norm_src_url = normalize_url(src_url)
-    if norm_src_url and norm_src_url not in seen_urls:
+    is_verge_src = "theverge.com" in norm_src_url or "the verge" in (source_art.get("company", "") or "").lower() or "the verge" in (source_art.get("source", "") or "").lower()
+    if norm_src_url and norm_src_url not in seen_urls and not is_verge_src:
         seen_urls.add(norm_src_url)
         sources.append({
             "title": source_art.get("title", target_rec.get("title", "")),
@@ -306,7 +307,8 @@ def merge_source_into(target_rec: dict, source_art: dict) -> None:
     for s in source_art.get("sources") or []:
         if isinstance(s, dict) and s.get("url"):
             norm_s_url = normalize_url(s["url"])
-            if norm_s_url and norm_s_url not in seen_urls:
+            is_verge_s = "theverge.com" in norm_s_url or "the verge" in (s.get("publisher", "") or "").lower()
+            if norm_s_url and norm_s_url not in seen_urls and not is_verge_s:
                 seen_urls.add(norm_s_url)
                 sources.append(s)
 
@@ -455,13 +457,19 @@ def fetch_feed(source: Source, max_entries: int = MAX_ENTRIES_PER_SOURCE) -> lis
         seen_urls.add(canon_url)
 
         article_id = stable_id(canon_url)
-        title = getattr(entry, "title", "") or ""
+        raw_title = getattr(entry, "title", "") or ""
+        clean_title = raw_title.strip()
+        if source.get("name") in ("OpenCode Updates", "OpenCode") and (
+            re.match(r"^v?\d+\.\d+", clean_title) or not clean_title.lower().startswith("opencode")
+        ):
+            clean_title = f"OpenCode {clean_title}".strip()
+
         text = extract_text(entry)
         pub_date = parse_date(entry)
 
         candidate = {
             "id": article_id,
-            "title": title.strip(),
+            "title": clean_title,
             "company": source["publisher"],
             "source": source["name"],
             "url": canon_url,
@@ -478,6 +486,7 @@ def fetch_feed(source: Source, max_entries: int = MAX_ENTRIES_PER_SOURCE) -> lis
                 art["title"],
                 art.get("text", ""),
                 tags=[art["category"]],
+                source_name=art.get("source", source["name"]),
             )
             if not is_rel:
                 logger.info("Filtered non-AI article: '%s' (%s)", art["title"], reason)

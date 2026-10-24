@@ -195,8 +195,10 @@ class TestModelUpdates(unittest.TestCase):
         entry = {"title": "Silent Model Drop", "link": "https://example.com/silent"}
         rec = parse_rss_update_entry(entry, MOCK_SOURCE_OPENAI, "2025-01-01T00:00:00Z")
         self.assertIsNotNone(rec)
-        self.assertIn("OpenAI", rec["summary"])
+        self.assertIn("Summary unavailable", rec["summary"])
+        self.assertNotIn("Official update from", rec["summary"])
         self.assertTrue(validate_update_record(rec))
+        self.assertTrue(is_substantive_model_update(rec))
 
         # Entry with empty title returns None
         bad_entry = {"title": "", "link": "https://example.com/empty"}
@@ -951,7 +953,144 @@ class TestModelUpdates(unittest.TestCase):
         r_dump = dict(base_record, title="Model Name: north-small Context Length: 16K")
         self.assertFalse(is_substantive_model_update(r_dump))
 
+    def test_regression_rejects_generic_provider_only_fallback_summaries(self):
+        """Verify that provider-only fallback summaries are strictly rejected."""
+        base_record = {
+            "id": "test1234567890ab",
+            "provider_id": "huggingface",
+            "provider_name": "Hugging Face",
+            "title": "New Vision Language Model Released",
+            "summary": "Official update from Hugging Face.",
+            "update_type": "model_release",
+            "scope": "model",
+            "published_at": "2026-10-14",
+            "detected_at": "2026-10-14T12:00:00Z",
+            "source_type": "official_primary_source",
+            "source_url": "https://huggingface.co/blog/new-vlm",
+            "verification_status": "official_source",
+            "source_id": "huggingface_blog",
+        }
+        self.assertFalse(is_substantive_model_update(base_record))
+
+        r_dm = dict(base_record, provider_id="google", summary="Official update from Google DeepMind.")
+        self.assertFalse(is_substantive_model_update(r_dm))
+
+        # Honest fallback with title passes
+        r_honest = dict(base_record, summary="[Summary unavailable from source] New Vision Language Model Released")
+        self.assertTrue(is_substantive_model_update(r_honest))
+
+    def test_regression_rejects_navigation_and_doc_page_headings(self):
+        """Verify that navigation labels, copy links, and documentation titles are rejected."""
+        base_record = {
+            "id": "test1234567890ab",
+            "provider_id": "mistral",
+            "provider_name": "Mistral AI",
+            "title": "Follow shipped product updates across Vibe, Studio, Admin, models, and the API.Latest updatesCopy section linkLatest updates",
+            "summary": "Latest updates across Vibe and Studio",
+            "update_type": "product_update",
+            "scope": "product",
+            "published_at": "2026-10-09",
+            "detected_at": "2026-10-09T12:00:00Z",
+            "source_type": "official_primary_source",
+            "source_url": "https://docs.mistral.ai/getting-started/changelog",
+            "verification_status": "official_source",
+            "source_id": "mistral_release_notes",
+        }
+        self.assertFalse(is_substantive_model_update(base_record))
+
+        # Doc chrome page titles rejected
+        r_xai = dict(base_record, provider_id="xai", title="Release Notes | SpaceXSI Docs", published_at=None)
+        self.assertFalse(is_substantive_model_update(r_xai))
+
+        r_anthropic = dict(base_record, provider_id="anthropic", title="Claude Platform release notes - Claude Platform Docs", published_at=None)
+        self.assertFalse(is_substantive_model_update(r_anthropic))
+
+        r_mistral_doc = dict(base_record, title="Release notes | Mistral Docs", published_at=None)
+        self.assertFalse(is_substantive_model_update(r_mistral_doc))
+
+        # Copy section link in summary rejected
+        r_copylink = dict(base_record, title="Devstral 2 Launch", summary="New coding model. Copy section link for details.")
+        self.assertFalse(is_substantive_model_update(r_copylink))
+
+    def test_changelog_parser_ignores_html_head_and_navigation(self):
+        """Verify ChangelogHTMLParser ignores <head><title> and navigation 'Copy section link'."""
+        html = """<!DOCTYPE html>
+<html>
+<head>
+  <title>Release Notes | SpaceXSI Docs</title>
+  <style>.nav { display: block; }</style>
+  <script>console.log("analytics");</script>
+</head>
+<body>
+  <nav><ul><li><a href="/docs">Overview</a></li></ul></nav>
+  <main>
+    <section>
+      <h2>February 20, 2026</h2>
+      <h3>Grok 4.1 Enterprise Fast Model Released</h3>
+      <a href="#link">Copy section link</a>
+      <p>xAI introduces Grok 4.1 Fast with sub-second time-to-first-token in the Enterprise API.</p>
+    </section>
+  </main>
+</body>
+</html>"""
+        source: ModelUpdateSource = {
+            "id": "xai_api_release_notes",
+            "provider_id": "xai",
+            "provider_name": "xAI",
+            "display_name": "xAI Release Notes",
+            "url": "https://docs.x.ai/changelog",
+            "source_type": "official_primary_source",
+            "access_method": "html",
+            "update_categories": ["model_release"],
+            "enabled": True,
+            "notes": "xAI release notes",
+        }
+        records = parse_html_changelog(html, source, "https://docs.x.ai/changelog")
+        self.assertEqual(len(records), 1)
+        self.assertEqual(records[0]["title"], "Grok 4.1 Enterprise Fast Model Released")
+        self.assertNotIn("Copy section link", records[0]["summary"])
+        self.assertNotIn("Release Notes | SpaceXSI Docs", records[0]["title"])
+        self.assertEqual(records[0]["published_at"], "2026-02-20")
+
+    def test_rss_parser_extracts_content_or_uses_honest_fallback(self):
+        """Verify parse_rss_update_entry never emits 'Official update from...' and extracts rich content."""
+        source: ModelUpdateSource = {
+            "id": "huggingface_blog",
+            "provider_id": "huggingface",
+            "provider_name": "Hugging Face",
+            "display_name": "Hugging Face Blog",
+            "url": "https://huggingface.co/blog/feed.xml",
+            "source_type": "official_primary_source",
+            "access_method": "rss",
+            "update_categories": ["model_release"],
+            "enabled": True,
+            "notes": "Hugging Face Blog",
+        }
+        # Case 1: Entry with content value
+        entry_with_content = {
+            "title": "Introducing SmolVLM-2",
+            "link": "https://huggingface.co/blog/smolvlm2",
+            "content": [{"value": "<p>SmolVLM-2 is a lightweight compact multimodal vision language model.</p>"}],
+            "published": "2026-10-14T10:00:00Z",
+        }
+        rec1 = parse_rss_update_entry(entry_with_content, source, "2026-10-14T12:00:00Z")
+        self.assertIsNotNone(rec1)
+        self.assertIn("SmolVLM-2 is a lightweight compact", rec1["summary"])
+        self.assertNotEqual(rec1["summary"], "Official update from Hugging Face.")
+
+        # Case 2: Entry with empty description/content uses honest fallback
+        entry_empty = {
+            "title": "Apertus 1.5 Release Notes",
+            "link": "https://huggingface.co/blog/apertus-1-5",
+            "published": "2026-10-14T10:00:00Z",
+        }
+        rec2 = parse_rss_update_entry(entry_empty, source, "2026-10-14T12:00:00Z")
+        self.assertIsNotNone(rec2)
+        self.assertEqual(rec2["summary"], "[Summary unavailable from source] Apertus 1.5 Release Notes")
+        self.assertTrue(is_substantive_model_update(rec2))
+
 
 if __name__ == "__main__":
     unittest.main()
+
 
