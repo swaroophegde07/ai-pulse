@@ -34,7 +34,7 @@ Visitors can:
 
 ## Features
 
-* **Verified RSS Feeds**: Ingestion across primary labs and AI journalism outlets including OpenAI, Google DeepMind, Hugging Face, GitHub AI, VS Code, Microsoft Research, The Gradient, The Verge AI, and Ars Technica.
+* **Verified RSS Feeds**: Ingestion across primary labs and AI journalism outlets including OpenAI, Google DeepMind, Hugging Face, GitHub AI, VS Code, Microsoft Research, The Gradient, and Ars Technica.
 * **Factual AI Summaries**: Uses the official `google-genai` Python SDK to generate 2–3 sentence summaries. Built-in guardrails strip conversational filler, preserve source metadata, and fall back gracefully if an API call fails.
 * **Client-Side Search & Filtering**: Fast, zero-latency in-browser search across titles, summaries, and publishers with dynamic category tabs and empty state handling.
 * **Dedicated Intelligence Hubs**:
@@ -52,7 +52,7 @@ Visitors can:
 ```mermaid
 flowchart TD
     subgraph Data Ingestion
-        A[14 Public RSS Feeds] --> B[Python Scraper]
+        A[15 Public RSS Feeds (14 Active)] --> B[Python Scraper]
         B --> C[Gemini Summarizer + Quality Guardrails]
         C --> D[feed.json]
     end
@@ -66,7 +66,7 @@ flowchart TD
 
     subgraph Model Catalogue & Updates
         F --> J[Model Updater]
-        J --> K[models.json - 91 Catalogued, 23 Featured]
+        J --> K[models.json - 92 Catalogued, 23 Featured]
         P[Official Provider Changelogs & RSS] --> Q[Model Updates Ingestion Engine]
         F --> Q
         Q --> R[model-updates.json & model-update-sources.json]
@@ -84,13 +84,13 @@ flowchart TD
     N --> O[GitHub Pages Dashboard]
 ```
 
-1. **Ingest News**: The Python ingestion script reads verified feeds from `src/data/sources.json` across 14 research and news publishers.
+1. **Ingest News**: The Python ingestion script reads verified feeds from `src/data/sources.json` across 15 configured research and news publishers (14 active, 1 documented offline).
 2. **Deduplicate & Clean**: URLs are canonicalized, UTM tracking queries stripped, future dates clamped, and existing articles detected via deterministic SHA-256 IDs.
 3. **Summarize with Quality Guardrails**: New articles are passed to Google Gemini (`google-genai` SDK) to produce structured summaries. A quality validator rejects filler intros, bracketed placeholders, and headline-to-model brand mismatches, falling back gracefully to clean excerpts without burning quota. Merged into `src/data/feed.json`.
 4. **Model Identity Mapping**: `pipeline/models/identity.py` standardizes models across OpenRouter, official release notes, and benchmark datasets using an exact 4-tier resolution engine, preventing false version collapsing.
 5. **Model Updates & Changelog Tracker**: The dedicated model updates subsystem (`pipeline/models/updates.py`) ingests official release notes, API changelogs, and announcements across OpenAI, Anthropic, Google DeepMind, Meta, DeepSeek, Mistral, xAI, Microsoft, and Cohere. Uses deterministic parsing with zero LLM API calls, generates stable 16-character IDs, labels provider claims separately from independent benchmarks, and preserves historical records in `src/data/model-updates.json`.
 6. **Ingest Benchmarks & Validate**: The benchmark pipeline (`pipeline/benchmarks/runner.py`) fetches and validates multi-source evaluations (LiveBench evaluations under Apache-2.0, OpenRouter pricing & context telemetry). All records are verified, conflict-checked, and exported with a full validation report to `src/data/benchmarks.json`.
-7. **Catalog Models**: Foundation model architecture specs, release dates, open weights licenses, and pricing are curated in `src/data/models.json` (91 models, 23 featured flagships).
+7. **Catalog Models**: Foundation model architecture specs, release dates, open weights licenses, and pricing are curated in `src/data/models.json` (92 models, 23 featured flagships).
 8. **Status & Build Metadata**: `pipeline/run.py` generates `src/data/pipeline-status.json` and `src/data/build.json` tracking source health, git revisions, and deployment timestamps.
 9. **Build & Deploy**: Astro compiles the static HTML/CSS bundle into `dist/` and GitHub Actions deploys the site to GitHub Pages.
 
@@ -290,10 +290,10 @@ To prevent data contamination between external providers and benchmark suites, m
 - **Featured Frontier Flagships**: Curated high-impact reasoning, coding, and multimodal models (23 models) displayed with provider badges, context window formatting, verified token pricing, licensing, documentation links, and direct changelog access.
 - **Interactive Model Updates Feed**: Real-time searchable and filterable timeline across official lab changelogs with text query, provider pills, update-type filters (`model_release`, `capability_change`, `pricing_change`, `context_window_change`, `api_availability`, `deprecation`), and time periods (`7d`, `30d`, `all`).
 - **Model-Specific Changelog Modal**: Dedicated accessible dialog showing the full chronological update history for any catalogued model, with direct links to official announcements.
-- **Complete Model Catalogue**: Exhaustive table of 91 models with client-side category filter tabs (`All`, `Frontier Reasoning`, `Coding`, `Multimodal`, `Open Weights`, `Historical`), changelog history badges, and instant real-time text search.
+- **Complete Model Catalogue**: Exhaustive table of 92 models with client-side category filter tabs (`All`, `Frontier Reasoning`, `Coding`, `Multimodal`, `Open Weights`, `Historical`), changelog history badges, and instant real-time text search.
 
 ### 4. Empirical Benchmark Validation (`/benchmarks/`)
-- **Upstream Provenance**: Ingests official LiveBench releases under Apache-2.0 licensing (current release: `2026-06-25` containing 552 evaluation observations).
+- **Upstream Provenance**: Ingests official LiveBench releases under Apache-2.0 licensing (current release: `2026-10-13` with preserved last-known-good fallback snapshot).
 - **Validation Report**: Tracks retrieved, parsed, valid, duplicate, and quarantined records directly in `benchmarks.json` and renders transparently on the dashboard.
 - **Dynamic Standards**: Leaders for Reasoning, Coding, and Mathematics are computed dynamically from actual verified records rather than hardcoded assumptions.
 
@@ -304,7 +304,7 @@ To prevent data contamination between external providers and benchmark suites, m
 - Homepage displays calendar-aware "Today's AI Brief" with fallback indicators when same-day volume is limited.
 
 ### 6. Automated Health & Status Monitoring (`src/data/pipeline-status.json`)
-- Continuous tracking of all 14 RSS feed endpoints, OpenRouter telemetry, and LiveBench updates.
+- Continuous tracking of all 15 configured RSS/Atom feed endpoints (14 active, 1 documented offline), OpenRouter telemetry, and LiveBench updates.
 - Explicit status logging for disabled adapters (BenchLM, Artificial Analysis, LM Council) explaining licensing constraints and API key requirements.
 
 ---
@@ -312,14 +312,14 @@ To prevent data contamination between external providers and benchmark suites, m
 ## Project Status & Roadmap
 
 ### Implemented & Live
-- [x] Automated RSS feed ingestion across 14 verified providers with future-date clamping and UTC normalization.
+- [x] Automated RSS feed ingestion across 15 configured providers (14 active) with future-date clamping and UTC normalization.
 - [x] Objective Gemini-powered article summarization with strict quality validation and quota circuit breakers.
 - [x] Dedicated Official Model Updates & Release Notes Tracker (`src/data/model-updates.json`, 15 official lab sources).
 - [x] Interactive model update timeline with multi-dimensional filtering (provider, update type, query, 7d/30d time ranges).
 - [x] Model-specific changelog history modal connected to model catalogue records.
 - [x] Strict model identity mapping avoiding fuzzy substring collapses or version collisions.
 - [x] Provider claims labeling distinguishing self-reported lab statements from independent benchmark evaluations.
-- [x] Dual-tier model catalogue: 23 Featured Frontier flagships and 91 complete models with 6 category filter tabs.
+- [x] Dual-tier model catalogue: 23 Featured Frontier flagships and 92 complete models with 6 category filter tabs.
 - [x] Multi-Source Benchmark & Intelligence Dashboard (`/benchmarks/`) with transparent Data Integrity & Validation Reporting.
 - [x] Official LiveBench ingestion (552 observations) without fuzzy substring collisions or version collapses.
 - [x] Automated OpenRouter API telemetry integration and exact model identity mapping.

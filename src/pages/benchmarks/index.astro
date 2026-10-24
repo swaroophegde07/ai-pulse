@@ -107,8 +107,24 @@ const validationReport = benchmarksData.metadata?.validation_report || {
   quarantined_count: 0,
   retained_count: benchmarks.length,
 };
-const lastReleaseDate = benchmarksData.metadata?.health?.last_benchmark_release_date || benchmarksData.metadata?.sources?.[1]?.release_date || "2026-06-25";
+const benchmarkStatus = benchmarksData.metadata?.status || benchmarksData.metadata?.health?.status || "active";
+const isStaleFallback = benchmarkStatus === "stale_fallback" || benchmarkStatus === "degraded" || benchmarkStatus === "fallback";
+const lastReleaseDate = benchmarksData.metadata?.health?.last_benchmark_release_date || benchmarksData.metadata?.sources?.[1]?.release_date || "2026-10-13";
+const lastKnownGoodTimestamp = benchmarksData.metadata?.health?.last_known_good_timestamp || benchmarksData.metadata?.last_known_good_timestamp || null;
+const lastRetrievalTime = benchmarksData.metadata?.health?.last_retrieval_time || null;
 const lastEvalDate = benchmarksData.metadata?.health?.last_successful_evaluation_date;
+
+function formatUtcTimestamp(isoStr: string | null | undefined): string | null {
+  if (!isoStr) return null;
+  try {
+    const d = new Date(isoStr);
+    return isNaN(d.getTime()) ? null : `${d.toISOString().slice(0, 16).replace("T", " ")} UTC`;
+  } catch {
+    return null;
+  }
+}
+const formattedSnapshotTime = formatUtcTimestamp(lastKnownGoodTimestamp);
+const formattedRetrievalTime = formatUtcTimestamp(lastRetrievalTime);
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 // Mapping from models.json ID to LiveBench canonical ID(s)
@@ -284,15 +300,32 @@ const costEfficientModel = [...models]
     <!-- Benchmark Pipeline Integrity Strip -->
     <div class="mb-10 border border-theme-border bg-theme-surface rounded-lg p-5">
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-theme-border-subtle pb-3 mb-4">
-        <div class="flex items-center gap-2">
-          <span class="inline-block w-2 h-2 rounded-full bg-emerald-500"></span>
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class={`inline-block w-2 h-2 rounded-full ${isStaleFallback ? "bg-amber-500" : "bg-emerald-500"}`}></span>
           <span class="font-mono text-xs font-semibold text-theme-primary">Data Integrity & Validation Report</span>
+          {isStaleFallback && (
+            <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-mono border border-amber-500/30 bg-amber-500/10 text-amber-800 dark:text-amber-300 font-medium">
+              Stale Fallback Active
+            </span>
+          )}
           <span class="font-mono text-[10px] text-theme-muted">({lastEvalDate ? `Eval ${lastEvalDate} · Suite ${lastReleaseDate}` : `${lastReleaseDate} Benchmark Suite Release`})</span>
         </div>
         <div class="font-mono text-[10px] text-theme-muted">
           Source: Official LiveBench (Apache-2.0) & OpenRouter Catalog
         </div>
       </div>
+
+      {isStaleFallback && (
+        <div class="mb-4 p-3 rounded-md border border-amber-500/30 bg-amber-500/10 text-amber-900 dark:text-amber-200 text-xs flex items-start gap-2.5" role="alert">
+          <svg class="w-4 h-4 shrink-0 text-amber-600 dark:text-amber-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+          <div class="leading-relaxed">
+            <strong class="font-semibold uppercase text-[10px] tracking-wider block sm:inline">Notice: Stale Fallback Snapshot.</strong>
+            <span> Upstream benchmark refresh was degraded or unavailable during the latest run. To prevent disruption, AI Pulse is presenting the preserved last-known-good benchmark dataset (Release: {lastReleaseDate}{formattedSnapshotTime ? `, snapshot preserved at ${formattedSnapshotTime}` : ""}{formattedRetrievalTime ? `, latest retrieval attempted at ${formattedRetrievalTime}` : ""}).</span>
+          </div>
+        </div>
+      )}
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 font-mono text-xs">
         <div class="bg-theme-elevated p-3 rounded border border-theme-border-subtle">
           <div class="text-[10px] text-theme-muted uppercase tracking-wider">Retrieved</div>

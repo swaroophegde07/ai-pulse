@@ -2158,19 +2158,19 @@ class TestArticleEnrichmentAndDeduplication(unittest.TestCase):
         existing = [
             {
                 "id": "article1",
-                "title": "Anthropic releases Claude 3.5 Sonnet - The Verge",
-                "company": "The Verge",
-                "source": "The Verge AI",
+                "title": "Anthropic releases Claude 3.5 Sonnet - VentureBeat",
+                "company": "VentureBeat",
+                "source": "VentureBeat AI",
                 "summary": "Anthropic has released its updated Claude 3.5 Sonnet model with enhanced coding capabilities.",
-                "url": "https://www.theverge.com/2026/10/10/claude-3-5-sonnet",
+                "url": "https://venturebeat.com/ai/2026/10/10/claude-3-5-sonnet",
                 "date": "2026-10-10T14:00:00+00:00",
                 "category": "News",
                 "fetched_at": "2026-10-10T14:10:00+00:00",
                 "sources": [
                     {
-                        "title": "Anthropic releases Claude 3.5 Sonnet - The Verge",
-                        "url": "https://www.theverge.com/2026/10/10/claude-3-5-sonnet",
-                        "publisher": "The Verge",
+                        "title": "Anthropic releases Claude 3.5 Sonnet - VentureBeat",
+                        "url": "https://venturebeat.com/ai/2026/10/10/claude-3-5-sonnet",
+                        "publisher": "VentureBeat",
                     }
                 ],
             }
@@ -2200,7 +2200,7 @@ class TestArticleEnrichmentAndDeduplication(unittest.TestCase):
         # Should have merged source from TechCrunch without duplicate URLs
         self.assertEqual(len(primary["sources"]), 2)
         urls = [s["url"] for s in primary["sources"]]
-        self.assertIn("https://www.theverge.com/2026/10/10/claude-3-5-sonnet", urls)
+        self.assertIn("https://venturebeat.com/ai/2026/10/10/claude-3-5-sonnet", urls)
         self.assertIn("https://techcrunch.com/2026/10/10/anthropic-claude-3-5-sonnet?ref=feed", urls)
         # Preserved/upgraded impact_score and tags
         self.assertEqual(primary.get("impact_score"), 8)
@@ -2225,10 +2225,10 @@ class TestArticleEnrichmentAndDeduplication(unittest.TestCase):
             {
                 "id": "story2",
                 "title": "OpenAI expands ChatGPT Advanced Voice mode in Europe",
-                "company": "The Verge",
-                "source": "The Verge AI",
+                "company": "Ars Technica",
+                "source": "Ars Technica AI",
                 "summary": "OpenAI is rolling out its Advanced Voice mode feature to users in the EU.",
-                "url": "https://www.theverge.com/openai-advanced-voice-europe",
+                "url": "https://arstechnica.com/ai/openai-advanced-voice-europe",
                 "date": "2026-10-10T11:00:00+00:00",
                 "category": "News",
                 "fetched_at": "2026-10-10T11:05:00+00:00",
@@ -3076,12 +3076,12 @@ class TestReconcileExistingFeed(unittest.TestCase):
             {
                 "id": "bbb222",
                 "title": "Google finally releases Gemini 4 Argon",
-                "company": "The Verge",
-                "source": "The Verge",
+                "company": "VentureBeat",
+                "source": "VentureBeat",
                 "date": "2026-10-14T11:00:00+00:00",
                 "fetched_at": "2026-10-14T11:00:00+00:00",
-                "url": "https://theverge.com/gemini-4-argon#comments",
-                "summary": "The Verge reports on Google releasing Gemini 4 Argon.",
+                "url": "https://venturebeat.com/ai/gemini-4-argon#comments",
+                "summary": "VentureBeat reports on Google releasing Gemini 4 Argon.",
                 "category": "News",
             },
             {
@@ -3126,7 +3126,7 @@ class TestReconcileExistingFeed(unittest.TestCase):
             # Merged source
             self.assertIn("sources", reconciled1[0])
             self.assertEqual(len(reconciled1[0]["sources"]), 1)
-            self.assertEqual(reconciled1[0]["sources"][0]["url"], "https://theverge.com/gemini-4-argon")
+            self.assertEqual(reconciled1[0]["sources"][0]["url"], "https://venturebeat.com/ai/gemini-4-argon")
             # Drone traffic distractor removed
             titles = [r["title"] for r in reconciled1]
             self.assertNotIn("The Download: drone traffic controllers", titles)
@@ -3144,8 +3144,501 @@ class TestReconcileExistingFeed(unittest.TestCase):
             self.assertEqual(reconciled1, reconciled2)
 
 
+class TestMaintenanceQualityAndHealthPass(unittest.TestCase):
+    """Regression test suite for maintenance pass quality and source health fixes."""
+
+    def test_the_verge_excluded_from_fallback_and_configured_sources(self):
+        """Ensure The Verge is not present in default fallback sources or sources.json."""
+        from pipeline.sources import _DEFAULT_SOURCES, load_sources
+
+        for src in _DEFAULT_SOURCES:
+            self.assertNotIn("the verge", src.get("name", "").lower())
+            self.assertNotIn("theverge.com", src.get("url", "").lower())
+            self.assertNotIn("the verge", src.get("publisher", "").lower())
+
+        all_sources = load_sources(include_disabled=True)
+        for src in all_sources:
+            self.assertNotIn("the verge", src.get("name", "").lower())
+            self.assertNotIn("theverge.com", src.get("url", "").lower())
+            self.assertNotIn("the verge", src.get("publisher", "").lower())
+
+    def test_merge_records_strictly_rejects_the_verge_primary_and_secondary(self):
+        """Verify merge_records prevents The Verge from being reintroduced as primary or secondary."""
+        existing = [
+            {
+                "id": "existing_valid",
+                "title": "Google DeepMind Releases Gemini 4 Argon",
+                "company": "Google DeepMind",
+                "source": "Google DeepMind Blog",
+                "url": "https://deepmind.google/blog/gemini-4-argon/",
+                "date": "2026-10-14T10:00:00+00:00",
+                "category": "Research",
+                "summary": "Google DeepMind releases Gemini 4 Argon.",
+                "sources": [
+                    {
+                        "title": "Google DeepMind Releases Gemini 4 Argon",
+                        "url": "https://deepmind.google/blog/gemini-4-argon/",
+                        "publisher": "Google DeepMind",
+                    },
+                    {
+                        "title": "The Verge on Gemini 4",
+                        "url": "https://www.theverge.com/ai/gemini-4-argon-launch",
+                        "publisher": "The Verge",
+                    },
+                ],
+            }
+        ]
+
+        new_articles = [
+            # Verge primary article — must be completely dropped
+            {
+                "id": "verge_primary",
+                "title": "The Verge: Gemini 4 Hands-on Review",
+                "company": "The Verge",
+                "source": "The Verge – AI",
+                "url": "https://www.theverge.com/gemini-4-review",
+                "date": "2026-10-14T11:00:00+00:00",
+                "category": "News",
+                "summary": "Hands-on review of Gemini 4.",
+            },
+            # Valid non-Verge article with Verge secondary source — Verge secondary must be stripped
+            {
+                "id": "techcrunch_article",
+                "title": "TechCrunch Analysis of Gemini 4",
+                "company": "TechCrunch",
+                "source": "TechCrunch AI",
+                "url": "https://techcrunch.com/gemini-4-analysis",
+                "date": "2026-10-14T12:00:00+00:00",
+                "category": "News",
+                "summary": "TechCrunch analysis of Gemini 4.",
+                "sources": [
+                    {
+                        "title": "TechCrunch Analysis",
+                        "url": "https://techcrunch.com/gemini-4-analysis",
+                        "publisher": "TechCrunch",
+                    },
+                    {
+                        "title": "The Verge Coverage",
+                        "url": "https://www.theverge.com/gemini-4-analysis",
+                        "publisher": "The Verge",
+                    },
+                ],
+            },
+        ]
+
+        merged = merge_records(existing, new_articles, filter_relevance=False)
+
+        # 1. Verge primary was not added
+        urls = [r["url"] for r in merged]
+        self.assertNotIn("https://www.theverge.com/gemini-4-review", urls)
+
+        # 2. Existing record had Verge secondary stripped
+        deepmind_rec = next(r for r in merged if r["id"] == "existing_valid")
+        for s in deepmind_rec["sources"]:
+            self.assertNotIn("theverge.com", s["url"])
+            self.assertNotIn("the verge", s.get("publisher", "").lower())
+
+        # 3. New non-Verge article had Verge secondary stripped
+        tc_rec = next(r for r in merged if r["id"] == "techcrunch_article")
+        for s in tc_rec["sources"]:
+            self.assertNotIn("theverge.com", s["url"])
+            self.assertNotIn("the verge", s.get("publisher", "").lower())
+
+    def test_opencode_atom_release_parsing_and_relevance(self):
+        """Verify OpenCode Atom releases with bare version titles are parsed, prefixed, and preserved without network calls."""
+        from pipeline.scraper import fetch_feed
+        from pipeline.sources import Source
+
+        atom_xml = """<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Release notes from opencode</title>
+  <entry>
+    <id>tag:github.com,2008:Repository/123456/v1.0.50</id>
+    <updated>2026-10-20T12:00:00Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/anomalyco/opencode/releases/tag/v1.0.50"/>
+    <title>v1.0.50</title>
+    <content type="html">&lt;p&gt;OpenCode v1.0.50 introduces enhanced terminal agent workflows and prompt caching.&lt;/p&gt;</content>
+  </entry>
+</feed>"""
+        source: Source = {
+            "name": "OpenCode Updates",
+            "url": "https://github.com/anomalyco/opencode/releases.atom",
+            "publisher": "OpenCode",
+            "category": "Product Release",
+        }
+
+        import feedparser
+        parsed = feedparser.parse(atom_xml)
+        with patch("pipeline.scraper.feedparser.parse", return_value=parsed):
+            articles = fetch_feed(source)
+
+        self.assertEqual(len(articles), 1)
+        self.assertEqual(articles[0]["title"], "OpenCode v1.0.50")
+        self.assertEqual(articles[0]["company"], "OpenCode")
+        self.assertEqual(articles[0]["url"], "https://github.com/anomalyco/opencode/releases/tag/v1.0.50")
+        self.assertEqual(articles[0]["date"], "2026-10-20T12:00:00+00:00")
+
+    def test_pipeline_status_reflects_benchmark_stale_fallback_and_degraded_overall(self):
+        """Verify generate_pipeline_status derives LiveBench release from metadata and reports degraded when benchmarks are stale fallback using controlled fixture."""
+        from pipeline.run import generate_pipeline_status
+        with tempfile.TemporaryDirectory() as tmpdir:
+            bench_file = Path(tmpdir) / "benchmarks.json"
+            bench_data = {
+                "metadata": {
+                    "status": "stale_fallback",
+                    "last_updated": "2026-10-24T11:50:54.490204+00:00",
+                    "last_known_good_timestamp": "2026-10-24T06:46:46.596051+00:00",
+                    "health": {
+                        "status": "stale_fallback",
+                        "last_benchmark_release_date": "2026-10-13",
+                        "last_retrieval_time": "2026-10-24T11:50:54.490204+00:00",
+                        "last_known_good_timestamp": "2026-10-24T06:46:46.596051+00:00",
+                        "warnings": [
+                            "Preserved last-known-good benchmark snapshot from 2026-10-24T06:46:46.596051+00:00."
+                        ],
+                    },
+                },
+                "benchmarks": [],
+            }
+            bench_file.write_text(json.dumps(bench_data), encoding="utf-8")
+
+            status_file = Path(tmpdir) / "pipeline-status.json"
+            status = generate_pipeline_status(
+                status_path=status_file,
+                feed_records=[],
+                benchmarks_path=bench_file,
+            )
+
+            # Truthful degraded status because benchmarks are in stale_fallback
+            self.assertEqual(status["overall_status"], "degraded")
+
+            # LiveBench status matches fixture metadata
+            livebench = next(s for s in status["benchmark_sources"] if s["name"] == "LiveBench")
+            self.assertEqual(livebench["status"], "stale_fallback")
+            self.assertEqual(livebench["release"], "2026-10-13")
+            self.assertEqual(livebench["last_known_good_timestamp"], "2026-10-24T06:46:46.596051+00:00")
+            self.assertEqual(livebench["last_retrieval_time"], "2026-10-24T11:50:54.490204+00:00")
+
+            # Anthropic News is disabled
+            anthropic_news = next(s for s in status["rss_sources"] if s["name"] == "Anthropic News")
+            self.assertEqual(anthropic_news["status"], "disabled")
+
+            # The Verge is not present anywhere
+            rss_names = [s["name"] for s in status["rss_sources"]]
+            self.assertNotIn("The Verge – AI", rss_names)
+            self.assertNotIn("The Verge", rss_names)
+
+    def test_pipeline_status_reports_healthy_when_benchmarks_and_feeds_are_healthy(self):
+        """Verify pipeline status reports healthy when both benchmarks and feeds are healthy."""
+        from pipeline.run import generate_pipeline_status
+        with tempfile.TemporaryDirectory() as tmpdir:
+            bench_file = Path(tmpdir) / "benchmarks.json"
+            bench_data = {
+                "metadata": {
+                    "status": "healthy",
+                    "last_updated": "2026-10-24T12:00:00+00:00",
+                    "last_known_good_timestamp": "2026-10-24T12:00:00+00:00",
+                    "health": {
+                        "status": "healthy",
+                        "last_benchmark_release_date": "2026-10-24",
+                        "last_retrieval_time": "2026-10-24T12:00:00+00:00",
+                        "last_known_good_timestamp": "2026-10-24T12:00:00+00:00",
+                        "warnings": [],
+                    },
+                },
+                "benchmarks": [],
+            }
+            bench_file.write_text(json.dumps(bench_data), encoding="utf-8")
+
+            status_file = Path(tmpdir) / "pipeline-status.json"
+            status = generate_pipeline_status(
+                status_path=status_file,
+                feed_records=[{"source": "OpenAI News", "id": "1"}],
+                benchmarks_path=bench_file,
+            )
+            self.assertEqual(status["overall_status"], "healthy")
+            livebench = next(s for s in status["benchmark_sources"] if s["name"] == "LiveBench")
+            self.assertEqual(livebench["status"], "active")
+            self.assertEqual(livebench["last_known_good_timestamp"], "2026-10-24T12:00:00+00:00")
+
+    def test_successful_source_marked_active(self):
+        """Verify a successful source fetch records status 'active' and populates pipeline status accordingly."""
+        from pipeline.scraper import fetch_feed
+        from pipeline.run import generate_pipeline_status
+
+        mock_entry = MagicMock()
+        mock_entry.get.side_effect = lambda k, d=None: {
+            "title": "OpenAI announces new AI capability",
+            "link": "https://openai.com/news/new-ai-cap",
+            "summary": "Full article about AI and LLM reasoning.",
+        }.get(k, d)
+        mock_entry.title = "OpenAI announces new AI capability"
+        mock_entry.link = "https://openai.com/news/new-ai-cap"
+        mock_entry.summary = "Full article about AI and LLM reasoning."
+        mock_entry.description = "Full article about AI and LLM reasoning."
+        mock_entry.content = []
+        mock_entry.published_parsed = time.gmtime()
+
+        mock_feed = MagicMock()
+        mock_feed.status = 200
+        mock_feed.bozo = False
+        mock_feed.entries = [mock_entry]
+
+        source = {
+            "name": "OpenAI News",
+            "url": "https://openai.com/news/rss.xml",
+            "publisher": "OpenAI",
+            "category": "Product Release",
+        }
+        outcome = {}
+        with patch("pipeline.scraper.feedparser.parse", return_value=mock_feed):
+            articles = fetch_feed(source, outcome=outcome)
+
+        self.assertEqual(len(articles), 1)
+        self.assertEqual(outcome.get("status"), "active")
+        self.assertIsNotNone(outcome.get("checked_at"))
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            status_file = Path(tmpdir) / "status.json"
+            bench_file = Path(tmpdir) / "benchmarks.json"
+            bench_file.write_text(json.dumps({"metadata": {"status": "healthy", "health": {"status": "healthy"}}}), encoding="utf-8")
+            status = generate_pipeline_status(
+                status_path=status_file,
+                feed_records=articles,
+                source_outcomes={"OpenAI News": outcome},
+                benchmarks_path=bench_file,
+            )
+            source_status = next(s for s in status["rss_sources"] if s["name"] == "OpenAI News")
+            self.assertEqual(source_status["status"], "active")
+            self.assertEqual(source_status["last_checked"], outcome["checked_at"])
+
+    def test_failed_source_with_old_retained_articles_marked_failed_and_degrades_overall(self):
+        """Verify that a source with old retained articles is marked fetch_failed when current fetch fails, degrading overall status."""
+        from pipeline.scraper import fetch_feed
+        from pipeline.run import generate_pipeline_status
+
+        source = {
+            "name": "Google DeepMind Blog",
+            "url": "https://deepmind.google/blog/rss.xml",
+            "publisher": "Google DeepMind",
+            "category": "Research",
+        }
+        outcome = {}
+        with patch("pipeline.scraper.feedparser.parse", side_effect=Exception("Connection refused")):
+            articles = fetch_feed(source, outcome=outcome)
+
+        self.assertEqual(len(articles), 0)
+        self.assertEqual(outcome.get("status"), "fetch_failed")
+        self.assertIn("Connection refused", outcome.get("error", ""))
+
+        # Old retained articles exist for this source
+        retained = [
+            {"id": "dm1", "source": "Google DeepMind Blog", "title": "AlphaFold 3", "url": "https://deepmind.google/alphafold3"}
+        ]
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            status_file = Path(tmpdir) / "status.json"
+            bench_file = Path(tmpdir) / "benchmarks.json"
+            # Even with healthy benchmarks, feed failure must degrade overall_status
+            bench_file.write_text(json.dumps({"metadata": {"status": "healthy", "health": {"status": "healthy"}}}), encoding="utf-8")
+            status = generate_pipeline_status(
+                status_path=status_file,
+                feed_records=retained,
+                source_outcomes={"Google DeepMind Blog": outcome},
+                benchmarks_path=bench_file,
+            )
+            dm_status = next(s for s in status["rss_sources"] if s["name"] == "Google DeepMind Blog")
+            self.assertEqual(dm_status["status"], "fetch_failed")
+            self.assertEqual(dm_status["retained_articles_count"], 1)
+            self.assertEqual(status["overall_status"], "degraded")
+
+    def test_empty_response_source_distinguished_from_failure(self):
+        """Verify an empty feed response (HTTP 200, 0 entries) is marked empty_response, not failed."""
+        from pipeline.scraper import fetch_feed
+        from pipeline.run import generate_pipeline_status
+
+        mock_feed = MagicMock()
+        mock_feed.status = 200
+        mock_feed.bozo = False
+        mock_feed.entries = []
+
+        source = {
+            "name": "VS Code Updates",
+            "url": "https://code.visualstudio.com/feed.xml",
+            "publisher": "Microsoft VS Code",
+            "category": "Product Release",
+        }
+        outcome = {}
+        with patch("pipeline.scraper.feedparser.parse", return_value=mock_feed):
+            articles = fetch_feed(source, outcome=outcome)
+
+        self.assertEqual(len(articles), 0)
+        self.assertEqual(outcome.get("status"), "empty_response")
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            status_file = Path(tmpdir) / "status.json"
+            bench_file = Path(tmpdir) / "benchmarks.json"
+            bench_file.write_text(json.dumps({"metadata": {"status": "healthy", "health": {"status": "healthy"}}}), encoding="utf-8")
+            status = generate_pipeline_status(
+                status_path=status_file,
+                feed_records=[],
+                source_outcomes={"VS Code Updates": outcome},
+                benchmarks_path=bench_file,
+            )
+            vs_status = next(s for s in status["rss_sources"] if s["name"] == "VS Code Updates")
+            self.assertEqual(vs_status["status"], "empty_response")
+            # An empty response without failures should not degrade overall_status on healthy benchmarks
+            self.assertEqual(status["overall_status"], "healthy")
+
+    def test_one_source_failure_does_not_stop_other_sources(self):
+        """Verify fetch_all_sources continues to ingest other sources when one source fails."""
+        from pipeline.scraper import fetch_all_sources
+
+        mock_entry = MagicMock()
+        mock_entry.get.side_effect = lambda k, d=None: {
+            "title": "Hugging Face releases new model",
+            "link": "https://huggingface.co/blog/new-model",
+            "summary": "Post about transformers and deep learning.",
+        }.get(k, d)
+        mock_entry.title = "Hugging Face releases new model"
+        mock_entry.link = "https://huggingface.co/blog/new-model"
+        mock_entry.summary = "Post about transformers and deep learning."
+        mock_entry.description = "Post about transformers and deep learning."
+        mock_entry.content = []
+        mock_entry.published_parsed = time.gmtime()
+
+        good_feed = MagicMock()
+        good_feed.status = 200
+        good_feed.bozo = False
+        good_feed.entries = [mock_entry]
+
+        sources = [
+            {"name": "Failing Source", "url": "https://failing.example.com/rss", "publisher": "Failing", "category": "News"},
+            {"name": "Hugging Face Blog", "url": "https://huggingface.co/blog/feed.xml", "publisher": "Hugging Face", "category": "News"},
+        ]
+
+        def parse_side_effect(url, **kwargs):
+            if "failing" in url:
+                raise ConnectionError("Host unreachable")
+            return good_feed
+
+        outcomes = {}
+        with patch("pipeline.scraper.feedparser.parse", side_effect=parse_side_effect):
+            articles = fetch_all_sources(sources=sources, delay=0, outcomes=outcomes)
+
+        self.assertEqual(len(articles), 1)
+        self.assertEqual(articles[0]["source"], "Hugging Face Blog")
+        self.assertEqual(outcomes["Failing Source"]["status"], "fetch_failed")
+        self.assertEqual(outcomes["Hugging Face Blog"]["status"], "active")
+
+    def test_zero_articles_updates_health_and_preserves_feed(self):
+        """Verify run_pipeline updates pipeline-status.json and preserves existing feed when no new articles are found."""
+        from pipeline.run import run_pipeline
+
+        existing_feed = [
+            {
+                "id": "existing1",
+                "title": "Existing Valid Article",
+                "company": "OpenAI",
+                "source": "OpenAI News",
+                "summary": "Existing summary.",
+                "url": "https://openai.com/existing",
+                "date": "2026-10-20T12:00:00+00:00",
+                "category": "Product Release",
+            }
+        ]
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            feed_file = Path(tmpdir) / "feed.json"
+            feed_file.write_text(json.dumps(existing_feed), encoding="utf-8")
+            status_file = Path(tmpdir) / "pipeline-status.json"
+
+            empty_outcomes = {"OpenAI News": {"status": "empty_response", "checked_at": "2026-10-24T12:00:00Z", "articles_count": 0}}
+
+            def mock_fetch(sources=None, delay=0.5, outcomes=None):
+                if outcomes is not None:
+                    outcomes.update(empty_outcomes)
+                return []
+
+            with patch("pipeline.run.DEFAULT_FEED_PATH", feed_file), \
+                 patch("pipeline.run.DEFAULT_STATUS_PATH", status_file), \
+                 patch("pipeline.run.fetch_all_sources", side_effect=mock_fetch):
+                ret = run_pipeline(sources=[{"name": "OpenAI News", "url": "https://openai.com/rss", "publisher": "OpenAI", "category": "News"}])
+
+            self.assertEqual(ret, 0)
+
+            # 1. Existing feed was preserved
+            preserved_feed = json.loads(feed_file.read_text(encoding="utf-8"))
+            self.assertEqual(len(preserved_feed), 1)
+            self.assertEqual(preserved_feed[0]["id"], "existing1")
+
+            # 2. Pipeline status was still updated
+            self.assertTrue(status_file.exists())
+            status_data = json.loads(status_file.read_text(encoding="utf-8"))
+            openai_status = next(s for s in status_data["rss_sources"] if s["name"] == "OpenAI News")
+            self.assertEqual(openai_status["status"], "empty_response")
+
+    def test_benchmark_fallback_snapshot_preserves_distinct_last_known_good_timestamp(self):
+        """Verify that when benchmark fallback snapshot is used, last_known_good_timestamp is preserved and distinct from last_retrieval_time."""
+        from pipeline.benchmarks.runner import run_benchmark_pipeline
+
+        existing_snapshot = {
+            "metadata": {
+                "last_updated": "2026-10-24T06:46:46.596051+00:00",
+                "last_known_good_timestamp": "2026-10-24T06:46:46.596051+00:00",
+                "status": "healthy",
+                "health": {
+                    "status": "healthy",
+                    "last_retrieval_time": "2026-10-24T06:46:46.596051+00:00",
+                    "last_known_good_timestamp": "2026-10-24T06:46:46.596051+00:00",
+                    "warnings": [],
+                },
+            },
+            "benchmarks": [
+                {
+                    "model_name": "Claude 3.7 Sonnet",
+                    "canonical_id": "claude-3-7-sonnet",
+                    "provider": "Anthropic",
+                    "benchmark_name": "LiveBench",
+                    "category": "Composite",
+                    "score": 85.5,
+                    "score_unit": "%",
+                    "evaluation_date": None,
+                    "source": "LiveBench",
+                    "source_url": "https://livebench.ai/",
+                    "provenance": "Independent Evaluation",
+                    "retrieved_at": "2026-10-24T06:46:46.596051+00:00",
+                }
+            ],
+            "model_metrics": [],
+            "benchmark_standards": [],
+        }
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            bench_path = Path(tmpdir) / "benchmarks.json"
+            bench_path.write_text(json.dumps(existing_snapshot), encoding="utf-8")
+
+            # Mock LiveBenchAdapter.fetch to return empty
+            with patch("pipeline.benchmarks.adapters.livebench.LiveBenchAdapter.fetch", return_value=[]), \
+                 patch("pipeline.benchmarks.adapters.openrouter.OpenRouterAdapter.fetch_metrics", return_value=[]), \
+                 patch("pipeline.models.updater.sync_models_catalog"):
+                result = run_benchmark_pipeline(benchmarks_path=bench_path)
+
+            meta = result["metadata"]
+            health = meta["health"]
+
+            self.assertEqual(health["status"], "stale_fallback")
+            # last_known_good_timestamp is preserved from the 06:46 snapshot
+            self.assertEqual(health["last_known_good_timestamp"], "2026-10-24T06:46:46.596051+00:00")
+            self.assertEqual(meta["last_known_good_timestamp"], "2026-10-24T06:46:46.596051+00:00")
+            # last_retrieval_time is updated to the current attempt time
+            self.assertNotEqual(health["last_retrieval_time"], health["last_known_good_timestamp"])
+            self.assertTrue(any("2026-10-24T06:46:46.596051+00:00" in w for w in health["warnings"]))
+
+
 if __name__ == "__main__":
     unittest.main()
+
 
 
 

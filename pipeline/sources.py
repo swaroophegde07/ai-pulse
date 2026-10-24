@@ -105,12 +105,6 @@ _DEFAULT_SOURCES: list[Source] = [
         "category": "Research",
     },
     {
-        "name": "The Verge – AI",
-        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
-        "publisher": "The Verge",
-        "category": "News",
-    },
-    {
         "name": "Ars Technica – AI",
         "url": "https://arstechnica.com/tag/ai/feed/",
         "publisher": "Ars Technica",

@@ -139,6 +139,9 @@ CHROME_TITLE_PATTERNS = [
     re.compile(r"\bcareers\b", re.IGNORECASE),
     re.compile(r"^Terms of servicePrivacy policy", re.IGNORECASE),
     re.compile(r"(?:webpackChunk|function\s*\(|Object\.defineProperty|void 0|var |const |window\.|document\.)"),
+    re.compile(r"\bcopy\s+section\s+link\b", re.IGNORECASE),
+    re.compile(r"\b(?:release\s+notes?|changelog)\s*(?:\||-|–|—)\s*.*(?:docs|documentation)\b", re.IGNORECASE),
+    re.compile(r"\b(?:docs|documentation)\s*(?:\||-|–|—)\s*.*(?:release\s+notes?|changelog)\b", re.IGNORECASE),
 ]
 
 # Generic heading patterns that represent documentation structure or navigation, not model updates
@@ -155,6 +158,9 @@ GENERIC_HEADING_PATTERNS = [
     re.compile(r"^\s*(?:community\s+support|provide\s+feedback|feedback|support|resources)\s*$", re.IGNORECASE),
     re.compile(r"^\s*(?:replit\s*&\s*spacexsi|tokenizer\s+playground)\s*$", re.IGNORECASE),
     re.compile(r"^\s*(?:microsoft\s+azure\s+blog|azure\s+updates\s*\|\s*microsoft\s+azure)\s*$", re.IGNORECASE),
+    re.compile(r"^.*(?:release\s+notes?|changelog)\s*(?:\||-|–|—)\s*.*(?:docs|documentation).*$", re.IGNORECASE),
+    re.compile(r"^.*(?:docs|documentation)\s*(?:\||-|–|—)\s*.*(?:release\s+notes?|changelog).*$", re.IGNORECASE),
+    re.compile(r"^\s*(?:copy\s+section\s+link|copy\s+link)\s*$", re.IGNORECASE),
 ]
 
 # Lone date or timeframe patterns (e.g. 'September 4th, 2024', 'September 2025', 'September')
@@ -440,6 +446,27 @@ def is_substantive_model_update(record: dict) -> bool:
     # Reject parameter blocks or navigation menu dumps in title or summary
     for pat in PARAMETER_OR_MENU_DUMP_PATTERNS:
         if pat.search(norm_title) or pat.search(summary):
+            return False
+
+    # Reject generic provider-only fallback summaries
+    if re.match(r"^\s*Official update from\s+.*\.?\s*$", summary, re.IGNORECASE):
+        return False
+
+    # Reject navigation labels and copy link text
+    if "copy section link" in summary.lower() or "copy section link" in norm_title.lower():
+        return False
+    if "copy link" in summary.lower() or "copy link" in norm_title.lower():
+        return False
+    if "latest updates" in norm_title.lower() and len(norm_title) > 40:
+        return False
+
+    # Reject documentation page chrome titles and undated doc headings
+    if re.search(r"\b(?:release\s+notes?|changelog)\s*(?:\||-|–|—)\s*.*(?:docs|documentation)\b", norm_title, re.IGNORECASE):
+        return False
+    if re.search(r"\b(?:docs|documentation)\s*(?:\||-|–|—)\s*.*(?:release\s+notes?|changelog)\b", norm_title, re.IGNORECASE):
+        return False
+    if not record.get("published_at"):
+        if re.search(r"\b(?:release\s+notes?|changelog|platform\s+docs)\b", norm_title, re.IGNORECASE):
             return False
 
     # URL must be valid official provider link and not disallowed utility/status
@@ -813,6 +840,8 @@ class ChangelogHTMLParser(HTMLParser):
     and isolates URLs, dates, and titles strictly to their individual announcement cards."""
 
     IGNORED_TAGS = frozenset([
+        "head",
+        "title",
         "script",
         "style",
         "noscript",
@@ -917,16 +946,17 @@ class ChangelogHTMLParser(HTMLParser):
         if not cleaned:
             return
 
+        # Skip UI button labels and navigation links in announcement text
+        if cleaned.lower() in (
+            "learn more", "read more", "show more", "show less",
+            "read announcement", "read release announcement", "view docs",
+            "copy section link", "copy link", "latest updates"
+        ) or "copy section link" in cleaned.lower():
+            return
+
         if self._in_heading:
             self._heading_text.append(data)
         else:
-            # Skip UI button labels in announcement text
-            if self._in_a and cleaned.lower() in (
-                "learn more", "read more", "show more", "show less",
-                "read announcement", "read release announcement", "view docs"
-            ):
-                return
-
             # Check if this standalone text block is a date/timeframe
             if is_date_or_timeframe_string(cleaned):
                 dt = parse_date_string(cleaned)
@@ -941,6 +971,11 @@ class ChangelogHTMLParser(HTMLParser):
             self._current_text.append(data)
 
     def _process_heading(self, raw_h: str):
+        # Strip trailing navigation/copy link snippets
+        raw_h = re.sub(r"(?:Copy\s+section\s+link|Latest\s+updates)+", "", raw_h, flags=re.IGNORECASE).strip()
+        if not raw_h:
+            return
+
         # 1. Date heading (e.g. 'February 24, 2025' or 'September 4th, 2024')
         dt = parse_date_string(raw_h)
         if dt:
@@ -967,6 +1002,7 @@ class ChangelogHTMLParser(HTMLParser):
     def _flush_entry(self):
         text_body = " ".join("".join(self._current_text).split()).strip()
         text_body = re.sub(r"[â\x80\x8b\u200b\ufeff\x80\x8b]+", "", text_body).strip()
+        text_body = re.sub(r"(?:Copy\s+section\s+link|Latest\s+updates)+", "", text_body, flags=re.IGNORECASE).strip()
 
         title = self._current_title
         if not title and text_body:
@@ -977,6 +1013,7 @@ class ChangelogHTMLParser(HTMLParser):
 
         if title:
             title = re.sub(r"[â\x80\x8b\u200b\ufeff\x80\x8b]+", "", title).strip()
+            title = re.sub(r"(?:Copy\s+section\s+link|Latest\s+updates)+", "", title, flags=re.IGNORECASE).strip()
             # If title has a concatenated date suffix (e.g. '...September 29, 2025'), extract it cleanly
             date_match = re.search(
                 r"((?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4})$",
@@ -1135,7 +1172,7 @@ def _build_update_records_from_entries(
             "provider_id": provider_id,
             "provider_name": source["provider_name"],
             "title": title,
-            "summary": summary or f"Official update from {source['provider_name']}.",
+            "summary": summary or f"[Summary unavailable from source] {title}",
             "update_type": update_type,
             "scope": scope,
             "model_name": model_name,
@@ -1198,13 +1235,20 @@ def parse_rss_update_entry(
     raw_date = entry.get("published_parsed") or entry.get("updated_parsed")
     published_candidate = parse_date_string(raw_date) if raw_date else parse_date_string(entry.get("published") or entry.get("updated"))
 
-    # Summary text
-    summary = entry.get("summary", "") or entry.get("description", "")
+    # Summary text: extract from content list, summary_detail, summary, or description
+    summary = ""
+    if entry.get("content") and isinstance(entry["content"], list) and len(entry["content"]) > 0:
+        summary = entry["content"][0].get("value", "")
+    if not summary:
+        summary = entry.get("summary_detail", {}).get("value", "") if isinstance(entry.get("summary_detail"), dict) else ""
+    if not summary:
+        summary = entry.get("summary", "") or entry.get("description", "")
+
     # Strip HTML tags from summary
     clean_summary = re.sub(r"<[^>]+>", " ", summary)
     clean_summary = " ".join(clean_summary.split()).strip()
-    if not clean_summary:
-        clean_summary = f"Official update from {source['provider_name']}."
+    if not clean_summary or clean_summary.lower() == title.lower():
+        clean_summary = f"[Summary unavailable from source] {title}"
     elif len(clean_summary) > 400:
         clean_summary = clean_summary[:397] + "..."
 

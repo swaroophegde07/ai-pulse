@@ -85,6 +85,7 @@ _AI_NAMED_ENTITIES = re.compile(
     r"hugging\s+face|"
     r"github\s+copilot|copilot|"
     r"cursor|"
+    r"opencode|"
     r"midjourney|stable\s+diffusion|"
     r"perplexity|"
     r"livebench|swe-bench|mmlu|humaneval|"
@@ -131,6 +132,8 @@ _DEDICATED_AI_SOURCES = frozenset([
     "Hugging Face Blog",
     "Hugging Face",
     "The Gradient",
+    "OpenCode Updates",
+    "OpenCode",
 ])
 
 
