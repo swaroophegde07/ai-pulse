@@ -1,5 +1,47 @@
 [
   {
+    "id": "0a471a82ab2f492b",
+    "title": "OpenCode github-v1.2.28: chore(github): pin actions/cache to commit SHA in GitHub Action (#58769)",
+    "company": "OpenCode",
+    "source": "OpenCode Updates",
+    "summary": "The OpenCode repository updated its GitHub Actions workflow in release v1.2.28 by pinning the actions/cache dependency to a specific commit SHA. This change enhances supply chain security by preventing unexpected alterations to the workflow dependency.",
+    "summary_status": "generated",
+    "content_fingerprint": "4572094b5c58c4bb",
+    "url": "https://github.com/anomalyco/opencode/releases/tag/github-v1.2.28",
+    "date": "2026-10-24T18:05:12+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-24T21:20:54.824747+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Safety and Security",
+      "Open Source"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "The OpenCode repository pinned actions/cache to a specific commit SHA in release v1.2.28.",
+      "Pinning actions to commit SHAs hardens CI/CD pipelines against supply chain attacks via compromised tags.",
+      "Developers and maintainers contributing to or auditing the OpenCode repository are affected."
+    ],
+    "tags": [
+      "OpenCode",
+      "GitHub Actions",
+      "Supply Chain Security"
+    ],
+    "impact_score": 2,
+    "sources": [
+      {
+        "url": "https://github.com/anomalyco/opencode/releases/tag/github-v1.2.28",
+        "title": "OpenCode github-v1.2.28: chore(github): pin actions/cache to commit SHA in GitHub Action (#58769)",
+        "publisher": "OpenCode"
+      }
+    ]
+  },
+  {
     "id": "b5619922e4bc7751",
     "title": "Introducing Kimi K3.1 Pro",
     "company": "Simon Willison's Weblog",
