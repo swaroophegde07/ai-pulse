@@ -592,6 +592,18 @@ class TestMergeRecords(unittest.TestCase):
         merged = merge_records(existing, new, max_articles=5)
         self.assertEqual(len(merged), 5)
 
+    def test_untrimmed_when_max_articles_is_none(self):
+        existing = [self._record(i) for i in range(10)]
+        new = [self._record(i + 10) for i in range(10)]
+        merged = merge_records(existing, new, max_articles=None)
+        self.assertEqual(len(merged), 20)
+
+    def test_untrimmed_when_max_articles_is_zero(self):
+        existing = [self._record(i) for i in range(10)]
+        new = [self._record(i + 10) for i in range(10)]
+        merged = merge_records(existing, new, max_articles=0)
+        self.assertEqual(len(merged), 20)
+
     def test_null_dates_sorted_last(self):
         existing = [
             self._record(1, date="2024-01-01T00:00:00+00:00"),
