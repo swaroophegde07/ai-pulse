@@ -93,7 +93,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/data/feed.json src/data/benchmarks.json src/data/models.json src/data/model-updates.json
+          git add src/data/feed.json src/data/benchmarks.json src/data/models.json src/data/model-updates.json src/data/pipeline-status.json
           # Only commit if the files changed.
           if git diff --staged --quiet; then
             echo "No changes to data files — nothing to commit."

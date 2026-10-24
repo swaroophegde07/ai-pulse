@@ -14,7 +14,7 @@ Usage:
 Environment variables:
   GEMINI_API_KEY    Required for summarization.
   GEMINI_MODEL      Optional. Defaults to gemini-3.5-flash-lite.
-  MAX_ARTICLES      Optional. Maximum articles to retain. Default: 200.
+  MAX_ARTICLES      Optional. Maximum articles to retain. Default: None (unlimited).
   FEED_PATH         Optional. Path to feed.json. Default: src/data/feed.json.
 """
 
@@ -64,7 +64,7 @@ logger = logging.getLogger(__name__)
 REPO_ROOT = Path(__file__).parent.parent
 DEFAULT_FEED_PATH = REPO_ROOT / "src" / "data" / "feed.json"
 DEFAULT_STATUS_PATH = REPO_ROOT / "src" / "data" / "pipeline-status.json"
-DEFAULT_MAX_ARTICLES = 200
+DEFAULT_MAX_ARTICLES: int | None = None
 
 # ---------------------------------------------------------------------------
 # Schema validation
@@ -214,7 +214,7 @@ _dates_compatible = dates_compatible
 def merge_records(
     existing: list[dict],
     new_articles: list[dict],
-    max_articles: int,
+    max_articles: int | None = None,
     retention_days: int | None = None,
     filter_relevance: bool = False,
 ) -> list[dict]:
@@ -227,7 +227,7 @@ def merge_records(
     - Applies configurable retention window for dated articles.
     - Sorts dated articles strictly by actual publication date descending.
     - Places undated articles after dated articles, ordered by fetched_at.
-    - Trims to *max_articles*.
+    - Trims to *max_articles* if provided and positive (> 0); otherwise preserves all records.
     """
     if retention_days is None:
         env_ret = os.environ.get("RETENTION_DAYS")
@@ -376,7 +376,9 @@ def merge_records(
         return (0, datetime.min.replace(tzinfo=UTC))
 
     all_records.sort(key=sort_key, reverse=True)
-    return all_records[:max_articles]
+    if max_articles is not None and max_articles > 0:
+        return all_records[:max_articles]
+    return all_records
 
 
 def reconcile_existing_feed(
@@ -967,6 +969,72 @@ def generate_pipeline_status(
     return status_payload
 
 
+def recover_historical_articles(feed_path: Path | None = None) -> tuple[int, int]:
+    """Recover valid, relevant historical articles previously trimmed by MAX_ARTICLES cap.
+
+    Scans git commit history of feed.json, extracts unique valid articles,
+    filters for AI relevance, merges them into the current feed without an arbitrary cap,
+    and updates the pipeline status snapshot.
+    Returns (total_retained, newly_added).
+    """
+    import subprocess
+
+    target_feed_path = feed_path or DEFAULT_FEED_PATH
+    existing = load_existing_feed(target_feed_path)
+    existing_ids = {r["id"] for r in existing if not r.get("_demo")}
+    existing_urls = {normalize_url(r["url"]): r["id"] for r in existing if not r.get("_demo")}
+
+    try:
+        commits = subprocess.check_output(
+            ["git", "log", "--format=%h", "--", str(target_feed_path)],
+            cwd=str(REPO_ROOT),
+        ).decode().split()
+    except Exception as exc:
+        logger.error("Failed to read git log for %s: %s", target_feed_path, exc)
+        return len(existing), 0
+
+    recovered: list[dict] = []
+    seen_recovered_ids: set[str] = set()
+
+    for c in commits:
+        try:
+            rel_path = target_feed_path.relative_to(REPO_ROOT)
+            data_str = subprocess.check_output(
+                ["git", "show", f"{c}:{rel_path}"],
+                cwd=str(REPO_ROOT),
+            ).decode()
+            commit_feed = json.loads(data_str)
+            if not isinstance(commit_feed, list):
+                continue
+            for art in commit_feed:
+                if not isinstance(art, dict) or art.get("_demo"):
+                    continue
+                aid = art.get("id")
+                norm_u = normalize_url(art.get("url", ""))
+                if not aid or aid in existing_ids or norm_u in existing_urls or aid in seen_recovered_ids:
+                    continue
+                if not validate_record(art):
+                    continue
+                is_rel, _ = is_article_ai_relevant(
+                    art.get("title", ""),
+                    art.get("summary", "") or art.get("text", ""),
+                    source_name=art.get("source", ""),
+                )
+                if not is_rel:
+                    continue
+                seen_recovered_ids.add(aid)
+                recovered.append(art)
+        except Exception:
+            continue
+
+    logger.info("Found %d historical articles eligible for recovery.", len(recovered))
+    merged = merge_records(existing, recovered, max_articles=None, filter_relevance=True)
+    write_feed_atomic(merged, target_feed_path)
+    generate_pipeline_status(feed_records=merged)
+    logger.info("Feed recovered. Total articles now: %d (added %d)", len(merged), len(merged) - len(existing))
+    return len(merged), len(merged) - len(existing)
+
+
 # ---------------------------------------------------------------------------
 # Pipeline entry point
 # ---------------------------------------------------------------------------
@@ -986,14 +1054,18 @@ def run_pipeline(
         feed_path = Path(env_path) if env_path else DEFAULT_FEED_PATH
 
     if max_articles is None:
-        max_articles = int(os.environ.get("MAX_ARTICLES", DEFAULT_MAX_ARTICLES))
+        env_max = os.environ.get("MAX_ARTICLES")
+        if env_max and env_max.isdigit():
+            max_articles = int(env_max)
+        else:
+            max_articles = DEFAULT_MAX_ARTICLES
 
     if sources is None:
         sources = SOURCES
 
     logger.info("=== AI Pulse ingestion pipeline starting ===")
     logger.info("Feed path: %s", feed_path)
-    logger.info("Max articles: %d", max_articles)
+    logger.info("Max articles: %s", max_articles if max_articles is not None else "Unlimited")
 
     # 1. Load existing feed.
     existing = load_existing_feed(feed_path)
@@ -1078,6 +1150,10 @@ if __name__ == "__main__":
     if "--reconcile-feed" in sys.argv:
         stats = reconcile_existing_feed()
         logger.info("Reconciliation complete: %s", stats)
+        sys.exit(0)
+    if "--recover-history" in sys.argv:
+        total, added = recover_historical_articles()
+        logger.info("History recovery complete: %d total records (%d added).", total, added)
         sys.exit(0)
     if "--update-model-notes" in sys.argv:
         from pipeline.models.updates import sync_model_updates
