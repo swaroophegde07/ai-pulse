@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-10-24T16:52:34.827238+00:00",
+  "generated_at": "2026-10-24T17:12:15.151983+00:00",
   "overall_status": "degraded",
   "feed_health": {
     "total_configured_sources": 15,
     "enabled_sources": 14,
-    "active_sources": 13,
-    "total_retained_articles": 305
+    "active_sources": 12,
+    "total_retained_articles": 329
   },
   "rss_sources": [
     {
@@ -14,8 +14,8 @@
       "url": "https://openai.com/news/rss.xml",
       "category": "Product Release",
       "status": "active",
-      "retained_articles_count": 34,
-      "last_checked": null
+      "retained_articles_count": 38,
+      "last_checked": "2026-10-24T17:09:29.516942+00:00"
     },
     {
       "name": "Google DeepMind Blog",
@@ -23,8 +23,8 @@
       "url": "https://deepmind.google/blog/rss.xml",
       "category": "Research",
       "status": "active",
-      "retained_articles_count": 14,
-      "last_checked": null
+      "retained_articles_count": 16,
+      "last_checked": "2026-10-24T17:09:30.733045+00:00"
     },
     {
       "name": "Hugging Face Blog",
@@ -32,8 +32,8 @@
       "url": "https://huggingface.co/blog/feed.xml",
       "category": "News",
       "status": "active",
-      "retained_articles_count": 20,
-      "last_checked": null
+      "retained_articles_count": 27,
+      "last_checked": "2026-10-24T17:09:31.449641+00:00"
     },
     {
       "name": "GitHub AI & Copilot",
@@ -42,7 +42,7 @@
       "category": "Product Release",
       "status": "active",
       "retained_articles_count": 14,
-      "last_checked": null
+      "last_checked": "2026-10-24T17:09:32.368233+00:00"
     },
     {
       "name": "VS Code Updates",
@@ -51,7 +51,7 @@
       "category": "Product Release",
       "status": "active",
       "retained_articles_count": 2,
-      "last_checked": null
+      "last_checked": "2026-10-24T17:09:33.915357+00:00"
     },
     {
       "name": "Microsoft Research AI",
@@ -60,7 +60,7 @@
       "category": "Research",
       "status": "active",
       "retained_articles_count": 13,
-      "last_checked": null
+      "last_checked": "2026-10-24T17:09:34.494525+00:00"
     },
     {
       "name": "The Gradient",
@@ -69,7 +69,7 @@
       "category": "Research",
       "status": "active",
       "retained_articles_count": 10,
-      "last_checked": null
+      "last_checked": "2026-10-24T17:09:35.794078+00:00"
     },
     {
       "name": "Ars Technica – AI",
@@ -78,7 +78,7 @@
       "category": "News",
       "status": "active",
       "retained_articles_count": 15,
-      "last_checked": null
+      "last_checked": "2026-10-24T17:09:37.153462+00:00"
     },
     {
       "name": "MIT Technology Review",
@@ -86,26 +86,26 @@
       "url": "https://www.technologyreview.com/feed/",
       "category": "News",
       "status": "active",
-      "retained_articles_count": 25,
-      "last_checked": null
+      "retained_articles_count": 26,
+      "last_checked": "2026-10-24T17:09:38.065789+00:00"
     },
     {
       "name": "arXiv cs.AI (Artificial Intelligence)",
       "publisher": "arXiv (Cornell University)",
       "url": "https://rss.arxiv.org/rss/cs.AI",
       "category": "Research",
-      "status": "active",
+      "status": "empty_response",
       "retained_articles_count": 63,
-      "last_checked": null
+      "last_checked": "2026-10-24T17:09:38.780140+00:00"
     },
     {
       "name": "arXiv cs.LG (Machine Learning)",
       "publisher": "arXiv (Cornell University)",
       "url": "https://rss.arxiv.org/rss/cs.LG",
       "category": "Research",
-      "status": "active",
+      "status": "empty_response",
       "retained_articles_count": 56,
-      "last_checked": null
+      "last_checked": "2026-10-24T17:09:39.556133+00:00"
     },
     {
       "name": "Anthropic News",
@@ -123,16 +123,16 @@
       "category": "Product Release",
       "status": "active",
       "retained_articles_count": 24,
-      "last_checked": null
+      "last_checked": "2026-10-24T17:09:40.180441+00:00"
     },
     {
       "name": "OpenCode Updates",
       "publisher": "OpenCode",
       "url": "https://github.com/anomalyco/opencode/releases.atom",
       "category": "Product Release",
-      "status": "empty_response",
-      "retained_articles_count": 0,
-      "last_checked": null
+      "status": "active",
+      "retained_articles_count": 10,
+      "last_checked": "2026-10-24T17:09:41.171909+00:00"
     },
     {
       "name": "Simon Willison – AI",
@@ -141,7 +141,7 @@
       "category": "Opinion",
       "status": "active",
       "retained_articles_count": 15,
-      "last_checked": null
+      "last_checked": "2026-10-24T17:09:42.091614+00:00"
     }
   ],
   "benchmark_sources": [
@@ -154,7 +154,7 @@
       "url": "https://livebench.ai/",
       "license": "Apache-2.0",
       "last_known_good_timestamp": "2026-10-24T06:46:46.596051+00:00",
-      "last_retrieval_time": "2026-10-24T11:50:54.490204+00:00",
+      "last_retrieval_time": "2026-10-24T17:12:07.329147+00:00",
       "last_successful_evaluation_date": null,
       "warnings": [
         "Preserved last-known-good benchmark snapshot from 2026-10-24T06:46:46.596051+00:00."
