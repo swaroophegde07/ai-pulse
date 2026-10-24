@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-10-24T06:14:43.649659+00:00",
+  "generated_at": "2026-10-24T06:46:54.678724+00:00",
   "overall_status": "healthy",
   "feed_health": {
     "total_configured_sources": 16,
     "active_sources": 16,
-    "total_retained_articles": 370
+    "total_retained_articles": 374
   },
   "rss_sources": [
     {
@@ -14,7 +14,7 @@
       "category": "Product Release",
       "status": "active",
       "retained_articles_count": 34,
-      "last_checked": "2026-10-24T06:14:43.649659+00:00"
+      "last_checked": "2026-10-24T06:46:54.678724+00:00"
     },
     {
       "name": "Google DeepMind Blog",
@@ -23,7 +23,7 @@
       "category": "Research",
       "status": "active",
       "retained_articles_count": 14,
-      "last_checked": "2026-10-24T06:14:43.649659+00:00"
+      "last_checked": "2026-10-24T06:46:54.678724+00:00"
     },
     {
       "name": "Hugging Face Blog",
@@ -32,7 +32,7 @@
       "category": "News",
       "status": "active",
       "retained_articles_count": 20,
-      "last_checked": "2026-10-24T06:14:43.649659+00:00"
+      "last_checked": "2026-10-24T06:46:54.678724+00:00"
     },
     {
       "name": "GitHub AI & Copilot",
@@ -41,7 +41,7 @@
       "category": "Product Release",
       "status": "active",
       "retained_articles_count": 14,
-      "last_checked": "2026-10-24T06:14:43.649659+00:00"
+      "last_checked": "2026-10-24T06:46:54.678724+00:00"
     },
     {
       "name": "VS Code Updates",
@@ -50,7 +50,7 @@
       "category": "Product Release",
       "status": "active",
       "retained_articles_count": 2,
-      "last_checked": "2026-10-24T06:14:43.649659+00:00"
+      "last_checked": "2026-10-24T06:46:54.678724+00:00"
     },
     {
       "name": "Microsoft Research AI",
@@ -59,7 +59,7 @@
       "category": "Research",
       "status": "active",
       "retained_articles_count": 13,
-      "last_checked": "2026-10-24T06:14:43.649659+00:00"
+      "last_checked": "2026-10-24T06:46:54.678724+00:00"
     },
     {
       "name": "The Gradient",
@@ -68,7 +68,7 @@
       "category": "Research",
       "status": "active",
       "retained_articles_count": 10,
-      "last_checked": "2026-10-24T06:14:43.649659+00:00"
+      "last_checked": "2026-10-24T06:46:54.678724+00:00"
     },
     {
       "name": "The Verge – AI",
@@ -76,8 +76,8 @@
       "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
       "category": "News",
       "status": "active",
-      "retained_articles_count": 71,
-      "last_checked": "2026-10-24T06:14:43.649659+00:00"
+      "retained_articles_count": 72,
+      "last_checked": "2026-10-24T06:46:54.678724+00:00"
     },
     {
       "name": "Ars Technica – AI",
@@ -86,7 +86,7 @@
       "category": "News",
       "status": "active",
       "retained_articles_count": 15,
-      "last_checked": "2026-10-24T06:14:43.649659+00:00"
+      "last_checked": "2026-10-24T06:46:54.678724+00:00"
     },
     {
       "name": "MIT Technology Review",
@@ -94,8 +94,8 @@
       "url": "https://www.technologyreview.com/feed/",
       "category": "News",
       "status": "active",
-      "retained_articles_count": 23,
-      "last_checked": "2026-10-24T06:14:43.649659+00:00"
+      "retained_articles_count": 24,
+      "last_checked": "2026-10-24T06:46:54.678724+00:00"
     },
     {
       "name": "arXiv cs.AI (Artificial Intelligence)",
@@ -104,7 +104,7 @@
       "category": "Research",
       "status": "active",
       "retained_articles_count": 63,
-      "last_checked": "2026-10-24T06:14:43.649659+00:00"
+      "last_checked": "2026-10-24T06:46:54.678724+00:00"
     },
     {
       "name": "arXiv cs.LG (Machine Learning)",
@@ -113,7 +113,7 @@
       "category": "Research",
       "status": "active",
       "retained_articles_count": 56,
-      "last_checked": "2026-10-24T06:14:43.649659+00:00"
+      "last_checked": "2026-10-24T06:46:54.678724+00:00"
     },
     {
       "name": "Anthropic News",
@@ -122,7 +122,7 @@
       "category": "Product Release",
       "status": "active",
       "retained_articles_count": 0,
-      "last_checked": "2026-10-24T06:14:43.649659+00:00"
+      "last_checked": "2026-10-24T06:46:54.678724+00:00"
     },
     {
       "name": "NVIDIA Developer Blog",
@@ -131,7 +131,7 @@
       "category": "Product Release",
       "status": "active",
       "retained_articles_count": 24,
-      "last_checked": "2026-10-24T06:14:43.649659+00:00"
+      "last_checked": "2026-10-24T06:46:54.678724+00:00"
     },
     {
       "name": "OpenCode Updates",
@@ -140,7 +140,7 @@
       "category": "Product Release",
       "status": "active",
       "retained_articles_count": 0,
-      "last_checked": "2026-10-24T06:14:43.649659+00:00"
+      "last_checked": "2026-10-24T06:46:54.678724+00:00"
     },
     {
       "name": "Simon Willison – AI",
@@ -148,8 +148,8 @@
       "url": "https://simonwillison.net/tags/ai.atom",
       "category": "Opinion",
       "status": "active",
-      "retained_articles_count": 11,
-      "last_checked": "2026-10-24T06:14:43.649659+00:00"
+      "retained_articles_count": 13,
+      "last_checked": "2026-10-24T06:46:54.678724+00:00"
     }
   ],
   "benchmark_sources": [
