@@ -1785,6 +1785,46 @@
     ]
   },
   {
+    "id": "3e609f2951ee1c20",
+    "title": "The Download: computing’s next leap",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "This newsletter issue discusses computing's physical limits following the slowdown of transistor miniaturization, along with reports on Alaskan permafrost thawing and generative AI-designed viral blueprints by Stanford student Samuel King. It also highlights a critical decade-old vulnerability in PHP that has triggered a surge in active exploit attempts across the web.",
+    "summary_status": "generated",
+    "content_fingerprint": "361bbe2860135b69",
+    "url": "https://www.technologyreview.com/2026/10/22/1147612/the-download-computing-next-leap-permafrost-climate-threat",
+    "date": "2026-10-22T12:10:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-24T11:50:54.415491+00:00",
+    "topics": [
+      "Safety and Security"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "AI tools uncovered a critical decade-old vulnerability in PHP, leading to millions of active exploit attempts and urgent patching warnings from governments.",
+      "The findings affect web administrators, hosting providers, and developers maintaining systems built on the PHP programming language.",
+      "It highlights both the risks of unpatched legacy codebases and the growing capability of automated tools to discover deeply embedded software flaws."
+    ],
+    "tags": [
+      "PHP",
+      "Generative AI",
+      "Cybersecurity",
+      "Computing"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/10/22/1147612/the-download-computing-next-leap-permafrost-climate-threat",
+        "title": "The Download: computing’s next leap",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
     "id": "147faa697ca74445",
     "title": "Making the case for context-aware AI",
     "company": "MIT Technology Review",
@@ -2804,6 +2844,50 @@
     "tags": [
       "AI Agents",
       "Applications and Products"
+    ]
+  },
+  {
+    "id": "de377fdb3304eb69",
+    "title": "Today's PHP Security Release, and How We're Strengthening PHP Security",
+    "company": "Simon Willison's Weblog",
+    "source": "Simon Willison – AI",
+    "summary": "The PHP Foundation released security updates across the PHP 8.x line to address two remote code execution vulnerabilities following an accidental coordinated disclosure leak. Wiz Research originally discovered these flaws impacting platforms like Drupal and WordPress using AI tools including Gemini 4 Argon and GPT-5.6 Sol. Security teams and system administrators must upgrade immediately due to active exploits circulating in the wild.",
+    "summary_status": "generated",
+    "content_fingerprint": "a894c7f33ef81966",
+    "url": "https://simonwillison.net/2026/Oct/21/php-security-release",
+    "date": "2026-10-21T18:41:53+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-24T11:50:54.415905+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "The PHP Foundation rushed the release of security patches for the PHP 8.x line to address two remote code execution vulnerabilities after disclosure details leaked early.",
+      "The early leak resulted in proof-of-concept exploit videos circulating online before patches were widely applied, exposing major web platforms to risk.",
+      "PHP developers, web administrators, and users running PHP-based platforms like Drupal and WordPress are directly affected and need to upgrade immediately."
+    ],
+    "tags": [
+      "PHP",
+      "Wiz",
+      "Open-Source",
+      "Security",
+      "Vulnerabilities"
+    ],
+    "impact_score": 8,
+    "sources": [
+      {
+        "url": "https://simonwillison.net/2026/Oct/21/php-security-release",
+        "title": "Today's PHP Security Release, and How We're Strengthening PHP Security",
+        "publisher": "Simon Willison's Weblog"
+      }
     ]
   },
   {
@@ -5037,6 +5121,48 @@
         "url": "https://huggingface.co/blog/hf-torchtpu",
         "title": "Hugging Face ❤️ TorchTPU: TPUs, Natively",
         "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
+    "id": "efd79bd778da1c28",
+    "title": "My obituary for programming",
+    "company": "Simon Willison's Weblog",
+    "source": "Simon Willison – AI",
+    "summary": "The advent of coding agents and large language models transforms the nature of software development by shifting focus away from manual logic puzzle resolution. Programmers who primarily enjoyed solving intricate code puzzles face a significant loss of personal enjoyment as AI automates these tasks. Conversely, those focused primarily on building high-level systems find these tools beneficial.",
+    "summary_status": "generated",
+    "content_fingerprint": "941fdff128113f36",
+    "url": "https://simonwillison.net/2026/Oct/19/my-obituary-for-programming",
+    "date": "2026-10-19T23:58:25+00:00",
+    "category": "Opinion",
+    "fetched_at": "2026-10-24T11:50:54.416001+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Coding agents and LLMs are automating the traditional logic puzzle-solving tasks that previously defined software engineering.",
+      "The change threatens the job satisfaction of career programmers who derived personal enjoyment from hands-on coding and puzzle resolution.",
+      "Software engineers and career programmers whose primary motivation is solving tricky coding logic are directly impacted by generative AI tooling."
+    ],
+    "tags": [
+      "programming",
+      "careers",
+      "coding-agents",
+      "llms"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://simonwillison.net/2026/Oct/19/my-obituary-for-programming",
+        "title": "My obituary for programming",
+        "publisher": "Simon Willison's Weblog"
       }
     ]
   },
