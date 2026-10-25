@@ -181,7 +181,7 @@ function formatLastUpdated(iso: string | undefined): string {
                   No genuine news articles ingested yet.
                 </p>
                 <p class="font-mono text-[11px] text-theme-muted max-w-md mx-auto leading-relaxed mb-4">
-                  The automated ingestion pipeline runs twice daily across {sourcesData.length} public feeds,
+                  The automated ingestion pipeline runs twice daily across {enabledFeedsCount} enabled public feeds ({configuredFeedsCount} configured),
                   or can be triggered on demand via GitHub Actions.
                 </p>
                 <p class="font-mono text-[10px] text-theme-dim">
