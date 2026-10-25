@@ -51,37 +51,37 @@ Visitors can:
 
 ```mermaid
 flowchart TD
-    subgraph Data Ingestion
-        A[15 Public RSS Feeds (14 Active)] --> B[Python Scraper]
-        B --> C[Gemini Summarizer + Quality Guardrails]
-        C --> D[feed.json]
+    subgraph Data_Ingestion ["Data Ingestion"]
+        A["15 Public RSS Feeds (14 Active)"] --> B["Python Scraper"]
+        B --> C["Gemini Summarizer + Quality Guardrails"]
+        C --> D["feed.json"]
     end
 
-    subgraph Benchmark & Telemetry
-        E[OpenRouter API Models] --> F[Model Identity Registry]
-        G[LiveBench Official Releases] --> F
-        F --> H[Benchmark Runner & Validation Report]
-        H --> I[benchmarks.json & model-identities.json]
+    subgraph Benchmark_Telemetry ["Benchmark & Telemetry"]
+        E["OpenRouter API Models"] --> F["Model Identity Registry"]
+        G["LiveBench Official Releases"] --> F
+        F --> H["Benchmark Runner & Validation Report"]
+        H --> I["benchmarks.json & model-identities.json"]
     end
 
-    subgraph Model Catalogue & Updates
-        F --> J[Model Updater]
-        J --> K[models.json - 92 Catalogued, 23 Featured]
-        P[Official Provider Changelogs & RSS] --> Q[Model Updates Ingestion Engine]
+    subgraph Model_Catalogue ["Model Catalogue & Updates"]
+        F --> J["Model Updater"]
+        J --> K["models.json - 92 Catalogued, 23 Featured"]
+        P["Official Provider Changelogs & RSS"] --> Q["Model Updates Ingestion Engine"]
         F --> Q
-        Q --> R[model-updates.json & model-update-sources.json]
+        Q --> R["model-updates.json & model-update-sources.json"]
     end
 
-    subgraph Status & Build
-        L[Pipeline Status Reporter] --> M[pipeline-status.json & build.json]
+    subgraph Status_Build ["Status & Build"]
+        L["Pipeline Status Reporter"] --> M["pipeline-status.json & build.json"]
     end
 
-    D --> N[Astro SSG Build]
+    D --> N["Astro SSG Build"]
     I --> N
     K --> N
     R --> N
     M --> N
-    N --> O[GitHub Pages Dashboard]
+    N --> O["GitHub Pages Dashboard"]
 ```
 
 1. **Ingest News**: The Python ingestion script reads verified feeds from `src/data/sources.json` across 15 configured research and news publishers (14 active, 1 documented offline).
