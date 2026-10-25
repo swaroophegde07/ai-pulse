@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-25T06:42:04.563019+00:00",
-  "overall_status": "degraded",
+  "generated_at": "2026-10-25T07:52:00.073463+00:00",
+  "overall_status": "healthy",
   "feed_health": {
     "total_configured_sources": 15,
     "enabled_sources": 14,
@@ -15,7 +15,9 @@
       "category": "Product Release",
       "status": "active",
       "retained_articles_count": 38,
-      "last_checked": "2026-10-25T06:41:44.421380+00:00"
+      "last_checked": "2026-10-25T07:51:38.874989+00:00",
+      "raw_entries_count": 1318,
+      "relevant_articles_count": 10
     },
     {
       "name": "Google DeepMind Blog",
@@ -24,7 +26,9 @@
       "category": "Research",
       "status": "active",
       "retained_articles_count": 16,
-      "last_checked": "2026-10-25T06:41:45.606051+00:00"
+      "last_checked": "2026-10-25T07:51:39.967962+00:00",
+      "raw_entries_count": 100,
+      "relevant_articles_count": 10
     },
     {
       "name": "Hugging Face Blog",
@@ -33,7 +37,9 @@
       "category": "News",
       "status": "active",
       "retained_articles_count": 27,
-      "last_checked": "2026-10-25T06:41:46.320348+00:00"
+      "last_checked": "2026-10-25T07:51:40.665841+00:00",
+      "raw_entries_count": 890,
+      "relevant_articles_count": 10
     },
     {
       "name": "GitHub AI & Copilot",
@@ -42,7 +48,9 @@
       "category": "Product Release",
       "status": "active",
       "retained_articles_count": 14,
-      "last_checked": "2026-10-25T06:41:47.156136+00:00"
+      "last_checked": "2026-10-25T07:51:41.508745+00:00",
+      "raw_entries_count": 10,
+      "relevant_articles_count": 10
     },
     {
       "name": "VS Code Updates",
@@ -51,7 +59,9 @@
       "category": "Product Release",
       "status": "active",
       "retained_articles_count": 2,
-      "last_checked": "2026-10-25T06:41:48.419161+00:00"
+      "last_checked": "2026-10-25T07:51:43.173532+00:00",
+      "raw_entries_count": 44,
+      "relevant_articles_count": 2
     },
     {
       "name": "Microsoft Research AI",
@@ -60,7 +70,9 @@
       "category": "Research",
       "status": "active",
       "retained_articles_count": 13,
-      "last_checked": "2026-10-25T06:41:49.001349+00:00"
+      "last_checked": "2026-10-25T07:51:43.804551+00:00",
+      "raw_entries_count": 10,
+      "relevant_articles_count": 9
     },
     {
       "name": "The Gradient",
@@ -69,7 +81,9 @@
       "category": "Research",
       "status": "active",
       "retained_articles_count": 10,
-      "last_checked": "2026-10-25T06:41:50.237365+00:00"
+      "last_checked": "2026-10-25T07:51:45.220766+00:00",
+      "raw_entries_count": 15,
+      "relevant_articles_count": 10
     },
     {
       "name": "Ars Technica – AI",
@@ -78,7 +92,9 @@
       "category": "News",
       "status": "active",
       "retained_articles_count": 15,
-      "last_checked": "2026-10-25T06:41:51.957343+00:00"
+      "last_checked": "2026-10-25T07:51:46.479095+00:00",
+      "raw_entries_count": 20,
+      "relevant_articles_count": 10
     },
     {
       "name": "MIT Technology Review",
@@ -87,7 +103,9 @@
       "category": "News",
       "status": "active",
       "retained_articles_count": 26,
-      "last_checked": "2026-10-25T06:41:52.651070+00:00"
+      "last_checked": "2026-10-25T07:51:47.461091+00:00",
+      "raw_entries_count": 10,
+      "relevant_articles_count": 8
     },
     {
       "name": "arXiv cs.AI (Artificial Intelligence)",
@@ -96,7 +114,9 @@
       "category": "Research",
       "status": "empty_response",
       "retained_articles_count": 63,
-      "last_checked": "2026-10-25T06:41:53.308828+00:00"
+      "last_checked": "2026-10-25T07:51:48.141389+00:00",
+      "raw_entries_count": 0,
+      "relevant_articles_count": 0
     },
     {
       "name": "arXiv cs.LG (Machine Learning)",
@@ -105,7 +125,9 @@
       "category": "Research",
       "status": "empty_response",
       "retained_articles_count": 56,
-      "last_checked": "2026-10-25T06:41:53.973783+00:00"
+      "last_checked": "2026-10-25T07:51:48.922933+00:00",
+      "raw_entries_count": 0,
+      "relevant_articles_count": 0
     },
     {
       "name": "Anthropic News",
@@ -123,7 +145,9 @@
       "category": "Product Release",
       "status": "active",
       "retained_articles_count": 24,
-      "last_checked": "2026-10-25T06:41:54.505779+00:00"
+      "last_checked": "2026-10-25T07:51:49.474689+00:00",
+      "raw_entries_count": 100,
+      "relevant_articles_count": 9
     },
     {
       "name": "OpenCode Updates",
@@ -132,7 +156,9 @@
       "category": "Product Release",
       "status": "active",
       "retained_articles_count": 11,
-      "last_checked": "2026-10-25T06:41:55.737695+00:00"
+      "last_checked": "2026-10-25T07:51:50.390996+00:00",
+      "raw_entries_count": 10,
+      "relevant_articles_count": 10
     },
     {
       "name": "Simon Willison – AI",
@@ -141,25 +167,25 @@
       "category": "Opinion",
       "status": "active",
       "retained_articles_count": 15,
-      "last_checked": "2026-10-25T06:41:56.583536+00:00"
+      "last_checked": "2026-10-25T07:51:51.293390+00:00",
+      "raw_entries_count": 30,
+      "relevant_articles_count": 8
     }
   ],
   "benchmark_sources": [
     {
       "name": "LiveBench",
       "type": "Benchmark Suite",
-      "status": "stale_fallback",
-      "release": "2026-10-13",
+      "status": "active",
+      "release": "2026-10-14",
       "provenance": "Independent Evaluation",
       "url": "https://livebench.ai/",
       "license": "Apache-2.0",
-      "last_known_good_timestamp": "2026-10-24T06:46:46.596051+00:00",
-      "last_retrieval_time": "2026-10-25T06:41:58.258565+00:00",
+      "last_known_good_timestamp": "2026-10-25T07:51:53.007914+00:00",
+      "last_retrieval_time": "2026-10-25T07:51:53.007914+00:00",
       "last_successful_evaluation_date": null,
-      "warnings": [
-        "Preserved last-known-good benchmark snapshot from 2026-10-24T06:46:46.596051+00:00."
-      ],
-      "notes": "Contamination-free evaluations with monthly updated problems across reasoning, coding, and mathematics. (Preserved last-known-good fallback snapshot; live refresh degraded.)"
+      "warnings": [],
+      "notes": "Contamination-free evaluations with monthly updated problems across reasoning, coding, and mathematics."
     },
     {
       "name": "OpenRouter Telemetry",
@@ -190,8 +216,8 @@
   ],
   "summary": {
     "total_rss_sources": 15,
-    "active_benchmark_sources": 1,
-    "fallback_benchmark_sources": 1,
+    "active_benchmark_sources": 2,
+    "fallback_benchmark_sources": 0,
     "disabled_benchmark_sources": 3
   }
 }
