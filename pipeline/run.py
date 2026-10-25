@@ -928,6 +928,8 @@ def generate_pipeline_status(
         outcome = source_outcomes.get(s_name) if source_outcomes else None
 
         last_checked = None
+        raw_count = None
+        relevant_count = None
 
         if not is_enabled:
             status = "disabled"
@@ -935,6 +937,8 @@ def generate_pipeline_status(
             if isinstance(outcome, dict):
                 status = outcome.get("status", "active")
                 last_checked = outcome.get("checked_at")
+                raw_count = outcome.get("raw_entries_count")
+                relevant_count = outcome.get("relevant_articles_count")
             else:
                 status = str(outcome)
             if status in ("failure", "fetch_failed", "parse_failed"):
@@ -944,7 +948,7 @@ def generate_pipeline_status(
         else:
             status = "empty_response"
 
-        rss_list.append({
+        item = {
             "name": s_name,
             "publisher": s.get("publisher", ""),
             "url": s.get("url", ""),
@@ -952,13 +956,18 @@ def generate_pipeline_status(
             "status": status,
             "retained_articles_count": matching_count,
             "last_checked": last_checked,
-        })
+        }
+        if raw_count is not None:
+            item["raw_entries_count"] = raw_count
+        if relevant_count is not None:
+            item["relevant_articles_count"] = relevant_count
+        rss_list.append(item)
 
     # Read benchmarks.json metadata to reflect truthful upstream status
     target_benchmarks_path = benchmarks_path or (REPO_ROOT / "src" / "data" / "benchmarks.json")
     bench_status = "active"
     livebench_status = "active"
-    livebench_release = "2026-10-13"
+    livebench_release = "2026-10-14"
     bench_health_warnings: list[str] = []
     bench_last_retrieval: str | None = None
     bench_last_known_good: str | None = None
@@ -971,7 +980,7 @@ def generate_pipeline_status(
             b_meta = b_data.get("metadata", {})
             b_health = b_meta.get("health", {})
             meta_status = b_meta.get("status") or b_health.get("status") or "active"
-            livebench_release = b_health.get("last_benchmark_release_date") or "2026-10-13"
+            livebench_release = b_health.get("last_benchmark_release_date") or "2026-10-14"
             bench_last_retrieval = b_health.get("last_retrieval_time")
             bench_last_known_good = b_health.get("last_known_good_timestamp") or b_meta.get("last_known_good_timestamp")
             if not bench_last_known_good:

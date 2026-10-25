@@ -1129,6 +1129,92 @@ def parse_generic_changelog(html_content: str, source: ModelUpdateSource, base_u
     return _build_update_records_from_entries(parser.entries, source, base_url)
 
 
+def parse_meta_blog(html_content: str, source: ModelUpdateSource, base_url: str) -> list[ModelUpdateRecord]:
+    """Provider-specific parser for Meta AI blog & research archive (https://ai.meta.com/blog/)."""
+    import html as html_lib
+
+    entries: list[dict[str, Any]] = []
+    seen_urls: set[str] = set()
+
+    # Pattern 1: Card links with aria-label="Read <Title>"
+    for m in re.finditer(
+        r"<a[^>]+href=[\"\'](https?://ai\.meta\.com/blog/[^/]+/)[\"\'][^>]*aria-label=[\"\']Read ([^\'\"]+)[\"\'][^>]*>",
+        html_content,
+        re.IGNORECASE,
+    ):
+        url = m.group(1)
+        if url in seen_urls:
+            continue
+        title = html_lib.unescape(m.group(2)).strip()
+        if is_generic_title(title):
+            continue
+
+        # Look ahead in next 1000 characters for date string
+        snippet = html_content[m.end():m.end() + 1000]
+        date_m = re.search(
+            r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{1,2},?\s+\d{4}",
+            snippet,
+            re.IGNORECASE,
+        )
+        parsed_dt = parse_date_string(date_m.group(0)) if date_m else None
+        pub_date, eff_date = extract_dates(title, parsed_dt)
+
+        seen_urls.add(url)
+        entries.append({
+            "title": title,
+            "summary": title,
+            "published_at": pub_date,
+            "effective_at": eff_date,
+            "url": url,
+        })
+
+    # Pattern 2: Regular blog links or featured cards
+    for m in re.finditer(
+        r"<a[^>]+href=[\"\'](https?://ai\.meta\.com/blog/[^/]+/)[\"\'][^>]*>(.*?)</a>",
+        html_content,
+        re.IGNORECASE | re.DOTALL,
+    ):
+        url = m.group(1)
+        if url in seen_urls:
+            continue
+        raw_inner = re.sub(r"<[^>]+>", " ", m.group(2)).strip()
+        raw_inner = " ".join(raw_inner.split())
+        title = html_lib.unescape(raw_inner).strip()
+
+        if not title or len(title) < 5 or is_generic_title(title) or title in ("FEATURED", "Open Source"):
+            continue
+
+        snippet = html_content[m.end():m.end() + 1000]
+        date_m = re.search(
+            r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{1,2},?\s+\d{4}",
+            snippet,
+            re.IGNORECASE,
+        )
+        parsed_dt = parse_date_string(date_m.group(0)) if date_m else None
+        pub_date, eff_date = extract_dates(title, parsed_dt)
+
+        seen_urls.add(url)
+        entries.append({
+            "title": title,
+            "summary": title,
+            "published_at": pub_date,
+            "effective_at": eff_date,
+            "url": url,
+        })
+
+    # Also fallback to ChangelogHTMLParser if regex didn't extract any entries (e.g. synthetic test HTML)
+    if not entries:
+        parser = ChangelogHTMLParser(base_url, provider_id="meta")
+        try:
+            parser.feed(html_content)
+            parser.close()
+            entries = parser.entries
+        except Exception as exc:
+            logger.warning("Error in fallback parsing Meta blog: %s", exc)
+
+    return _build_update_records_from_entries(entries, source, base_url)
+
+
 HTML_SOURCE_PARSERS: dict[str, Any] = {
     "anthropic_claude_release_notes": parse_anthropic_changelog,
     "mistral_release_notes": parse_mistral_changelog,
@@ -1136,6 +1222,8 @@ HTML_SOURCE_PARSERS: dict[str, Any] = {
     "xai_api_release_notes": parse_xai_changelog,
     "deepseek_api_updates": parse_deepseek_changelog,
     "google_gemini_changelog": parse_google_gemini_changelog,
+    "meta_newsroom": parse_meta_blog,
+    "meta_ai_blog": parse_meta_blog,
 }
 
 

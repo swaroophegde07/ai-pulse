@@ -434,6 +434,8 @@ def fetch_feed(
             outcome.update({
                 "status": "disabled",
                 "checked_at": None,
+                "raw_entries_count": 0,
+                "relevant_articles_count": 0,
                 "articles_count": 0,
             })
         return []
@@ -458,6 +460,8 @@ def fetch_feed(
                 "status": "fetch_failed",
                 "checked_at": checked_at,
                 "error": str(exc),
+                "raw_entries_count": 0,
+                "relevant_articles_count": 0,
                 "articles_count": 0,
             })
         return []
@@ -470,6 +474,8 @@ def fetch_feed(
                 "status": "fetch_failed",
                 "checked_at": checked_at,
                 "error": f"HTTP {status_code}",
+                "raw_entries_count": 0,
+                "relevant_articles_count": 0,
                 "articles_count": 0,
             })
         return []
@@ -490,11 +496,14 @@ def fetch_feed(
                     "status": failure_status,
                     "checked_at": checked_at,
                     "error": str(exc),
+                    "raw_entries_count": 0,
+                    "relevant_articles_count": 0,
                     "articles_count": 0,
                 })
             return []
 
     entries = getattr(feed, "entries", None) or []
+    raw_entries_count = len(entries)
     articles: list[dict] = []
 
     seen_urls: set[str] = set()
@@ -549,15 +558,23 @@ def fetch_feed(
                 continue
             articles.append(art)
 
-    final_status = "active" if articles else "empty_response"
+    if raw_entries_count == 0:
+        final_status = "empty_response"
+    elif not articles:
+        final_status = "no_relevant_articles"
+    else:
+        final_status = "active"
+
     if outcome is not None:
         outcome.update({
             "status": final_status,
             "checked_at": checked_at,
+            "raw_entries_count": raw_entries_count,
+            "relevant_articles_count": len(articles),
             "articles_count": len(articles),
         })
 
-    logger.info("Fetched %d relevant AI articles from '%s'", len(articles), name)
+    logger.info("Fetched %d relevant AI articles from '%s' (raw entries: %d, status: %s)", len(articles), name, raw_entries_count, final_status)
     return articles
 
 

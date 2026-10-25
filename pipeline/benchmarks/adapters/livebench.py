@@ -27,12 +27,13 @@ logger = logging.getLogger(__name__)
 
 # Release date to underlying upstream file date mapping
 RELEASE_FILE_MAPPINGS: dict[str, str] = {
+    "2026-10-14": "20261014",
     "2026-10-13": "2026-09-02",
 }
 
 # Ordered list of officially verified releases from LiveBench (newest first)
 VERIFIED_LIVEBENCH_RELEASES = [
-    "2026-10-13",
+    "2026-10-14",
     "2026-06-25",
     "2026-01-08",
     "2025-12-23",
@@ -52,16 +53,22 @@ DEFAULT_LIVEBENCH_RELEASE = VERIFIED_LIVEBENCH_RELEASES[0]
 def get_release_urls(release_date: str) -> list[tuple[str, str, str]]:
     """Return candidate (table_url, categories_url, generation) tuples in priority order."""
     file_key = RELEASE_FILE_MAPPINGS.get(release_date, release_date).replace("-", "_")
+    compact_date = release_date.replace("-", "")
     candidates = []
 
-    if release_date == "2026-10-13" or release_date >= "2026-09-01":
-        # LiveBench 2.0 candidate URLs
+    if release_date in ("2026-10-14", "2026-10-13") or release_date >= "2026-09-01":
+        # LiveBench 2.0 verified directory data structure: /data/<compact_date>/table.csv
+        candidates.append((
+            f"https://livebench.ai/data/{compact_date}/table.csv",
+            f"https://livebench.ai/data/{compact_date}/categories.json",
+            "2.0",
+        ))
+        # Direct date / file_key fallbacks
         candidates.append((
             f"https://livebench.ai/table_{file_key}.csv",
             f"https://livebench.ai/categories_{file_key}.json",
             "2.0",
         ))
-        # Direct date fallback if upstream published table_2026_10_13.csv directly
         direct_key = release_date.replace("-", "_")
         if direct_key != file_key:
             candidates.append((
@@ -69,6 +76,11 @@ def get_release_urls(release_date: str) -> list[tuple[str, str, str]]:
                 f"https://livebench.ai/categories_{direct_key}.json",
                 "2.0",
             ))
+        candidates.append((
+            f"https://livebench.ai/v1/table_{file_key}.csv",
+            f"https://livebench.ai/v1/categories_{file_key}.json",
+            "2.0",
+        ))
     else:
         # LiveBench 1.0 candidate URLs (both v1/ and root paths for historical compatibility)
         candidates.append((
@@ -91,17 +103,17 @@ def discover_latest_release(timeout: int = 10) -> tuple[str, bool]:
     Returns:
         (release_date, is_fallback_or_stale)
     """
-    # 1. Probe LiveBench 2.0 release first
+    # 1. Probe LiveBench 2.0 verified release endpoint first
     try:
-        t2_url = f"https://livebench.ai/table_{RELEASE_FILE_MAPPINGS['2026-10-13'].replace('-', '_')}.csv"
+        t2_url = "https://livebench.ai/data/20261014/table.csv"
         probe = requests.head(
             t2_url,
             timeout=timeout,
             headers={"User-Agent": "AI-Pulse/1.0 (+https://github.com/swaroophegde07/ai-pulse)"},
         )
         if probe.ok:
-            logger.info("Discovered verified LiveBench 2.0 release: 2026-10-13")
-            return "2026-10-13", False
+            logger.info("Discovered verified LiveBench 2.0 release: 2026-10-14")
+            return "2026-10-14", False
     except Exception as exc:
         logger.debug("LiveBench 2.0 direct probe failed: %s", exc)
 
@@ -128,9 +140,10 @@ def discover_latest_release(timeout: int = 10) -> tuple[str, bool]:
                     timeout=timeout,
                     headers={"User-Agent": "AI-Pulse/1.0 (+https://github.com/swaroophegde07/ai-pulse)"},
                 )
-                if js_resp.ok and ("2026-10-13" in js_resp.text or "LiveBench 2.0" in js_resp.text):
-                    logger.info("Discovered LiveBench 2.0 from main JS bundle: 2026-10-13")
-                    return "2026-10-13", False
+                if js_resp.ok:
+                    if "20261014" in js_resp.text or "2026-10-14" in js_resp.text:
+                        logger.info("Discovered LiveBench 2.0 from main JS bundle: 2026-10-14")
+                        return "2026-10-14", False
     except Exception as exc:
         logger.debug("LiveBench dynamic release discovery error: %s", exc)
 
@@ -149,8 +162,8 @@ def discover_latest_release(timeout: int = 10) -> tuple[str, bool]:
             except Exception:
                 continue
 
-    # Fallback to last verified 1.0 snapshot
-    return VERIFIED_LIVEBENCH_RELEASES[1], True
+    # Fallback to default verified snapshot with is_stale=True
+    return DEFAULT_LIVEBENCH_RELEASE, True
 
 
 def infer_provider_and_display_name(raw_model: str) -> tuple[str, str, str | None]:
@@ -235,7 +248,7 @@ class LiveBenchAdapter(SourceAdapter):
         self.specified_release = release_date
         self.active_release = release_date or DEFAULT_LIVEBENCH_RELEASE
         self.is_stale = False
-        self.generation = "2.0" if self.active_release == "2026-10-13" else "1.0"
+        self.generation = "2.0" if (self.active_release in ("2026-10-14", "2026-10-13") or self.active_release >= "2026-09-01") else "1.0"
 
     def fetch(self) -> list[BenchmarkRecord]:
         """Fetch and parse LiveBench evaluation results."""
@@ -247,7 +260,7 @@ class LiveBenchAdapter(SourceAdapter):
         candidate_urls = get_release_urls(self.active_release)
         table_text: str | None = None
         categories: dict[str, list[str]] | None = None
-        generation: str = "2.0" if self.active_release == "2026-10-13" else "1.0"
+        generation: str = "2.0" if (self.active_release in ("2026-10-14", "2026-10-13") or self.active_release >= "2026-09-01") else "1.0"
 
         now_iso = current_iso_timestamp()
 
@@ -292,7 +305,7 @@ class LiveBenchAdapter(SourceAdapter):
         self,
         table_text: str,
         categories: dict[str, list[str]] | None = None,
-        release_date: str = "2026-10-13",
+        release_date: str = "2026-10-14",
         generation: str = "2.0",
     ) -> list[BenchmarkRecord]:
         """Parse LiveBench CSV table and category mappings into normalized BenchmarkRecords."""
@@ -308,12 +321,15 @@ class LiveBenchAdapter(SourceAdapter):
             # LiveBench 2.0 categories
             "Long-Horizon": "Agentic",
             "long_horizon": "Agentic",
+            "Long Agentic": "Agentic",
+            "long_agentic": "Agentic",
             "Browser": "Browser Use",
             "browser": "Browser Use",
             "Research": "Research",
             "research": "Research",
             "Design": "Design",
             "design_layout": "Design",
+            "design": "Design",
             "Data Analysis": "Data Analysis",
             "data_analysis": "Data Analysis",
             "Reasoning": "Reasoning",
@@ -336,7 +352,7 @@ class LiveBenchAdapter(SourceAdapter):
                     categories[field] = [field]
 
         records: list[BenchmarkRecord] = []
-        is_v2 = (generation == "2.0" or release_date == "2026-10-13")
+        is_v2 = (generation == "2.0" or release_date in ("2026-10-14", "2026-10-13") or release_date >= "2026-09-01")
         bench_version = "2.0" if is_v2 else release_date
         suite_prefix = "LiveBench 2.0" if is_v2 else "LiveBench"
         now_iso = current_iso_timestamp()
