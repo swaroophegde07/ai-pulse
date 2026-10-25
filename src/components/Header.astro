@@ -1,6 +1,8 @@
 ---
 // Header.astro — top navigation bar
 
+import pipelineStatusData from "../data/pipeline-status.json";
+
 interface Props {
   currentPath?: string;
 }
@@ -27,6 +29,28 @@ const navItems = [
   { label: "Research", href: `${base}/research/`, active: true },
   { label: "Benchmarks", href: `${base}/benchmarks/`, active: true },
 ];
+
+const overallStatus = (pipelineStatusData as any)?.overall_status || "healthy";
+const isHealthy = overallStatus === "healthy";
+const isDegraded = overallStatus === "degraded";
+
+const statusLabel = isHealthy
+  ? "Pipeline status: healthy"
+  : isDegraded
+  ? "Pipeline status: degraded (stale benchmark fallback or feed issue)"
+  : `Pipeline status: ${overallStatus}`;
+
+const dotColor = isHealthy
+  ? "bg-emerald-500 dark:bg-emerald-400"
+  : isDegraded
+  ? "bg-amber-500 dark:bg-amber-400"
+  : "bg-rose-500 dark:bg-rose-400";
+
+const pingColor = isHealthy
+  ? "bg-emerald-400"
+  : isDegraded
+  ? "bg-amber-400"
+  : "bg-rose-400";
 ---
 
 <header class="border-b border-theme-border bg-theme-page/95 backdrop-blur-sm sticky top-0 z-50">
@@ -45,11 +69,11 @@ const navItems = [
         </span>
         <span
           class="relative flex h-2 w-2 items-center justify-center"
-          title="Automated intelligence pipeline active"
-          aria-label="Automated intelligence pipeline active"
+          title={statusLabel}
+          aria-label={statusLabel}
         >
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500 dark:bg-emerald-400"></span>
+          <span class={`animate-ping absolute inline-flex h-full w-full rounded-full ${pingColor} opacity-75`}></span>
+          <span class={`relative inline-flex rounded-full h-1.5 w-1.5 ${dotColor}`}></span>
         </span>
       </a>
 

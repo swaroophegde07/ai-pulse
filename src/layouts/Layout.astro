@@ -13,6 +13,24 @@ const {
   description = "Minimalist AI intelligence dashboard aggregating news about AI companies, models, research, and benchmarks.",
 } = Astro.props;
 
+// Standardize brand suffix convention so "— AI Pulse" appears exactly once
+function formatPageTitle(rawTitle: string): string {
+  const trimmed = (rawTitle || "").trim();
+  if (!trimmed || trimmed === "AI Pulse") {
+    return "AI Pulse";
+  }
+  // Strip any existing trailing or leading brand suffix
+  const withoutSuffix = trimmed
+    .replace(/\s*[-—]\s*AI Pulse$/i, "")
+    .replace(/^AI Pulse\s*[-—]\s*/i, "")
+    .trim();
+  if (!withoutSuffix || withoutSuffix === "AI Pulse") {
+    return "AI Pulse";
+  }
+  return `${withoutSuffix} — AI Pulse`;
+}
+
+const pageTitle = formatPageTitle(title);
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
@@ -25,7 +43,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
     <link rel="alternate" type="application/rss+xml" title="AI Pulse — Curated AI Intelligence Feed" href={`${base}/feed.xml`} />
-    <title>{title === "AI Pulse" ? title : `${title} — AI Pulse`}</title>
+    <title>{pageTitle}</title>
 
     <!-- Early theme initialization to completely prevent Flash of Wrong Theme (FOUT) -->
     <script is:inline>

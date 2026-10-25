@@ -108,7 +108,7 @@
     "id": "meta_ai_blog",
     "provider_id": "meta",
     "provider_name": "Meta AI",
-    "display_name": "Meta AI Blog",
+    "display_name": "Meta AI Blog (RSS)",
     "url": "https://ai.meta.com/blog/rss.xml",
     "source_type": "official_primary_source",
     "access_method": "rss",
@@ -117,23 +117,24 @@
       "capability_change",
       "research_release"
     ],
-    "enabled": true,
-    "notes": "Official Meta AI research blog for open-weight Llama family releases (Llama 3.3, 3.2, 3.1) and technical documentation."
+    "enabled": false,
+    "notes": "Official Meta AI blog does not maintain an active public RSS/Atom feed (returns HTTP 404). Disabled to prevent pipeline fetch failures; active updates are tracked via the official Meta AI blog HTML archive."
   },
   {
     "id": "meta_newsroom",
     "provider_id": "meta",
     "provider_name": "Meta AI",
-    "display_name": "Meta Newsroom (AI)",
-    "url": "https://about.fb.com/news/category/technology/artificial-intelligence/",
+    "display_name": "Meta AI Blog & Research Archive",
+    "url": "https://ai.meta.com/blog/",
     "source_type": "official_primary_source",
     "access_method": "html",
     "update_categories": [
       "model_release",
-      "product_update"
+      "capability_change",
+      "research_release"
     ],
     "enabled": true,
-    "notes": "Corporate newsroom for major Llama releases and consumer Meta AI assistant updates. Filtered strictly to AI developments."
+    "notes": "Official Meta AI research and engineering blog archive for Llama open-weight models, research releases, and technical documentation."
   },
   {
     "id": "deepseek_api_updates",

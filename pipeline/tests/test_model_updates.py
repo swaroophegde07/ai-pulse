@@ -1089,6 +1089,75 @@ class TestModelUpdates(unittest.TestCase):
         self.assertEqual(rec2["summary"], "[Summary unavailable from source] Apertus 1.5 Release Notes")
         self.assertTrue(is_substantive_model_update(rec2))
 
+    def test_meta_source_configuration_integrity(self):
+        """Verify broken Meta RSS is disabled and Meta HTML source points to verified ai.meta.com/blog/."""
+        sources = load_model_update_sources()
+        meta_rss = next((s for s in sources if s["id"] == "meta_ai_blog"), None)
+        self.assertIsNotNone(meta_rss)
+        self.assertFalse(meta_rss["enabled"], "Broken Meta RSS endpoint (404) must be disabled")
+
+        meta_html = next((s for s in sources if s["id"] == "meta_newsroom"), None)
+        self.assertIsNotNone(meta_html)
+        self.assertTrue(meta_html["enabled"], "Meta HTML blog source must be enabled")
+        self.assertEqual(meta_html["url"], "https://ai.meta.com/blog/")
+        self.assertEqual(meta_html["access_method"], "html")
+
+    def test_meta_blog_html_parser_extracts_clean_announcements(self):
+        """Verify parse_meta_blog extracts clean titles, dates, and official URLs from Meta AI blog HTML."""
+        from pipeline.models.updates import parse_meta_blog
+
+        source: ModelUpdateSource = {
+            "id": "meta_newsroom",
+            "provider_id": "meta",
+            "provider_name": "Meta AI",
+            "display_name": "Meta AI Blog & Research Archive",
+            "url": "https://ai.meta.com/blog/",
+            "source_type": "official_primary_source",
+            "access_method": "html",
+            "update_categories": ["model_release", "capability_change"],
+            "enabled": True,
+            "notes": "Meta AI Blog",
+        }
+
+        sample_html = """
+        <html>
+        <body>
+            <!-- Featured card -->
+            <div class="_amcw _amd3">
+                <a href="https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/">
+                    <div class="_amd5">FEATURED</div>
+                </a>
+                <a href="https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/">Introducing Muse Spark 1.1 </a>
+                <div class="_amun">July 9, 2026</div>
+            </div>
+            <!-- News card with aria-label -->
+            <div class="_amda">
+                <a class="_amcw" aria-label="Read Reimagining Independence: How Meta’s AI Models Are Helping the University of Pittsburgh Transform Assistive Robotics" href="https://ai.meta.com/blog/assistive-robotics-university-of-pittsburgh-sam-dino/">
+                    Reimagining Independence: How Meta’s AI Models Are Helping the University of Pittsburgh Transform Assistive Robotics
+                </a>
+                <div class="_amdj">Jul 27, 2026</div>
+            </div>
+        </body>
+        </html>
+        """
+
+        records = parse_meta_blog(sample_html, source, "https://ai.meta.com/blog/")
+        self.assertEqual(len(records), 2)
+
+        titles = [r["title"] for r in records]
+        self.assertIn("Introducing Muse Spark 1.1", titles)
+        self.assertIn("Reimagining Independence: How Meta’s AI Models Are Helping the University of Pittsburgh Transform Assistive Robotics", titles)
+
+        # Dates
+        spark = next(r for r in records if "Muse Spark" in r["title"])
+        self.assertEqual(spark["published_at"], "2026-07-09")
+        self.assertEqual(spark["source_url"], "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api")
+        self.assertEqual(len(spark["id"]), 16)
+
+        assistive = next(r for r in records if "Assistive Robotics" in r["title"])
+        self.assertEqual(assistive["published_at"], "2026-07-27")
+        self.assertEqual(assistive["source_url"], "https://ai.meta.com/blog/assistive-robotics-university-of-pittsburgh-sam-dino")
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -193,6 +193,9 @@ def run_benchmark_pipeline(benchmarks_path: Path | None = None) -> dict[str, Any
     livebench_records = livebench.fetch()
     if livebench_records:
         all_benchmark_records.extend(livebench_records)
+        if getattr(livebench, "is_stale", False):
+            logger.warning("LiveBench adapter reported stale fallback data for release %s.", livebench.active_release)
+            used_cached_fallback = True
     elif existing.get("benchmarks"):
         # Preserve previous LiveBench records if remote fetch had temporary error
         old_lb = [r for r in existing["benchmarks"] if r.get("source") == "LiveBench"]

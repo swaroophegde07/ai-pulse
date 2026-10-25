@@ -8,6 +8,7 @@ import CategoryFilter from "../../components/CategoryFilter.astro";
 import Footer from "../../components/Footer.astro";
 import sourcesData from "../../data/sources.json";
 import feedData from "../../data/feed.json";
+import pipelineStatusData from "../../data/pipeline-status.json";
 
 interface FeedRecord {
   id: string;
@@ -66,6 +67,15 @@ const sortedArticles = [...realArticles].sort((a, b) => {
   return fb - fa;
 });
 
+// Provenance and pipeline run metadata from health snapshot
+const pipelineGeneratedAt = (pipelineStatusData as any)?.generated_at;
+const feedHealth = (pipelineStatusData as any)?.feed_health;
+const activeFeedsCount = feedHealth?.active_sources ?? sourcesData.length;
+const enabledFeedsCount = feedHealth?.enabled_sources ?? sourcesData.filter((s: any) => s.enabled !== false).length;
+const configuredFeedsCount = feedHealth?.total_configured_sources ?? sourcesData.length;
+const pipelineOverallStatus = (pipelineStatusData as any)?.overall_status || "healthy";
+const isPipelineHealthy = pipelineOverallStatus === "healthy";
+
 const lastUpdated = realArticles
   .map((a) => a.fetched_at)
   .sort()
@@ -81,7 +91,7 @@ function formatLastUpdated(iso: string | undefined): string {
 }
 ---
 
-<Layout title="News — AI Pulse">
+<Layout title="News">
   <Header currentPath="/news/" />
 
   <main id="main-content">
@@ -99,18 +109,29 @@ function formatLastUpdated(iso: string | undefined): string {
             <p class="text-xs text-theme-secondary font-mono flex items-center gap-2 flex-wrap">
               <span>
                 {realArticles.length} article{realArticles.length !== 1 ? "s" : ""} across{" "}
-                {distinctPublishers.length} publisher{distinctPublishers.length !== 1 ? "s" : ""} · {sourcesData.length} feeds monitored
+                {distinctPublishers.length} publisher{distinctPublishers.length !== 1 ? "s" : ""} · {activeFeedsCount} active feeds ({enabledFeedsCount} enabled, {configuredFeedsCount} configured)
               </span>
-              <span class="inline-flex items-center gap-1 text-[10px] text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5 rounded">
-                <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400"></span>
-                {sourcesData.length}/{sourcesData.length} Feeds Monitored
+              <span class={`inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded border ${
+                isPipelineHealthy
+                  ? "text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 border-emerald-500/30"
+                  : "text-amber-700 dark:text-amber-400 bg-amber-500/10 border-amber-500/30"
+              }`}>
+                <span class={`inline-block w-1.5 h-1.5 rounded-full ${
+                  isPipelineHealthy ? "bg-emerald-500 dark:bg-emerald-400" : "bg-amber-500 dark:bg-amber-400"
+                }`}></span>
+                {activeFeedsCount}/{configuredFeedsCount} Feeds Active
               </span>
             </p>
           </div>
           <div class="flex flex-col sm:items-end gap-1.5">
             <p class="font-mono text-[10px] text-theme-muted tracking-wide">
-              Last ingestion: {formatLastUpdated(lastUpdated)}
+              Pipeline run: {formatLastUpdated(pipelineGeneratedAt)}
             </p>
+            {lastUpdated && (
+              <p class="font-mono text-[10px] text-theme-dim tracking-wide">
+                Latest story: {formatLastUpdated(lastUpdated)}
+              </p>
+            )}
             <div class="flex items-center gap-2.5 flex-wrap">
               <a
                 href={`${base}/feed.xml`}

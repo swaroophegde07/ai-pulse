@@ -9,6 +9,7 @@ import sourcesData from "../data/sources.json";
 import feedData from "../data/feed.json";
 import modelsData from "../data/models.json";
 import benchmarksData from "../data/benchmarks.json";
+import pipelineStatusData from "../data/pipeline-status.json";
 
 interface FeedRecord {
   id: string;
@@ -163,7 +164,14 @@ const priorityStories = sortedArticles
 const displayedIds = new Set([...briefIds, ...priorityStories.map((a) => a.id)]);
 const latestArticles = sortedArticles.filter((a) => !displayedIds.has(a.id)).slice(0, 6);
 
-// Last successful data refresh from trustworthy ingestion metadata
+// Provenance and pipeline run metadata from health snapshot
+const pipelineGeneratedAt = (pipelineStatusData as any)?.generated_at;
+const feedHealth = (pipelineStatusData as any)?.feed_health;
+const activeFeedsCount = feedHealth?.active_sources ?? sourcesData.length;
+const enabledFeedsCount = feedHealth?.enabled_sources ?? sourcesData.filter((s: any) => s.enabled !== false).length;
+const configuredFeedsCount = feedHealth?.total_configured_sources ?? sourcesData.length;
+
+// Latest article fetch timestamp
 const lastUpdated = realArticles
   .map((a) => a.fetched_at)
   .sort()
@@ -185,7 +193,7 @@ function formatLastUpdated(iso: string | undefined): string {
 }
 ---
 
-<Layout title="AI Pulse — Intelligence Dashboard">
+<Layout title="Intelligence Dashboard">
   <Header currentPath="/" />
 
   <main id="main-content">
@@ -223,28 +231,47 @@ function formatLastUpdated(iso: string | undefined): string {
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {
             [
-              { label: "Articles Ingested", value: String(realArticles.length) },
-              { label: "Distinct Publishers", value: String(publisherCount) },
               {
-                label: "Monitored Feeds",
-                value: String(sourcesData.length),
+                label: "Articles Ingested",
+                value: String(realArticles.length),
+                subtext: `${publisherCount} publishers`,
+                title: `${realArticles.length} articles ingested across ${publisherCount} publishers`,
               },
               {
-                label: "Last Ingestion",
-                value: formatLastUpdated(lastUpdated),
+                label: "Distinct Publishers",
+                value: String(publisherCount),
+                subtext: "Verified primary sources",
+                title: `${publisherCount} verified publishers represented in coverage`,
               },
-            ].map(({ label, value }) => (
+              {
+                label: "Active Feeds",
+                value: `${activeFeedsCount} Active`,
+                subtext: `${enabledFeedsCount} enabled · ${configuredFeedsCount} configured`,
+                title: `${activeFeedsCount} active feeds out of ${enabledFeedsCount} enabled (${configuredFeedsCount} configured)`,
+              },
+              {
+                label: "Last Pipeline Run",
+                value: formatLastUpdated(pipelineGeneratedAt),
+                subtext: lastUpdated ? `Latest content: ${formatLastUpdated(lastUpdated)}` : undefined,
+                title: `Automated pipeline run: ${pipelineGeneratedAt || "N/A"}${lastUpdated ? ` | Latest story fetch: ${lastUpdated}` : ""}`,
+              },
+            ].map(({ label, value, subtext, title }) => (
               <div class="bg-theme-surface border border-theme-border rounded-lg p-3.5 flex flex-col justify-between">
                 <span class="font-mono text-[10px] text-theme-muted tracking-wider uppercase">
                   {label}
                 </span>
                 <span
                   class="font-mono text-sm font-semibold text-theme-primary mt-1 truncate"
-                  title={value}
+                  title={title || value}
                   data-count-target={/^\d+$/.test(value) ? value : undefined}
                 >
                   {value}
                 </span>
+                {subtext && (
+                  <span class="font-mono text-[10px] text-theme-muted mt-0.5 truncate" title={subtext}>
+                    {subtext}
+                  </span>
+                )}
               </div>
             ))
           }

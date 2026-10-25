@@ -37,12 +37,19 @@ const buildTimestamp = (buildData as any)?.build_time || new Date().toISOString(
 const benchmarkLastUpdated = (benchmarksData as any)?.metadata?.last_updated
   ? new Date((benchmarksData as any).metadata.last_updated).toISOString().slice(0, 10)
   : "Not recorded";
-const modelsLastUpdated = Array.isArray(modelsData) && modelsData[0]?.last_verified
-  ? modelsData[0].last_verified
+const modelsLastUpdated = Array.isArray(modelsData)
+  ? modelsData
+      .map((m: any) => m.last_verified)
+      .filter((d: any): d is string => typeof d === "string" && Boolean(d))
+      .sort()
+      .reverse()[0] || "Not recorded"
   : "Not recorded";
 const pipelineHealth = (pipelineStatusData as any)?.overall_status || "healthy";
-const activeFeedsCount = (pipelineStatusData as any)?.feed_health?.active_sources ?? sourcesData.length;
-const activeBenchmarkCount = (pipelineStatusData as any)?.summary?.active_benchmark_sources || 2;
+const feedHealth = (pipelineStatusData as any)?.feed_health;
+const activeFeedsCount = feedHealth?.active_sources ?? sourcesData.length;
+const enabledFeedsCount = feedHealth?.enabled_sources ?? sourcesData.filter((s: any) => s.enabled !== false).length;
+const configuredFeedsCount = feedHealth?.total_configured_sources ?? sourcesData.length;
+const activeBenchmarkCount = (pipelineStatusData as any)?.summary?.active_benchmark_sources ?? 1;
 ---
 
 <footer class="border-t border-theme-border mt-16 bg-theme-page">
@@ -191,7 +198,7 @@ const activeBenchmarkCount = (pipelineStatusData as any)?.summary?.active_benchm
               ? "bg-amber-500 dark:bg-amber-400"
               : "bg-rose-500 dark:bg-rose-400"
           }`}></span>
-          Pipeline: {pipelineHealth} ({activeFeedsCount} feeds, {activeBenchmarkCount} benchmark suites)
+          Pipeline: {pipelineHealth} ({activeFeedsCount} active feeds ({enabledFeedsCount} enabled, {configuredFeedsCount} configured), {activeBenchmarkCount} benchmark {activeBenchmarkCount === 1 ? "suite" : "suites"})
         </span>
       </div>
       <div class="flex items-center gap-4">

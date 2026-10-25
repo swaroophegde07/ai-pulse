@@ -3636,6 +3636,221 @@ class TestMaintenanceQualityAndHealthPass(unittest.TestCase):
             self.assertTrue(any("2026-10-24T06:46:46.596051+00:00" in w for w in health["warnings"]))
 
 
+class TestPostDeploymentAuditFix(unittest.TestCase):
+    """Deterministic regression tests for post-deployment audit fixes: LiveBench 2.0 and feed outcome separation."""
+
+    @patch("requests.head")
+    def test_livebench_discover_latest_release_2026_10_14(self, mock_head):
+        """Verify discovery finds official 2026-10-14 release endpoint."""
+        from pipeline.benchmarks.adapters.livebench import discover_latest_release
+
+        mock_resp = MagicMock()
+        mock_resp.ok = True
+        mock_head.return_value = mock_resp
+
+        release_date, is_stale = discover_latest_release(timeout=5)
+        self.assertEqual(release_date, "2026-10-14")
+        self.assertFalse(is_stale)
+        mock_head.assert_called_once()
+        called_url = mock_head.call_args[0][0]
+        self.assertIn("20261014", called_url)
+
+    def test_livebench_parses_official_2026_10_14_table_and_categories(self):
+        """Verify parsing LiveBench 2.0 format with Long Agentic mapped to Agentic."""
+        from pipeline.benchmarks.adapters.livebench import LiveBenchAdapter
+
+        adapter = LiveBenchAdapter(release_date="2026-10-14")
+        csv_data = (
+            "model,long_agentic,reasoning,coding,browser,data_analysis,research,design\n"
+            "claude-opus-5.5,85.0,92.2,96.3,80.0,80.3,85.0,86.9\n"
+            "gpt-5.2-omni,78.5,89.0,91.2,85.0,79.0,82.0,84.5\n"
+        )
+        categories = {
+            "Long Agentic": ["long_agentic"],
+            "Reasoning": ["reasoning"],
+            "Coding": ["coding"],
+            "Browser": ["browser"],
+            "Data Analysis": ["data_analysis"],
+            "Research": ["research"],
+            "Design": ["design"],
+        }
+        records = adapter.parse_table_data(csv_data, categories=categories, release_date="2026-10-14", generation="2.0")
+        self.assertGreater(len(records), 0)
+
+        categories_found = {r["category"] for r in records}
+        self.assertIn("Agentic", categories_found)
+        self.assertIn("Reasoning", categories_found)
+        self.assertIn("Coding", categories_found)
+        self.assertIn("Browser Use", categories_found)
+        self.assertIn("Composite", categories_found)
+
+        opus = [r for r in records if "Opus 5.5" in r["model_name"]]
+        self.assertEqual(len(opus), 8)
+        composite = next(r for r in opus if r["category"] == "Composite")
+        self.assertGreater(composite["score"], 80.0)
+        self.assertEqual(composite["benchmark_release_date"], "2026-10-14")
+        self.assertEqual(composite["benchmark_version"], "2.0")
+
+    @patch("requests.head")
+    @patch("requests.get")
+    def test_livebench_upstream_failure_reports_stale_fallback(self, mock_get, mock_head):
+        """Verify that when upstream LiveBench endpoints fail (404/network error), adapter and runner preserve last-known-good."""
+        import requests
+        from pipeline.benchmarks.adapters.livebench import LiveBenchAdapter
+        from pipeline.benchmarks.runner import run_benchmark_pipeline
+
+        mock_head.side_effect = requests.RequestException("404 Not Found")
+        mock_get.side_effect = requests.RequestException("404 Not Found")
+
+        adapter = LiveBenchAdapter(timeout=2)
+        records = adapter.fetch()
+        self.assertEqual(records, [])
+
+        existing_snapshot = {
+            "metadata": {
+                "last_updated": "2026-10-24T06:00:00+00:00",
+                "last_known_good_timestamp": "2026-10-24T06:00:00+00:00",
+                "status": "healthy",
+            },
+            "benchmarks": [
+                {
+                    "model_name": "Llama 3.3 70B",
+                    "canonical_id": "meta/llama-3-3-70b-instruct",
+                    "category": "Composite",
+                    "score": 82.0,
+                    "score_unit": "%",
+                    "source": "LiveBench",
+                    "source_url": "https://livebench.ai/",
+                    "provenance": "Independent Evaluation",
+                    "retrieved_at": "2026-10-24T06:00:00+00:00",
+                }
+            ],
+            "model_metrics": [],
+            "benchmark_standards": [],
+        }
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            bench_path = Path(tmpdir) / "benchmarks.json"
+            bench_path.write_text(json.dumps(existing_snapshot), encoding="utf-8")
+
+            with patch("pipeline.benchmarks.adapters.openrouter.OpenRouterAdapter.fetch_metrics", return_value=[]), \
+                 patch("pipeline.models.updater.sync_models_catalog"):
+                result = run_benchmark_pipeline(benchmarks_path=bench_path)
+
+            health = result["metadata"]["health"]
+            self.assertEqual(health["status"], "stale_fallback")
+            self.assertEqual(len(result["benchmarks"]), 1)
+            self.assertEqual(result["benchmarks"][0]["model_name"], "Llama 3.3 70B")
+
+    @patch("feedparser.parse")
+    def test_fetch_feed_distinguishes_empty_response_from_no_relevant_articles(self, mock_parse):
+        """Verify separation between genuinely empty feeds and feeds with non-AI filtered entries."""
+        from pipeline.scraper import fetch_feed
+
+        source = {"name": "Test Feed", "publisher": "Test Pub", "url": "https://example.com/rss", "category": "News"}
+
+        # 1. Truly empty response (0 raw entries)
+        mock_feed_empty = MagicMock()
+        mock_feed_empty.entries = []
+        mock_feed_empty.bozo = False
+        mock_feed_empty.status = 200
+        mock_parse.return_value = mock_feed_empty
+
+        outcome_empty = {}
+        articles = fetch_feed(source, outcome=outcome_empty)
+        self.assertEqual(len(articles), 0)
+        self.assertEqual(outcome_empty["status"], "empty_response")
+        self.assertEqual(outcome_empty["raw_entries_count"], 0)
+        self.assertEqual(outcome_empty["relevant_articles_count"], 0)
+
+        # 2. Feed with entries that all fail AI relevance filter
+        mock_entry = MagicMock()
+        mock_entry.link = "https://example.com/unrelated-drones"
+        mock_entry.title = "Local drone traffic control towers for regional deliveries"
+        mock_entry.description = "Commercial aviation discussion of regional package delivery and municipal permits."
+        mock_entry.published_parsed = None
+        mock_entry.updated_parsed = None
+
+        mock_feed_non_ai = MagicMock()
+        mock_feed_non_ai.entries = [mock_entry]
+        mock_feed_non_ai.bozo = False
+        mock_feed_non_ai.status = 200
+        mock_parse.return_value = mock_feed_non_ai
+
+        outcome_non_ai = {}
+        articles = fetch_feed(source, outcome=outcome_non_ai)
+        self.assertEqual(len(articles), 0)
+        self.assertEqual(outcome_non_ai["status"], "no_relevant_articles")
+        self.assertEqual(outcome_non_ai["raw_entries_count"], 1)
+        self.assertEqual(outcome_non_ai["relevant_articles_count"], 0)
+
+        # 3. Feed with genuine AI article
+        mock_ai_entry = MagicMock()
+        mock_ai_entry.link = "https://example.com/frontier-llm-reasoning"
+        mock_ai_entry.title = "DeepMind introduces new reasoning model with chain-of-thought architecture"
+        mock_ai_entry.description = "Transformers, reinforcement learning, and LLM reasoning benchmarks."
+        mock_ai_entry.published_parsed = None
+        mock_ai_entry.updated_parsed = None
+
+        mock_feed_ai = MagicMock()
+        mock_feed_ai.entries = [mock_ai_entry]
+        mock_feed_ai.bozo = False
+        mock_feed_ai.status = 200
+        mock_parse.return_value = mock_feed_ai
+
+        outcome_ai = {}
+        articles = fetch_feed(source, outcome=outcome_ai)
+        self.assertEqual(len(articles), 1)
+        self.assertEqual(outcome_ai["status"], "active")
+        self.assertEqual(outcome_ai["raw_entries_count"], 1)
+        self.assertEqual(outcome_ai["relevant_articles_count"], 1)
+
+    def test_pipeline_status_with_no_relevant_articles_remains_healthy(self):
+        """Verify that a successful fetch with 0 AI-relevant articles does not degrade overall pipeline health."""
+        from pipeline.run import generate_pipeline_status
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            status_path = Path(tmpdir) / "pipeline-status.json"
+            benchmarks_path = Path(tmpdir) / "benchmarks.json"
+            benchmarks_path.write_text(json.dumps({
+                "metadata": {"health": {"status": "healthy", "last_benchmark_release_date": "2026-10-14"}}
+            }), encoding="utf-8")
+
+            # Outcomse with one source having no relevant articles and one source active
+            sources = [
+                {"name": "General Tech", "publisher": "Tech", "url": "https://example.com/tech", "category": "News", "enabled": True},
+                {"name": "OpenAI News", "publisher": "OpenAI", "url": "https://example.com/openai", "category": "Product Release", "enabled": True},
+            ]
+            outcomes = {
+                "General Tech": {
+                    "status": "no_relevant_articles",
+                    "checked_at": "2026-10-25T12:00:00+00:00",
+                    "raw_entries_count": 10,
+                    "relevant_articles_count": 0,
+                },
+                "OpenAI News": {
+                    "status": "active",
+                    "checked_at": "2026-10-25T12:00:00+00:00",
+                    "raw_entries_count": 5,
+                    "relevant_articles_count": 5,
+                },
+            }
+
+            status = generate_pipeline_status(
+                status_path=status_path,
+                feed_records=[],
+                source_outcomes=outcomes,
+                benchmarks_path=benchmarks_path,
+                sources=sources,
+            )
+
+            self.assertEqual(status["overall_status"], "healthy")
+            gen_tech = next(s for s in status["rss_sources"] if s["name"] == "General Tech")
+            self.assertEqual(gen_tech["status"], "no_relevant_articles")
+            self.assertEqual(gen_tech["raw_entries_count"], 10)
+            self.assertEqual(gen_tech["relevant_articles_count"], 0)
+
+
 if __name__ == "__main__":
     unittest.main()
 
