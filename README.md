@@ -51,20 +51,20 @@ Visitors can:
 
 ```mermaid
 flowchart TD
-    subgraph Data_Ingestion ["Data Ingestion"]
+    subgraph "Data Ingestion"
         A["15 Public RSS Feeds (14 Active)"] --> B["Python Scraper"]
         B --> C["Gemini Summarizer + Quality Guardrails"]
         C --> D["feed.json"]
     end
 
-    subgraph Benchmark_Telemetry ["Benchmark & Telemetry"]
+    subgraph "Benchmark & Telemetry"
         E["OpenRouter API Models"] --> F["Model Identity Registry"]
         G["LiveBench Official Releases"] --> F
         F --> H["Benchmark Runner & Validation Report"]
         H --> I["benchmarks.json & model-identities.json"]
     end
 
-    subgraph Model_Catalogue ["Model Catalogue & Updates"]
+    subgraph "Model Catalogue & Updates"
         F --> J["Model Updater"]
         J --> K["models.json - 92 Catalogued, 23 Featured"]
         P["Official Provider Changelogs & RSS"] --> Q["Model Updates Ingestion Engine"]
@@ -72,7 +72,7 @@ flowchart TD
         Q --> R["model-updates.json & model-update-sources.json"]
     end
 
-    subgraph Status_Build ["Status & Build"]
+    subgraph "Status & Build"
         L["Pipeline Status Reporter"] --> M["pipeline-status.json & build.json"]
     end
 
