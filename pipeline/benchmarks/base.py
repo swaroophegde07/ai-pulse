@@ -23,6 +23,7 @@ ALLOWED_BENCHMARK_CATEGORIES: list[str] = [
     "Mathematics",
     "Language",
     "Instruction Following",
+    "Human Preference",
     "Composite",
 ]
 

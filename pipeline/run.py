@@ -1016,6 +1016,18 @@ def generate_pipeline_status(
             ),
         },
         {
+            "name": "Chatbot Arena",
+            "type": "Benchmark Suite",
+            "status": "active" if bench_status != "stale_fallback" else "stale_fallback",
+            "provenance": "Independent Evaluation",
+            "url": "https://arena.ai/leaderboard",
+            "license": "Apache-2.0 / CC-BY",
+            "last_known_good_timestamp": bench_last_known_good,
+            "last_retrieval_time": bench_last_retrieval,
+            "last_successful_evaluation_date": None,
+            "notes": "Crowdsourced blind pairwise battles evaluated with Bradley-Terry Elo ratings across human preference and coding.",
+        },
+        {
             "name": "OpenRouter Telemetry",
             "type": "Model Telemetry",
             "status": "active",

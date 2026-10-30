@@ -16,6 +16,7 @@ from pathlib import Path
 from typing import Any
 
 from pipeline.benchmarks.adapters.artificial_analysis import ArtificialAnalysisAdapter
+from pipeline.benchmarks.adapters.arena import ArenaAdapter
 from pipeline.benchmarks.adapters.benchlm import BenchLMAdapter
 from pipeline.benchmarks.adapters.livebench import LiveBenchAdapter
 from pipeline.benchmarks.adapters.lmcouncil import LMCouncilAdapter
@@ -122,7 +123,11 @@ def derive_benchmark_standards(benchmarks: list[BenchmarkRecord]) -> list[dict[s
             ]
             if matching:
                 matching.sort(key=lambda x: x.get("score", 0), reverse=True)
-                std_copy["leader"] = ", ".join(f"{b['model_name']} ({b['score']}%)" for b in matching[:3])
+                def _fmt_lead(b_item: Any) -> str:
+                    unit = " Elo" if b_item.get("score_unit") == "Elo" else "%"
+                    val = f"{b_item['score']:.0f}" if b_item.get("score_unit") == "Elo" else f"{b_item['score']}"
+                    return f"{b_item['model_name']} ({val}{unit})"
+                std_copy["leader"] = ", ".join(_fmt_lead(b) for b in matching[:3])
                 std_copy["leading_models"] = [b["model_name"] for b in matching[:3]]
             else:
                 std_copy["leader"] = "Independent harness (reference only)"
@@ -178,11 +183,12 @@ def run_benchmark_pipeline(benchmarks_path: Path | None = None) -> dict[str, Any
     # Initialize adapters
     openrouter = OpenRouterAdapter()
     livebench = LiveBenchAdapter()
+    arena = ArenaAdapter()
     benchlm = BenchLMAdapter()
     art_analysis = ArtificialAnalysisAdapter()
     lmcouncil = LMCouncilAdapter()
 
-    adapters = [openrouter, livebench, benchlm, art_analysis, lmcouncil]
+    adapters = [openrouter, livebench, arena, benchlm, art_analysis, lmcouncil]
     provenance_notices = [a.get_provenance_notice() for a in adapters]
 
     # 1. Fetch benchmark records
@@ -202,6 +208,21 @@ def run_benchmark_pipeline(benchmarks_path: Path | None = None) -> dict[str, Any
         if old_lb:
             logger.info("Preserving %d cached LiveBench records from previous snapshot.", len(old_lb))
             all_benchmark_records.extend(old_lb)
+            used_cached_fallback = True
+
+    # Fetch Chatbot Arena (Arena.ai)
+    arena_records = arena.fetch()
+    if arena_records:
+        all_benchmark_records.extend(arena_records)
+        if getattr(arena, "is_stale", False):
+            logger.warning("Chatbot Arena adapter reported stale fallback data.")
+            used_cached_fallback = True
+    elif existing.get("benchmarks"):
+        # Preserve previous Chatbot Arena records if remote fetch had temporary error
+        old_arena = [r for r in existing["benchmarks"] if r.get("source") == "Chatbot Arena"]
+        if old_arena:
+            logger.info("Preserving %d cached Chatbot Arena records from previous snapshot.", len(old_arena))
+            all_benchmark_records.extend(old_arena)
             used_cached_fallback = True
 
     # Fetch BenchLM (if enabled)

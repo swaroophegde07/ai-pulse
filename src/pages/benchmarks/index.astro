@@ -249,9 +249,9 @@ const benchmarkArticles = realArticles
     return new Date(b.fetched_at).getTime() - new Date(a.fetched_at).getTime();
   });
 
-// Unique categories sorted with Composite first, then primary LiveBench dimensions
+// Unique categories sorted with Composite first, then primary LiveBench & Arena dimensions
 const rawCategories = Array.from(new Set(benchmarks.map((b) => b.category)));
-const categoryPriority = ["Composite", "Agentic", "Reasoning", "Coding", "Browser Use", "Data Analysis", "Research", "Design"];
+const categoryPriority = ["Composite", "Human Preference", "Agentic", "Reasoning", "Coding", "Browser Use", "Data Analysis", "Research", "Design"];
 const categories = [
   ...categoryPriority.filter((c) => rawCategories.includes(c)),
   ...rawCategories.filter((c) => !categoryPriority.includes(c)).sort()
@@ -268,6 +268,10 @@ const topCoding = [...benchmarks]
 
 const topAgentic = [...benchmarks]
   .filter((b) => b.category === "Agentic")
+  .sort((a, b) => b.score - a.score)[0];
+
+const topHumanPreference = [...benchmarks]
+  .filter((b) => b.category === "Human Preference")
   .sort((a, b) => b.score - a.score)[0];
 
 const topOverall = [...benchmarks]
@@ -311,7 +315,7 @@ const costEfficientModel = [...models]
           <span class="font-mono text-[10px] text-theme-muted">({lastEvalDate ? `Eval ${lastEvalDate} · Suite ${lastReleaseDate}` : `${lastReleaseDate} Benchmark Suite Release`})</span>
         </div>
         <div class="font-mono text-[10px] text-theme-muted">
-          Source: Official LiveBench (Apache-2.0) & OpenRouter Catalog
+          Source: Official LiveBench (Apache-2.0), Arena.ai / LMSYS & OpenRouter Catalog
         </div>
       </div>
 
@@ -359,7 +363,7 @@ const costEfficientModel = [...models]
       <h2 class="text-xs font-mono text-theme-muted tracking-widest uppercase mb-4">
         Verified Evaluation Highlights
       </h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
         <!-- Global Composite Leader -->
         <div class="border border-theme-border bg-theme-surface p-5 rounded-lg flex flex-col justify-between">
           <div>
@@ -378,6 +382,27 @@ const costEfficientModel = [...models]
           </div>
           <div class="border-t border-theme-border-subtle pt-2 font-mono text-[9px] text-theme-muted">
             Source: LiveBench Global Metric
+          </div>
+        </div>
+
+        <!-- Human Preference Leader -->
+        <div class="border border-theme-border bg-theme-surface p-5 rounded-lg flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-mono text-[10px] text-rose-600 dark:text-rose-400 uppercase tracking-wider font-semibold">
+                Human Preference
+              </span>
+              <span class="font-mono text-[10px] text-theme-muted">Chatbot Arena</span>
+            </div>
+            <div class="font-bold text-lg text-theme-primary mb-1">
+              {topHumanPreference ? topHumanPreference.model_name : "Not available"}
+            </div>
+            <p class="text-xs text-theme-secondary font-mono mb-3">
+              Rating: <span class="text-emerald-700 dark:text-emerald-400 font-semibold">{topHumanPreference ? `${topHumanPreference.score.toFixed(0)} Elo` : "Not available"}</span> (Blind Battles)
+            </p>
+          </div>
+          <div class="border-t border-theme-border-subtle pt-2 font-mono text-[9px] text-theme-muted">
+            Source: Arena.ai Crowdsourced
           </div>
         </div>
 
@@ -539,9 +564,9 @@ const costEfficientModel = [...models]
             id="benchmark-version-filter"
             class="bg-theme-input border border-theme-border rounded px-3 py-1.5 text-xs text-theme-primary font-mono focus:outline-none focus:border-blue-500 cursor-pointer"
           >
-            <option value="all">All Releases</option>
-            <option value="2.0" selected>LiveBench 2.0 (Current)</option>
-            <option value="1.0" disabled>LiveBench 1.0 (Archive not loaded)</option>
+            <option value="all" selected>All Benchmark Suites</option>
+            <option value="2.0">LiveBench 2.0 (Objective Tasks)</option>
+            <option value="arena">Chatbot Arena (Human Preference)</option>
           </select>
         </div>
       </div>
@@ -586,7 +611,7 @@ const costEfficientModel = [...models]
                   data-benchmark={b.benchmark_name.toLowerCase()}
                   data-category={b.category.toLowerCase()}
                   data-score={b.score}
-                  data-version={b.benchmark_version?.startsWith("2.0") ? "2.0" : "1.0"}
+                  data-version={b.benchmark_version === "Arena" || b.source === "Chatbot Arena" ? "arena" : (b.benchmark_version?.startsWith("2.0") ? "2.0" : "1.0")}
                 >
                   <td class="py-3.5 pl-6 pr-3 text-center">
                     <span class={`rank-badge inline-flex items-center justify-center font-mono text-[11px] font-bold px-1.5 py-0.5 rounded ${
@@ -608,18 +633,28 @@ const costEfficientModel = [...models]
                   <td class="py-3.5 pr-4 text-theme-primary font-medium">
                     <div class="flex items-center gap-1.5 flex-wrap">
                       <span>{b.benchmark_name}</span>
-                      <span class={`font-mono text-[9px] px-1 py-0.2 rounded border ${b.benchmark_version?.startsWith("2.0") ? "text-cyan-600 dark:text-cyan-400 bg-cyan-500/10 border-cyan-500/30" : "text-theme-muted bg-theme-elevated border-theme-border"}`}>
-                        {b.benchmark_version?.startsWith("2.0") ? "v2.0" : "v1.0"}
+                      <span class={`font-mono text-[9px] px-1 py-0.2 rounded border ${
+                        b.benchmark_version === "Arena" || b.source === "Chatbot Arena"
+                          ? "text-rose-600 dark:text-rose-400 bg-rose-500/10 border-rose-500/30"
+                          : b.benchmark_version?.startsWith("2.0")
+                          ? "text-cyan-600 dark:text-cyan-400 bg-cyan-500/10 border-cyan-500/30"
+                          : "text-theme-muted bg-theme-elevated border-theme-border"
+                      }`}>
+                        {b.benchmark_version === "Arena" || b.source === "Chatbot Arena" ? "Arena" : (b.benchmark_version?.startsWith("2.0") ? "v2.0" : "v1.0")}
                       </span>
                     </div>
                   </td>
                   <td class="py-3.5 pr-4">
-                    <span class="inline-block px-2 py-0.5 rounded text-[10px] border border-blue-500/20 bg-blue-500/10 text-blue-600 dark:text-blue-400">
+                    <span class={`inline-block px-2 py-0.5 rounded text-[10px] border ${
+                      b.category === "Human Preference"
+                        ? "border-rose-500/20 bg-rose-500/10 text-rose-600 dark:text-rose-400"
+                        : "border-blue-500/20 bg-blue-500/10 text-blue-600 dark:text-blue-400"
+                    }`}>
                       {b.category}
                     </span>
                   </td>
                   <td class="py-3.5 pr-4 font-bold text-emerald-700 dark:text-emerald-400">
-                    {b.score.toFixed(1)} {b.score_unit === "Percentage" ? "%" : b.score_unit}
+                    {b.score.toFixed(b.score_unit === "Elo" ? 0 : 1)} {b.score_unit === "Percentage" ? "%" : b.score_unit}
                   </td>
                   <td class="py-3.5 pr-4">
                     <span class="text-[10px] text-theme-secondary block">{b.provenance}</span>
@@ -665,7 +700,7 @@ const costEfficientModel = [...models]
       </div>
 
       <div class="px-6 py-2.5 bg-theme-elevated/50 border-t border-theme-border-subtle flex flex-wrap items-center justify-between gap-2 text-[10px] font-mono text-theme-muted">
-        <span>Evaluations parsed from official LiveBench releases</span>
+        <span>Evaluations parsed from official LiveBench releases &amp; Arena.ai (LMSYS)</span>
         <a
           href="https://github.com/swaroophegde07/ai-pulse/issues/new?template=data_correction.yml&title=%5BData+Correction%5D%3A+Benchmark+Evaluation+Inaccuracy+%28Benchmarks+Page%29"
           target="_blank"
@@ -955,7 +990,7 @@ const costEfficientModel = [...models]
 
     let currentSearch = "";
     let currentCategory = "composite";
-    let currentVersion = "2.0";
+    let currentVersion = "all";
     let currentSort = "score";
     let sortAsc = false;
 
@@ -977,8 +1012,9 @@ const costEfficientModel = [...models]
           const badge = row.querySelector(".rank-badge");
           if (badge) {
             badge.textContent = `#${rank}`;
+            const verLabel = ver === "arena" ? "Chatbot Arena" : ver === "2.0" ? "LiveBench 2.0" : "LiveBench 1.0";
             badge.setAttribute("title", currentCategory === "all"
-              ? `Rank #${rank} in ${cat} (${ver === "2.0" ? "LiveBench 2.0" : "LiveBench 1.0"})`
+              ? `Rank #${rank} in ${cat} (${verLabel})`
               : `Rank #${rank} in ${cat}`
             );
             badge.className = "rank-badge inline-flex items-center justify-center font-mono text-[11px] font-bold px-1.5 py-0.5 rounded " + (
@@ -1140,10 +1176,10 @@ const costEfficientModel = [...models]
       resetFilterBtn.addEventListener("click", () => {
         if (searchInput) searchInput.value = "";
         if (catSelect) catSelect.value = "composite";
-        if (versionSelect) versionSelect.value = "2.0";
+        if (versionSelect) versionSelect.value = "all";
         currentSearch = "";
         currentCategory = "composite";
-        currentVersion = "2.0";
+        currentVersion = "all";
         filterBenchmarks();
       });
     }

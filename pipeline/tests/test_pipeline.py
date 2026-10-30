@@ -1666,13 +1666,15 @@ class TestLiveBenchRegressionAndExactIdentity(unittest.TestCase):
 
 
 class TestStaleDataFallbackAndHealth(unittest.TestCase):
+    @patch("pipeline.benchmarks.adapters.arena.ArenaAdapter.fetch")
     @patch("pipeline.benchmarks.adapters.livebench.LiveBenchAdapter.fetch")
     @patch("pipeline.benchmarks.adapters.openrouter.OpenRouterAdapter.fetch_metrics")
-    def test_pipeline_preserves_snapshot_on_outage(self, mock_or, mock_lb):
+    def test_pipeline_preserves_snapshot_on_outage(self, mock_or, mock_lb, mock_arena):
         from pipeline.benchmarks.runner import run_benchmark_pipeline
 
         # Simulate remote failure
         mock_lb.return_value = []
+        mock_arena.return_value = []
         mock_or.return_value = []
 
         with tempfile.TemporaryDirectory() as tmpdir:
@@ -2033,7 +2035,8 @@ class TestBenchmarkDateSemantics(unittest.TestCase):
             if b.get("provenance") == "Independent Evaluation" and "not reported" in b.get("notes", ""):
                 self.assertIsNone(b["evaluation_date"])
                 self.assertIsNotNone(b["benchmark_release_date"])
-                self.assertIn(b["benchmark_release_date"], VERIFIED_LIVEBENCH_RELEASES)
+                if b.get("source") == "LiveBench":
+                    self.assertIn(b["benchmark_release_date"], VERIFIED_LIVEBENCH_RELEASES)
 
         # Check metadata health dates and distinct semantic timestamps
         metadata = data.get("metadata", {})
@@ -3760,8 +3763,9 @@ class TestMaintenanceQualityAndHealthPass(unittest.TestCase):
             bench_path = Path(tmpdir) / "benchmarks.json"
             bench_path.write_text(json.dumps(existing_snapshot), encoding="utf-8")
 
-            # Mock LiveBenchAdapter.fetch to return empty
-            with patch("pipeline.benchmarks.adapters.livebench.LiveBenchAdapter.fetch", return_value=[]), \
+            # Mock adapters to return empty
+            with patch("pipeline.benchmarks.adapters.arena.ArenaAdapter.fetch", return_value=[]), \
+                 patch("pipeline.benchmarks.adapters.livebench.LiveBenchAdapter.fetch", return_value=[]), \
                  patch("pipeline.benchmarks.adapters.openrouter.OpenRouterAdapter.fetch_metrics", return_value=[]), \
                  patch("pipeline.models.updater.sync_models_catalog"):
                 result = run_benchmark_pipeline(benchmarks_path=bench_path)
@@ -3991,6 +3995,143 @@ class TestPostDeploymentAuditFix(unittest.TestCase):
             self.assertEqual(gen_tech["status"], "no_relevant_articles")
             self.assertEqual(gen_tech["raw_entries_count"], 10)
             self.assertEqual(gen_tech["relevant_articles_count"], 0)
+
+
+
+class TestArenaAdapter(unittest.TestCase):
+    """Tests for Arena.ai (LMSYS Chatbot Arena) benchmark adapter."""
+
+    def test_allowed_benchmark_categories_includes_human_preference(self):
+        from pipeline.benchmarks.base import ALLOWED_BENCHMARK_CATEGORIES
+        self.assertIn("Human Preference", ALLOWED_BENCHMARK_CATEGORIES)
+
+    @patch("requests.get")
+    def test_arena_adapter_fetch_and_parse_success(self, mock_get):
+        from pipeline.benchmarks.adapters.arena import ArenaAdapter
+
+        def mock_hf_response(url, *args, **kwargs):
+            resp = MagicMock()
+            resp.ok = True
+            if "config=text" in str(url):
+                resp.json.return_value = {
+                    "rows": [
+                        {
+                            "row": {
+                                "model_name": "Claude 3.7 Sonnet",
+                                "organization": "anthropic",
+                                "rating": 1345.8,
+                                "rating_lower": 1339.2,
+                                "rating_upper": 1352.4,
+                                "vote_count": 85000,
+                                "rank": 1,
+                                "leaderboard_publish_date": "2026-10-28",
+                            }
+                        },
+                        {
+                            "row": {
+                                "model_name": "GPT-4o (2024-11-20)",
+                                "organization": "openai",
+                                "rating": 1310.2,
+                                "rating_lower": 1304.1,
+                                "rating_upper": 1316.3,
+                                "vote_count": 92000,
+                                "rank": 2,
+                                "leaderboard_publish_date": "2026-10-28",
+                            }
+                        },
+                    ]
+                }
+            elif "config=webdev" in str(url):
+                resp.json.return_value = {
+                    "rows": [
+                        {
+                            "row": {
+                                "model_name": "Claude 3.7 Sonnet",
+                                "organization": "anthropic",
+                                "rating": 1380.5,
+                                "rating_lower": 1372.0,
+                                "rating_upper": 1389.0,
+                                "vote_count": 42000,
+                                "rank": 1,
+                                "leaderboard_publish_date": "2026-10-28",
+                            }
+                        }
+                    ]
+                }
+            else:
+                resp.json.return_value = {"rows": []}
+            return resp
+
+        mock_get.side_effect = mock_hf_response
+
+        adapter = ArenaAdapter()
+        records = adapter.fetch()
+
+        self.assertEqual(len(records), 3)
+
+        # Check Human Preference record
+        text_rec = next(r for r in records if r["category"] == "Human Preference")
+        self.assertEqual(text_rec["benchmark_name"], "Chatbot Arena (Text)")
+        self.assertEqual(text_rec["score"], 1345.8)
+        self.assertEqual(text_rec["score_unit"], "Elo")
+        self.assertIsNone(text_rec["evaluation_date"])  # No fabrication
+        self.assertEqual(text_rec["benchmark_release_date"], "2026-10-28")
+        self.assertEqual(text_rec["benchmark_version"], "Arena")
+        self.assertEqual(text_rec["provenance"], "Independent Evaluation")
+        self.assertEqual(text_rec["source"], "Chatbot Arena")
+        self.assertEqual(text_rec["provider"], "Anthropic")
+        self.assertIn("Rank #1", text_rec["notes"])
+        self.assertIn("85,000 votes", text_rec["notes"])
+
+        # Check Coding record
+        code_rec = next(r for r in records if r["category"] == "Coding")
+        self.assertEqual(code_rec["benchmark_name"], "Chatbot Arena (Coding)")
+        self.assertEqual(code_rec["score"], 1380.5)
+        self.assertEqual(code_rec["score_unit"], "Elo")
+
+    @patch("requests.get")
+    def test_arena_adapter_handles_network_failure_gracefully(self, mock_get):
+        from pipeline.benchmarks.adapters.arena import ArenaAdapter
+
+        mock_get.side_effect = Exception("Connection timeout")
+
+        adapter = ArenaAdapter()
+        records = adapter.fetch()
+
+        self.assertEqual(records, [])
+        self.assertTrue(adapter.is_stale)
+
+    @patch("requests.get")
+    def test_arena_adapter_skips_invalid_rows(self, mock_get):
+        from pipeline.benchmarks.adapters.arena import ArenaAdapter
+
+        resp = MagicMock()
+        resp.ok = True
+        resp.json.return_value = {
+            "rows": [
+                {"row": {"model_name": "", "rating": 1200.0}},
+                {"row": {"model_name": "Valid Model", "rating": None}},
+                {"row": {"model_name": "Valid Model 2", "rating": "invalid_num"}},
+            ]
+        }
+        mock_get.return_value = resp
+
+        adapter = ArenaAdapter()
+        records = adapter.fetch()
+        self.assertEqual(len(records), 0)
+
+    def test_arena_provenance_notice(self):
+        from pipeline.benchmarks.adapters.arena import ArenaAdapter
+
+        adapter = ArenaAdapter()
+        adapter.active_release = "2026-10-28"
+        notice = adapter.get_provenance_notice()
+
+        self.assertEqual(notice["source"], "Chatbot Arena")
+        self.assertEqual(notice["release_date"], "2026-10-28")
+        self.assertIn("Active (2026-10-28 Release)", notice["status"])
+        self.assertIn("Bradley-Terry / Elo", notice["description"])
+        self.assertIn("LMSYS Org", notice["attribution"])
 
 
 if __name__ == "__main__":
