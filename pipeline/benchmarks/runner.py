@@ -340,7 +340,8 @@ def run_benchmark_pipeline(benchmarks_path: Path | None = None) -> dict[str, Any
                     next((b.get("evaluation_date") for b in validated_benchmarks if b.get("evaluation_date")), None)
                 ),
                 "last_benchmark_release_date": (
-                    next((b.get("benchmark_release_date") for b in validated_benchmarks if b.get("benchmark_release_date")), None)
+                    next((b.get("benchmark_release_date") for b in validated_benchmarks if b.get("source") == "LiveBench" and b.get("benchmark_release_date")), None)
+                    or next((b.get("benchmark_release_date") for b in validated_benchmarks if b.get("benchmark_release_date")), None)
                 ),
                 "last_retrieval_time": now_iso,
                 "last_known_good_timestamp": last_known_good_timestamp,

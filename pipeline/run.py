@@ -1072,9 +1072,9 @@ def generate_pipeline_status(
         "benchmark_sources": bench_list,
         "summary": {
             "total_rss_sources": len(all_sources),
-            "active_benchmark_sources": 1 if livebench_status == "stale_fallback" else 2,
-            "fallback_benchmark_sources": 1 if livebench_status == "stale_fallback" else 0,
-            "disabled_benchmark_sources": 3,
+            "active_benchmark_sources": sum(1 for b in bench_list if b.get("status") == "active" and b.get("type") == "Benchmark Suite"),
+            "fallback_benchmark_sources": sum(1 for b in bench_list if b.get("status") in ("stale_fallback", "degraded", "fallback") and b.get("type") == "Benchmark Suite"),
+            "disabled_benchmark_sources": sum(1 for b in bench_list if b.get("status") == "disabled"),
         },
     }
 

@@ -182,6 +182,7 @@ for (const m of models) {
   const rRecord = benchmarks
     .filter(
       (b) =>
+        b.source === "LiveBench" &&
         b.category === "Reasoning" &&
         ((b.internal_model_id && b.internal_model_id === m.id) ||
           b.canonical_id === benchId ||
@@ -193,6 +194,7 @@ for (const m of models) {
   const cRecord = benchmarks
     .filter(
       (b) =>
+        b.source === "LiveBench" &&
         (b.category === "Coding" || b.category === "Agentic Coding") &&
         ((b.internal_model_id && b.internal_model_id === m.id) ||
           b.canonical_id === benchId ||
@@ -259,23 +261,23 @@ const categories = [
 
 // Top verified benchmark records for overview highlights
 const topReasoning = [...benchmarks]
-  .filter((b) => b.category === "Reasoning")
+  .filter((b) => b.source === "LiveBench" && b.category === "Reasoning")
   .sort((a, b) => b.score - a.score)[0];
 
 const topCoding = [...benchmarks]
-  .filter((b) => b.category === "Coding" || b.category === "Agentic Coding")
+  .filter((b) => b.source === "LiveBench" && (b.category === "Coding" || b.category === "Agentic Coding"))
   .sort((a, b) => b.score - a.score)[0];
 
 const topAgentic = [...benchmarks]
-  .filter((b) => b.category === "Agentic")
+  .filter((b) => b.source === "LiveBench" && b.category === "Agentic")
   .sort((a, b) => b.score - a.score)[0];
 
 const topHumanPreference = [...benchmarks]
-  .filter((b) => b.category === "Human Preference")
+  .filter((b) => (b.source === "Chatbot Arena" || b.category === "Human Preference"))
   .sort((a, b) => b.score - a.score)[0];
 
 const topOverall = [...benchmarks]
-  .filter((b) => b.category === "Composite")
+  .filter((b) => b.source === "LiveBench" && b.category === "Composite")
   .sort((a, b) => b.score - a.score)[0];
 
 // Verified cost efficiency record from model catalog
