@@ -103,19 +103,21 @@ def discover_latest_release(timeout: int = 10) -> tuple[str, bool]:
     Returns:
         (release_date, is_fallback_or_stale)
     """
-    # 1. Probe LiveBench 2.0 verified release endpoint first
+    # 1. Probe LiveBench verified release endpoint first
+    top_release = VERIFIED_LIVEBENCH_RELEASES[0]
+    compact_top = top_release.replace("-", "")
     try:
-        t2_url = "https://livebench.ai/data/20261014/table.csv"
+        t2_url = f"https://livebench.ai/data/{compact_top}/table.csv"
         probe = requests.head(
             t2_url,
             timeout=timeout,
             headers={"User-Agent": "AI-Pulse/1.0 (+https://github.com/swaroophegde07/ai-pulse)"},
         )
         if probe.ok:
-            logger.info("Discovered verified LiveBench 2.0 release: 2026-10-14")
-            return "2026-10-14", False
+            logger.info("Discovered verified LiveBench release: %s", top_release)
+            return top_release, False
     except Exception as exc:
-        logger.debug("LiveBench 2.0 direct probe failed: %s", exc)
+        logger.debug("LiveBench direct probe failed: %s", exc)
 
     # 2. Check dynamic JS discovery on livebench.ai
     try:

@@ -2015,6 +2015,9 @@ class TestBenchmarkDateSemantics(unittest.TestCase):
         self.assertNotEqual(key2, key3)
 
     def test_benchmarks_json_date_semantics_integrity(self):
+        """Validate date semantics integrity in production benchmarks.json against the adapter's supported releases."""
+        from pipeline.benchmarks.adapters.livebench import VERIFIED_LIVEBENCH_RELEASES
+
         bench_path = Path(__file__).parent.parent.parent / "src" / "data" / "benchmarks.json"
         with bench_path.open("r", encoding="utf-8") as f:
             data = json.load(f)
@@ -2026,15 +2029,154 @@ class TestBenchmarkDateSemantics(unittest.TestCase):
             self.assertIn("benchmark_release_date", b)
             self.assertIn("evaluation_date", b)
             self.assertIn("retrieved_at", b)
-            # In LiveBench records where eval date is not reported, evaluation_date is None
+            # In LiveBench records where eval date is not reported, evaluation_date is None (no fabrication)
             if b.get("provenance") == "Independent Evaluation" and "not reported" in b.get("notes", ""):
                 self.assertIsNone(b["evaluation_date"])
                 self.assertIsNotNone(b["benchmark_release_date"])
+                self.assertIn(b["benchmark_release_date"], VERIFIED_LIVEBENCH_RELEASES)
 
-        # Check metadata health dates
-        health = data.get("metadata", {}).get("health", {})
+        # Check metadata health dates and distinct semantic timestamps
+        metadata = data.get("metadata", {})
+        health = metadata.get("health", {})
         self.assertIn("last_benchmark_release_date", health)
-        self.assertIn(health["last_benchmark_release_date"], ["2026-06-25", "2026-10-13"])
+        self.assertIn(health["last_benchmark_release_date"], VERIFIED_LIVEBENCH_RELEASES)
+
+        # 1. Benchmark release date: must be derived from supported release configuration (ISO date YYYY-MM-DD)
+        self.assertRegex(health["last_benchmark_release_date"], r"^\d{4}-\d{2}-\d{2}$")
+
+        # 2. Individual model evaluation date: not fabricated when upstream does not report it
+        self.assertIsNone(health.get("last_successful_evaluation_date"))
+
+        # 3. Last retrieval time: ISO datetime with timezone
+        self.assertIn("last_retrieval_time", health)
+        self.assertRegex(health["last_retrieval_time"], r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}")
+
+        # 4. Last-known-good timestamp: ISO datetime with timezone
+        self.assertIn("last_known_good_timestamp", health)
+        self.assertRegex(health["last_known_good_timestamp"], r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}")
+
+        # 5. Temporal distinction: release date is strictly separated from retrieval and snapshot timestamps
+        self.assertNotEqual(health["last_benchmark_release_date"], health["last_retrieval_time"])
+        self.assertNotEqual(health["last_benchmark_release_date"], health["last_known_good_timestamp"])
+
+    def test_future_supported_release_date_compatibility(self):
+        """Regression test ensuring a future supported release-date addition does not break date semantics validation."""
+        from pipeline.benchmarks.adapters.livebench import LiveBenchAdapter, VERIFIED_LIVEBENCH_RELEASES
+        from pipeline.benchmarks.runner import run_benchmark_pipeline
+
+        future_release = "2027-04-15"
+        mock_supported = [future_release] + list(VERIFIED_LIVEBENCH_RELEASES)
+
+        csv_content = (
+            "model,design_layout,research,browser,coding,long_horizon,data_analysis,reasoning\n"
+            "claude-opus-4,88.0,91.0,89.5,95.0,89.0,84.5,95.0\n"
+        )
+
+        with patch("pipeline.benchmarks.adapters.livebench.VERIFIED_LIVEBENCH_RELEASES", mock_supported), \
+             patch("pipeline.benchmarks.adapters.livebench.DEFAULT_LIVEBENCH_RELEASE", future_release), \
+             patch("requests.get") as mock_get, \
+             patch("requests.head") as mock_head, \
+             patch("pipeline.benchmarks.adapters.openrouter.OpenRouterAdapter.fetch_metrics", return_value=[]), \
+             patch("pipeline.models.updater.sync_models_catalog"), \
+             tempfile.TemporaryDirectory() as tmpdir:
+
+            mock_head.return_value.ok = True
+
+            def mock_get_handler(url, *args, **kwargs):
+                resp = MagicMock()
+                resp.ok = True
+                resp.raise_for_status.return_value = None
+                if str(url).endswith(".json"):
+                    resp.json.return_value = {"Reasoning": ["reasoning"], "Agentic": ["long_horizon"]}
+                else:
+                    resp.text = csv_content
+                return resp
+
+            mock_get.side_effect = mock_get_handler
+
+            adapter = LiveBenchAdapter(release_date=future_release)
+            records = adapter.fetch()
+            self.assertGreater(len(records), 0)
+            self.assertEqual(records[0]["benchmark_release_date"], future_release)
+            self.assertIsNone(records[0]["evaluation_date"])
+
+            bench_path = Path(tmpdir) / "benchmarks.json"
+            result = run_benchmark_pipeline(benchmarks_path=bench_path)
+
+            meta_health = result["metadata"]["health"]
+            # The pipeline health reflects the future supported release dynamically
+            self.assertEqual(meta_health["last_benchmark_release_date"], future_release)
+            self.assertIn(meta_health["last_benchmark_release_date"], mock_supported)
+            self.assertIsNone(meta_health["last_successful_evaluation_date"])
+            self.assertIsNotNone(meta_health["last_retrieval_time"])
+            self.assertIsNotNone(meta_health["last_known_good_timestamp"])
+
+    def test_date_semantics_temporal_dimension_distinction_and_no_fabrication(self):
+        """Regression test verifying strict separation across all four temporal dimensions and no evaluation date fabrication."""
+        from pipeline.benchmarks.adapters.livebench import VERIFIED_LIVEBENCH_RELEASES
+
+        controlled_fixture = {
+            "metadata": {
+                "last_updated": "2026-10-30T14:00:00+00:00",
+                "last_known_good_timestamp": "2026-10-25T07:51:53+00:00",
+                "health": {
+                    "status": "healthy",
+                    "last_benchmark_release_date": "2026-10-14",
+                    "last_successful_evaluation_date": None,
+                    "last_retrieval_time": "2026-10-30T14:00:00+00:00",
+                    "last_known_good_timestamp": "2026-10-25T07:51:53+00:00",
+                    "warnings": [],
+                },
+            },
+            "benchmarks": [
+                {
+                    "model_name": "Claude 3.7 Sonnet",
+                    "canonical_id": "anthropic/claude-3-7-sonnet",
+                    "provider": "Anthropic",
+                    "benchmark_name": "LiveBench (Agentic)",
+                    "category": "Agentic",
+                    "score": 88.5,
+                    "score_unit": "%",
+                    "benchmark_release_date": "2026-10-14",
+                    "evaluation_date": None,
+                    "benchmark_version": "2.0",
+                    "source": "LiveBench",
+                    "source_url": "https://livebench.ai/",
+                    "provenance": "Independent Evaluation",
+                    "retrieved_at": "2026-10-30T14:00:00+00:00",
+                    "notes": "Evaluation date not reported upstream by LiveBench table.",
+                }
+            ],
+        }
+
+        health = controlled_fixture["metadata"]["health"]
+        bench_record = controlled_fixture["benchmarks"][0]
+
+        # 1. Benchmark release date: identifies the benchmark release version, in verified releases
+        self.assertIn(health["last_benchmark_release_date"], VERIFIED_LIVEBENCH_RELEASES)
+        self.assertIn(bench_record["benchmark_release_date"], VERIFIED_LIVEBENCH_RELEASES)
+
+        # 2. Evaluation date: None when not reported upstream, never fabricated
+        self.assertIsNone(health["last_successful_evaluation_date"])
+        self.assertIsNone(bench_record["evaluation_date"])
+
+        # 3. Retrieval time: records when data was fetched
+        self.assertEqual(health["last_retrieval_time"], "2026-10-30T14:00:00+00:00")
+        self.assertEqual(bench_record["retrieved_at"], "2026-10-30T14:00:00+00:00")
+
+        # 4. Last known good timestamp: tracks prior snapshot recovery point
+        self.assertEqual(health["last_known_good_timestamp"], "2026-10-25T07:51:53+00:00")
+
+        # Strict differentiation: all 4 dimensions are pairwise distinct
+        release_date = health["last_benchmark_release_date"]
+        eval_date = health["last_successful_evaluation_date"]
+        retrieval_time = health["last_retrieval_time"]
+        lkg_time = health["last_known_good_timestamp"]
+
+        self.assertNotEqual(release_date, retrieval_time)
+        self.assertNotEqual(release_date, lkg_time)
+        self.assertNotEqual(retrieval_time, lkg_time)
+        self.assertNotEqual(release_date, eval_date)
 
 
 
