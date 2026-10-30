@@ -1008,8 +1008,8 @@
     "api_available": true,
     "consumer_available": false,
     "pricing": {
-      "input_per_1m": 0.9483,
-      "output_per_1m": 1.8966,
+      "input_per_1m": 1.6,
+      "output_per_1m": 3.2,
       "unit": "USD"
     },
     "documentation_url": "https://openrouter.ai/deepseek/deepseek-v4-pro",

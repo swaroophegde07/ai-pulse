@@ -1,21 +1,228 @@
 [
   {
+    "id": "8b9109aea92a5c49",
+    "title": "OpenCode v2.2.5",
+    "company": "OpenCode",
+    "source": "OpenCode Updates",
+    "summary": "OpenCode has released version 2.2.5. This update provides incremental improvements and fixes for the OpenCode platform.",
+    "summary_status": "generated",
+    "content_fingerprint": "eb2906f534a4a3dd",
+    "url": "https://github.com/anomalyco/opencode/releases/tag/v2.2.5",
+    "date": "2026-10-30T22:06:51+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-30T22:46:19.264068+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "OpenCode released version 2.2.5.",
+      "Provides software updates and maintenance fixes for the tool.",
+      "Developers and users relying on the OpenCode platform are affected."
+    ],
+    "tags": [
+      "OpenCode",
+      "Software Release",
+      "Developer Tools"
+    ],
+    "impact_score": 2,
+    "sources": [
+      {
+        "url": "https://github.com/anomalyco/opencode/releases/tag/v2.2.5",
+        "title": "OpenCode v2.2.5",
+        "publisher": "OpenCode"
+      }
+    ]
+  },
+  {
+    "id": "c8804a79ad56c280",
+    "title": "Dartmouth's provost warned us about AI cheating—but his own AI use cost him his job",
+    "company": "Ars Technica",
+    "source": "Ars Technica – AI",
+    "summary": "Dartmouth College provost Santiago Schnell resigned after an advisory committee concluded he failed to disclose significant AI use in an academic paper and a Washington Post op-ed. The investigation revealed that Schnell used Anthropic's Claude for revising papers, debugging code, and generating figures without meeting publisher disclosure requirements. Furthermore, Schnell exhibited insufficient cooperation during the inquiry by withholding personal LLM account logs and refusing to meet with the committee.",
+    "summary_status": "generated",
+    "content_fingerprint": "f18454eef4c8568e",
+    "url": "https://arstechnica.com/tech-policy/2026/10/dartmouths-provost-warned-us-about-ai-cheating-but-his-own-ai-use-cost-him-his-job",
+    "date": "2026-10-30T20:40:13+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-30T22:46:19.263288+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Dartmouth College provost Santiago Schnell resigned following an advisory committee's findings that he omitted required AI-use disclosures in published academic writing and an op-ed.",
+      "The investigation exposed institutional and ethical governance tensions around undisclosed AI utilization by academic leadership writing on generative AI policies.",
+      "Academic institutions, publishers, and university administrators are directly affected as enforcement of AI disclosure mandates intensifies."
+    ],
+    "tags": [
+      "Dartmouth College",
+      "Claude",
+      "Anthropic",
+      "AI Governance",
+      "Academic Integrity"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arstechnica.com/tech-policy/2026/10/dartmouths-provost-warned-us-about-ai-cheating-but-his-own-ai-use-cost-him-his-job",
+        "title": "Dartmouth's provost warned us about AI cheating—but his own AI use cost him his job",
+        "publisher": "Ars Technica"
+      }
+    ]
+  },
+  {
+    "id": "cfb4189f31938d74",
+    "title": "Run AI Models for Edge Application Development with Just a Few Commands",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "Developers are increasingly deploying AI models at the edge to power applications like driver monitoring, robotic perception, and industrial fleet coordination. These physical AI systems must operate efficiently within strict constraints regarding memory, power, and latency.",
+    "summary_status": "generated",
+    "content_fingerprint": "dc47ee3180d1fe4e",
+    "url": "https://developer.nvidia.com/blog/run-ai-models-for-edge-application-development-with-just-a-few-commands",
+    "date": "2026-10-30T20:33:18+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-30T22:46:19.263814+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Developers are deploying AI models for edge applications such as cabin monitoring, robotics, and industrial automation.",
+      "Physical AI systems require high efficiency to operate within strict memory, power, and latency budgets at the edge.",
+      "Developers and engineers building edge computing and physical AI systems are directly impacted."
+    ],
+    "tags": [
+      "Edge AI",
+      "Robotics",
+      "AI Agents"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://developer.nvidia.com/blog/run-ai-models-for-edge-application-development-with-just-a-few-commands",
+        "title": "Run AI Models for Edge Application Development with Just a Few Commands",
+        "publisher": "NVIDIA"
+      }
+    ]
+  },
+  {
+    "id": "abc5566bda42b5a9",
+    "title": "Basically no one is using AI agents for their DoorDash orders",
+    "company": "Ars Technica",
+    "source": "Ars Technica – AI",
+    "summary": "During DoorDash's third-quarter earnings call, CEO Tony Xu reported that external AI agents are generating only several hundred orders for the food delivery platform. Xu noted that this represents a very low adoption rate for simple transactions, contrasting it with the nearly 1 billion total orders processed by the company in the quarter. While he views AI agents as more useful for complex, long-consideration purchases, users overwhelmingly prefer ordering food directly through the native DoorDash app.",
+    "summary_status": "generated",
+    "content_fingerprint": "cb38e3415e5b32c9",
+    "url": "https://arstechnica.com/ai/2026/10/doordash-says-outside-ai-agents-have-only-led-to-hundreds-of-orders-so-far",
+    "date": "2026-10-30T19:30:52+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-30T22:46:19.263388+00:00",
+    "topics": [
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "External AI agents generated only several hundred total orders on DoorDash, which processed nearly 1 billion orders in the third quarter.",
+      "The low adoption rate demonstrates that consumers prefer direct native app usage for simple transactional tasks like food delivery rather than third-party AI agents.",
+      "DoorDash leadership, delivery app users, and developers of consumer-facing AI agent tools are directly affected by this low engagement."
+    ],
+    "tags": [
+      "DoorDash",
+      "AI Agents",
+      "Tony Xu",
+      "E-commerce"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://arstechnica.com/ai/2026/10/doordash-says-outside-ai-agents-have-only-led-to-hundreds-of-orders-so-far",
+        "title": "Basically no one is using AI agents for their DoorDash orders",
+        "publisher": "Ars Technica"
+      }
+    ]
+  },
+  {
+    "id": "037154e824aaff25",
+    "title": "nemotron-halloween",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "The release of a specialized model or update named nemotron-halloween. It details the technical context and deployment parameters associated with this release.",
+    "summary_status": "generated",
+    "content_fingerprint": "5dcc3e60c84eafbe",
+    "url": "https://huggingface.co/blog/nvidia/nemotron-halloween",
+    "date": "2026-10-30T17:57:24+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-10-30T22:46:19.263149+00:00",
+    "topics": [
+      "Models and Releases"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "The nemotron-halloween model or package was released to the public.",
+      "It introduces specialized features relevant to developers working within the associated ecosystem.",
+      "Developers and users utilizing the corresponding hardware or software frameworks are directly impacted."
+    ],
+    "tags": [
+      "nemotron-halloween",
+      "Product Release",
+      "AI Models"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/nvidia/nemotron-halloween",
+        "title": "nemotron-halloween",
+        "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
     "id": "b0afceb347e7b188",
     "title": "Build Specialized Agents on a Stack You Control with NVIDIA NemoClaw",
     "company": "NVIDIA",
     "source": "NVIDIA Developer Blog",
-    "summary": "[Automated summary unavailable] Building an autonomous agent requires a model, a harness, and domain-specific tools. To deploy an agent more securely, developers need a runtime that enforces... Building an autonomous agent…",
-    "summary_status": "pending_quota",
-    "content_fingerprint": "",
+    "summary": "NVIDIA introduces NemoClaw, a runtime framework designed to help developers build specialized autonomous agents with control over security policies, optimization, and observability. The platform addresses the production challenge of safely connecting AI agents to enterprise systems and data.",
+    "summary_status": "generated",
+    "content_fingerprint": "439ce27031a1d654",
     "url": "https://developer.nvidia.com/blog/build-specialized-agents-on-a-stack-you-control-with-nvidia-nemoclaw",
     "date": "2026-10-30T16:00:00+00:00",
     "category": "Product Release",
-    "fetched_at": "2026-10-30T16:09:11.055799+00:00",
+    "fetched_at": "2026-10-30T22:46:19.263869+00:00",
     "topics": [
-      "Models and Releases",
       "AI Agents",
       "Coding and Developer Tools",
-      "Infrastructure and Hardware"
+      "Safety and Security",
+      "Business and Industry",
+      "Infrastructure and Hardware",
+      "Applications and Products"
     ],
     "source_type": "Technical Publication",
     "priority_score": 3,
@@ -30,10 +237,17 @@
       }
     ],
     "key_points": [
-      "NVIDIA released NemoClaw to provide a controlled runtime stack for building and deploying specialized autonomous agents.",
-      "It addresses security and control challenges in agentic workflows by enforcing runtime boundaries for models, harnesses, and domain-specific tools.",
-      "AI developers and enterprise engineering teams building secure autonomous agent systems are directly affected."
-    ]
+      "NVIDIA released NemoClaw to provide a runtime for deploying specialized autonomous agents with enforced security policies, optimization, and observability.",
+      "It addresses the industry challenge of safely granting agents access to real enterprise systems and data during production deployment.",
+      "Enterprise developers and AI engineers building production-grade autonomous agents are directly affected."
+    ],
+    "tags": [
+      "NVIDIA",
+      "NemoClaw",
+      "AI Agents",
+      "Enterprise AI"
+    ],
+    "impact_score": 7
   },
   {
     "id": "58584bfddb08f1b4",
@@ -159,6 +373,46 @@
         "url": "https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence",
         "title": "From synthetic enterprise data evaluations to real Microsoft Copilot AI confidence",
         "publisher": "Microsoft Research"
+      }
+    ]
+  },
+  {
+    "id": "84abd1857de5dfd9",
+    "title": "Making it easier for websites to express AI training preferences",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "OpenAI announced it will support a shared robots.txt signal to help website operators declare their preferences regarding AI training data. This mechanism allows participating providers to streamline how they ingest web content while respecting publisher boundaries. Website operators and AI providers utilizing web crawlers will be directly affected.",
+    "summary_status": "generated",
+    "content_fingerprint": "a8e081c38b0f625b",
+    "url": "https://openai.com/index/helping-websites-express-ai-training-preferences",
+    "date": "2026-10-30T09:30:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-30T22:46:19.262808+00:00",
+    "topics": [
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 1,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Primary lab announcement from OpenAI",
+    "why_it_matters": "",
+    "key_points": [
+      "OpenAI adopted a shared robots.txt signal for websites to state their AI training preferences.",
+      "It establishes a unified mechanism for publishers to manage how participating providers access and use their web data.",
+      "Website operators and AI crawl infrastructure providers are directly affected."
+    ],
+    "tags": [
+      "OpenAI",
+      "Web Scraping",
+      "AI Training",
+      "Robots.txt"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://openai.com/index/helping-websites-express-ai-training-preferences",
+        "title": "Making it easier for websites to express AI training preferences",
+        "publisher": "OpenAI"
       }
     ]
   },
@@ -1052,6 +1306,45 @@
       "Computational Complexity"
     ],
     "impact_score": 5
+  },
+  {
+    "id": "574dbaf7fc8731e4",
+    "title": "Fair use benefits everyone",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "OpenAI highlights excerpts from legal court briefs submitted by creators, academics, accessibility advocates, and legal experts. These briefs argue that copyright fair use doctrine supports artificial intelligence training and technological innovation.",
+    "summary_status": "generated",
+    "content_fingerprint": "c1f64fe2cd08bb13",
+    "url": "https://openai.com/index/fair-use-benefits-everyone",
+    "date": "2026-10-30T00:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-30T22:46:19.263072+00:00",
+    "topics": [
+      "Policy and Regulation"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 1,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Primary lab announcement from OpenAI",
+    "why_it_matters": "",
+    "key_points": [
+      "OpenAI published excerpts from court briefs supporting fair use in AI training.",
+      "The arguments impact the legal interpretation of how copyright law applies to training generative AI models.",
+      "Creators, academics, legal experts, and AI developers are directly affected by these legal precedents."
+    ],
+    "tags": [
+      "OpenAI",
+      "Fair Use",
+      "Copyright Law"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://openai.com/index/fair-use-benefits-everyone",
+        "title": "Fair use benefits everyone",
+        "publisher": "OpenAI"
+      }
+    ]
   },
   {
     "id": "88899755dba00e8d",
@@ -3003,13 +3296,13 @@
     "title": "How NVIDIA Minerva Turns Telemetry Chaos Into Peak GPU Yield",
     "company": "NVIDIA",
     "source": "NVIDIA Developer Blog",
-    "summary": "[Automated summary unavailable] AI Factories are some of the most technologically complex operational environments ever created. Hundreds of thousands of GPUs, NVIDIA Spectrum-X Ethernet... AI Factories are some of the most…",
-    "summary_status": "pending_quota",
-    "content_fingerprint": "",
+    "summary": "NVIDIA introduced Minerva, a telemetry management system designed to handle the operational complexity of large-scale AI factories. The platform addresses challenges across hundreds of thousands of GPUs, network fabrics, and distributed schedulers during multi-week training runs. It provides infrastructure operators and AI engineering teams with tools to maintain peak GPU yield and system stability.",
+    "summary_status": "generated",
+    "content_fingerprint": "fa66e26877565e08",
     "url": "https://developer.nvidia.com/blog/how-nvidia-minerva-turns-telemetry-chaos-into-peak-gpu-yield",
     "date": "2026-10-26T16:00:00+00:00",
     "category": "Product Release",
-    "fetched_at": "2026-10-30T16:09:11.056019+00:00",
+    "fetched_at": "2026-10-30T22:46:19.263985+00:00",
     "topics": [
       "Coding and Developer Tools",
       "Infrastructure and Hardware"
@@ -3027,10 +3320,17 @@
       }
     ],
     "key_points": [
-      "NVIDIA launched Minerva to process complex telemetry data from massive GPU clusters and network infrastructure.",
-      "It improves operational visibility and maximizes hardware yield in large-scale AI data centers.",
-      "Data center operators and enterprise AI infrastructure teams deploying large GPU clusters are directly affected."
-    ]
+      "NVIDIA launched Minerva to manage and analyze telemetry data across large AI factory infrastructures.",
+      "It addresses operational bottlenecks and maintains peak GPU yield during complex multi-week training runs.",
+      "AI infrastructure operators and enterprise engineering teams managing massive GPU clusters are affected."
+    ],
+    "tags": [
+      "NVIDIA",
+      "Minerva",
+      "GPU",
+      "AI Infrastructure"
+    ],
+    "impact_score": 7
   },
   {
     "id": "c3d6fb64eb5418e8",
