@@ -40,6 +40,47 @@
     ]
   },
   {
+    "id": "54f20f9f7f25bd15",
+    "title": "dbreunig/nesformer",
+    "company": "Simon Willison's Weblog",
+    "source": "Simon Willison – AI",
+    "summary": "Drew Breunig developed the nesformer project, embedding a working emulator for a Nintendo Entertainment System 6502 CPU directly into the model weights of Qwen3.5-4B. The implementation allows users to run NES ROMs like Super Mario Bros inside the language model at a very slow speed.",
+    "summary_status": "generated",
+    "content_fingerprint": "9270dc3c2a591502",
+    "url": "https://simonwillison.net/2026/Oct/30/nesformer",
+    "date": "2026-10-30T21:59:22+00:00",
+    "category": "News",
+    "fetched_at": "2026-10-31T22:05:35.133979+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "A working Nintendo Entertainment System 6502 CPU emulator was successfully embedded into the weights of the Qwen3.5-4B language model.",
+      "This experiment demonstrates the feasibility of encoding hardware logic and execution loops directly into neural network weights using AI-generated prompts.",
+      "AI developers, researchers, and hobbyists interested in unconventional computing architectures and neural emulation are affected."
+    ],
+    "tags": [
+      "Qwen",
+      "Emulation",
+      "Hardware",
+      "Generative AI"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://simonwillison.net/2026/Oct/30/nesformer",
+        "title": "dbreunig/nesformer",
+        "publisher": "Simon Willison's Weblog"
+      }
+    ]
+  },
+  {
     "id": "c8804a79ad56c280",
     "title": "Dartmouth's provost warned us about AI cheating—but his own AI use cost him his job",
     "company": "Ars Technica",
