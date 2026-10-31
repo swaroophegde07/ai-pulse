@@ -645,16 +645,16 @@
     "api_available": true,
     "consumer_available": false,
     "pricing": {
-      "input_per_1m": 0.15,
-      "output_per_1m": 1.875,
+      "input_per_1m": 0.04,
+      "output_per_1m": 2.3,
       "unit": "USD"
     },
     "documentation_url": "https://openrouter.ai/qwen/qwen3.8-27b",
     "source_url": "https://openrouter.ai/qwen/qwen3.8-27b",
-    "last_verified": "2026-10-30",
+    "last_verified": "2026-10-31",
     "verification_sources": {
-      "telemetry": "OpenRouter (2026-10-30)",
-      "pricing": "OpenRouter (2026-10-30)"
+      "telemetry": "OpenRouter (2026-10-31)",
+      "pricing": "OpenRouter (2026-10-31)"
     },
     "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
     "is_featured_frontier": false
