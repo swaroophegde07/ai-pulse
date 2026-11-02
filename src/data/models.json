@@ -634,7 +634,7 @@
     "category": "General Chat & Language",
     "release_date": "2026-05-20",
     "lifecycle_status": "Active (Catalog)",
-    "context_window": 1000000,
+    "context_window": 1024000,
     "input_modalities": [
       "text"
     ],
@@ -651,10 +651,10 @@
     },
     "documentation_url": "https://openrouter.ai/qwen/qwen3.8-27b",
     "source_url": "https://openrouter.ai/qwen/qwen3.8-27b",
-    "last_verified": "2026-11-01",
+    "last_verified": "2026-11-02",
     "verification_sources": {
-      "telemetry": "OpenRouter (2026-11-01)",
-      "pricing": "OpenRouter (2026-11-01)"
+      "telemetry": "OpenRouter (2026-11-02)",
+      "pricing": "OpenRouter (2026-11-02)"
     },
     "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
     "is_featured_frontier": false

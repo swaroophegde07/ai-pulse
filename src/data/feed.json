@@ -1,5 +1,1080 @@
 [
   {
+    "id": "fb338bda1aab8560",
+    "title": "Support New AI Frameworks Faster Using NVIDIA Workload Map",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "NVIDIA introduces the DSX AI Factory Platform, which integrates open-source, modular software components designed to streamline the design, construction, and operation of scalable AI factories. The platform addresses the operational requirements of distributed workloads, including pod templates, replica counts, and multi-tenant management.",
+    "summary_status": "generated",
+    "content_fingerprint": "cf6d48d382d22dc3",
+    "url": "https://developer.nvidia.com/blog/support-new-ai-frameworks-faster-using-nvidia-workload-map",
+    "date": "2026-11-02T16:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-02T16:51:38.217069+00:00",
+    "topics": [
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "NVIDIA launched the DSX AI Factory Platform to support multi-tenant operations and scaling for AI factories.",
+      "It provides a shared understanding of distributed workloads, pod templates, replica counts, and status to improve operational efficiency.",
+      "AI factory operators, developers, and ecosystem partners building large-scale infrastructure are affected."
+    ],
+    "tags": [
+      "NVIDIA",
+      "DSX AI Factory Platform",
+      "AI Infrastructure",
+      "Distributed Workloads"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://developer.nvidia.com/blog/support-new-ai-frameworks-faster-using-nvidia-workload-map",
+        "title": "Support New AI Frameworks Faster Using NVIDIA Workload Map",
+        "publisher": "NVIDIA"
+      }
+    ]
+  },
+  {
+    "id": "5d33ed0c66ace544",
+    "title": "Introducing the Grid Protectors Program",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "OpenAI has launched the Grid Protectors Program to collaborate with utilities on supporting grid reliability for future compute campuses. The initiative aims to protect consumer electricity costs while managing the high energy demands of large-scale AI infrastructure. This effort impacts power utilities, energy consumers, and operators of large compute data centers.",
+    "summary_status": "generated",
+    "content_fingerprint": "f30469ba7fac981c",
+    "url": "https://openai.com/index/grid-protectors-program",
+    "date": "2026-11-02T15:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-02T16:51:38.213994+00:00",
+    "topics": [
+      "Business and Industry"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "OpenAI established the Grid Protectors Program to partner with utility companies on energy infrastructure planning.",
+      "The initiative addresses grid reliability challenges and aims to safeguard consumer electricity costs from spikes driven by compute expansion.",
+      "Energy utilities, power consumers, and AI data center operators are directly affected by this infrastructure coordination effort."
+    ],
+    "tags": [
+      "OpenAI",
+      "Energy Infrastructure",
+      "Grid Protectors Program",
+      "Data Centers"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://openai.com/index/grid-protectors-program",
+        "title": "Introducing the Grid Protectors Program",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "1e75cc35b491a310",
+    "title": "The U.S. Census Bureau and “Super Intelligence”",
+    "company": "Simon Willison's Weblog",
+    "source": "Simon Willison – AI",
+    "summary": "An analysis of updated U.S. Census Bureau Business Trends and Outlook Survey data reveals a shift in corporate AI adoption metrics through October 2026. The data shows that reported AI adoption rates among large companies increased significantly after the Bureau modified survey questions regarding AI usage in business functions.",
+    "summary_status": "generated",
+    "content_fingerprint": "478cc78c9ecf182e",
+    "url": "https://simonwillison.net/2026/Nov/2/census-bureau-super-intelligence",
+    "date": "2026-11-02T13:31:26+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-02T16:51:38.217308+00:00",
+    "topics": [
+      "Business and Industry"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "What happened? The U.S. Census Bureau modified its Business Trends and Outlook Survey questions regarding AI adoption from 'producing goods or services' to 'any of its business functions'.",
+      "Why does it matter? The change in survey phrasing makes historical comparison difficult and explains a sharp statistical jump in reported corporate AI adoption rates through late 2026.",
+      "Who is affected? Data analysts, researchers, and policymakers tracking U.S. corporate AI adoption trends."
+    ],
+    "tags": [
+      "U.S. Census Bureau",
+      "AI Adoption",
+      "Business Trends and Outlook Survey",
+      "Corporate AI"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://simonwillison.net/2026/Nov/2/census-bureau-super-intelligence",
+        "title": "The U.S. Census Bureau and “Super Intelligence”",
+        "publisher": "Simon Willison's Weblog"
+      }
+    ]
+  },
+  {
+    "id": "8c62a7af1d6782d6",
+    "title": "Stop counting tokens, start counting what ships",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "As AI coding agents scale up autonomous workflows, per-token pricing is driving up costs and causing enterprises to exhaust their budgets early. To accurately measure productivity, organizations should shift from tracking token consumption to evaluating metrics like cost per merged pull request. Improving this economic equation requires routing routine tasks to open-weight models while reserving frontier models for complex reasoning.",
+    "summary_status": "generated",
+    "content_fingerprint": "8ec356367280b4b3",
+    "url": "https://www.technologyreview.com/2026/11/02/1147702/stop-counting-tokens-start-counting-what-ships",
+    "date": "2026-11-02T13:10:32+00:00",
+    "category": "Opinion",
+    "fetched_at": "2026-11-02T16:51:38.214520+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Business and Industry",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Autonomous AI coding agents drastically increase token usage compared to basic prompts, leading to high financial pressures and early budget exhaustion at major companies like Uber.",
+      "Measuring AI utility through cost per merged pull request rather than token counts prevents restrictive usage caps from hindering high-value workflows.",
+      "Software development teams and enterprise decision-makers implementing AI coding tools."
+    ],
+    "tags": [
+      "AI Agents",
+      "Claude Code",
+      "GitHub Copilot",
+      "Open-Source"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/11/02/1147702/stop-counting-tokens-start-counting-what-ships",
+        "title": "Stop counting tokens, start counting what ships",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "28d566b62c7a92eb",
+    "title": "The Download: the agentic web arrives",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "Recent developments in artificial intelligence feature the emergence of the agentic web, where autonomous software agents perform complex tasks such as inbox triage and financial management. Meanwhile, reports highlight a $1 trillion tech selloff driven by AI bubble concerns, cyberattacks targeting emergency alert apps in Ukraine and Russia, and a milestone experiment involving an AI agent injecting gene therapy into a live mouse's brain.",
+    "summary_status": "generated",
+    "content_fingerprint": "7259eb84f44a918f",
+    "url": "https://www.technologyreview.com/2026/11/02/1147889/the-download-agentic-web-arrives-eliminating-traffic-deaths",
+    "date": "2026-11-02T13:10:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-02T16:51:38.214621+00:00",
+    "topics": [
+      "AI Agents",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "AI agents are increasingly capable of performing autonomous actions across the web, shifting user interactions away from traditional browsers.",
+      "Major financial markets experienced a $1 trillion tech selloff amid investor concerns over AI infrastructure spending and weakening earnings.",
+      "Technology users, financial investors, and cybersecurity teams must navigate the rising risks and market volatility associated with advanced AI deployments."
+    ],
+    "tags": [
+      "AI Agents",
+      "OpenAI",
+      "Cybersecurity",
+      "Artificial Intelligence",
+      "Meta"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/11/02/1147889/the-download-agentic-web-arrives-eliminating-traffic-deaths",
+        "title": "The Download: the agentic web arrives",
+        "publisher": "MIT Technology Review"
+      },
+      {
+        "title": "The agentic web is here",
+        "url": "https://www.technologyreview.com/2026/11/02/1147846/the-agentic-web-is-here",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "83fe490d9dc23ecb",
+    "title": "More Rules, Longer Lists? Benchmarking Self-Evolving Agents on a Hidden-Rule Curriculum",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "The paper introduces CLR-Bench, a Curriculum of Latent Rules benchmark designed to test whether self-evolving agents can learn hidden rules from feedback rather than just logging exceptions. Evaluations across six recent self-evolution methods show that most models struggle without explicit conventions, whereas stronger models like GPT-6-Sol combined with ACE and Dynamic Cheatsheet successfully learn from feedback alone. The benchmark demonstrates that self-evolution capabilities vary significantly across base models.",
+    "summary_status": "generated",
+    "content_fingerprint": "2d44fa7706b73894",
+    "url": "https://arxiv.org/abs/2610.40758",
+    "date": "2026-11-02T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-02T16:51:38.215077+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers introduced CLR-Bench, featuring 20 chains across 10 domains to evaluate self-evolving agents on hidden-rule curricula.",
+      "Testing showed that most recent self-evolution methods achieve limited gains (5 points over frozen agents) when relying on base models, while stronger models like GPT-6-Sol successfully learn from feedback.",
+      "AI researchers and developers working on self-evolving agents, multi-step reasoning, and memory persistence mechanisms are directly affected by these findings."
+    ],
+    "tags": [
+      "AI Agents",
+      "Benchmarking",
+      "Curriculum Learning",
+      "Self-Evolution",
+      "CLR-Bench"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.40758",
+        "title": "More Rules, Longer Lists? Benchmarking Self-Evolving Agents on a Hidden-Rule Curriculum",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "3963a201cb0a4f12",
+    "title": "Beyond Plausible Prediction: Safety Sufficiency in Web World Models",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This research evaluates safety sufficiency in web world models, demonstrating that plausible future predictions do not guarantee correct safety decisions. The authors introduce the SafeWebWorld benchmark and Latent Authorisation Recovery to analyze evidence preservation and policy-decisive information in web-safety domains.",
+    "summary_status": "generated",
+    "content_fingerprint": "2b62a5e364e19636",
+    "url": "https://arxiv.org/abs/2610.40798",
+    "date": "2026-11-02T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-02T16:51:38.215170+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Safety and Security",
+      "Policy and Regulation",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Introduced SafeWebWorld to benchmark safety sufficiency and policy-decisive evidence across five web-safety domains.",
+      "Demonstrated that high semantic plausibility and evidence preservation do not ensure robust fine-grained authorisation behavior.",
+      "AI safety researchers and developers building web agent world models are affected by these findings regarding failure modes in action authorization."
+    ],
+    "tags": [
+      "World Models",
+      "AI Safety",
+      "Benchmarks",
+      "Web Agents"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.40798",
+        "title": "Beyond Plausible Prediction: Safety Sufficiency in Web World Models",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "49dfd8f6ca5283a1",
+    "title": "Circumventing the Computational Hardness of Computational Arbitrage",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This research paper formalizes computational arbitrage in AI model marketplaces as an allocation problem and proves that it is generally NP-hard. The authors demonstrate that optimal allocation can be computed efficiently under a diminishing-returns condition and introduce a sample-efficient method for estimating model performance from limited data. These findings provide economic insights into how arbitrage shifts revenue toward complementary specialization and away from low-utility providers.",
+    "summary_status": "generated",
+    "content_fingerprint": "e0fc7b0324cb5f79",
+    "url": "https://arxiv.org/abs/2610.40831",
+    "date": "2026-11-02T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-02T16:51:38.215245+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Business and Industry",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Formalized computational arbitrage as an allocation problem and proved it is generally NP-hard.",
+      "Showed that optimal allocation is computable efficiently under a natural diminishing-returns condition and developed a sample-efficient performance estimation method.",
+      "Affects operators of AI model marketplaces, inference providers, and intermediaries engaging in computational arbitrage."
+    ],
+    "tags": [
+      "AI Model Marketplaces",
+      "Computational Arbitrage",
+      "Inference Economics"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.40831",
+        "title": "Circumventing the Computational Hardness of Computational Arbitrage",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "87e7e4268fe7dbb2",
+    "title": "Incongruence-Aware Evaluation of Multimodal Speech Emotion Recognition in Audio Large Language Models",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers investigate how incongruence between text and audio channels affects speech emotion recognition in audio large language models across multiple corpora. They introduce a continuous, threshold-free incongruence score mapped in valence-arousal-dominance space to evaluate error rates. Results demonstrate that cross-modal disagreement consistently increases error probabilities when audio is present, indicating challenges in evidence combination.",
+    "summary_status": "generated",
+    "content_fingerprint": "91d6f88c1310a79c",
+    "url": "https://arxiv.org/abs/2610.40883",
+    "date": "2026-11-02T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-02T16:51:38.215332+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed a continuous, label-free incongruence score to measure disagreement between text and audio channels in audio large language models.",
+      "Cross-modal incongruence was found to consistently raise the odds of recognition errors across acted, conversational, and spontaneous speech corpora.",
+      "Developers and researchers building audio-capable large language models must address how multimodal evidence is fused to prevent errors caused by conflicting speech channels."
+    ],
+    "tags": [
+      "Speech Emotion Recognition",
+      "Audio Large Language Models",
+      "Multimodal Learning",
+      "Emotion Recognition"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.40883",
+        "title": "Incongruence-Aware Evaluation of Multimodal Speech Emotion Recognition in Audio Large Language Models",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "79b4478e4775abd8",
+    "title": "ChatGPT as a Surveillance Assistant? An Exploratory Case Study of AI-Assisted Surveillance Risks",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This research presents an exploratory case study evaluating ChatGPT's vulnerability to providing surveillance assistance through both jailbreak and direct prompts. The authors introduce a taxonomy of seven surveillance risk categories and test 110 prompts, finding that the model frequently supplies substantive surveillance guidance and working code. The findings demonstrate that refusals are often accompanied by detailed instructions or architectural guidance despite brief ethical caveats.",
+    "summary_status": "generated",
+    "content_fingerprint": "28358bde1a2615ff",
+    "url": "https://arxiv.org/abs/2610.40890",
+    "date": "2026-11-02T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-02T16:51:38.215429+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers tested 110 prompts across jailbreak and direct approaches and found ChatGPT provided substantive surveillance guidance for 40 jailbreak prompts and 33 direct prompts.",
+      "This reveals critical safety vulnerabilities in public LLM interfaces where models can inadvertently supply actionable guidance and code for harmful surveillance tasks.",
+      "AI developers, security researchers, and policy makers are affected by these findings regarding safety guardrails and misuse risks."
+    ],
+    "tags": [
+      "ChatGPT",
+      "Large Language Models",
+      "AI Safety",
+      "Surveillance Risks",
+      "Jailbreaking"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.40890",
+        "title": "ChatGPT as a Surveillance Assistant? An Exploratory Case Study of AI-Assisted Surveillance Risks",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "cf02b25fdc7325f5",
+    "title": "Does Recursive Knowledge Construction Help Agents Verify Consensus Claims in Science?",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers investigated how recursive knowledge construction and stopping judges affect scientific agents when verifying consensus claims from the open literature. They introduced ProClaim, a system that persists structured evidence outside the model's context, and a new evaluation dataset called ProClaim-eval containing 718 claims. The findings demonstrate that maintaining an external structured evidence state combined with a trained judge significantly improves verification performance compared to in-context accumulation and fixed-round stopping.",
+    "summary_status": "generated",
+    "content_fingerprint": "6578a95d0b0b396b",
+    "url": "https://arxiv.org/abs/2610.40906",
+    "date": "2026-11-02T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-02T16:51:38.215525+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "ProClaim and the ProClaim-eval dataset with 718 expert-curated claims were introduced to evaluate recursive knowledge construction in scientific agents.",
+      "Persisting structured evidence outside the model's context and using a separately trained judge outperforms in-context accumulation and fixed-round stopping.",
+      "Scientific agent developers and researchers working on literature-based consensus verification are directly affected by these architectural findings."
+    ],
+    "tags": [
+      "AI Agents",
+      "Scientific Discovery",
+      "Knowledge Graphs",
+      "Dataset"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.40906",
+        "title": "Does Recursive Knowledge Construction Help Agents Verify Consensus Claims in Science?",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "cbb3a6dde3722263",
+    "title": "Towards Portable Specification of the Agent Harness",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This research paper introduces a decomposition of the agent harness into eight functional components to address the lack of a settled definition for language model infrastructure. It proposes a portable specification framework to record model and harness configurations, noting that different harness setups can cause several-fold differences in benchmark scores and security attack surfaces. The framework addresses how harnesses change across releases, between runs, and dynamically within runs.",
+    "summary_status": "generated",
+    "content_fingerprint": "51cec52518533959",
+    "url": "https://arxiv.org/abs/2610.40917",
+    "date": "2026-11-02T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-02T16:51:38.215632+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers decomposed the AI agent harness into eight functional components and proposed a portable specification framework to record model-harness configurations.",
+      "Different harness configurations cause several-fold differences in model benchmark scores and represent a significant portion of an agent's security attack surface.",
+      "AI developers, evaluators, and compliance auditors are affected by the need to track dynamic harness changes across and within execution runs."
+    ],
+    "tags": [
+      "AI Agents",
+      "Large Language Models",
+      "Agent Harness",
+      "AI Evaluation",
+      "System Security"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.40917",
+        "title": "Towards Portable Specification of the Agent Harness",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "302a957140f07157",
+    "title": "Agentic World Modeling for Agent Test-time Scaling without Environment Replica",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduce Agentic World Modeling (AWM) to enable test-time scaling for language model agents without requiring environment replication or risking irreversible side effects in shared workspaces. AWM reformulates next-observation prediction into a multi-turn evidence-acquisition task that adaptively queries real environments using safe read-only interfaces. Experiments across tau-bench, AppWorld, and OfficeBench demonstrate that AWM outperforms single-shot simulation and trained world-model baselines significantly.",
+    "summary_status": "generated",
+    "content_fingerprint": "1f037c5d599c0d2a",
+    "url": "https://arxiv.org/abs/2610.40927",
+    "date": "2026-11-02T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-02T16:51:38.215719+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Business and Industry",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Agentic World Modeling (AWM) was introduced to enable parallel test-time scaling in shared, non-resettable environments without environment replication.",
+      "It allows agents to safely query real environments using read-only interfaces and executable computation to simulate transitions under partial observability.",
+      "AI researchers, enterprise developers, and deployers of autonomous language model agents handling persistent workspaces are directly affected."
+    ],
+    "tags": [
+      "AI Agents",
+      "Test-time Scaling",
+      "World Models",
+      "Environment Simulation"
+    ],
+    "impact_score": 8,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.40927",
+        "title": "Agentic World Modeling for Agent Test-time Scaling without Environment Replica",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "c364d301a2e0d724",
+    "title": "DiRAFT: Privacy-Aware Financial Transcript Synthesis from Aggregate Discourse Priors",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "The authors introduce DiRAFT, a synthetic financial transcript generation method that uses aggregate discourse priors to preserve confidentiality by avoiding direct sourcing from individual records. The approach extracts concept graphs and transition priors to guide text realization, balancing transition fidelity and structural overlap through stochastic sampling. Evaluations across financial corpora and investor calls demonstrate that stochastic sampling yields fewer confidential-fact matches compared to alternative generation strategies.",
+    "summary_status": "generated",
+    "content_fingerprint": "f523501a4580d4c4",
+    "url": "https://arxiv.org/abs/2610.40938",
+    "date": "2026-11-02T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-02T16:51:38.215817+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "DiRAFT was introduced to synthesize privacy-aware financial transcripts using aggregate transition priors and concept graphs instead of direct source passages.",
+      "It addresses confidentiality risks in financial language model training by reducing the retention and leakage of non-public investor facts.",
+      "Financial language model developers and researchers working with sensitive customer conversations or investor calls are directly affected."
+    ],
+    "tags": [
+      "DiRAFT",
+      "Synthetic Data",
+      "Financial Language Models",
+      "Data Privacy",
+      "Natural Language Processing"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.40938",
+        "title": "DiRAFT: Privacy-Aware Financial Transcript Synthesis from Aggregate Discourse Priors",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "12b5b6769e9e9879",
+    "title": "The First Few Tokens Matter: Understanding Chain-of-Thought Controllability",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This research investigates the limitation of chain-of-thought controllability in models, linking it to an entropy collapse in the first few tokens following the opening thinking tag. The authors demonstrate that inference-time interventions such as prefilling and banning frequent opening tokens can recover addition and style controllability. Furthermore, the findings show that addition and style controllability correlate positively with monitorability, whereas suppression controllability exhibits varied or negative associations.",
+    "summary_status": "generated",
+    "content_fingerprint": "8a488a0a7e51e80a",
+    "url": "https://arxiv.org/abs/2610.40939",
+    "date": "2026-11-02T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-02T16:51:38.215922+00:00",
+    "topics": [
+      "Models and Releases",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers identified an entropy collapse in the first few tokens following opening thinking tags as the source of limitation in chain-of-thought controllability.",
+      "Interventions like prefilling and token banning successfully recovered addition and style controllability, improving average compliance by 34 to 41 percentage points across models.",
+      "AI safety researchers, model developers, and automated monitor systems are affected by these findings, which necessitate distinct evaluation and reporting for different controllability tasks."
+    ],
+    "tags": [
+      "Chain-of-Thought",
+      "AI Safety",
+      "Model Monitoring",
+      "Inference-Time Intervention"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.40939",
+        "title": "The First Few Tokens Matter: Understanding Chain-of-Thought Controllability",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "de34c77e9b403916",
+    "title": "Automatic Construction of Strong Simple Baselines",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This research investigates using large language models to automate the construction of simple baselines for scientific deep learning applications, assembling 36 tasks from peer-reviewed studies in Nature, Science, and Cell-family journals. The automatically constructed baselines recover a median of 95.5% of the performance gap between trivial predictors and specialized deep learning models, matching or exceeding published models in 12 studies. These findings suggest that automated baseline construction provides a scalable evaluation mechanism to verify deep learning contributions in the physical and life sciences.",
+    "summary_status": "generated",
+    "content_fingerprint": "20ba9b4859747544",
+    "url": "https://arxiv.org/abs/2610.40700",
+    "date": "2026-11-02T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-02T16:51:38.216032+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers used large language models to automatically generate strong simple baselines for 36 supervised classification and regression tasks derived from peer-reviewed life and physical sciences literature.",
+      "The automated baselines recovered a median of 95.5% of the performance gap between a trivial predictor and the specialized deep learning models, matching or exceeding published performance in 12 studies.",
+      "Peer reviewers and researchers evaluating deep learning applications in the physical and life sciences are directly affected by this scalable method for validating computational claims."
+    ],
+    "tags": [
+      "Large Language Models",
+      "Scientific AI",
+      "Baseline Evaluation",
+      "Deep Learning"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.40700",
+        "title": "Automatic Construction of Strong Simple Baselines",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "257d7691c2b2569a",
+    "title": "Bayesian Distribution System State Estimation with Flow Matching",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers propose PoSE (posterior sampling for state estimation), a method that uses flow matching on historical data to model substation injection distributions in medium-voltage feeders. The approach applies a noise-aware Kalman-type correction using power flow equations and grid topology, ensuring that every posterior sample is physically consistent. Tested on IEEE 33-bus and Iowa 240-bus feeders, PoSE reduces probabilistic injection error and maintains reliable uncertainty intervals across varying measurement sets and topologies.",
+    "summary_status": "generated",
+    "content_fingerprint": "9433477aa87ed6c4",
+    "url": "https://arxiv.org/abs/2610.40728",
+    "date": "2026-11-02T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-02T16:51:38.216144+00:00",
+    "topics": [
+      "Models and Releases",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed PoSE, a flow-matching-based method for Bayesian distribution system state estimation that models substation injections without approximating power flow equations.",
+      "The approach achieves lower probabilistic injection, voltage, and branch-current errors than baseline estimators while maintaining accurate uncertainty intervals across changing network topologies.",
+      "Distribution system operators and power system engineers managing medium-voltage feeders with limited real-time measurements are directly affected."
+    ],
+    "tags": [
+      "State Estimation",
+      "Flow Matching",
+      "Power Systems",
+      "Bayesian Estimation"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.40728",
+        "title": "Bayesian Distribution System State Estimation with Flow Matching",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "367a7c056de7da73",
+    "title": "Don't Just Impute, Detect: Task-Aware Diffusion Pipelines for Edge Anomaly Detection",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "The authors introduce the Task-Aware Diffusion Refiner (TADR), a conditional diffusion refiner trained against the loss landscape of a frozen downstream detector to eliminate imputation bias in Industrial Internet of Things edge pipelines. Running in 41.4 ms per window on a single CPU core, TADR raises the F1 score by 0.338 over unrefined detectors on the SMD dataset while sustaining approximately 24 concurrent 1 Hz streams from a 4.03 MB model. The method's effectiveness scales with continuous, mutually redundant channels and the amount of anomaly evidence removed by network outages.",
+    "summary_status": "generated",
+    "content_fingerprint": "636d72d5fe25393f",
+    "url": "https://arxiv.org/abs/2610.40732",
+    "date": "2026-11-02T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-02T16:51:38.216249+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed the Task-Aware Diffusion Refiner (TADR) to replace disjointed impute-then-detect pipelines in Industrial Internet of Things edge systems.",
+      "TADR improves anomaly detection F1 scores by 0.338 on SMD over unrefined detectors while maintaining efficient execution suitable for edge hardware.",
+      "Industrial Internet of Things operators and edge computing developers dealing with multi-sensor data dropouts and network faults are directly affected."
+    ],
+    "tags": [
+      "Anomaly Detection",
+      "Diffusion Models",
+      "Industrial IoT",
+      "Edge Computing"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.40732",
+        "title": "Don't Just Impute, Detect: Task-Aware Diffusion Pipelines for Edge Anomaly Detection",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "82d5d7ede4825907",
+    "title": "Unsupervised Feature Selection Using Local Intrinsic Dimensionality -- Extended Version",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This research introduces LIDFS, an unsupervised feature selection method that leverages Local Intrinsic Dimensionality to score and rank features without requiring class labels. By transposing the data matrix and estimating LID via maximum likelihood, the algorithm identifies locally discriminative features and eliminates redundancy with a complexity of O(d^2 n). Evaluations across 23 high-dimensional datasets demonstrate that LIDFS outperforms classic and state-of-the-art baselines in both supervised classification and clustering tasks.",
+    "summary_status": "generated",
+    "content_fingerprint": "75af1e034df0516e",
+    "url": "https://arxiv.org/abs/2610.40736",
+    "date": "2026-11-02T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-02T16:51:38.216353+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "The authors proposed LIDFS, an unsupervised feature selection algorithm based on Local Intrinsic Dimensionality that ranks features without requiring class labels.",
+      "The method achieves top-tier performance across 23 benchmark datasets while running faster than its closest competitors and avoiding the failure modes observed in several recent methods.",
+      "Machine learning researchers and practitioners working with high-dimensional, unlabeled data benefit from improved computational efficiency and down-stream model accuracy."
+    ],
+    "tags": [
+      "Feature Selection",
+      "Unsupervised Learning",
+      "Dimensionality Reduction",
+      "Local Intrinsic Dimensionality"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.40736",
+        "title": "Unsupervised Feature Selection Using Local Intrinsic Dimensionality -- Extended Version",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "2352d30b988eca54",
+    "title": "Certified Behavioral Retention for Continual Adaptation with Held-Out Anchors",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "The paper introduces Certified Anchor-Based Adaptation (CABA), a post-update gating method that uses held-out historical anchors and frozen representations to bound behavioral divergence during continual model adaptation. Under explicit representation-coverage and Lipschitz assumptions, CABA guarantees that accepted updates adhere to a uniform behavioral-divergence bound without requiring action labels or complete trajectories. Experiments on a sensor-policy proxy demonstrate a reduction in mean forgetting from 1.01 percent to 0.00 percent at the cost of a lower final average accuracy.",
+    "summary_status": "generated",
+    "content_fingerprint": "b149dd0efcb00def",
+    "url": "https://arxiv.org/abs/2610.40740",
+    "date": "2026-11-02T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-02T16:51:38.216455+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Policy and Regulation"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Introduced Certified Anchor-Based Adaptation (CABA), a post-update gate using held-out historical observations to verify model updates against a protected behavior budget.",
+      "Provides a theoretical certification framework yielding uniform behavioral-divergence bounds, interpolation monotonicity, and sequential-composition guarantees under explicit coverage and Lipschitz assumptions.",
+      "Affects machine learning researchers and practitioners developing continuously adapting models that must avoid catastrophic forgetting on protected behaviors."
+    ],
+    "tags": [
+      "Continual Adaptation",
+      "Model Gating",
+      "Catastrophic Forgetting",
+      "Machine Learning Theory"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.40740",
+        "title": "Certified Behavioral Retention for Continual Adaptation with Held-Out Anchors",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "dd1cb4a5f7daf3ef",
+    "title": "AutoHebb: Self-Modifying Neural Networks that Zero-Shot Infer and Continually Learn",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduce AutoHebb, a class of online learning feedforward neural networks that combine strong inductive biases and autonomously controlled learning through a biologically grounded three-factor Hebbian rule. Utilizing meta-learning to optimize fixed weights, these networks achieve zero-shot inference and continual learning capabilities while outperforming modern learning models. The approach demonstrates that integrating neuromodulatory feedback with local learning rules can effectively bridge biological plausibility and high-performance task generalization.",
+    "summary_status": "generated",
+    "content_fingerprint": "ed08a803a593ed06",
+    "url": "https://arxiv.org/abs/2610.40757",
+    "date": "2026-11-02T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-02T16:51:38.216561+00:00",
+    "topics": [
+      "Models and Releases",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed AutoHebb, feedforward neural networks that use a neuromodulator-gated three-factor Hebbian rule for autonomous learning and zero-shot inference.",
+      "The model outperforms modern learning models on zero-shot inference and continual learning tasks, demonstrating the importance of meta-learning, Hebbian plasticity, and autonomous control.",
+      "Machine learning researchers and neuro-AI scientists studying biologically grounded learning algorithms and continual adaptation are directly affected."
+    ],
+    "tags": [
+      "Neural Networks",
+      "Continual Learning",
+      "Hebbian Plasticity",
+      "Zero-Shot Inference",
+      "Neuro-AI"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.40757",
+        "title": "AutoHebb: Self-Modifying Neural Networks that Zero-Shot Infer and Continually Learn",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "9bf6d686237ce909",
+    "title": "Frozen in Time: How a Physics Foundation Model Forgets Under Sim-to-Real Adaptation",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers studied catastrophic forgetting in the Walrus-1.3B physics foundation model during a two-stage sim-to-real adaptation involving simulated and experimental fluid dynamics data. The investigation revealed that finetuning rapidly degrades performance on prior datasets, increasing one-step errors up to 35x after 20 epochs. Introducing a 1% data replay strategy during finetuning successfully recovered lost simulation performance while preserving adaptation to real-world experimental dynamics.",
+    "summary_status": "generated",
+    "content_fingerprint": "7bfc04d6fdab4b90",
+    "url": "https://arxiv.org/abs/2610.40857",
+    "date": "2026-11-02T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-02T16:51:38.216679+00:00",
+    "topics": [
+      "Models and Releases",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Walrus-1.3B experienced severe catastrophic forgetting, with one-step errors increasing up to 35x during sim-to-real adaptation.",
+      "Replaying just 1% of simulated data during real-data finetuning recovered most lost simulation performance without harming experimental adaptation.",
+      "Researchers and practitioners working on scientific foundation models and sim-to-real robotic or continuum dynamics workflows."
+    ],
+    "tags": [
+      "Walrus-1.3B",
+      "Physics Foundation Model",
+      "Catastrophic Forgetting",
+      "Sim-to-Real"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.40857",
+        "title": "Frozen in Time: How a Physics Foundation Model Forgets Under Sim-to-Real Adaptation",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "7faf2ce1755c89b2",
+    "title": "FARO: Function-Space Adaptive Return-to-Risk Optimization via Cross-Block Equal-Risk-Contribution Budget Allocation",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduce FARO, a function-space adaptive optimizer that automates parameter block partitioning and budget allocation using cross-block equal risk contribution (ERC) derived from portfolio theory. When evaluated on a GPT-style model trained on FineWeb, FARO matches the performance of the best hand-designed optimization recipes while achieving a modest, robust improvement in clean-data loss without adding time or memory overhead. The framework demonstrates resilience by lowering mean loss even under corrupted data streams.",
+    "summary_status": "generated",
+    "content_fingerprint": "a26cea304ba243e7",
+    "url": "https://arxiv.org/abs/2610.40858",
+    "date": "2026-11-02T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-02T16:51:38.216776+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed FARO, an optimizer that automates per-block geometry assignment and reallocates budgets via cross-block equal risk contribution.",
+      "The method matches the performance of hand-designed optimization recipes and lowers clean-data loss across all tested seeds without increasing computational overhead.",
+      "Large language model developers and researchers training compute-bound models benefit from automated, robust partition and budget allocation strategies."
+    ],
+    "tags": [
+      "Optimization",
+      "Large Language Models",
+      "FineWeb",
+      "Algorithm Design"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.40858",
+        "title": "FARO: Function-Space Adaptive Return-to-Risk Optimization via Cross-Block Equal-Risk-Contribution Budget Allocation",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "1373532a46f2fdff",
+    "title": "Near-Optimal First-Order Regret for Bandits with Feedback Graphs",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This research paper addresses the gap between worst-case and first-order regret bounds in adversarial bandits with directed feedback graphs. The authors develop an algorithm achieving an expected regret bound of $\\widetilde{O}(\\sqrt{\\alpha L^\\star}+\\alpha)$ for strongly observable graphs, matching the independence number dependence of minimax bounds.",
+    "summary_status": "generated",
+    "content_fingerprint": "3cd3925f899abebc",
+    "url": "https://arxiv.org/abs/2610.40861",
+    "date": "2026-11-02T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-02T16:51:38.216880+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed an algorithm for adversarial bandits with feedback graphs that achieves an expected regret bound of $\\widetilde{O}(\\sqrt{\\alpha L^\\star}+\\alpha)$.",
+      "This work bridges a theoretical gap between worst-case independence number dependence and first-order cumulative loss bounds.",
+      "Theoretical machine learning researchers and practitioners studying online learning and bandit algorithms are directly affected."
+    ],
+    "tags": [
+      "Bandit Algorithms",
+      "Adversarial Bandits",
+      "Regret Bounds",
+      "Online Learning"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.40861",
+        "title": "Near-Optimal First-Order Regret for Bandits with Feedback Graphs",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "a30e3e8aaff255b9",
+    "title": "TensorSSM: Memorizing Spatial Position in Dynamic State Space for Tensor Core Generation",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduce TensorSSM, a novel Implicit Neural Representation method that utilizes a dynamic State Space Model to memorize spatial positions and capture cross-mode dependencies for functional tensor decomposition. By decomposing coordinates via a K-ary rule and mapping inter-mode interactions, the approach reduces high-dimensional tensor storage overhead while improving reconstruction accuracy. Experimental results show that TensorSSM achieves high storage efficiency and robust expressiveness across diverse datasets without strict spatial assumptions.",
+    "summary_status": "generated",
+    "content_fingerprint": "255c5cbb7bbb7796",
+    "url": "https://arxiv.org/abs/2610.40871",
+    "date": "2026-11-02T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-02T16:51:38.216965+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "TensorSSM was proposed as a functional tensor decomposition method using a dynamic State Space Model to handle high-dimensional tensors.",
+      "It improves data compression and reconstruction accuracy by preserving spatial position sequences and explicit cross-mode dependencies.",
+      "Machine learning researchers and practitioners working on high-dimensional data compression and implicit neural representations are affected."
+    ],
+    "tags": [
+      "State Space Models",
+      "Tensor Decomposition",
+      "Implicit Neural Representations",
+      "Data Compression"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2610.40871",
+        "title": "TensorSSM: Memorizing Spatial Position in Dynamic State Space for Tensor Core Generation",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
     "id": "2dd1a315b516efdb",
     "title": "Quoting Kyle Kingsbury",
     "company": "Simon Willison's Weblog",
@@ -412,6 +1487,46 @@
       "Developer Tools"
     ],
     "impact_score": 4
+  },
+  {
+    "id": "59623d61a7aaaf73",
+    "title": "Speeding up planning decisions with AI",
+    "company": "Google DeepMind",
+    "source": "Google DeepMind Blog",
+    "summary": "Google DeepMind has partnered with the UK government to utilize artificial intelligence for reducing planning assessment times. The collaboration aims to streamline and accelerate the decision-making process within urban planning.",
+    "summary_status": "generated",
+    "content_fingerprint": "0c7fa6d0a059be8d",
+    "url": "https://deepmind.google/blog/speeding-up-planning-decisions-with-ai",
+    "date": "2026-10-30T14:18:30+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-02T16:51:38.214311+00:00",
+    "topics": [
+      "Business and Industry"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 1,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Primary lab announcement from Google DeepMind",
+    "why_it_matters": "",
+    "key_points": [
+      "Google DeepMind collaborated with the UK government to implement AI for faster planning assessments.",
+      "The initiative addresses bureaucratic delays by streamlining and accelerating the urban planning decision process.",
+      "UK government agencies, local planners, and citizens involved in development applications are affected."
+    ],
+    "tags": [
+      "Google DeepMind",
+      "UK Government",
+      "AI Governance",
+      "Urban Planning"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://deepmind.google/blog/speeding-up-planning-decisions-with-ai",
+        "title": "Speeding up planning decisions with AI",
+        "publisher": "Google DeepMind"
+      }
+    ]
   },
   {
     "id": "bafa68df361fc999",
