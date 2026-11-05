@@ -1,5 +1,218 @@
 [
   {
+    "id": "4376fc05a5786b49",
+    "title": "How NVIDIA Uses AI Agents to Streamline AI Factory Operations",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "NVIDIA developed the AI Factory Operations Agent to streamline internal DGX SuperPOD management by correlating metrics across compute, network, hardware, and scheduling. The multi-agent system replaces the manual process of examining multiple dashboards to diagnose training performance drops in scaled GPU clusters. This approach reduces operational overhead for site reliability engineers managing large-scale AI infrastructure.",
+    "summary_status": "generated",
+    "content_fingerprint": "0162aefb95233f91",
+    "url": "https://developer.nvidia.com/blog/how-nvidia-uses-ai-agents-to-streamline-ai-factory-operations",
+    "date": "2026-11-04T22:00:17+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-05T00:04:51.434346+00:00",
+    "topics": [
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "NVIDIA developed the AI Factory Operations Agent to monitor and correlate metrics across compute, network, hardware, and scheduling in DGX SuperPOD clusters.",
+      "It consolidates multi-dashboard monitoring into a single interface to diagnose training performance drops, reducing manual troubleshooting overhead.",
+      "Site reliability engineers and infrastructure teams managing large-scale GPU clusters are directly affected by this operational tooling."
+    ],
+    "tags": [
+      "NVIDIA",
+      "AI Agents",
+      "DGX SuperPOD",
+      "Infrastructure"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://developer.nvidia.com/blog/how-nvidia-uses-ai-agents-to-streamline-ai-factory-operations",
+        "title": "How NVIDIA Uses AI Agents to Streamline AI Factory Operations",
+        "publisher": "NVIDIA"
+      }
+    ]
+  },
+  {
+    "id": "4c156bd25dffe910",
+    "title": "Texas was the new epicenter of the AI data center buildout. That might be kaput.",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "Political shifts in Texas, including Democratic victories and a shifting stance by the incumbent governor, threaten the state's status as a primary hub for AI data center development. Major projects like the Stargate Frontier and Nexus Hubbard facilities face potential delays or moratoriums driven by concerns over energy grid impacts and ratepayer costs. These regional policy changes reflect broader voter skepticism nationwide regarding the rapid expansion of Big Tech infrastructure.",
+    "summary_status": "generated",
+    "content_fingerprint": "e50b0b66973c6fa4",
+    "url": "https://www.technologyreview.com/2026/11/04/1148043/texas-was-the-new-epicenter-of-the-ai-data-center-buildout-that-might-be-kaput",
+    "date": "2026-11-04T18:50:55+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-05T00:04:51.433881+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Policy and Regulation"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Democratic election victories in Texas and a halt on data center permits ordered by the governor threaten the state's AI infrastructure buildout.",
+      "Proposed moratoriums could stall massive multi-gigawatt facilities like the Nexus Hubbard project intended for Anthropic and the Stargate Frontier data center.",
+      "Big Tech hyperscalers, data center developers, and financial lenders face growing regulatory and financial risks as public pushback against rising electricity costs intensifies."
+    ],
+    "tags": [
+      "Texas",
+      "Anthropic",
+      "Data Centers",
+      "AI Infrastructure",
+      "Big Tech"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/11/04/1148043/texas-was-the-new-epicenter-of-the-ai-data-center-buildout-that-might-be-kaput",
+        "title": "Texas was the new epicenter of the AI data center buildout. That might be kaput.",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "32d4e91d243ef07f",
+    "title": "Dharma Field Extractor: Any Document In, Structured Fields in JSON Out",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "The Dharma Field Extractor is a newly released data processing tool designed to ingest unstructured documents and output structured fields formatted as JSON. It aims to streamline data extraction workflows for developers and enterprises handling complex document formats.",
+    "summary_status": "generated",
+    "content_fingerprint": "dbf9a97f89849075",
+    "url": "https://huggingface.co/blog/Dharma-AI/dharma-field-extractor",
+    "date": "2026-11-04T17:50:10+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-05T00:04:51.433806+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Business and Industry",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Released the Dharma Field Extractor to convert unstructured documents into structured JSON fields.",
+      "Streamlines data extraction pipelines, reducing manual parsing effort and improving data ingestion efficiency for applications.",
+      "Software developers, data engineers, and enterprises processing large volumes of unstructured documents."
+    ],
+    "tags": [
+      "Dharma Field Extractor",
+      "Data Extraction",
+      "JSON",
+      "Document Processing"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/Dharma-AI/dharma-field-extractor",
+        "title": "Dharma Field Extractor: Any Document In, Structured Fields in JSON Out",
+        "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
+    "id": "73bbcb2d707df5a3",
+    "title": "How NVIDIA Factory Operations Blueprint Coordinates AI Agents to Investigate Production Issues",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "NVIDIA introduces the Factory Operations Blueprint, designed to coordinate AI agents in investigating production issues and reducing costly plant downtime. The system addresses the challenge of gathering evidence across fragmented factory systems and consulting specialists to accelerate operational responses.",
+    "summary_status": "generated",
+    "content_fingerprint": "4b9226d4b1ae0c26",
+    "url": "https://developer.nvidia.com/blog/how-nvidia-factory-operations-blueprint-coordinates-ai-agents-to-investigate-production-issues",
+    "date": "2026-11-04T17:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-05T00:04:51.434505+00:00",
+    "topics": [
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "NVIDIA released the Factory Operations Blueprint to coordinate AI agents for investigating factory production issues.",
+      "It addresses high unplanned downtime costs by automating data gathering and team coordination across factory systems.",
+      "Manufacturing enterprises, plant operators, and industrial IT teams are affected by this workflow automation."
+    ],
+    "tags": [
+      "NVIDIA",
+      "AI Agents",
+      "Industrial Automation",
+      "Manufacturing"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://developer.nvidia.com/blog/how-nvidia-factory-operations-blueprint-coordinates-ai-agents-to-investigate-production-issues",
+        "title": "How NVIDIA Factory Operations Blueprint Coordinates AI Agents to Investigate Production Issues",
+        "publisher": "NVIDIA"
+      }
+    ]
+  },
+  {
+    "id": "1be4fdd8e6ca80f0",
+    "title": "OpenAI to acquire Pierre Computer Company, Inc.",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "OpenAI announced the acquisition of Pierre Computer Company to expand the toolset available for the Codex platform. This integration enhances capabilities related to building, understanding, and reviewing software code.",
+    "summary_status": "generated",
+    "content_fingerprint": "340c633b8d2b956c",
+    "url": "https://openai.com/index/openai-to-acquire-pierre",
+    "date": "2026-11-04T14:30:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-05T00:04:51.433288+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Business and Industry"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 1,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Primary lab announcement from OpenAI",
+    "why_it_matters": "",
+    "key_points": [
+      "OpenAI acquired Pierre Computer Company, Inc.",
+      "The acquisition expands the tools available within Codex for building, understanding, and reviewing code.",
+      "Developers and software engineering teams utilizing OpenAI Codex are affected by these new capabilities."
+    ],
+    "tags": [
+      "OpenAI",
+      "Pierre Computer Company",
+      "Codex",
+      "Software Engineering"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://openai.com/index/openai-to-acquire-pierre",
+        "title": "OpenAI to acquire Pierre Computer Company, Inc.",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
     "id": "a1f01cfcf623ef01",
     "title": "The Download: blended meat, restored sight",
     "company": "MIT Technology Review",
@@ -82,6 +295,90 @@
         "url": "https://www.technologyreview.com/2026/11/04/1147596/securing-the-agentic-enterprise-with-data-lineage",
         "title": "Securing the agentic enterprise with data lineage",
         "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "fbaa86a829ad59fd",
+    "title": "A thousand fewer paths to root",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "OpenAI constructed an autonomous pipeline capable of identifying, validating, and generating patches for Linux kernel vulnerabilities. This system successfully addressed 948 local privilege-escalation flaws within the kernel infrastructure.",
+    "summary_status": "generated",
+    "content_fingerprint": "3c73a7f8fcae75ec",
+    "url": "https://openai.com/index/a-thousand-fewer-paths-to-root",
+    "date": "2026-11-04T08:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-05T00:04:51.433646+00:00",
+    "topics": [
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 1,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Primary lab announcement from OpenAI",
+    "why_it_matters": "",
+    "key_points": [
+      "OpenAI deployed an autonomous pipeline that found, validated, and patched 948 local privilege-escalation vulnerabilities in the Linux kernel.",
+      "This automated approach demonstrates the feasibility of using AI agents to systematically secure complex, critical open-source infrastructure at scale.",
+      "Linux kernel developers, security engineers, and enterprise infrastructure maintainers are directly affected by these automated patches and methodologies."
+    ],
+    "tags": [
+      "OpenAI",
+      "Linux kernel",
+      "Vulnerability Patching",
+      "AI Agents",
+      "Cybersecurity"
+    ],
+    "impact_score": 8,
+    "sources": [
+      {
+        "url": "https://openai.com/index/a-thousand-fewer-paths-to-root",
+        "title": "A thousand fewer paths to root",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "a3433e936d2c04bf",
+    "title": "Daybreak Red is now available in AWS GovCloud (US-East)",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Daybreak Red is now available to approved customers in AWS GovCloud (US-East) through Amazon Bedrock. This deployment provides access to GPT-5.6 Cyber specifically for authorized cybersecurity work within government clouds.",
+    "summary_status": "generated",
+    "content_fingerprint": "847427aa117f1c25",
+    "url": "https://openai.com/index/daybreak-red-aws-govcloud",
+    "date": "2026-11-04T07:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-05T00:04:51.433559+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "GPT-5.6 Cyber via Daybreak Red launched in AWS GovCloud (US-East) through Amazon Bedrock.",
+      "Enables advanced AI capabilities for authorized government and public sector cybersecurity workloads.",
+      "Approved customers and government agencies utilizing AWS GovCloud are directly affected."
+    ],
+    "tags": [
+      "GPT-5.6 Cyber",
+      "Amazon Bedrock",
+      "AWS GovCloud",
+      "Cybersecurity"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://openai.com/index/daybreak-red-aws-govcloud",
+        "title": "Daybreak Red is now available in AWS GovCloud (US-East)",
+        "publisher": "OpenAI"
       }
     ]
   },
@@ -945,6 +1242,48 @@
         "url": "https://arxiv.org/abs/2611.03737",
         "title": "SSPE: Robust Sequential Staypoint Extraction in Degraded Trajectory Data",
         "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "981785a01550309d",
+    "title": "DevRev delivers autonomous self-service with GPT-6.1 Sol",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "DevRev has integrated GPT-6.1 Sol to power its Computer and Operator systems. This deployment aims to balance reasoning capabilities, speed, and cost-effectiveness for enterprise customer service applications.",
+    "summary_status": "generated",
+    "content_fingerprint": "6496d11c61577ea2",
+    "url": "https://openai.com/index/devrev-enterprise-self-service",
+    "date": "2026-11-04T00:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-05T00:04:51.433739+00:00",
+    "topics": [
+      "Models and Releases",
+      "Business and Industry",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 7,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "DevRev integrated GPT-6.1 Sol to power its Computer and Operator platforms.",
+      "It balances reasoning, speed, and cost for enterprise-grade customer service operations.",
+      "Enterprise customer service teams and businesses utilizing DevRev systems are directly affected."
+    ],
+    "tags": [
+      "DevRev",
+      "GPT-6.1 Sol",
+      "Enterprise AI",
+      "Customer Service"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://openai.com/index/devrev-enterprise-self-service",
+        "title": "DevRev delivers autonomous self-service with GPT-6.1 Sol",
+        "publisher": "OpenAI"
       }
     ]
   },
