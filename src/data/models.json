@@ -183,7 +183,7 @@
     "api_available": true,
     "consumer_available": false,
     "pricing": {
-      "input_per_1m": 0.0514,
+      "input_per_1m": 0.059,
       "output_per_1m": 0.3,
       "unit": "USD"
     },
@@ -2882,8 +2882,8 @@
     "api_available": true,
     "consumer_available": true,
     "pricing": {
-      "input_per_1m": 0.2,
-      "output_per_1m": 0.52,
+      "input_per_1m": 0.59,
+      "output_per_1m": 0.79,
       "unit": "USD"
     },
     "documentation_url": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama3_3/",
