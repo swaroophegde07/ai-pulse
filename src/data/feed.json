@@ -1,5 +1,448 @@
 [
   {
+    "id": "130228f41d03b1d5",
+    "title": "The Download: Texas’s fragile AI boom",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "[Automated summary unavailable] This is today’s edition of The Download , our weekday newsletter that provides a daily dose of what’s going on in the world of technology. Texas was the new epicenter of the AI data center buildout.…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://www.technologyreview.com/2026/11/05/1144908/the-download-texas-fragile-ai-boom-us-energy-policy",
+    "date": "2026-11-05T13:10:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-05T15:11:58.044909+00:00",
+    "topics": [
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/11/05/1144908/the-download-texas-fragile-ai-boom-us-energy-policy",
+        "title": "The Download: Texas’s fragile AI boom",
+        "publisher": "MIT Technology Review"
+      }
+    ],
+    "key_points": [
+      "Texas became a primary hub for building new artificial intelligence data centers.",
+      "The rapid growth of power-intensive facilities creates strain and raises reliability concerns for the local energy grid.",
+      "Energy regulators, local utilities, and regional residents face immediate infrastructure challenges from surging power demands."
+    ]
+  },
+  {
+    "id": "f846b630bec3a503",
+    "title": "Who May Overrule the Agent? Evidence-Gated Authority in LLM Review Institutions",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.05390v1 Announce Type: new Abstract: Multi-agent language-model systems often add a reviewer to improve an upstream agent's decision. Yet a reviewer can both repair errors and replace…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.05390",
+    "date": "2026-11-05T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-05T15:11:58.045257+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.05390",
+        "title": "Who May Overrule the Agent? Evidence-Gated Authority in LLM Review Institutions",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "fb43f0f2d5d92507",
+    "title": "Agent Harness Awareness: Turning Verified Telemetry into Operational Control for Tool-Using Agents",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.05391v1 Announce Type: new Abstract: Tool descriptions tell an agent what an action can do, but they do not necessarily reveal whether that action is healthy or suitable at the moment of…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.05391",
+    "date": "2026-11-05T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-05T15:11:58.045294+00:00",
+    "topics": [
+      "AI Agents",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.05391",
+        "title": "Agent Harness Awareness: Turning Verified Telemetry into Operational Control for Tool-Using Agents",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "e7906e0264c0efc1",
+    "title": "Uncertainty-Aware Resource Orchestration for Agentic AI Systems",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.05392v1 Announce Type: new Abstract: Agentic artificial intelligence (AI) systems powered by large language models (LLMs) execute as autonomous multi-step pipelines that dynamically…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.05392",
+    "date": "2026-11-05T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-05T15:11:58.045333+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.05392",
+        "title": "Uncertainty-Aware Resource Orchestration for Agentic AI Systems",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "A new uncertainty-aware resource orchestration method was proposed for multi-step agentic AI systems.",
+      "It addresses dynamic execution challenges and resource management in large language model pipelines.",
+      "AI researchers and developers building autonomous agentic pipelines are affected."
+    ]
+  },
+  {
+    "id": "48da68b7227da49a",
+    "title": "Challenge-Aware Knowledge Recruitment with Meta-Agent Supervision for Medical Multi-Agent Reasoning",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.05393v1 Announce Type: new Abstract: Large language models perform strongly on standard medical QA but degrade on harder reasoning tasks, where multi-agent debate often fails to beat…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.05393",
+    "date": "2026-11-05T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-05T15:11:58.045367+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.05393",
+        "title": "Challenge-Aware Knowledge Recruitment with Meta-Agent Supervision for Medical Multi-Agent Reasoning",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "A challenge-aware knowledge recruitment framework with meta-agent supervision was introduced for medical multi-agent reasoning.",
+      "The method targets and mitigates the performance degradation of large language models on difficult medical QA reasoning tasks.",
+      "Medical AI researchers and developers of multi-agent systems are affected by this novel architectural approach."
+    ]
+  },
+  {
+    "id": "abdb707b0a55aeaa",
+    "title": "A Feasibility Condition for Confidence-Gated Tiered LLM Inference",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.05394v1 Announce Type: new Abstract: Tiered inference distributes large language model computation across a hierarchy of devices, from on-device and edge hardware to the datacenter, and…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.05394",
+    "date": "2026-11-05T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-05T15:11:58.045401+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.05394",
+        "title": "A Feasibility Condition for Confidence-Gated Tiered LLM Inference",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "4ced9b5daa264ea9",
+    "title": "Towards Robust Long-Lived Agents: Benchmarking Experience Lifecycles in Evolving Environments",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "The researchers introduce ReScopeBench, a new benchmark comprising 18 interactive environments designed to evaluate the experience lifecycle of long-lived AI agents. The evaluation of 20 models reveals that while retained experience improves task performance, agents struggle to maintain and effectively utilize accumulated knowledge as environments evolve.",
+    "summary_status": "generated",
+    "content_fingerprint": "073d71dc8c64685f",
+    "url": "https://arxiv.org/abs/2611.05450",
+    "date": "2026-11-05T05:00:00+00:00",
+    "category": "Benchmark",
+    "fetched_at": "2026-11-05T15:11:58.045435+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed ReScopeBench to evaluate how AI agents acquire, reuse, and revise structural and rule experience across 18 interactive environments.",
+      "The findings show that retained experience improves task performance, but agents consistently struggle to keep their recorded knowledge current during silent environmental changes.",
+      "Developers of autonomous AI agents and long-lived assistant systems face challenges in selective experience maintenance and effective utilization."
+    ],
+    "tags": [
+      "AI Agents",
+      "Benchmarking",
+      "Experience Lifecycle",
+      "ReScopeBench"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.05450",
+        "title": "Towards Robust Long-Lived Agents: Benchmarking Experience Lifecycles in Evolving Environments",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "9e109f910ff861b4",
+    "title": "Can Large Language Models Review the Scientific Literature? A Test Against a 102-Article Benchmark",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.05459v1 Announce Type: new Abstract: Large language models (LLMs) are increasingly used to support scientific literature reviews, yet evaluations often examine individual tasks rather…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.05459",
+    "date": "2026-11-05T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-05T15:11:58.045507+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.05459",
+        "title": "Can Large Language Models Review the Scientific Literature? A Test Against a 102-Article Benchmark",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "bbb7f69db5debade",
+    "title": "SlackBench: Benchmarking Agents on Collaborative Projects Grounded in Real Code Repositories",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.05512v1 Announce Type: new Abstract: AI Agents are becoming digital coworkers that can browse the web, write code, run experiments, and assist humans over extended horizons. Yet existing…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.05512",
+    "date": "2026-11-05T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-05T15:11:58.045544+00:00",
+    "topics": [
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.05512",
+        "title": "SlackBench: Benchmarking Agents on Collaborative Projects Grounded in Real Code Repositories",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "SlackBench was introduced as a new benchmark for evaluating AI agents on collaborative projects using real code repositories.",
+      "It tests agents on extended-horizon tasks that simulate realistic digital coworker collaboration.",
+      "AI agent developers and researchers working on collaborative software engineering systems are directly affected."
+    ]
+  },
+  {
+    "id": "d00df6c93ac0026c",
+    "title": "MA-SafeDiffuser: Safe Multi-Agent Planning with Diffusion Probabilistic Models",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.05524v1 Announce Type: new Abstract: We propose MA-SafeDiffuser, a multi-agent extension of SafeDiffuser that equips diffusion-based trajectory planners with finite-time diffusion…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.05524",
+    "date": "2026-11-05T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-05T15:11:58.045577+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.05524",
+        "title": "MA-SafeDiffuser: Safe Multi-Agent Planning with Diffusion Probabilistic Models",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "MA-SafeDiffuser was introduced as a multi-agent extension of SafeDiffuser for trajectory planning.",
+      "It equips diffusion-based planners with finite-time safety guarantees to improve multi-agent coordination.",
+      "Multi-agent robotics and automated planning systems are directly affected by this research."
+    ]
+  },
+  {
+    "id": "f6365caf171c45c9",
+    "title": "Towards Efficient Whole Page Ranking with One-Pass Inference",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduce Multi-Item Scoring (MIS), a prefix-aware non-autoregressive framework designed to jointly optimize whole-page ranking of advertisements and organic content. By using reusable representations and lightweight prefix-conditioned scoring, MIS captures order-dependent interactions with significantly lower inference overhead than autoregressive methods. Experiments and live evaluations on a social-video platform demonstrate faster decoding, reduced CPU consumption, and improvements in business metrics.",
+    "summary_status": "generated",
+    "content_fingerprint": "cdf0c15ce02949cc",
+    "url": "https://arxiv.org/abs/2611.05542",
+    "date": "2026-11-05T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-05T15:11:58.045610+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed the Multi-Item Scoring (MIS) framework, which uses prefix-aware non-autoregressive scoring to optimize whole-page ranking under complex constraints.",
+      "The method bridges the quality-efficiency gap by capturing sequential dependencies and global candidate interactions without the heavy inference overhead of traditional autoregressive models.",
+      "Large-scale deployment on a social-video platform and tests on KuaiRand-1K and RL4RS datasets show reduced CPU consumption and improved watch time and realization metrics."
+    ],
+    "tags": [
+      "Whole-Page Ranking",
+      "Multi-Item Scoring",
+      "Recommendation Systems",
+      "Non-Autoregressive Generation"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.05542",
+        "title": "Towards Efficient Whole Page Ranking with One-Pass Inference",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "25fa4dd18ec78a48",
+    "title": "Setting a new standard for responsible AI infrastructure",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "[Automated summary unavailable] OpenAI introduces its National Community Compact and Compute Campus Policy Blueprint to protect local resources, create jobs, and guide responsible AI infrastructure development.",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://openai.com/index/setting-new-standard-responsible-ai-infrastructure",
+    "date": "2026-11-05T02:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-05T15:11:58.044639+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Policy and Regulation"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://openai.com/index/setting-new-standard-responsible-ai-infrastructure",
+        "title": "Setting a new standard for responsible AI infrastructure",
+        "publisher": "OpenAI"
+      }
+    ],
+    "key_points": [
+      "OpenAI released the National Community Compact and Compute Campus Policy Blueprint to govern AI infrastructure development.",
+      "The framework addresses critical local concerns including resource protection and job creation tied to major compute investments.",
+      "Local communities, policymakers, and infrastructure developers involved in AI data center expansion are directly affected."
+    ]
+  },
+  {
+    "id": "c65c7708e93995ca",
+    "title": "A Closer Look at Phonon TTS. Launching High-Quality On-Device Speech That Tops the Benchmarks.",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "[Automated summary unavailable] A Closer Look at Phonon TTS. Launching High-Quality On-Device Speech That Tops the Benchmarks.",
+    "summary_status": "unavailable",
+    "content_fingerprint": "",
+    "url": "https://huggingface.co/blog/phonon-tts",
+    "date": "2026-11-05T00:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-05T15:11:58.044759+00:00",
+    "topics": [
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/phonon-tts",
+        "title": "A Closer Look at Phonon TTS. Launching High-Quality On-Device Speech That Tops the Benchmarks.",
+        "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
     "id": "4376fc05a5786b49",
     "title": "How NVIDIA Uses AI Agents to Streamline AI Factory Operations",
     "company": "NVIDIA",
@@ -1285,6 +1728,41 @@
         "title": "DevRev delivers autonomous self-service with GPT-6.1 Sol",
         "publisher": "OpenAI"
       }
+    ]
+  },
+  {
+    "id": "295354ff422b0d4d",
+    "title": "Introducing Images 2.6",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "[Automated summary unavailable] Images 2.6 brings faster image generation, GIF creation, more precise editing, and new API controls across ChatGPT, Codex, and the API.",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://openai.com/index/introducing-images-2-6",
+    "date": "2026-11-04T00:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-05T15:11:58.044717+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://openai.com/index/introducing-images-2-6",
+        "title": "Introducing Images 2.6",
+        "publisher": "OpenAI"
+      }
+    ],
+    "key_points": [
+      "Images 2.6 was released with faster image generation, GIF creation, and precise editing.",
+      "It provides new API controls across ChatGPT, Codex, and the API, expanding creative capabilities.",
+      "Developers and users utilizing ChatGPT, Codex, and the associated APIs are directly affected."
     ]
   },
   {
