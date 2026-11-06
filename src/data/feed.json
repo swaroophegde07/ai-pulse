@@ -1,5 +1,1061 @@
 [
   {
+    "id": "5a90caffb2c87d2e",
+    "title": "ToyBlocks: A controlled world for robot learning and evaluation",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "ToyBlocks provides a controlled virtual and physical environment designed specifically for robot learning and skill evaluation. The platform standardizes benchmark tasks to measure manipulation precision and generalization capabilities across different robotic architectures.",
+    "summary_status": "generated",
+    "content_fingerprint": "5f0016d8c16f86ec",
+    "url": "https://huggingface.co/blog/allenai/toyblocks",
+    "date": "2026-11-06T14:00:48+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-06T14:49:23.851366+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "ToyBlocks was introduced as a controlled experimental environment for robot learning and policy evaluation.",
+      "It addresses the lack of standardized testing grounds for robotic manipulation by offering reproducible tasks.",
+      "Robotics researchers and engineers benefit from improved evaluation metrics and cross-platform comparisons."
+    ],
+    "tags": [
+      "Robotics",
+      "Robot Learning",
+      "Evaluation",
+      "Simulation"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/allenai/toyblocks",
+        "title": "ToyBlocks: A controlled world for robot learning and evaluation",
+        "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
+    "id": "bfa2c115b2870bed",
+    "title": "The Download: a humanoid cleans house",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "This newsletter edition covers a journalist testing a teleoperated humanoid cleaning robot from Tau Robotics in San Francisco, an inside look at Samsung's massive semiconductor manufacturing campus in South Korea, and a major tech stock sell-off driven by AI bubble concerns. It also highlights political pushback against Big Tech, cyber threats targeting commercial refrigeration units, and research into Anthropic using AI to accelerate model training.",
+    "summary_status": "generated",
+    "content_fingerprint": "7862fc49f2ae25b2",
+    "url": "https://www.technologyreview.com/2026/11/06/1148154/the-download-humanoid-robot-cleaner-samsung-ai-chip-boom",
+    "date": "2026-11-06T13:10:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-06T14:49:23.851716+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Tau Robotics deployed a teleoperated humanoid robot for an in-home cleaning test in San Francisco.",
+      "Samsung is rapidly expanding its Pyeongtaek semiconductor manufacturing campus to meet soaring memory chip demand driven by generative AI.",
+      "Global tech markets suffered a massive sell-off erasing nearly $2.5 trillion from tech stocks amid growing fears of an AI bubble."
+    ],
+    "tags": [
+      "Tau Robotics",
+      "Samsung",
+      "Anthropic",
+      "Semiconductors",
+      "Robotics"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/11/06/1148154/the-download-humanoid-robot-cleaner-samsung-ai-chip-boom",
+        "title": "The Download: a humanoid cleans house",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "ecfeadb473d9a2de",
+    "title": "I watched a humanoid robot clean my apartment. It felt like a taste of the future.",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "A journalist tried out Tau Robotics' new humanoid-robot cleaning service in San Francisco, which currently relies heavily on remote human teleoperation to perform tasks like folding laundry and wiping counters. While the robots are slow and require significant human intervention, they collect valuable real-world behavioral data to train future autonomous models. The startup charges discounted rates for these supervised cleanings to incentivize data collection for their machine learning pipeline.",
+    "summary_status": "generated",
+    "content_fingerprint": "7da8d913e952f8c3",
+    "url": "https://www.technologyreview.com/2026/11/06/1148090/i-watched-a-humanoid-robot-clean-my-apartment-it-felt-like-a-taste-of-the-future",
+    "date": "2026-11-06T10:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-06T14:49:23.851877+00:00",
+    "topics": [
+      "Models and Releases",
+      "Business and Industry"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Tau Robotics offered an in-home humanoid robot cleaning service utilizing remote human pilots and onboard cameras.",
+      "The primary technical purpose of the human-piloted cleaning sessions is to collect kinematic guidance and task data to train future autonomous AI models.",
+      "Consumers and early-adopter homeowners in San Francisco participated in the supervised robot cleaning trials."
+    ],
+    "tags": [
+      "Tau Robotics",
+      "Humanoid Robots",
+      "Teleoperation",
+      "Embodied AI",
+      "Robotics"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/11/06/1148090/i-watched-a-humanoid-robot-clean-my-apartment-it-felt-like-a-taste-of-the-future",
+        "title": "I watched a humanoid robot clean my apartment. It felt like a taste of the future.",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "c96e5195afc57b53",
+    "title": "Formalizing inverse problems in the age of AI: possibilities, pitfalls, and an invitation",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduce AutoIP, a Lean proof assistant library for classical linear regularization theory that was autoformalized by AI agents. The approach shifts human validation efforts from checking proofs to reviewing natural-language-mapped formal statements, uncovering a restrictive hypothesis in an established textbook theorem. The project provides an invitation for the inverse problems community to expand and build upon the formalized library.",
+    "summary_status": "generated",
+    "content_fingerprint": "ba9ecbd78c2aece2",
+    "url": "https://arxiv.org/abs/2611.06962",
+    "date": "2026-11-06T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-06T14:49:23.852254+00:00",
+    "topics": [
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "AI agents autoformalized the Lean library AutoIP, containing classical linear regularization theory and functional analysis.",
+      "Human reviewers only need to verify formal statements against natural-language counterparts, which revealed an overly restrictive hypothesis in an established textbook theorem.",
+      "Inverse problems researchers and practitioners utilizing mathematical proof assistants are directly affected."
+    ],
+    "tags": [
+      "AutoIP",
+      "Lean",
+      "Proof Assistants",
+      "AI Agents",
+      "Inverse Problems"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.06962",
+        "title": "Formalizing inverse problems in the age of AI: possibilities, pitfalls, and an invitation",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "ca3a1f59a13e89ef",
+    "title": "KDASO: Knowledge-Data Dual-Driven Automated Skill Optimization for Liability Adjudication Tasks",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduce KDASO (Knowledge-Data Dual-Driven Automated Skill Optimization), a framework designed to continuously evolve skill libraries for liability adjudication tasks using neighborhood-conditioned induction, execution-aligned refinement, and context-budgeted routing. Experiments across ride-hailing adjudication, legal liability determination, and logical reasoning show that KDASO outperforms current baselines and achieves an 8.96% improvement in transferability to concept-similar scenarios. The approach addresses critical limitations in LLM-based legal reasoning, including stale skill libraries, semantic execution gaps, and context budget overruns.",
+    "summary_status": "generated",
+    "content_fingerprint": "4925db64d48258db",
+    "url": "https://arxiv.org/abs/2611.06972",
+    "date": "2026-11-06T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-06T14:49:23.852344+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "KDASO was proposed to continuously evolve skill libraries for liability adjudication through automated induction, refinement, and routing.",
+      "The framework overcomes stale skill libraries, semantic execution gaps, and context budget limits, yielding significant performance gains over existing baselines and 8.96% better transferability.",
+      "Legal tech developers, researchers, and practitioners working on automated liability determination, legal charge forecasting, and LLM reasoning systems are directly affected."
+    ],
+    "tags": [
+      "Automated Skill Optimization",
+      "Legal Liability Adjudication",
+      "Large Language Models",
+      "Reasoning Systems"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.06972",
+        "title": "KDASO: Knowledge-Data Dual-Driven Automated Skill Optimization for Liability Adjudication Tasks",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "2173f7bc6c09b49c",
+    "title": "BlockLock: Reproducible LLM Inference with Fixed Batch Geometry",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "BlockLock is a new method for reproducible LLM inference that pins the numerical path and fixes the geometry seen by a protected request while maintaining shared batched prefill. It offers two modes, BlockLock-Rows and BlockLock-Pack, which preserve bitwise output and top-20-logit bits when companion requests change. Evaluations across dense models and NVIDIA GPU deployments show that BlockLock-Rows significantly reduces latency and increases throughput compared to vLLM Batch-Invariant without requiring custom kernel implementations.",
+    "summary_status": "generated",
+    "content_fingerprint": "a367097690521d6b",
+    "url": "https://arxiv.org/abs/2611.06977",
+    "date": "2026-11-06T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-06T14:49:23.852453+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "BlockLock was introduced to achieve reproducible LLM inference by fixing request geometry and pinning numerical paths without sacrificing shared batched prefill compute.",
+      "It delivers up to a 55% reduction in latency and a 122.2% increase in throughput compared to existing batch-invariant solutions while eliminating the need for custom kernel implementations.",
+      "LLM deployment engineers and systems researchers working with dense models on NVIDIA GPUs are directly affected by these performance and reproducibility gains."
+    ],
+    "tags": [
+      "LLM Inference",
+      "Reproducibility",
+      "vLLM",
+      "Optimization"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.06977",
+        "title": "BlockLock: Reproducible LLM Inference with Fixed Batch Geometry",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "f145415baaf53e50",
+    "title": "Resource-Efficient Reinforcement Learning Post-Training through Elastic Expert Parallelism",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduce FlexFloor, a system that improves resource efficiency in reinforcement learning post-training for mixture-of-experts large language models by addressing computational bottlenecks during response generation. FlexFloor jointly adapts response scheduling and worker allocation to release completed workers early without disrupting ongoing computations. Compared to the baseline, the system increases response generation throughput by 52.74% while maintaining rollout reward.",
+    "summary_status": "generated",
+    "content_fingerprint": "cf31ea0a0d532c6e",
+    "url": "https://arxiv.org/abs/2611.06984",
+    "date": "2026-11-06T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-06T14:49:23.852542+00:00",
+    "topics": [
+      "Models and Releases",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "FlexFloor was introduced to optimize reinforcement learning post-training by progressively releasing workers after local response generation finishes.",
+      "It addresses the issue where one-third of worker time in standard setups is wasted due to expert dependencies on longer active responses, increasing throughput by 52.74%.",
+      "Developers and researchers training large language models and AI agents with mixture-of-experts architectures are directly impacted."
+    ],
+    "tags": [
+      "Reinforcement Learning",
+      "Mixture-of-Experts",
+      "Large Language Models",
+      "Model Training"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.06984",
+        "title": "Resource-Efficient Reinforcement Learning Post-Training through Elastic Expert Parallelism",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "62aa0e581fddffbb",
+    "title": "The Two-Ledger Model: Transaction-Grain Cost Accounting for Multi-Agent AI Systems Across Clouds, Models, and Systems of Record",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduce the Two-Ledger Model to resolve the grain mismatch between enterprise business transactions and cloud provider billing data in multi-agent AI systems. By combining a settlement ledger with an OpenTelemetry-based attribution ledger and a layered correlation spine, the approach enables transaction-grain cost accounting. Simulations demonstrate high cost coverage, precise detection of unmetered spend, and significant reductions in p99 transaction costs via mid-flight gating.",
+    "summary_status": "generated",
+    "content_fingerprint": "50cb4a0172d0452e",
+    "url": "https://arxiv.org/abs/2611.06989",
+    "date": "2026-11-06T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-06T14:49:23.852633+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Business and Industry",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "The Two-Ledger Model was proposed to map invocation-grain AI usage to enterprise business transaction boundaries like orders, claims, or cases.",
+      "It addresses the industry gap where cloud billing data remains at the settlement grain, preventing enterprises from determining per-transaction AI costs or identifying shadow AI.",
+      "Enterprise finance teams, FinOps practitioners, and developers of multi-agent AI systems are directly impacted by this accounting framework."
+    ],
+    "tags": [
+      "Multi-Agent AI Systems",
+      "FinOps",
+      "Cost Accounting",
+      "OpenTelemetry",
+      "FOCUS"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.06989",
+        "title": "The Two-Ledger Model: Transaction-Grain Cost Accounting for Multi-Agent AI Systems Across Clouds, Models, and Systems of Record",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "d37a69f2f16a8e8f",
+    "title": "Autonomous AI Agents Systematically Diverge From Human Preferences in Proof Formalization",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduce simulated collaboration to study how AI agents diverge from human preferences during proof formalization in Lean. The study reveals that AI agents are more attracted to marked gaps and surprising proof bodies while showing an aversion to densely connected proof centers and complex goals. These findings identify key behavioral blind spots that impact human-AI collaboration in mathematical reasoning.",
+    "summary_status": "generated",
+    "content_fingerprint": "9b13592270b88bdd",
+    "url": "https://arxiv.org/abs/2611.06995",
+    "date": "2026-11-06T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-06T14:49:23.852721+00:00",
+    "topics": [
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed a simulated collaboration methodology to compare AI agent and human proof-making preferences across nine human collaborations in Lean containing 4.7 million definitions.",
+      "The findings show that AI agents are strongly drawn to explicitly marked gaps and surprising proof bodies while avoiding densely connected proof centers and complex goals.",
+      "This impacts mathematicians and AI developers working on automated theorem proving and human-AI collaborative mathematics systems."
+    ],
+    "tags": [
+      "Automated Reasoning",
+      "Lean",
+      "AI Agents",
+      "Proof Formalization"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.06995",
+        "title": "Autonomous AI Agents Systematically Diverge From Human Preferences in Proof Formalization",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "a67cb9c83dfc1363",
+    "title": "Trust Responsive Runtime Authorization for Agentic AI with Empirical Characterization of Policy Behavior and Parameter Sensitivity",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "The research introduces the Trust Responsive Authorization Policy (TRAP) to dynamically manage operational authority for autonomous agents using runtime trust, stability, and risk metrics. An empirical comparison across 100 Monte Carlo traces demonstrates that TRAP restricts authority immediately upon abrupt degradation and re-escalates faster than symmetric policies, though its advantages diminish under gradual degradation.",
+    "summary_status": "generated",
+    "content_fingerprint": "14e9645fe1cdb391",
+    "url": "https://arxiv.org/abs/2611.06996",
+    "date": "2026-11-06T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-06T14:49:23.852809+00:00",
+    "topics": [
+      "AI Agents",
+      "Policy and Regulation",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers characterized the Trust Responsive Authorization Policy (TRAP), which maps an Authorization Readiness Score to discrete authorization levels using an asymmetric escalation and restriction rule.",
+      "TRAP provides superior stability and immediate restriction during abrupt degradation compared to static, trust-only, risk-only, and symmetric policies.",
+      "Developers and researchers building autonomous agentic AI systems needing runtime safety and authorization controls."
+    ],
+    "tags": [
+      "Agentic AI",
+      "Runtime Authorization",
+      "Trust Responsive Authorization Policy",
+      "Autonomous Agents"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.06996",
+        "title": "Trust Responsive Runtime Authorization for Agentic AI with Empirical Characterization of Policy Behavior and Parameter Sensitivity",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "6bcd57996b1f8a44",
+    "title": "Adapting the Process of Adaptation: Darwinian, Lamarckian, and Agent-Directed Evolution in AI",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This research develops a theoretical framework comparing Darwinian, Lamarckian, and agent-directed evolution in artificial intelligence following environmental change. The findings demonstrate that while agent-directed evolution accelerates adaptation, misspecified evaluation targets can cause agents to rapidly converge on incorrect behaviors. Consequently, recursive self-improvement requires independent evaluation and oversight to maintain human control and safety.",
+    "summary_status": "generated",
+    "content_fingerprint": "345ae29e9b58edf7",
+    "url": "https://arxiv.org/abs/2611.07048",
+    "date": "2026-11-06T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-06T14:49:23.852902+00:00",
+    "topics": [
+      "AI Agents",
+      "Benchmarks and Evaluations",
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "A new theoretical framework compares Darwinian, Lamarckian, and agent-directed evolution to model how AI agents improve their behavior over time.",
+      "Misspecified evaluation targets cause accelerated convergence toward incorrect behaviors during autonomous self-improvement, posing significant AI safety challenges.",
+      "Researchers, AI developers, and safety practitioners must implement independent oversight to guide autonomous AI evolution and prevent unintended outcomes."
+    ],
+    "tags": [
+      "AI Safety",
+      "Self-Improvement",
+      "Evolutionary Algorithms",
+      "Autonomous Agents"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.07048",
+        "title": "Adapting the Process of Adaptation: Darwinian, Lamarckian, and Agent-Directed Evolution in AI",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "e4ba57732a447796",
+    "title": "Closed-Loop Agent Evaluation: Layered Measurement and Self-Calibration",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "The authors introduce closed-loop evaluation, a method for monitoring deployed AI agents across four analytical levels using versioned rules and self-calibrating components. The approach models performance estimation under biased raters and censored outcomes, connecting atomic data directly to evaluation conclusions. Case studies demonstrate that evidence-and-rule judgment yields higher reliability than holistic scoring.",
+    "summary_status": "generated",
+    "content_fingerprint": "caeabe57d204b232",
+    "url": "https://arxiv.org/abs/2611.07051",
+    "date": "2026-11-06T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-06T14:49:23.852992+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Proposed a closed-loop evaluation framework for deployed AI agents that uses versioned rules, multi-level analysis, and automated inner and outer feedback loops.",
+      "Improves reliability over holistic scoring by tracing conclusions to atomic data and utilizing provenance certification and regression checks.",
+      "AI development teams and engineers deploying autonomous agents in production environments."
+    ],
+    "tags": [
+      "AI Agents",
+      "Agent Evaluation",
+      "Closed-Loop Systems",
+      "Model Reliability",
+      "Monitoring"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.07051",
+        "title": "Closed-Loop Agent Evaluation: Layered Measurement and Self-Calibration",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "a47dad607e0fe978",
+    "title": "Cooperative Multi-Agent Reinforcement Learning via Epigraph-Form Guided Exploration",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "The authors introduce EFXPLORER, a constrained exploration framework for cooperative multi-agent reinforcement learning that maximizes exploration objectives while preserving task performance through an epigraph reformulation. By separating intrinsic rewards from task objectives and utilizing adaptive exploration budgets, the method regulates exploration via task feasibility and incorporates a successor distance-based intrinsic reward. Empirical evaluations demonstrate that EFXPLORER outperforms baseline models and discovers novel cooperative strategies across the SMAX, VMAS, and MPE benchmark suites.",
+    "summary_status": "generated",
+    "content_fingerprint": "5b00467d0c1aaf2c",
+    "url": "https://arxiv.org/abs/2611.07066",
+    "date": "2026-11-06T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-06T14:49:23.853066+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "EFXPLORER was introduced as a constrained exploration framework that maximizes exploration while preserving task performance using an epigraph reformulation with adaptive exploration budgets.",
+      "It resolves the issue of intrinsic rewards distorting learning signals by strictly separating them from task objectives and regulating exploration through task feasibility.",
+      "Multi-agent reinforcement learning researchers and practitioners benefit by gaining an approach that outperforms strong baselines and induces novel cooperative strategies across SMAX, VMAS, and MPE benchmarks."
+    ],
+    "tags": [
+      "Multi-Agent Reinforcement Learning",
+      "Exploration",
+      "Reinforcement Learning",
+      "Cooperative AI"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.07066",
+        "title": "Cooperative Multi-Agent Reinforcement Learning via Epigraph-Form Guided Exploration",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "57cdde475b7ed504",
+    "title": "SteelAgent: LLM-Orchestrated, Physics-Informed Steel Property Prediction with Audited Generalization and Calibrated Uncertainty",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "SteelAgent introduces a language-model-orchestrated, physics-informed framework for steel property prediction, uncertainty reporting, and inverse design. The study demonstrates how held-out alloy splits dramatically degrade gradient boosting performance and prediction interval calibration compared to random splits. These findings highlight the critical need to report evaluation populations alongside property estimates to ensure reliable generalization.",
+    "summary_status": "generated",
+    "content_fingerprint": "d2dfe70ee5a87b9b",
+    "url": "https://arxiv.org/abs/2611.06953",
+    "date": "2026-11-06T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-06T14:49:23.853163+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "SteelAgent couples metallurgical descriptors and machine-learning models with a language-model interface for property prediction, uncertainty reporting, and inverse design.",
+      "Evaluating models on held-out steel families rather than random splits caused gradient boosting R2 to drop from 0.859 to 0.113 and nominal 90% prediction interval coverage to fall from 91.0% to 37.6%.",
+      "Materials scientists, machine learning practitioners, and metallurgists developing predictive models for alloy design are affected by these findings on generalization and calibration."
+    ],
+    "tags": [
+      "SteelAgent",
+      "SteelBench",
+      "Alloy Design",
+      "Uncertainty Quantification",
+      "Physics-Informed ML"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.06953",
+        "title": "SteelAgent: LLM-Orchestrated, Physics-Informed Steel Property Prediction with Audited Generalization and Calibrated Uncertainty",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "46375b5b723cecae",
+    "title": "Octopus: One Brain, Many Branches for Latent-KV Multi-Agent Reinforcement Learning",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduced Octopus, a single-model multi-agent reinforcement learning framework that coordinates threads over a GPU-resident directed acyclic graph of KV states using five primitives. The framework utilizes Zero-Copy Radix Forking, Attention-Only KV Mounting, and a Packed DAG-GRPO Trainer to eliminate KV cache duplication and cross-branch communication overhead. Trained on Qwen3.5-4B, Octopus achieves 49.6 percent accuracy on BrowseComp-Plus and 51.2 percent on OpenResearcher while improving training throughput and reducing peak KV memory.",
+    "summary_status": "generated",
+    "content_fingerprint": "5c29a70263c16328",
+    "url": "https://arxiv.org/abs/2611.06956",
+    "date": "2026-11-06T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-06T14:49:23.853266+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed Octopus, a single-model multi-agent reinforcement learning framework utilizing a GPU-resident DAG of KV states with zero-copy forking, attention-only KV mounting, and a packed DAG-GRPO trainer.",
+      "The approach eliminates KV cache duplication, reduces off-task hijacking by 21 times, cuts peak KV memory by 2.8 times, and increases training throughput by 3.3 times while outperforming much larger dense-retrieval agents.",
+      "Multi-agent LLM developers, AI researchers, and engineers working on scalable inference and reinforcement learning frameworks for large language models."
+    ],
+    "tags": [
+      "Multi-Agent Systems",
+      "Reinforcement Learning",
+      "KV Cache",
+      "Qwen3.5"
+    ],
+    "impact_score": 8,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.06956",
+        "title": "Octopus: One Brain, Many Branches for Latent-KV Multi-Agent Reinforcement Learning",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "eb70101b69fcd558",
+    "title": "Uncertainty calibration in Bayesian M/EEG source imaging",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.06979v1 Announce Type: new Abstract: M/EEG source imaging requires accurate localization and reliable uncertainty estimates, yet posterior credible regions are rarely assessed for…",
+    "summary_status": "unverified_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.06979",
+    "date": "2026-11-06T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-06T14:49:23.853357+00:00",
+    "topics": [
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.06979",
+        "title": "Uncertainty calibration in Bayesian M/EEG source imaging",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Researchers investigated uncertainty calibration techniques for M/EEG source imaging and posterior credible region assessment.",
+      "Reliable uncertainty estimation improves the interpretability and clinical trustworthiness of neuroimaging source localization.",
+      "Neuroscientists, computational neuroimagers, and researchers utilizing M/EEG source imaging systems are directly affected."
+    ]
+  },
+  {
+    "id": "dcb265f08ffa052d",
+    "title": "Big Models, Small Gains: Frozen Forecasters as Classifiers on MONSTER",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "A new research study evaluates the efficacy of using frozen forecasting foundation models, specifically Reverso and Chronos-Bolt, as feature extractors for time series classification on the MONSTER benchmark. The findings reveal that while pretraining outperforms random-weight counterparts, frozen representations fail to reliably beat strong non-pretrained baseline classifiers. The authors show that restoring amplitude information partially narrows the performance gap, whereas fine-tuning and forecast-error features do not resolve it.",
+    "summary_status": "generated",
+    "content_fingerprint": "b8fe88ffac257df2",
+    "url": "https://arxiv.org/abs/2611.06988",
+    "date": "2026-11-06T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-06T14:49:23.853406+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Evaluated frozen representations of Reverso and Chronos-Bolt forecasting models against non-pretrained classifiers using the MONSTER benchmark.",
+      "Demonstrated that frozen pretrained forecasters underperformed or tied with the strongest non-pretrained baselines across all tested settings.",
+      "Time series researchers and practitioners utilizing forecasting foundation models for downstream classification tasks."
+    ],
+    "tags": [
+      "Time Series",
+      "Foundation Models",
+      "Benchmarking",
+      "Forecasting"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.06988",
+        "title": "Big Models, Small Gains: Frozen Forecasters as Classifiers on MONSTER",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "fb68c1f9f2190897",
+    "title": "Robust Stream Classification using Time Neutralising Decision Trees",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "The paper introduces Time Neutralising Trees (TNT), a novel decision tree architecture designed for robust stream classification under concept drift. By filtering out outdated training samples and dynamically re-including them if they become relevant again, TNT eliminates the need for traditional drift detectors and retraining resets. Evaluations across 24 real and semi-real data streams demonstrate that TNT achieves best-in-class performance against existing stream learning algorithms.",
+    "summary_status": "generated",
+    "content_fingerprint": "86c767b4c593c2b1",
+    "url": "https://arxiv.org/abs/2611.06991",
+    "date": "2026-11-06T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-06T14:49:23.853488+00:00",
+    "topics": [
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "TNT filters out irrelevant historical training data and dynamically re-includes them if context shifts back, adapting to concept drift without explicit drift detectors.",
+      "This architecture bridges stream and batch learning paradigms by leveraging stored instances to outperform traditional stream learning reset procedures.",
+      "Stream learning practitioners and machine learning engineers deploying predictive models on non-stationary data streams are directly affected."
+    ],
+    "tags": [
+      "Stream Learning",
+      "Concept Drift",
+      "Decision Trees",
+      "Machine Learning"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.06991",
+        "title": "Robust Stream Classification using Time Neutralising Decision Trees",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "c16ffac51e53eb09",
+    "title": "LowRAM: Low-Rank Keys and Amortised Values for Composable KV Cache Compression at Test-Time",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "The paper introduces LowRAM, an asymmetric KV cache compression pipeline that combines value cache amortisation with cross-layer low-rank key compression. By fitting a per-head predictor at test time and storing residuals selectively, LowRAM achieves up to 5x higher peak decode throughput while maintaining near-lossless performance across three model families. Furthermore, the method composes effectively with quantisation and eviction techniques to reach up to 26.9x compression on long contexts.",
+    "summary_status": "generated",
+    "content_fingerprint": "752e40e89082f9b5",
+    "url": "https://arxiv.org/abs/2611.07025",
+    "date": "2026-11-06T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-06T14:49:23.853579+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed LowRAM, a composable KV cache compression method using value cache amortisation and low-rank key compression.",
+      "The technique enables up to 5x higher peak decode throughput and achieves 4x near-lossless compression without retraining base models.",
+      "Developers and system engineers deploying large language models with long context windows are affected."
+    ],
+    "tags": [
+      "KV Cache",
+      "Model Compression",
+      "Autoregressive Decoding",
+      "Quantisation"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.07025",
+        "title": "LowRAM: Low-Rank Keys and Amortised Values for Composable KV Cache Compression at Test-Time",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "4781fe6b2e595b40",
+    "title": "Stochastic Dynamics of Generative AI: From Autoregressive Models to Interacting LLM Networks and Neural SDEs",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This research paper develops a stochastic dynamical-systems perspective on three classes of generative AI models, covering autoregressive LLMs, interacting LLM networks, and neural stochastic differential equations. It formulates LLMs as high-dimensional nonlinear autoregressive models, characterizes collective behavior in LLM networks using mean-field ordinary differential equations, and examines continuous-time generative modeling via neural SDEs. The framework provides probabilistic interpretations for token generation, emergent network biases, and efficient training through Wiener-space cubature methods.",
+    "summary_status": "generated",
+    "content_fingerprint": "94f2037434d70fc7",
+    "url": "https://arxiv.org/abs/2611.07065",
+    "date": "2026-11-06T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-06T14:49:23.853655+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Formulated large language models as high-dimensional nonlinear autoregressive models and analyzed interacting LLM networks using mean-field ordinary differential equations.",
+      "Bridges conditional maximum likelihood pretraining with sequential token generation and introduces Wiener-space cubature methods for training neural SDEs as an alternative to Monte Carlo estimation.",
+      "Affects machine learning researchers and engineers studying the theoretical foundations, collective dynamics, and continuous-time path-space modeling of generative artificial intelligence."
+    ],
+    "tags": [
+      "Large Language Models",
+      "Stochastic Differential Equations",
+      "Generative AI",
+      "Dynamical Systems"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.07065",
+        "title": "Stochastic Dynamics of Generative AI: From Autoregressive Models to Interacting LLM Networks and Neural SDEs",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "b725db599f9d0347",
+    "title": "Finite-Time Convergence and Regret Guarantees for Neural Reinforcement Learning in POMDPs",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This research paper investigates reinforcement learning in Partially Observable Markov Decision Processes using nonlinear neural value function approximation. The authors establish a finite-state MDP point-wise approximation error bound, prove a finite-time critic error bound using Temporal-Difference learning, and derive a finite-time sublinear regret guarantee via the policy mirror descent framework. Numerical experiments are provided to verify these theoretical results.",
+    "summary_status": "generated",
+    "content_fingerprint": "f5f3be8aa0294254",
+    "url": "https://arxiv.org/abs/2611.07069",
+    "date": "2026-11-06T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-06T14:49:23.853755+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Policy and Regulation",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Established a finite-time sublinear regret guarantee and neural value function error bounds for POMDPs using a superstate MDP surrogate approach.",
+      "Bridges theoretical gaps in reinforcement learning by avoiding overly simplified linear function approximations and i.i.d. sampling oracle assumptions.",
+      "Researchers and practitioners working on reinforcement learning algorithms for partially observable environments."
+    ],
+    "tags": [
+      "Reinforcement Learning",
+      "POMDPs",
+      "Neural Networks",
+      "Theoretical Research"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.07069",
+        "title": "Finite-Time Convergence and Regret Guarantees for Neural Reinforcement Learning in POMDPs",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "874e84203769ef34",
+    "title": "Shaping & Monitoring Models through their Internal Representations",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduce Mechanistic Shaping, a training framework that controls model behavior and decision-making concepts through internal representations across vision, medical imaging, and language domains up to 32B parameters. The work also establishes a monitorability hierarchy to analyze how shaped concepts can circumvent probes via geometric mechanisms like drift, erasure, or nonlinear encoding. Results demonstrate that shaped concepts generally remain detectable using refitted or matching monitors.",
+    "summary_status": "generated",
+    "content_fingerprint": "e55b2496b0116986",
+    "url": "https://arxiv.org/abs/2611.07071",
+    "date": "2026-11-06T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-06T14:49:23.853838+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Mechanistic Shaping was introduced as a training framework to control both model outputs and internal decision-making concepts without degrading task performance.",
+      "A new monitorability hierarchy and geometric analysis explain how models can circumvent internal concept probes through drift, erasure, or nonlinear encoding.",
+      "AI researchers and developers working on model alignment and interpretability can use these findings to monitor and shape models up to 32B parameters across multiple training paradigms."
+    ],
+    "tags": [
+      "Mechanistic Interpretability",
+      "Model Alignment",
+      "Representation Engineering"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.07071",
+        "title": "Shaping & Monitoring Models through their Internal Representations",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "97bc20c088dba509",
+    "title": "Optimistic Hedge in General-Sum Games: Fundamental Limits and Regret Bounds via Temporal Approximation",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This research paper investigates the regret bounds of Optimistic Hedge in finite general-sum games. The authors demonstrate that two-player games can achieve $O(n\\log n)$ constant regret independent of the horizon, whereas games with three or more players suffer from exponential regret bounds in terms of action size or linear growth with the horizon. A new temporal approximation framework is introduced to analyze the algorithm's performance and simplify existing regret proofs.",
+    "summary_status": "generated",
+    "content_fingerprint": "a11fc90f3e8382b3",
+    "url": "https://arxiv.org/abs/2611.07078",
+    "date": "2026-11-06T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-06T14:49:23.853926+00:00",
+    "topics": [
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers established that Optimistic Hedge yields $O(n\\log n)$ horizon-independent regret in two-player general-sum games, but causes exponential $2^{\\Omega(mn)}$ or linear regret in $m$-player games where $m \\ge 3$.",
+      "This work resolves the longstanding open question regarding the explicit polynomial dependence and fundamental limits of Optimistic Hedge regret bounds based on player counts.",
+      "Game theorists, algorithmic game theory researchers, and developers of multi-agent reinforcement learning systems are affected by these theoretical limits on no-regret learning dynamics."
+    ],
+    "tags": [
+      "Game Theory",
+      "Optimistic Hedge",
+      "Regret Bounds",
+      "Multi-Agent Systems",
+      "Algorithmic Game Theory"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.07078",
+        "title": "Optimistic Hedge in General-Sum Games: Fundamental Limits and Regret Bounds via Temporal Approximation",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "13e4c95dcbaa6d34",
+    "title": "Egyptian and Nigerian English join the Open ASR Leaderboard",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "Egyptian and Nigerian English have been added to the Open ASR Leaderboard, expanding evaluation metrics for regional dialects. This addition allows researchers to better measure and compare automatic speech recognition performance across diverse accents. Developers and researchers working on speech-to-text models for African and Middle Eastern English dialects are directly impacted.",
+    "summary_status": "generated",
+    "content_fingerprint": "c8429439afcb47e8",
+    "url": "https://huggingface.co/blog/open-asr-leaderboard-liva",
+    "date": "2026-11-06T00:00:00+00:00",
+    "category": "Benchmark",
+    "fetched_at": "2026-11-06T14:49:23.851440+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Egyptian and Nigerian English were integrated into the Open ASR Leaderboard.",
+      "It improves the evaluation of automatic speech recognition models on regional dialects and accents.",
+      "Speech technology developers and researchers targeting African and Middle Eastern English markets are affected."
+    ],
+    "tags": [
+      "Open ASR Leaderboard",
+      "Speech Recognition",
+      "Egyptian English",
+      "Nigerian English"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/open-asr-leaderboard-liva",
+        "title": "Egyptian and Nigerian English join the Open ASR Leaderboard",
+        "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
+    "id": "bbd492caba72ca54",
+    "title": "Cult.fit builds operational muscle with Codex",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Cult.fit has integrated Codex to assist cross-functional teams in building internal tools and accelerating operational workflows. The deployment aims to change how work gets executed across various business functions within the company.",
+    "summary_status": "generated",
+    "content_fingerprint": "00b1ad54137d6962",
+    "url": "https://openai.com/index/cultfit-builds-with-codex",
+    "date": "2026-11-05T20:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-06T14:49:23.851116+00:00",
+    "topics": [
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Cult.fit adopted Codex for internal operations and tool development.",
+      "The integration accelerates internal workflows and changes how work gets done across functions.",
+      "Cult.fit's internal teams and operational processes are directly affected."
+    ],
+    "tags": [
+      "Cult.fit",
+      "Codex",
+      "AI Productivity",
+      "Internal Tools"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://openai.com/index/cultfit-builds-with-codex",
+        "title": "Cult.fit builds operational muscle with Codex",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
     "id": "f25b9201ad6bdcc6",
     "title": "New NVIDIA Cosmos 3 Open Models for Interactive World Simulation",
     "company": "Hugging Face",
@@ -88,18 +1144,21 @@
     "title": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
     "company": "Google DeepMind",
     "source": "Google DeepMind Blog",
-    "summary": "[Automated summary unavailable] Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
-    "summary_status": "unavailable",
-    "content_fingerprint": "",
+    "summary": "Google announces Gemini Omni 1.2 Flash, delivering faster performance, lower costs, and support for longer video clip processing. The update enhances real-time multimodal capabilities for developers building cost-sensitive AI applications.",
+    "summary_status": "generated",
+    "content_fingerprint": "37227f2d27d15d81",
     "url": "https://deepmind.google/blog/gemini-omni-12-flash-fast-and-cost-effective-with-longer-clips",
     "date": "2026-11-05T17:05:16+00:00",
-    "category": "Research",
-    "fetched_at": "2026-11-05T23:56:33.670509+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-06T14:49:23.851298+00:00",
     "topics": [
-      "Models and Releases"
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Applications and Products"
     ],
     "source_type": "Research Laboratory",
-    "priority_score": 6,
+    "priority_score": 7,
     "priority_label": "Deep Dive",
     "priority_explanation": "Announces a model or architecture capability",
     "why_it_matters": "",
@@ -111,9 +1170,56 @@
       }
     ],
     "key_points": [
-      "Google released Gemini Omni 1.2 Flash with enhanced speed, cost efficiency, and longer clip processing capabilities.",
-      "The update improves multimodal video handling performance while lowering operational costs for developers.",
-      "Developers and applications utilizing Google's Gemini model family are directly affected by this release."
+      "Google released Gemini Omni 1.2 Flash with support for longer video clips and improved cost-efficiency.",
+      "The update enables faster real-time multimodal processing while reducing inference costs for developers.",
+      "Developers and organizations building video-heavy or real-time AI applications are directly affected."
+    ],
+    "tags": [
+      "Google",
+      "Gemini",
+      "Multimodal AI",
+      "Product Release"
+    ],
+    "impact_score": 7
+  },
+  {
+    "id": "616c68177b707eae",
+    "title": "Australian universities are creating AI-native graduates",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Australian universities are expanding student access to ChatGPT and integrating artificial intelligence into their curricula. This initiative aims to prepare students for an increasingly AI-enabled professional workforce.",
+    "summary_status": "generated",
+    "content_fingerprint": "e96b777fa369dc2a",
+    "url": "https://openai.com/index/australian-universities-ai-native-graduates",
+    "date": "2026-11-05T17:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-06T14:49:23.850572+00:00",
+    "topics": [
+      "Models and Releases",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 1,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Primary lab announcement from OpenAI",
+    "why_it_matters": "",
+    "key_points": [
+      "Australian universities expanded access to ChatGPT and integrated artificial intelligence into teaching and learning.",
+      "This curriculum shift prepares students directly for an AI-enabled professional workforce.",
+      "Higher education students and academic institutions in Australia are directly affected."
+    ],
+    "tags": [
+      "Education",
+      "ChatGPT",
+      "Workforce Preparation"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://openai.com/index/australian-universities-ai-native-graduates",
+        "title": "Australian universities are creating AI-native graduates",
+        "publisher": "OpenAI"
+      }
     ]
   },
   {
@@ -890,6 +1996,46 @@
     "impact_score": 6
   },
   {
+    "id": "a8e215d1c3fca63a",
+    "title": "Franklin Templeton uses OpenAI to support investment research",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Franklin Templeton is developing AI workflows using OpenAI technology, starting with equity research. The initiative aims to help portfolio managers compare research views and examine investment risks.",
+    "summary_status": "generated",
+    "content_fingerprint": "0d671aae79abd0de",
+    "url": "https://openai.com/index/franklin-templeton",
+    "date": "2026-11-05T00:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-06T14:49:23.851217+00:00",
+    "topics": [
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Franklin Templeton is deploying OpenAI technology to build internal AI workflows for investment research.",
+      "The tools help portfolio managers compare research perspectives and analyze investment risks within equity research.",
+      "Portfolio managers, financial analysts, and asset management firms utilizing AI-driven research workflows are directly affected."
+    ],
+    "tags": [
+      "Franklin Templeton",
+      "OpenAI",
+      "Investment Research",
+      "Finance"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://openai.com/index/franklin-templeton",
+        "title": "Franklin Templeton uses OpenAI to support investment research",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
     "id": "4376fc05a5786b49",
     "title": "How NVIDIA Uses AI Agents to Streamline AI Factory Operations",
     "company": "NVIDIA",
@@ -973,6 +2119,40 @@
         "title": "Texas was the new epicenter of the AI data center buildout. That might be kaput.",
         "publisher": "MIT Technology Review"
       }
+    ]
+  },
+  {
+    "id": "5acd07c875ea982e",
+    "title": "NVIDIA CUDA 13.5 Brings NVIDIA Vera Rubin GA Support",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "[Automated summary unavailable] As artificial intelligence and accelerated computing continue to push the boundaries of what's possible, the latest NVIDIA CUDA release arrives to unlock... As artificial intelligence and…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://developer.nvidia.com/blog/nvidia-cuda-13-5-brings-nvidia-vera-rubin-ga-support",
+    "date": "2026-11-04T18:46:07+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-06T14:49:23.854022+00:00",
+    "topics": [
+      "Models and Releases",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://developer.nvidia.com/blog/nvidia-cuda-13-5-brings-nvidia-vera-rubin-ga-support",
+        "title": "NVIDIA CUDA 13.5 Brings NVIDIA Vera Rubin GA Support",
+        "publisher": "NVIDIA"
+      }
+    ],
+    "key_points": [
+      "NVIDIA released CUDA 13.5 with support for NVIDIA Vera Rubin GA.",
+      "It enables developers to optimize accelerated computing software and workloads for upcoming hardware architectures.",
+      "AI developers and software engineers utilizing NVIDIA hardware ecosystems are affected."
     ]
   },
   {
@@ -3709,6 +4889,39 @@
         "title": "Diagnose Distributed AI Workload Failures with NVIDIA Attribution",
         "publisher": "NVIDIA"
       }
+    ]
+  },
+  {
+    "id": "6d49bd650ae9b86b",
+    "title": "Keep Distributed Training Running with Automated Workload Recovery",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "[Automated summary unavailable] As distributed AI training scales, failures across hardware and software dependencies increasingly disrupt training progress, making fast, reliable recovery... As distributed AI training scales,…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://developer.nvidia.com/blog/keep-distributed-training-running-with-automated-workload-recovery",
+    "date": "2026-11-02T22:43:05+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-06T14:49:23.854067+00:00",
+    "topics": [
+      "Models and Releases"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://developer.nvidia.com/blog/keep-distributed-training-running-with-automated-workload-recovery",
+        "title": "Keep Distributed Training Running with Automated Workload Recovery",
+        "publisher": "NVIDIA"
+      }
+    ],
+    "key_points": [
+      "Distributed AI training workloads face frequent disruptions from hardware and software failures as they scale.",
+      "Automated workload recovery systems are introduced to maintain training continuity and reduce manual intervention.",
+      "AI researchers and infrastructure engineers managing large-scale distributed training clusters are affected."
     ]
   },
   {
