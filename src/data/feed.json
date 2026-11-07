@@ -3828,6 +3828,47 @@
     ]
   },
   {
+    "id": "32aabc03de736b72",
+    "title": "Learn the rules: The hacker mindset",
+    "company": "Microsoft Research",
+    "source": "Microsoft Research AI",
+    "summary": "Microsoft Research Manager Mike Walker discusses his career in hacker culture and cyber defense in a podcast interview with Principal Technical Program Manager Weishung Liu. Walker reflects on his leadership of DARPA's Cyber Grand Challenge, which marked its 10th anniversary in 2026, and the development of autonomous AI systems for finding and patching vulnerabilities. The conversation also explores the social context of rules, trust in security regimes, and the intersection of AI and cybersecurity.",
+    "summary_status": "generated",
+    "content_fingerprint": "81ac0f6e64a211be",
+    "url": "https://www.microsoft.com/en-us/research/podcast/learn-the-rules-the-hacker-mindset",
+    "date": "2026-11-03T17:14:38+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-07T22:27:26.134259+00:00",
+    "topics": [
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Microsoft Research Manager Mike Walker and Principal Technical Program Manager Weishung Liu discussed the intersection of hacker culture, AI, and cybersecurity on the Microsoft Research Podcast.",
+      "The conversation highlighted the 10th anniversary of DARPA's Cyber Grand Challenge, which pioneered autonomous AI systems capable of finding and patching software vulnerabilities.",
+      "Cybersecurity professionals, researchers, and developers working on AI-driven cyber defense systems are targeted by the insights shared in this interview."
+    ],
+    "tags": [
+      "Microsoft Research",
+      "Cybersecurity",
+      "DARPA Cyber Grand Challenge",
+      "AI Agents"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://www.microsoft.com/en-us/research/podcast/learn-the-rules-the-hacker-mindset",
+        "title": "Learn the rules: The hacker mindset",
+        "publisher": "Microsoft Research"
+      }
+    ]
+  },
+  {
     "id": "23c4f130369cb972",
     "title": "Agentic cheminformatics with Google Antigravity",
     "company": "Google DeepMind",
