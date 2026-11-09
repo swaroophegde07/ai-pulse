@@ -1,5 +1,1134 @@
 [
   {
+    "id": "cbb103aa892c78b8",
+    "title": "SpaceX now fundamentally an \"infrastructure company,\" senior official says",
+    "company": "Ars Technica",
+    "source": "Ars Technica – AI",
+    "summary": "SpaceX Vice President of Launch Kiko Dontchev stated that the company is now fundamentally an infrastructure company focused on data and artificial intelligence alongside its space transportation efforts. Dontchev also revealed that the Falcon 9 rocket is on the path to retirement as the company shifts its long-term focus to low Earth orbit, lunar, and Martian infrastructure development. This strategic pivot reflects an acceleration in how SpaceX embraces AI and broadens its operational scope beyond traditional rocket manufacturing.",
+    "summary_status": "generated",
+    "content_fingerprint": "444ca133bb9a4a12",
+    "url": "https://arstechnica.com/space/2026/11/spacex-now-fundamentally-an-infrastructure-company-senior-official-says",
+    "date": "2026-11-09T15:39:21+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-09T17:13:50.449225+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "SpaceX senior official Kiko Dontchev announced that the company is now fundamentally an infrastructure company rather than just a rocket manufacturer.",
+      "The strategic shift prioritizes data, artificial intelligence, and infrastructure development in low Earth orbit, on the Moon, and on Mars, placing the Falcon 9 on the road to retirement.",
+      "Aerospace industry observers, commercial launch customers, and satellite operators are affected by SpaceX's transition toward data infrastructure."
+    ],
+    "tags": [
+      "SpaceX",
+      "Starlink",
+      "Falcon 9",
+      "Artificial Intelligence",
+      "Infrastructure"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arstechnica.com/space/2026/11/spacex-now-fundamentally-an-infrastructure-company-senior-official-says",
+        "title": "SpaceX now fundamentally an \"infrastructure company,\" senior official says",
+        "publisher": "Ars Technica"
+      }
+    ]
+  },
+  {
+    "id": "ac8f18750241a65f",
+    "title": "Nemotron-Personas-Finance-Japan: A Synthetic Dataset Capturing Japan's Demographics and Financial Context",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "NVIDIA released Nemotron-Personas-Finance-Japan, a synthetic dataset capturing Japan's demographics and financial context. The resource is designed to model local financial behaviors and socio-economic characteristics using synthetic persona generation.",
+    "summary_status": "generated",
+    "content_fingerprint": "6b89e5f500f8d359",
+    "url": "https://huggingface.co/blog/nvidia/nemotron-personas-finance-japan",
+    "date": "2026-11-09T15:05:57+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-09T17:13:50.448319+00:00",
+    "topics": [
+      "Models and Releases",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "NVIDIA released the Nemotron-Personas-Finance-Japan dataset to model Japanese demographics and financial behaviors.",
+      "It provides localized synthetic data that enables more accurate financial modeling and culturally contextualized AI evaluations for Japan.",
+      "AI researchers and financial technology developers working with Japanese language models and local market applications are directly affected."
+    ],
+    "tags": [
+      "NVIDIA",
+      "Synthetic Data",
+      "Finance",
+      "Japan"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/nvidia/nemotron-personas-finance-japan",
+        "title": "Nemotron-Personas-Finance-Japan: A Synthetic Dataset Capturing Japan's Demographics and Financial Context",
+        "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
+    "id": "33ef12646577f582",
+    "title": "The Download: empty AI climate claims",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "An opinion piece argues that the technology sector has failed to substantiate optimistic claims regarding AI's role in mitigating climate change as global leaders gather for a United Nations climate conference. The newsletter also highlights ecological research on tropical rainforest recovery and reports on investigations involving Nvidia executive Jensen Huang and upcoming congressional scrutiny of Big Tech.",
+    "summary_status": "generated",
+    "content_fingerprint": "5445ea9698312f90",
+    "url": "https://www.technologyreview.com/2026/11/09/1148176/the-download-empty-ai-climate-claims-and-an-nvidia-investigation",
+    "date": "2026-11-09T13:15:00+00:00",
+    "category": "Opinion",
+    "fetched_at": "2026-11-09T17:13:50.449342+00:00",
+    "topics": [
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "AI companies have not demonstrated sufficient, concrete evidence that artificial intelligence effectively reduces global greenhouse-gas emissions.",
+      "The lack of verified climate utility undermines industry claims as international policymakers debate energy and environmental standards at the United Nations climate conference.",
+      "Policymakers, sustainability researchers, and technology firms face growing scrutiny regarding the environmental footprint and actual utility of data centers and AI deployments."
+    ],
+    "tags": [
+      "Climate Change",
+      "Nvidia",
+      "AI Policy",
+      "Sustainability"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/11/09/1148176/the-download-empty-ai-climate-claims-and-an-nvidia-investigation",
+        "title": "The Download: empty AI climate claims",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "1041d0c56d06b40f",
+    "title": "Innovating with AI in the special chemicals industry",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "Specialty chemicals manufacturer Lubrizol is integrating cloud computing, AI, and advanced modeling into its R&D processes to accelerate product innovation and sustainability. The company uses cross-functional fusion teams of scientists, data scientists, and IT professionals to connect historical data with modern digital tools while maintaining scientific judgment. These digital initiatives aim to streamline formulation testing, evaluate bio-based alternatives, and optimize manufacturing scale-up.",
+    "summary_status": "generated",
+    "content_fingerprint": "6c5a75244bcb27d1",
+    "url": "https://www.technologyreview.com/2026/11/09/1147654/innovating-with-ai-in-the-special-chemicals-industry",
+    "date": "2026-11-09T13:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-09T17:13:50.449534+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Lubrizol integrated cloud infrastructure, AI modeling, and historical data platforms to accelerate R&D and improve the development of sustainable materials.",
+      "Cross-functional fusion teams combining chemists, data scientists, and IT staff were formed to align perspectives and build trust for digital transformation projects.",
+      "Specialty chemical researchers, enterprise IT teams, and manufacturing operations will use these digital tools to navigate regulatory, financial, and performance constraints."
+    ],
+    "tags": [
+      "Lubrizol",
+      "Infosys",
+      "AI Agents",
+      "Cloud Computing",
+      "Digital Transformation"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/11/09/1147654/innovating-with-ai-in-the-special-chemicals-industry",
+        "title": "Innovating with AI in the special chemicals industry",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "55d059b88c6c576a",
+    "title": "Your Experts Have Partners. There's HOPE for Keeping Them Together",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "The dynamics of expert partnerships and strategies for maintaining them effectively. It highlights the HOPE framework as a mechanism for keeping expert partners aligned and collaborative.",
+    "summary_status": "generated",
+    "content_fingerprint": "a9369d66eb1a92c3",
+    "url": "https://huggingface.co/blog/amazon/higher-order-pruning-experts",
+    "date": "2026-11-09T12:34:29+00:00",
+    "category": "Opinion",
+    "fetched_at": "2026-11-09T17:13:50.449019+00:00",
+    "topics": [
+      "Business and Industry"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "The HOPE framework was introduced to maintain collaboration among expert partners.",
+      "This approach provides a structured method for resolving professional disagreements and aligning goals.",
+      "Domain experts, project leads, and collaborative teams are affected by these partnership strategies."
+    ],
+    "tags": [
+      "Expert Partnerships",
+      "Collaboration",
+      "HOPE Framework"
+    ],
+    "impact_score": 3,
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/amazon/higher-order-pruning-experts",
+        "title": "Your Experts Have Partners. There's HOPE for Keeping Them Together",
+        "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
+    "id": "d74910f5b9354c21",
+    "title": "The climate case for AI has not been made",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "Despite optimistic claims and projections from tech companies and researchers that artificial intelligence can substantially reduce global greenhouse gas emissions by 2035, an analysis of major market actors reveals that very few companies are actually deploying AI for these specific climate-mitigation use cases. While sectors like power, agriculture, and transportation hold theoretical potential for efficiency gains—such as AI-driven renewable energy forecasting—real-world implementation remains largely aspirational. Consequently, the concrete climate case and realized impact for enterprise AI adoption have yet to be proven at scale.",
+    "summary_status": "generated",
+    "content_fingerprint": "9f35ca2374c31929",
+    "url": "https://www.technologyreview.com/2026/11/09/1148166/the-climate-case-for-ai-has-not-been-made",
+    "date": "2026-11-09T10:00:00+00:00",
+    "category": "Opinion",
+    "fetched_at": "2026-11-09T17:13:50.449632+00:00",
+    "topics": [
+      "Business and Industry",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "An analysis of major actors in the power, meat and dairy, and vehicle sectors found that few companies are actively pursuing the specific emissions-reducing AI routes outlined in climate projections.",
+      "The article evaluates industry adoption against academic and corporate claims to determine whether projected carbon reductions are supported by present-day reality.",
+      "Policymakers, energy grid operators, and climate conference attendees are affected by the gap between ambitious AI climate projections and actual deployment."
+    ],
+    "tags": [
+      "AI Climate Impact",
+      "OpenAI",
+      "Google",
+      "Energy Grids",
+      "Emissions Reduction"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/11/09/1148166/the-climate-case-for-ai-has-not-been-made",
+        "title": "The climate case for AI has not been made",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "b0afcada4af198fc",
+    "title": "Enhancing Academic Advisement with Case-Based Reasoning",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This research details the design, development, and validation of a prototype case-based academic advisement recommender system utilizing Case-Based Reasoning. The system aims to supplement conventional academic advising processes within higher education institutions by acting as an expert support tool. The work investigates the application of expert systems to make academic advising more efficient and effective.",
+    "summary_status": "generated",
+    "content_fingerprint": "8e1c667b0f54dbee",
+    "url": "https://arxiv.org/abs/2611.08572",
+    "date": "2026-11-09T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-09T17:13:50.449954+00:00",
+    "topics": [
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "A prototype case-based academic advisement recommender system was designed, developed, and validated using Case-Based Reasoning methodology.",
+      "It addresses the time-consuming nature of academic advising by offering an automated approach to supplement and potentially replace traditional advising services.",
+      "Higher education institutions, college and university students, and academic advisors are directly affected by this expert system application."
+    ],
+    "tags": [
+      "Case-Based Reasoning",
+      "Expert Systems",
+      "Academic Advising",
+      "Recommender Systems"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.08572",
+        "title": "Enhancing Academic Advisement with Case-Based Reasoning",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "69ce3e7f06d8c845",
+    "title": "NormGym: Evaluating Normative Competence through Social Interaction",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduce NormGym, an interactive benchmark designed to evaluate whether AI agents can infer and adapt to previously unknown social norms within multi-agent environments. Evaluations reveal that the strongest large language model achieves a joint task-and-compliance success rate of only 55.3%, struggling to deduce norms from observing peer interactions and sanctions. These findings indicate that current language models lack a robust capability for acquiring normative knowledge dynamically through social engagement.",
+    "summary_status": "generated",
+    "content_fingerprint": "6e78e20ab2d2e05e",
+    "url": "https://arxiv.org/abs/2611.08613",
+    "date": "2026-11-09T05:00:00+00:00",
+    "category": "Benchmark",
+    "fetched_at": "2026-11-09T17:13:50.450046+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "NormGym, a new interactive benchmark, was introduced to evaluate the ability of AI agents to infer and comply with hidden social norms from interactions and sanctions.",
+      "The strongest evaluated large language model achieved a joint task-and-compliance success rate of 55.3%, demonstrating a significant gap in acquiring unknown normative rules.",
+      "Developers and researchers building large language model agents for multi-agent communities are affected by these limitations in normative adaptation."
+    ],
+    "tags": [
+      "NormGym",
+      "AI Agents",
+      "Benchmarks",
+      "Social Interaction",
+      "Large Language Models"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.08613",
+        "title": "NormGym: Evaluating Normative Competence through Social Interaction",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "1db27377e823919a",
+    "title": "LLM-Based Feature Extraction for Multi-Criteria Inventory Classification",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This research introduces an LLM-based feature extraction approach to transform unstructured supply chain data, such as customer reviews, into quantitative features for multi-criteria inventory classification. By utilizing vector embeddings and LLM-generated evaluation criteria within the Hadi-Vencheh model, the method demonstrates measurable reclassification effects when incorporating sentiment signals. The findings show that integrating unstructured data into inventory prioritization frameworks improves traditional classification techniques.",
+    "summary_status": "generated",
+    "content_fingerprint": "9285e227b2a43432",
+    "url": "https://arxiv.org/abs/2611.08626",
+    "date": "2026-11-09T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-09T17:13:50.450134+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed an LLM-based feature extraction approach to convert unstructured customer feedback and operational data into quantitative features for inventory classification.",
+      "The method integrates sentiment signals into the Hadi-Vencheh multi-criteria inventory classification model, demonstrating that unstructured data can significantly improve inventory prioritization over traditional quantitative-only approaches.",
+      "Supply chain managers and e-commerce operators dealing with large volumes of customer feedback are affected by this methodology."
+    ],
+    "tags": [
+      "Large Language Models",
+      "Supply Chain",
+      "Feature Extraction",
+      "Inventory Management",
+      "Vector Embeddings"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.08626",
+        "title": "LLM-Based Feature Extraction for Multi-Criteria Inventory Classification",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "d6c421cd589c192b",
+    "title": "Aspect-wise Pairwise Tournaments for Test-Time Selection",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "The authors introduce Aspect-wise Pairwise Tournaments (APT), a test-time selection method that uses single-elimination tournaments powered by off-the-shelf aspect verifiers to evaluate LLM candidate solutions. Evaluations across five domains and three generator models show that APT outperforms binary multi-aspect approval, self-consistency, and reward model verification, particularly on open-ended tasks. Because aspects are defined via natural language prompts, users can steer output selection toward specific preferences without retraining or regenerating solutions.",
+    "summary_status": "generated",
+    "content_fingerprint": "903b7f1ccda71c0e",
+    "url": "https://arxiv.org/abs/2611.08640",
+    "date": "2026-11-09T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-09T17:13:50.450237+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Aspect-wise Pairwise Tournaments (APT) was introduced to select the best LLM candidate solutions using single-elimination tournaments evaluated by multiple off-the-shelf aspect verifiers.",
+      "The method improves test-time reasoning performance across five domains and three generator LLMs, especially on open-ended tasks, by aligning selection with user preferences specified in natural language.",
+      "LLM developers, researchers, and end-users deploying test-time compute scaling techniques benefit from improved candidate selection without requiring model retraining."
+    ],
+    "tags": [
+      "Test-Time Compute",
+      "LLM Reasoning",
+      "Best-of-N Sampling",
+      "Model Evaluation"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.08640",
+        "title": "Aspect-wise Pairwise Tournaments for Test-Time Selection",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "9428592458d5ca5d",
+    "title": "Decision Context: Persistent Behavioral Learning for AI Agents",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "The paper introduces Forge Decision Context (forge_dc), a system that captures behavioral signals from human corrections and tool failures to compile them into imperative RULE directives for LLM agents. Evaluated on the new DC-Bench benchmark, forge_dc achieves 95% compliance while using significantly fewer tokens per query compared to naive retrieval. The findings demonstrate that representing behavioral memory as explicit directives and injecting them precisely at decision points enables persistent behavioral learning across sessions.",
+    "summary_status": "generated",
+    "content_fingerprint": "98d7fefe6f3e5978",
+    "url": "https://arxiv.org/abs/2611.08644",
+    "date": "2026-11-09T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-09T17:13:50.450335+00:00",
+    "topics": [
+      "AI Agents",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Forge Decision Context (forge_dc) was developed to capture behavioral signals from corrections and failures, compiling them into imperative RULE directives for LLM agents.",
+      "The system achieves 95% rule compliance while injecting about 10 times fewer tokens per query, overcoming the limitation where LLM agents typically fail to learn from cross-session corrections.",
+      "AI agent developers and researchers working on persistent agent memory and cross-session behavioral adaptation are directly affected by these findings."
+    ],
+    "tags": [
+      "AI Agents",
+      "LLM Memory",
+      "Behavioral Learning",
+      "DC-Bench"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.08644",
+        "title": "Decision Context: Persistent Behavioral Learning for AI Agents",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "605714b8c1bb680f",
+    "title": "IWIBench: Evaluating Gradient-Free Model Driven Intra-weight Injection",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "The paper introduces IWIBench, a benchmark designed to systematically evaluate how effectively large editor models can modify the weights of a smaller target model, such as Gemma 3 4B IT, to achieve specific text-editing objectives without gradients. Evaluation of frontier closed- and open-weight models reveals significant performance disparities across models and tasks, highlighting an early and uneven capability frontier. The findings indicate that while certain models like Astra and GPT-6.1 Sol excel at specific editing objectives, tasks like structured response and answer-length control remain extremely challenging.",
+    "summary_status": "generated",
+    "content_fingerprint": "82cb778b2e9c7eab",
+    "url": "https://arxiv.org/abs/2611.08647",
+    "date": "2026-11-09T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-09T17:13:50.450427+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers introduced IWIBench, a new evaluation framework to measure a model's ability to directly edit the weights of a smaller target model without using gradients.",
+      "The benchmark reveals large performance gaps across frontier models and tasks, showing that advanced capability is concentrated in only a few models like Astra and GPT-6.1 Sol.",
+      "AI researchers, model developers, and engineers working on weight editing and model-to-model control techniques are directly affected by these findings."
+    ],
+    "tags": [
+      "IWIBench",
+      "Model Editing",
+      "Weight Injection",
+      "Gradient-Free Optimization",
+      "Gemma 3"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.08647",
+        "title": "IWIBench: Evaluating Gradient-Free Model Driven Intra-weight Injection",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "35763772b1a22165",
+    "title": "Pdb or Not to Be: Comparing Debugging Interfaces With Pass$_{X}$@$k$",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This study compares a debugger-only agent against a bash-only agent across all 500 SWE-bench Verified instances using GPT-OSS-120B and Nemotron-3-Ultra-550B models. To isolate tool effectiveness from stochastic variance, the authors introduce pass_X@k, an unbiased estimator for cross-agent success probability. The results demonstrate that two bash rollouts outperform a combination of bash and debugger rollouts, indicating that performance differences stem largely from run-to-run variance rather than tool complementarity.",
+    "summary_status": "generated",
+    "content_fingerprint": "e5a24a71cf504e9d",
+    "url": "https://arxiv.org/abs/2611.08666",
+    "date": "2026-11-09T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-09T17:13:50.450518+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "A debugger-only agent was evaluated against a bash-only agent on SWE-bench Verified using the pass_X@k estimator to measure cross-agent success probabilities.",
+      "Two bash rollouts outperformed a combined bash and debugger rollout, showing that distinct problem subsets solved by each tool are driven by stochastic run-to-run variance.",
+      "AI researchers, software engineering agent developers, and benchmark evaluators aiming to assess tool diversity and agent scaffolding."
+    ],
+    "tags": [
+      "SWE-bench",
+      "AI Agents",
+      "Debugging",
+      "GPT-OSS-120B",
+      "Nemotron-3-Ultra-550B"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.08666",
+        "title": "Pdb or Not to Be: Comparing Debugging Interfaces With Pass$_{X}$@$k$",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "ac1d3ebd6931f5cd",
+    "title": "ChainFlow: Few-Step Latent Flow Matching for Speculative Decoding",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduce ChainFlow, a few-step latent flow-matching drafter conditioned on target hidden states designed to accelerate large language model inference through speculative decoding. The method uses a variational autoencoder to compress hidden states and lightweight feedback heads to restore inter-token dependencies, requiring only one or two flow steps. Experiments on Qwen3.5 models demonstrate speedup improvements over EAGLE-3 and DFlash within vLLM.",
+    "summary_status": "generated",
+    "content_fingerprint": "0d05dd2b8a40fb28",
+    "url": "https://arxiv.org/abs/2611.08669",
+    "date": "2026-11-09T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-09T17:13:50.450608+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "ChainFlow was introduced as a flow-matching drafter for speculative decoding that conditions on target hidden states using one or two flow steps.",
+      "It outperforms existing drafters like EAGLE-3 and DFlash by 39% and 11% respectively on Qwen3.5 models in vLLM, with open-sourced code and models.",
+      "Developers and researchers deploying large language models with speculative decoding frameworks are directly affected by these inference speedup gains."
+    ],
+    "tags": [
+      "Speculative Decoding",
+      "Flow Matching",
+      "Large Language Models",
+      "Inference Optimization",
+      "Qwen3.5"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.08669",
+        "title": "ChainFlow: Few-Step Latent Flow Matching for Speculative Decoding",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "0c7ea1040e74ff23",
+    "title": "Transporting the Past: An Optimal Transport View of Backtracking Counterfactuals",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This research paper formalizes backtracking counterfactual inference in Structural Causal Models through the lens of optimal transport. The authors introduce two complementary frameworks to transport exogenous posteriors to satisfy counterfactual queries while preserving either direct usability or mutual independence. Furthermore, they propose marginal, penalty-based, and hard-constrained solvers, supported by synthetic experiments on non-bijective models.",
+    "summary_status": "generated",
+    "content_fingerprint": "72307d5524272595",
+    "url": "https://arxiv.org/abs/2611.08682",
+    "date": "2026-11-09T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-09T17:13:50.450694+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "The authors developed an optimal transport framework for backtracking counterfactual inference in Structural Causal Models.",
+      "This approach provides rigorous methods to handle distributional counterfactuals and preserve exogenous noise independence.",
+      "Researchers and practitioners working with structural causal models and counterfactual inference methods are affected."
+    ],
+    "tags": [
+      "Causal Inference",
+      "Optimal Transport",
+      "Structural Causal Models",
+      "Counterfactuals"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.08682",
+        "title": "Transporting the Past: An Optimal Transport View of Backtracking Counterfactuals",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "b173ed0a424e1eec",
+    "title": "Cancellation Is Not Enough: What Retries Leave Behind in an Overloaded LLM Engine",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers test the effectiveness of cancellation and other mitigation strategies on vLLM during LLM engine overloads caused by client retries. They discover that cancellation alone fails to restore service and that uncounted prompt tokens degrade engine recovery. Implementing a retry budget or request coalescing provides better recovery outcomes by shedding excess traffic or combining redundant requests.",
+    "summary_status": "generated",
+    "content_fingerprint": "7876f54bb47ab572",
+    "url": "https://arxiv.org/abs/2611.08684",
+    "date": "2026-11-09T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-09T17:13:50.450776+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Cancellation alone failed to restore service on vLLM during overload scenarios with retries enabled, successfully delivering only 12-38% of post-overload calls.",
+      "Understanding that retries consume substantial uncounted prompt tokens and cause lingering executions explains why basic cancellation is insufficient for engine recovery.",
+      "System developers and operators managing LLM serving engines and client proxies are affected by these insights into robust overload control mechanisms."
+    ],
+    "tags": [
+      "vLLM",
+      "LLM Inference",
+      "Request Retries",
+      "Engine Overload"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.08684",
+        "title": "Cancellation Is Not Enough: What Retries Leave Behind in an Overloaded LLM Engine",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "ea2cef5879e9feb3",
+    "title": "FasterRW: An Efficient Prior-Assisted Random Walk Solver for Thermal Analysis",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "FasterRW introduces a continuation-value framework to accelerate Feynman-Kac thermal random walks for integrated circuit thermal simulation. By using a stopping-time residual identity and a prior-corrected single-point estimator, the method bounds truncation bias and achieves up to 28x acceleration over existing approaches. The authors have open-sourced their implementation on GitHub.",
+    "summary_status": "generated",
+    "content_fingerprint": "c3b742cdeabb934d",
+    "url": "https://arxiv.org/abs/2611.08490",
+    "date": "2026-11-09T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-09T17:13:50.450880+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Open Source",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "FasterRW was developed to accelerate thermal simulation random walks using a stopping-time residual identity and prior-corrected single-point estimator.",
+      "It achieves up to 28x speedup compared to prior state-of-the-art methods while maintaining simulation accuracy.",
+      "IC design engineers and researchers performing localized thermal analysis and semiconductor manufacturing simulations are affected."
+    ],
+    "tags": [
+      "Thermal Simulation",
+      "IC Design",
+      "Random Walk",
+      "Open-Source"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.08490",
+        "title": "FasterRW: An Efficient Prior-Assisted Random Walk Solver for Thermal Analysis",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "26b0a1c992b1aa85",
+    "title": "Embedding Consistent Recurrent Neural Networks in Finite Element Simulations for Path-Dependent Damage Prediction",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers embed a custom Consistent Recurrent Neural Network (ConsRNN) into an Abaqus/Explicit VUMAT subroutine to predict sheet-metal damage without suffering from the strain-increment drift that affects standard RNNs. The ConsRNN converges as the strain path is refined, matching an established two-parameter fracture criterion in peak force and displacement during structural-scale steel plate simulations. This work demonstrates that discretisation consistency is essential for deploying recurrent neural network surrogates inside non-linear explicit finite element solvers.",
+    "summary_status": "generated",
+    "content_fingerprint": "6be29992bb3f2b66",
+    "url": "https://arxiv.org/abs/2611.08494",
+    "date": "2026-11-09T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-09T17:13:50.450966+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "A Consistent Recurrent Neural Network (ConsRNN) was embedded into an Abaqus/Explicit VUMAT subroutine to serve as a live fracture criterion for sheet-metal simulations.",
+      "Unlike standard RNNs whose predictions drift with the solver's strain-increment count, ConsRNN converges under strain-path refinement, enabling reliable structural-scale damage prediction.",
+      "Computational mechanics researchers, finite element simulation engineers, and practitioners working with data-driven material surrogates in explicit codes are directly affected."
+    ],
+    "tags": [
+      "Recurrent Neural Networks",
+      "Finite Element Method",
+      "Damage Prediction",
+      "Surrogate Modeling"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.08494",
+        "title": "Embedding Consistent Recurrent Neural Networks in Finite Element Simulations for Path-Dependent Damage Prediction",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "0e11a8cbd44d1229",
+    "title": "Rethinking Data Selection as Distribution Matching on Semantic Manifolds",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "The authors introduce QMAC, a quality-aware multiband characteristic function matching method that frames instruction tuning data selection as distribution matching combined with quality filtering across semantic manifolds. Evaluated across four data types, eight target models, and forty-four benchmarks, QMAC surpasses standard data selection baselines and even exceeds full data training in various budget configurations. This approach addresses redundancy and noise in massive datasets by capturing both global semantic coverage and local perturbations in embedding space.",
+    "summary_status": "generated",
+    "content_fingerprint": "0da1dbc78be5f629",
+    "url": "https://arxiv.org/abs/2611.08495",
+    "date": "2026-11-09T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-09T17:13:50.451083+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "QMAC was developed as a joint optimization approach for data selection that matches empirical characteristic functions across multiple frequency scales while filtering low-quality samples.",
+      "The method improves large language model and vision-language model training efficiency by reducing redundancy and surpassing full data training performance in multiple model and budget combinations.",
+      "Machine learning researchers and engineers training large language models or large vision-language models on instruction data are directly affected."
+    ],
+    "tags": [
+      "Data Selection",
+      "Instruction Tuning",
+      "Large Language Models",
+      "Vision-Language Models"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.08495",
+        "title": "Rethinking Data Selection as Distribution Matching on Semantic Manifolds",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "dc2d62dadb63c54c",
+    "title": "Generative Reconstruction of Full-Field Sensor States for Safety-Critical Digital Twins",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This study develops a sparse-sensor reconstruction framework for safety-critical digital twins applied to Oregon State University's High Temperature Test Facility. Evaluating six machine learning methods, the research finds that a graph neural network combined with a gated recurrent unit variational autoencoder achieves the lowest intra-experiment error, while a section-context diffusion model delivers the best inter-experiment transfer performance.",
+    "summary_status": "generated",
+    "content_fingerprint": "ad34dabf4b41b34b",
+    "url": "https://arxiv.org/abs/2611.08499",
+    "date": "2026-11-09T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-09T17:13:50.451181+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "A sparse-sensor reconstruction framework was developed and evaluated using six methods for high-temperature nuclear thermal-hydraulic digital twins.",
+      "The GNN-GRU VAE achieved a superior intra-experiment RMSE of 20.54 °C, while a section-context diffusion model achieved an inter-experiment transfer RMSE of 42.84 °C.",
+      "Researchers and operators of safety-critical industrial digital twins relying on thermocouple arrays in extreme environments are directly affected."
+    ],
+    "tags": [
+      "Digital Twins",
+      "Graph Neural Networks",
+      "Generative Models",
+      "Sensor Reconstruction",
+      "Thermal Hydraulics"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.08499",
+        "title": "Generative Reconstruction of Full-Field Sensor States for Safety-Critical Digital Twins",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "d78c2be9729ce15f",
+    "title": "Adaptive Depth Aggregation in Graph Transformers for Long-Range Graph Reasoning",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "The authors introduce Attention Residuals (AttnRes), a node-adaptive depth aggregation mechanism for Graph Transformers designed to resolve the residual-interface constraint in long-range graph reasoning. By formalizing graph-propagation history and applying Block AttnRes to GPS and GRIT architectures, the method reduces mean absolute error across all five ECHO tasks compared to standard fixed-coefficient backbones. These findings demonstrate that node-adaptive depth aggregation serves as an effective complement to cross-node communication in graph representation learning.",
+    "summary_status": "generated",
+    "content_fingerprint": "3044586ebd26d075",
+    "url": "https://arxiv.org/abs/2611.08500",
+    "date": "2026-11-09T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-09T17:13:50.451266+00:00",
+    "topics": [
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed Attention Residuals (AttnRes) to replace fixed-coefficient residual streams with node-adaptive depth aggregation in Graph Transformers.",
+      "This approach resolves depth-wise aggregation mismatch and achieves lower mean absolute error across all five ECHO tasks when integrated into GPS and GRIT backbones.",
+      "Graph machine learning researchers and practitioners working on long-range graph reasoning and graph transformer architectures are directly affected."
+    ],
+    "tags": [
+      "Graph Transformers",
+      "Attention Residuals",
+      "Graph Neural Networks",
+      "Long-Range Reasoning"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.08500",
+        "title": "Adaptive Depth Aggregation in Graph Transformers for Long-Range Graph Reasoning",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "f5b7c56e9a25066a",
+    "title": "Emergent Low-Dimensional Topological Dynamics Dictate Generalization and Escape Mechanics in Billion-Parameter Neural Networks",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers demonstrate that optimization trajectories in billion-parameter models are dynamically constrained to a low-dimensional execution submanifold, enabling a rigorous Topological Generalization Bound via projected subspace persistent homology. By linking Morse index transitions to Betti number annihilation, the study formulates an exact mathematical mechanism for exponential escape from strict saddles under anisotropic noise. The resulting Topological-Adaptive Optimization algorithms, Top-SGD and Top-AdamW, achieve a 14.1 percent reduction in total wall-clock training time on ImageNet.",
+    "summary_status": "generated",
+    "content_fingerprint": "4df7dea89cdfdcea",
+    "url": "https://arxiv.org/abs/2611.08502",
+    "date": "2026-11-09T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-09T17:13:50.451368+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Optimization trajectories in billion-parameter models are dynamically constrained to an effective dimension of 12 or less within a low-dimensional execution submanifold.",
+      "The framework provides a Topological Generalization Bound and introduces Topological-Adaptive Optimization algorithms that reduce wall-clock training time on ImageNet by 14.1 percent.",
+      "Machine learning researchers and practitioners training large-scale vision transformers, ResNets, and large language models benefit from these curvature-based optimization methods."
+    ],
+    "tags": [
+      "Topological-Adaptive Optimization",
+      "Persistent Homology",
+      "Neural Network Generalization",
+      "Large Language Models",
+      "Optimization"
+    ],
+    "impact_score": 8,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.08502",
+        "title": "Emergent Low-Dimensional Topological Dynamics Dictate Generalization and Escape Mechanics in Billion-Parameter Neural Networks",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "a1e7b6d236c80b35",
+    "title": "Does Country Matter? Evaluating Geographic Sensitivity of Large Language Models in Zero-Shot Chronic Kidney Disease Screening",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This study evaluates the geographic sensitivity of open-weight large language models in zero-shot chronic kidney disease screening by systematically varying country attributes in prompts while keeping clinical inputs constant. The results demonstrate that while non-CKD predictions remain stable across global contexts, CKD-positive predictions fluctuate significantly depending on the country token used. These findings reveal that geographic tokens can systematically alter clinical screening outcomes, raising reliability concerns for deploying LLM decision support across diverse healthcare settings.",
+    "summary_status": "generated",
+    "content_fingerprint": "4193777c183dc651",
+    "url": "https://arxiv.org/abs/2611.08507",
+    "date": "2026-11-09T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-09T17:13:50.451475+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Geographic contexts were systematically varied across 25 global settings while holding clinical inputs constant to evaluate Qwen3 8B and Mistral 7B models on a chronic kidney disease dataset.",
+      "CKD-positive predictions showed notable instability, with Qwen3's positive predictions dropping from 65 to 50 across different country contexts.",
+      "Healthcare practitioners, clinical AI developers, and deployment teams relying on LLM-based diagnostic tools are affected by these unexpected geographic sensitivities."
+    ],
+    "tags": [
+      "Large Language Models",
+      "Healthcare AI",
+      "Clinical Decision Support",
+      "Model Reliability"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.08507",
+        "title": "Does Country Matter? Evaluating Geographic Sensitivity of Large Language Models in Zero-Shot Chronic Kidney Disease Screening",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "d0eac1c636ca8c13",
+    "title": "Interpretable Multifidelity Learning with Kolmogorov-Arnold Networks for Spatiotemporal Nuclear Reactor Flow Modeling",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This study investigates multifidelity modeling using Kolmogorov-Arnold Networks (MFKANs) and feedforward neural networks (MFNNs) to predict spatiotemporal mass flow rates across 193 fuel assemblies in a pressurized water reactor. The results demonstrate that MFKANs achieve accuracy comparable to MFNNs while additionally providing interpretable closed-form symbolic equations. Furthermore, the analysis reveals that cross-fidelity forecasting accuracy is fundamentally constrained by the inherent correlation between fidelity levels.",
+    "summary_status": "generated",
+    "content_fingerprint": "ee81c0ac37c3b3a3",
+    "url": "https://arxiv.org/abs/2611.08512",
+    "date": "2026-11-09T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-09T17:13:50.451582+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Kolmogorov-Arnold Networks (MFKANs) were evaluated for multifidelity spatiotemporal nuclear reactor flow modeling alongside feedforward neural networks (MFNNs).",
+      "MFKANs deliver comparable prediction accuracy to MFNNs while offering interpretable closed-form symbolic equations unavailable in standard black-box architectures.",
+      "Nuclear reactor safety engineers, thermal-hydraulic modelers, and researchers studying surrogate modeling for computational fluid dynamics are affected."
+    ],
+    "tags": [
+      "Kolmogorov-Arnold Networks",
+      "Nuclear Reactor",
+      "Computational Fluid Dynamics",
+      "Surrogate Modeling"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.08512",
+        "title": "Interpretable Multifidelity Learning with Kolmogorov-Arnold Networks for Spatiotemporal Nuclear Reactor Flow Modeling",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "e17a5bf764d303cc",
+    "title": "What Are LLM Agents Actually Learning on Low-Budget Molecular Optimization Benchmarks?",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "An evaluation of LLM agents on low-budget molecular optimization benchmarks reveals that performance gains largely stem from retrievable task information and permissive oracle landscapes rather than genuine molecular reasoning. When task names and reference compounds are hidden, agent performance drops significantly, and a deterministic retrieval baseline matches a large portion of the full agent score. The findings suggest the need for inexpensive sanity checks like retrieval-safe prompts and random-walk floors in future benchmark evaluations.",
+    "summary_status": "generated",
+    "content_fingerprint": "f16c20b0f5747d20",
+    "url": "https://arxiv.org/abs/2611.08522",
+    "date": "2026-11-09T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-09T17:13:50.451679+00:00",
+    "topics": [
+      "AI Agents",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers evaluated LLM agent performance on low-budget molecular optimization benchmarks by ablating task names, reference compounds, and online optimization components.",
+      "The analysis demonstrates that retrieval and oracle design heavily drive reported gains, with simple retrieval baselines achieving comparable scores to full LLM agents.",
+      "AI researchers and developers working on scientific discovery agents and molecular optimization benchmarks are directly affected by these findings."
+    ],
+    "tags": [
+      "Molecular Optimization",
+      "LLM Agents",
+      "Benchmarks",
+      "GPT-4o mini"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.08522",
+        "title": "What Are LLM Agents Actually Learning on Low-Budget Molecular Optimization Benchmarks?",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "918daa31b44af265",
+    "title": "Evolutionary Adaptive Metric Learning: A Multi-Objective Framework for Learning Local Distance Functions in Nearest Neighbor Classification",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "The authors propose EAML (Evolutionary Adaptive Metric Learning), a multi-objective framework that learns instance-dependent positive-definite metrics for nearest neighbor classification using a genetic algorithm. While EAML successfully recovers local metric variations on synthetic data, experiments on public datasets show it only improves performance selectively and does not significantly outperform global metric baselines overall. The findings demonstrate that global diagonal metrics often remain preferable in the presence of nuisance features and test-time noise.",
+    "summary_status": "generated",
+    "content_fingerprint": "943385f224c1f2e0",
+    "url": "https://arxiv.org/abs/2611.08549",
+    "date": "2026-11-09T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-09T17:13:50.451776+00:00",
+    "topics": [
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers introduced EAML, an evolutionary framework for learning instance-dependent local distance functions using a real-coded elitist genetic algorithm.",
+      "The study establishes theoretical guarantees such as positive definiteness and Lipschitz continuity while identifying that global metrics often outperform local learning under noise and nuisance features.",
+      "Machine learning researchers and practitioners working with distance-based classifiers and metric learning algorithms are directly affected by these empirical limitations."
+    ],
+    "tags": [
+      "Metric Learning",
+      "Nearest Neighbor Classification",
+      "Genetic Algorithms",
+      "Classification"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.08549",
+        "title": "Evolutionary Adaptive Metric Learning: A Multi-Objective Framework for Learning Local Distance Functions in Nearest Neighbor Classification",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "7a56e2062f93f8c0",
+    "title": "Hide your slop PR descriptions behind <details><summary>",
+    "company": "Simon Willison's Weblog",
+    "source": "Simon Willison – AI",
+    "summary": "[Automated summary unavailable] Most of the changes I make to my projects these days come in the form of PRs opened for me by Claude Code or Codex. The PR is my unit of work - I use them to bundle commits together, iterating on…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://simonwillison.net/2026/Nov/9/details-summary",
+    "date": "2026-11-09T04:25:05+00:00",
+    "category": "Opinion",
+    "fetched_at": "2026-11-09T17:13:50.452126+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://simonwillison.net/2026/Nov/9/details-summary",
+        "title": "Hide your slop PR descriptions behind <details><summary>",
+        "publisher": "Simon Willison's Weblog"
+      }
+    ],
+    "key_points": [
+      "Developers are using AI tools like Claude Code and Codex to automatically generate pull request descriptions.",
+      "Using HTML details tags helps hide verbose automated PR text to keep code review interfaces clean.",
+      "Software engineers and development teams reviewing AI-assisted pull requests are directly affected."
+    ]
+  },
+  {
     "id": "9c14b49663325757",
     "title": "OpenCode v2.2.6",
     "company": "OpenCode",
@@ -3907,6 +5036,39 @@
         "title": "Agentic cheminformatics with Google Antigravity",
         "publisher": "Google DeepMind"
       }
+    ]
+  },
+  {
+    "id": "8674b402a758cea6",
+    "title": "AI is destroying my CS degree",
+    "company": "Simon Willison's Weblog",
+    "source": "Simon Willison – AI",
+    "summary": "[Automated summary unavailable] My comment on AI is destroying my CS degree — Hacker News. I don't envy educators right now. AI clearly means you need to change how you teach and evaluate students. We are only a few years in…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://simonwillison.net/2026/Nov/3/hn-50354278",
+    "date": "2026-11-03T16:42:02+00:00",
+    "category": "Opinion",
+    "fetched_at": "2026-11-09T17:13:50.452173+00:00",
+    "topics": [
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://simonwillison.net/2026/Nov/3/hn-50354278",
+        "title": "AI is destroying my CS degree",
+        "publisher": "Simon Willison's Weblog"
+      }
+    ],
+    "key_points": [
+      "An educator discussed how artificial intelligence tools are disrupting traditional computer science education and student evaluation methods.",
+      "The rapid advancement of AI necessitates a complete overhaul of academic curricula and grading practices to maintain the value of computer science degrees.",
+      "Computer science educators and university students are directly impacted by the shifting landscape of coding education."
     ]
   },
   {
