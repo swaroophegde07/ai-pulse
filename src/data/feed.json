@@ -1,5 +1,85 @@
 [
   {
+    "id": "d48977b6fbc84b1e",
+    "title": "Lazare, veni foras: Reprogramming Dormant Neurons to Backdoor AI Agents",
+    "company": "Microsoft Research",
+    "source": "Microsoft Research AI",
+    "summary": "[Automated summary unavailable] Microsoft researchers have discovered “Lazarus,” a backdoor technique that can reprogram dormant neurons in an AI model, causing an otherwise normal AI agent to execute malicious commands when a…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents",
+    "date": "2026-11-10T20:52:56+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-10T23:52:50.864976+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents",
+        "title": "Lazare, veni foras: Reprogramming Dormant Neurons to Backdoor AI Agents",
+        "publisher": "Microsoft Research"
+      }
+    ],
+    "key_points": [
+      "Microsoft researchers discovered the Lazarus backdoor technique that reprograms dormant neurons in AI models to execute malicious commands.",
+      "This technique exposes a critical vulnerability in how AI agents can be compromised without altering their primary observable behavior.",
+      "AI developers, security professionals, and enterprises deploying autonomous AI agents are affected by this vulnerability."
+    ]
+  },
+  {
+    "id": "5bf610d1dd7d8e14",
+    "title": "llm-gemini 0.36",
+    "company": "Simon Willison's Weblog",
+    "source": "Simon Willison – AI",
+    "summary": "Google has made its Gemini 4 Carbon model widely available to all users following a limited initial release. The model features tiered pricing that is scheduled to double on December 1st and introduces varying thinking effort levels. Additionally, users tested its integration within Google Antigravity IDE and the /swarm feature for complex multi-agent 3D game generation.",
+    "summary_status": "generated",
+    "content_fingerprint": "fad03ec5c6f5682d",
+    "url": "https://simonwillison.net/2026/Nov/10/llm-gemini",
+    "date": "2026-11-10T20:09:44+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-10T23:52:50.865911+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Google released Gemini 4 Carbon to the general public after an initial restricted rollout.",
+      "The model introduces tiered pricing starting at $2 per million input and $10 per million output tokens, along with adjustable thinking effort settings.",
+      "Developers and AI practitioners utilizing Google's ecosystem and tools like Antigravity IDE are directly affected."
+    ],
+    "tags": [
+      "Google",
+      "Gemini",
+      "Gemini 4 Carbon",
+      "Generative AI",
+      "AI Agents"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://simonwillison.net/2026/Nov/10/llm-gemini",
+        "title": "llm-gemini 0.36",
+        "publisher": "Simon Willison's Weblog"
+      }
+    ]
+  },
+  {
     "id": "a8c416e2c7748124",
     "title": "Agent Substrate: Advancing Kubernetes for Agents at Scale",
     "company": "NVIDIA",
@@ -36,6 +116,49 @@
       {
         "url": "https://developer.nvidia.com/blog/agent-substrate-advancing-kubernetes-for-agents-at-scale",
         "title": "Agent Substrate: Advancing Kubernetes for Agents at Scale",
+        "publisher": "NVIDIA"
+      }
+    ]
+  },
+  {
+    "id": "25d05ca668539a66",
+    "title": "Start and Restore GPU Workloads in Seconds with NVIDIA Snapshot",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "NVIDIA has introduced NVIDIA Snapshot, a new open-source component of the NVIDIA DSX AI Factory Platform that enables initialized GPU workloads to be reused across inference replicas. This capability significantly reduces startup and recovery times by eliminating traditional cold start bottlenecks during demand spikes or replica failures. The tool targets AI infrastructure operators and enterprises deploying large language models on NVIDIA hardware.",
+    "summary_status": "generated",
+    "content_fingerprint": "a20c8c64b07db762",
+    "url": "https://developer.nvidia.com/blog/start-and-restore-gpu-workloads-in-seconds-with-nvidia-snapshot",
+    "date": "2026-11-10T15:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-10T23:52:50.865809+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Business and Industry",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "NVIDIA released NVIDIA Snapshot as an open-source component of the NVIDIA DSX AI Factory Platform.",
+      "It makes initialized GPU workloads reusable across inference replicas to eliminate minutes-long cold start delays.",
+      "Enterprise AI operators and engineers scaling LLM inference infrastructure are directly affected."
+    ],
+    "tags": [
+      "NVIDIA",
+      "Open-Source",
+      "GPU Workloads",
+      "Inference"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://developer.nvidia.com/blog/start-and-restore-gpu-workloads-in-seconds-with-nvidia-snapshot",
+        "title": "Start and Restore GPU Workloads in Seconds with NVIDIA Snapshot",
         "publisher": "NVIDIA"
       }
     ]
@@ -169,13 +292,13 @@
     "title": "OpenCode v2.2.7",
     "company": "OpenCode",
     "source": "OpenCode Updates",
-    "summary": "[Automated summary unavailable] Highlights GitHub Copilot Auto : Pick Auto in the model picker when your Copilot account has an Auto pool, and Copilot's router chooses the model for each session at the Auto discount. If routing…",
-    "summary_status": "pending_quota",
-    "content_fingerprint": "",
+    "summary": "OpenCode version 2.2.7 introduces GitHub Copilot Auto model routing support, new keyboard shortcuts for side panel tabs, and the ability to mark sessions as read or unread. The release also brings breaking changes to the @opencode/ai package along with SDK performance optimizations and improved Model Context Protocol stability.",
+    "summary_status": "generated",
+    "content_fingerprint": "1a126201205ddfa6",
     "url": "https://github.com/anomalyco/opencode/releases/tag/v2.2.7",
     "date": "2026-11-10T10:37:15+00:00",
     "category": "Product Release",
-    "fetched_at": "2026-11-10T15:28:56.290193+00:00",
+    "fetched_at": "2026-11-10T23:52:50.865863+00:00",
     "topics": [
       "Models and Releases",
       "Coding and Developer Tools",
@@ -195,9 +318,57 @@
       }
     ],
     "key_points": [
-      "OpenCode released version 2.2.7 with integration for GitHub Copilot Auto routing.",
-      "Enables dynamic model selection per session to optimize costs through the Auto discount tier.",
-      "Developers and users utilizing OpenCode with GitHub Copilot accounts."
+      "OpenCode released version 2.2.7 featuring GitHub Copilot Auto routing, side panel tab shortcuts, and session status toggling.",
+      "The update removes ImageResponse.image in @opencode/ai, optimizes SDK endpoint waiting times, and improves MCP server token refresh handling.",
+      "Developers and users utilizing OpenCode, GitHub Copilot integration, and remote MCP servers are affected."
+    ],
+    "tags": [
+      "OpenCode",
+      "GitHub Copilot",
+      "Model Context Protocol",
+      "Developer Tools"
+    ],
+    "impact_score": 4
+  },
+  {
+    "id": "991ad48e8559b2fe",
+    "title": "Introducing Businesses in ChatGPT",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "OpenAI has introduced new business features in ChatGPT that allow users to manage business information, analyze visibility insights, and convert user interest into direct action. These tools help enterprises integrate their operational presence directly into the conversational interface. The update is targeted at business owners and organizations utilizing ChatGPT to engage with customers.",
+    "summary_status": "generated",
+    "content_fingerprint": "e28a79779bb5560b",
+    "url": "https://openai.com/index/introducing-businesses-chatgpt",
+    "date": "2026-11-10T10:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-10T23:52:50.864732+00:00",
+    "topics": [
+      "Models and Releases",
+      "Business and Industry",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "OpenAI launched new business management and insight tools within ChatGPT.",
+      "Businesses can now manage their public information and convert user interest into direct actions inside the platform.",
+      "Business owners and commercial users leveraging ChatGPT for customer engagement are directly affected."
+    ],
+    "tags": [
+      "ChatGPT",
+      "OpenAI",
+      "Business Tools"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://openai.com/index/introducing-businesses-chatgpt",
+        "title": "Introducing Businesses in ChatGPT",
+        "publisher": "OpenAI"
+      }
     ]
   },
   {
@@ -246,19 +417,23 @@
     "title": "Introducing Our Smallest, Most Efficient Model: Muse Ember",
     "company": "Simon Willison's Weblog",
     "source": "Simon Willison – AI",
-    "summary": "[Automated summary unavailable] Introducing Our Smallest, Most Efficient Model: Muse Ember Meta AI just launched their entry in the Claude Haiku/GPT Luna category: Muse Ember, which they describe as: [...] our smallest and most…",
-    "summary_status": "pending_quota",
-    "content_fingerprint": "",
+    "summary": "Meta AI launched Muse Ember, a small and efficient language model optimized for agentic workloads such as tool calls, coding subtasks, and document parsing. Priced competitively alongside GPT-6 Luna and Claude Haiku 5.5, the model features six reasoning levels and sits on the Artificial Analysis efficiency frontier. It supports up to a million input tokens with tiered pricing thresholds and delivers output quality comparable to much higher-priced models.",
+    "summary_status": "generated",
+    "content_fingerprint": "d7d3e19ea68cbced",
     "url": "https://simonwillison.net/2026/Nov/10/muse-ember",
     "date": "2026-11-10T07:28:21+00:00",
-    "category": "Opinion",
-    "fetched_at": "2026-11-10T15:28:56.290229+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-10T23:52:50.865969+00:00",
     "topics": [
-      "Models and Releases"
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Infrastructure and Hardware",
+      "Applications and Products"
     ],
     "source_type": "Technical Publication",
-    "priority_score": 3,
-    "priority_label": "Must Know",
+    "priority_score": 6,
+    "priority_label": "Deep Dive",
     "priority_explanation": "Announces a model or architecture capability",
     "why_it_matters": "",
     "sources": [
@@ -269,10 +444,18 @@
       }
     ],
     "key_points": [
-      "Meta AI launched Muse Ember, its newest small and efficient model.",
-      "It competes directly in the lightweight model segment alongside offerings like Claude Haiku and GPT Luna.",
-      "Developers and users seeking resource-efficient AI models are affected."
-    ]
+      "Meta AI released Muse Ember, a small and efficient model built for agentic tasks like tool calls, coding, and long document parsing.",
+      "The model matches the baseline pricing of $0.10 per million input tokens and $0.50 per million output tokens for shorter prompts, while offering six distinct reasoning levels.",
+      "Developers, enterprises, and users deploying cost-sensitive AI agents or high-volume subtasks are directly affected by this release."
+    ],
+    "tags": [
+      "Meta AI",
+      "Muse Ember",
+      "LLM",
+      "AI Agents",
+      "LLM Pricing"
+    ],
+    "impact_score": 7
   },
   {
     "id": "f3fc54cd1d78c100",
@@ -321,20 +504,20 @@
     "title": "Quoting Prompting Claude Fable 5.2",
     "company": "Simon Willison's Weblog",
     "source": "Simon Willison – AI",
-    "summary": "[Automated summary unavailable] Claude Fable 5.2 responds closely to what the prompt says about who owns the code it works on. In Anthropic’s testing on small coding tasks, when a prompt said nothing about ownership or presented…",
-    "summary_status": "pending_quota",
-    "content_fingerprint": "",
+    "summary": "Anthropic documentation for Claude Fable 5.2 reveals that the model's coding style and tendency to refactor duplicate code depend heavily on ownership framing in the prompt. Testing demonstrated that explicitly telling the model the codebase is its own increased code merging from under ten percent to about half of the time.",
+    "summary_status": "generated",
+    "content_fingerprint": "e8787f9584523d88",
     "url": "https://simonwillison.net/2026/Nov/10/prompting-claude-fable-52",
     "date": "2026-11-10T05:34:14+00:00",
-    "category": "Opinion",
-    "fetched_at": "2026-11-10T15:28:56.290271+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-10T23:52:50.866020+00:00",
     "topics": [
       "Models and Releases",
       "Coding and Developer Tools"
     ],
     "source_type": "Technical Publication",
-    "priority_score": 3,
-    "priority_label": "Must Know",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
     "priority_explanation": "Announces a model or architecture capability",
     "why_it_matters": "",
     "sources": [
@@ -345,10 +528,17 @@
       }
     ],
     "key_points": [
-      "Claude Fable 5.2 was tested by Anthropic on small coding tasks regarding prompt instructions about code ownership.",
-      "The model adjusts its behavior and outputs based on specific ownership instructions provided in the prompt.",
-      "Developers and organizations using Claude Fable 5.2 for software engineering tasks are impacted by this prompt responsiveness."
-    ]
+      "Claude Fable 5.2 changes its structural coding behavior based on whether a prompt states the model owns the codebase.",
+      "Framing the code as the model's own significantly increases code merging and structural improvements during small coding tasks.",
+      "Developers and prompt engineers working with Claude Fable 5.2 on code generation and refactoring tasks."
+    ],
+    "tags": [
+      "Anthropic",
+      "Claude",
+      "prompt-engineering",
+      "generative-ai"
+    ],
+    "impact_score": 4
   },
   {
     "id": "036a8aedd8fa7bc1",
@@ -489,16 +679,18 @@
     "title": "AYO: A Safe and Privacy-Preserving Platform for Studying Children's Interaction with LLMs",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.AI (Artificial Intelligence)",
-    "summary": "[Automated summary unavailable] arXiv:2611.10054v1 Announce Type: new Abstract: Children and adolescents are increasingly interacting with generative AI and large language models (LLMs), yet little is known about how these…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "Researchers introduced AYO (AI Youth Open Science), an open-source platform built to study children and adolescents' interactions with large language models safely and privately. The platform features a child-friendly interface, age-based safety guardrails, researcher monitoring, and privacy-preserving data practices to facilitate experimental and longitudinal research. It aims to generate empirical evidence to inform safer AI systems, educational practices, and policies surrounding youth technology use.",
+    "summary_status": "generated",
+    "content_fingerprint": "20226aacce6c9eec",
     "url": "https://arxiv.org/abs/2611.10054",
     "date": "2026-11-10T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-10T15:28:56.288683+00:00",
+    "fetched_at": "2026-11-10T23:52:50.865444+00:00",
     "topics": [
       "Models and Releases",
-      "Research and Breakthroughs"
+      "Coding and Developer Tools",
+      "Safety and Security",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 2,
@@ -513,10 +705,18 @@
       }
     ],
     "key_points": [
-      "Researchers developed AYO, a platform focused on safety and privacy for studying youth interactions with LLMs.",
-      "It addresses the lack of empirical data regarding how children and adolescents engage with generative AI while maintaining data privacy.",
-      "Child development researchers, AI safety engineers, and educators studying youth technology usage are directly affected."
-    ]
+      "The open-source platform AYO was introduced to safely study how children and adolescents interact with large language models.",
+      "It addresses critical challenges in child-AI research by providing configurable safety guardrails, monitoring tools, and privacy-preserving data practices.",
+      "Researchers, educators, and policymakers can use the platform to study how AI influences child development, trust, and epistemic judgment."
+    ],
+    "tags": [
+      "AYO",
+      "Open-Source",
+      "Conversational AI",
+      "Child Development",
+      "AI Safety"
+    ],
+    "impact_score": 6
   },
   {
     "id": "868cd9841af624b4",
@@ -568,16 +768,17 @@
     "title": "The Infrastructure Divide: Analyzing Community Stance on Data Center Development via Reddit",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.AI (Artificial Intelligence)",
-    "summary": "[Automated summary unavailable] arXiv:2611.10109v1 Announce Type: new Abstract: The rapid expansion of AI-driven data center construction has outpaced public engagement: an estimated $64 billion in U.S. data center projects were…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "This study introduces an LLM-powered opinion-mining framework applied to nearly 800 Reddit posts and over 100,000 comments to analyze community opposition toward AI data center construction. The research reveals that opposition posts outnumbered support by 2.6 to 1 and generated 8.5 times more comments, driven primarily by resource consumption concerns and contested siting processes. These findings provide a quantified basis for local leaders and developers to address public resistance and shift toward negotiated partnerships.",
+    "summary_status": "generated",
+    "content_fingerprint": "f3ce464891e067bc",
     "url": "https://arxiv.org/abs/2611.10109",
     "date": "2026-11-10T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-10T15:28:56.288815+00:00",
+    "fetched_at": "2026-11-10T23:52:50.865510+00:00",
     "topics": [
       "Coding and Developer Tools",
-      "Research and Breakthroughs"
+      "Business and Industry",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 2,
@@ -592,10 +793,17 @@
       }
     ],
     "key_points": [
-      "Researchers analyzed public sentiment on AI data center construction using Reddit discussions.",
-      "The study highlights the growing divide between massive capital investments in infrastructure and community-level public engagement.",
-      "Policymakers, urban planners, and AI industry stakeholders are affected by the documented public stance on data center growth."
-    ]
+      "An LLM-powered opinion-mining framework analyzed a decade of Reddit data comprising 798 posts and 102,328 comments regarding data center development.",
+      "Opposition posts outnumbered favor posts by 2.6:1, generating 8.5 times more comments, with resource consumption and siting secrecy making up the majority of complaints.",
+      "Local leaders, developers, and policymakers are affected by receiving a quantified basis for prioritizing public concerns and improving community engagement."
+    ],
+    "tags": [
+      "Data Centers",
+      "LLM",
+      "Opinion Mining",
+      "Social Media Analysis"
+    ],
+    "impact_score": 5
   },
   {
     "id": "16268c6eb2479c72",
@@ -761,6 +969,12 @@
       "DeepResearch RewardBench was introduced to evaluate reward models for deep research reports.",
       "It addresses the challenge of assessing multi-step web searching and report generation in LLM systems.",
       "AI researchers and developers working on autonomous research agents and reward modeling are directly affected."
+    ],
+    "tags": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
     ]
   },
   {
@@ -768,21 +982,22 @@
     "title": "Process then Retrieve: Investigating the Origins of the Modality Gap in Vision-Language Models",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.09897v1 Announce Type: new Abstract: Understanding the origins of the modality gap in vision language models remains a significant challenge. This work investigates whether differences in…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "This research investigates the origins of the modality gap in vision-language models by examining information density differences at the embedding layer. The findings demonstrate that text tokens possess lower semantic density than visual tokens, causing early network layers to prioritize text processing before multimodal integration. Mechanistic analysis reveals that replacing visual tokens with semantically equivalent text tokens increases early-layer attention, offering new pathways to improve multimodal reasoning.",
+    "summary_status": "generated",
+    "content_fingerprint": "fec9f42053502788",
     "url": "https://arxiv.org/abs/2611.09897",
     "date": "2026-11-10T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-10T15:28:56.289189+00:00",
+    "fetched_at": "2026-11-10T23:52:50.865614+00:00",
     "topics": [
       "Models and Releases",
-      "Research and Breakthroughs"
+      "Research and Breakthroughs",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
-    "priority_score": 2,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Original research or technical finding",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
     "why_it_matters": "",
     "sources": [
       {
@@ -792,10 +1007,17 @@
       }
     ],
     "key_points": [
-      "Researchers investigated the underlying causes and origins of the modality gap in vision-language models.",
-      "Understanding the modality gap helps improve cross-modal retrieval performance and representation alignment.",
-      "Vision-language model developers and researchers working on multi-modal representation learning are affected."
-    ]
+      "Researchers discovered that text tokens enter vision-language models with much lower semantic density than visual tokens, causing early layers to prioritize text processing.",
+      "This imbalance drives the modality gap in vision-language models, and understanding it provides a foundation for improving multimodal reasoning and architectures.",
+      "Developers and researchers working on vision-language model architectures and multimodal reasoning are affected by these findings."
+    ],
+    "tags": [
+      "Vision-Language Models",
+      "Modality Gap",
+      "Mechanistic Interpretability",
+      "Multimodal AI"
+    ],
+    "impact_score": 6
   },
   {
     "id": "fb4ee5982fd02cca",
@@ -844,24 +1066,24 @@
     "title": "Causal Discovery Bench: Can LLMs Autonomously Conduct Effective Experiments?",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.09934v1 Announce Type: new Abstract: As large language model (LLM) agents get actively adopted for autonomous research, they must not only reason over existing evidence, but also design…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "The researchers introduce Causal-Discovery-Bench, a verifiable sandbox designed to evaluate how autonomous LLM agents handle sequential experimental design and causal discovery. Evaluating 13 models across 3,802 episodes, the study reveals that 94.5% of agent mistakes stem from experimental design rather than inference, with basic statistical tools improving performance more than advanced ones.",
+    "summary_status": "generated",
+    "content_fingerprint": "ba959e67652f44ab",
     "url": "https://arxiv.org/abs/2611.09934",
     "date": "2026-11-10T05:00:00+00:00",
-    "category": "Research",
-    "fetched_at": "2026-11-10T15:28:56.289324+00:00",
+    "category": "Benchmark",
+    "fetched_at": "2026-11-10T23:52:50.865680+00:00",
     "topics": [
       "Models and Releases",
       "AI Agents",
-      "Coding and Developer Tools",
-      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Infrastructure and Hardware",
       "Applications and Products"
     ],
     "source_type": "Research or Preprint",
-    "priority_score": 2,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Original research or technical finding",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
     "why_it_matters": "",
     "sources": [
       {
@@ -871,10 +1093,17 @@
       }
     ],
     "key_points": [
-      "Causal Discovery Bench was released to evaluate the experimental design capabilities of LLM agents.",
-      "It addresses whether AI systems can autonomously conduct effective experiments rather than just reasoning over existing literature.",
-      "AI researchers and developers building autonomous scientific discovery agents are directly affected."
-    ]
+      "Researchers developed Causal-Discovery-Bench, a sandbox evaluating LLM agents on sequential experimental design and causal discovery across configurable structural equation models.",
+      "The study found that 94.5% of agent failures stem from experimental design flaws rather than inference errors, and relaxing resource constraints does not resolve these failures.",
+      "Developers of autonomous research agents and vendors evaluating LLM reasoning capabilities are affected by these findings."
+    ],
+    "tags": [
+      "Causal Discovery",
+      "AI Agents",
+      "Benchmark",
+      "Causal Inference"
+    ],
+    "impact_score": 6
   },
   {
     "id": "a07420464fafde17",
@@ -1048,21 +1277,20 @@
     "title": "fNIRSAtlas: A Large-Scale Benchmark for Functional Near-Infrared Spectroscopy Classification",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.10082v1 Announce Type: new Abstract: Functional near-infrared spectroscopy (fNIRS) is a promising modality for brain-computer interfaces and cognitive state decoding, but progress in…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "The authors introduce fNIRSAtlas, the largest open benchmark for functional near-infrared spectroscopy classification, featuring 23 tasks from 19 public data collections to standardize evaluation. The benchmark includes a fully automated pipeline and establishes standardized cross-subject and within-subject classification tasks to test machine learning models. Baseline evaluations reveal that deep learning methods validated on limited data frequently fail to generalize across diverse experimental paradigms.",
+    "summary_status": "generated",
+    "content_fingerprint": "23dd7c9ff756f6b8",
     "url": "https://arxiv.org/abs/2611.10082",
     "date": "2026-11-10T05:00:00+00:00",
-    "category": "Research",
-    "fetched_at": "2026-11-10T15:28:56.289752+00:00",
+    "category": "Benchmark",
+    "fetched_at": "2026-11-10T23:52:50.865739+00:00",
     "topics": [
-      "Coding and Developer Tools",
-      "Research and Breakthroughs",
+      "Models and Releases",
       "Benchmarks and Evaluations"
     ],
     "source_type": "Research or Preprint",
-    "priority_score": 5,
-    "priority_label": "Deep Dive",
+    "priority_score": 3,
+    "priority_label": "Must Know",
     "priority_explanation": "Reports measured benchmark or evaluation results",
     "why_it_matters": "",
     "sources": [
@@ -1073,10 +1301,18 @@
       }
     ],
     "key_points": [
-      "A large-scale benchmark called fNIRSAtlas was introduced for functional near-infrared spectroscopy classification.",
-      "It addresses evaluation challenges in brain-computer interfaces and cognitive state decoding by providing standardized data.",
-      "Brain-computer interface researchers and neurotechnology developers working with fNIRS modalities are directly affected."
-    ]
+      "The fNIRSAtlas benchmark was introduced as the largest open benchmark for functional near-infrared spectroscopy classification, consolidating 23 tasks from 19 public data collections.",
+      "It addresses the limitation of small, isolated datasets in neuroimaging by providing a fully automated pipeline and standardized protocols for cross-subject and within-subject evaluation.",
+      "Researchers and developers working on brain-computer interfaces, neuroimaging, and time-series machine learning are affected, as baseline evaluations show many existing models struggle to generalize."
+    ],
+    "tags": [
+      "fNIRS",
+      "Brain-Computer Interfaces",
+      "Benchmark",
+      "Neuroimaging",
+      "Time-Series Classification"
+    ],
+    "impact_score": 6
   },
   {
     "id": "c45c4d1e97c106e1",
@@ -1203,6 +1439,49 @@
       {
         "url": "https://huggingface.co/blog/decision",
         "title": "Decision Models in Hugging Face",
+        "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
+    "id": "cb93d68b445c05b0",
+    "title": "Pay for Hugging Face Hub with your Google Cloud Account",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "Users can now pay for Hugging Face Hub services and features directly using their Google Cloud billing account. This integration simplifies procurement and financial management for enterprise teams utilizing both platforms. The partnership streamlines administrative workflows for developers and organizations scaling their machine learning infrastructure.",
+    "summary_status": "generated",
+    "content_fingerprint": "2d97b992d7d298f1",
+    "url": "https://huggingface.co/blog/hub-gcp-marketplace",
+    "date": "2026-11-10T00:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-10T23:52:50.864897+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Business and Industry",
+      "Open Source",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Hugging Face integrated Google Cloud billing accounts as a direct payment method for Hub services.",
+      "This integration removes procurement friction for enterprise customers consolidating their cloud and AI infrastructure spending.",
+      "Enterprise developers and organizations utilizing both Hugging Face and Google Cloud are directly affected."
+    ],
+    "tags": [
+      "Hugging Face",
+      "Google Cloud",
+      "Cloud Billing",
+      "Enterprise AI"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/hub-gcp-marketplace",
+        "title": "Pay for Hugging Face Hub with your Google Cloud Account",
         "publisher": "Hugging Face"
       }
     ]
@@ -1362,14 +1641,20 @@
       "ChatGPT Enterprise",
       "OpenAI",
       "AWS Marketplace",
-      "Enterprise AI"
+      "Enterprise AI",
+      "Google"
     ],
-    "impact_score": 5,
+    "impact_score": 6,
     "sources": [
       {
         "url": "https://openai.com/index/chatgpt-enterprise-aws-marketplace",
         "title": "ChatGPT Enterprise now available in AWS Marketplace",
         "publisher": "OpenAI"
+      },
+      {
+        "title": "Gemini 4 Carbon is now available",
+        "url": "https://deepmind.google/blog/gemini-4-carbon-is-now-available",
+        "publisher": "Google DeepMind"
       }
     ]
   },
@@ -2638,20 +2923,66 @@
     ]
   },
   {
+    "id": "45e8de741ea9e45e",
+    "title": "The Web Is More Than Enough, by Paul Ford",
+    "company": "Simon Willison's Weblog",
+    "source": "Simon Willison – AI",
+    "summary": "Simon Willison used Claude Opus 5.5 to port a Three.js-based 3D Nudibranch themed Faberge Egg project to Vanilla JS and WebGL. The resulting application demonstrated that the model is capable of generating 3D graphics code without relying on external libraries like Three.js. This experiment showcases the expanding capability of large language models to handle niche web graphics and refactoring tasks directly from chat interfaces.",
+    "summary_status": "generated",
+    "content_fingerprint": "fbf3781e957e3f7d",
+    "url": "https://simonwillison.net/2026/Nov/9/hn-50421091",
+    "date": "2026-11-09T04:32:33+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-10T23:52:50.866113+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Claude Opus 5.5 successfully ported a Three.js web animation into Vanilla JS and WebGL.",
+      "It demonstrates that LLMs can generate complex 3D graphics code and manipulate rendering logic without external libraries.",
+      "Web developers and AI coding assistant users benefit from improved code translation and generative graphics capabilities."
+    ],
+    "tags": [
+      "Claude",
+      "Vanilla JS",
+      "Three.js",
+      "WebGL",
+      "Generative AI"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://simonwillison.net/2026/Nov/9/hn-50421091",
+        "title": "The Web Is More Than Enough, by Paul Ford",
+        "publisher": "Simon Willison's Weblog"
+      }
+    ]
+  },
+  {
     "id": "7a56e2062f93f8c0",
     "title": "Hide your slop PR descriptions behind <details><summary>",
     "company": "Simon Willison's Weblog",
     "source": "Simon Willison – AI",
-    "summary": "[Automated summary unavailable] Most of the changes I make to my projects these days come in the form of PRs opened for me by Claude Code or Codex. The PR is my unit of work - I use them to bundle commits together, iterating on…",
-    "summary_status": "pending_quota",
-    "content_fingerprint": "",
+    "summary": "AI coding assistants frequently generate overly comprehensive pull request descriptions that overwhelm human reviewers despite their accuracy. To mitigate this issue, developers can use HTML details and summary tags in GitHub Markdown to hide the lengthy AI-generated text behind a concise, human-curated introduction.",
+    "summary_status": "generated",
+    "content_fingerprint": "52f7858e07c448e7",
     "url": "https://simonwillison.net/2026/Nov/9/details-summary",
     "date": "2026-11-09T04:25:05+00:00",
     "category": "Opinion",
-    "fetched_at": "2026-11-09T17:13:50.452126+00:00",
+    "fetched_at": "2026-11-10T23:52:50.866162+00:00",
     "topics": [
-      "Models and Releases",
-      "Coding and Developer Tools"
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Open Source",
+      "Applications and Products"
     ],
     "source_type": "Technical Publication",
     "priority_score": 0,
@@ -2666,14 +2997,17 @@
       }
     ],
     "key_points": [
-      "Developers are using AI tools like Claude Code and Codex to automatically generate pull request descriptions.",
-      "Using HTML details tags helps hide verbose automated PR text to keep code review interfaces clean.",
-      "Software engineers and development teams reviewing AI-assisted pull requests are directly affected."
+      "A developer proposed using HTML detail and summary tags in GitHub Markdown to collapse comprehensive, AI-generated pull request descriptions.",
+      "This practice preserves detailed technical documentation from agents like Claude Code while keeping PR reviews readable and less intimidating for human maintainers.",
+      "Software developers and open-source maintainers reviewing AI-generated pull requests are directly affected by this workflow practice."
     ],
     "tags": [
-      "Models and Releases",
-      "Coding and Developer Tools"
-    ]
+      "Claude Code",
+      "GitHub",
+      "AI Agents",
+      "Software Engineering"
+    ],
+    "impact_score": 3
   },
   {
     "id": "9c14b49663325757",
