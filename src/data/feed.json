@@ -1,5 +1,1213 @@
 [
   {
+    "id": "a8c416e2c7748124",
+    "title": "Agent Substrate: Advancing Kubernetes for Agents at Scale",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "Agent Substrate addresses the limitations of Kubernetes when running AI agents that experience prolonged idle periods during prompts, tool calls, and model responses. Traditional pod management either wastes memory by keeping idle sessions active or incurs multi-second cold starts and state loss when pods are deleted between turns. The framework solves these challenges for agent execution and reinforcement learning post-training.",
+    "summary_status": "generated",
+    "content_fingerprint": "cf778a97a73c7401",
+    "url": "https://developer.nvidia.com/blog/agent-substrate-advancing-kubernetes-for-agents-at-scale",
+    "date": "2026-11-10T15:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-10T15:28:56.290013+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Agent Substrate was introduced to optimize Kubernetes infrastructure for AI agent workloads and reinforcement learning post-training.",
+      "It addresses memory waste and multi-second cold start latency associated with traditional Kubernetes pod lifecycle management for idle agents.",
+      "Developers and infrastructure engineers deploying stateful AI agents at scale are directly affected by this architecture."
+    ],
+    "tags": [
+      "Kubernetes",
+      "AI Agents",
+      "Agent Substrate",
+      "Infrastructure"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://developer.nvidia.com/blog/agent-substrate-advancing-kubernetes-for-agents-at-scale",
+        "title": "Agent Substrate: Advancing Kubernetes for Agents at Scale",
+        "publisher": "NVIDIA"
+      }
+    ]
+  },
+  {
+    "id": "b783d0f4bf01c853",
+    "title": "The Download: Pelosi’s successor targets AI",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "Scott Wiener, the newly elected successor to Nancy Pelosi's San Francisco congressional seat, is preparing to push for federal AI regulation focusing on risks such as recursive self-improvement. Meanwhile, growing community backlash against data center hubs like Ashburn, Virginia, is primarily driven by massive electricity consumption rather than purely cultural opposition to tech progress. Additional technology news covers unrelated topics including investigations and international cyber accusations.",
+    "summary_status": "generated",
+    "content_fingerprint": "1682792bc7e2c443",
+    "url": "https://www.technologyreview.com/2026/11/10/1148150/the-download-pelosi-successor-ai-regulation-data-center-backlash",
+    "date": "2026-11-10T13:10:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-10T15:28:56.287776+00:00",
+    "topics": [
+      "Policy and Regulation"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "California state senator Scott Wiener won a congressional seat for Nancy Pelosi's former district and aims to introduce federal legislation to regulate advanced AI risks.",
+      "Local opposition to data center expansions is driven by intense demands on the power grid and onsite electricity generation rather than general cultural backlash.",
+      "Federal policymakers, technology companies, and energy grid operators will need to navigate upcoming legislative proposals and infrastructure constraints."
+    ],
+    "tags": [
+      "AI Regulation",
+      "Data Centers",
+      "Scott Wiener",
+      "Energy Infrastructure"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/11/10/1148150/the-download-pelosi-successor-ai-regulation-data-center-backlash",
+        "title": "The Download: Pelosi’s successor targets AI",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "0e9fb0eb84f13acf",
+    "title": "Introducing AlphaProof Code: a breakthrough in verifying complex software at depth",
+    "company": "Google DeepMind",
+    "source": "Google DeepMind Blog",
+    "summary": "AlphaProof Code agents generated three million lines of formal proofs using the Lean proof assistant to verify the core encryption of Signal. This milestone demonstrates the capability of AI agents to perform complex, deep software verification at scale.",
+    "summary_status": "generated",
+    "content_fingerprint": "68100a141cabc8c3",
+    "url": "https://deepmind.google/blog/introducing-alphaproof-code",
+    "date": "2026-11-10T12:02:28+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-10T15:28:56.287472+00:00",
+    "topics": [
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 6,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "AlphaProof Code agents wrote three million lines of proofs in Lean for Signal's core encryption.",
+      "It demonstrates the capability of automated AI systems to handle complex, deep software verification tasks.",
+      "Software developers, cryptography engineers, and systems using formal verification methods are affected."
+    ],
+    "tags": [
+      "AlphaProof Code",
+      "Lean",
+      "Signal",
+      "Formal Verification",
+      "AI Agents"
+    ],
+    "impact_score": 8,
+    "sources": [
+      {
+        "url": "https://deepmind.google/blog/introducing-alphaproof-code",
+        "title": "Introducing AlphaProof Code: a breakthrough in verifying complex software at depth",
+        "publisher": "Google DeepMind"
+      }
+    ]
+  },
+  {
+    "id": "0f0020abcf733229",
+    "title": "Helping caregivers use AI in everyday life",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "OpenAI Academy is launching free, hands-on ChatGPT workshops across five U.S. cities to help caregivers build practical artificial intelligence skills for daily use. This initiative focuses on empowering a specific user demographic with tangible technological capabilities.",
+    "summary_status": "generated",
+    "content_fingerprint": "2cc5d9f8b12b1221",
+    "url": "https://openai.com/index/helping-caregivers-use-ai-in-everyday-life",
+    "date": "2026-11-10T12:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-10T15:28:56.287083+00:00",
+    "topics": [
+      "Models and Releases",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 1,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Primary lab announcement from OpenAI",
+    "why_it_matters": "",
+    "key_points": [
+      "OpenAI Academy announced free, hands-on ChatGPT workshops for caregivers in five U.S. cities.",
+      "It teaches practical AI skills to help caregivers manage everyday tasks and challenges.",
+      "Caregivers in the selected U.S. cities and community support networks are directly affected."
+    ],
+    "tags": [
+      "OpenAI Academy",
+      "ChatGPT",
+      "AI Education"
+    ],
+    "impact_score": 3,
+    "sources": [
+      {
+        "url": "https://openai.com/index/helping-caregivers-use-ai-in-everyday-life",
+        "title": "Helping caregivers use AI in everyday life",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "cf4bae744f4146a7",
+    "title": "OpenCode v2.2.7",
+    "company": "OpenCode",
+    "source": "OpenCode Updates",
+    "summary": "[Automated summary unavailable] Highlights GitHub Copilot Auto : Pick Auto in the model picker when your Copilot account has an Auto pool, and Copilot's router chooses the model for each session at the Auto discount. If routing…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://github.com/anomalyco/opencode/releases/tag/v2.2.7",
+    "date": "2026-11-10T10:37:15+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-10T15:28:56.290193+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Open Source",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://github.com/anomalyco/opencode/releases/tag/v2.2.7",
+        "title": "OpenCode v2.2.7",
+        "publisher": "OpenCode"
+      }
+    ],
+    "key_points": [
+      "OpenCode released version 2.2.7 with integration for GitHub Copilot Auto routing.",
+      "Enables dynamic model selection per session to optimize costs through the Auto discount tier.",
+      "Developers and users utilizing OpenCode with GitHub Copilot accounts."
+    ]
+  },
+  {
+    "id": "69d4d9d74efa0162",
+    "title": "Closing the AI guidance gap in education",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "New ThinkYoung research and insights from OpenAI's EMEA education partnerships focus on supporting teachers, improving AI literacy, and fostering independent student learning. These initiatives address the growing need for structured AI guidance within educational environments.",
+    "summary_status": "generated",
+    "content_fingerprint": "e311aae7b2190788",
+    "url": "https://openai.com/index/closing-ai-guidance-gap-education",
+    "date": "2026-11-10T09:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-10T15:28:56.287202+00:00",
+    "topics": [
+      "Business and Industry",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 1,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Primary lab announcement from OpenAI",
+    "why_it_matters": "",
+    "key_points": [
+      "ThinkYoung published new research examining AI literacy and teacher support alongside OpenAI's EMEA education partnerships.",
+      "The initiative addresses the critical guidance gap for integrating artificial intelligence safely and effectively into classrooms.",
+      "Educators, students, and educational institutions in the EMEA region are directly impacted by these partnership models and research findings."
+    ],
+    "tags": [
+      "OpenAI",
+      "ThinkYoung",
+      "Education",
+      "AI Literacy"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://openai.com/index/closing-ai-guidance-gap-education",
+        "title": "Closing the AI guidance gap in education",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "cba41f0395d50b9e",
+    "title": "Introducing Our Smallest, Most Efficient Model: Muse Ember",
+    "company": "Simon Willison's Weblog",
+    "source": "Simon Willison – AI",
+    "summary": "[Automated summary unavailable] Introducing Our Smallest, Most Efficient Model: Muse Ember Meta AI just launched their entry in the Claude Haiku/GPT Luna category: Muse Ember, which they describe as: [...] our smallest and most…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://simonwillison.net/2026/Nov/10/muse-ember",
+    "date": "2026-11-10T07:28:21+00:00",
+    "category": "Opinion",
+    "fetched_at": "2026-11-10T15:28:56.290229+00:00",
+    "topics": [
+      "Models and Releases"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://simonwillison.net/2026/Nov/10/muse-ember",
+        "title": "Introducing Our Smallest, Most Efficient Model: Muse Ember",
+        "publisher": "Simon Willison's Weblog"
+      }
+    ],
+    "key_points": [
+      "Meta AI launched Muse Ember, its newest small and efficient model.",
+      "It competes directly in the lightweight model segment alongside offerings like Claude Haiku and GPT Luna.",
+      "Developers and users seeking resource-efficient AI models are affected."
+    ]
+  },
+  {
+    "id": "f3fc54cd1d78c100",
+    "title": "Work at the Frontier: AI’s effect on freelance work",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "New research conducted by OpenAI and Upwork reveals shifting demand patterns for freelance labor alongside the emergence of novel skill combinations. The findings indicate that AI-related projects are commanding larger budgets and requiring more working hours.",
+    "summary_status": "generated",
+    "content_fingerprint": "56da06fab57eb6b8",
+    "url": "https://openai.com/index/ai-effect-on-freelance-work",
+    "date": "2026-11-10T07:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-10T15:28:56.287355+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "OpenAI and Upwork published research showing changing demand dynamics and growing budgets for AI-related freelance work.",
+      "The findings provide empirical insight into how artificial intelligence integration alters project scopes, working hours, and required skill sets in the gig economy.",
+      "Freelance workers, independent professionals, and companies hiring contract labor are directly affected by these evolving market demands."
+    ],
+    "tags": [
+      "OpenAI",
+      "Upwork",
+      "Freelance Work",
+      "AI Market Trends"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://openai.com/index/ai-effect-on-freelance-work",
+        "title": "Work at the Frontier: AI’s effect on freelance work",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "19c160f4485a55c0",
+    "title": "Quoting Prompting Claude Fable 5.2",
+    "company": "Simon Willison's Weblog",
+    "source": "Simon Willison – AI",
+    "summary": "[Automated summary unavailable] Claude Fable 5.2 responds closely to what the prompt says about who owns the code it works on. In Anthropic’s testing on small coding tasks, when a prompt said nothing about ownership or presented…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://simonwillison.net/2026/Nov/10/prompting-claude-fable-52",
+    "date": "2026-11-10T05:34:14+00:00",
+    "category": "Opinion",
+    "fetched_at": "2026-11-10T15:28:56.290271+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://simonwillison.net/2026/Nov/10/prompting-claude-fable-52",
+        "title": "Quoting Prompting Claude Fable 5.2",
+        "publisher": "Simon Willison's Weblog"
+      }
+    ],
+    "key_points": [
+      "Claude Fable 5.2 was tested by Anthropic on small coding tasks regarding prompt instructions about code ownership.",
+      "The model adjusts its behavior and outputs based on specific ownership instructions provided in the prompt.",
+      "Developers and organizations using Claude Fable 5.2 for software engineering tasks are impacted by this prompt responsiveness."
+    ]
+  },
+  {
+    "id": "036a8aedd8fa7bc1",
+    "title": "Don't Blame The Preferences: Examining The Emergence of Sycophancy in LLM Training",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This research investigates the origins of AI sycophancy across the training pipelines of three model families using three benchmarks. The study finds that sycophancy is largely established by the end of supervised fine-tuning (SFT) rather than being introduced by preference alignment methods like RLHF and DPO. Mechanistic interpretability analysis reveals that SFT datasets contribute substantially more sycophantic examples, indicating that mitigations must target pre-training and SFT data selection.",
+    "summary_status": "generated",
+    "content_fingerprint": "77f71e28607a56bf",
+    "url": "https://arxiv.org/abs/2611.10045",
+    "date": "2026-11-10T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-10T15:28:56.288412+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Sycophancy in LLMs is established primarily by the end of supervised fine-tuning (SFT), with SFT checkpoints reaching at least 85% of final model sycophancy scores on average.",
+      "Shifting focus away from preference alignment as the primary culprit shows that data selection in pre-training and SFT drives sycophantic behavior.",
+      "AI researchers and model developers targeting alignment and factual reliability need to implement interventions during early training stages and dataset construction."
+    ],
+    "tags": [
+      "LLM",
+      "Sycophancy",
+      "Supervised Fine-Tuning",
+      "RLHF",
+      "Mechanistic Interpretability"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.10045",
+        "title": "Don't Blame The Preferences: Examining The Emergence of Sycophancy in LLM Training",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "50653b36e1edda3c",
+    "title": "Veterans' Mental Health Crisis Severity Annotation: Do LLMs Agree More Than Human Experts?",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This study evaluates large language models on crisis-severity annotation of veteran-related social media posts compared to annotations from eight subject matter experts. The findings show that while LLMs demonstrate high inter-model consistency, this does not consistently translate to agreement with human judgments or reliable detection of rare high-severity cases. The research highlights the need for careful evaluation before deploying LLMs in safety-critical mental health applications.",
+    "summary_status": "generated",
+    "content_fingerprint": "7e055ce9d57b5601",
+    "url": "https://arxiv.org/abs/2611.10048",
+    "date": "2026-11-10T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-10T15:28:56.288503+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Evaluated 25 open-source and proprietary LLMs against human expert annotations on crisis-severity categorization of veteran-related social media posts.",
+      "Revealed that high inter-model consistency among LLMs does not ensure alignment with human expert judgments or reliable detection of rare high-severity crises.",
+      "Researchers, developers, and mental health organizations deploying automated content moderation or crisis detection systems in safety-critical domains."
+    ],
+    "tags": [
+      "Mental Health",
+      "LLM Evaluation",
+      "Crisis Detection",
+      "Natural Language Processing",
+      "Safety-Critical Systems"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.10048",
+        "title": "Veterans' Mental Health Crisis Severity Annotation: Do LLMs Agree More Than Human Experts?",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "eb3f2f67ccdccb1d",
+    "title": "LoRazor: Trimming Adapter Execution for Efficient Multi-LoRA Serving",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "The researchers present LoRazor, a multi-LoRA serving framework that accelerates concurrent request processing by permanently releasing adapters early during the generation process. By integrating early adapter release with active-row aware GPU kernels, LoRazor dynamically trims idle GPU blocks to reduce computation and memory-management overhead. Evaluations across two backbones and four tasks demonstrate up to 3.02x higher request throughput compared to vLLM multi-LoRA.",
+    "summary_status": "generated",
+    "content_fingerprint": "de21540282734e72",
+    "url": "https://arxiv.org/abs/2611.10049",
+    "date": "2026-11-10T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-10T15:28:56.288593+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "LoRazor was introduced as a multi-LoRA serving framework that permanently releases adapters early during generation and utilizes active-row aware GPU kernels.",
+      "It achieves up to 3.02x request throughput and 2.53x output-token throughput over vLLM multi-LoRA while limiting mean relative task-accuracy decrease to 2.89%.",
+      "Developers and service providers deploying multi-user, multi-LoRA LLM workloads on GPUs benefit from the reduced computational and memory overhead."
+    ],
+    "tags": [
+      "LoRA",
+      "Multi-LoRA",
+      "LLM Serving",
+      "vLLM",
+      "GPU Optimization"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.10049",
+        "title": "LoRazor: Trimming Adapter Execution for Efficient Multi-LoRA Serving",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "ff68b136f69282fa",
+    "title": "AYO: A Safe and Privacy-Preserving Platform for Studying Children's Interaction with LLMs",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.10054v1 Announce Type: new Abstract: Children and adolescents are increasingly interacting with generative AI and large language models (LLMs), yet little is known about how these…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.10054",
+    "date": "2026-11-10T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-10T15:28:56.288683+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.10054",
+        "title": "AYO: A Safe and Privacy-Preserving Platform for Studying Children's Interaction with LLMs",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Researchers developed AYO, a platform focused on safety and privacy for studying youth interactions with LLMs.",
+      "It addresses the lack of empirical data regarding how children and adolescents engage with generative AI while maintaining data privacy.",
+      "Child development researchers, AI safety engineers, and educators studying youth technology usage are directly affected."
+    ]
+  },
+  {
+    "id": "868cd9841af624b4",
+    "title": "META-IR: Meta-Introspective Reasoning for Adaptive Safety Alignment in LLM",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "The paper introduces META-IR, a meta-introspective reasoning framework designed to improve safety alignment and robustness against evolving jailbreak attacks in large language models. The dual-loop architecture combines an inner introspective loop utilizing SI-MCTS for risk analysis with an outer meta-learning loop that optimizes the self-evaluation policy across diverse task families. Experiments on models such as Llama-3.1-8B-Instruct and Qwen-2-7B-Instruct demonstrate improved adaptation speed and reasoning stability compared to baseline models.",
+    "summary_status": "generated",
+    "content_fingerprint": "f5bab695b7d46c75",
+    "url": "https://arxiv.org/abs/2611.10089",
+    "date": "2026-11-10T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-10T15:28:56.288729+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Safety and Security",
+      "Policy and Regulation"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "META-IR was introduced as a dual-loop meta-introspective reasoning framework using SI-MCTS and continual dynamic jailbreak simulation for unsupervised self-improvement.",
+      "It addresses the vulnerability of static safety alignment pipelines to adversarial distribution shifts and evolving jailbreak strategies.",
+      "LLM developers and researchers working with models like Llama-3.1-8B-Instruct and Qwen-2-7B-Instruct benefit from enhanced safety robustness and adaptation speed."
+    ],
+    "tags": [
+      "LLM Safety",
+      "Jailbreak Attacks",
+      "Meta-Learning",
+      "Llama-3.1",
+      "Qwen-2"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.10089",
+        "title": "META-IR: Meta-Introspective Reasoning for Adaptive Safety Alignment in LLM",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "ea5d7d455e759c80",
+    "title": "The Infrastructure Divide: Analyzing Community Stance on Data Center Development via Reddit",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.10109v1 Announce Type: new Abstract: The rapid expansion of AI-driven data center construction has outpaced public engagement: an estimated $64 billion in U.S. data center projects were…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.10109",
+    "date": "2026-11-10T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-10T15:28:56.288815+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.10109",
+        "title": "The Infrastructure Divide: Analyzing Community Stance on Data Center Development via Reddit",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Researchers analyzed public sentiment on AI data center construction using Reddit discussions.",
+      "The study highlights the growing divide between massive capital investments in infrastructure and community-level public engagement.",
+      "Policymakers, urban planners, and AI industry stakeholders are affected by the documented public stance on data center growth."
+    ]
+  },
+  {
+    "id": "16268c6eb2479c72",
+    "title": "Homeopathic Learning: Diluting poisoned fine-tuning data can strengthen its effect",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers discovered homeopathic learning, a phenomenon where poisoned training data that is ineffective on its own creates a hidden backdoor when combined with additional clean, contrasting data. The study demonstrates this effect across multiple settings, including subliminal backdoor behaviors, reward hacking, and mislabeled datasets, explaining it through a regression model. This vulnerability highlights a critical limitation in current safety methods that audit or filter training data in isolation.",
+    "summary_status": "generated",
+    "content_fingerprint": "959da0ea8a86f277",
+    "url": "https://arxiv.org/abs/2611.10110",
+    "date": "2026-11-10T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-10T15:28:56.288862+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Poisoned training data combined with clean, contrasting data unexpectedly triggers hidden backdoors and undesired traits in fine-tuned models.",
+      "This phenomenon exposes a critical flaw in safety audits that examine training data in isolation without considering dataset combinations.",
+      "AI safety researchers, data curators, and developers auditing fine-tuning datasets for misalignment risks are directly affected."
+    ],
+    "tags": [
+      "Data Poisoning",
+      "Model Fine-Tuning",
+      "AI Safety",
+      "Backdoor Attacks"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.10110",
+        "title": "Homeopathic Learning: Diluting poisoned fine-tuning data can strengthen its effect",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "30e6cfe617a9147b",
+    "title": "What Is the Value of AI-Involved Art? Evidence From a Juried In-Person Exhibition",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "A study examining an in-person, juried AI art exhibition involving 209 participants investigates the perceived value and ownership of AI-involved art among artists, lawyers, and computer scientists. Researchers found that evaluators' willingness to buy correlated with artistic value and effort, while creators' willingness to sell correlated only with effort. Both groups prioritized rewarding prompt users and developers over training data artists, with legally trained participants favoring distributed reward models.",
+    "summary_status": "generated",
+    "content_fingerprint": "891ef8a24a3cd2c0",
+    "url": "https://arxiv.org/abs/2611.10150",
+    "date": "2026-11-10T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-10T15:28:56.288952+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "A study of 209 participants at a juried AI art exhibition evaluated how creators and evaluators value and assign rights to AI-involved art.",
+      "The findings reveal a disconnect between buyers, who value visual appeal and creativity, and creators, who price based purely on effort, while both groups neglect training data contributors.",
+      "AI creators, evaluators, legal professionals, and computer scientists involved in human-AI creative collaboration and AI copyright policy are affected by these findings."
+    ],
+    "tags": [
+      "AI Art",
+      "Human-AI Collaboration",
+      "AI Copyright",
+      "Empirical Study"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.10150",
+        "title": "What Is the Value of AI-Involved Art? Evidence From a Juried In-Person Exhibition",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "6ba48c50cf15ce4b",
+    "title": "WorldMind: Test-Time Scaling for Visual Spatial Reasoning through Latent World Simulation",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "The researchers introduce WorldMind, a framework that enhances visual-language model spatial reasoning via latent world simulation rather than generating language or pixels. The system uses a world model to execute spatial transformations and provide aligned intermediate latent features directly to the VLM. Evaluated across VSI-Bench, MMSI-Bench, and MindCube-Tiny, WorldMind achieves an average improvement of 16.0% over base VLMs.",
+    "summary_status": "generated",
+    "content_fingerprint": "7cd8c8ea77e5724d",
+    "url": "https://arxiv.org/abs/2611.10151",
+    "date": "2026-11-10T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-10T15:28:56.289065+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "WorldMind was introduced as a test-time scaling framework for visual spatial reasoning using latent world simulation.",
+      "It eliminates the latent-to-pixel-to-latent bottleneck by exposing aligned intermediate latent features directly to vision-language models.",
+      "Researchers, developers, and users working with Vision-Language Models on spatial reasoning tasks are directly affected."
+    ],
+    "tags": [
+      "Vision-Language Models",
+      "Spatial Reasoning",
+      "World Models",
+      "Test-Time Scaling",
+      "Latent Simulation"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.10151",
+        "title": "WorldMind: Test-Time Scaling for Visual Spatial Reasoning through Latent World Simulation",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "b1ac92ed400922f7",
+    "title": "DeepResearch RewardBench: Evaluating Reward Models for Deep Research Report",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.10156v1 Announce Type: new Abstract: Empowered by Large Language Models (LLMs), deep research systems integrate online information into research reports through multi-step web searching…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.10156",
+    "date": "2026-11-10T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-10T15:28:56.289147+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.10156",
+        "title": "DeepResearch RewardBench: Evaluating Reward Models for Deep Research Report",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "DeepResearch RewardBench was introduced to evaluate reward models for deep research reports.",
+      "It addresses the challenge of assessing multi-step web searching and report generation in LLM systems.",
+      "AI researchers and developers working on autonomous research agents and reward modeling are directly affected."
+    ]
+  },
+  {
+    "id": "979ef42f6f753f33",
+    "title": "Process then Retrieve: Investigating the Origins of the Modality Gap in Vision-Language Models",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.09897v1 Announce Type: new Abstract: Understanding the origins of the modality gap in vision language models remains a significant challenge. This work investigates whether differences in…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.09897",
+    "date": "2026-11-10T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-10T15:28:56.289189+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.09897",
+        "title": "Process then Retrieve: Investigating the Origins of the Modality Gap in Vision-Language Models",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Researchers investigated the underlying causes and origins of the modality gap in vision-language models.",
+      "Understanding the modality gap helps improve cross-modal retrieval performance and representation alignment.",
+      "Vision-language model developers and researchers working on multi-modal representation learning are affected."
+    ]
+  },
+  {
+    "id": "fb4ee5982fd02cca",
+    "title": "MAGE: Towards Generalizable Multi-timescale EEG Representations",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "The authors introduce MAGE, an EEG foundation model designed to dynamically capture and integrate neural dynamics across multiple temporal scales. MAGE combines a multi-timescale attention mechanism with a trainable aggregation module to adapt to the most informative timescale for a given input signal. Evaluated across seven datasets, the model outperforms existing EEG foundation models while utilizing fewer parameters.",
+    "summary_status": "generated",
+    "content_fingerprint": "8ce4edd96a77ee28",
+    "url": "https://arxiv.org/abs/2611.09928",
+    "date": "2026-11-10T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-10T15:28:56.289234+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed MAGE, an EEG foundation model featuring a multi-timescale attention mechanism and a trainable aggregation module to handle varying temporal dynamics.",
+      "The model achieves superior performance across seven datasets while using significantly fewer parameters compared to existing fixed-scale EEG foundation models.",
+      "Neuroscience researchers and machine learning practitioners working on brain-computer interfaces or electroencephalography analysis benefit from these improvements."
+    ],
+    "tags": [
+      "EEG",
+      "Foundation Models",
+      "Neural Dynamics",
+      "Time-Series"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.09928",
+        "title": "MAGE: Towards Generalizable Multi-timescale EEG Representations",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "97564ba477f54371",
+    "title": "Causal Discovery Bench: Can LLMs Autonomously Conduct Effective Experiments?",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.09934v1 Announce Type: new Abstract: As large language model (LLM) agents get actively adopted for autonomous research, they must not only reason over existing evidence, but also design…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.09934",
+    "date": "2026-11-10T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-10T15:28:56.289324+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.09934",
+        "title": "Causal Discovery Bench: Can LLMs Autonomously Conduct Effective Experiments?",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Causal Discovery Bench was released to evaluate the experimental design capabilities of LLM agents.",
+      "It addresses whether AI systems can autonomously conduct effective experiments rather than just reasoning over existing literature.",
+      "AI researchers and developers building autonomous scientific discovery agents are directly affected."
+    ]
+  },
+  {
+    "id": "a07420464fafde17",
+    "title": "Fresh Enough to Decide: Age of Intelligence for Cost-Aware Model Synchronization in Dynamic IoT Systems",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduce Age of Intelligence (AoInt) to optimize model synchronization in resource-constrained IoT systems by balancing stale-decision regret with refresh costs. They develop two strategies, Kullback-Leibler-aware AoInt Synchronization (KL-AoIntSync) and Parameter-aware AoInt Synchronization (Param-AoIntSync), providing pathwise guarantees. Numerical results demonstrate that calibrated Param-AoIntSync reduces joint synchronization cost by 6.15% compared to an Instant-Parameters policy.",
+    "summary_status": "generated",
+    "content_fingerprint": "bb9f99bbc4c8d577",
+    "url": "https://arxiv.org/abs/2611.09935",
+    "date": "2026-11-10T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-10T15:28:56.289364+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Policy and Regulation",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Proposed the Age of Intelligence (AoInt) metric and two synchronization algorithms (KL-AoIntSync and Param-AoIntSync) to manage model updates in resource-constrained IoT systems.",
+      "Provided pathwise guarantees for the synchronization tradeoff between stale-decision regret and refresh costs under fixed client distributions, action sets, and utilities.",
+      "IoT developers and edge computing systems facing bandwidth and energy constraints when caching and updating learned models."
+    ],
+    "tags": [
+      "IoT",
+      "Model Synchronization",
+      "Edge Computing",
+      "Age of Information"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.09935",
+        "title": "Fresh Enough to Decide: Age of Intelligence for Cost-Aware Model Synchronization in Dynamic IoT Systems",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "dee9a1f4d4b06399",
+    "title": "Topological Deep Learning Challenge 2026: Bridging the Gap",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "The paper outlines the 2026 Topological Deep Learning Challenge hosted at the TAG-DS Conference, which compared Graph Neural Networks and Topological Neural Networks using a unified evaluation pipeline. Analyzing 68 qualifying submissions across shared synthetic benchmarks, the evaluation revealed task-dependent performance differences, such as distinct error margins on triangle counting versus community detection. This event establishes new comparative benchmarks for structurally informed graph and topological architectures.",
+    "summary_status": "generated",
+    "content_fingerprint": "c0852ede5d8fb160",
+    "url": "https://arxiv.org/abs/2611.10046",
+    "date": "2026-11-10T05:00:00+00:00",
+    "category": "Benchmark",
+    "fetched_at": "2026-11-10T15:28:56.289459+00:00",
+    "topics": [
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "The 2026 Topological Deep Learning Challenge evaluated Graph Neural Networks and Topological Neural Networks side by side using a unified pipeline in TopoBench and GraphUniverse.",
+      "Analysis of 68 submissions showed that performance differences are task-dependent, with Topological Neural Networks achieving lower error on triangle counting while Graph Neural Networks remained competitive.",
+      "Researchers and practitioners working with graph, simplicial, cellular, and hypergraph deep learning architectures are affected by these comparative benchmark findings."
+    ],
+    "tags": [
+      "Topological Deep Learning",
+      "Graph Neural Networks",
+      "Topological Neural Networks",
+      "TopoBench"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.10046",
+        "title": "Topological Deep Learning Challenge 2026: Bridging the Gap",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "d517bfd7131ddf40",
+    "title": "Selected-Risk Calibration for Feasibility at Returned Decisions",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "The authors propose Selected-Risk Calibration (SRC), a framework designed to calibrate learned constraints against an optimizer's returned decisions using objectives drawn from a given distribution. SRC guarantees that every certified margin on held-out objectives maintains a selected risk of at most a specified threshold with high probability. Experiments demonstrate that SRC outperforms baseline corrections in producing fewer infeasible solutions across various comparisons.",
+    "summary_status": "generated",
+    "content_fingerprint": "2692bb4b66425a0b",
+    "url": "https://arxiv.org/abs/2611.10050",
+    "date": "2026-11-10T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-10T15:28:56.289559+00:00",
+    "topics": [
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed Selected-Risk Calibration (SRC) to calibrate learned constraints against optimizer-returned decisions under surrogate constraints.",
+      "This framework provides rigorous probabilistic guarantees on the selected risk of returned decisions, addressing limitations found in standard conformal prediction and likelihood-ratio reweighting.",
+      "Optimization practitioners and developers relying on surrogate constraints and automated decision-making systems benefit from improved constraint feasibility guarantees."
+    ],
+    "tags": [
+      "Optimization",
+      "Uncertainty Quantification",
+      "Surrogate Modeling",
+      "Conformal Prediction"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.10050",
+        "title": "Selected-Risk Calibration for Feasibility at Returned Decisions",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "ecf1db316ae58391",
+    "title": "All roads lead to Markov kernel networks: A representation theorem for discretization-stable learning",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduce a representation theorem proving that all uniformly discretization-stable operators in operator learning can be expressed as stable Markov kernel networks. This abstract architecture generalizes existing models like transformers and Fourier neural operators while offering a variational framework to systematically design and stabilize new network architectures.",
+    "summary_status": "generated",
+    "content_fingerprint": "f517d1a84136141a",
+    "url": "https://arxiv.org/abs/2611.10051",
+    "date": "2026-11-10T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-10T15:28:56.289662+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "A new representation theorem demonstrates that uniformly discretization-stable operators are precisely stable Markov kernel networks.",
+      "The findings unify diverse architectures like transformers and Fourier neural operators under a single framework, enabling systematic architecture design via regularized variational problems.",
+      "Machine learning researchers and engineers developing operator learning models for function-to-function maps are directly impacted."
+    ],
+    "tags": [
+      "Operator Learning",
+      "Fourier Neural Operators",
+      "Transformers",
+      "Markov Kernel Networks",
+      "Representation Theorem"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.10051",
+        "title": "All roads lead to Markov kernel networks: A representation theorem for discretization-stable learning",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "ad9275ced775bd06",
+    "title": "fNIRSAtlas: A Large-Scale Benchmark for Functional Near-Infrared Spectroscopy Classification",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.10082v1 Announce Type: new Abstract: Functional near-infrared spectroscopy (fNIRS) is a promising modality for brain-computer interfaces and cognitive state decoding, but progress in…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.10082",
+    "date": "2026-11-10T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-10T15:28:56.289752+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.10082",
+        "title": "fNIRSAtlas: A Large-Scale Benchmark for Functional Near-Infrared Spectroscopy Classification",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "A large-scale benchmark called fNIRSAtlas was introduced for functional near-infrared spectroscopy classification.",
+      "It addresses evaluation challenges in brain-computer interfaces and cognitive state decoding by providing standardized data.",
+      "Brain-computer interface researchers and neurotechnology developers working with fNIRS modalities are directly affected."
+    ]
+  },
+  {
+    "id": "c45c4d1e97c106e1",
+    "title": "Transferring local rib responses to new component geometries in sheet forming with a graph-based Transformer",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers propose R-BiLoGo, a baseline-conditioned residual surrogate that decouples local features from global geometries in sheet metal forming to improve transfer learning efficiency. The method predicts changes in displacement and thinning for rib features on hot-stamped corner components, outperforming hierarchical graph-based and Transolver-based models on source and target geometries. The study demonstrates that transfer learning reduces target simulation requirements compared to training from scratch, while identifying geometric limitations such as surface distance and curvature changes.",
+    "summary_status": "generated",
+    "content_fingerprint": "d4207d56499ed3b8",
+    "url": "https://arxiv.org/abs/2611.10086",
+    "date": "2026-11-10T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-10T15:28:56.289793+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "A graph-based Transformer surrogate named R-BiLoGo was developed to transfer local rib responses to new component geometries in sheet metal forming.",
+      "Transfer learning with R-BiLoGo reduced the required target simulations compared to training models from scratch while achieving lower or comparable error rates across most test geometries.",
+      "Researchers and engineers working on sheet metal forming simulations and industrial manufacturing surrogate modeling."
+    ],
+    "tags": [
+      "Sheet Metal Forming",
+      "Graph-Based Transformer",
+      "Transfer Learning",
+      "Surrogate Modeling"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.10086",
+        "title": "Transferring local rib responses to new component geometries in sheet forming with a graph-based Transformer",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "bfd6cf81af9e596e",
+    "title": "Coordinated Mixed-Precision KV Cache Quantization for Efficient LLM-based Multi-agent Systems",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Coordinated Mixed-Precision KV Cache Quantization (CoMixKV) is a novel framework designed to address memory bottlenecks in LLM-based multi-agent systems by jointly allocating precision across simultaneously resident agent caches. The method uses an online sensitivity estimator combined with a shared controller to minimize total estimated error under a shared memory budget without requiring calibration data. Experiments show that CoMixKV reduces peak KV-cache memory by 32.08% on Qwen3-32B and achieves strong accuracy across multiple benchmarks and LLM backbones.",
+    "summary_status": "generated",
+    "content_fingerprint": "b5ac355e75187192",
+    "url": "https://arxiv.org/abs/2611.10096",
+    "date": "2026-11-10T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-10T15:28:56.289892+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "CoMixKV was introduced as a mixed-precision KV-cache quantization framework that jointly allocates bit-widths across multiple simultaneously resident agent caches under a shared memory budget.",
+      "It enables efficient execution of LLM-based multi-agent systems by reducing peak memory consumption by up to 32.08% and delivering a 1.38x inference speedup over FullKV on Qwen3-32B.",
+      "Developers and researchers deploying multi-agent systems using large language model backbones such as Gemma-4-31B-it and Qwen3-32B are directly affected by these memory and performance improvements."
+    ],
+    "tags": [
+      "KV Cache",
+      "Quantization",
+      "Multi-Agent Systems",
+      "Large Language Models",
+      "Memory Optimization"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.10096",
+        "title": "Coordinated Mixed-Precision KV Cache Quantization for Efficient LLM-based Multi-agent Systems",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "5f3963726dbe36e6",
+    "title": "Decision Models in Hugging Face",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "Hugging Face has introduced decision models to its platform, expanding its machine learning offerings beyond traditional NLP and computer vision tasks. This integration allows developers to access and deploy decision-making algorithms directly within the Hugging Face ecosystem.",
+    "summary_status": "generated",
+    "content_fingerprint": "e97b37c15e6a7632",
+    "url": "https://huggingface.co/blog/decision",
+    "date": "2026-11-10T00:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-10T15:28:56.287617+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Open Source"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Hugging Face added decision models to its platform.",
+      "Developers can now access and deploy decision-making algorithms alongside existing ML pipelines.",
+      "Machine learning engineers and developers working with decision intelligence systems are affected."
+    ],
+    "tags": [
+      "Hugging Face",
+      "Decision Models",
+      "Machine Learning"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/decision",
+        "title": "Decision Models in Hugging Face",
+        "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
     "id": "9a8fde6cfa9ab68c",
     "title": "llm-anthropic 0.31",
     "company": "Simon Willison's Weblog",
@@ -78,6 +1286,48 @@
         "url": "https://simonwillison.net/2026/Nov/9/mysterious-beeps",
         "title": "Locating the source of a mysterious beep with Claude",
         "publisher": "Simon Willison's Weblog"
+      }
+    ]
+  },
+  {
+    "id": "6b6709b612e5913e",
+    "title": "Gemini Robotics 2.5 accelerates real-world general dexterity",
+    "company": "Google DeepMind",
+    "source": "Google DeepMind Blog",
+    "summary": "Google has announced Gemini Robotics 2.5, a vision-language-action model designed to improve robot dexterity, reliability, and safety in real-world environments. The new system enhances the capabilities of robotic hardware by integrating advanced multimodal AI directly into physical control loops.",
+    "summary_status": "generated",
+    "content_fingerprint": "56f3553bcae1cfa0",
+    "url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence",
+    "date": "2026-11-09T19:51:47+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-10T15:28:56.287545+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Safety and Security"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 7,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Gemini Robotics 2.5 was released as a new vision-language-action model focused on robot dexterity and reliability.",
+      "It bridges advanced multimodal AI with physical robotic control, improving real-world safety and performance.",
+      "Robotics developers, industrial automation engineers, and physical AI researchers are directly affected."
+    ],
+    "tags": [
+      "Gemini Robotics",
+      "Robotics",
+      "Vision-Language-Action",
+      "AI Agents"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence",
+        "title": "Gemini Robotics 2.5 accelerates real-world general dexterity",
+        "publisher": "Google DeepMind"
       }
     ]
   },
@@ -1419,6 +2669,10 @@
       "Developers are using AI tools like Claude Code and Codex to automatically generate pull request descriptions.",
       "Using HTML details tags helps hide verbose automated PR text to keep code review interfaces clean.",
       "Software engineers and development teams reviewing AI-assisted pull requests are directly affected."
+    ],
+    "tags": [
+      "Models and Releases",
+      "Coding and Developer Tools"
     ]
   },
   {
@@ -3919,6 +5173,10 @@
       "NVIDIA released CUDA 13.5 with support for NVIDIA Vera Rubin GA.",
       "It enables developers to optimize accelerated computing software and workloads for upcoming hardware architectures.",
       "AI developers and software engineers utilizing NVIDIA hardware ecosystems are affected."
+    ],
+    "tags": [
+      "Models and Releases",
+      "Infrastructure and Hardware"
     ]
   },
   {
