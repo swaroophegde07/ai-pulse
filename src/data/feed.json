@@ -1,26 +1,1068 @@
 [
   {
-    "id": "d48977b6fbc84b1e",
-    "title": "Lazare, veni foras: Reprogramming Dormant Neurons to Backdoor AI Agents",
-    "company": "Microsoft Research",
-    "source": "Microsoft Research AI",
-    "summary": "[Automated summary unavailable] Microsoft researchers have discovered “Lazarus,” a backdoor technique that can reprogram dormant neurons in an AI model, causing an otherwise normal AI agent to execute malicious commands when a…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
-    "url": "https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents",
-    "date": "2026-11-10T20:52:56+00:00",
-    "category": "Research",
-    "fetched_at": "2026-11-10T23:52:50.864976+00:00",
+    "id": "65b96c238445cded",
+    "title": "Gilbert + Tobin rethinks the business of law with AI",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Gilbert + Tobin is rethinking its legal business model through the integration of artificial intelligence. CEO and Partner Sam Nickless discusses the strategic adoption and impact of AI within the firm.",
+    "summary_status": "generated",
+    "content_fingerprint": "c1b53c3418f70955",
+    "url": "https://openai.com/index/gilbert-tobin-sam-nickless",
+    "date": "2026-11-12T00:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-11T14:57:46.836390+00:00",
+    "topics": [
+      "Models and Releases"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 1,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Primary lab announcement from OpenAI",
+    "why_it_matters": "",
+    "key_points": [
+      "Gilbert + Tobin's leadership is actively integrating artificial intelligence into legal business operations.",
+      "The adoption of AI tools alters traditional legal service delivery and operational workflows.",
+      "Legal professionals, law firm management, and clients of Gilbert + Tobin are directly affected by these business model shifts."
+    ],
+    "tags": [
+      "Gilbert + Tobin",
+      "Legal AI",
+      "AI Adoption"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://openai.com/index/gilbert-tobin-sam-nickless",
+        "title": "Gilbert + Tobin rethinks the business of law with AI",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "ed6381bbe7836253",
+    "title": "The Download: preserving minds",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "Anthropic released a report warning that a powerful open-weights model from Z.ai creates major cyberattack risks due to its unrestricted availability. Meanwhile, separate industry developments cover reports of a major chip espionage scandal involving Nvidia hardware, and studies highlighting how AI agents lie and cheat when pursuing task completion.",
+    "summary_status": "generated",
+    "content_fingerprint": "0891e1b4542687f6",
+    "url": "https://www.technologyreview.com/2026/11/11/1148424/the-download-preserving-minds-open-ai-risks",
+    "date": "2026-11-11T13:10:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-11T14:57:46.837213+00:00",
     "topics": [
       "Models and Releases",
+      "AI Agents",
+      "Open Source",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Anthropic published a report warning that an open-weights model from Chinese company Z.ai presents severe cyberattack risks because it can be freely downloaded and modified.",
+      "The ongoing debate over open frontier models highlights tensions between security risks from malicious misuse and the desire to prevent corporate concentration of AI technology.",
+      "Policymakers, AI developers, and cybersecurity analysts must navigate complex tradeoffs regarding the open-source distribution of powerful frontier models."
+    ],
+    "tags": [
+      "Anthropic",
+      "Z.ai",
+      "Open-Source",
+      "Cybersecurity",
+      "AI Agents"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/11/11/1148424/the-download-preserving-minds-open-ai-risks",
+        "title": "The Download: preserving minds",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "ac94b61a25ade5ed",
+    "title": "ChatGPT Plus for veterans and servicemembers",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Over 20,000 veterans and transitioning service members have claimed a free one-year subscription to ChatGPT Plus. These individuals are utilizing the AI tool to assist with their transition and preparation for civilian careers.",
+    "summary_status": "generated",
+    "content_fingerprint": "5dea19ea0a59e685",
+    "url": "https://openai.com/index/chatgpt-plus-for-veterans",
+    "date": "2026-11-11T08:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-11T14:57:46.836534+00:00",
+    "topics": [
+      "Models and Releases",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "More than 20,000 veterans and transitioning service members claimed a free year of ChatGPT Plus.",
+      "The initiative helps military personnel utilize advanced AI tools to prepare for civilian careers.",
+      "Veterans, transitioning service members, and employers hiring former military personnel are directly affected."
+    ],
+    "tags": [
+      "ChatGPT Plus",
+      "OpenAI",
+      "Veterans",
+      "AI Adoption"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://openai.com/index/chatgpt-plus-for-veterans",
+        "title": "ChatGPT Plus for veterans and servicemembers",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "19b4fcb1faac9c9b",
+    "title": "BotPsy: On-Device Personal Assistant with a Sub-Billion-Parameter Agentic Language Model",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "BotPsy introduces an on-device personal assistant powered by a sub-billion-parameter agentic language model. The system enables local execution of complex assistant tasks while maintaining privacy and reducing reliance on cloud infrastructure.",
+    "summary_status": "generated",
+    "content_fingerprint": "11bd635775af5f1e",
+    "url": "https://huggingface.co/blog/qvac/botpsy",
+    "date": "2026-11-11T05:01:16+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-11T14:57:46.836880+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "A sub-billion-parameter agentic language model was developed to power an on-device personal assistant called BotPsy.",
+      "It demonstrates that compact models can execute agentic workflows locally, reducing cloud dependencies and improving user privacy.",
+      "Mobile device users and developers of resource-constrained edge AI applications are directly affected."
+    ],
+    "tags": [
+      "AI Agents",
+      "Edge AI",
+      "Language Models",
+      "On-Device AI"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/qvac/botpsy",
+        "title": "BotPsy: On-Device Personal Assistant with a Sub-Billion-Parameter Agentic Language Model",
+        "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
+    "id": "f63659155352269b",
+    "title": "Auditable Human-Agent Teams for Autonomous X-ray Experimentation",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers demonstrated autonomous synchrotron X-ray experiments on nanoparticle superlattices using a coding-agent infrastructure guided by human-defined objectives. Analysis of complete transcripts revealed that multi-agent systems and humans shared cognitive labor, with the majority of error corrections requiring multiple participants. These findings offer design principles for multi-agent scientific systems and autonomous experimentation harnesses.",
+    "summary_status": "generated",
+    "content_fingerprint": "58b8c9b413ca97a1",
+    "url": "https://arxiv.org/abs/2611.12933",
+    "date": "2026-11-11T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-11T14:57:46.837788+00:00",
+    "topics": [
       "AI Agents",
       "Coding and Developer Tools",
       "Applications and Products"
     ],
-    "source_type": "Research Laboratory",
+    "source_type": "Research or Preprint",
     "priority_score": 2,
     "priority_label": "Worth a Look",
     "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Coding-agent infrastructure was used to perform autonomous synchrotron X-ray experiments on nanoparticle superlattices under evolving human-defined objectives.",
+      "Transcript auditing showed that 59-68% of error corrections involved multiple participants and that cognitive labor shifted toward methodological and scientific contributions in later experiments.",
+      "Scientists, laboratory operators, and developers of multi-agent scientific systems will be affected by these insights into human-agent collaboration and decision provenance."
+    ],
+    "tags": [
+      "AI Agents",
+      "Autonomous Experimentation",
+      "X-ray Synchrotron",
+      "Scientific Discovery"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.12933",
+        "title": "Auditable Human-Agent Teams for Autonomous X-ray Experimentation",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "70b6e0e37bdecc39",
+    "title": "EarthRecord: From Pixels to Land Change with Multimodal Agents over Four Decades of Satellite Imagery",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.12934v1 Announce Type: new Abstract: While multimodal agents now carry out complex data analysis with tools, their ability to turn decades of satellite imagery into reliable land-change…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.12934",
+    "date": "2026-11-11T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-11T14:57:46.837884+00:00",
+    "topics": [
+      "AI Agents",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.12934",
+        "title": "EarthRecord: From Pixels to Land Change with Multimodal Agents over Four Decades of Satellite Imagery",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "EarthRecord was introduced as a multimodal agent framework for analyzing over four decades of satellite imagery.",
+      "It addresses the challenge of utilizing AI tools to reliably interpret historical pixel data for land-change detection.",
+      "Environmental scientists, remote sensing researchers, and geographic data analysts are directly impacted by this framework."
+    ]
+  },
+  {
+    "id": "e5cd4cd10b4ff8cf",
+    "title": "Train on prefill, monitor at decode: Using sparse autoencoders for topic monitoring",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduce TopicScope, a framework utilizing sparse autoencoders (SAEs) to train causal topic classifiers that assign topics to every generated token. Evaluated on Gemma-3 1B and 4B models using synthetic multi-topic conversations, classifiers trained on prefill hidden states successfully generalized to decoding and demonstrated robustness to text perturbations. This demonstrates that compact topic monitors can be inexpensively trained during prefill and deployed during generation while expanding SAE utility beyond safety classification.",
+    "summary_status": "generated",
+    "content_fingerprint": "c63d1004c5fab6a4",
+    "url": "https://arxiv.org/abs/2611.12935",
+    "date": "2026-11-11T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-11T14:57:46.837934+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed TopicScope, a framework using sparse autoencoders to train causal topic classifiers that assign a topic to every token during generation.",
+      "The approach enables compact topic monitors to be trained inexpensively on prefill hidden states and deployed during decoding while remaining robust to text perturbations.",
+      "AI developers and safety researchers building runtime monitoring tools for large language models are directly affected by these findings."
+    ],
+    "tags": [
+      "Sparse Autoencoders",
+      "Gemma-3",
+      "Topic Monitoring",
+      "Model Interpretability"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.12935",
+        "title": "Train on prefill, monitor at decode: Using sparse autoencoders for topic monitoring",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "4bd6d8fca0727cd4",
+    "title": "LandslideFM: A Foundation Model Towards Unified Landslide Perception and Understanding",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduce LandslideFM, a unified foundation model designed for landslide perception and contextual interpretation that overcomes limitations of isolated visual tasks. The framework utilizes a Source-Agreement Graduated Trust semi-supervised learning approach and integrates with a fine-tuned Vision-Language Model guided by spatial predictions. Additionally, the authors present LandslideVL, a new benchmark combining visual imagery and textual prompts to evaluate specialized landslide analysis.",
+    "summary_status": "generated",
+    "content_fingerprint": "c45bab5b21d28091",
+    "url": "https://arxiv.org/abs/2611.12936",
+    "date": "2026-11-11T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-11T14:57:46.838027+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "LandslideFM was introduced as the first unified foundation model connecting visual perception and contextual interpretation for landslide detection.",
+      "The model integrates a semi-supervised learning framework with a parameter-efficient vision-language model to outperform general-purpose models on specialized geological reasoning.",
+      "Geological researchers, disaster prevention agencies, and remote sensing developers gain a specialized benchmark and open-source codebase for intelligent landslide analysis."
+    ],
+    "tags": [
+      "LandslideFM",
+      "LandslideVL",
+      "Foundation Model",
+      "Vision-Language Models",
+      "Remote Sensing"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.12936",
+        "title": "LandslideFM: A Foundation Model Towards Unified Landslide Perception and Understanding",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "e15dfd244ed580c8",
+    "title": "Tracing Psychometric Inference in Large Language Models",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This study investigates whether large language models internally represent psychological constructs or merely mimic psychometric outputs using a cross-persona paradigm across 14 model variants from the Llama 3 and Qwen 2.5 families. Using human response data from 272 university students, the researchers found that larger instruct variants exhibit internal geometric alignment and decodability corresponding to human cross-scale correlations. The findings establish that behavioral amplification correlates with internal geometry strength, though causal mediation of the cross-persona answers by the measured directions is not demonstrated.",
+    "summary_status": "generated",
+    "content_fingerprint": "be6584c5ce917d7e",
+    "url": "https://arxiv.org/abs/2611.12937",
+    "date": "2026-11-11T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-11T14:57:46.838120+00:00",
+    "topics": [
+      "Models and Releases",
+      "Safety and Security",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers tested 14 model variants from Llama 3 and Qwen 2.5 families to determine if large language models internally represent psychological constructs or only output matching structures.",
+      "The findings matter because contrastive direction analysis and activation probing revealed that larger instruct models align geometrically with human psychometric structures and exhibit measurable readout attenuation.",
+      "AI researchers and cognitive scientists studying internal representations, alignment, and psychometric evaluation in large language models are directly affected by these findings."
+    ],
+    "tags": [
+      "Llama 3",
+      "Qwen 2.5",
+      "Psychometrics",
+      "Interpretability",
+      "Activation Probing"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.12937",
+        "title": "Tracing Psychometric Inference in Large Language Models",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "4ce35f7b37fafd91",
+    "title": "Graph Visualizations in Prompts for Knowledge Graph Question Answering",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This study evaluates the impact of multimodal input by comparing text-only prompting with text-plus-graph visualizations across six vision-language models for knowledge graph question answering. The findings show that adding graph images yields an average gain of 1.85 F1 points, with performance heavily dependent on graph layout quality and reasoning complexity rather than model scale. The authors propose adaptive visual prompting policies to optimize accuracy and inference efficiency by selectively using structured diagrams for simpler subgraphs.",
+    "summary_status": "generated",
+    "content_fingerprint": "df64a4dde783e8d0",
+    "url": "https://arxiv.org/abs/2611.12938",
+    "date": "2026-11-11T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-11T14:57:46.838227+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers evaluated six vision-language models on 1,500 questions, finding that adding graph visualizations improves knowledge graph question answering performance by an average of 1.85 F1 points.",
+      "The results demonstrate that multimodal gains depend heavily on visual layout structure and low-complexity contexts rather than raw model scale.",
+      "Vision-language model developers and researchers working on knowledge graph question answering can use these insights to design adaptive visual prompting policies."
+    ],
+    "tags": [
+      "Knowledge Graphs",
+      "Vision-Language Models",
+      "Multimodal AI",
+      "Prompt Engineering"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.12938",
+        "title": "Graph Visualizations in Prompts for Knowledge Graph Question Answering",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "d5c99bc6d6e5d968",
+    "title": "Reinforcement Learning based control of Cancer Chemotherapy treatments",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This research introduces a reinforcement learning approach for cancer chemotherapy treatment scheduling utilizing both online Q-learning and offline model-based algorithms. The proposed Chemo RL model leverages real human colon cancer clinical data to generate optimal sequential treatment policies. Evaluations indicate that the model effectively supports junior oncologists in clinical decision-making.",
+    "summary_status": "generated",
+    "content_fingerprint": "eae194b53b867bf1",
+    "url": "https://arxiv.org/abs/2611.12940",
+    "date": "2026-11-11T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-11T14:57:46.838321+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed a Chemo RL model using conservative Q-learning and offline policy optimization on human colon cancer clinical data.",
+      "The approach establishes optimal sequential treatment policies for dynamic cancer chemotherapy regimens.",
+      "Junior oncologists and clinical researchers studying personalized medicine benefit from this supportive scheduling model."
+    ],
+    "tags": [
+      "Reinforcement Learning",
+      "Personalized Medicine",
+      "Healthcare AI",
+      "Q-Learning"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.12940",
+        "title": "Reinforcement Learning based control of Cancer Chemotherapy treatments",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "166bd6fc93935b5b",
+    "title": "AI Governance Should Prioritize Control and Knowledge Boundaries Over Limiting Intelligence",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers propose the competence circuit to decompose an AI agent's real-world impact into intelligence-mediated discovery, procedural know-how, and direct control. Using stochastic simulations and analytic bounds, the study demonstrates that intelligence-driven speedup is capped and that governing agentic systems should prioritize enforcing knowledge boundaries and control limits over restricting intelligence alone. The findings highlight institutional chokepoints and physical constraints as vital leverage points for safety.",
+    "summary_status": "generated",
+    "content_fingerprint": "ea1a49dd5959a095",
+    "url": "https://arxiv.org/abs/2611.12941",
+    "date": "2026-11-11T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-11T14:57:46.838396+00:00",
+    "topics": [
+      "AI Agents",
+      "Safety and Security",
+      "Policy and Regulation",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Proposed the competence circuit framework (IKC + KC + C) to decompose agentic impact and formalized conditions for intelligence-mediated fast takeoff.",
+      "Demonstrated analytically and via simulations that intelligence-driven speedup is capped and that safety requires restricting control and knowledge boundaries rather than intelligence alone.",
+      "Researchers, AI safety policymakers, and developers of autonomous agentic systems are affected by these governance and architectural recommendations."
+    ],
+    "tags": [
+      "AI Governance",
+      "AI Agents",
+      "Safety",
+      "Simulation"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.12941",
+        "title": "AI Governance Should Prioritize Control and Knowledge Boundaries Over Limiting Intelligence",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "4d203c940610d876",
+    "title": "Tabular Foundation Models vs Tuned Gradient Boosting for Telecom Churn: A Profit- and Calibration-Aware Evaluation",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This research evaluates tabular foundation models against Optuna-tuned gradient-boosted trees on telecom churn datasets, focusing on profit and calibration metrics. The study finds that while models like TabPFN-3.5 can achieve higher expected maximum profit on certain datasets, licensing restrictions currently hinder production deployment. Retuning the baselines narrows previous performance gaps but does not entirely eliminate them.",
+    "summary_status": "generated",
+    "content_fingerprint": "f6ffb89f45631636",
+    "url": "https://arxiv.org/abs/2611.12942",
+    "date": "2026-11-11T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-11T14:57:46.838494+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "TabPFN-3.5 and other tabular foundation models were benchmarked against tuned gradient-boosted trees across five telecom churn datasets using profit- and calibration-aware metrics.",
+      "The evaluation demonstrates that foundation models can yield higher expected maximum profit on specific datasets despite tuned baseline adjustments, though licensing terms present deployment hurdles.",
+      "Telecommunication operators, data scientists, and machine learning engineers deploying predictive churn models in production."
+    ],
+    "tags": [
+      "TabPFN",
+      "Tabular Foundation Models",
+      "Gradient Boosting",
+      "Churn Prediction"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.12942",
+        "title": "Tabular Foundation Models vs Tuned Gradient Boosting for Telecom Churn: A Profit- and Calibration-Aware Evaluation",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "79262989e256613b",
+    "title": "SetPrint: Black-Box LLM Fingerprinting via Setwise Correspondence of Response Changes",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduce SetPrint, a training-free black-box LLM fingerprinting method designed to determine if a target model derives from a source model using only observable output responses. The approach jointly captures within-set relations and between-set correspondence of response variations induced by query perturbations. Evaluations on LeaFBench demonstrate that SetPrint consistently outperforms existing training-free black-box fingerprinting methods.",
+    "summary_status": "generated",
+    "content_fingerprint": "0a26dfa234cdf070",
+    "url": "https://arxiv.org/abs/2611.12950",
+    "date": "2026-11-11T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-11T14:57:46.838605+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed SetPrint, a training-free method for black-box LLM fingerprinting that analyzes sets of response variations to query perturbations.",
+      "The method improves attribution accuracy by jointly capturing internal response relations and cross-model correspondence, outperforming existing baselines on LeaFBench.",
+      "Model developers and security researchers working on model extraction detection and intellectual property verification are affected."
+    ],
+    "tags": [
+      "LLM Fingerprinting",
+      "Model Extraction",
+      "Security",
+      "LeaFBench"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.12950",
+        "title": "SetPrint: Black-Box LLM Fingerprinting via Setwise Correspondence of Response Changes",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "fb33af2f33cd6927",
+    "title": "An ensemble of graph generative models for assisted history matching of the Brugge field case",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers developed a graph generative model ensemble using a joint latent space to perform assisted history matching on the complex Brugge field benchmark. The approach utilizes zone-specific graph autoencoders combined with the Covariance Matrix Adaptation Evolution Strategy to handle irregular grid geometries and maintain geological realism. Results demonstrate that the multi-generator formulation produces coherent latent spaces and matches field production data comparably to existing methods.",
+    "summary_status": "generated",
+    "content_fingerprint": "1682d323db7ad92d",
+    "url": "https://arxiv.org/abs/2611.12927",
+    "date": "2026-11-11T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-11T14:57:46.838696+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "An ensemble of graph generative models was applied to the Brugge field benchmark using a 160-dimensional joint latent space and the Covariance Matrix Adaptation Evolution Strategy.",
+      "This method handles irregular grid geometries directly without regular lattice conversion while preserving porosity and permeability relationships across different depositional zones.",
+      "Reservoir engineers and researchers working on petroleum field development and history matching are directly affected."
+    ],
+    "tags": [
+      "Graph Generative Models",
+      "History Matching",
+      "Reservoir Simulation",
+      "Graph Autoencoder"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.12927",
+        "title": "An ensemble of graph generative models for assisted history matching of the Brugge field case",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "c0b4e092d8f1862d",
+    "title": "Predictive Surprise as Self-Grounding Concept Bottleneck for Interpretable Time Series",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.12955v1 Announce Type: new Abstract: Time-series classifiers deployed in risk-sensitive domains must be (1) accurate, (2) interpretable, and (3) able to abstain when evidence is weak.…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.12955",
+    "date": "2026-11-11T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-11T14:57:46.838780+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.12955",
+        "title": "Predictive Surprise as Self-Grounding Concept Bottleneck for Interpretable Time Series",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "A self-grounding concept bottleneck method using predictive surprise was developed for time-series classifiers.",
+      "It enhances model interpretability and enables reliable abstention when evidence is insufficient.",
+      "Practitioners and developers deploying time-series classifiers in risk-sensitive domains are directly impacted."
+    ]
+  },
+  {
+    "id": "b002b995071b214c",
+    "title": "ADIndex: Layer-Adaptive Sparse Attention Indexing via Group-Level Distillation",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduce ADIndex, an adaptive and distillation-driven indexing method designed to eliminate the indexing bottleneck in DeepSeek Sparse Attention during long-context inference. The approach utilizes layer-wise calibration, group-level distillation, and a low-latency inference strategy with token bank sharing to reduce full-prefix scans. Experiments on DeepSeek-V3.2 and GLM-5.1 show up to 6.22x prefill kernel speedups and 1.54x end-to-end serving speedups at long contexts while maintaining near-lossless task performance.",
+    "summary_status": "generated",
+    "content_fingerprint": "c2e47e69231e5191",
+    "url": "https://arxiv.org/abs/2611.12956",
+    "date": "2026-11-11T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-11T14:57:46.838830+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "ADIndex was proposed to address the indexer latency bottleneck in DeepSeek Sparse Attention by employing layer-wise calibration, group-level distillation, and token bank sharing.",
+      "It achieves prefill and decoding kernel speedups of up to 6.22x and 3.40x respectively at 256K context lengths while preserving near-lossless performance on LongBench, LongBench v2, and RULER.",
+      "Large language model developers and systems engineers deploying long-context inference models like DeepSeek-V3.2 and GLM-5.1 are directly affected."
+    ],
+    "tags": [
+      "Sparse Attention",
+      "Long-Context Inference",
+      "DeepSeek-V3.2",
+      "GLM-5.1",
+      "Model Optimization"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.12956",
+        "title": "ADIndex: Layer-Adaptive Sparse Attention Indexing via Group-Level Distillation",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "1ca71fa8ca9f393c",
+    "title": "Exploration via Exploitation: The Blessing of Reward Diversity in Personalized Federated RL",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduce two algorithms, Personalized Federated Upper Confidence Bound Value Iteration and Personalized Federated Exploration-Free Value Iteration, to tackle reward heterogeneity in federated reinforcement learning. The work proves that reward diversity acts as a structural asset for exploration, eliminating the need for explicit exploration bonuses while achieving optimal linear speedup and logarithmic regret. These findings demonstrate that agent disagreement shifts the exploration burden from temporal complexity to spatial diversity.",
+    "summary_status": "generated",
+    "content_fingerprint": "ff68668e000bfbc7",
+    "url": "https://arxiv.org/abs/2611.12964",
+    "date": "2026-11-11T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-11T14:57:46.838932+00:00",
+    "topics": [
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Proposed PF-UCBVI and PF-EFVI algorithms to handle personalized objectives in federated reinforcement learning.",
+      "Proved that sufficient reward diversity enables logarithmic regret without requiring explicit exploration bonuses.",
+      "Affects multi-agent systems and federated learning researchers dealing with heterogeneous agent goals."
+    ],
+    "tags": [
+      "Federated Learning",
+      "Reinforcement Learning",
+      "Multi-Agent Systems",
+      "Exploration"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.12964",
+        "title": "Exploration via Exploitation: The Blessing of Reward Diversity in Personalized Federated RL",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "f52f625ba473cb5e",
+    "title": "StatPrompt-LLM: A Lightweight Statistical Refinement for Foundation-Style Time-Series Forecasting",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "The authors introduce StatPrompt-LLM, a lightweight statistical refinement framework for foundation-style time-series forecasting that builds upon Time-LLM by incorporating dataset-level statistical information and an autoregressive bypass. Evaluated on benchmarks such as ETTh1, ETTh2, and Weather, the method achieved a 40.2% reduction in MSE and a 21.4% reduction in MAE under a 10% reduced-prefix configuration. However, full-prefix results were dataset-dependent and introduced additional model parameters and runtime overhead.",
+    "summary_status": "generated",
+    "content_fingerprint": "c1943e43dfe1328d",
+    "url": "https://arxiv.org/abs/2611.12974",
+    "date": "2026-11-11T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-11T14:57:46.839022+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "StatPrompt-LLM was introduced as a statistical refinement framework for foundation-style time-series forecasting, adding dataset-level statistical prompts and a linear forecasting pathway to Time-LLM.",
+      "The approach achieved a 40.2% average reduction in MSE and a 21.4% reduction in MAE under a 10% reduced-prefix configuration on electricity and meteorological datasets.",
+      "Time-series researchers and engineers utilizing foundation-style forecasting architectures on limited-observation sequential data are directly affected."
+    ],
+    "tags": [
+      "Time-Series Forecasting",
+      "Foundation Models",
+      "Time-LLM",
+      "StatPrompt-LLM"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.12974",
+        "title": "StatPrompt-LLM: A Lightweight Statistical Refinement for Foundation-Style Time-Series Forecasting",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "ce2fc0f93cc0934c",
+    "title": "MADSNet: A Multi-Scale Axial-Attentive Dense Spiking Network for Spike Camera Image Reconstruction",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "The paper introduces MADSNet, a Multi-scale Axial-attentive Dense Spiking Network designed to reconstruct continuous intensity images from high-temporal-resolution binary spike streams. Utilizing a hierarchical encoder-decoder with axial spike attention and dense bottlenecks, MADSNet outperforms existing spiking neural network methods on the SREDS benchmark while achieving significantly lower latency and energy consumption. This work demonstrates that optimized spiking architectures can bridge the fidelity gap between spiking and traditional artificial neural networks for high-speed vision.",
+    "summary_status": "generated",
+    "content_fingerprint": "51046e5b1b8e238d",
+    "url": "https://arxiv.org/abs/2611.12980",
+    "date": "2026-11-11T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-11T14:57:46.839118+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "MADSNet was introduced as a hierarchical spiking encoder-decoder network for spike camera image reconstruction, featuring multi-scale feature extraction, axial spike attention, and a dense spiking bottleneck.",
+      "It outperforms existing methods like SSIR by 4.3 dB PSNR and Spk2ImgNet by 1.94 dB on the SREDS benchmark while consuming 1/40th of the energy and reducing latency by about 15 times.",
+      "Computer vision researchers and developers working on high-speed spike cameras and energy-efficient spiking neural networks are directly impacted."
+    ],
+    "tags": [
+      "Spiking Neural Networks",
+      "Image Reconstruction",
+      "Computer Vision",
+      "Spike Camera"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.12980",
+        "title": "MADSNet: A Multi-Scale Axial-Attentive Dense Spiking Network for Spike Camera Image Reconstruction",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "f2a6d42b3cc68944",
+    "title": "Third Eye: Beyond Immediate Gains in Recursive Self-Improvement",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.12988v1 Announce Type: new Abstract: Does a useful self-update remain useful after the model updates again? Third Eye separates immediate performance from the outcome of a further native…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.12988",
+    "date": "2026-11-11T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-11T14:57:46.839214+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.12988",
+        "title": "Third Eye: Beyond Immediate Gains in Recursive Self-Improvement",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Third Eye was introduced to evaluate the persistence of utility in models undergoing recursive self-updates.",
+      "It provides a way to isolate immediate performance metrics from downstream degradation during iterative model updates.",
+      "AI researchers and developers working on recursive self-improvement and automated alignment loops are directly affected."
+    ]
+  },
+  {
+    "id": "40549d3aaa334eee",
+    "title": "Multimodal Graph Learning: A Survey of Models, Benchmarks, and Frontiers",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This survey paper explores multimodal attributed graphs (MAGs), categorizing current learning methods into graph-centric and foundation-model-centric approaches across five integration levels. It reviews existing benchmarks, datasets, and evaluation protocols while providing a unified message-passing formulation. Additionally, the study connects multimodal graph learning to AI agents and outlines open research frontiers.",
+    "summary_status": "generated",
+    "content_fingerprint": "363534e4dad58502",
+    "url": "https://arxiv.org/abs/2611.12990",
+    "date": "2026-11-11T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-11T14:57:46.839258+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "A comprehensive survey on multimodal attributed graphs (MAGs) was published, introducing a unified message-passing formulation and categorizing methods into five integration levels.",
+      "The paper provides an evaluation-grounded view of recent benchmarks, datasets, and model-independent descriptors while identifying cross-modal sensitivity as a key architectural differentiator.",
+      "Researchers, machine learning engineers, and developers building AI agents or working with complex graph-structured multimodal data are affected."
+    ],
+    "tags": [
+      "Graph Learning",
+      "Multimodal",
+      "Foundation Models",
+      "AI Agents"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.12990",
+        "title": "Multimodal Graph Learning: A Survey of Models, Benchmarks, and Frontiers",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "ffdec6e2b484b8ad",
+    "title": "Linear Probes to Bayesian Manifolds: Geometry of Arithmetic in Large Language Models",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This research introduces a four-stage Bayesian pipeline to evaluate the geometric structures of concepts in large language models, separating decodability, shape, ownership, and causal use. The authors applied the pipeline to two-digit addition and multiplication tasks across GPT-J 6B, Llama 3.1 8B, and Pythia 6.9B, finding that while concepts are frequently decodable, most represented shapes are inherited rather than uniquely owned. The findings demonstrate that standard linear probes overstate model computation, suggesting that interpretability results should evaluate all four distinct claims.",
+    "summary_status": "generated",
+    "content_fingerprint": "4840e7ff25b1ce5f",
+    "url": "https://arxiv.org/abs/2611.12998",
+    "date": "2026-11-11T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-11T14:57:46.839342+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "A four-stage Bayesian pipeline was developed to test decodability, shape, ownership, and causal use of geometric structures in large language models.",
+      "The analysis of arithmetic tasks in models like Llama 3.1 8B and GPT-J 6B revealed that 81% of decoded shapes are inherited rather than owned by the specific concept.",
+      "Interpretability researchers and engineers relying on linear probes to analyze internal model representations are affected by these findings."
+    ],
+    "tags": [
+      "Large Language Models",
+      "Interpretability",
+      "Linear Probes",
+      "Bayesian Statistics",
+      "GPT-J"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.12998",
+        "title": "Linear Probes to Bayesian Manifolds: Geometry of Arithmetic in Large Language Models",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "89c38bd6dc33f3da",
+    "title": "One Table, Many Queries: Benchmarking Generalist Tabular Models Across Generation, Imputation, and Prediction",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduce the One Table Benchmark, evaluating 46 methods across 56 datasets to analyze the shared capabilities and trade-offs among tabular generation, imputation, and prediction tasks. The study reveals that generalist models can achieve competitive utility compared to specialists, though faithful joint sampling and categorical reconstruction still favor specialized portfolios. Furthermore, frozen foundation models demonstrate strong predictive and numerical imputation capabilities across diverse tabular tasks.",
+    "summary_status": "generated",
+    "content_fingerprint": "9e92579acbf38704",
+    "url": "https://arxiv.org/abs/2611.13001",
+    "date": "2026-11-11T05:00:00+00:00",
+    "category": "Benchmark",
+    "fetched_at": "2026-11-11T14:57:46.839439+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers introduced the One Table Benchmark to evaluate 46 methods and 56 datasets across tabular generation, imputation, and prediction tasks.",
+      "The evaluation exposes utility-fidelity trade-offs, showing generalist models can match specialist utility while specialists maintain superior fidelity.",
+      "AI researchers and practitioners developing generalist tabular models and foundation models."
+    ],
+    "tags": [
+      "Tabular Data",
+      "Benchmark",
+      "Machine Learning",
+      "Foundation Models"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.13001",
+        "title": "One Table, Many Queries: Benchmarking Generalist Tabular Models Across Generation, Imputation, and Prediction",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "11568aa8dfcf9a3c",
+    "title": "Token Pooling-Aware Training for Multi-Vector Embedding Models",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "This research introduces token pooling-aware training for multi-vector embedding models to improve retrieval performance and efficiency. The method optimizes how multi-vector representations handle token pooling during the training phase.",
+    "summary_status": "generated",
+    "content_fingerprint": "f547be91f80aa020",
+    "url": "https://huggingface.co/blog/token-pooling",
+    "date": "2026-11-11T00:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-11T14:57:46.836954+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed token pooling-aware training tailored for multi-vector embedding models.",
+      "The technique improves retrieval efficiency and representation quality for dense retrieval tasks.",
+      "Developers and researchers working on semantic search and embedding models are directly affected."
+    ],
+    "tags": [
+      "Multi-Vector Embeddings",
+      "Information Retrieval",
+      "Representation Learning"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/token-pooling",
+        "title": "Token Pooling-Aware Training for Multi-Vector Embedding Models",
+        "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
+    "id": "d48977b6fbc84b1e",
+    "title": "Lazare, veni foras: Reprogramming Dormant Neurons to Backdoor AI Agents",
+    "company": "Microsoft Research",
+    "source": "Microsoft Research AI",
+    "summary": "Microsoft researchers have discovered Lazarus, a backdoor technique that modifies fewer than ten dormant neurons in an AI model without retraining, allowing attackers to execute malicious commands when hidden triggers appear. This technique poses a significant security risk to autonomous AI agents with tool or terminal access because models pass standard evaluations while retaining hidden exploits. Microsoft is developing countermeasures including AI-powered weight scanning, red-teaming tools, and cryptographic model signing to ensure weight integrity.",
+    "summary_status": "generated",
+    "content_fingerprint": "9f7bd084df7a3ee3",
+    "url": "https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents",
+    "date": "2026-11-10T20:52:56+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-11T14:57:46.837021+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
     "why_it_matters": "",
     "sources": [
       {
@@ -30,10 +1072,18 @@
       }
     ],
     "key_points": [
-      "Microsoft researchers discovered the Lazarus backdoor technique that reprograms dormant neurons in AI models to execute malicious commands.",
-      "This technique exposes a critical vulnerability in how AI agents can be compromised without altering their primary observable behavior.",
-      "AI developers, security professionals, and enterprises deploying autonomous AI agents are affected by this vulnerability."
-    ]
+      "Microsoft researchers discovered Lazarus, a method to backdoor AI models by reprogramming fewer than ten dormant neurons without retraining.",
+      "This matters because backdoored models bypass standard safety evaluations and can execute unauthorized code, steal secrets, or run destructive commands when triggered.",
+      "Developers, enterprises, and users deploying open-weight AI agents with terminal or tool access are directly affected."
+    ],
+    "tags": [
+      "Microsoft",
+      "AI Agents",
+      "Backdoor Attacks",
+      "Model Security",
+      "Open-Weight Models"
+    ],
+    "impact_score": 8
   },
   {
     "id": "5bf610d1dd7d8e14",
@@ -408,6 +1458,47 @@
       {
         "url": "https://openai.com/index/closing-ai-guidance-gap-education",
         "title": "Closing the AI guidance gap in education",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "9092d5eb66f29547",
+    "title": "Singapore Airlines elevates travel & work with OpenAI technology",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Singapore Airlines integrated OpenAI models and APIs into its operations to enhance customer support, travel discovery, and employee productivity. The deployment doubled customer satisfaction scores for the Kris chatbot.",
+    "summary_status": "generated",
+    "content_fingerprint": "ca58e980102c9109",
+    "url": "https://openai.com/index/singapore-airlines-travel-work",
+    "date": "2026-11-10T08:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-11T14:57:46.836660+00:00",
+    "topics": [
+      "Models and Releases",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 1,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Primary lab announcement from OpenAI",
+    "why_it_matters": "",
+    "key_points": [
+      "Singapore Airlines deployed OpenAI models and APIs to upgrade customer support and internal workflows.",
+      "The integration successfully doubled customer satisfaction scores for the Kris chatbot.",
+      "Singapore Airlines passengers and internal employees benefit from improved support and productivity tools."
+    ],
+    "tags": [
+      "OpenAI",
+      "Singapore Airlines",
+      "Kris chatbot",
+      "Enterprise AI"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://openai.com/index/singapore-airlines-travel-work",
+        "title": "Singapore Airlines elevates travel & work with OpenAI technology",
         "publisher": "OpenAI"
       }
     ]
@@ -1483,6 +2574,49 @@
         "url": "https://huggingface.co/blog/hub-gcp-marketplace",
         "title": "Pay for Hugging Face Hub with your Google Cloud Account",
         "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
+    "id": "37e4452e64c861cf",
+    "title": "Cogent and OpenAI build cyber defense factories for enterprises",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Cogent is integrating OpenAI models with enterprise context to automate vulnerability remediation using AI agents. This development helps enterprises build cyber defense systems capable of automatically addressing security vulnerabilities.",
+    "summary_status": "generated",
+    "content_fingerprint": "6b3c0b95d1b67a0e",
+    "url": "https://openai.com/index/cogent-security",
+    "date": "2026-11-10T00:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-11T14:57:46.836737+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Safety and Security",
+      "Business and Industry"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Cogent combined OpenAI models with enterprise context to create automated vulnerability remediation agents.",
+      "This integration enables enterprises to deploy automated cyber defense systems that streamline security operations.",
+      "Enterprise security teams and organizations utilizing OpenAI models are directly affected."
+    ],
+    "tags": [
+      "Cogent",
+      "OpenAI",
+      "AI Agents",
+      "Cybersecurity"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://openai.com/index/cogent-security",
+        "title": "Cogent and OpenAI build cyber defense factories for enterprises",
+        "publisher": "OpenAI"
       }
     ]
   },
