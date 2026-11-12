@@ -1,5 +1,257 @@
 [
   {
+    "id": "d121304c3de64e9e",
+    "title": "Build once, run on any agent: A practical guide to agent skills",
+    "company": "GitHub",
+    "source": "GitHub AI & Copilot",
+    "summary": "Agent skills provide a standardized format using a SKILL.md file to capture repeatable instructions, which can be reused across different AI agents and team workflows. This framework separates workflow definition from execution environments, allowing tasks like database querying or adversarial code verification to be shared and automated.",
+    "summary_status": "generated",
+    "content_fingerprint": "c861c6610868b1a9",
+    "url": "https://github.blog/ai-and-ml/github-copilot/build-once-run-on-any-agent-a-practical-guide-to-agent-skills",
+    "date": "2026-11-12T22:54:52+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-12T23:57:28.647997+00:00",
+    "topics": [
+      "AI Agents",
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Introduced a standardized agent skills framework centered on versioned directories and a SKILL.md configuration file to capture repeatable tasks.",
+      "Enables reusable instructions and multi-agent workflow coordination across different AI systems without hardcoding execution credentials.",
+      "Targeted at developers and engineering teams building automated pipelines, data operations, and multi-agent systems."
+    ],
+    "tags": [
+      "AI Agents",
+      "GitHub Universe 2026",
+      "Workflow Automation"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://github.blog/ai-and-ml/github-copilot/build-once-run-on-any-agent-a-practical-guide-to-agent-skills",
+        "title": "Build once, run on any agent: A practical guide to agent skills",
+        "publisher": "GitHub"
+      }
+    ]
+  },
+  {
+    "id": "3ed8f8cd29d8bc17",
+    "title": "Microsoft Research Focus – Edition #98",
+    "company": "Microsoft Research",
+    "source": "Microsoft Research AI",
+    "summary": "Microsoft Research released Edition #98 of its Research Focus update, highlighting recent breakthroughs such as advances in AI speech translation, the resolution of the 31-year-old KLS conjecture in mathematics, and methods to make AI coding agents more efficient. The newsletter also covers developments in AI tokenization across 104 languages and physical intelligence research at Microsoft Research Asia in Tokyo.",
+    "summary_status": "generated",
+    "content_fingerprint": "4e21bfcdefef895b",
+    "url": "https://www.microsoft.com/en-us/research/podcast/microsoft-research-focus-edition-98",
+    "date": "2026-11-12T21:31:57+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-12T23:57:28.648051+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Microsoft Research highlighted major internal milestones including solving the 31-year-old KLS mathematical conjecture and advancing AI speech translation capabilities.",
+      "These research updates demonstrate progress across core AI capabilities like long-horizon coding agent efficiency, cross-lingual tokenization, and physical intelligence.",
+      "AI researchers, developers working with language and coding models, and the broader scientific community gain visibility into Microsoft's latest explorations."
+    ],
+    "tags": [
+      "Microsoft Research",
+      "AI Agents",
+      "Speech Translation",
+      "Mathematics",
+      "Tokenization"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://www.microsoft.com/en-us/research/podcast/microsoft-research-focus-edition-98",
+        "title": "Microsoft Research Focus – Edition #98",
+        "publisher": "Microsoft Research"
+      }
+    ]
+  },
+  {
+    "id": "67672a694e389b29",
+    "title": "How Amplitude ships product improvements in 1–2 days with OpenAI",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Amplitude developed a proactive product agent named Wave, which is built primarily on OpenAI models. The agent identifies product requirements, assists teams in shipping changes using coding agents, and measures the resulting impact within a 1-2 day timeframe.",
+    "summary_status": "generated",
+    "content_fingerprint": "ff14eab2b2328a5f",
+    "url": "https://openai.com/business/customer-stories/amplitude",
+    "date": "2026-11-12T20:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-12T23:57:28.647486+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Amplitude built a proactive product agent called Wave using OpenAI models to automate product improvement workflows.",
+      "The tool streamlines the development lifecycle by identifying features, writing code via agents, and evaluating impact in 1-2 days.",
+      "Product teams and developers utilizing Amplitude benefit from accelerated shipping cycles and automated impact measurement."
+    ],
+    "tags": [
+      "Amplitude",
+      "OpenAI",
+      "AI Agents",
+      "Product Management"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://openai.com/business/customer-stories/amplitude",
+        "title": "How Amplitude ships product improvements in 1–2 days with OpenAI",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "84ec87286cb35a64",
+    "title": "LLMON: An LLM-Native Markup Language, now in Granite 4.1 3B and 8B",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "The release of Granite 4.1 3B and 8B incorporates LLMON, a native markup language designed specifically for large language models. This integration enables enhanced structured generation capabilities and improved formatting control within the Granite model architecture.",
+    "summary_status": "generated",
+    "content_fingerprint": "45a29f4b83751c76",
+    "url": "https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite",
+    "date": "2026-11-12T19:07:35+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-12T23:57:28.647949+00:00",
+    "topics": [
+      "Models and Releases"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "LLMON, an LLM-native markup language, has been integrated into the Granite 4.1 3B and 8B models.",
+      "It improves structured generation and formatting control for language models.",
+      "Developers and users utilizing Granite 4.1 models for structured outputs are directly affected."
+    ],
+    "tags": [
+      "Granite 4.1",
+      "LLMON",
+      "Markup Language",
+      "Structured Generation"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite",
+        "title": "LLMON: An LLM-Native Markup Language, now in Granite 4.1 3B and 8B",
+        "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
+    "id": "5b69826eead48a96",
+    "title": "Introducing Gemini 4 Hydrogen",
+    "company": "Google DeepMind",
+    "source": "Google DeepMind Blog",
+    "summary": "Google has announced the release of Gemini 4 Hydrogen, an advanced artificial intelligence model designed to improve multimodal reasoning and computational efficiency. The new model introduces architectural updates that enhance response speed and contextual understanding across diverse modalities.",
+    "summary_status": "generated",
+    "content_fingerprint": "3a7f2f876da0e84b",
+    "url": "https://deepmind.google/blog/introducing-gemini-4-hydrogen",
+    "date": "2026-11-12T18:00:50+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-12T23:57:28.647850+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 7,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Google launched Gemini 4 Hydrogen with enhanced multimodal reasoning and faster response speeds.",
+      "The architectural updates improve computational efficiency and contextual understanding for complex enterprise tasks.",
+      "Developers, enterprise users, and consumers relying on the Gemini ecosystem are directly affected."
+    ],
+    "tags": [
+      "Google",
+      "Gemini 4 Hydrogen",
+      "Multimodal AI",
+      "Product Release"
+    ],
+    "impact_score": 8,
+    "sources": [
+      {
+        "url": "https://deepmind.google/blog/introducing-gemini-4-hydrogen",
+        "title": "Introducing Gemini 4 Hydrogen",
+        "publisher": "Google DeepMind"
+      }
+    ]
+  },
+  {
+    "id": "b9840fd67063a36a",
+    "title": "Gondola doubles revenue as its team builds more with Codex",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Gondola doubled its revenue while utilizing OpenAI tools to optimize development workflows. Specifically, Codex increased the lead engineer's output by 50%, and ChatGPT streamlined daily operational tasks.",
+    "summary_status": "generated",
+    "content_fingerprint": "49c877fb0cef8890",
+    "url": "https://openai.com/business/customer-stories/gondola",
+    "date": "2026-11-12T12:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-12T23:57:28.647791+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 1,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Primary lab announcement from OpenAI",
+    "why_it_matters": "",
+    "key_points": [
+      "Gondola integrated OpenAI's Codex and ChatGPT into its engineering and daily workflows, doubling its revenue.",
+      "The integration increased the lead engineer's output by 50% and simplified administrative and operational tasks.",
+      "Gondola and its engineering team benefited directly from improved developer productivity."
+    ],
+    "tags": [
+      "Codex",
+      "ChatGPT",
+      "Gondola",
+      "AI Productivity"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://openai.com/business/customer-stories/gondola",
+        "title": "Gondola doubles revenue as its team builds more with Codex",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
     "id": "4922ca6fb0dd9299",
     "title": "Holiday Extras is rethinking what it can build with Codex",
     "company": "OpenAI",
