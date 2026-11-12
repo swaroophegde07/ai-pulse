@@ -1,5 +1,47 @@
 [
   {
+    "id": "4922ca6fb0dd9299",
+    "title": "Holiday Extras is rethinking what it can build with Codex",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Holiday Extras is utilizing Codex to transform its customer expertise into enhanced application development, improved booking conversion rates, and new growth opportunities. The implementation demonstrates practical enterprise application of AI coding assistants to drive business metrics.",
+    "summary_status": "generated",
+    "content_fingerprint": "2542fe34e38612c3",
+    "url": "https://openai.com/business/customer-stories/holidays-extras-codex",
+    "date": "2026-11-12T09:30:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-12T15:46:48.476000+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Business and Industry",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Holiday Extras integrated Codex into its development workflows to build better applications and improve booking conversion.",
+      "It demonstrates how specialized AI coding tools translate domain expertise into measurable business growth and product capabilities.",
+      "Software engineers, product teams, and travel technology companies looking to leverage AI coding assistants are affected."
+    ],
+    "tags": [
+      "Codex",
+      "Holiday Extras",
+      "AI Coding Assistants",
+      "Product Development"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://openai.com/business/customer-stories/holidays-extras-codex",
+        "title": "Holiday Extras is rethinking what it can build with Codex",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
     "id": "65b96c238445cded",
     "title": "Gilbert + Tobin rethinks the business of law with AI",
     "company": "OpenAI",
@@ -35,6 +77,90 @@
         "url": "https://openai.com/index/gilbert-tobin-sam-nickless",
         "title": "Gilbert + Tobin rethinks the business of law with AI",
         "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "d7c1da8cb7dc41da",
+    "title": "Supporting research on AI and children’s safety",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "OpenAI has committed $2 million in funding for research focused on artificial intelligence and children's safety. The initiative supports the development of shared tools designed to measure risks and opportunities for young people interacting with AI technologies.",
+    "summary_status": "generated",
+    "content_fingerprint": "4e999dd326c11def",
+    "url": "https://openai.com/index/children-first-declaration",
+    "date": "2026-11-12T00:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-12T15:46:48.476346+00:00",
+    "topics": [
+      "Safety and Security",
+      "Business and Industry",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 1,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Primary lab announcement from OpenAI",
+    "why_it_matters": "",
+    "key_points": [
+      "OpenAI committed $2 million to fund research on AI and children's safety.",
+      "The funding supports the creation of shared tools to evaluate risks and opportunities for young people.",
+      "Researchers, child safety advocates, and AI developers focusing on youth interactions are affected."
+    ],
+    "tags": [
+      "OpenAI",
+      "Safety",
+      "Children",
+      "Funding"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://openai.com/index/children-first-declaration",
+        "title": "Supporting research on AI and children’s safety",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "cbda9238a3684b28",
+    "title": "The Definitive Fine-Tuning Guide for 3D Generation Models",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "This guide covers the technical processes required for fine-tuning 3D generation models to improve output quality and domain specificity. It details configuration setups, dataset requirements, and optimization strategies for practitioners working with spatial AI models.",
+    "summary_status": "generated",
+    "content_fingerprint": "74ec21e25acad61b",
+    "url": "https://huggingface.co/blog/3d-lora-finetuning",
+    "date": "2026-11-12T00:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-12T15:46:48.476476+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Published a comprehensive guide detailing specific steps, hyperparameters, and dataset formatting rules for fine-tuning 3D generative models.",
+      "Provides practitioners with actionable methodologies to adapt pre-trained 3D architectures to specialized vertical domains.",
+      "Machine learning engineers and developers working with 3D content generation pipelines are directly impacted."
+    ],
+    "tags": [
+      "3D Generation",
+      "Fine-Tuning",
+      "Machine Learning"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/3d-lora-finetuning",
+        "title": "The Definitive Fine-Tuning Guide for 3D Generation Models",
+        "publisher": "Hugging Face"
       }
     ]
   },

@@ -85,8 +85,8 @@
     "api_available": true,
     "consumer_available": false,
     "pricing": {
-      "input_per_1m": 0.098,
-      "output_per_1m": 0.294,
+      "input_per_1m": 0.15,
+      "output_per_1m": 0.6,
       "unit": "USD"
     },
     "documentation_url": "https://openrouter.ai/deepseek/deepseek-v4.1-flash-1017",
@@ -315,8 +315,8 @@
     "api_available": true,
     "consumer_available": false,
     "pricing": {
-      "input_per_1m": 0.022,
-      "output_per_1m": 0.4,
+      "input_per_1m": 0.3,
+      "output_per_1m": 1.2,
       "unit": "USD"
     },
     "documentation_url": "https://openrouter.ai/deepseek/deepseek-v4.1-flash",
@@ -1008,8 +1008,8 @@
     "api_available": true,
     "consumer_available": false,
     "pricing": {
-      "input_per_1m": 0.9553,
-      "output_per_1m": 1.9105,
+      "input_per_1m": 0.8923,
+      "output_per_1m": 1.7845,
       "unit": "USD"
     },
     "documentation_url": "https://openrouter.ai/deepseek/deepseek-v4-pro",
