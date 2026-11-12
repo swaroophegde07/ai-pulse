@@ -39,6 +39,298 @@
     ]
   },
   {
+    "id": "8cfe95d5a7efcad0",
+    "title": "Gemini Decisions API",
+    "company": "Simon Willison's Weblog",
+    "source": "Simon Willison – AI",
+    "summary": "Google has released the Gemini Decisions API featuring the new \"Gemini Decision 1\" model, entering the decision model category alongside Jev and OpenAI. The model supports text, image, audio, video, and PDF inputs, and is priced at 10 cents per million input tokens with free outputs. Unlike competing models that return absolute confidence scores of 1.0 or 0.0 for yes/no questions, Gemini provides granular probability floats.",
+    "summary_status": "generated",
+    "content_fingerprint": "9aa628a60cf9d905",
+    "url": "https://simonwillison.net/2026/Nov/11/gemini-decisions-api",
+    "date": "2026-11-11T22:03:25+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-12T01:13:56.268422+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Google launched the Gemini Decisions API featuring Gemini Decision 1, joining Jev and OpenAI in the decision model category.",
+      "It provides multi-modal support for text, images, audio, video, and PDFs while returning granular probability scores instead of binary confidence values.",
+      "Developers and enterprises utilizing decision-making APIs, multi-modal ingestion, and automated rubric-scoring pipelines are directly affected."
+    ],
+    "tags": [
+      "Gemini Decisions API",
+      "Google",
+      "OpenAI",
+      "Jev",
+      "Multimodal AI"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://simonwillison.net/2026/Nov/11/gemini-decisions-api",
+        "title": "Gemini Decisions API",
+        "publisher": "Simon Willison's Weblog"
+      }
+    ]
+  },
+  {
+    "id": "f7dd1873faacd350",
+    "title": "OpenCode process-daemon v0.5.2",
+    "company": "OpenCode",
+    "source": "OpenCode Updates",
+    "summary": "The OpenCode team published version 0.5.2 of the process-daemon package to npm as @opencode/pty@0.5.2. This release utilizes protocol version 8 for its underlying process management operations.",
+    "summary_status": "generated",
+    "content_fingerprint": "c23475c4d8ef0e1f",
+    "url": "https://github.com/anomalyco/opencode/releases/tag/process-daemon-v0.5.2",
+    "date": "2026-11-11T21:34:04+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-12T01:13:56.268336+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Version 0.5.2 of @opencode/pty was published to npm from the packages/process-daemon repository.",
+      "The release implements protocol version 8, updating its process communication mechanism.",
+      "Developers utilizing the OpenCode process-daemon package and npm registry are affected."
+    ],
+    "tags": [
+      "OpenCode",
+      "npm",
+      "Developer Tools"
+    ],
+    "impact_score": 2,
+    "sources": [
+      {
+        "url": "https://github.com/anomalyco/opencode/releases/tag/process-daemon-v0.5.2",
+        "title": "OpenCode process-daemon v0.5.2",
+        "publisher": "OpenCode"
+      }
+    ]
+  },
+  {
+    "id": "fd0e38b70a90d204",
+    "title": "aws-emulator",
+    "company": "Simon Willison's Weblog",
+    "source": "Simon Willison – AI",
+    "summary": "Amazon Web Services has released an official emulator written in Rust that enables developers to run local tests for various AWS services without requiring a paid API key. The project was constructed using autonomous AI agents, recording 29,684 commits during its first three weeks. Currently, the emulator requires Docker to execute on macOS or Windows platforms.",
+    "summary_status": "generated",
+    "content_fingerprint": "de9354f801f7684c",
+    "url": "https://simonwillison.net/2026/Nov/11/aws-emulator",
+    "date": "2026-11-11T21:18:30+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-12T01:13:56.268488+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "AWS released an official local emulator for testing services without a paid API key, built in Rust using nearly 30,000 commits generated by AI agents.",
+      "This tool allows developers to conduct local integration testing and development without incurring cloud costs or requiring active cloud connections.",
+      "Software developers and engineering teams utilizing AWS infrastructure on macOS or Windows with Docker are directly affected."
+    ],
+    "tags": [
+      "Amazon Web Services",
+      "Rust",
+      "Docker",
+      "Agentic Engineering",
+      "Testing"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://simonwillison.net/2026/Nov/11/aws-emulator",
+        "title": "aws-emulator",
+        "publisher": "Simon Willison's Weblog"
+      }
+    ]
+  },
+  {
+    "id": "7a4eaed6af466137",
+    "title": "OpenCode process-daemon-v0.5.1",
+    "company": "OpenCode",
+    "source": "OpenCode Updates",
+    "summary": "The OpenCode project has released version 0.5.1 of the process-daemon component. This update addresses routine code maintenance and repository organization via pull request #63366.",
+    "summary_status": "generated",
+    "content_fingerprint": "5bec1fbaba7c0bcc",
+    "url": "https://github.com/anomalyco/opencode/releases/tag/process-daemon-v0.5.1",
+    "date": "2026-11-11T18:27:09+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-12T01:13:56.268382+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "OpenCode released version 0.5.1 of process-daemon.",
+      "Provides routine maintenance updates and minor administrative fixes.",
+      "Developers and users utilizing OpenCode process-daemon components."
+    ],
+    "tags": [
+      "OpenCode",
+      "process-daemon",
+      "Software Release"
+    ],
+    "impact_score": 2,
+    "sources": [
+      {
+        "url": "https://github.com/anomalyco/opencode/releases/tag/process-daemon-v0.5.1",
+        "title": "OpenCode process-daemon-v0.5.1",
+        "publisher": "OpenCode"
+      }
+    ]
+  },
+  {
+    "id": "4b30bf9e8a4d0303",
+    "title": "Validating GPU Platforms with Runtime AI Inventory via the NVIDIA DSX AI Factory",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "Deploying and scaling AI workloads across platforms like NVIDIA Dynamo, Kubeflow, or Slurm requires real-time visibility that goes beyond static platform configurations and deployment recipes. Because application teams independently define and update workloads, static bundles alone cannot accurately track running workload artifacts on each node.",
+    "summary_status": "generated",
+    "content_fingerprint": "9670b3579aa1fbe9",
+    "url": "https://developer.nvidia.com/blog/validating-gpu-platforms-with-runtime-ai-inventory-via-the-nvidia-dsx-ai-factory",
+    "date": "2026-11-11T17:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-12T01:13:56.268267+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Runtime AI inventory tracking was introduced to validate GPU platforms and monitor actual workloads running on NVIDIA DSX AI Factory.",
+      "It bridges the gap between static deployment recipes and independent application updates, ensuring accurate visibility into active node artifacts.",
+      "Infrastructure and application teams scaling AI workloads on platforms like Kubeflow, Slurm, and NVIDIA Dynamo are affected."
+    ],
+    "tags": [
+      "NVIDIA",
+      "Kubeflow",
+      "Slurm",
+      "GPU Platforms",
+      "AI Workloads"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://developer.nvidia.com/blog/validating-gpu-platforms-with-runtime-ai-inventory-via-the-nvidia-dsx-ai-factory",
+        "title": "Validating GPU Platforms with Runtime AI Inventory via the NVIDIA DSX AI Factory",
+        "publisher": "NVIDIA"
+      }
+    ]
+  },
+  {
+    "id": "d7414ba9c6092537",
+    "title": "Anthropic's IPO roadshow video",
+    "company": "Simon Willison's Weblog",
+    "source": "Simon Willison – AI",
+    "summary": "Anthropic released an IPO roadshow video detailing its multi-chip training strategy across AWS, Google, NVIDIA, and AMD hardware. Co-founder Tom Brown explained that the company utilizes automated tooling to port models across chip families and focuses on discovering compounding compute multipliers.",
+    "summary_status": "generated",
+    "content_fingerprint": "aa5192cdde3930db",
+    "url": "https://simonwillison.net/2026/Nov/11/anthropic-ipo-roadshow",
+    "date": "2026-11-11T15:11:59+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-12T01:13:56.268603+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Anthropic revealed in an IPO roadshow video that it trains and serves Claude models across four major chip families: AWS Trainium, Google TPUs, NVIDIA GPUs, and AMD GPUs.",
+      "The company demonstrated using an automated system called Mythos to port Claude to AMD GPUs in just three days with nearly zero human intervention.",
+      "Anthropic hardware strategists and investors."
+    ],
+    "tags": [
+      "Anthropic",
+      "Claude",
+      "Hardware",
+      "AWS",
+      "Google TPUs"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://simonwillison.net/2026/Nov/11/anthropic-ipo-roadshow",
+        "title": "Anthropic's IPO roadshow video",
+        "publisher": "Simon Willison's Weblog"
+      }
+    ]
+  },
+  {
+    "id": "ba0fcf4e325b4115",
+    "title": "AlphaGenome 2: Deciphering how cells read DNA to better understand disease",
+    "company": "Google DeepMind",
+    "source": "Google DeepMind Blog",
+    "summary": "AlphaGenome 2 is introduced to predict the impact of DNA sequences and genetic variations on specific human cell types. This computational tool aims to improve the understanding of disease mechanisms linked to DNA reading.",
+    "summary_status": "generated",
+    "content_fingerprint": "ff9a81df857e29d7",
+    "url": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease",
+    "date": "2026-11-11T15:00:15+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-12T01:13:56.267391+00:00",
+    "topics": [
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "AlphaGenome 2 was developed to predict how DNA sequences and variations affect specific human cell types and diseases.",
+      "It enhances the ability to interpret genetic variations and their links to human health and disease.",
+      "Researchers, geneticists, and healthcare data scientists studying human genomics and disease mechanisms are affected."
+    ],
+    "tags": [
+      "AlphaGenome 2",
+      "Genomics",
+      "DNA",
+      "Disease Research"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease",
+        "title": "AlphaGenome 2: Deciphering how cells read DNA to better understand disease",
+        "publisher": "Google DeepMind"
+      }
+    ]
+  },
+  {
     "id": "ed6381bbe7836253",
     "title": "The Download: preserving minds",
     "company": "MIT Technology Review",
@@ -212,20 +504,22 @@
     "title": "EarthRecord: From Pixels to Land Change with Multimodal Agents over Four Decades of Satellite Imagery",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.AI (Artificial Intelligence)",
-    "summary": "[Automated summary unavailable] arXiv:2611.12934v1 Announce Type: new Abstract: While multimodal agents now carry out complex data analysis with tools, their ability to turn decades of satellite imagery into reliable land-change…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "Researchers introduce EarthRecord, a new benchmark comprising four decades of raw multi-sensor satellite imagery and 238 land-change questions across ten analysis tasks to evaluate multimodal agents. Evaluations of twelve leading multimodal agents reveal that while they can complete most analyses end-to-end, they struggle with accurate pixel-to-ground mapping and remain vulnerable to sensor data alterations. This benchmark offers a principled platform for advancing agentic capabilities in Earth observation science.",
+    "summary_status": "generated",
+    "content_fingerprint": "a77c35a0cf24f28b",
     "url": "https://arxiv.org/abs/2611.12934",
     "date": "2026-11-11T05:00:00+00:00",
-    "category": "Research",
-    "fetched_at": "2026-11-11T14:57:46.837884+00:00",
+    "category": "Benchmark",
+    "fetched_at": "2026-11-12T01:13:56.268027+00:00",
     "topics": [
       "AI Agents",
-      "Research and Breakthroughs"
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
-    "priority_score": 5,
-    "priority_label": "Deep Dive",
+    "priority_score": 3,
+    "priority_label": "Must Know",
     "priority_explanation": "Reports measured benchmark or evaluation results",
     "why_it_matters": "",
     "sources": [
@@ -236,10 +530,18 @@
       }
     ],
     "key_points": [
-      "EarthRecord was introduced as a multimodal agent framework for analyzing over four decades of satellite imagery.",
-      "It addresses the challenge of utilizing AI tools to reliably interpret historical pixel data for land-change detection.",
-      "Environmental scientists, remote sensing researchers, and geographic data analysts are directly impacted by this framework."
-    ]
+      "EarthRecord was introduced as a benchmark consisting of 56 sites with four decades of raw satellite imagery, 238 questions, and ten land-change analysis tasks.",
+      "The evaluation of twelve multimodal agents demonstrated that leading models can execute end-to-end analysis but frequently fail at mapping pixel data to actual ground changes.",
+      "Developers of multimodal agents, remote sensing researchers, and Earth observation scientists are affected by these findings regarding current agent limitations."
+    ],
+    "tags": [
+      "EarthRecord",
+      "Multimodal Agents",
+      "Earth Observation",
+      "Satellite Imagery",
+      "Benchmark"
+    ],
+    "impact_score": 6
   },
   {
     "id": "e5cd4cd10b4ff8cf",
@@ -636,21 +938,22 @@
     "title": "Predictive Surprise as Self-Grounding Concept Bottleneck for Interpretable Time Series",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.12955v1 Announce Type: new Abstract: Time-series classifiers deployed in risk-sensitive domains must be (1) accurate, (2) interpretable, and (3) able to abstain when evidence is weak.…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "Researchers introduce ConceptTime, a self-supervised framework for interpretable time-series classification that uses predictive surprise to segment sequences and form a vocabulary of dynamical regimes. The approach achieves competitive accuracy with black-box models across 17 public benchmarks while maintaining built-in reliability and interpretability without requiring human annotations or expert vocabularies. The method enables accurate classification, clear interpretability, and reliable abstention simultaneously in risk-sensitive time-series applications.",
+    "summary_status": "generated",
+    "content_fingerprint": "61b73bee5ab3eb30",
     "url": "https://arxiv.org/abs/2611.12955",
     "date": "2026-11-11T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-11T14:57:46.838780+00:00",
+    "fetched_at": "2026-11-12T01:13:56.268107+00:00",
     "topics": [
-      "Coding and Developer Tools",
-      "Research and Breakthroughs"
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
-    "priority_score": 2,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Original research or technical finding",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
     "why_it_matters": "",
     "sources": [
       {
@@ -660,10 +963,17 @@
       }
     ],
     "key_points": [
-      "A self-grounding concept bottleneck method using predictive surprise was developed for time-series classifiers.",
-      "It enhances model interpretability and enables reliable abstention when evidence is insufficient.",
-      "Practitioners and developers deploying time-series classifiers in risk-sensitive domains are directly impacted."
-    ]
+      "ConceptTime was introduced as a self-supervised framework using predictive surprise to locate segment boundaries and categorize time-series dynamics into an interpretable concept vocabulary.",
+      "It addresses the structural trade-off in time-series classification by simultaneously achieving high accuracy, interpretability, and built-in reliability without requiring domain expert annotations.",
+      "Developers and researchers deploying time-series classifiers in risk-sensitive domains can utilize the method to gain robust out-of-distribution detection and deletion faithfulness."
+    ],
+    "tags": [
+      "Time Series",
+      "Interpretability",
+      "Self-Supervised Learning",
+      "Concept Bottleneck"
+    ],
+    "impact_score": 7
   },
   {
     "id": "b002b995071b214c",
@@ -840,16 +1150,17 @@
     "title": "Third Eye: Beyond Immediate Gains in Recursive Self-Improvement",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.12988v1 Announce Type: new Abstract: Does a useful self-update remain useful after the model updates again? Third Eye separates immediate performance from the outcome of a further native…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "This research evaluates recursive self-improvement in five 3-8B language models by testing whether model updates remain useful after subsequent updates. The findings show that immediate utility is often neutral or negative and that a further native update typically degrades performance further. The work advocates for evaluating persistent self-updates as adaptation transitions with independent scoring rather than relying on immediate performance metrics.",
+    "summary_status": "generated",
+    "content_fingerprint": "10612f7f72e423c8",
     "url": "https://arxiv.org/abs/2611.12988",
     "date": "2026-11-11T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-11T14:57:46.839214+00:00",
+    "fetched_at": "2026-11-12T01:13:56.268192+00:00",
     "topics": [
       "Models and Releases",
-      "Research and Breakthroughs"
+      "Benchmarks and Evaluations",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 2,
@@ -864,10 +1175,18 @@
       }
     ],
     "key_points": [
-      "Third Eye was introduced to evaluate the persistence of utility in models undergoing recursive self-updates.",
-      "It provides a way to isolate immediate performance metrics from downstream degradation during iterative model updates.",
-      "AI researchers and developers working on recursive self-improvement and automated alignment loops are directly affected."
-    ]
+      "Researchers evaluated five 3-8B model backbones across math and code tasks to measure the long-term utility of recursive self-updates.",
+      "The study demonstrates that subsequent native updates often reduce model utility, revealing that immediate performance gains do not guarantee sustained improvement.",
+      "AI researchers and developers working on recursive self-improvement and automated model optimization are affected by these findings."
+    ],
+    "tags": [
+      "Recursive Self-Improvement",
+      "Model Optimization",
+      "Qwen",
+      "Llama",
+      "AI Research"
+    ],
+    "impact_score": 6
   },
   {
     "id": "40549d3aaa334eee",
@@ -1036,6 +1355,49 @@
         "url": "https://huggingface.co/blog/token-pooling",
         "title": "Token Pooling-Aware Training for Multi-Vector Embedding Models",
         "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
+    "id": "55ff14dc4213127d",
+    "title": "JioStar’s chief architect on AI discovery at 500M-user scale",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "JioStar's chief architect, Vijay Seshadri, discusses lessons learned in implementing AI discovery systems at a scale of 500 million users. The interview covers critical production topics including evaluation frameworks, guardrails, and taking AI models live.",
+    "summary_status": "generated",
+    "content_fingerprint": "46c74c9b05184b6e",
+    "url": "https://openai.com/index/jiostar-vijay-seshadri",
+    "date": "2026-11-11T00:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-12T01:13:56.267011+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "JioStar detailed production strategies for scaling AI discovery to 500 million users.",
+      "The insights highlight practical engineering challenges such as building robust evaluation frameworks and safety guardrails.",
+      "Engineers and architects working on large-scale consumer AI deployment are directly affected."
+    ],
+    "tags": [
+      "JioStar",
+      "Vijay Seshadri",
+      "AI Discovery",
+      "Production AI"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://openai.com/index/jiostar-vijay-seshadri",
+        "title": "JioStar’s chief architect on AI discovery at 500M-user scale",
+        "publisher": "OpenAI"
       }
     ]
   },
