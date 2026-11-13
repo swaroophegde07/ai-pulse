@@ -85,16 +85,16 @@
     "api_available": true,
     "consumer_available": false,
     "pricing": {
-      "input_per_1m": 0.15,
-      "output_per_1m": 0.6,
+      "input_per_1m": 0.038,
+      "output_per_1m": 0.5,
       "unit": "USD"
     },
     "documentation_url": "https://openrouter.ai/deepseek/deepseek-v4.1-flash-1017",
     "source_url": "https://openrouter.ai/deepseek/deepseek-v4.1-flash-1017",
-    "last_verified": "2026-11-12",
+    "last_verified": "2026-11-13",
     "verification_sources": {
-      "telemetry": "OpenRouter (2026-11-12)",
-      "pricing": "OpenRouter (2026-11-12)"
+      "telemetry": "OpenRouter (2026-11-13)",
+      "pricing": "OpenRouter (2026-11-13)"
     },
     "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-17."
   },
@@ -1008,16 +1008,16 @@
     "api_available": true,
     "consumer_available": false,
     "pricing": {
-      "input_per_1m": 0.9553,
-      "output_per_1m": 1.9105,
+      "input_per_1m": 0.9,
+      "output_per_1m": 1.5,
       "unit": "USD"
     },
     "documentation_url": "https://openrouter.ai/deepseek/deepseek-v4-pro",
     "source_url": "https://openrouter.ai/deepseek/deepseek-v4-pro",
-    "last_verified": "2026-11-12",
+    "last_verified": "2026-11-13",
     "verification_sources": {
-      "telemetry": "OpenRouter (2026-11-12)",
-      "pricing": "OpenRouter (2026-11-12)"
+      "telemetry": "OpenRouter (2026-11-13)",
+      "pricing": "OpenRouter (2026-11-13)"
     },
     "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
     "is_featured_frontier": false

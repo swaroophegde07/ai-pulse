@@ -1,5 +1,1002 @@
 [
   {
+    "id": "6841e619fcd7e8d9",
+    "title": "llama.cpp v1.0.0 : A stronger foundation for the local AI ecosystem",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "The release of llama.cpp v1.0.0 establishes a stronger foundation for running large language models locally across diverse hardware. This version brings architectural and performance improvements to optimize on-device inference efficiency. Developers and enthusiasts running open-source models on consumer hardware directly benefit from these performance gains.",
+    "summary_status": "generated",
+    "content_fingerprint": "44178207dc4d107c",
+    "url": "https://huggingface.co/blog/ggml-org/llama-cpp-v1",
+    "date": "2026-11-13T14:05:22+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-13T15:11:01.099043+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "llama.cpp v1.0.0 was officially released to improve local AI execution.",
+      "It enhances inference performance and stability for open-source models on consumer hardware.",
+      "Local AI developers, hardware enthusiasts, and deployers of on-device language models are directly affected."
+    ],
+    "tags": [
+      "llama.cpp",
+      "Open-Source",
+      "Local AI",
+      "LLM Inference"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/ggml-org/llama-cpp-v1",
+        "title": "llama.cpp v1.0.0 : A stronger foundation for the local AI ecosystem",
+        "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
+    "id": "c8f419371e91ceb8",
+    "title": "The Download: Silicon Valley’s blind spot",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "This technology newsletter explores Silicon Valley's political miscalculations regarding the midterms, Nvidia's private confirmations on chip geotracking feasibility for the Chip Security Act, and new ethical guidelines proposed by trial volunteers for brain implants. Additional coverage highlights a worldwide Microsoft outage affecting services like Outlook, Teams, and Copilot.",
+    "summary_status": "generated",
+    "content_fingerprint": "45fdd0daf409ebba",
+    "url": "https://www.technologyreview.com/2026/11/13/1148551/the-download-silicon-valley-midterms-nvidia-chip-tracking",
+    "date": "2026-11-13T13:10:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-13T15:11:01.099197+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Safety and Security",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Nvidia privately confirmed to U.S. Representative Bill Foster that implementing geotracking for advanced AI chips to prevent smuggling is feasible, contradicting public industry claims.",
+      "The Chip Security Act proposes tracking requirements to verify advanced AI chip locations and prevent smuggling to restricted regions like China.",
+      "Lawmakers, AI hardware manufacturers, brain-computer interface trial volunteers, and global Microsoft enterprise users are impacted by these developments."
+    ],
+    "tags": [
+      "Nvidia",
+      "Microsoft",
+      "Chip Security Act",
+      "Brain-Computer Interfaces"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/11/13/1148551/the-download-silicon-valley-midterms-nvidia-chip-tracking",
+        "title": "The Download: Silicon Valley’s blind spot",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "ff91852e23b0f7d0",
+    "title": "OpenCode v2.3.0",
+    "company": "OpenCode",
+    "source": "OpenCode Updates",
+    "summary": "OpenCode v2.3.0 introduces default background execution for subagents, quieter terminal user interface transcripts, and the ability to jump to earlier prompts. Additional updates include experimental Model Context Protocol events, LM Studio decision-model support, and various stability fixes for local model discovery and shell commands.",
+    "summary_status": "generated",
+    "content_fingerprint": "6fcaa73b43278abc",
+    "url": "https://github.com/anomalyco/opencode/releases/tag/v2.3.0",
+    "date": "2026-11-13T08:55:07+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-13T15:11:01.101083+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "OpenCode released version 2.3.0 featuring default background subagents, transcript summarization, and prompt jumping in the desktop app.",
+      "These updates improve developer workflow efficiency and concurrency during multi-agent coding tasks.",
+      "Software developers and engineers utilizing the OpenCode development tool are affected."
+    ],
+    "tags": [
+      "OpenCode",
+      "AI Agents",
+      "Developer Tools",
+      "Model Context Protocol"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://github.com/anomalyco/opencode/releases/tag/v2.3.0",
+        "title": "OpenCode v2.3.0",
+        "publisher": "OpenCode"
+      }
+    ]
+  },
+  {
+    "id": "a9c0a0c8a7adff81",
+    "title": "Zugwise: Domain-Aware Game Reconstruction for Digitizing Handwritten Chess Scoresheets",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.14544v1 Announce Type: new Abstract: Digitizing handwritten chess scoresheets has been studied as a handwriting-recognition problem: read the move in each box and check that it is legal.…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.14544",
+    "date": "2026-11-13T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-13T15:11:01.099757+00:00",
+    "topics": [
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.14544",
+        "title": "Zugwise: Domain-Aware Game Reconstruction for Digitizing Handwritten Chess Scoresheets",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Zugwise was introduced to digitize handwritten chess scoresheets by combining handwriting recognition with domain-aware game reconstruction.",
+      "It solves typical handwriting recognition errors by validating moves against chess rules and game context.",
+      "Chess archivists, tournament organizers, and researchers digitizing historical chess matches are directly affected."
+    ]
+  },
+  {
+    "id": "c44ac57feedcf64a",
+    "title": "Cleaning an Agent's History Hurts When the World Still Holds the Error",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers investigated how modifying the interaction history of tool-using language-model agents affects recovery when the external environment retains past errors. Using AgentCE-Bench and AppWorld, the study demonstrates that presenting a corrected history while the world still holds an uncorrected mistake can significantly harm task performance. Conversely, truthful contextual notes improve recovery rates, showing that history edits must account for actual world states.",
+    "summary_status": "generated",
+    "content_fingerprint": "1f16b4d15b1c756d",
+    "url": "https://arxiv.org/abs/2611.14654",
+    "date": "2026-11-13T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-13T15:11:01.099802+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers evaluated how tool-using language-model agents handle history compaction and error correction when external world states remain uncorrected.",
+      "Making an agent's history look clean while the environment still holds an error reduced task success rates compared to unedited histories.",
+      "AI researchers, agent developers, and system designers building multi-turn tool-using workflows are affected by these findings."
+    ],
+    "tags": [
+      "AI Agents",
+      "Tool Use",
+      "Language Models",
+      "AgentCE-Bench"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.14654",
+        "title": "Cleaning an Agent's History Hurts When the World Still Holds the Error",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "a0b5c798ba3b6674",
+    "title": "Together Compiler: Continual Compilation for AI Inference",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Together AI has introduced the Together Compiler (TKCC), an agent-driven continual optimization system designed for AI inference. TKCC utilizes a Tiered Persistent Engine and a dedicated cost model to resolve the traditional tradeoff between measurement throughput and fidelity. In benchmarks, TKCC outperforms hand-written Megakernels and existing open-source engines by up to 2.6x on frontier models.",
+    "summary_status": "generated",
+    "content_fingerprint": "909d11d83ebf0c3a",
+    "url": "https://arxiv.org/abs/2611.14681",
+    "date": "2026-11-13T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-13T15:11:01.099867+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Together AI developed TKCC, a continual compilation agent loop that optimizes AI inference workloads across diverse architectures and dynamic traffic patterns.",
+      "The system uses a Tiered Persistent Engine and a cost model to achieve high-fidelity measurements without incurring slow engine launch times, outperforming existing open-source engines by up to 2.6x on InferenceX.",
+      "AI infrastructure engineers and production teams deploying frontier language models on diverse hardware platforms benefit from improved token-per-second (TPS) throughput."
+    ],
+    "tags": [
+      "Together AI",
+      "Together Compiler",
+      "AI Inference",
+      "Model Optimization",
+      "Compilers"
+    ],
+    "impact_score": 8,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.14681",
+        "title": "Together Compiler: Continual Compilation for AI Inference",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "15e8418a00dbc25d",
+    "title": "When Should Semantic Priors Enter Partially-Identified Causal Discovery?",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.14736v1 Announce Type: new Abstract: Observational causal discovery often leaves causal di- rections unresolved or unstable. Large language mod- els (LLMs) can provide semantic…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.14736",
+    "date": "2026-11-13T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-13T15:11:01.099932+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.14736",
+        "title": "When Should Semantic Priors Enter Partially-Identified Causal Discovery?",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Researchers studied how large language models can provide semantic priors to resolve ambiguous causal directions in observational data.",
+      "This approach improves causal discovery reliability by combining statistical data with linguistic and domain knowledge priors.",
+      "Data scientists and researchers working on automated causal inference and structural equation modeling are directly affected."
+    ]
+  },
+  {
+    "id": "cd1f1a3b900c4624",
+    "title": "SynthCorp: A Platform for Creating Benchmarks for Data Agents",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "The authors introduce SynthCorp, a platform that synthesizes customizable corporate data estates and benchmarks by simulating business events over time. The platform generates relational databases, document stores, data catalogs, analytical tasks, and executable gold programs using a multi-step simulation pipeline. Evaluations demonstrate that SynthCorp-generated benchmarks effectively differentiate between model tiers and data contexts while exposing reasoning failures in current data agents.",
+    "summary_status": "generated",
+    "content_fingerprint": "4bb89a13d9387274",
+    "url": "https://arxiv.org/abs/2611.14765",
+    "date": "2026-11-13T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-13T15:11:01.099968+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "SynthCorp was introduced to create customizable data estates and benchmarks by simulating business events over time across relational databases, document stores, and data catalogs.",
+      "It addresses the rapid saturation of existing LLM data agent benchmarks by generating verified gold programs and diverse, complex analytical tasks without manual annotation.",
+      "Developers and researchers building enterprise data agents and evaluation benchmarks are directly affected by this platform."
+    ],
+    "tags": [
+      "SynthCorp",
+      "AI Agents",
+      "LLM Benchmarks",
+      "Data Engineering"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.14765",
+        "title": "SynthCorp: A Platform for Creating Benchmarks for Data Agents",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "49296ad60c9ab20a",
+    "title": "Rational Use of Time for Social Coordination in Humans and AI",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This research investigates how humans and AI systems utilize implicit temporal cues for dynamic social coordination using a cooperative card game without explicit communication. The evaluation of 150 humans alongside computer-use agents and standard text-prompted LLMs reveals that while frontier models match human Bayesian timing strategies, they fail to efficiently adapt their behaviors to partners over time. The findings indicate that probabilistic reasoning about continuous-time signals can emerge in AI without real-time experience, yet highlight current limitations in multi-agent adaptation.",
+    "summary_status": "generated",
+    "content_fingerprint": "e5df734451b3f8d8",
+    "url": "https://arxiv.org/abs/2611.14766",
+    "date": "2026-11-13T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-13T15:11:01.100034+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers evaluated 150 humans and two classes of AI models on a cooperative card game that relies strictly on the passage of time for social coordination.",
+      "Frontier AI models utilize Bayesian timing strategies similar to humans, but fail to efficiently adapt their behaviors to partners over the course of repeated interactions.",
+      "AI researchers, developers of computer-use agents, and engineers building multi-agent systems face new challenges in enabling AI to dynamically interpret and adapt to implicit human signals."
+    ],
+    "tags": [
+      "Social Coordination",
+      "Multi-Agent Systems",
+      "LLMs",
+      "Cognitive Science"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.14766",
+        "title": "Rational Use of Time for Social Coordination in Humans and AI",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "36459f304a2d52e2",
+    "title": "Leaderboard Hacking: Preference-Based Model Evaluations are Vulnerable to Manipulation",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Research demonstrates that arena-style language model leaderboards relying on preference evaluations and the Bradley-Terry model are highly vulnerable to manipulation strategies such as strategic voting, prompting, and nomination. These combined attacks can artificially boost a model's ranking by up to 45 places. The study analyzes these vulnerabilities using public leaderboard data and outlines safeguard approaches for preference-based evaluations.",
+    "summary_status": "generated",
+    "content_fingerprint": "df9a0868556da7b4",
+    "url": "https://arxiv.org/abs/2611.14769",
+    "date": "2026-11-13T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-13T15:11:01.100104+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Preference-based language model leaderboards using the Bradley-Terry model are shown to be vulnerable to strategic voting, prompting, and nomination attacks.",
+      "These manipulation strategies can artificially elevate a model's rank by up to 15-20 places individually, and up to 45 places combined.",
+      "AI developers, researchers, and platform operators relying on online leaderboards and pairwise comparison frameworks are affected."
+    ],
+    "tags": [
+      "Model Evaluation",
+      "Leaderboards",
+      "Bradley-Terry Model",
+      "LLM Alignment",
+      "Benchmark Vulnerabilities"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.14769",
+        "title": "Leaderboard Hacking: Preference-Based Model Evaluations are Vulnerable to Manipulation",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "e8ad9ae41ba74f27",
+    "title": "Robust Task-Aware State Estimation from Pre-trained Perception",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers propose a method called the confidence Minimal Belief Set (MBS_theta) to handle uncertainty when agents use pre-trained perception models like Vision-Language Models. The approach leverages output-layer token distributions to construct a minimal subset of states meeting a belief-mass threshold, balancing robustness and computational tractability. Utilizing a three-layered belief system and the Probability-Ranked Valid State Search algorithm, the method provides correctness guarantees and improves downstream decision-making in task-planning pipelines.",
+    "summary_status": "generated",
+    "content_fingerprint": "340dcabfdee66537",
+    "url": "https://arxiv.org/abs/2611.14781",
+    "date": "2026-11-13T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-13T15:11:01.100171+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed the MBS_theta framework to construct minimal belief sets from pre-trained perception model outputs instead of relying on single best-guess states or full probability distributions.",
+      "The method improves decision-making robustness and computational efficiency by maintaining a lean factored representation and guarantees correctness with polynomial complexity.",
+      "Robotics engineers, autonomous agents developers, and researchers building task-planning systems using Vision-Language Models are directly affected."
+    ],
+    "tags": [
+      "Vision-Language Models",
+      "State Estimation",
+      "Task Planning",
+      "Uncertainty Quantification"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.14781",
+        "title": "Robust Task-Aware State Estimation from Pre-trained Perception",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "ba68d014b0c0b5fa",
+    "title": "When Is Proof-Step Verification Worth Its Cost? Operating Requirements of Certify-or-Decline Verification for Open-Weight Mathematical Reasoning",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This study evaluates certify-or-decline proof-step verification pipelines using open-weight language models across benchmarks like GPQA, AIME-2025, and MATH-500. The findings show that while verification significantly raises answer precision, it drastically reduces coverage and suffers from invalid proof constructions before reaching judges. Additionally, auditor pairs demonstrate near-zero chance-corrected agreement, highlighting severe consistency challenges in external-LLM acceptance.",
+    "summary_status": "generated",
+    "content_fingerprint": "f5d868d932e87f25",
+    "url": "https://arxiv.org/abs/2611.14794",
+    "date": "2026-11-13T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-13T15:11:01.100239+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Proof-step verification pipelines were evaluated on open-weight models across GPQA, AIME-2025, and MATH-500, raising precision by up to 46 percentage points while dropping coverage down to 21-35%.",
+      "It matters because the diagnostic sample revealed a high rate of invalid proof constructions and near-zero chance-corrected agreement among auditor pairs, exposing fundamental consistency limits in ungrounded LLM judges.",
+      "Researchers and developers building mathematical reasoning systems and automated theorem provers are directly affected by these operational constraints and trade-offs."
+    ],
+    "tags": [
+      "Mathematical Reasoning",
+      "LLM Verification",
+      "Open-Weight Models",
+      "Benchmark Evaluation"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.14794",
+        "title": "When Is Proof-Step Verification Worth Its Cost? Operating Requirements of Certify-or-Decline Verification for Open-Weight Mathematical Reasoning",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "4acd1d67dd2a51f2",
+    "title": "GenPFN: An In-Context Tabular Foundation Model Approach for Augmenting Small Datasets in Engineering",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduce GenPFN, a training-free candidate generator powered by a pretrained tabular Prior-Data Fitted Network (TabPFN) classifier with fixed weights to augment small engineering design datasets. Evaluating across fourteen problems, GenPFN achieves superior class satisfaction and lower realism distance compared to traditional generative models like variational autoencoders and diffusion generators. Furthermore, dataset augmentation using GenPFN reduces estimated AutoGluon validation mean squared error by 62.1% relative to context-only training.",
+    "summary_status": "generated",
+    "content_fingerprint": "7d03e91410ad161e",
+    "url": "https://arxiv.org/abs/2611.14804",
+    "date": "2026-11-13T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-13T15:11:01.100317+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "GenPFN was developed as a training-free candidate generator using a pretrained tabular Prior-Data Fitted Network to augment engineering datasets limited by costly simulations.",
+      "The method achieved higher class satisfaction, lower realism distance, and reduced estimated validation mean squared error by 62.1% compared to context-only training.",
+      "Engineers and researchers dealing with scarce experimental or simulation data for complex design problems are directly affected."
+    ],
+    "tags": [
+      "GenPFN",
+      "TabPFN",
+      "Tabular Data",
+      "Dataset Augmentation",
+      "Engineering Design"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.14804",
+        "title": "GenPFN: An In-Context Tabular Foundation Model Approach for Augmenting Small Datasets in Engineering",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "4bd21d5ca2a1de6f",
+    "title": "CAFIN: CUDA-accelerated Adaptive Fisher Information Matrix Network Optimization via GPU-Native Kernel Fusion",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduced CAFIN, a GPU-native CUDA kernel fusion framework designed to accelerate the AdaFisher second-order optimizer without altering its mathematical formulation. By integrating preconditioner construction, exponential moving averages, and parameter updates into fused kernels, CAFIN achieves up to 78.4% lower FIM construction latency and 2.1-26.9% lower optimizer-step latency. Experiments across NVIDIA GTX 1660 Ti and RTX 3060 Laptop GPUs confirm that the framework eliminates significant intermediate memory traffic while maintaining numerical consistency and convergence accuracy.",
+    "summary_status": "generated",
+    "content_fingerprint": "8fba60cec1b629b7",
+    "url": "https://arxiv.org/abs/2611.14589",
+    "date": "2026-11-13T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-13T15:11:01.100400+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "CAFIN integrates FIM preconditioner construction, EMA updates, and weight updates into fused CUDA kernels for the AdaFisher optimizer.",
+      "It reduces isolated FIM construction latency by up to 78.4% and eliminates approximately 18.91 MB of intermediate GPU memory allocations per step on NVIDIA GPUs.",
+      "Deep learning researchers and engineers training neural networks with second-order optimizers on consumer-grade NVIDIA GPUs."
+    ],
+    "tags": [
+      "CUDA",
+      "Optimization",
+      "Deep Learning",
+      "GPU Acceleration"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.14589",
+        "title": "CAFIN: CUDA-accelerated Adaptive Fisher Information Matrix Network Optimization via GPU-Native Kernel Fusion",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "c2516e172926e8e6",
+    "title": "An Asynchronous Federated Learning Platform for Lung Adenocarcinoma Grading via Foundation Models and Structural Pruning",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This study introduces an asynchronous federated learning platform utilizing foundation models and structural pruning to grade lung adenocarcinoma subtypes across multi-institutional datasets without compromising patient privacy. The platform integrates the UNI2 foundation model and CLAM-SB for whole slide image classification, comparing various federated algorithms and L1-norm structural pruning sparsity levels. The results demonstrate that combining the FedNova algorithm with 40% pruning successfully improves communication efficiency and classification performance while maintaining data privacy.",
+    "summary_status": "generated",
+    "content_fingerprint": "df11a9e077d2c91e",
+    "url": "https://arxiv.org/abs/2611.14590",
+    "date": "2026-11-13T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-13T15:11:01.100482+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "A web-based federated learning system was developed for lung adenocarcinoma grading using pathological whole slide images, foundation models, and structural pruning.",
+      "The combination of the FedNova algorithm and 40% L1-norm structural pruning improved classification performance and communication efficiency while preserving patient privacy across distributed hospitals.",
+      "Pathologists, medical researchers, and healthcare institutions dealing with multi-institutional histopathology data classification are directly affected."
+    ],
+    "tags": [
+      "Federated Learning",
+      "Lung Adenocarcinoma",
+      "Foundation Models",
+      "Medical Imaging",
+      "Structural Pruning"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.14590",
+        "title": "An Asynchronous Federated Learning Platform for Lung Adenocarcinoma Grading via Foundation Models and Structural Pruning",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "f5862f5288d98e8f",
+    "title": "Adversarial Risk in the Generative AI Era Necessitates Dropping the Small Epsilon Ball",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This research article argues that the prevailing adversarial machine learning focus on small epsilon-balls and lp-norms is a metrological trap. The authors claim this paradigm misleads defenders into optimizing for narrow mathematical robustness while ignoring broader real-world system vulnerabilities.",
+    "summary_status": "generated",
+    "content_fingerprint": "9271164bcadab591",
+    "url": "https://arxiv.org/abs/2611.14594",
+    "date": "2026-11-13T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-13T15:11:01.100562+00:00",
+    "topics": [
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers argue that the current focus on epsilon-ball perturbations creates a false sense of security against adversarial machine learning threats.",
+      "This metrological trap causes defenders to prioritize narrow mathematical robustness over systemic security against real-world vulnerabilities.",
+      "Defenders, security researchers, and machine learning engineers relying on traditional adversarial robustness paradigms are directly affected."
+    ],
+    "tags": [
+      "Adversarial Machine Learning",
+      "Model Security",
+      "Robustness"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.14594",
+        "title": "Adversarial Risk in the Generative AI Era Necessitates Dropping the Small Epsilon Ball",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "69c86193bb92b071",
+    "title": "StructRL: Model-Free Reinforcement Learning with Replay Graphs",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "StructRL converts reinforcement learning experience into an explicit replay graph to guide dynamic programming and enhance model-free learners. When evaluated on sparse-reward MiniGrid and continuous PointMaze environments, the graph-derived policies and direction labels substantially improve success rates compared to plain DQN and SAC baselines. Scaling experiments further identify incomplete graph support, structural aliasing, and high-dimensional information loss as primary bottlenecks.",
+    "summary_status": "generated",
+    "content_fingerprint": "9e7e91eef25435db",
+    "url": "https://arxiv.org/abs/2611.14599",
+    "date": "2026-11-13T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-13T15:11:01.100629+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "StructRL builds an explicit replay graph from reinforcement learning experience and applies dynamic programming to form a graph policy.",
+      "The method increases final success rates on sparse-reward MiniGrid tasks from near-zero to high percentages and improves continuous PointMaze performance.",
+      "Reinforcement learning researchers and practitioners working with model-free algorithms on sparse-reward tasks are directly affected."
+    ],
+    "tags": [
+      "Reinforcement Learning",
+      "Dynamic Programming",
+      "DQN",
+      "SAC"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.14599",
+        "title": "StructRL: Model-Free Reinforcement Learning with Replay Graphs",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "67626b0f879eccd9",
+    "title": "KernelMosaic: An Open Dataset and Agentic Framework for CUDA Kernel Generation",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduce KernelMosaic, an open dataset and agentic framework designed to improve large language models in generating efficient CUDA kernels through iterative optimization and execution feedback. Supervised fine-tuning using this framework significantly enhances code correctness and performance over PyTorch eager baselines across KernelBench levels. The findings demonstrate that trajectory-based supervision substantially outperforms direct response training for specialized hardware-level code generation.",
+    "summary_status": "generated",
+    "content_fingerprint": "03787362e82ad69e",
+    "url": "https://arxiv.org/abs/2611.14604",
+    "date": "2026-11-13T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-13T15:11:01.100696+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "KernelMosaic, an open dataset and agentic framework for CUDA kernel generation, was introduced to pair diverse computational tasks with verified solutions and optimization trajectories.",
+      "Supervised fine-tuning of a small open-source model on KernelMosaic raised correctness to 88%, 82%, and 16% on KernelBench L1, L2, and L3, respectively.",
+      "Machine learning researchers, model developers, and systems engineers working on specialized low-level hardware optimization and automated code generation are directly affected."
+    ],
+    "tags": [
+      "CUDA",
+      "KernelMosaic",
+      "KernelBench",
+      "LLM Fine-Tuning",
+      "Code Generation"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.14604",
+        "title": "KernelMosaic: An Open Dataset and Agentic Framework for CUDA Kernel Generation",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "5cea2a29d1090b91",
+    "title": "Thompson Sampling using Prior-fitted Diffusion Transformers",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.14656v1 Announce Type: new Abstract: Thompson sampling is natural randomized strategy for optimizing unknown functions in a black-box manner. In continuous global optimization, Thompson…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.14656",
+    "date": "2026-11-13T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-13T15:11:01.100765+00:00",
+    "topics": [
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.14656",
+        "title": "Thompson Sampling using Prior-fitted Diffusion Transformers",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Researchers developed a Thompson sampling method powered by prior-fitted diffusion transformers for continuous global optimization.",
+      "The approach improves black-box optimization of unknown functions through advanced generative modeling techniques.",
+      "Machine learning researchers and practitioners working on global optimization and black-box systems are directly affected."
+    ]
+  },
+  {
+    "id": "de95b28ac7fe7451",
+    "title": "Closing the Loop: Co-Evolving EM for Irregular Time Series Generation in Lifted Representations",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduce a co-evolving Monte Carlo Expectation-Maximization framework to address the structural flaws of open-loop imputation in irregular time-series generation. By combining iterative imputation with Posterior Sampling for Lifted Representations (PSLR), the method enforces operator-consistent conditioning and uncertainty preservation during the E-step. Tested across ten datasets and four corruption regimes, the approach outperforms single-step baselines significantly and approaches clean-data oracle performance.",
+    "summary_status": "generated",
+    "content_fingerprint": "9d1f5cc891713d98",
+    "url": "https://arxiv.org/abs/2611.14659",
+    "date": "2026-11-13T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-13T15:11:01.100801+00:00",
+    "topics": [
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "A co-evolving Monte Carlo EM framework and Posterior Sampling for Lifted Representations (PSLR) were introduced to iteratively update missing values and retrain the time-series generator.",
+      "The method resolves the structural flaws of one-shot imputation, improving discriminative scores by 59% and Context-FID by 73% over strongest baselines across ten datasets.",
+      "Machine learning researchers and practitioners working on irregular time-series generation, missing data imputation, and generative diffusion models are directly impacted."
+    ],
+    "tags": [
+      "Time Series",
+      "Expectation-Maximization",
+      "Generative Models",
+      "Diffusion Models",
+      "Data Imputation"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.14659",
+        "title": "Closing the Loop: Co-Evolving EM for Irregular Time Series Generation in Lifted Representations",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "a21f2d141556d714",
+    "title": "Trait Hitchhiking in LLM Post-Training",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduce a mathematical formalism derived from the Price equation in evolutionary biology to describe how reinforcement learning post-training affects language models. They identify \"trait hitchhiking,\" a mechanism where non-targeted traits are amplified or suppressed as training redistributes completion probabilities. Empirical evaluations using GRPO show that these Price estimates accurately track sampled trait dynamics.",
+    "summary_status": "generated",
+    "content_fingerprint": "5e6e1dccd922225c",
+    "url": "https://arxiv.org/abs/2611.14683",
+    "date": "2026-11-13T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-13T15:11:01.100892+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "A formal mathematical model based on the Price equation was developed to track the evolution of traits during reinforcement learning post-training of language models.",
+      "The study demonstrates that reinforcement learning can unintentionally amplify or suppress non-targeted traits through a process called trait hitchhiking.",
+      "AI researchers and developers utilizing reinforcement learning post-training techniques like GRPO are affected, as untargeted behaviors can be silently altered."
+    ],
+    "tags": [
+      "Reinforcement Learning",
+      "Post-Training",
+      "LLM Alignment",
+      "GRPO"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.14683",
+        "title": "Trait Hitchhiking in LLM Post-Training",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "cf72a23123ccc0f9",
+    "title": "Beyond Row-Level Prediction: Evaluating and Learning Composition for Reusable Table Representations",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This research introduces a benchmark evaluating table-level embeddings across four key desiderata, including consistency under partial views and discriminability. The study finds that tabular foundation models like TabPFN and ConTextTab underperform compared to lightweight fingerprints when using standard pooling rules. To address this, the authors propose support-conditioned distribution matching (SCDM), a self-supervised loss that significantly improves compositional rules for table representations.",
+    "summary_status": "generated",
+    "content_fingerprint": "8384e176c021b236",
+    "url": "https://arxiv.org/abs/2611.14697",
+    "date": "2026-11-13T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-13T15:11:01.100956+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "The authors introduced a new benchmark to evaluate table-level embeddings directly through consistency, discriminability, robustness, and efficiency.",
+      "The study demonstrates that learning compositional rules via support-conditioned distribution matching (SCDM) vastly improves table embedding quality compared to naive pooling.",
+      "Researchers and developers working on table representation learning, tabular foundation models, and data curation pipelines are directly affected by these findings."
+    ],
+    "tags": [
+      "Table Representation",
+      "TabPFN",
+      "ConTextTab",
+      "Embedding Evaluation",
+      "Self-Supervised Learning"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.14697",
+        "title": "Beyond Row-Level Prediction: Evaluating and Learning Composition for Reusable Table Representations",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "f545d4d2d4e5ec90",
+    "title": "Code as Explanations: Executable and Verifiable LLM Explanations",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduce code explanations as an executable and verifiable approach to interpreting large language model behavior across multiple inputs. The method uses a Consistency metric to evaluate candidate programs, demonstrating that code explanations are significantly shorter than chain-of-thought and improve with execution feedback. However, consistency drops on tasks with complex linguistic components where generated programs perform similarly to baseline explanations.",
+    "summary_status": "generated",
+    "content_fingerprint": "188100a9df866504",
+    "url": "https://arxiv.org/abs/2611.14704",
+    "date": "2026-11-13T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-13T15:11:01.101023+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers proposed code explanations as a verifiable, executable method to interpret LLM behavior across a dataset using a Consistency metric.",
+      "Code explanations are 6x to 100x shorter than chain-of-thought and align better with model behavior in 9 out of 24 evaluated settings.",
+      "AI researchers and developers working with open-source code-capable LLMs and complex reasoning tasks are affected by these findings."
+    ],
+    "tags": [
+      "Large Language Models",
+      "Chain-of-Thought",
+      "Interpretability",
+      "Code Generation"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.14704",
+        "title": "Code as Explanations: Executable and Verifiable LLM Explanations",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "aeee01f562824dca",
+    "title": "llm-gemini 0.37",
+    "company": "Simon Willison's Weblog",
+    "source": "Simon Willison – AI",
+    "summary": "Google has launched Gemini 4 Hydrogen, positioning it as the lowest-cost member of the Gemini 4 model family with input pricing at $1.50 per million tokens. The model serves as the new free tier option, powers AI features in Google Search, and is designed to act as an efficient execution engine for everyday tasks. However, its pricing remains closely tied to its Carbon and Argon siblings until their scheduled price increases on December 1st.",
+    "summary_status": "generated",
+    "content_fingerprint": "4f762ffa09e01702",
+    "url": "https://simonwillison.net/2026/Nov/12/llm-gemini",
+    "date": "2026-11-12T22:55:19+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-13T15:11:01.101132+00:00",
+    "topics": [
+      "Models and Releases",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Google launched the Gemini 4 Hydrogen model as the lowest-cost option in the Gemini 4 family, priced at $1.50 per million input tokens.",
+      "The release establishes Hydrogen as Google's new free tier model and the underlying engine for AI features in Google Search.",
+      "Developers, enterprises, and everyday consumers using Google Search or building multi-model workflows are affected by the new pricing and execution capabilities."
+    ],
+    "tags": [
+      "Google",
+      "Gemini 4",
+      "Gemini 4 Hydrogen",
+      "LLM Pricing"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://simonwillison.net/2026/Nov/12/llm-gemini",
+        "title": "llm-gemini 0.37",
+        "publisher": "Simon Willison's Weblog"
+      }
+    ]
+  },
+  {
     "id": "d121304c3de64e9e",
     "title": "Build once, run on any agent: A practical guide to agent skills",
     "company": "GitHub",
@@ -205,6 +1202,49 @@
         "url": "https://deepmind.google/blog/introducing-gemini-4-hydrogen",
         "title": "Introducing Gemini 4 Hydrogen",
         "publisher": "Google DeepMind"
+      }
+    ]
+  },
+  {
+    "id": "2be333e23df28e5a",
+    "title": "The Download: the quest for immortality",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "This newsletter highlights major developments including a report on Nvidia evaluating CEO Jensen Huang's future, proposed chip export restrictions amid a spy scandal, and a startup building offline AI to detect AI-generated bioweapons. Additional items cover Anduril's new infrared satellite tracking capabilities and Ukraine reporting restrictions on SpaceX's Starshield.",
+    "summary_status": "generated",
+    "content_fingerprint": "04e5b7bf8ed003d7",
+    "url": "https://www.technologyreview.com/2026/11/12/1148444/the-download-cop31-climate-talks-cognitive-immortality",
+    "date": "2026-11-12T13:10:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-13T15:11:01.099470+00:00",
+    "topics": [
+      "Benchmarks and Evaluations",
+      "Business and Industry",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Nvidia's board met to discuss CEO Jensen Huang's future following reports of an affair, causing the company's stock to slide by 8%.",
+      "Potential US chip export restrictions and an unfolding spy scandal have prompted Chinese firms to stockpile Nvidia chips and threats of retaliation.",
+      "Investors, semiconductor supply chains, geopolitical regulators, and defense tech stakeholders are directly affected by these leadership and export updates."
+    ],
+    "tags": [
+      "Nvidia",
+      "Jensen Huang",
+      "Anduril",
+      "SpaceX",
+      "Biosecurity"
+    ],
+    "impact_score": 8,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/11/12/1148444/the-download-cop31-climate-talks-cognitive-immortality",
+        "title": "The Download: the quest for immortality",
+        "publisher": "MIT Technology Review"
       }
     ]
   },
@@ -2074,6 +3114,48 @@
         "url": "https://openai.com/index/helping-caregivers-use-ai-in-everyday-life",
         "title": "Helping caregivers use AI in everyday life",
         "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "1972a6107d7cc016",
+    "title": "Opening the datasets behind our AI weather models",
+    "company": "Google DeepMind",
+    "source": "Google DeepMind Blog",
+    "summary": "Foundational precipitation and geostationary satellite datasets are now being opened to observe the planet clearly. These datasets provide critical observational data for training and evaluating AI weather prediction models.",
+    "summary_status": "generated",
+    "content_fingerprint": "a5dfba089bc5f178",
+    "url": "https://deepmind.google/blog/opening-the-datasets-behind-our-ai-weather-models",
+    "date": "2026-11-10T11:13:04+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-13T15:11:01.098977+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Precipitation and geostationary satellite datasets have been opened for AI weather model development.",
+      "Access to foundational observational data enables more accurate training and validation of meteorological models.",
+      "Meteorological researchers, data scientists, and climate model developers utilizing AI weather forecasting systems are directly affected."
+    ],
+    "tags": [
+      "AI Weather Models",
+      "Satellite Datasets",
+      "Precipitation Data",
+      "Climate Modeling"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://deepmind.google/blog/opening-the-datasets-behind-our-ai-weather-models",
+        "title": "Opening the datasets behind our AI weather models",
+        "publisher": "Google DeepMind"
       }
     ]
   },
