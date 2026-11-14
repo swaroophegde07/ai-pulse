@@ -634,7 +634,7 @@
     "category": "General Chat & Language",
     "release_date": "2026-05-20",
     "lifecycle_status": "Active (Catalog)",
-    "context_window": 1048575,
+    "context_window": 1024000,
     "input_modalities": [
       "text"
     ],
@@ -651,10 +651,10 @@
     },
     "documentation_url": "https://openrouter.ai/qwen/qwen3.8-27b",
     "source_url": "https://openrouter.ai/qwen/qwen3.8-27b",
-    "last_verified": "2026-11-10",
+    "last_verified": "2026-11-14",
     "verification_sources": {
-      "telemetry": "OpenRouter (2026-11-10)",
-      "pricing": "OpenRouter (2026-11-10)"
+      "telemetry": "OpenRouter (2026-11-14)",
+      "pricing": "OpenRouter (2026-11-14)"
     },
     "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
     "is_featured_frontier": false
@@ -2790,17 +2790,17 @@
     "api_available": true,
     "consumer_available": true,
     "pricing": {
-      "input_per_1m": 0.32,
-      "output_per_1m": 0.89,
+      "input_per_1m": 0.2574,
+      "output_per_1m": 1.0287,
       "unit": "USD"
     },
     "documentation_url": "https://api-docs.deepseek.com/",
     "source_url": "https://github.com/deepseek-ai/DeepSeek-V3",
-    "last_verified": "2026-11-06",
+    "last_verified": "2026-11-14",
     "notes": "671B MoE base/instruct model utilizing multi-head latent attention (MLA).",
     "verification_sources": {
-      "telemetry": "OpenRouter (2026-11-06)",
-      "pricing": "OpenRouter (2026-11-06)"
+      "telemetry": "OpenRouter (2026-11-14)",
+      "pricing": "OpenRouter (2026-11-14)"
     },
     "category": "General Chat & Language",
     "is_featured_frontier": true

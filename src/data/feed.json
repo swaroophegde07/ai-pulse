@@ -1,5 +1,213 @@
 [
   {
+    "id": "b46b6bb43e745acd",
+    "title": "Run Native DLA Inference in Python on NVIDIA Jetson AGX Orin Using cuDLA",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "NVIDIA highlights how edge AI applications can utilize the NVIDIA Deep Learning Accelerator (DLA) on Jetson AGX Orin to execute neural network operations natively in Python via cuDLA. This approach allows developers to offload inference workloads from the GPU to dedicated hardware, improving power efficiency and freeing up GPU resources. The capability is specifically designed for developers deploying resource-constrained AI workloads on NVIDIA edge platforms.",
+    "summary_status": "generated",
+    "content_fingerprint": "e6ae781ccaf7994e",
+    "url": "https://developer.nvidia.com/blog/run-native-dla-inference-in-python-on-nvidia-jetson-agx-orin-using-cudla",
+    "date": "2026-11-13T18:57:10+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-14T00:05:29.471099+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Native DLA inference can now be run in Python on NVIDIA Jetson AGX Orin using cuDLA.",
+      "Offloading neural network operations from the GPU to dedicated DLA hardware improves power efficiency and preserves GPU compute.",
+      "Edge AI developers and engineers deploying resource-constrained machine learning models on NVIDIA Jetson hardware are directly affected."
+    ],
+    "tags": [
+      "NVIDIA Jetson AGX Orin",
+      "cuDLA",
+      "Edge AI",
+      "Hardware Acceleration"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://developer.nvidia.com/blog/run-native-dla-inference-in-python-on-nvidia-jetson-agx-orin-using-cudla",
+        "title": "Run Native DLA Inference in Python on NVIDIA Jetson AGX Orin Using cuDLA",
+        "publisher": "NVIDIA"
+      }
+    ]
+  },
+  {
+    "id": "cdc8eef67bc55a0d",
+    "title": "Build a Robot Pick-and-Place Simulation with SimReady Assets",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "Nvidia provides a tutorial and assets for constructing a robotic pick-and-place simulation environment using SimReady assets. The guide details how to integrate pre-built 3D assets to evaluate and test manipulation workflows within a simulated physics setting.",
+    "summary_status": "generated",
+    "content_fingerprint": "f3574590158cc768",
+    "url": "https://huggingface.co/blog/nvidia/simready-assets-robot-pick-and-place",
+    "date": "2026-11-13T18:00:39+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-14T00:05:29.469905+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "A new simulation tutorial utilizing SimReady assets for robotic pick-and-place workflows was released.",
+      "It streamlines the creation of physically accurate environments for testing manipulation tasks without physical hardware.",
+      "Robotics engineers and simulation developers can use these resources to prototype automation pipelines."
+    ],
+    "tags": [
+      "Nvidia",
+      "Simulation",
+      "Robotics",
+      "SimReady"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/nvidia/simready-assets-robot-pick-and-place",
+        "title": "Build a Robot Pick-and-Place Simulation with SimReady Assets",
+        "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
+    "id": "96c7f67bef86f831",
+    "title": "XYBench: Helping with the problem behind the question",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "XYBench evaluates how well AI models handle implicit user intent by addressing the problem behind the user's initial question. The benchmark assesses model capability in recognizing unstated requirements and providing more relevant solutions than what was literally requested.",
+    "summary_status": "generated",
+    "content_fingerprint": "9fe5da3e95d1bb44",
+    "url": "https://huggingface.co/blog/allenai/xybench",
+    "date": "2026-11-13T17:02:35+00:00",
+    "category": "Benchmark",
+    "fetched_at": "2026-11-14T00:05:29.469970+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "XYBench was introduced to evaluate AI model performance on identifying and solving unstated user intent behind a question.",
+      "It helps measure a model's ability to look past literal prompt phrasing to address deeper underlying problems.",
+      "AI developers and researchers can use this benchmark to improve the helpfulness and contextual reasoning of assistant models."
+    ],
+    "tags": [
+      "XYBench",
+      "Benchmark",
+      "AI Assistants",
+      "Evaluation"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/allenai/xybench",
+        "title": "XYBench: Helping with the problem behind the question",
+        "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
+    "id": "a50f32ed0276415a",
+    "title": "Adapt Human Motion for Robots with NVIDIA SOMA Retargeter",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "NVIDIA introduced the SOMA Retargeter to help roboticists adapt natural human motion for humanoid robots with different proportions and joint structures. The tool bridges the gap between human demonstrations and robot hardware limitations, facilitating the teaching of complex physical movements. This development directly impacts roboticists and engineers working on humanoid robot control and imitation learning.",
+    "summary_status": "generated",
+    "content_fingerprint": "2f632ddec7bd713f",
+    "url": "https://developer.nvidia.com/blog/adapt-human-motion-for-robots-with-nvidia-soma-retargeter",
+    "date": "2026-11-13T17:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-14T00:05:29.471168+00:00",
+    "topics": [
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "NVIDIA announced the SOMA Retargeter tool for converting human motion demonstrations to fit humanoid robot joint structures and proportions.",
+      "It addresses structural discrepancies between humans and robots, enabling more natural and effective movement learning.",
+      "Roboticists and researchers developing humanoid robot movement policies are directly affected."
+    ],
+    "tags": [
+      "NVIDIA",
+      "Robotics",
+      "Humanoid Robots",
+      "Motion Retargeting"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://developer.nvidia.com/blog/adapt-human-motion-for-robots-with-nvidia-soma-retargeter",
+        "title": "Adapt Human Motion for Robots with NVIDIA SOMA Retargeter",
+        "publisher": "NVIDIA"
+      }
+    ]
+  },
+  {
+    "id": "7d4d71d056da0286",
+    "title": "Introducing ChatGPT Wallet",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "The introduction of ChatGPT Wallet enables AI agents within ChatGPT Work, Codex, and dots to execute secure purchases requiring explicit user approval. The feature integrates existing card protections to facilitate agent-driven commercial transactions.",
+    "summary_status": "generated",
+    "content_fingerprint": "9a40b8154c558c33",
+    "url": "https://openai.com/index/introducing-chatgpt-wallet",
+    "date": "2026-11-13T15:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-14T00:05:29.469733+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "ChatGPT Wallet was introduced to allow AI agents in ChatGPT Work, Codex, and dots to complete purchases.",
+      "It enables autonomous agent transactions while retaining user approval controls and existing card protection mechanisms.",
+      "Developers and users utilizing ChatGPT Work, Codex, and dots are affected by this new transactional capability."
+    ],
+    "tags": [
+      "ChatGPT",
+      "AI Agents",
+      "Codex",
+      "ChatGPT Work"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://openai.com/index/introducing-chatgpt-wallet",
+        "title": "Introducing ChatGPT Wallet",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
     "id": "6841e619fcd7e8d9",
     "title": "llama.cpp v1.0.0 : A stronger foundation for the local AI ecosystem",
     "company": "Hugging Face",
@@ -131,15 +339,18 @@
     "title": "Zugwise: Domain-Aware Game Reconstruction for Digitizing Handwritten Chess Scoresheets",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.AI (Artificial Intelligence)",
-    "summary": "[Automated summary unavailable] arXiv:2611.14544v1 Announce Type: new Abstract: Digitizing handwritten chess scoresheets has been studied as a handwriting-recognition problem: read the move in each box and check that it is legal.…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "Researchers introduce Zugwise, a domain-aware game reconstruction system that digitizes handwritten chess scoresheets by leveraging computer-chess machinery to detect silent errors. The browser-based tool uses backward search, candidate ranking, and a Needleman-Wunsch merge of two player sheets to identify discrepancies and reduce undetected misreadings. Testing on tournament data demonstrated a reduction in silent errors and improved top-rank fix accuracy.",
+    "summary_status": "generated",
+    "content_fingerprint": "9483e0da576631e2",
     "url": "https://arxiv.org/abs/2611.14544",
     "date": "2026-11-13T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-13T15:11:01.099757+00:00",
+    "fetched_at": "2026-11-14T00:05:29.470793+00:00",
     "topics": [
-      "Research and Breakthroughs"
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 2,
@@ -154,10 +365,17 @@
       }
     ],
     "key_points": [
-      "Zugwise was introduced to digitize handwritten chess scoresheets by combining handwriting recognition with domain-aware game reconstruction.",
-      "It solves typical handwriting recognition errors by validating moves against chess rules and game context.",
-      "Chess archivists, tournament organizers, and researchers digitizing historical chess matches are directly affected."
-    ]
+      "Zugwise was introduced to digitize handwritten chess scoresheets by treating the task as game reconstruction using computer-chess machinery rather than isolated handwriting recognition.",
+      "The approach matters because it converts silent, legal-but-incorrect move errors into detectable anomalies, cutting silent errors significantly across tournament sections.",
+      "Chess tournament organizers, transcribers, and developers working on document digitization and handwriting recognition benefit from this offline-capable browser tool."
+    ],
+    "tags": [
+      "Handwriting Recognition",
+      "Chess",
+      "Document Digitization",
+      "Computer Vision"
+    ],
+    "impact_score": 6
   },
   {
     "id": "c44ac57feedcf64a",
@@ -251,16 +469,19 @@
     "title": "When Should Semantic Priors Enter Partially-Identified Causal Discovery?",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.AI (Artificial Intelligence)",
-    "summary": "[Automated summary unavailable] arXiv:2611.14736v1 Announce Type: new Abstract: Observational causal discovery often leaves causal di- rections unresolved or unstable. Large language mod- els (LLMs) can provide semantic…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "This research paper evaluates the integration of large language model semantic priors into partially-identified causal discovery to resolve unresolved causal directions. The authors examine the allocation, admission, and retention of semantic proposals, demonstrating that while semantic information aids recovery, current calibration tasks and reference adequacy present significant limitations. The findings highlight that targeting unstable edges yields no distinct advantage over random allocation and that learned references frequently miss true causal graphs.",
+    "summary_status": "generated",
+    "content_fingerprint": "c5bb60e79cbb14b3",
     "url": "https://arxiv.org/abs/2611.14736",
     "date": "2026-11-13T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-13T15:11:01.099932+00:00",
+    "fetched_at": "2026-11-14T00:05:29.470913+00:00",
     "topics": [
+      "Models and Releases",
       "Coding and Developer Tools",
-      "Research and Breakthroughs"
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 2,
@@ -275,10 +496,17 @@
       }
     ],
     "key_points": [
-      "Researchers studied how large language models can provide semantic priors to resolve ambiguous causal directions in observational data.",
-      "This approach improves causal discovery reliability by combining statistical data with linguistic and domain knowledge priors.",
-      "Data scientists and researchers working on automated causal inference and structural equation modeling are directly affected."
-    ]
+      "Researchers evaluated a framework governing where to allocate LLM semantic queries, which proposals to admit, and which causal graphs to retain during causal discovery.",
+      "The study proves that current semantic admission certificates and reference adequacy fall short, with learned references containing the true DAG in only three of 80 planned tasks.",
+      "Causal discovery practitioners and researchers relying on LLMs for structural causal models are directly affected by these reliability and calibration limitations."
+    ],
+    "tags": [
+      "Causal Discovery",
+      "Large Language Models",
+      "Causal Graphs",
+      "Uncertainty Quantification"
+    ],
+    "impact_score": 5
   },
   {
     "id": "cd1f1a3b900c4624",
@@ -756,20 +984,23 @@
     "title": "Thompson Sampling using Prior-fitted Diffusion Transformers",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.14656v1 Announce Type: new Abstract: Thompson sampling is natural randomized strategy for optimizing unknown functions in a black-box manner. In continuous global optimization, Thompson…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "This research introduces prior-fitted diffusion transformers to perform in-context Thompson sampling for continuous global optimization, replacing traditional Gaussian process priors with non-Gaussian priors. The approach follows scaling laws relating model size to pre-training iterations and outperforms standard Gaussian process pipelines across global optimization benchmarks.",
+    "summary_status": "generated",
+    "content_fingerprint": "618c758a5d6eda84",
     "url": "https://arxiv.org/abs/2611.14656",
     "date": "2026-11-13T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-13T15:11:01.100765+00:00",
+    "fetched_at": "2026-11-14T00:05:29.471025+00:00",
     "topics": [
-      "Research and Breakthroughs"
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
-    "priority_score": 2,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Original research or technical finding",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
     "why_it_matters": "",
     "sources": [
       {
@@ -779,10 +1010,18 @@
       }
     ],
     "key_points": [
-      "Researchers developed a Thompson sampling method powered by prior-fitted diffusion transformers for continuous global optimization.",
-      "The approach improves black-box optimization of unknown functions through advanced generative modeling techniques.",
-      "Machine learning researchers and practitioners working on global optimization and black-box systems are directly affected."
-    ]
+      "Prior-fitted diffusion transformers were developed to enable in-context Thompson sampling for black-box function optimization using non-Gaussian priors.",
+      "The method overcomes the tractability limits of traditional Gaussian processes, enabling non-Gaussian characteristics like unimodal function priors while following transformer scaling laws.",
+      "Researchers and practitioners working on continuous global optimization and black-box function optimization pipelines are directly affected."
+    ],
+    "tags": [
+      "Thompson Sampling",
+      "Diffusion Models",
+      "Transformers",
+      "Global Optimization",
+      "Gaussian Processes"
+    ],
+    "impact_score": 7
   },
   {
     "id": "de95b28ac7fe7451",
@@ -4311,6 +4550,46 @@
         "url": "https://arxiv.org/abs/2611.10096",
         "title": "Coordinated Mixed-Precision KV Cache Quantization for Efficient LLM-based Multi-agent Systems",
         "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "7a8b85431c54289a",
+    "title": "Yonkers Rises",
+    "company": "Simon Willison's Weblog",
+    "source": "Simon Willison – AI",
+    "summary": "A user prompted Claude Fable 5.2 Medium to generate a Three.js animation using OpenStreetMap data where Yonkers transforms into a mech and stomps around Manhattan, Brooklyn, and Queens. The AI model successfully corrected a mobile keyboard typo in the prompt from átomos to stomps to execute the request.",
+    "summary_status": "generated",
+    "content_fingerprint": "f6a2f7a8338321a3",
+    "url": "https://simonwillison.net/2026/Nov/10/yonkers-rises",
+    "date": "2026-11-10T03:53:04+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-14T00:05:29.471295+00:00",
+    "topics": [
+      "Models and Releases"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "A user successfully generated a 3D Three.js animation of Yonkers as a mech using Claude Fable 5.2 Medium and OpenStreetMap data.",
+      "The demonstration highlights the model's ability to interpret geospatial data and handle prompt typos like átomos to stomps.",
+      "Developers and AI practitioners experimenting with generative 3D modeling and animation workflows are directly affected."
+    ],
+    "tags": [
+      "Claude Fable",
+      "Three.js",
+      "Generative AI",
+      "OpenStreetMap"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://simonwillison.net/2026/Nov/10/yonkers-rises",
+        "title": "Yonkers Rises",
+        "publisher": "Simon Willison's Weblog"
       }
     ]
   },
