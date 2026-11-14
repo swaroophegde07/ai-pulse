@@ -335,6 +335,46 @@
     ]
   },
   {
+    "id": "a99dfdd20d85acbb",
+    "title": "Shield helps technicians hand off legacy portal work with OpenAI",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Shield is utilizing OpenAI to help IT technicians hand off manual work within legacy portals. The platform employs Forge agents to automate system navigation, allowing technicians to focus exclusively on tasks that require human judgment.",
+    "summary_status": "generated",
+    "content_fingerprint": "2bfe7cc88dffd589",
+    "url": "https://openai.com/business/customer-stories/shield",
+    "date": "2026-11-13T08:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-14T13:56:33.618505+00:00",
+    "topics": [
+      "AI Agents"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Shield integrated OpenAI to power Forge agents that navigate legacy IT portals.",
+      "Automates routine portal navigation, reducing manual overhead for IT staff.",
+      "IT technicians and enterprise support teams."
+    ],
+    "tags": [
+      "Shield",
+      "OpenAI",
+      "AI Agents",
+      "IT Automation"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://openai.com/business/customer-stories/shield",
+        "title": "Shield helps technicians hand off legacy portal work with OpenAI",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
     "id": "a9c0a0c8a7adff81",
     "title": "Zugwise: Domain-Aware Game Reconstruction for Digitizing Handwritten Chess Scoresheets",
     "company": "arXiv (Cornell University)",
