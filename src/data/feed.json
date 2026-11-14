@@ -1862,6 +1862,48 @@
     ]
   },
   {
+    "id": "73a487a9dee9c904",
+    "title": "Browse tools.simonwillison.net by tag",
+    "company": "Simon Willison's Weblog",
+    "source": "Simon Willison – AI",
+    "summary": "Simon Willison has updated his collection of vibe-coded tools to include tag cloud browsing by JavaScript APIs, libraries, and web API hosts. He used Fable 5.2 and tree-sitter to automatically analyze the underlying code for 244 tools. This categorization makes it easier to navigate the growing repository of generative AI and LLM utility scripts.",
+    "summary_status": "generated",
+    "content_fingerprint": "182cbfdba72c6e05",
+    "url": "https://simonwillison.net/2026/Nov/11/tools-tags",
+    "date": "2026-11-11T18:42:50+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-14T22:50:35.293385+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 6,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Simon Willison updated his tool repository with automated tag cloud browsing for JavaScript APIs, libraries, and web API hosts.",
+      "This update uses Fable 5.2 and tree-sitter to programmatically analyze the codebase of 244 individual tools.",
+      "Developers and users exploring vibe-coded generative AI utilities can now filter and discover tools by specific technological dependencies."
+    ],
+    "tags": [
+      "JavaScript",
+      "LLMs",
+      "Generative AI",
+      "Claude",
+      "Tree-sitter"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://simonwillison.net/2026/Nov/11/tools-tags",
+        "title": "Browse tools.simonwillison.net by tag",
+        "publisher": "Simon Willison's Weblog"
+      }
+    ]
+  },
+  {
     "id": "7a4eaed6af466137",
     "title": "OpenCode process-daemon-v0.5.1",
     "company": "OpenCode",
