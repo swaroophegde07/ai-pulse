@@ -1,5 +1,46 @@
 [
   {
+    "id": "9c481a0931060f36",
+    "title": "datasette-llm 0.1a11",
+    "company": "Simon Willison's Weblog",
+    "source": "Simon Willison – AI",
+    "summary": "Datasette has released version 0.1a11 of the datasette-llm plugin, introducing support for OpenAI-compatible endpoints. This update enables users to configure Datasette plugins to use locally hosted large language models running via tools like LM Studio, Ollama, or llama.cpp.",
+    "summary_status": "generated",
+    "content_fingerprint": "bdb58e1a48faa499",
+    "url": "https://simonwillison.net/2026/Nov/14/datasette-llm",
+    "date": "2026-11-14T23:59:28+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-15T14:30:42.817182+00:00",
+    "topics": [
+      "Models and Releases"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Datasette-llm 0.1a11 was released with native support for OpenAI-compatible LLM endpoints.",
+      "Users can now integrate local models hosted on tools like Ollama, LM Studio, and llama.cpp directly into Datasette agent workflows.",
+      "Developers and data analysts utilizing Datasette for local AI experimentation and application development are directly affected."
+    ],
+    "tags": [
+      "Datasette",
+      "LLM",
+      "Ollama",
+      "LM Studio",
+      "OpenAI"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://simonwillison.net/2026/Nov/14/datasette-llm",
+        "title": "datasette-llm 0.1a11",
+        "publisher": "Simon Willison's Weblog"
+      }
+    ]
+  },
+  {
     "id": "b46b6bb43e745acd",
     "title": "Run Native DLA Inference in Python on NVIDIA Jetson AGX Orin Using cuDLA",
     "company": "NVIDIA",
