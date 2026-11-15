@@ -1,5 +1,85 @@
 [
   {
+    "id": "2e8f421d2ee2a3df",
+    "title": "A step toward defining the Standard Model on a lattice",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Researchers explored a candidate nonperturbative lattice definition of the Standard Model. GPT-6 Astra assisted in transforming this theoretical concept into a detailed mathematical proof.",
+    "summary_status": "generated",
+    "content_fingerprint": "beb7cbede0d7eaa1",
+    "url": "https://openai.com/index/step-toward-defining-the-standard-model",
+    "date": "2026-11-15T22:00:01+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-15T23:18:13.716849+00:00",
+    "topics": [
+      "Models and Releases",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "A candidate nonperturbative lattice definition of the Standard Model was examined.",
+      "GPT-6 Astra assisted in converting the theoretical idea into a detailed proof.",
+      "Theoretical physicists and researchers studying quantum field theory are affected."
+    ],
+    "tags": [
+      "Standard Model",
+      "Physics",
+      "GPT-6 Astra",
+      "Lattice Quantum Field Theory"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://openai.com/index/step-toward-defining-the-standard-model",
+        "title": "A step toward defining the Standard Model on a lattice",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "33b95c2112c46efd",
+    "title": "Our new blog for science",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "OpenAI has launched a new science blog dedicated to sharing research findings, practical methods, and firsthand accounts from scientists using AI for discovery. The platform highlights how artificial intelligence is being applied to advance various scientific fields.",
+    "summary_status": "generated",
+    "content_fingerprint": "42b10479b76e6308",
+    "url": "https://openai.com/index/our-new-blog-for-science",
+    "date": "2026-11-15T22:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-15T23:18:13.716995+00:00",
+    "topics": [
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 1,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Primary lab announcement from OpenAI",
+    "why_it_matters": "",
+    "key_points": [
+      "OpenAI launched a dedicated science blog to showcase AI-driven research findings and practical methods.",
+      "It provides firsthand accounts and insights into how AI accelerates scientific discovery.",
+      "Researchers and scientists utilizing AI tools are the primary audience affected."
+    ],
+    "tags": [
+      "OpenAI",
+      "Scientific Discovery",
+      "AI Research"
+    ],
+    "impact_score": 3,
+    "sources": [
+      {
+        "url": "https://openai.com/index/our-new-blog-for-science",
+        "title": "Our new blog for science",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
     "id": "9c481a0931060f36",
     "title": "datasette-llm 0.1a11",
     "company": "Simon Willison's Weblog",
