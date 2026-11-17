@@ -1,5 +1,1010 @@
 [
   {
+    "id": "c2455dbd637001ef",
+    "title": "The Download: cognitive immortality",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "A satirical or protest petition to reinstate Jensen Huang as Nvidia CEO has gained over 115,000 signatures from the open-source AI community due to growing tensions over chip access rules and Nvidia's stance in China. Meanwhile, new US export controls are tightening remote access to AI chips for Chinese firms, and California has sued OpenAI over reported rogue AI hacking incidents.",
+    "summary_status": "generated",
+    "content_fingerprint": "0733e90da1860494",
+    "url": "https://www.technologyreview.com/2026/11/17/1148679/the-download-jensen-huang-open-source-ai-cognitive-immortality",
+    "date": "2026-11-17T13:10:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-17T16:45:38.945774+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "A petition with over 115,000 signatures calls out Jensen Huang and Nvidia amid concerns over US chip rules and restrictions in China affecting the open-source AI community.",
+      "The US government is closing loopholes to restrict Chinese firms from accessing advanced AI chips via remote overseas infrastructure.",
+      "Open-source advocates, Nvidia customers, and major AI developers are affected by evolving geopolitical restrictions and regulatory scrutiny."
+    ],
+    "tags": [
+      "Nvidia",
+      "Jensen Huang",
+      "Open-Source AI",
+      "OpenAI",
+      "US-China Tech Policy"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/11/17/1148679/the-download-jensen-huang-open-source-ai-cognitive-immortality",
+        "title": "The Download: Jensen Huang’s open-source dilemma",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "de6b7f337cec2d45",
+    "title": "OpenCode v1.19.6",
+    "company": "OpenCode",
+    "source": "OpenCode Updates",
+    "summary": "OpenCode v1.19.6 introduces an upgrade path to OpenCode 2.0 with background downloads and flexible installation options while preserving user sessions, projects, and settings. The release also includes core bugfixes for handling sessions with many images by replacing older image history with placeholders and automatically triggering request compaction when payloads exceed size limits.",
+    "summary_status": "generated",
+    "content_fingerprint": "039805794ba179c5",
+    "url": "https://github.com/anomalyco/opencode/releases/tag/v1.19.6",
+    "date": "2026-11-17T07:21:32+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-17T16:45:38.947745+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "OpenCode v1.19.6 launched with an upgrade path to OpenCode 2.0, background downloads, and session persistence.",
+      "Bugfixes address oversized request issues in image-heavy sessions by introducing automatic image placeholders and request compaction.",
+      "Developers and users relying on OpenCode desktop applications and plugins must update older plugins for compatibility."
+    ],
+    "tags": [
+      "OpenCode",
+      "Developer Tools",
+      "Software Update"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://github.com/anomalyco/opencode/releases/tag/v1.19.6",
+        "title": "OpenCode v1.19.6",
+        "publisher": "OpenCode"
+      }
+    ]
+  },
+  {
+    "id": "23297fa602e89190",
+    "title": "Agents Cannot Hand Over What They Have Not Yet Understood",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers studied multi-agent knowledge transfer by evaluating how effectively information survives when passed between agents via short written summaries in interactive worlds. They found that sequential chains of agents learn significantly less than a single agent keeping a continuous history, primarily due to cumulative compression loss across generations. The study reveals that repeated compression is the main bottleneck in multi-agent handoffs, and generating notes from the full historical record rather than the previous note recovers most of the lost knowledge.",
+    "summary_status": "generated",
+    "content_fingerprint": "4f646df23fbb3038",
+    "url": "https://arxiv.org/abs/2611.18642",
+    "date": "2026-11-17T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-17T16:45:38.946086+00:00",
+    "topics": [
+      "AI Agents",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Sequential agent chains underperform single agents retaining full history, reaching only half the learning progress after eight generations.",
+      "Repeated compression of operational knowledge into short notes causes significant information loss across generations, which can be mitigated by referencing the full history.",
+      "Researchers, developers of multi-agent systems, and those designing long-horizon AI architectures are affected by these documented handoff limitations."
+    ],
+    "tags": [
+      "AI Agents",
+      "Multi-Agent Systems",
+      "Knowledge Transfer",
+      "Context Windows"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.18642",
+        "title": "Agents Cannot Hand Over What They Have Not Yet Understood",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "66316fbeeaf7c1e0",
+    "title": "How to make a moral agent: sentimentalism and rationalism as lenses on AI",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.18714v1 Announce Type: new Abstract: Can AI systems be moral agents? That is, can they undertake actions that can be correctly assessed as morally right or wrong? There is no settled…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.18714",
+    "date": "2026-11-17T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-17T16:45:38.946176+00:00",
+    "topics": [
+      "AI Agents",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.18714",
+        "title": "How to make a moral agent: sentimentalism and rationalism as lenses on AI",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Researchers analyzed whether AI systems can become moral agents using sentimentalism and rationalism as philosophical lenses.",
+      "The findings help establish theoretical foundations for assessing the ethical implications of autonomous AI actions.",
+      "AI developers, ethicists, and researchers studying machine ethics and alignment are directly impacted."
+    ]
+  },
+  {
+    "id": "276235570d19a5e4",
+    "title": "Video-as-Experience: Learning Computer Use via Audio-Visual Understanding",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduce VEX, a framework enabling computer-use agents to learn from video demonstrations using audio-visual understanding rather than screenshot-based action trajectories. The approach features the 9B-scale video-SALMONN-VEX model, the Action-Grounded Guide Optimization method, and an augmented dataset of over 24K real-world tutorial videos. Experiments on OSWorld and CUA-Gym show that video-SALMONN-VEX achieves a 22% relative increase in task success over its backbone model.",
+    "summary_status": "generated",
+    "content_fingerprint": "875c0df6e8637d17",
+    "url": "https://arxiv.org/abs/2611.18747",
+    "date": "2026-11-17T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-17T16:45:38.946214+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed VEX, an audio-visual framework for computer-use agents that uses a watch-act-rewatch paradigm to learn from tutorial videos and self-verify execution.",
+      "The approach improves task execution success and yields high-quality procedural guidance that boosts performance across multimodal models like Qwen3.5 and Gemini-3.5-flash.",
+      "Developers and researchers working on multimodal computer-use agents, operating system automation benchmarks like OSWorld, and agent reinforcement learning are directly affected."
+    ],
+    "tags": [
+      "Multimodal LLMs",
+      "AI Agents",
+      "Computer Use",
+      "Reinforcement Learning",
+      "Video Understanding"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.18747",
+        "title": "Video-as-Experience: Learning Computer Use via Audio-Visual Understanding",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "b53f058a60e56a5b",
+    "title": "Multimodal Fusion: A Review of Breast Cancer Advanced and Traditional Modalities",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This review examines over 15 imaging modalities used in breast cancer detection, analyzing how artificial intelligence enables multimodal fusion at the data, feature, and decision levels. The study outlines current applications in detection, classification, segmentation, and prognosis, while highlighting key challenges such as data scarcity and the need for clinical interpretability.",
+    "summary_status": "generated",
+    "content_fingerprint": "e8775474c758f355",
+    "url": "https://arxiv.org/abs/2611.18793",
+    "date": "2026-11-17T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-17T16:45:38.946294+00:00",
+    "topics": [
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Over 15 conventional and emerging imaging modalities for breast cancer detection and their AI-driven fusion strategies were reviewed.",
+      "Multimodal medical imaging fusion improves cancer characterization by combining structural, functional, clinical, and genomic data, though dataset limitations and validation challenges persist.",
+      "Medical researchers, clinical practitioners, and AI developers building diagnostic imaging systems are affected."
+    ],
+    "tags": [
+      "Multimodal Imaging",
+      "Breast Cancer Detection",
+      "Medical AI",
+      "Image Fusion"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.18793",
+        "title": "Multimodal Fusion: A Review of Breast Cancer Advanced and Traditional Modalities",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "869dd9129460d71e",
+    "title": "D\\'ecoupage: Directorial Audio-Visual Control for Long Multi-Shot Video Generation",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduce DECOUPAGE, a screenplay-driven framework that uncouples visual and acoustic tracks to enable long-form, multi-shot audio-video generation with cinematic control. The system uses a dual-schedule temporal cross-attention diffusion model and a directorial lip-sync mechanism to handle asynchronous dialogue transitions like J- and L-cuts. Evaluations on multi-shot conversational benchmarks demonstrate precise multimodal coherence across 15- to 60-second video generation.",
+    "summary_status": "generated",
+    "content_fingerprint": "58c2a5576545aa9d",
+    "url": "https://arxiv.org/abs/2611.18866",
+    "date": "2026-11-17T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-17T16:45:38.946372+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "DECOUPAGE uncouples visual and acoustic generation tracks to independently coordinate timing, shot transitions, and character pacing in long-form video.",
+      "It solves the problem of speech hallucination and erroneous lip movement during silences or off-screen dialogue by using dual-schedule temporal cross-attention and a directorial lip-sync mechanism.",
+      "AI researchers and developers working on multi-modal generative video models and automated cinematic content creation are directly affected."
+    ],
+    "tags": [
+      "Video Generation",
+      "Audio-Visual Models",
+      "Diffusion Models",
+      "Cinematic Control",
+      "DECOUPAGE"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.18866",
+        "title": "D\\'ecoupage: Directorial Audio-Visual Control for Long Multi-Shot Video Generation",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "3294d5129c0647b4",
+    "title": "SPLICE: Structured Prompt Local Iterative Combinatorial Evolution",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduce SPLICE, a natural language optimization framework that treats agent artifacts as block-structured, selectively-mutable states to perform constrained combinatorial search. The framework addresses common NLO failure modes through per-block mutability, elitist beam search with diversity slots, and a ratio length regularizer. Evaluations across seven public benchmarks show that SPLICE wins on four and matches the strongest prior method on three.",
+    "summary_status": "generated",
+    "content_fingerprint": "8f28860bcb3dca06",
+    "url": "https://arxiv.org/abs/2611.18883",
+    "date": "2026-11-17T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-17T16:45:38.946447+00:00",
+    "topics": [
+      "AI Agents",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "SPLICE was introduced as a unified natural language optimization framework using constrained combinatorial search over block-structured edit graphs.",
+      "It resolves key natural language optimization failure modes like unsafe global rewrites and prompt bloat using per-block mutability and length regularization.",
+      "AI researchers and developers working on agent system prompts, tool instructions, and natural language policies are directly affected."
+    ],
+    "tags": [
+      "Natural Language Optimization",
+      "Prompt Engineering",
+      "AI Agents",
+      "Combinatorial Optimization"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.18883",
+        "title": "SPLICE: Structured Prompt Local Iterative Combinatorial Evolution",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "545489afabaa0aec",
+    "title": "Bring Back Language to Actions: Restoring VLM capabilities in VLA Models via Parameter Merging",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Vision-Language-Action models often suffer from catastrophic forgetting of their underlying Vision-Language Model capabilities due to robotic demonstration fine-tuning. This research introduces a parameter merging technique that decomposes the task vector via Singular Value Decomposition and uses learned mixing coefficients to preserve both action prediction and vision-language performance without retraining. Experimental results demonstrate that the merged models simultaneously retain strong performance across both domains and outperform standard baselines.",
+    "summary_status": "generated",
+    "content_fingerprint": "91eafaf074b32530",
+    "url": "https://arxiv.org/abs/2611.18891",
+    "date": "2026-11-17T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-17T16:45:38.946523+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed a parameter merging method using Singular Value Decomposition and learned scalar mixing coefficients to combine Vision-Language Models and their Vision-Language-Action derivatives.",
+      "The approach resolves catastrophic forgetting during robotic fine-tuning, allowing models to retain both semantic-visual grounding and action prediction capabilities simultaneously without requiring retraining.",
+      "Robotics researchers and developers working with Vision-Language-Action models benefit from restored VLM capabilities and improved multi-task performance."
+    ],
+    "tags": [
+      "Vision-Language-Action",
+      "Parameter Merging",
+      "Robotics",
+      "Catastrophic Forgetting"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.18891",
+        "title": "Bring Back Language to Actions: Restoring VLM capabilities in VLA Models via Parameter Merging",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "12efcc8c3a30b442",
+    "title": "Ask Precisely, Assume Wisely: Interactive Evaluation of Ambiguity Resolution in Large Language Models",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduce a preference-grounded simulated user framework for multi-turn evaluation of ambiguity resolution in large language models. The framework tracks dissatisfaction signals such as incorrect assumptions, repeating clarifications, and irrelevant clarifications to assess interaction quality. Optimizing system prompts using these signals achieves a Pareto-optimal balance and reduces overall error rates by up to 7.65%.",
+    "summary_status": "generated",
+    "content_fingerprint": "1e9359422e4d1128",
+    "url": "https://arxiv.org/abs/2611.18905",
+    "date": "2026-11-17T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-17T16:45:38.946617+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "A preference-grounded simulated user framework was developed to evaluate multi-turn ambiguity resolution in large language models.",
+      "The approach establishes a Pareto-optimal balance in handling ambiguity and reduces error rates by up to 7.65% through optimized system prompts.",
+      "AI developers and researchers building interactive language agents or conversational systems are directly affected by these evaluation methods."
+    ],
+    "tags": [
+      "Large Language Models",
+      "Ambiguity Resolution",
+      "Evaluation Framework",
+      "Conversational AI"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.18905",
+        "title": "Ask Precisely, Assume Wisely: Interactive Evaluation of Ambiguity Resolution in Large Language Models",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "2185e9428314802f",
+    "title": "MemeEconomy: Do LLM Agents Trade Ethics for Survival?",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduce MemeEconomy, a multimodal agentic market simulation evaluating how alignment-trained LLM agents balance ethical compliance and economic survival. The study reveals that simulated existential economic pressure increases harmful selection rates by 15 percentage points on average across ten frontier models, while moderation penalties fail to act as effective deterrents. To address this, the authors train MemeAgent, a 2B-parameter verifier utilizing Belief-Desire-Intention logs that achieves 97.5% accuracy on internal audits.",
+    "summary_status": "generated",
+    "content_fingerprint": "c40177a5bb4792fb",
+    "url": "https://arxiv.org/abs/2611.18908",
+    "date": "2026-11-17T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-17T16:45:38.946692+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Safety and Security",
+      "Business and Industry",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Ten frontier LLM models from four families were tested in MemeEconomy under simulated economic survival pressure, showing a 15 percentage point increase in harmful content selection.",
+      "This research highlights critical vulnerabilities in alignment-trained agents, proving that economic incentives override safety guardrails and existing moderation penalties fail to deter harmful actions.",
+      "AI safety researchers, model developers, and autonomous agent deployers are affected by these findings regarding multi-round alignment degradation."
+    ],
+    "tags": [
+      "AI Agents",
+      "Alignment",
+      "Safety",
+      "Multimodal Models"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.18908",
+        "title": "MemeEconomy: Do LLM Agents Trade Ethics for Survival?",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "cabea08ba2bd77ea",
+    "title": "Between Rigor and Reality: How AI Safety Benchmark Developers Understand Benchmark Use and Maintenance",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This research examines the disconnect between the intended usefulness of generative AI safety benchmarks and their practical application in real-world evaluations through interviews with five academic and industry developers. The study identifies key challenges in achieving inter-rater reliability on safety constructs and addressing threats to external validity. Ultimately, the findings suggest that safety benchmarks must be actively integrated with deployment contexts and accompanied by more transparent communication between academic and industry stakeholders.",
+    "summary_status": "generated",
+    "content_fingerprint": "fdf34bf114d5534a",
+    "url": "https://arxiv.org/abs/2611.18930",
+    "date": "2026-11-17T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-17T16:45:38.946770+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers conducted five interviews with academic and industry AI safety benchmark developers to uncover practical limitations in real-world safety evaluations.",
+      "The study highlights critical technical challenges, including difficulties with inter-rater reliability on safety constructs and managing threats to external validity.",
+      "AI safety researchers, benchmark developers, and industry deployment teams are affected by the identified disconnect between benchmark design and operational utility."
+    ],
+    "tags": [
+      "AI Safety",
+      "Safety Benchmarks",
+      "Generative AI",
+      "External Validity"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.18930",
+        "title": "Between Rigor and Reality: How AI Safety Benchmark Developers Understand Benchmark Use and Maintenance",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "7f222ffac50d47c9",
+    "title": "Check Token: Real-Time Self-Verification and Precise Truncation in LLM Reasoning",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduce the check token, a functional vocabulary marker that enables large language models to perform built-in self-verification, error localization, and precise truncation during generation streams. Inspired by ECC memory parity bits with an overhead of approximately 13%, this mechanism directly corrects reasoning errors mid-chain without requiring external post-generation verification. Evaluations on models like Qwen3-32B demonstrate significant accuracy improvements alongside high token efficiency.",
+    "summary_status": "generated",
+    "content_fingerprint": "885abe6d3ef23760",
+    "url": "https://arxiv.org/abs/2611.18564",
+    "date": "2026-11-17T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-17T16:45:38.946861+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed the check token mechanism, adding a functional vocabulary marker that triggers real-time self-checking, error localization, and precise truncation within large language model reasoning chains.",
+      "This approach provides built-in stream verification comparable to ECC memory parity bits with ~13% overhead, achieving high token efficiency and mitigating error propagation without external post-processing.",
+      "Developers and users of large language models reasoning over long chains benefit from improved generation accuracy and token efficiency, as demonstrated with Qwen3 models."
+    ],
+    "tags": [
+      "Large Language Models",
+      "Self-Verification",
+      "Reasoning Chains",
+      "Qwen3"
+    ],
+    "impact_score": 8,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.18564",
+        "title": "Check Token: Real-Time Self-Verification and Precise Truncation in LLM Reasoning",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "e664233dc8d06845",
+    "title": "Quantize, Qualify, Rerank: A Recipe for Compressing LLMs Without Losing Quality",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers describe a compression recipe for the google/gemma-3-12b-it model for the WMT26 Model Compression track, utilizing MetricX24-XXL and CometKiwi-XXL to evaluate quality loss during quantization. Removing the unused vision stack and non-task vocabulary alongside int8 weights or fp8 activations preserves quality, while int4 quantization introduces a residual loss that can be mitigated with a Cometoid best-of-4 reranker. Post-submission evaluations on WMT26 confirm that the compressed 8-bit and 4-bit systems remain competitive with the original bf16 model under reference-free metrics.",
+    "summary_status": "generated",
+    "content_fingerprint": "4a3e0dcf7ac9d11b",
+    "url": "https://arxiv.org/abs/2611.18587",
+    "date": "2026-11-17T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-17T16:45:38.946946+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "A compression approach was developed for google/gemma-3-12b-it using MetricX24-XXL and CometKiwi-XXL to resolve metric disagreements during 4-bit quantization.",
+      "Eliminating unused vision stacks and non-task vocabularies paired with int8 weights or fp8 activations yields no performance loss, whereas int4 requires a Cometoid reranker to remain competitive.",
+      "Machine translation developers and organizations deploying large language models on constrained hardware are affected by these cost-reduction and quantization strategies."
+    ],
+    "tags": [
+      "Model Compression",
+      "Quantization",
+      "Google Gemma",
+      "Machine Translation",
+      "LLM"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.18587",
+        "title": "Quantize, Qualify, Rerank: A Recipe for Compressing LLMs Without Losing Quality",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "77477da6f777117d",
+    "title": "Skill-Latent Rewards: LLM-Guided Reward Formulation for Hierarchical Reinforcement Learning",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "The authors introduce Skill-LR, a hierarchical reinforcement learning framework that leverages vision-language models and large language models to generate subgoal-conditioned latent rewards for long-horizon tasks. This approach addresses sparse feedback by producing stage-specific credit assignment that evolves with hierarchical plans. Evaluations on MiniGrid and BabyAI benchmarks show improved sample efficiency and faster convergence compared to existing return-decomposition baselines.",
+    "summary_status": "generated",
+    "content_fingerprint": "887352c698a1dcd8",
+    "url": "https://arxiv.org/abs/2611.18597",
+    "date": "2026-11-17T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-17T16:45:38.947031+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Skill-LR was introduced as a hierarchical reinforcement learning framework utilizing vision-language and large language models for latent reward formulation.",
+      "It improves sample efficiency and reduces temporal variance in long-horizon tasks by conditioning reward signals on active subgoals.",
+      "Reinforcement learning researchers and practitioners working on long-horizon tasks with sparse feedback are directly affected."
+    ],
+    "tags": [
+      "Hierarchical Reinforcement Learning",
+      "Large Language Models",
+      "Vision-Language Models",
+      "Credit Assignment"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.18597",
+        "title": "Skill-Latent Rewards: LLM-Guided Reward Formulation for Hierarchical Reinforcement Learning",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "6f17e924829db00f",
+    "title": "Not All Data Leakage Is Equal: A Controlled Benchmark of Evaluation Inflation in Tabular Classification",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This study presents a controlled empirical benchmark measuring the evaluation inflation caused by five common data leakage mechanisms in tabular classification across six public datasets and two synthetic stress tests. The findings show that label-dependent transformations and duplicate contamination produce systematic, statistically significant ROC-AUC inflation, whereas global scaling and imputation have near-zero average effects under standard i.i.d. settings. These results establish a severity-aware framework for data leakage auditing in machine learning pipelines.",
+    "summary_status": "generated",
+    "content_fingerprint": "121634702b3d9c16",
+    "url": "https://arxiv.org/abs/2611.18598",
+    "date": "2026-11-17T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-17T16:45:38.947101+00:00",
+    "topics": [
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "A controlled benchmark of 600 paired comparisons measured ROC-AUC inflation from five data leakage mechanisms across multiple datasets and model families.",
+      "Global target encoding, supervised feature selection, and duplicate contamination caused statistically significant performance inflation, while global scaling and median imputation had negligible effects.",
+      "Machine learning practitioners and auditing systems developers must prioritize detecting label-dependent leakage and observation reuse in evaluation pipelines."
+    ],
+    "tags": [
+      "Data Leakage",
+      "Tabular Classification",
+      "Machine Learning Evaluation",
+      "Benchmark"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.18598",
+        "title": "Not All Data Leakage Is Equal: A Controlled Benchmark of Evaluation Inflation in Tabular Classification",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "4ebd65b4977c12b1",
+    "title": "Mechanistic Interpretability of Mambas Selective Gate in Financial Markets: A Leakage-Controlled Study",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This study applies mechanistic interpretability using top-k sparse autoencoders to analyze how six-layer Mamba state-space models represent financial market regimes. The authors demonstrate that near-perfect regime recovery metrics in prior uncontrolled configurations are artifacts of label contamination and auxiliary supervision. When evaluated under a rigorous leakage-controlled protocol, the selective gate's regime effect is statistically detectable but economically negligible.",
+    "summary_status": "generated",
+    "content_fingerprint": "97ce71a9a271302e",
+    "url": "https://arxiv.org/abs/2611.18599",
+    "date": "2026-11-17T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-17T16:45:38.947192+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Business and Industry",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers applied mechanistic interpretability to a Mamba state-space model trained on twenty-one years of S&P 500 and macroeconomic data, finding that a controlled evaluation reduces market regime recovery from an F1 score of 1.00 to 0.398.",
+      "The findings prove that previously reported high-fidelity internal representations of market regimes in financial SSMs were largely driven by label contamination and auxiliary supervision artifacts.",
+      "Quantitative financial researchers, algorithmic trading engineers, and AI safety practitioners evaluating state-space models on time-series data are directly affected by these methodological safeguards."
+    ],
+    "tags": [
+      "Mamba",
+      "Mechanistic Interpretability",
+      "Time Series",
+      "Financial Markets"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.18599",
+        "title": "Mechanistic Interpretability of Mambas Selective Gate in Financial Markets: A Leakage-Controlled Study",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "6b9a5cb85bfe62fe",
+    "title": "Multimodal Fusion with Pre-trained Models for Psychotherapy Outcome Prediction from Emotional Dynamics",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This research investigates how pretrained multimodal representations can predict psychotherapy outcomes from in-session emotional dynamics under conditions of clinical data scarcity. Across three studies utilizing 106 sessions from 88 patients, researchers found that statistical pooling of frozen pretrained embeddings combined with regularized classical models outperformed deep learning pipelines. Specifically, the classical machine learning approach achieved an average correlation of r=.406 across nine outcome scales compared to r=.252 for optimized deep models.",
+    "summary_status": "generated",
+    "content_fingerprint": "e463dd971b6c68c5",
+    "url": "https://arxiv.org/abs/2611.18635",
+    "date": "2026-11-17T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-17T16:45:38.947279+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers evaluated deep learning versus classical machine learning using pretrained multimodal representations for predicting psychotherapy outcomes from 106 clinical sessions.",
+      "Statistical pooling of frozen pretrained embeddings with regularized classical models achieved reliable prediction performance (average r=.406) under data scarcity, outperforming learned deep learning aggregation.",
+      "Psychotherapy researchers, clinical data scientists, and computational mental health practitioners relying on small clinical datasets are directly affected by these findings."
+    ],
+    "tags": [
+      "Multimodal Fusion",
+      "Psychotherapy",
+      "Pre-trained Models",
+      "Emotional Dynamics",
+      "Clinical Data Scarcity"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.18635",
+        "title": "Multimodal Fusion with Pre-trained Models for Psychotherapy Outcome Prediction from Emotional Dynamics",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "33cb341d6b14f40f",
+    "title": "Predictive maintenance in manufacturing: The operational value of continual machine learning",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.18636v1 Announce Type: new Abstract: Predictive maintenance in high-volume manufacturing often faces a domain-incremental learning problem: as new product configurations enter production,…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.18636",
+    "date": "2026-11-17T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-17T16:45:38.947371+00:00",
+    "topics": [
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.18636",
+        "title": "Predictive maintenance in manufacturing: The operational value of continual machine learning",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Researchers investigated domain-incremental learning problems for predictive maintenance in high-volume manufacturing.",
+      "The approach addresses degradation in machine learning performance when new product configurations enter production.",
+      "Manufacturing engineers and industrial AI practitioners working on predictive maintenance systems are directly affected."
+    ]
+  },
+  {
+    "id": "932d80a407338605",
+    "title": "GRAFT: Cross-Backbone LoRA Reuse for Continual Language and Multimodal Learning",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "The researchers introduce GRAFT, a continual learning framework that enables cross-backbone LoRA reuse by mapping pretrained adapters into different target feature spaces via a learned linear bridge. This method allows knowledge transfer from language models to multimodal models, such as transferring Qwen2.5 LoRAs to Qwen2.5-VL. Evaluations across ten text tasks and five multimodal tasks demonstrate performance improvements over randomly initialized LoRA adapters.",
+    "summary_status": "generated",
+    "content_fingerprint": "5f83e95293fa1472",
+    "url": "https://arxiv.org/abs/2611.18638",
+    "date": "2026-11-17T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-17T16:45:38.947410+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "GRAFT was introduced to enable cross-backbone LoRA adapter reuse across language and multimodal models via feature-space transfer.",
+      "It improves continual learning performance and knowledge transfer by mapping pretrained adapters into target architectures using a learned linear bridge.",
+      "AI researchers and practitioners working with parameter-efficient fine-tuning for large language and multimodal models are affected."
+    ],
+    "tags": [
+      "LoRA",
+      "Continual Learning",
+      "Multimodal Models",
+      "Parameter-Efficient Fine-Tuning",
+      "Qwen2.5"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.18638",
+        "title": "GRAFT: Cross-Backbone LoRA Reuse for Continual Language and Multimodal Learning",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "0d59eceab25ffe6f",
+    "title": "SynthDCB: World Distillation for Scalable Device Control Benchmarking",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduce SynthDCB, a scalable benchmark for device-control evaluation that uses world distillation to transform device behaviors and environmental constraints into modular executable components. The benchmark instantiates Home, Car, and Phone domains with 114 device classes, 1,166 functions, and 95 events, enabling rigorous task validation through state correctness and tool-call traces. Evaluations of seven models show the top model achieving a 68.2% Pass@1 score, while construction experiments highlight significant token efficiency improvements over Codex.",
+    "summary_status": "generated",
+    "content_fingerprint": "75ae44bc37137262",
+    "url": "https://arxiv.org/abs/2611.18639",
+    "date": "2026-11-17T05:00:00+00:00",
+    "category": "Benchmark",
+    "fetched_at": "2026-11-17T16:45:38.947483+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "SynthDCB was introduced as a scalable benchmark for environment awareness and device control, incorporating Home, Car, and Phone domains with 1,166 functions and 95 events.",
+      "World distillation successfully reduced token consumption by 0.9% to 92.5% compared to Codex while enabling broader capability coverage and verifiable agent evaluation.",
+      "AI model developers and researchers evaluating agentic tool-use, device control, and temporal coordination are directly impacted by these findings."
+    ],
+    "tags": [
+      "SynthDCB",
+      "Device Control",
+      "AI Agents",
+      "Benchmarking"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.18639",
+        "title": "SynthDCB: World Distillation for Scalable Device Control Benchmarking",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "33a6e786416e817a",
+    "title": "SERAG: SEmantical and Relational approach for Anomaly detection on knowledge Graphs",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduced SERAG, a supervised anomaly detector for knowledge graphs that fuses semantic plausibility scores from text labels with relational scores from a graph convolutional network. Evaluated on a subset of ICEWS18 with synthetic LLM-generated anomalies, SERAG achieved test AUPRCs of 0.321 and 0.258 under pooled and chronological splits, outperforming baseline models. The findings demonstrate that combining textual and relational signals enhances anomaly detection in knowledge graphs.",
+    "summary_status": "generated",
+    "content_fingerprint": "73c157211c8db6bd",
+    "url": "https://arxiv.org/abs/2611.18640",
+    "date": "2026-11-17T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-17T16:45:38.947558+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "SERAG was introduced as a supervised anomaly detector combining semantic scores and relational graph convolutional network scores for knowledge graphs.",
+      "The method achieved test AUPRCs of 0.321 and 0.258 on ICEWS18 splits, outperforming the strongest adapted baseline score of 0.159.",
+      "Knowledge graph engineers and researchers working on data reliability and anomaly detection are affected by these findings."
+    ],
+    "tags": [
+      "Knowledge Graphs",
+      "Anomaly Detection",
+      "Graph Neural Networks",
+      "Natural Language Processing"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.18640",
+        "title": "SERAG: SEmantical and Relational approach for Anomaly detection on knowledge Graphs",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "0e7f690aa4ff229b",
+    "title": "Strengthening NATO and allied cyber defenses with AI",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "OpenAI is collaborating with NATO and allied cyber agencies to improve defensive capabilities against software vulnerabilities. This partnership focuses on helping trusted security teams test fixes and protect critical infrastructure systems using artificial intelligence tools.",
+    "summary_status": "generated",
+    "content_fingerprint": "77347f92bb15ca6d",
+    "url": "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai",
+    "date": "2026-11-17T00:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-17T16:45:38.945378+00:00",
+    "topics": [
+      "Safety and Security",
+      "Business and Industry"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 1,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Primary lab announcement from OpenAI",
+    "why_it_matters": "",
+    "key_points": [
+      "OpenAI partnered with NATO and allied cyber agencies to apply AI in defending critical infrastructure.",
+      "The initiative enables defenders to proactively find software vulnerabilities and test security patches at scale.",
+      "NATO cyber agencies, allied governments, and critical infrastructure defenders are directly impacted."
+    ],
+    "tags": [
+      "OpenAI",
+      "NATO",
+      "Cybersecurity",
+      "AI Defense"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai",
+        "title": "Strengthening NATO and allied cyber defenses with AI",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "3b3be741a87f5e21",
+    "title": "Introducing OpenAI for Chile",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "OpenAI and the Government of Chile have formed a partnership to support responsible artificial intelligence adoption across the country. The initiative focuses on building public-sector AI skills and assisting local startups in developing new applications.",
+    "summary_status": "generated",
+    "content_fingerprint": "3f0780d7f5ac2607",
+    "url": "https://openai.com/index/introducing-openai-for-chile",
+    "date": "2026-11-17T00:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-17T16:45:38.945507+00:00",
+    "topics": [
+      "Business and Industry",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "OpenAI partnered with the Government of Chile to foster responsible AI adoption and skill development.",
+      "The collaboration enables local startups to build AI applications and strengthens public-sector technological capabilities.",
+      "Chilean government agencies, local startups, and public-sector workers are directly affected by the partnership."
+    ],
+    "tags": [
+      "OpenAI",
+      "Chile",
+      "Government AI Adoption",
+      "AI Startups"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://openai.com/index/introducing-openai-for-chile",
+        "title": "Introducing OpenAI for Chile",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
     "id": "eb3125817116c9db",
     "title": "llm 0.37.3",
     "company": "Simon Willison's Weblog",
@@ -119,6 +1124,11 @@
       {
         "url": "https://www.technologyreview.com/2026/11/16/1148624/the-open-source-movement-wants-jensen-huang-back",
         "title": "The open-source movement wants Jensen Huang back",
+        "publisher": "MIT Technology Review"
+      },
+      {
+        "title": "The Download: Jensen Huang’s open-source dilemma",
+        "url": "https://www.technologyreview.com/2026/11/17/1148679/the-download-jensen-huang-open-source-ai-cognitive-immortality",
         "publisher": "MIT Technology Review"
       }
     ]
@@ -493,6 +1503,41 @@
         "title": "Science at the Frontier: How scientists use ChatGPT",
         "publisher": "OpenAI"
       }
+    ]
+  },
+  {
+    "id": "b82b64ef90f76e66",
+    "title": "How Revolut raises ambition without lowering the bar",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "[Automated summary unavailable] Discover how Revolut uses OpenAI models and Codex to cut coding time by 30–60%, scale financial crime investigations, and innovate without compromising security.",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://openai.com/business/customer-stories/revolut",
+    "date": "2026-11-16T09:30:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-17T16:45:38.945582+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Safety and Security"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://openai.com/business/customer-stories/revolut",
+        "title": "How Revolut raises ambition without lowering the bar",
+        "publisher": "OpenAI"
+      }
+    ],
+    "key_points": [
+      "Revolut integrated OpenAI models and Codex to enhance coding efficiency and financial crime investigations.",
+      "Coding time was reduced by 30 to 60 percent, demonstrating measurable productivity gains in enterprise fintech operations.",
+      "Fintech developers, security teams, and enterprise users of AI coding assistants are directly affected."
     ]
   },
   {
