@@ -1,5 +1,305 @@
 [
   {
+    "id": "684a337f2e96a314",
+    "title": "OpenCode v2.3.2",
+    "company": "OpenCode",
+    "source": "OpenCode Updates",
+    "summary": "The OpenCode project has released version 2.3.2. This update brings minor changes and bug fixes to the development repository.",
+    "summary_status": "generated",
+    "content_fingerprint": "56312ec6cbbf002e",
+    "url": "https://github.com/anomalyco/opencode/releases/tag/v2.3.2",
+    "date": "2026-11-18T00:28:06+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-18T01:28:57.128769+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "OpenCode version 2.3.2 has been released.",
+      "Provides software updates and maintenance fixes for the OpenCode ecosystem.",
+      "Developers and users utilizing OpenCode are affected by this release."
+    ],
+    "tags": [
+      "OpenCode",
+      "Product Release",
+      "Developer Tools"
+    ],
+    "impact_score": 2,
+    "sources": [
+      {
+        "url": "https://github.com/anomalyco/opencode/releases/tag/v2.3.2",
+        "title": "OpenCode v2.3.2",
+        "publisher": "OpenCode"
+      }
+    ]
+  },
+  {
+    "id": "0db3b4bdf59c14e4",
+    "title": "Copilot is \"the new OS for work,\" and now Office runs inside of it",
+    "company": "Ars Technica",
+    "source": "Ars Technica – AI",
+    "summary": "Microsoft CEO Satya Nadella announced the general availability of Word, Excel, and PowerPoint integrated directly inside Copilot during the Ignite keynote. This shifts traditional software usage by positioning AI agents to drive workflows while traditional Office applications operate as plugin components. Users can now generate editable documents, spreadsheets, and presentations directly within Copilot using contextual organizational data.",
+    "summary_status": "generated",
+    "content_fingerprint": "508df93d6ac2c7f4",
+    "url": "https://arstechnica.com/gadgets/2026/11/microsoft-calls-copilot-the-new-os-for-work-at-ignite-keynote",
+    "date": "2026-11-18T00:27:29+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-18T01:28:57.128180+00:00",
+    "topics": [
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Microsoft launched general availability for Word, Excel, and PowerPoint integrations inside Copilot at the Ignite event.",
+      "The architecture inverts traditional software paradigms by having AI agents drive workflows while Office apps function as plugins.",
+      "Enterprise knowledge workers utilizing Microsoft 365 and Copilot are directly affected by this shift in workflow orchestration."
+    ],
+    "tags": [
+      "Microsoft",
+      "Copilot",
+      "Microsoft 365",
+      "AI Agents"
+    ],
+    "impact_score": 8,
+    "sources": [
+      {
+        "url": "https://arstechnica.com/gadgets/2026/11/microsoft-calls-copilot-the-new-os-for-work-at-ignite-keynote",
+        "title": "Copilot is \"the new OS for work,\" and now Office runs inside of it",
+        "publisher": "Ars Technica"
+      }
+    ]
+  },
+  {
+    "id": "772553b7dc508165",
+    "title": "OpenCode v2.3.1",
+    "company": "OpenCode",
+    "source": "OpenCode Updates",
+    "summary": "OpenCode version 2.3.1 introduces background execution for timed-out shell commands, background session compaction, and support for GPT 6.2 models via ChatGPT sign-in. Additional updates include new plugin management features from settings, updated code commenting tools, and refined Code Mode capabilities.",
+    "summary_status": "generated",
+    "content_fingerprint": "958f7456ebae932f",
+    "url": "https://github.com/anomalyco/opencode/releases/tag/v2.3.1",
+    "date": "2026-11-18T00:17:57+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-18T01:28:57.128799+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "OpenCode v2.3.1 added background execution for timed-out shell commands, background session compaction, and support for GPT 6.2 Sol and Astra models.",
+      "These updates prevent long-running builds and compaction tasks from blocking user prompts, improving overall developer workflow efficiency.",
+      "Developers and users utilizing the OpenCode development platform and ChatGPT model integrations."
+    ],
+    "tags": [
+      "OpenCode",
+      "GPT 6.2",
+      "Developer Tools"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://github.com/anomalyco/opencode/releases/tag/v2.3.1",
+        "title": "OpenCode v2.3.1",
+        "publisher": "OpenCode"
+      }
+    ]
+  },
+  {
+    "id": "e45fd791e1fe03c2",
+    "title": "External sandboxes for coding agents",
+    "company": "Simon Willison's Weblog",
+    "source": "Simon Willison – AI",
+    "summary": "An external sandbox pattern has been introduced to isolate code executed by AI coding agents from the host machine using dedicated virtualized environments. Three implementations have been released utilizing v86 with WebAssembly, Apple Containers, and Microsoft Quicksand to provide a consistent localhost API. These sandboxes feature an optional HTTP/HTTPS allow-list proxy and credential replacement to securely manage network access for tools like Claude Code, Codex, and Pi.",
+    "summary_status": "generated",
+    "content_fingerprint": "3b845389e99d2acd",
+    "url": "https://simonwillison.net/2026/Nov/17/external-sandboxes-for-coding-agents",
+    "date": "2026-11-17T22:52:29+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-18T01:28:57.128842+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Three external sandbox server implementations using WebAssembly, Apple Containers, and Microsoft Quicksand were released to isolate code execution for AI agents.",
+      "The architecture enables safe experimentation with local models by shielding host machines from prompt injection attacks and execution errors while incorporating network proxies and credential replacement.",
+      "Developers and users deploying AI coding agents such as Claude Code, Codex, and Pi are affected by this security pattern."
+    ],
+    "tags": [
+      "Sandboxing",
+      "Coding Agents",
+      "Security",
+      "WebAssembly",
+      "Claude Code"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://simonwillison.net/2026/Nov/17/external-sandboxes-for-coding-agents",
+        "title": "External sandboxes for coding agents",
+        "publisher": "Simon Willison's Weblog"
+      }
+    ]
+  },
+  {
+    "id": "8f6af8c44a4a1bfb",
+    "title": "Introducing GPT-6.2 Astra and Sol",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "OpenAI has introduced GPT-6.2 Astra and Sol, delivering improved professional outputs, coding capabilities, computer use, and cost efficiency. These new models are made available across ChatGPT Work, Codex, and the API.",
+    "summary_status": "generated",
+    "content_fingerprint": "42b606263b4e2e86",
+    "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+    "date": "2026-11-17T17:45:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-18T01:28:57.127805+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "OpenAI launched the GPT-6.2 Astra and Sol models with enhanced coding, computer use, and professional output capabilities at a lower cost.",
+      "The release improves efficiency and task execution across multiple platforms including ChatGPT Work, Codex, and the API.",
+      "Enterprise users, developers relying on Codex, and API integrators are directly affected by these model upgrades."
+    ],
+    "tags": [
+      "OpenAI",
+      "GPT-6.2",
+      "ChatGPT Work",
+      "Codex",
+      "API"
+    ],
+    "impact_score": 8,
+    "sources": [
+      {
+        "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+        "title": "Introducing GPT-6.2 Astra and Sol",
+        "publisher": "OpenAI"
+      },
+      {
+        "title": "GPT‑6.2 Astra and GPT‑6.2 Sol",
+        "url": "https://simonwillison.net/2026/Nov/17/gpt62-astra-and-sol",
+        "publisher": "Simon Willison's Weblog"
+      }
+    ]
+  },
+  {
+    "id": "ef0668bcb4a436fa",
+    "title": "Co-Designing Sparse Attention for Efficient Long-Context Inference",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "Agentic workloads and long documents are increasing transformer context lengths to hundreds of thousands of tokens, making attention the most computationally expensive part of the network. Because dense attention scores every query against every key, its cost grows linearly with context length and dominates prefill time at 128K tokens.",
+    "summary_status": "generated",
+    "content_fingerprint": "f6e0a3bb986b35ab",
+    "url": "https://developer.nvidia.com/blog/co-designing-sparse-attention-for-efficient-long-context-inference",
+    "date": "2026-11-17T17:30:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-18T01:28:57.128622+00:00",
+    "topics": [
+      "AI Agents",
+      "Research and Breakthroughs",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Transformer context lengths are expanding to hundreds of thousands of tokens due to agentic workloads and large codebases.",
+      "Dense attention becomes prohibitively expensive at 128K tokens because its cost per query scales directly with context length.",
+      "AI researchers and systems engineers deploying large language models on long-context tasks face severe prefill bottlenecks."
+    ],
+    "tags": [
+      "Sparse Attention",
+      "Long-Context",
+      "Transformers",
+      "Model Inference"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://developer.nvidia.com/blog/co-designing-sparse-attention-for-efficient-long-context-inference",
+        "title": "Co-Designing Sparse Attention for Efficient Long-Context Inference",
+        "publisher": "NVIDIA"
+      }
+    ]
+  },
+  {
+    "id": "c238bc1166aca3e3",
+    "title": "Can AI help build a healthier future?",
+    "company": "Microsoft Research",
+    "source": "Microsoft Research AI",
+    "summary": "In an episode of the Microsoft Research podcast The Shape of Things to Come, host Doug Burger speaks with Eric Horvitz, Ava Amini, and Eric Topol about the future of AI in medicine and healthcare. The panel explores topics such as AI-assisted medical diagnosis, medical imaging, whole-patient models, virtual cells, and biological foundation models. They also discuss the challenges of translating research into clinical practice, the need for better biological data, and the role of AI in accelerating drug discovery.",
+    "summary_status": "generated",
+    "content_fingerprint": "a582b5b7eabbabc9",
+    "url": "https://www.microsoft.com/en-us/research/podcast/can-ai-help-build-a-healthier-future",
+    "date": "2026-11-17T16:52:17+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-18T01:28:57.128111+00:00",
+    "topics": [
+      "Models and Releases",
+      "Applications and Products"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Microsoft Research published a podcast episode discussing AI applications in biomedicine, featuring experts Doug Burger, Eric Horvitz, Ava Amini, and Eric Topol.",
+      "The discussion highlights how machine learning, medical imaging, whole-patient models, and biological foundation models can transform clinical care and drug discovery.",
+      "Technologists, policymakers, researchers, and healthcare professionals gain insight into the current capabilities and future hurdles of integrating AI into medicine."
+    ],
+    "tags": [
+      "Microsoft Research",
+      "Eric Horvitz",
+      "Eric Topol",
+      "AI in Healthcare",
+      "Biological Foundation Models"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://www.microsoft.com/en-us/research/podcast/can-ai-help-build-a-healthier-future",
+        "title": "Can AI help build a healthier future?",
+        "publisher": "Microsoft Research"
+      }
+    ]
+  },
+  {
     "id": "c2455dbd637001ef",
     "title": "The Download: cognitive immortality",
     "company": "MIT Technology Review",
@@ -38,6 +338,48 @@
         "url": "https://www.technologyreview.com/2026/11/17/1148679/the-download-jensen-huang-open-source-ai-cognitive-immortality",
         "title": "The Download: Jensen Huang’s open-source dilemma",
         "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "3047d7657748ea76",
+    "title": "Introducing ChatGPT for Sales",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "OpenAI has introduced a new Sales plugin for ChatGPT alongside over 30 new and expanded partner plugins. These additions enable users to research prospects, prepare sales pitches, update CRM systems, and advance deals directly within the interface.",
+    "summary_status": "generated",
+    "content_fingerprint": "5240eb80b9abec48",
+    "url": "https://openai.com/index/introducing-chatgpt-for-sales",
+    "date": "2026-11-17T08:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-18T01:28:57.127914+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "OpenAI launched a Sales plugin and over 30 new and expanded partner plugins for ChatGPT.",
+      "The integration streamlines sales workflows by enabling prospect research, pitch preparation, and CRM updates within the chat interface.",
+      "Sales professionals and CRM users looking to automate prospect research and deal management workflows are directly affected."
+    ],
+    "tags": [
+      "ChatGPT",
+      "OpenAI",
+      "Sales plugin",
+      "CRM"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://openai.com/index/introducing-chatgpt-for-sales",
+        "title": "Introducing ChatGPT for Sales",
+        "publisher": "OpenAI"
       }
     ]
   },
@@ -128,16 +470,20 @@
     "title": "How to make a moral agent: sentimentalism and rationalism as lenses on AI",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.AI (Artificial Intelligence)",
-    "summary": "[Automated summary unavailable] arXiv:2611.18714v1 Announce Type: new Abstract: Can AI systems be moral agents? That is, can they undertake actions that can be correctly assessed as morally right or wrong? There is no settled…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "This research proposal investigates descriptive moral agency in artificial intelligence by drawing on historical philosophy and moral psychology. The authors establish testable candidate capabilities for large language models to assess alignment, inform policy deployment, and guide engineering design.",
+    "summary_status": "generated",
+    "content_fingerprint": "e3a58db408186304",
     "url": "https://arxiv.org/abs/2611.18714",
     "date": "2026-11-17T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-17T16:45:38.946176+00:00",
+    "fetched_at": "2026-11-18T01:28:57.128502+00:00",
     "topics": [
+      "Models and Releases",
       "AI Agents",
-      "Research and Breakthroughs"
+      "Coding and Developer Tools",
+      "Safety and Security",
+      "Policy and Regulation",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 2,
@@ -152,10 +498,17 @@
       }
     ],
     "key_points": [
-      "Researchers analyzed whether AI systems can become moral agents using sentimentalism and rationalism as philosophical lenses.",
-      "The findings help establish theoretical foundations for assessing the ethical implications of autonomous AI actions.",
-      "AI developers, ethicists, and researchers studying machine ethics and alignment are directly impacted."
-    ]
+      "Proposed a research program to isolate and test descriptive moral agency capabilities in AI systems using philosophical scholarship.",
+      "Bridges moral psychology and AI evaluation to improve alignment assessment, policy decisions, and model development.",
+      "Researchers, AI developers, and policy makers working on large language model deployment and alignment are affected."
+    ],
+    "tags": [
+      "Moral Agency",
+      "AI Alignment",
+      "Large Language Models",
+      "Moral Psychology"
+    ],
+    "impact_score": 5
   },
   {
     "id": "276235570d19a5e4",
@@ -764,21 +1117,22 @@
     "title": "Predictive maintenance in manufacturing: The operational value of continual machine learning",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.18636v1 Announce Type: new Abstract: Predictive maintenance in high-volume manufacturing often faces a domain-incremental learning problem: as new product configurations enter production,…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "This research paper empirically evaluates continual machine learning combined with robust optimization for predictive maintenance using real-world manufacturing data from Bosch. The study demonstrates that continual learning prevents catastrophic forgetting across 25 product configurations over a five-year period without requiring the retention of all historical sensor data. Results indicate that the approach reduces cost-related indicators by more than 40 percent compared to baseline methods like fine-tuning and domain adaptation.",
+    "summary_status": "generated",
+    "content_fingerprint": "5d313bc4c7ffbf15",
     "url": "https://arxiv.org/abs/2611.18636",
     "date": "2026-11-17T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-17T16:45:38.947371+00:00",
+    "fetched_at": "2026-11-18T01:28:57.128548+00:00",
     "topics": [
       "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
       "Applications and Products"
     ],
     "source_type": "Research or Preprint",
-    "priority_score": 2,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Original research or technical finding",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
     "why_it_matters": "",
     "sources": [
       {
@@ -788,10 +1142,18 @@
       }
     ],
     "key_points": [
-      "Researchers investigated domain-incremental learning problems for predictive maintenance in high-volume manufacturing.",
-      "The approach addresses degradation in machine learning performance when new product configurations enter production.",
-      "Manufacturing engineers and industrial AI practitioners working on predictive maintenance systems are directly affected."
-    ]
+      "Researchers evaluated continual machine learning combined with robust optimization for predictive maintenance using real-world manufacturing data spanning 25 product configurations over five years from Bosch.",
+      "The method prevents catastrophic forgetting when new product configurations enter production and eliminates the need to retain massive historical sensor data, reducing cost-related indicators by over 40 percent compared to baselines.",
+      "High-volume manufacturing organizations and industrial engineers dealing with expanding product portfolios and data storage constraints in predictive maintenance are affected."
+    ],
+    "tags": [
+      "Predictive Maintenance",
+      "Continual Learning",
+      "Bosch",
+      "Manufacturing",
+      "Robust Optimization"
+    ],
+    "impact_score": 6
   },
   {
     "id": "932d80a407338605",
@@ -1000,6 +1362,48 @@
       {
         "url": "https://openai.com/index/introducing-openai-for-chile",
         "title": "Introducing OpenAI for Chile",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "b43ef08ac3ed4f7a",
+    "title": "Astra for Law leads in legal intelligence",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Astra for Law achieved the top ranking across 24 areas of law in a recent launch evaluation. The tool is now available for access requests by all ChatGPT Enterprise customers.",
+    "summary_status": "generated",
+    "content_fingerprint": "88b12d3408d34962",
+    "url": "https://openai.com/index/astra-law-6-2",
+    "date": "2026-11-17T00:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-18T01:28:57.127972+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Business and Industry",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 7,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Astra for Law ranked first in an evaluation covering 24 areas of law.",
+      "ChatGPT Enterprise customers gain a streamlined deployment channel to request access to the tool.",
+      "Legal professionals and enterprise users utilizing ChatGPT Enterprise are affected by the new availability."
+    ],
+    "tags": [
+      "Astra for Law",
+      "ChatGPT Enterprise",
+      "Legal Intelligence"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://openai.com/index/astra-law-6-2",
+        "title": "Astra for Law leads in legal intelligence",
         "publisher": "OpenAI"
       }
     ]
@@ -1309,19 +1713,19 @@
     "title": "Post-Training NVIDIA Nemotron to Increase Accuracy in Your Scientific Domain",
     "company": "NVIDIA",
     "source": "NVIDIA Developer Blog",
-    "summary": "[Automated summary unavailable] Agentic AI is reshaping scientific research and innovation. Researchers communicate complex scientific hypotheses in natural language and let autonomous agents... Agentic AI is reshaping scientific…",
-    "summary_status": "pending_quota",
-    "content_fingerprint": "",
+    "summary": "NVIDIA discusses post-training techniques for its Nemotron models to enhance accuracy in specialized scientific domains. The guide focuses on improving autonomous agents that handle complex, multi-iteration scientific workflows involving simulation and natural language processing.",
+    "summary_status": "generated",
+    "content_fingerprint": "81c4ac9484cd129b",
     "url": "https://developer.nvidia.com/blog/post-training-nvidia-nemotron-to-increase-accuracy-in-your-scientific-domain",
     "date": "2026-11-16T16:00:00+00:00",
     "category": "Product Release",
-    "fetched_at": "2026-11-16T16:48:15.050078+00:00",
+    "fetched_at": "2026-11-18T01:28:57.128674+00:00",
     "topics": [
       "Models and Releases",
       "AI Agents",
+      "Coding and Developer Tools",
       "Benchmarks and Evaluations",
-      "Infrastructure and Hardware",
-      "Applications and Products"
+      "Infrastructure and Hardware"
     ],
     "source_type": "Technical Publication",
     "priority_score": 3,
@@ -1336,10 +1740,17 @@
       }
     ],
     "key_points": [
-      "Post-training methods are applied to the NVIDIA Nemotron model to improve accuracy within scientific domains.",
-      "Enhancing domain-specific accuracy allows autonomous agents to better handle complex scientific hypotheses expressed in natural language.",
-      "Scientific researchers and developers of agentic AI systems are directly impacted by these workflow improvements."
-    ]
+      "NVIDIA detailed post-training methods for Nemotron to improve domain-specific scientific accuracy.",
+      "Enhances the reliability of autonomous agents executing multi-step simulations and self-correction workflows.",
+      "Targeted at researchers and developers deploying agentic AI systems for scientific discovery."
+    ],
+    "tags": [
+      "NVIDIA",
+      "Nemotron",
+      "AI Agents",
+      "Scientific Research"
+    ],
+    "impact_score": 6
   },
   {
     "id": "bd4930e0839976d3",
@@ -1510,22 +1921,23 @@
     "title": "How Revolut raises ambition without lowering the bar",
     "company": "OpenAI",
     "source": "OpenAI News",
-    "summary": "[Automated summary unavailable] Discover how Revolut uses OpenAI models and Codex to cut coding time by 30–60%, scale financial crime investigations, and innovate without compromising security.",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "Revolut integrates OpenAI models and Codex to accelerate software development, reducing coding time by 30 to 60 percent. The company also applies these AI systems to scale financial crime investigations while maintaining security standards.",
+    "summary_status": "generated",
+    "content_fingerprint": "3e08662700ee7c1d",
     "url": "https://openai.com/business/customer-stories/revolut",
     "date": "2026-11-16T09:30:00+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-11-17T16:45:38.945582+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-18T01:28:57.128016+00:00",
     "topics": [
       "Models and Releases",
       "Coding and Developer Tools",
-      "Safety and Security"
+      "Safety and Security",
+      "Applications and Products"
     ],
     "source_type": "Primary Source",
-    "priority_score": 4,
-    "priority_label": "Must Know",
-    "priority_explanation": "Announces a model or architecture capability",
+    "priority_score": 1,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Primary lab announcement from OpenAI",
     "why_it_matters": "",
     "sources": [
       {
@@ -1535,10 +1947,17 @@
       }
     ],
     "key_points": [
-      "Revolut integrated OpenAI models and Codex to enhance coding efficiency and financial crime investigations.",
-      "Coding time was reduced by 30 to 60 percent, demonstrating measurable productivity gains in enterprise fintech operations.",
-      "Fintech developers, security teams, and enterprise users of AI coding assistants are directly affected."
-    ]
+      "Revolut deployed OpenAI models and Codex to streamline software engineering and financial crime investigations.",
+      "The integration reduced coding time by 30 to 60 percent while preserving strict financial security protocols.",
+      "Financial technology developers and fraud investigation teams are directly affected by these operational efficiency gains."
+    ],
+    "tags": [
+      "Revolut",
+      "OpenAI",
+      "Codex",
+      "Financial Crime"
+    ],
+    "impact_score": 6
   },
   {
     "id": "ff7833693fa2a067",

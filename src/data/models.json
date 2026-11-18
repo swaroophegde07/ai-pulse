@@ -1,5 +1,137 @@
 [
   {
+    "id": "openai/gpt-6.2-sol-pro",
+    "name": "OpenAI: GPT-6.2 Sol Pro",
+    "provider": "OpenAI",
+    "family": "GPT-6",
+    "category": "Frontier Reasoning & Chat",
+    "is_featured_frontier": false,
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1050000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 2.0,
+      "output_per_1m": 10.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-6.2-sol-pro",
+    "source_url": "https://openrouter.ai/openai/gpt-6.2-sol-pro",
+    "last_verified": "2026-11-18",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-11-18)",
+      "pricing": "OpenRouter (2026-11-18)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-11-18."
+  },
+  {
+    "id": "openai/gpt-6.2-sol",
+    "name": "OpenAI: GPT-6.2 Sol",
+    "provider": "OpenAI",
+    "family": "GPT-6",
+    "category": "Frontier Reasoning & Chat",
+    "is_featured_frontier": false,
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1050000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 2.0,
+      "output_per_1m": 10.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-6.2-sol",
+    "source_url": "https://openrouter.ai/openai/gpt-6.2-sol",
+    "last_verified": "2026-11-18",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-11-18)",
+      "pricing": "OpenRouter (2026-11-18)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-11-18."
+  },
+  {
+    "id": "openai/gpt-6.2-astra-pro",
+    "name": "OpenAI: GPT-6.2 Astra Pro",
+    "provider": "OpenAI",
+    "family": "GPT-6",
+    "category": "Frontier Reasoning & Chat",
+    "is_featured_frontier": false,
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1050000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 8.0,
+      "output_per_1m": 40.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-6.2-astra-pro",
+    "source_url": "https://openrouter.ai/openai/gpt-6.2-astra-pro",
+    "last_verified": "2026-11-18",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-11-18)",
+      "pricing": "OpenRouter (2026-11-18)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-11-18."
+  },
+  {
+    "id": "openai/gpt-6.2-astra",
+    "name": "OpenAI: GPT-6.2 Astra",
+    "provider": "OpenAI",
+    "family": "GPT-6",
+    "category": "Frontier Reasoning & Chat",
+    "is_featured_frontier": false,
+    "release_date": "Unknown",
+    "lifecycle_status": "Active (Catalog)",
+    "context_window": 1050000,
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "license_type": "Proprietary API",
+    "api_available": true,
+    "consumer_available": false,
+    "pricing": {
+      "input_per_1m": 8.0,
+      "output_per_1m": 40.0,
+      "unit": "USD"
+    },
+    "documentation_url": "https://openrouter.ai/openai/gpt-6.2-astra",
+    "source_url": "https://openrouter.ai/openai/gpt-6.2-astra",
+    "last_verified": "2026-11-18",
+    "verification_sources": {
+      "telemetry": "OpenRouter (2026-11-18)",
+      "pricing": "OpenRouter (2026-11-18)"
+    },
+    "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-11-18."
+  },
+  {
     "id": "openai/gpt-6.1-terra-pro",
     "name": "OpenAI: GPT-6.1 Terra Pro",
     "provider": "OpenAI",
@@ -315,16 +447,16 @@
     "api_available": true,
     "consumer_available": false,
     "pricing": {
-      "input_per_1m": 0.3,
-      "output_per_1m": 1.2,
+      "input_per_1m": 0.051,
+      "output_per_1m": 0.567,
       "unit": "USD"
     },
     "documentation_url": "https://openrouter.ai/deepseek/deepseek-v4.1-flash",
     "source_url": "https://openrouter.ai/deepseek/deepseek-v4.1-flash",
-    "last_verified": "2026-11-17",
+    "last_verified": "2026-11-18",
     "verification_sources": {
-      "telemetry": "OpenRouter (2026-11-17)",
-      "pricing": "OpenRouter (2026-11-17)"
+      "telemetry": "OpenRouter (2026-11-18)",
+      "pricing": "OpenRouter (2026-11-18)"
     },
     "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
     "is_featured_frontier": true
@@ -645,16 +777,16 @@
     "api_available": true,
     "consumer_available": false,
     "pricing": {
-      "input_per_1m": 0.15,
-      "output_per_1m": 1.875,
+      "input_per_1m": 0.06,
+      "output_per_1m": 2.2,
       "unit": "USD"
     },
     "documentation_url": "https://openrouter.ai/qwen/qwen3.8-27b",
     "source_url": "https://openrouter.ai/qwen/qwen3.8-27b",
-    "last_verified": "2026-11-14",
+    "last_verified": "2026-11-18",
     "verification_sources": {
-      "telemetry": "OpenRouter (2026-11-14)",
-      "pricing": "OpenRouter (2026-11-14)"
+      "telemetry": "OpenRouter (2026-11-18)",
+      "pricing": "OpenRouter (2026-11-18)"
     },
     "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
     "is_featured_frontier": false

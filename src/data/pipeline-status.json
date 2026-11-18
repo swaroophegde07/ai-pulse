@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-17T16:46:09.883027+00:00",
+  "generated_at": "2026-11-18T01:29:13.637763+00:00",
   "overall_status": "healthy",
   "feed_health": {
     "total_configured_sources": 15,
     "enabled_sources": 14,
     "active_sources": 14,
-    "total_retained_articles": 794
+    "total_retained_articles": 803
   },
   "rss_sources": [
     {
@@ -14,9 +14,9 @@
       "url": "https://openai.com/news/rss.xml",
       "category": "Product Release",
       "status": "active",
-      "retained_articles_count": 109,
-      "last_checked": "2026-11-17T16:39:45.526768+00:00",
-      "raw_entries_count": 1401,
+      "retained_articles_count": 112,
+      "last_checked": "2026-11-18T01:27:06.811163+00:00",
+      "raw_entries_count": 1406,
       "relevant_articles_count": 10
     },
     {
@@ -26,7 +26,7 @@
       "category": "Research",
       "status": "active",
       "retained_articles_count": 26,
-      "last_checked": "2026-11-17T16:39:46.536425+00:00",
+      "last_checked": "2026-11-18T01:27:07.707098+00:00",
       "raw_entries_count": 100,
       "relevant_articles_count": 10
     },
@@ -37,7 +37,7 @@
       "category": "News",
       "status": "active",
       "retained_articles_count": 56,
-      "last_checked": "2026-11-17T16:39:47.181899+00:00",
+      "last_checked": "2026-11-18T01:27:08.482231+00:00",
       "raw_entries_count": 908,
       "relevant_articles_count": 10
     },
@@ -48,7 +48,7 @@
       "category": "Product Release",
       "status": "active",
       "retained_articles_count": 16,
-      "last_checked": "2026-11-17T16:39:47.944200+00:00",
+      "last_checked": "2026-11-18T01:27:09.227822+00:00",
       "raw_entries_count": 10,
       "relevant_articles_count": 10
     },
@@ -59,7 +59,7 @@
       "category": "Product Release",
       "status": "active",
       "retained_articles_count": 3,
-      "last_checked": "2026-11-17T16:39:49.293778+00:00",
+      "last_checked": "2026-11-18T01:27:10.713092+00:00",
       "raw_entries_count": 49,
       "relevant_articles_count": 1
     },
@@ -69,10 +69,10 @@
       "url": "https://www.microsoft.com/en-us/research/feed/",
       "category": "Research",
       "status": "active",
-      "retained_articles_count": 20,
-      "last_checked": "2026-11-17T16:39:49.863307+00:00",
+      "retained_articles_count": 21,
+      "last_checked": "2026-11-18T01:27:11.634402+00:00",
       "raw_entries_count": 10,
-      "relevant_articles_count": 9
+      "relevant_articles_count": 10
     },
     {
       "name": "The Gradient",
@@ -81,7 +81,7 @@
       "category": "Research",
       "status": "active",
       "retained_articles_count": 10,
-      "last_checked": "2026-11-17T16:39:51.180144+00:00",
+      "last_checked": "2026-11-18T01:27:13.002414+00:00",
       "raw_entries_count": 15,
       "relevant_articles_count": 10
     },
@@ -91,8 +91,8 @@
       "url": "https://arstechnica.com/tag/ai/feed/",
       "category": "News",
       "status": "active",
-      "retained_articles_count": 22,
-      "last_checked": "2026-11-17T16:39:52.428153+00:00",
+      "retained_articles_count": 23,
+      "last_checked": "2026-11-18T01:27:14.430703+00:00",
       "raw_entries_count": 20,
       "relevant_articles_count": 8
     },
@@ -103,9 +103,9 @@
       "category": "News",
       "status": "active",
       "retained_articles_count": 56,
-      "last_checked": "2026-11-17T16:39:53.345613+00:00",
+      "last_checked": "2026-11-18T01:27:15.244155+00:00",
       "raw_entries_count": 10,
-      "relevant_articles_count": 10
+      "relevant_articles_count": 9
     },
     {
       "name": "arXiv cs.AI (Artificial Intelligence)",
@@ -114,7 +114,7 @@
       "category": "Research",
       "status": "active",
       "retained_articles_count": 183,
-      "last_checked": "2026-11-17T16:39:54.047099+00:00",
+      "last_checked": "2026-11-18T01:27:15.869490+00:00",
       "raw_entries_count": 717,
       "relevant_articles_count": 10
     },
@@ -125,7 +125,7 @@
       "category": "Research",
       "status": "active",
       "retained_articles_count": 166,
-      "last_checked": "2026-11-17T16:39:54.942912+00:00",
+      "last_checked": "2026-11-18T01:27:16.801650+00:00",
       "raw_entries_count": 774,
       "relevant_articles_count": 10
     },
@@ -144,10 +144,10 @@
       "url": "https://developer.nvidia.com/blog/feed",
       "category": "Product Release",
       "status": "active",
-      "retained_articles_count": 52,
-      "last_checked": "2026-11-17T16:39:55.773194+00:00",
+      "retained_articles_count": 53,
+      "last_checked": "2026-11-18T01:27:17.710455+00:00",
       "raw_entries_count": 100,
-      "relevant_articles_count": 6
+      "relevant_articles_count": 5
     },
     {
       "name": "OpenCode Updates",
@@ -155,8 +155,8 @@
       "url": "https://github.com/anomalyco/opencode/releases.atom",
       "category": "Product Release",
       "status": "active",
-      "retained_articles_count": 29,
-      "last_checked": "2026-11-17T16:39:56.575079+00:00",
+      "retained_articles_count": 31,
+      "last_checked": "2026-11-18T01:27:18.721815+00:00",
       "raw_entries_count": 10,
       "relevant_articles_count": 10
     },
@@ -166,8 +166,8 @@
       "url": "https://simonwillison.net/tags/ai.atom",
       "category": "Opinion",
       "status": "active",
-      "retained_articles_count": 46,
-      "last_checked": "2026-11-17T16:39:57.941063+00:00",
+      "retained_articles_count": 47,
+      "last_checked": "2026-11-18T01:27:20.005254+00:00",
       "raw_entries_count": 30,
       "relevant_articles_count": 10
     }
@@ -181,8 +181,8 @@
       "provenance": "Independent Evaluation",
       "url": "https://livebench.ai/",
       "license": "Apache-2.0",
-      "last_known_good_timestamp": "2026-11-17T16:45:59.756954+00:00",
-      "last_retrieval_time": "2026-11-17T16:45:59.756954+00:00",
+      "last_known_good_timestamp": "2026-11-18T01:28:57.197573+00:00",
+      "last_retrieval_time": "2026-11-18T01:28:57.197573+00:00",
       "last_successful_evaluation_date": null,
       "warnings": [],
       "notes": "Contamination-free evaluations with monthly updated problems across reasoning, coding, and mathematics."
@@ -194,8 +194,8 @@
       "provenance": "Independent Evaluation",
       "url": "https://arena.ai/leaderboard",
       "license": "Apache-2.0 / CC-BY",
-      "last_known_good_timestamp": "2026-11-17T16:45:59.756954+00:00",
-      "last_retrieval_time": "2026-11-17T16:45:59.756954+00:00",
+      "last_known_good_timestamp": "2026-11-18T01:28:57.197573+00:00",
+      "last_retrieval_time": "2026-11-18T01:28:57.197573+00:00",
       "last_successful_evaluation_date": null,
       "notes": "Crowdsourced blind pairwise battles evaluated with Bradley-Terry Elo ratings across human preference and coding."
     },
