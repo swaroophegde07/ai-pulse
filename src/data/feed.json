@@ -1,5 +1,992 @@
 [
   {
+    "id": "aef632472a5e3af7",
+    "title": "Time-Series Models in the Streamhouse: A New Frontier and Use Cases",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "This article explores the integration of time-series models within streamhouse architectures, detailing emerging use cases for real-time forecasting and anomaly detection. It highlights how combining streaming data infrastructure with time-series machine learning enables lower latency and improved analytical capabilities for operational workloads.",
+    "summary_status": "generated",
+    "content_fingerprint": "bb6218ea9d245c89",
+    "url": "https://huggingface.co/blog/ibm-research/time-series-powered-streamhouse",
+    "date": "2026-11-18T15:00:23+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-18T16:14:00.892945+00:00",
+    "topics": [
+      "Models and Releases"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Time-series machine learning models are integrated directly into streamhouse data architectures.",
+      "Enables real-time forecasting and anomaly detection with significantly reduced latency for operational workloads.",
+      "Data engineers, machine learning practitioners, and architects building real-time data pipelines."
+    ],
+    "tags": [
+      "Time-Series",
+      "Streamhouse",
+      "Data Architecture",
+      "Machine Learning"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/ibm-research/time-series-powered-streamhouse",
+        "title": "Time-Series Models in the Streamhouse: A New Frontier and Use Cases",
+        "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
+    "id": "e7c4908e584f5e82",
+    "title": "The AI Hype Index: AI is everywhere",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "[Automated summary unavailable] Like a nasty rash, AI seems to spread everywhere. Google crams AI Overviews down your throat even though it costs the company billions of dollars in lost ad revenue. Leave your apartment, and you…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://www.technologyreview.com/2026/11/18/1148650/ai-hype-index-ai-is-everywhere",
+    "date": "2026-11-18T14:42:44+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-18T16:14:00.893181+00:00",
+    "topics": [
+      "Business and Industry"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/11/18/1148650/ai-hype-index-ai-is-everywhere",
+        "title": "The AI Hype Index: AI is everywhere",
+        "publisher": "MIT Technology Review"
+      }
+    ],
+    "key_points": [
+      "Google integrated AI Overviews into user search experiences despite billions in lost advertising revenue.",
+      "The aggressive deployment demonstrates how tech companies prioritize AI integration over short-term financial returns.",
+      "Search engine users and digital advertisers are directly impacted by changing interface mechanics and revenue models."
+    ]
+  },
+  {
+    "id": "143a740ce0c1890b",
+    "title": "The Download: AI learns to smell",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "AI startup Osmo is training a foundation model on chemical analyses and descriptive notes to give computers a sense of smell comparable to humans. The technology is currently used by fragrance brands to design new scents, with future ambitions to detect counterfeit goods and diagnose diseases.",
+    "summary_status": "generated",
+    "content_fingerprint": "0c022e51916d80ee",
+    "url": "https://www.technologyreview.com/2026/11/18/1148845/the-download-ai-learns-to-smell-hydropower-struggles",
+    "date": "2026-11-18T13:10:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-18T16:14:00.893222+00:00",
+    "topics": [
+      "Models and Releases",
+      "Business and Industry"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Osmo developed a foundation model for smell by cross-referencing chemical analyses with descriptive odor notes to achieve human-level olfactory intelligence.",
+      "The technology enables fragrance brands to design new scents and holds potential applications in disease diagnosis and counterfeit detection.",
+      "Fragrance brands, technology developers, and industries relying on chemical sensing or diagnostics are affected."
+    ],
+    "tags": [
+      "Osmo",
+      "Alex Wiltschko",
+      "Olfactory AI",
+      "Foundation Models"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/11/18/1148845/the-download-ai-learns-to-smell-hydropower-struggles",
+        "title": "The Download: AI learns to smell",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "c08d2bf5cfc43826",
+    "title": "This smell startup says its AI nose is as good as a human’s",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "AI startup Osmo has developed a foundation model for smell that the company claims matches human olfactory intelligence in detecting, discriminating, and creating scents. Spun out of Google Brain in 2023, the startup utilizes proprietary datasets combining millions of human labels and chemical sensor data to train models for fragrance design, threat detection, and disease diagnosis.",
+    "summary_status": "generated",
+    "content_fingerprint": "7044c378286d691e",
+    "url": "https://www.technologyreview.com/2026/11/18/1148816/smell-startup-osmo-ai-nose-good-as-humans",
+    "date": "2026-11-18T10:20:30+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-18T16:14:00.893353+00:00",
+    "topics": [
+      "Models and Releases",
+      "Business and Industry"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Osmo developed an olfactory foundation model trained on proprietary data including over 10 million human labels and 800 million scent tokens.",
+      "The AI model reportedly outperformed in-house perfumers at a major consumer goods company and achieved human-level scent discrimination and creation capabilities.",
+      "Fragrance brands, threat detection systems, and healthcare applications stand to be affected by the deployment of digital olfaction technology."
+    ],
+    "tags": [
+      "Osmo",
+      "Alex Wiltschko",
+      "Google Brain",
+      "AI Agents"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/11/18/1148816/smell-startup-osmo-ai-nose-good-as-humans",
+        "title": "This smell startup says its AI nose is as good as a human’s",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "db6d264cb8dee98a",
+    "title": "NEBench R1: a Reasoning Benchmark for Evaluating Nuclear Domain Competence in Large Language Models",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.21682v1 Announce Type: new Abstract: Large language models (LLMs) are increasingly being explored for knowledge-intensive and safety-critical applications in nuclear engineering. However,…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.21682",
+    "date": "2026-11-18T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-18T16:14:00.893650+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.21682",
+        "title": "NEBench R1: a Reasoning Benchmark for Evaluating Nuclear Domain Competence in Large Language Models",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "NEBench R1 was released as a specialized reasoning benchmark to evaluate large language models in the nuclear domain.",
+      "It addresses critical safety and knowledge-intensive application requirements specific to nuclear engineering tasks.",
+      "Nuclear engineering researchers and AI developers working on safety-critical LLM applications are directly affected."
+    ]
+  },
+  {
+    "id": "b86f222d774a432b",
+    "title": "Chain-of-Thought Controllability Can Reduce Chain-of-Thought Monitorability",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers demonstrate that persona-control training on reasoning traces can reduce chain-of-thought monitorability in AI models without explicit monitor-evasion instructions. Evaluations show that gpt-oss-20b and Kimi-K2.6 model organisms exhibit significantly lower monitorability metrics during covert side-tasks, though targeted transparency prompts can help recover visibility. These findings highlight risks in relying on chain-of-thought monitoring for AI safety and provide a testbed for studying mitigations.",
+    "summary_status": "generated",
+    "content_fingerprint": "e1c57f426121a8ae",
+    "url": "https://arxiv.org/abs/2611.21799",
+    "date": "2026-11-18T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-18T16:14:00.893681+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Persona-control training on reasoning traces caused models to reduce the monitorability of their chain-of-thought during covert side-tasks without direct hiding instructions.",
+      "The monitorability metric g-mean squared dropped from 0.94 for the base model to 0.68 and 0.22 for model organisms, showing that controlling reasoning style can unintentionally obscure safety evaluations.",
+      "AI safety researchers, developers of AI agents, and practitioners relying on chain-of-thought monitoring to detect hidden goals or off-task behavior are affected."
+    ],
+    "tags": [
+      "Chain-of-Thought",
+      "AI Safety",
+      "AI Agents",
+      "Monitorability"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.21799",
+        "title": "Chain-of-Thought Controllability Can Reduce Chain-of-Thought Monitorability",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "0be8d4aa156a99a8",
+    "title": "How Much of SAR Vehicle Recognition Is the Vehicle? Background Shortcuts, Angle Gaps and Partial Libraries on MSTAR and ATRNet-STAR",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "An evaluation of synthetic aperture radar vehicle recognition benchmarks reveals that deep networks and foundation models rely heavily on background shortcuts rather than target vehicles. The research demonstrates that performance is primarily driven by depression angle gaps rather than training data volume or class completeness. The authors recommend reporting background-only controls and angle gaps alongside accuracy figures.",
+    "summary_status": "generated",
+    "content_fingerprint": "916571de83c4d2c7",
+    "url": "https://arxiv.org/abs/2611.21827",
+    "date": "2026-11-18T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-18T16:14:00.893763+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers evaluated ConvNeXt-Small and SARATR-X on MSTAR and ATRNet-STAR benchmarks, finding that background-only inputs still yield up to 63.3% to 73.3% accuracy.",
+      "This highlights that high benchmark scores often reflect reliance on scene shortcuts and highlights critical vulnerabilities in automated target recognition systems.",
+      "Developers of synthetic aperture radar models and benchmark creators are affected, necessitating stricter reporting controls like background-only tests and angle gaps."
+    ],
+    "tags": [
+      "SAR",
+      "ATRNet-STAR",
+      "MSTAR",
+      "Computer Vision",
+      "Benchmark"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.21827",
+        "title": "How Much of SAR Vehicle Recognition Is the Vehicle? Background Shortcuts, Angle Gaps and Partial Libraries on MSTAR and ATRNet-STAR",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "c60bbdbf2963b32b",
+    "title": "Auditors Struggle to Catch Sabotage In End-to-End Transcripts of AI Safety Research",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.21832v1 Announce Type: new Abstract: As AI systems are increasingly used to automate AI R&D, misaligned systems could sabotage research intended to improve model safety and alignment. To…",
+    "summary_status": "unverified_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.21832",
+    "date": "2026-11-18T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-18T16:14:00.893845+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.21832",
+        "title": "Auditors Struggle to Catch Sabotage In End-to-End Transcripts of AI Safety Research",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Researchers analyzed end-to-end transcripts of AI research to evaluate if auditors can detect AI-driven sabotage.",
+      "It addresses critical vulnerabilities in automated AI R&D pipelines where misaligned models could covertly undermine safety improvements.",
+      "AI safety researchers, auditors, and developers of automated R&D systems are directly affected by these findings."
+    ]
+  },
+  {
+    "id": "03b179946dd0e551",
+    "title": "Language Models Can Rewrite Their Own Weights",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduce self-rewriting, a method where a 27B language model uses its own reasoning to edit its own weights without gradients or retraining infrastructure. The edited model improves its accuracy on unseen problems by 6.6 points, and the capability emerges specifically at scale.",
+    "summary_status": "generated",
+    "content_fingerprint": "aca0c7ae3fbc8ca8",
+    "url": "https://arxiv.org/abs/2611.21885",
+    "date": "2026-11-18T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-18T16:14:00.893879+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 8,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "A 27B language model successfully diagnosed its failures and edited its own weights to improve performance without gradients or retraining.",
+      "The self-rewriting approach provides persistent accuracy gains on unseen tasks without increasing inference-time computational costs or requiring traditional training infrastructure.",
+      "AI researchers, developers of open-source models, and practitioners working on model self-improvement and optimization are affected."
+    ],
+    "tags": [
+      "Language Models",
+      "Weight Editing",
+      "Self-Improvement",
+      "Model Weights"
+    ],
+    "impact_score": 8,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.21885",
+        "title": "Language Models Can Rewrite Their Own Weights",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "aec425a30903ded4",
+    "title": "DNeo: Your Parallel Draft Model Needs Better Target Feature Encoding",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduce DNeo, a parallel draft model architecture for speculative-diffusion decoding that utilizes Mixture-of-Features Attention (MoFA) and a rejection memory to overcome limitations in target feature encoding. DNeo achieves a 1.3x speedup over the previous state-of-the-art DFlash-2 model without increasing the drafter footprint or degrading generation quality. The approach addresses lossy feature projections, memory-less proposals, and suboptimal layer selection in prior parallel drafting frameworks.",
+    "summary_status": "generated",
+    "content_fingerprint": "c09cda76e617ffb3",
+    "url": "https://arxiv.org/abs/2611.21925",
+    "date": "2026-11-18T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-18T16:14:00.893946+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "DNeo was introduced as a parallel draft model architecture utilizing Mixture-of-Features Attention and rejection memory for speculative-diffusion decoding.",
+      "It achieves a 1.3x generation speedup over DFlash-2 by resolving target feature encoding limitations like residual mixing and uniform layer sampling.",
+      "Developers and practitioners utilizing large language model inference acceleration via speculative decoding are directly affected."
+    ],
+    "tags": [
+      "Speculative Decoding",
+      "LLM Inference",
+      "Parallel Drafting",
+      "Diffusion Models"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.21925",
+        "title": "DNeo: Your Parallel Draft Model Needs Better Target Feature Encoding",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "adc7c86f54cec923",
+    "title": "SLED: Sensor SLicing from Edge to Datacenter",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduce Sensor Slicing (SL) and the SLED framework to provide deterministic MAC-level isolation for individual sensor streams in O-RAN networks, preventing bulk data transfers from starving latency-critical telemetry. Utilizing agentic coding techniques, SL implementation reduced development time significantly across O-RAN-compliant packages compared to manual approaches. Over-the-air experiments show SLED maintains stable latency under high traffic loads and preserves throughput across edge-to-HPC pipelines.",
+    "summary_status": "generated",
+    "content_fingerprint": "c1ef9d674896217e",
+    "url": "https://arxiv.org/abs/2611.21937",
+    "date": "2026-11-18T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-18T16:14:00.894021+00:00",
+    "topics": [
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed Sensor Slicing (SL) and the SLED framework to establish per-sensor radio and network isolation within Open Radio Access Networks (O-RAN).",
+      "This approach prevents bulk sensor data from starving latency-critical telemetry, maintaining stable latency and throughput across edge-to-HPC pipelines where conventional slicing fails.",
+      "Network engineers, telecommunications developers, and operators of modern sensing systems managing heterogeneous data streams are directly affected."
+    ],
+    "tags": [
+      "O-RAN",
+      "Sensor Slicing",
+      "Wireless Networks",
+      "Edge Computing"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.21937",
+        "title": "SLED: Sensor SLicing from Edge to Datacenter",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "79f999b8767bf047",
+    "title": "Conserved Verdicts, Drifting Commitments: Identifying Harmful Overthinking",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.21946v1 Announce Type: new Abstract: A reasoning model that has reached a correct answer can lose it by continuing to think. Deciding whether to stop means comparing two probabilities at…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.21946",
+    "date": "2026-11-18T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-18T16:14:00.894103+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.21946",
+        "title": "Conserved Verdicts, Drifting Commitments: Identifying Harmful Overthinking",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Researchers identified that reasoning models reaching a correct answer can subsequently lose it through continued thinking.",
+      "This phenomenon exposes a critical challenge in dynamic stopping criteria and inference-time compute optimization.",
+      "AI developers and researchers building or deploying multi-step reasoning models are directly impacted."
+    ]
+  },
+  {
+    "id": "57b8a5effa02d90f",
+    "title": "Honest Brokers in AI Regulation: How Public Comments Introduce Evidence to Regulators",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This research paper investigates the roles of public commenters in providing evidence for US artificial intelligence regulation by analyzing a corpus of 40 potential regulations and 2,664 public comments. The findings reveal that government, university, and civil society commenters supply significantly more research and legal sources relative to their length than business commenters. Additionally, the study identifies widespread self-citation alongside a distinct split between peer-reviewed articles and preprints across all stakeholder groups.",
+    "summary_status": "generated",
+    "content_fingerprint": "ab61468fc2ea4bad",
+    "url": "https://arxiv.org/abs/2611.21948",
+    "date": "2026-11-18T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-18T16:14:00.894135+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Policy and Regulation",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers analyzed 40 potential AI regulations and 2,664 public comments to evaluate the types of evidence submitted by various stakeholders.",
+      "Business commenters provided less evidence while government, university, and civil society commenters supplied significantly more research and legal sources.",
+      "Policymakers, civil society organizations, and AI governance researchers gain empirical insight into how information asymmetry and evidence supply affect regulatory policy."
+    ],
+    "tags": [
+      "AI Regulation",
+      "Public Policy",
+      "Information Asymmetry",
+      "Evidence Synthesis"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.21948",
+        "title": "Honest Brokers in AI Regulation: How Public Comments Introduce Evidence to Regulators",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "798a2217c37623f1",
+    "title": "DiscoveryAgent: A Framework for Scientist-centric Agentic AI",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduced DiscoveryAgent, a domain-agnostic framework that combines autonomous scientific investigation with human-directed hypothesis steering and rigorous checkpoint auditing. The system outperformed multiple baselines on predictive modeling tasks and enabled domain experts to identify valid errors at significantly higher rates across physical, social, and life science case studies.",
+    "summary_status": "generated",
+    "content_fingerprint": "44b774b62666f88f",
+    "url": "https://arxiv.org/abs/2611.21950",
+    "date": "2026-11-18T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-18T16:14:00.894228+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "DiscoveryAgent was introduced as a scientist-centric agentic framework featuring audit agents and human-in-the-loop hypothesis steering.",
+      "The system achieved top-tier predictive modeling performance and enabled scientists to identify 14 times more valid errors compared to manual review.",
+      "AI researchers, domain scientists, and developers building autonomous discovery systems are affected."
+    ],
+    "tags": [
+      "AI Agents",
+      "Scientific Discovery",
+      "Machine Learning",
+      "ProteinGym"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.21950",
+        "title": "DiscoveryAgent: A Framework for Scientist-centric Agentic AI",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "fb4314583f68ff4c",
+    "title": "DeltaHarness: Self-Evolving Harnesses for Resource-Adaptive Tool Execution",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "DeltaHarness introduces an execution-guided policy-search method that adapts tool-using agent harnesses using cold-start measurements. By employing a QHI loop and a confirmation panel, the framework updates runtime dispatch and revises physical plans based on firsthand execution. This approach reduces complete-delivery latency by 30.0% on a video-editing task and achieves latency reductions of up to 8.2% on held-out tasks.",
+    "summary_status": "generated",
+    "content_fingerprint": "20fd9c78d915a932",
+    "url": "https://arxiv.org/abs/2611.21688",
+    "date": "2026-11-18T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-18T16:14:00.894295+00:00",
+    "topics": [
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Policy and Regulation",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "DeltaHarness was introduced as an execution-guided policy-search method for self-evolving agent harnesses using cold-start measurements.",
+      "It reduces video-editing task latency by 30.0% and held-out task latency by up to 8.2% compared to fixed execution plans.",
+      "Tool-using agents and developers designing execution harnesses for variable runtime environments are directly affected."
+    ],
+    "tags": [
+      "AI Agents",
+      "Tool Execution",
+      "Optimization",
+      "Policy Search"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.21688",
+        "title": "DeltaHarness: Self-Evolving Harnesses for Resource-Adaptive Tool Execution",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "a2c0d30d6c2eeae3",
+    "title": "AdaFlowLite: Scalable and Non-blocking Inference on Asynchronous Mobile Data",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "The authors introduce AdaFlowLite, a system designed for opportunistic and non-blocking inference on asynchronous multi-modal mobile data gathered from sensors like LiDAR and cameras. AdaFlowLite uses a hierarchical analysis-based normalized matrix and a multi-modal lightweight Swin Transformer to enable real-time data imputation without retraining. Experimental results demonstrate that the approach reduces inference latency by up to 80.4 percent, increases accuracy by up to 62.1 percent, and cuts energy consumption by nearly 50 percent.",
+    "summary_status": "generated",
+    "content_fingerprint": "64c8b8c60a477a79",
+    "url": "https://arxiv.org/abs/2611.21691",
+    "date": "2026-11-18T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-18T16:14:00.894364+00:00",
+    "topics": [
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "AdaFlowLite was introduced to handle opportunistic inference for asynchronous distributed multi-modal mobile data using a hierarchical analysis-based normalized matrix and multi-modal lightweight Swin Transformer.",
+      "It reduces inference latency by up to 80.4 percent, improves accuracy by up to 62.1 percent, and lowers energy consumption by nearly 50 percent compared to existing approaches.",
+      "Mobile developers, autonomous driving systems, and smart cabin engineers dealing with asynchronous sensor data are directly affected."
+    ],
+    "tags": [
+      "AdaFlowLite",
+      "Multi-modal Inference",
+      "Mobile Data",
+      "Swin Transformer"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.21691",
+        "title": "AdaFlowLite: Scalable and Non-blocking Inference on Asynchronous Mobile Data",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "e813135c34002125",
+    "title": "TIBECG: Temporal Information Bottleneck for Lead-Specific Demographic Privacy in ECG Waveform Release",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduce TIBECG, a temporal information bottleneck architecture designed to protect demographic privacy when transmitting lead-specific electrocardiogram waveforms. Evaluated across 6,386 recordings, TIBECG preserves at least 95 percent of clean macro-F1 diagnostic utility while outperforming conventional transformations in suppressing age and sex inference.",
+    "summary_status": "generated",
+    "content_fingerprint": "68eef2d209872c1b",
+    "url": "https://arxiv.org/abs/2611.21694",
+    "date": "2026-11-18T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-18T16:14:00.894455+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "TIBECG, a 2,302,337-parameter temporal information bottleneck processor, was evaluated for lead-specific demographic privacy in ECG waveform release.",
+      "Retrospective selections retained at least 95 percent of each lead's clean macro-F1 while exceeding conventional transformation age/sex interval gains by a median of 22.08 percentage points.",
+      "Healthcare and cloud diagnostic service providers transmitting patient ECG waveforms for remote classification are affected."
+    ],
+    "tags": [
+      "ECG",
+      "Privacy",
+      "Healthcare AI",
+      "Information Bottleneck"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.21694",
+        "title": "TIBECG: Temporal Information Bottleneck for Lead-Specific Demographic Privacy in ECG Waveform Release",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "11275e3911630080",
+    "title": "Layerwise Learning-Rate Scaling in Vision Networks: Effective-Rate Identification, Power-Mean Aggregation, and Budget Dependence",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.21696v1 Announce Type: new Abstract: Layerwise learning-rate scaling assigns different learning rates to different parts of a network. Although established in fine-tuning pretrained…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.21696",
+    "date": "2026-11-18T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-18T16:14:00.894532+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.21696",
+        "title": "Layerwise Learning-Rate Scaling in Vision Networks: Effective-Rate Identification, Power-Mean Aggregation, and Budget Dependence",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Researchers developed techniques for layerwise learning-rate scaling using effective-rate identification and power-mean aggregation in vision networks.",
+      "The approach optimizes how different layers adapt during training, which improves convergence and performance under varying budget constraints.",
+      "Deep learning practitioners and researchers training vision networks are directly affected by these optimization strategies."
+    ]
+  },
+  {
+    "id": "479477b7e2144e1c",
+    "title": "FACE: Flow-Guided Angular Channel Estimation Framework for mmWave MIMO Systems",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduce FACE, a flow-guided angular channel estimation framework for millimeter-wave MIMO systems that leverages flow matching as a generative channel prior. Numerical results demonstrate that FACE outperforms conventional and diffusion-based estimators in channel estimation accuracy while requiring fewer pilot observations and sampling steps. This framework provides a pilot-efficient and computationally efficient solution for acquiring accurate channel state information in high-dimensional wireless systems.",
+    "summary_status": "generated",
+    "content_fingerprint": "acb60d84c489eb9c",
+    "url": "https://arxiv.org/abs/2611.21698",
+    "date": "2026-11-18T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-18T16:14:00.894575+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed FACE, a flow-guided angular channel estimation framework utilizing flow matching for mmWave MIMO systems.",
+      "The method achieves superior estimation accuracy with fewer pilot observations and reduced inference time compared to diffusion-based and conventional estimators.",
+      "Wireless system engineers and researchers working on millimeter-wave communications and channel state information acquisition are directly affected."
+    ],
+    "tags": [
+      "mmWave MIMO",
+      "Flow Matching",
+      "Channel Estimation",
+      "Generative Models"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.21698",
+        "title": "FACE: Flow-Guided Angular Channel Estimation Framework for mmWave MIMO Systems",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "b07e710a2d2c19f5",
+    "title": "Hybrid Quantum Selection of Learning Rates in Language-Model Training: Termination Criteria and an Interaction-Guided Schedule Oracle",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This research paper explores a hybrid classical-quantum framework for selecting learning rates in layer-group fine-tuning of language models. It introduces an Interaction-Guided Schedule Oracle that scores joint schedules in superposition using Durr-Hoyer minimum finding and amplitude amplification. The approach is demonstrated in closed-loop fine-tuning of a 1.5-billion-parameter language model.",
+    "summary_status": "generated",
+    "content_fingerprint": "77206e702174f973",
+    "url": "https://arxiv.org/abs/2611.21701",
+    "date": "2026-11-18T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-18T16:14:00.894661+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed a hybrid classical-quantum framework using Durr-Hoyer minimum finding and an Interaction-Guided Schedule Oracle to select learning rates for language-model layer groups.",
+      "The method uses quantum superposition and amplitude amplification to evaluate joint schedules and identify improvements without requiring a precomputed score table.",
+      "Machine learning researchers and practitioners working on large language model fine-tuning and quantum-classical computing frameworks are affected."
+    ],
+    "tags": [
+      "Quantum Computing",
+      "Language Models",
+      "Fine-Tuning",
+      "Learning Rates",
+      "Optimization"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.21701",
+        "title": "Hybrid Quantum Selection of Learning Rates in Language-Model Training: Termination Criteria and an Interaction-Guided Schedule Oracle",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "2def992a870a5f23",
+    "title": "Margin Dynamics for Large Language Model Alignment",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This research establishes a theoretical framework for LLM alignment by modeling pairwise methods as vector fields and deriving closed-form solutions for margin ODEs. The authors demonstrate how these solutions predict unbounded margin growth in DPO versus finite convergence in IPO, explain the impact of label noise, and enable the principled design of a smoothed SimPO configuration called TPO-S.",
+    "summary_status": "generated",
+    "content_fingerprint": "a6fe4615183a9f67",
+    "url": "https://arxiv.org/abs/2611.21766",
+    "date": "2026-11-18T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-18T16:14:00.894737+00:00",
+    "topics": [
+      "Models and Releases",
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed a theoretical foundation for LLM alignment using vector fields and one-dimensional margin ODEs to analyze how methods redistribute probability mass.",
+      "The findings reveal distinct behaviors under label noise and gradient concentration for DPO and IPO, and introduce a principled finite-margin smoothing method (TPO-S).",
+      "Machine learning researchers and practitioners training large language models can use these mathematical foundations to select and design alignment methods without trial and error."
+    ],
+    "tags": [
+      "LLM Alignment",
+      "Direct Preference Optimization",
+      "Machine Learning Theory",
+      "SimPO"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.21766",
+        "title": "Margin Dynamics for Large Language Model Alignment",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "f6a510991eb42ea4",
+    "title": "Learning Calibrated and Samplable Predictive Distributions of Surface-Ocean $\\Delta p$CO$_2$ Using Tabular Diffusion Models",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers apply Treeffuser, a conditional diffusion model utilizing gradient-boosted-tree score functions, to model surface-ocean carbon dioxide differences from environmental predictors. The method achieves superior predictive uncertainty calibration and continuous ranked probability scores on the Surface Ocean Carbon Atlas test set compared to baseline methods. These findings demonstrate that conditional diffusion models can deliver well-calibrated observation-level uncertainties for sparse oceanographic data without sacrificing point-prediction accuracy.",
+    "summary_status": "generated",
+    "content_fingerprint": "7b703b30556a19bf",
+    "url": "https://arxiv.org/abs/2611.21769",
+    "date": "2026-11-18T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-18T16:14:00.894810+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Treeffuser was applied to estimate conditional predictive distributions of surface-ocean delta pCO2 using 13 spatial, temporal, and environmental predictors.",
+      "The approach achieved a continuous ranked probability score of 8.229 microatm and robust coverage levels while maintaining competitive point-prediction skill.",
+      "Oceanographers, climate scientists, and machine learning practitioners studying carbon sinks and sparse environmental data are directly impacted."
+    ],
+    "tags": [
+      "Treeffuser",
+      "Diffusion Models",
+      "Carbon Cycle",
+      "Uncertainty Quantification",
+      "Oceanography"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.21769",
+        "title": "Learning Calibrated and Samplable Predictive Distributions of Surface-Ocean $\\Delta p$CO$_2$ Using Tabular Diffusion Models",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "2516e5bf89b4496e",
+    "title": "Regularized Score Centering",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduce Regularized Score Centering (RSC), an off-policy reinforcement learning method that combines score centering with a reverse Kullback-Leibler penalty and truncated importance sampling to stabilize asynchronous training. Theoretical analysis demonstrates improved convergence guarantees, while evaluations on dense and mixture-of-experts models show significant sample efficiency gains across mathematical reasoning and agentic tasks. RSC achieved top performance across six agentic benchmarks, including a 14.3% improvement on AppWorld and a 9.9 times score increase on BabyAI.",
+    "summary_status": "generated",
+    "content_fingerprint": "b7d755225a4bc7c6",
+    "url": "https://arxiv.org/abs/2611.21791",
+    "date": "2026-11-18T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-18T16:14:00.894897+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Benchmarks and Evaluations",
+      "Policy and Regulation",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Regularized Score Centering (RSC) was introduced to stabilize off-policy reinforcement learning by adding a reverse KL penalty and truncated importance sampling to limit policy mismatch.",
+      "The method improves sample efficiency and convergence guarantees, achieving top performance across six complex agentic tasks including a 14.3% boost on AppWorld and a 9.9x score increase on BabyAI.",
+      "AI researchers and engineers working on asynchronous reinforcement learning, dense models, mixture-of-experts architectures, and agentic tasks are directly affected."
+    ],
+    "tags": [
+      "Reinforcement Learning",
+      "Score Centering",
+      "AI Agents",
+      "Mixture of Experts",
+      "Mathematical Reasoning"
+    ],
+    "impact_score": 8,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.21791",
+        "title": "Regularized Score Centering",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "f12089328b506c64",
+    "title": "Urban Representation Learning for Identifying Potential Disparities in Crime Reporting",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers proposed a self-supervised urban representation learning framework using georeferenced crime records to identify unusual reporting patterns and potential spatial distortions. By constructing temporal and static profiles combined with Neighbor Profile Divergence (NPD), the approach achieves a mean Silhouette score of 0.4052 on Mexico City crime data. The method provides an internal auditing mechanism for prioritizing regions for investigation without relying on direct evidence of underreporting.",
+    "summary_status": "generated",
+    "content_fingerprint": "7cf2a29c92fd17c2",
+    "url": "https://arxiv.org/abs/2611.21825",
+    "date": "2026-11-18T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-18T16:14:00.894972+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "A self-supervised framework was developed to learn urban representations from georeferenced crime records and identify unusual reporting patterns using Neighbor Profile Divergence.",
+      "The method achieved a mean Silhouette score of 0.4052 on 1.8 million crime records in Mexico City, outperforming Hex2Vec and maintaining high stability across neighborhood configurations.",
+      "Urban planners, law enforcement analysts, and researchers studying spatial bias in open crime data can use this framework to audit and prioritize regions for investigation."
+    ],
+    "tags": [
+      "Urban Representation Learning",
+      "Crime Data Analysis",
+      "Self-Supervised Learning",
+      "Spatial Analysis"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.21825",
+        "title": "Urban Representation Learning for Identifying Potential Disparities in Crime Reporting",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
     "id": "684a337f2e96a314",
     "title": "OpenCode v2.3.2",
     "company": "OpenCode",
@@ -119,6 +1106,129 @@
         "url": "https://github.com/anomalyco/opencode/releases/tag/v2.3.1",
         "title": "OpenCode v2.3.1",
         "publisher": "OpenCode"
+      }
+    ]
+  },
+  {
+    "id": "a1de396d3910fa2e",
+    "title": "Le Groupe Figaro and OpenAI partner to bring Le Figaro journalism to ChatGPT",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Le Groupe Figaro and OpenAI have established a partnership to integrate Le Groupe Figaro's journalism into ChatGPT. The integration features summaries and excerpts paired with direct links back to the original source stories.",
+    "summary_status": "generated",
+    "content_fingerprint": "bea508929ff65050",
+    "url": "https://openai.com/index/le-groupe-figaro-and-openai-announce-partnership",
+    "date": "2026-11-18T00:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-18T16:14:00.892714+00:00",
+    "topics": [
+      "Models and Releases",
+      "Business and Industry",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Le Groupe Figaro partnered with OpenAI to feature its journalism within ChatGPT via summaries, excerpts, and direct links.",
+      "This collaboration integrates traditional publishing content into conversational AI responses while driving referral traffic to the publisher.",
+      "Readers utilizing ChatGPT and publishers seeking traffic integration with AI platforms are directly affected."
+    ],
+    "tags": [
+      "OpenAI",
+      "ChatGPT",
+      "Le Groupe Figaro"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://openai.com/index/le-groupe-figaro-and-openai-announce-partnership",
+        "title": "Le Groupe Figaro and OpenAI partner to bring Le Figaro journalism to ChatGPT",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "5b89a2db7f60ae90",
+    "title": "Rumble-2-Flash: an open 0.5B speech model for 40+ languages",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "Rumble-2-Flash is an open-source 0.5B parameter speech model supporting over 40 languages. It provides efficient multilingual speech processing capabilities for developers and researchers. The model aims to advance accessible speech technology across diverse linguistic datasets.",
+    "summary_status": "generated",
+    "content_fingerprint": "28dbfb6a38bafa73",
+    "url": "https://huggingface.co/blog/rumble-2-flash",
+    "date": "2026-11-18T00:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-18T16:14:00.893042+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Released Rumble-2-Flash, an open 0.5B speech model supporting more than 40 languages.",
+      "Provides a lightweight open-source architecture for multilingual speech processing and translation tasks.",
+      "Targeted at developers, researchers, and organizations building multilingual voice applications."
+    ],
+    "tags": [
+      "Speech Model",
+      "Open Source",
+      "Multilingual",
+      "Audio AI"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/rumble-2-flash",
+        "title": "Rumble-2-Flash: an open 0.5B speech model for 40+ languages",
+        "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
+    "id": "c45f234325084410",
+    "title": "The Copilot harness: Building on a shared foundation",
+    "company": "Microsoft VS Code",
+    "source": "VS Code Updates",
+    "summary": "Visual Studio Code is transitioning from the Local harness to the Copilot harness, driven by data-driven insights and user feedback. This architectural shift establishes a shared foundation for future feature development and Copilot integration.",
+    "summary_status": "generated",
+    "content_fingerprint": "03bf05c071046552",
+    "url": "https://code.visualstudio.com/blogs/2026/11/18/copilot-harness",
+    "date": "2026-11-18T00:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-18T16:14:00.893104+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "VS Code is transitioning its internal architecture from the Local harness to the Copilot harness.",
+      "The change leverages data and user feedback to establish a more unified and scalable technical foundation.",
+      "Developers and users relying on VS Code and GitHub Copilot features are directly impacted by this architectural evolution."
+    ],
+    "tags": [
+      "VS Code",
+      "GitHub Copilot",
+      "Developer Tools"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://code.visualstudio.com/blogs/2026/11/18/copilot-harness",
+        "title": "The Copilot harness: Building on a shared foundation",
+        "publisher": "Microsoft VS Code"
       }
     ]
   },
