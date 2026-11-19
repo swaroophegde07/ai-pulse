@@ -1,5 +1,854 @@
 [
   {
+    "id": "c6b540ac1bf58e99",
+    "title": "The Download: AI hype",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "This newsletter issue covers a human liver kept alive outside the body for seven weeks in Australia, a multi-billion dollar silicon-carbon anode supply deal between Sila and Panasonic Energy, and Anthropic reportedly raising $81 billion in a massive IPO. It also highlights geopolitical concerns surrounding Chinese procurement of Nvidia chips for military applications.",
+    "summary_status": "generated",
+    "content_fingerprint": "7e81f407dc620d66",
+    "url": "https://www.technologyreview.com/2026/11/19/1148979/the-download-liver-kept-alive-sila-battery-deal-ai-hype",
+    "date": "2026-11-19T13:10:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-19T16:28:05.620438+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers in Australia maintained a human liver on life support outside the body for a record-breaking seven weeks using automated pumps and sensors.",
+      "Sila signed a supply agreement potentially worth over $1 billion with Panasonic Energy to provide silicon-carbon anode materials backed by government funding.",
+      "Biomedical engineers, battery manufacturers, and defense analysts monitoring US export controls and AI military applications are affected."
+    ],
+    "tags": [
+      "Anthropic",
+      "Panasonic Energy",
+      "Nvidia",
+      "Silicon-Carbon Anodes"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/11/19/1148979/the-download-liver-kept-alive-sila-battery-deal-ai-hype",
+        "title": "The Download: a living liver, a billion-dollar battery deal",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "67c713471b464c7e",
+    "title": "Human-AI Mutualism Is Unstable under Capability Asymmetry",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "A game-theoretic analysis demonstrates that human-AI mutualism is unstable as AI capabilities grow, because bargaining dynamics fail to guarantee humans their prior welfare without active alignment or leverage. The study shows that alignment requirements approach perfection as AI capability increases and resources favor misaligned variants unless strict sanctions apply. Consequently, mutualism cannot serve as a substitute for robust AI alignment.",
+    "summary_status": "generated",
+    "content_fingerprint": "06c8e38c6f6c450f",
+    "url": "https://arxiv.org/abs/2611.23322",
+    "date": "2026-11-19T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-19T16:28:05.620612+00:00",
+    "topics": [
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "A game-theoretic model shows that human-AI mutualism breaks down as AI capabilities grow and humans lose bargaining leverage.",
+      "The analysis proves that mutualism cannot replace alignment, as achieving stable outcomes requires near-perfect alignment when AI capabilities scale.",
+      "AI researchers, policy makers, and safety engineers are affected as this challenges assumptions about naturally stable cooperative coexistence."
+    ],
+    "tags": [
+      "AI Alignment",
+      "Game Theory",
+      "AI Safety",
+      "Human-AI Interaction"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.23322",
+        "title": "Human-AI Mutualism Is Unstable under Capability Asymmetry",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "8a369b2d17a9b0f0",
+    "title": "Training Language Models for Introspective Oversight",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.23365v1 Announce Type: new Abstract: Language models increasingly exhibit behaviors that are difficult to detect in transcripts, such as reward hacking, deception, and sycophancy. Asking…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.23365",
+    "date": "2026-11-19T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-19T16:28:05.620674+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.23365",
+        "title": "Training Language Models for Introspective Oversight",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "b048edc1eac37768",
+    "title": "Where the Tokens Go: Heat, Entropy and Error in Agentic Coding",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduce a theory of software thermodynamics to analyze agentic coding, treating tokens as energy costs divided into work and heat. The study reveals that about 80 percent of tokens in successful coding runs are wasted as heat, while test suites function as imperfect Maxwell's daemons evaluating changes. This thermodynamic framework provides new analytical tools for measuring and optimizing the efficiency of coding agents.",
+    "summary_status": "generated",
+    "content_fingerprint": "4780253a6878b24f",
+    "url": "https://arxiv.org/abs/2611.23375",
+    "date": "2026-11-19T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-19T16:28:05.620706+00:00",
+    "topics": [
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed a thermodynamic framework for agentic coding, measuring token costs as work and heat analogous to physical systems.",
+      "The analysis demonstrates that approximately 80 percent of tokens in successful runs are heat, and coding costs 1.1 to 1.5 times as much as uncoding.",
+      "AI researchers, tool developers, and engineers utilizing coding agents can leverage these thermodynamic metrics to optimize token efficiency."
+    ],
+    "tags": [
+      "AI Agents",
+      "Software Engineering",
+      "Thermodynamics",
+      "Code Generation",
+      "Large Language Models"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.23375",
+        "title": "Where the Tokens Go: Heat, Entropy and Error in Agentic Coding",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "cd580215f9c64a6e",
+    "title": "HardwareDx: A Foundational Graph Model System for Datacenter Machine Repairs",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Google has deployed HardwareDx, an AI-driven graph foundation model system designed to automate machine repairs and hardware diagnosis across hyperscale datacenter clusters. In production environments, the system reduces machine downtime by 18.3% on GPUs and 16.1% on TPUs while cutting quality assurance onboarding time significantly. This architecture enables a single model to support multiple hardware platforms, improving cost efficiency and reliability for large-scale AI infrastructure.",
+    "summary_status": "generated",
+    "content_fingerprint": "05b746b2236e2696",
+    "url": "https://arxiv.org/abs/2611.23398",
+    "date": "2026-11-19T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-19T16:28:05.620768+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Google introduced HardwareDx, a graph foundation model system for automated datacenter hardware diagnosis and maintenance.",
+      "The deployment reduced production downtime by 18.3% for GPUs and 16.1% for TPUs, while accelerating QA onboarding times.",
+      "Cloud infrastructure operators, datacenter technicians, and hardware reliability engineers managing large-scale AI compute clusters."
+    ],
+    "tags": [
+      "HardwareDx",
+      "Google",
+      "Graph Neural Networks",
+      "Datacenter Reliability",
+      "AI Infrastructure"
+    ],
+    "impact_score": 8,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.23398",
+        "title": "HardwareDx: A Foundational Graph Model System for Datacenter Machine Repairs",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "422c774c982cac7a",
+    "title": "RFBench: A Simulator-Grounded Multimodal Benchmark for Passive RF Layout Design and Understanding",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "The authors introduce RFBench, a simulator-grounded dataset and benchmark containing 10,000 two-port planar layouts designed to evaluate multimodal language models on passive radio-frequency design and electromagnetic behavior. Evaluations across seven multimodal models reveal systematic weaknesses in generating valid layouts and predicting faithful RF responses. Domain-specific fine-tuning significantly improves structural validity and response prediction accuracy, establishing RFBench as a standardized testbed for physical-aware AI design.",
+    "summary_status": "generated",
+    "content_fingerprint": "6809babc64c4ce1e",
+    "url": "https://arxiv.org/abs/2611.23410",
+    "date": "2026-11-19T05:00:00+00:00",
+    "category": "Benchmark",
+    "fetched_at": "2026-11-19T16:28:05.620824+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "RFBench was introduced as a simulator-grounded dataset of 10,000 two-port planar layouts with geometric primitives, images, S-parameters, and structural labels to evaluate multimodal language models.",
+      "Evaluating seven multimodal models revealed systematic failures in producing structurally valid layouts and electromagnetically faithful predictions, which were partially resolved via RF-specific fine-tuning.",
+      "RF engineers and developers of multimodal language models working on hardware design, electronic design automation, and physical-domain AI are directly affected by these findings."
+    ],
+    "tags": [
+      "RFBench",
+      "Multimodal Models",
+      "Benchmark",
+      "Radio Frequency",
+      "Hardware Design"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.23410",
+        "title": "RFBench: A Simulator-Grounded Multimodal Benchmark for Passive RF Layout Design and Understanding",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "7d1cf62765c510eb",
+    "title": "Why Sub-4-Bit Vision CNNs Collapse and Where Mixed-Precision Recovery Stops",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This study analyzes sub-4-bit quantization collapse in Vision CNNs like ResNet and EfficientNet on ImageNet-1k, mapping degradation to late-stage pointwise and depthwise layers. The authors introduce a structured recovery waterfall showing that keeping under 5% of critical layer activations in 8-bit precision recovers up to 92% of lost accuracy. Additionally, benchmark evaluations on ARM and x86 CPUs reveal that software bit-unpacking introduces a 1.48x to 21.5x execution slowdown, highlighting edge deployment bottlenecks.",
+    "summary_status": "generated",
+    "content_fingerprint": "753dd45b8f7eef2d",
+    "url": "https://arxiv.org/abs/2611.23445",
+    "date": "2026-11-19T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-19T16:28:05.620907+00:00",
+    "topics": [
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers mapped quantization collapse in Vision CNNs to late-stage pointwise and depthwise layers and introduced a recovery waterfall using selective 8-bit activations.",
+      "Retaining less than 5% of critical activations in 8-bit precision recovers up to 92% of accuracy lost from aggressive sub-4-bit compression, while software bit-unpacking creates significant execution slowdowns on edge hardware.",
+      "Edge AI engineers, hardware developers, and computer vision practitioners deploying low-bit models on ARM and x86 CPUs are directly affected."
+    ],
+    "tags": [
+      "Computer Vision",
+      "Quantization",
+      "ResNet",
+      "EfficientNet",
+      "Edge AI"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.23445",
+        "title": "Why Sub-4-Bit Vision CNNs Collapse and Where Mixed-Precision Recovery Stops",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "c7c86e953df09c23",
+    "title": "LusoClin: A Synthetic Clinical Note Dataset for Medical Information Retrieval in European Portuguese",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduce LusoClin, a publicly available synthetic clinical note dataset in European Portuguese designed to advance privacy-preserving medical information retrieval. The dataset was generated using a fine-tuned Llama 3.2 3B model with QLoRA based on real clinical data pre-processing and prompt-based generation. Evaluations indicate the dataset captures relevant clinical language patterns for information retrieval tasks, though human evaluators can still distinguish synthetic text from real clinical notes.",
+    "summary_status": "generated",
+    "content_fingerprint": "139a096062da42d6",
+    "url": "https://arxiv.org/abs/2611.23454",
+    "date": "2026-11-19T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-19T16:28:05.620972+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "LusoClin, a synthetic clinical note dataset in European Portuguese, was publicly released to support privacy-preserving medical information retrieval research.",
+      "It provides a crucial resource for low-resource European Portuguese clinical text retrieval, overcoming privacy barriers that restrict real clinical data access.",
+      "Researchers and developers working on medical information retrieval, clinical search, and European Portuguese NLP are directly affected."
+    ],
+    "tags": [
+      "LusoClin",
+      "European Portuguese",
+      "Clinical Information Retrieval",
+      "Synthetic Data",
+      "Llama 3.2"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.23454",
+        "title": "LusoClin: A Synthetic Clinical Note Dataset for Medical Information Retrieval in European Portuguese",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "f7a3b0193b2bb179",
+    "title": "VeriMath: Human-in-the-Loop Generation and Verification of Curriculum-Aligned Mathematics Assessment Items",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "The authors introduce VeriMath, a human-in-the-loop framework designed to automatically generate curriculum-aligned mathematics assessment items using sequential verification and guided repair. Evaluated on 4,555 mathematics items from the Vietnamese Grade 12 curriculum, the framework successfully produced verifier-accepted drafts for 94% of generation requirements. Blind expert evaluations confirmed high mathematical accuracy, with teachers accepting up to 56.8% of generated items as ready for classroom deployment.",
+    "summary_status": "generated",
+    "content_fingerprint": "12060e3e86987588",
+    "url": "https://arxiv.org/abs/2611.23456",
+    "date": "2026-11-19T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-19T16:28:05.621035+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "VeriMath was developed as a human-in-the-loop framework to generate curriculum-aligned math assessment drafts through sequential automated verification and guided repair.",
+      "The framework successfully produced verifier-accepted drafts for 94% of tested requirements, with expert teachers accepting up to 56.8% of generated items as classroom-ready.",
+      "Educational technology developers, curriculum designers, and classroom educators benefit from reliable automated tools that reduce the manual burden of assessment authoring."
+    ],
+    "tags": [
+      "Educational AI",
+      "Automated Assessment",
+      "Mathematics",
+      "Human-in-the-Loop",
+      "Curriculum Alignment"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.23456",
+        "title": "VeriMath: Human-in-the-Loop Generation and Verification of Curriculum-Aligned Mathematics Assessment Items",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "e9d0bb428b5a9fc5",
+    "title": "GUARD: Stabilizing Recursive Self-Improvement with Regret Guidance",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduce GUARD, a grader-free unsupervised framework for stabilizing recursive self-improvement in autonomous AI agents through directional regret guidance and adaptive rule distillation. The method decomposes tasks into pre-execution self-checks and uses a Soft-HURT gate to prevent local regressions, skill forgetting, and memory bloat during harness evolution. Across multiple benchmarks, GUARD improves performance and cuts deployment token usage without requiring weight updates.",
+    "summary_status": "generated",
+    "content_fingerprint": "c1345cd7a580e662",
+    "url": "https://arxiv.org/abs/2611.23476",
+    "date": "2026-11-19T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-19T16:28:05.621105+00:00",
+    "topics": [
+      "AI Agents",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "GUARD was introduced as a closed-loop framework for reference-free continual harness evolution using directional regret guidance.",
+      "It prevents local regressions and memory bloat during self-improvement by using a Soft-HURT gate and pre-execution self-checks.",
+      "Developers and users of autonomous AI agents utilizing harness adaptation without weight updates are directly affected."
+    ],
+    "tags": [
+      "AI Agents",
+      "Recursive Self-Improvement",
+      "Unsupervised Environment Design",
+      "Model Alignment"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.23476",
+        "title": "GUARD: Stabilizing Recursive Self-Improvement with Regret Guidance",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "574f4671e61f3da4",
+    "title": "Diagnostic Accuracy and Navigation Behavior of Vision-Language Model Agents Reading Emergency CT and MRI Examinations",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.23480v1 Announce Type: new Abstract: Purpose. To evaluate the diagnostic accuracy and image navigation behavior of vision-language model (VLM) agents under varying exploration strategies.…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.23480",
+    "date": "2026-11-19T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-19T16:28:05.621162+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.23480",
+        "title": "Diagnostic Accuracy and Navigation Behavior of Vision-Language Model Agents Reading Emergency CT and MRI Examinations",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Evaluated vision-language model agents on diagnostic accuracy and image navigation tasks using emergency CT and MRI examinations.",
+      "Assessed the impact of varying exploration strategies on the clinical performance of multimodal models in radiological interpretations.",
+      "Targeted at researchers and developers working on AI-driven medical imaging diagnostic tools and autonomous clinical agents."
+    ]
+  },
+  {
+    "id": "84553a33d5601021",
+    "title": "Neural Network-Based Modeling of Hysteretic Systems: From Prandtl and Preisach Neural Networks to Neuro-Madelung and Neuroplastic Continuous Models",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.23240v1 Announce Type: new Abstract: Hysteresis is a complex nonlinear phenomenon characterized by memory dependence, path dependence, and, in many physical systems, degradation,…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.23240",
+    "date": "2026-11-19T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-19T16:28:05.621192+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.23240",
+        "title": "Neural Network-Based Modeling of Hysteretic Systems: From Prandtl and Preisach Neural Networks to Neuro-Madelung and Neuroplastic Continuous Models",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "New neural network architectures including Prandtl, Preisach, Neuro-Madelung, and neuroplastic continuous models were introduced for modeling hysteretic systems.",
+      "This improves the computational modeling of complex nonlinear phenomena involving memory and path dependence as well as system degradation.",
+      "Researchers and engineers working on physical systems with hysteresis and nonlinear dynamics are affected."
+    ]
+  },
+  {
+    "id": "698034b3c0e3f031",
+    "title": "GridForge: An Open Physics-Informed Digital Twin and Benchmark Suite for UK 11 kV Underground Distribution Cables",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.23241v1 Announce Type: new Abstract: The UK distribution-cable monitoring sector is data-rich but framework-poor: each Distribution Network Operator (DNO) collects megabytes of telemetry…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.23241",
+    "date": "2026-11-19T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-19T16:28:05.621224+00:00",
+    "topics": [
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.23241",
+        "title": "GridForge: An Open Physics-Informed Digital Twin and Benchmark Suite for UK 11 kV Underground Distribution Cables",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "GridForge was released as an open physics-informed digital twin and benchmark suite specifically targeting UK 11 kV underground distribution cables.",
+      "It addresses the lack of standardized telemetry analysis frameworks across data-rich UK Distribution Network Operators.",
+      "UK Distribution Network Operators and researchers studying underground power cable monitoring are directly affected."
+    ]
+  },
+  {
+    "id": "2f0228860dfc3ee9",
+    "title": "Biologically-Inspired Spike Encoding and Optimization for Spiking Neural Networks",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.23242v1 Announce Type: new Abstract: Spiking Neural Networks (SNNs) offer theoretical energy-efficiency advantages over conventional deep networks, but realizing these advantages on…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.23242",
+    "date": "2026-11-19T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-19T16:28:05.621255+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.23242",
+        "title": "Biologically-Inspired Spike Encoding and Optimization for Spiking Neural Networks",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Researchers developed biologically-inspired spike encoding and optimization techniques for Spiking Neural Networks.",
+      "The approach addresses the gap between theoretical energy-efficiency advantages of SNNs and their practical hardware implementation challenges.",
+      "Spiking neural network researchers and neuromorphic hardware engineers are directly affected."
+    ]
+  },
+  {
+    "id": "b14ee5c8168a9508",
+    "title": "Goemans's Unsplittable-Flow Conjecture: The Anatomy of AI-Assisted Counterexample Discovery",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.23244v1 Announce Type: new Abstract: Goemans conjectured that any fractional single-source flow could be converted into an unsplittable flow without increasing total cost and while…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.23244",
+    "date": "2026-11-19T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-19T16:28:05.621285+00:00",
+    "topics": [
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.23244",
+        "title": "Goemans's Unsplittable-Flow Conjecture: The Anatomy of AI-Assisted Counterexample Discovery",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "e0295bcf25cca7d9",
+    "title": "Response-Relevant Information Is Not Sufficient for Neural Training-State Equivalence",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This research investigates whether response-relevant information is sufficient to prove that two neural networks share the same training state. By analyzing one-layer transformers learning modular addition, the study finds that while weight spectra and representation geometry descriptors carry response-relevant information, they do not successfully separate from conditional placebos in matching checkpoints by future response. The findings demonstrate that extractable decoder information does not necessarily map to the pairwise geometry required for similarity judgments.",
+    "summary_status": "generated",
+    "content_fingerprint": "bc513e3d87140641",
+    "url": "https://arxiv.org/abs/2611.23245",
+    "date": "2026-11-19T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-19T16:28:05.621317+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers evaluated whether response-relevant information can establish training-state equivalence between neural network checkpoints using transformers learning modular addition.",
+      "This matters because it reveals limitations in current methods for determining internal network state equivalence, showing that decodable information does not guarantee structural similarity.",
+      "Machine learning researchers and practitioners studying interpretability, model checkpoints, and training dynamics are directly affected."
+    ],
+    "tags": [
+      "Neural Networks",
+      "Model Interpretability",
+      "Training Dynamics",
+      "Transformers"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.23245",
+        "title": "Response-Relevant Information Is Not Sufficient for Neural Training-State Equivalence",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "9f2b70e087cc6783",
+    "title": "Chebyshev Polynomial Zonotope Abstractions for Certified Reachability of Learning-Enabled Systems",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This research introduces Chebyshev polynomial zonotope abstractions for computing certified reachable sets of nonlinear dynamics, overcoming the convergence limitations of traditional Taylor expansions. The proposed method enables wider set certification for rational terms and sigmoid gates in learning-enabled controllers, successfully verifying closed loops and trained classifiers like MNIST digit recognizers where Taylor methods diverge.",
+    "summary_status": "generated",
+    "content_fingerprint": "a2228230945a5bbb",
+    "url": "https://arxiv.org/abs/2611.23246",
+    "date": "2026-11-19T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-19T16:28:05.621381+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers proved a dichotomy showing Chebyshev abstractions achieve geometric width scaling without convergence caps, whereas Taylor expansions are strictly limited by complex-plane singularities of neural network gates.",
+      "The method provides closed-form rigorous remainders, including the first polynomial softmax transformer, outperforming existing linear relaxations and maintaining zero violations across Monte-Carlo harnesses.",
+      "Safety verification engineers, researchers of learning-enabled systems, and developers of neural-network controllers gain a rigorous reachability tool that certifies input territory previously unreachable by Taylor bases."
+    ],
+    "tags": [
+      "Reachability Analysis",
+      "Certified AI",
+      "Neural Network Verification",
+      "Chebyshev Polynomials"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.23246",
+        "title": "Chebyshev Polynomial Zonotope Abstractions for Certified Reachability of Learning-Enabled Systems",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "b18be78bb5afc9db",
+    "title": "Budgeted Proper Loss Design for Uncertain Decision Thresholds",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This research paper introduces a method for designing proper scoring rules when decision threshold distributions belong to a finite specified family. The authors derive the optimal loss weight that minimizes the worst-case multiplier from surrogate regret to threshold-averaged decision regret under an explicit mass budget. Experimental verification across synthetic datasets demonstrates the optimized multiplier improves over uniform and average-density weights.",
+    "summary_status": "generated",
+    "content_fingerprint": "8d55d4e7333ac02f",
+    "url": "https://arxiv.org/abs/2611.23247",
+    "date": "2026-11-19T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-19T16:28:05.621452+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Derived an optimal loss weight that minimizes the distribution-free multiplier from surrogate regret to threshold-averaged decision regret under a budget constraint.",
+      "Provides theoretical guarantees, sharpness proofs, and stability under density misspecification for proper loss design under uncertain decision thresholds.",
+      "Machine learning practitioners and decision theorists working with binary probability estimates and varying error costs."
+    ],
+    "tags": [
+      "Proper Scoring Rules",
+      "Decision Theory",
+      "Surrogate Regret",
+      "Probability Estimation"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.23247",
+        "title": "Budgeted Proper Loss Design for Uncertain Decision Thresholds",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "e1ee013810623dff",
+    "title": "Exploring Parkinson's Diagnosis Using Machine Learning Techniques",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.23248v1 Announce Type: new Abstract: In recent years, machine learning (ML) techniques have emerged as promising tools for accurate and timely diagnosis of Parkinson's disease (PD) which…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.23248",
+    "date": "2026-11-19T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-19T16:28:05.621508+00:00",
+    "topics": [
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.23248",
+        "title": "Exploring Parkinson's Diagnosis Using Machine Learning Techniques",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Machine learning techniques were applied to develop improved diagnostic methods for Parkinson's disease.",
+      "The approach offers potential improvements in the accuracy and timeliness of neurological condition diagnoses.",
+      "Medical researchers and clinical practitioners utilizing diagnostic algorithms are directly affected."
+    ]
+  },
+  {
+    "id": "57af61cbb3f1523e",
+    "title": "Optimize the Cob, Then the Kernel: Optimizing Beam Search for Generative Recommendation Inference",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.23339v1 Announce Type: new Abstract: Generative recommendation (GR) inference differs substantially from conventional LLM serving, featuring long input sequences, wide beam search, and…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.23339",
+    "date": "2026-11-19T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-19T16:28:05.621538+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.23339",
+        "title": "Optimize the Cob, Then the Kernel: Optimizing Beam Search for Generative Recommendation Inference",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Researchers developed optimization techniques for beam search specifically tailored to generative recommendation inference workloads.",
+      "This approach addresses the unique performance bottlenecks of generative recommendation systems, such as long input sequences and wide beam widths, which differ from standard LLM serving.",
+      "Engineers and developers working on generative recommendation systems and model serving infrastructure are directly affected."
+    ]
+  },
+  {
+    "id": "ed880ec6bc7109fa",
+    "title": "Confidence-Based Materials Data Quality Assessment via Domain Knowledge and Graph-Structured Learning",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.23342v1 Announce Type: new Abstract: The rapid development of materials machine learning relies on large-scale, heterogeneous datasets, yet model reliability is often compromised by…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.23342",
+    "date": "2026-11-19T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-19T16:28:05.621570+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.23342",
+        "title": "Confidence-Based Materials Data Quality Assessment via Domain Knowledge and Graph-Structured Learning",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "A confidence-based data quality assessment method combining domain knowledge and graph-structured learning was introduced.",
+      "It addresses dataset heterogeneity and improves model reliability in materials science applications.",
+      "Materials machine learning researchers and scientists utilizing heterogeneous datasets are directly affected."
+    ]
+  },
+  {
+    "id": "8c4432adfe17d06c",
+    "title": "llm-gemini 0.38",
+    "company": "Simon Willison's Weblog",
+    "source": "Simon Willison – AI",
+    "summary": "Google introduced Gemini 4 Neon, adding to the already complex Gemini 4 model lineup and pricing structure. The author analyzed the shifting pricing tiers between Carbon, Neon, and Hydrogen models and tested Neon's reasoning levels and effort settings.",
+    "summary_status": "generated",
+    "content_fingerprint": "c791e40616832775",
+    "url": "https://simonwillison.net/2026/Nov/18/llm-gemini",
+    "date": "2026-11-18T23:59:20+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-19T16:28:05.621654+00:00",
+    "topics": [
+      "Models and Releases"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 6,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Google announced the release of Gemini 4 Neon as part of its Gemini 4 model series.",
+      "The complex and shifting pricing tiers for Carbon, Neon, and Hydrogen create temporary inversions in model cost until promotional discounts expire in December.",
+      "Developers and users evaluating Google's Gemini 4 model lineup for applications are affected by the confusing pricing structure."
+    ],
+    "tags": [
+      "Google",
+      "Gemini 4",
+      "Generative AI",
+      "LLM"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://simonwillison.net/2026/Nov/18/llm-gemini",
+        "title": "llm-gemini 0.38",
+        "publisher": "Simon Willison's Weblog"
+      }
+    ]
+  },
+  {
     "id": "fd9bebbff7e69286",
     "title": "Introducing Gemini 4 Neon",
     "company": "Google DeepMind",
@@ -4833,6 +5682,48 @@
         "url": "https://openai.com/index/our-new-blog-for-science",
         "title": "Our new blog for science",
         "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "a434c2daa44c258b",
+    "title": "datasette-agent 0.6a0",
+    "company": "Simon Willison's Weblog",
+    "source": "Simon Willison – AI",
+    "summary": "The release of datasette-agent 0.6a0 introduces an agent prompt directly to the Datasette homepage with support for hash-mentions of tables and queries. This update accumulates small fixes for the Datasette Agent plugin to improve how users query and interact with their data using large language models. The update affects developers and users utilizing Datasette for database exploration and natural language querying.",
+    "summary_status": "generated",
+    "content_fingerprint": "d962bd80931b3e8a",
+    "url": "https://simonwillison.net/2026/Nov/15/datasette-agent",
+    "date": "2026-11-15T03:49:47+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-19T16:28:05.621768+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "datasette-agent 0.6a0 was released, adding an agent prompt directly to the Datasette homepage along with accumulated small fixes.",
+      "The update enables support for hash-mentions of tables and queries to streamline data interactions through generative AI.",
+      "Datasette users and developers integrating large language model plugins for database querying are directly affected."
+    ],
+    "tags": [
+      "datasette",
+      "datasette-agent",
+      "LLMs",
+      "Generative AI"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://simonwillison.net/2026/Nov/15/datasette-agent",
+        "title": "datasette-agent 0.6a0",
+        "publisher": "Simon Willison's Weblog"
       }
     ]
   },
