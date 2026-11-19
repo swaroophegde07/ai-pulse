@@ -1,5 +1,208 @@
 [
   {
+    "id": "fd9bebbff7e69286",
+    "title": "Introducing Gemini 4 Neon",
+    "company": "Google DeepMind",
+    "source": "Google DeepMind Blog",
+    "summary": "Google has announced Gemini 4 Neon, a new lightweight AI model designed for low-latency edge deployment. The release focuses on improving on-device processing capabilities and reducing inference costs for developers. This model targets mobile developers and embedded systems engineers looking for efficient local AI integration.",
+    "summary_status": "generated",
+    "content_fingerprint": "b0b00d6a6b162d39",
+    "url": "https://deepmind.google/blog/introducing-gemini-4-neon",
+    "date": "2026-11-18T21:35:43+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-19T00:53:41.469458+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Google released Gemini 4 Neon for low-latency edge deployment and on-device processing.",
+      "It significantly reduces inference costs and latency for resource-constrained environments.",
+      "Mobile developers and embedded systems engineers benefit from improved local AI capabilities."
+    ],
+    "tags": [
+      "Google",
+      "Gemini 4 Neon",
+      "Edge AI",
+      "Product Release"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://deepmind.google/blog/introducing-gemini-4-neon",
+        "title": "Introducing Gemini 4 Neon",
+        "publisher": "Google DeepMind"
+      }
+    ]
+  },
+  {
+    "id": "f0b81ce3c1461288",
+    "title": "DaisyRose-27B: Pushing the Frontier of Post-Training Efficiency",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "DaisyRose-27B is introduced as a new model pushing the frontier of post-training efficiency. The release focuses on optimizing performance parameters within a 27-billion parameter architecture.",
+    "summary_status": "generated",
+    "content_fingerprint": "da261601783ef2a2",
+    "url": "https://huggingface.co/blog/RadixArk/daisyrose-27b-pushing-the-frontier-of-post-trainin",
+    "date": "2026-11-18T19:54:56+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-19T00:53:41.469639+00:00",
+    "topics": [
+      "Models and Releases"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "DaisyRose-27B was released with advanced post-training efficiency techniques.",
+      "It demonstrates how mid-sized model architectures can achieve high performance at a lower computational cost.",
+      "AI developers and researchers deploying 27-billion parameter models are directly affected."
+    ],
+    "tags": [
+      "DaisyRose-27B",
+      "Post-Training",
+      "Model Optimization"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/RadixArk/daisyrose-27b-pushing-the-frontier-of-post-trainin",
+        "title": "DaisyRose-27B: Pushing the Frontier of Post-Training Efficiency",
+        "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
+    "id": "e55c8f2df06c07ff",
+    "title": "Why your fine-tuning job takes longer than the FLOPs say",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "This article analyzes the hardware and software bottlenecks that cause LLM fine-tuning jobs to run significantly slower than theoretical FLOP calculations predict. It examines how memory bandwidth, communication overhead, and kernel efficiency degrade actual performance during distributed training. The findings help machine learning engineers and systems researchers optimize GPU utilization and training pipelines.",
+    "summary_status": "generated",
+    "content_fingerprint": "a05d2355ced68210",
+    "url": "https://huggingface.co/blog/Dharma-AI/predicting-fine-tuning-time",
+    "date": "2026-11-18T18:53:43+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-19T00:53:41.469701+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Fine-tuning jobs take longer than theoretical FLOP counts predict due to memory bandwidth limits and communication overhead.",
+      "Understanding these bottlenecks allows engineers to better optimize hardware utilization and reduce training times.",
+      "Machine learning engineers and systems researchers training large language models are directly affected."
+    ],
+    "tags": [
+      "Fine-tuning",
+      "GPU",
+      "Hardware Bottlenecks",
+      "LLM Training"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/Dharma-AI/predicting-fine-tuning-time",
+        "title": "Why your fine-tuning job takes longer than the FLOPs say",
+        "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
+    "id": "ca9ca0837de1673f",
+    "title": "Genie 4 is now available",
+    "company": "Google DeepMind",
+    "source": "Google DeepMind Blog",
+    "summary": "Genie 4 has been released and is now available for use. The update brings new capabilities to the platform.",
+    "summary_status": "generated",
+    "content_fingerprint": "44bb7e17df760405",
+    "url": "https://deepmind.google/blog/genie-4-is-now-available",
+    "date": "2026-11-18T18:13:42+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-19T00:53:41.469522+00:00",
+    "topics": [
+      "Models and Releases"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Genie 4 was officially released and made available.",
+      "It introduces new features and system updates for users.",
+      "Developers and users of the Genie platform are directly affected."
+    ],
+    "tags": [
+      "Genie 4",
+      "Product Release"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://deepmind.google/blog/genie-4-is-now-available",
+        "title": "Genie 4 is now available",
+        "publisher": "Google DeepMind"
+      }
+    ]
+  },
+  {
+    "id": "e0a5680da648bf1e",
+    "title": "Build Training-Ready Physical AI Datasets with Two Prompts in NVIDIA Cosmos",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "NVIDIA introduces capabilities within Cosmos that enable the creation of training-ready physical AI datasets using only two prompts. The tool addresses the high cost and complexity of capturing rare scenarios and manually curating, labeling, and generating world model data.",
+    "summary_status": "generated",
+    "content_fingerprint": "94f3ef0e32b30dc5",
+    "url": "https://developer.nvidia.com/blog/build-training-ready-physical-ai-datasets-with-two-prompts-in-nvidia-cosmos",
+    "date": "2026-11-18T17:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-19T00:53:41.470658+00:00",
+    "topics": [
+      "Models and Releases",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "NVIDIA launched prompt-based dataset generation within Cosmos for training physical AI models.",
+      "It simplifies the historically costly and manual workflow of data curation, labeling, and scenario generation for world models.",
+      "AI developers and robotics engineers working on physical AI and simulation datasets are directly affected."
+    ],
+    "tags": [
+      "NVIDIA",
+      "Cosmos",
+      "Physical AI",
+      "World Models"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://developer.nvidia.com/blog/build-training-ready-physical-ai-datasets-with-two-prompts-in-nvidia-cosmos",
+        "title": "Build Training-Ready Physical AI Datasets with Two Prompts in NVIDIA Cosmos",
+        "publisher": "NVIDIA"
+      }
+    ]
+  },
+  {
     "id": "aef632472a5e3af7",
     "title": "Time-Series Models in the Streamhouse: A New Frontier and Use Cases",
     "company": "Hugging Face",
@@ -44,15 +247,15 @@
     "title": "The AI Hype Index: AI is everywhere",
     "company": "MIT Technology Review",
     "source": "MIT Technology Review",
-    "summary": "[Automated summary unavailable] Like a nasty rash, AI seems to spread everywhere. Google crams AI Overviews down your throat even though it costs the company billions of dollars in lost ad revenue. Leave your apartment, and you…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "The pervasive integration of artificial intelligence across everyday products, media, and public spaces. It highlights various consumer experiences with current AI implementations, ranging from forced search engine integrations to AI-powered robotics.",
+    "summary_status": "generated",
+    "content_fingerprint": "bde88394ddfeab96",
     "url": "https://www.technologyreview.com/2026/11/18/1148650/ai-hype-index-ai-is-everywhere",
     "date": "2026-11-18T14:42:44+00:00",
-    "category": "News",
-    "fetched_at": "2026-11-18T16:14:00.893181+00:00",
+    "category": "Opinion",
+    "fetched_at": "2026-11-19T00:53:41.469855+00:00",
     "topics": [
-      "Business and Industry"
+      "Applications and Products"
     ],
     "source_type": "Independent Reporting",
     "priority_score": 0,
@@ -67,10 +270,17 @@
       }
     ],
     "key_points": [
-      "Google integrated AI Overviews into user search experiences despite billions in lost advertising revenue.",
-      "The aggressive deployment demonstrates how tech companies prioritize AI integration over short-term financial returns.",
-      "Search engine users and digital advertisers are directly impacted by changing interface mechanics and revenue models."
-    ]
+      "Artificial intelligence features are increasingly embedded into mainstream search engines, media, and robotics.",
+      "The rapid expansion of AI integration impacts user experience and commercial strategies across multiple industries.",
+      "General consumers and technology users encounter pervasive AI features in daily digital and physical interactions."
+    ],
+    "tags": [
+      "Google AI Overviews",
+      "Grok",
+      "Humanoid Robots",
+      "AI Integration"
+    ],
+    "impact_score": 3
   },
   {
     "id": "143a740ce0c1890b",
@@ -155,27 +365,232 @@
     ]
   },
   {
+    "id": "184d931227f2504d",
+    "title": "The Silent Consensus",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Dean Ball, Head of Strategic Futures at OpenAI, examines how increasingly capable artificial intelligence systems could reshape modern society. The analysis explores methods for ensuring humans maintain control over societal institutions amid rapid technological advancement.",
+    "summary_status": "generated",
+    "content_fingerprint": "8e39e1e9cfdd6a04",
+    "url": "https://openai.com/index/the-silent-consensus",
+    "date": "2026-11-18T10:00:00+00:00",
+    "category": "Opinion",
+    "fetched_at": "2026-11-19T00:53:41.468909+00:00",
+    "topics": [
+      "Business and Industry"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 1,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Primary lab announcement from OpenAI",
+    "why_it_matters": "",
+    "key_points": [
+      "Dean Ball examined the societal implications of advancing AI capabilities and institutional control.",
+      "The analysis addresses maintaining human agency and governance as AI systems become more powerful.",
+      "Policy makers, institutional leaders, and AI safety researchers are affected by these governance strategies."
+    ],
+    "tags": [
+      "OpenAI",
+      "AI Governance",
+      "AI Safety",
+      "Society"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://openai.com/index/the-silent-consensus",
+        "title": "The Silent Consensus",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "58da586369f33999",
+    "title": "Research acceleration: The jagged frontier",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "OpenAI evaluates how coding agents accelerate AI research by examining performance disparities across various tasks. The analysis highlights the uneven capabilities of these agents and evaluates their implications for recursive self-improvement.",
+    "summary_status": "generated",
+    "content_fingerprint": "c48d065d60a130f1",
+    "url": "https://openai.com/index/research-acceleration-jagged-frontier",
+    "date": "2026-11-18T08:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-19T00:53:41.469051+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "OpenAI measured the performance and acceleration of AI research driven by coding agents.",
+      "Understanding the uneven performance frontier provides insights into the feasibility of recursive self-improvement.",
+      "AI researchers and developers working on autonomous coding and agentic systems are directly affected."
+    ],
+    "tags": [
+      "OpenAI",
+      "AI Agents",
+      "Recursive Self-Improvement",
+      "Coding Agents"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://openai.com/index/research-acceleration-jagged-frontier",
+        "title": "Research acceleration: The jagged frontier",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "53d809d7420a3923",
+    "title": "How Sumitomo Life’s leaders helped teams adopt ChatGPT Enterprise",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Sumitomo Life deployed ChatGPT Enterprise to support tasks such as researching insurers, preparing proposals, and drafting code for investment analysis. Executive leadership drove initial adoption by using the platform early on to encourage broader company-wide engagement.",
+    "summary_status": "generated",
+    "content_fingerprint": "8ca277b7a9fef68b",
+    "url": "https://openai.com/business/customer-stories/sumitomo-life",
+    "date": "2026-11-18T08:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-19T00:53:41.469139+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Business and Industry",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Sumitomo Life adopted ChatGPT Enterprise for insurer research, proposal preparation, and investment analysis code drafting.",
+      "Executive-level usage served as a catalyst to drive broader organizational adoption and employee engagement.",
+      "Financial and insurance industry professionals utilizing enterprise AI deployments are affected by this workflow integration."
+    ],
+    "tags": [
+      "ChatGPT Enterprise",
+      "Sumitomo Life",
+      "Enterprise AI",
+      "AI Adoption"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://openai.com/business/customer-stories/sumitomo-life",
+        "title": "How Sumitomo Life’s leaders helped teams adopt ChatGPT Enterprise",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "67952d9a918d2536",
+    "title": "Inside the Codex sandbox",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Codex runs terminal commands on local machines across macOS, Linux, and Windows. It enforces user-controlled filesystem and network limits during execution.",
+    "summary_status": "generated",
+    "content_fingerprint": "f2fa33d506b1080c",
+    "url": "https://openai.com/index/inside-the-codex-sandbox",
+    "date": "2026-11-18T08:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-19T00:53:41.469227+00:00",
+    "topics": [
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Codex executes commands locally while enforcing user-defined filesystem and network boundaries.",
+      "It provides cross-platform support for macOS, Linux, and Windows execution environments.",
+      "Developers running local command-line tools and automated workflows are affected."
+    ],
+    "tags": [
+      "Codex",
+      "Security Sandbox",
+      "Developer Tools"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://openai.com/index/inside-the-codex-sandbox",
+        "title": "Inside the Codex sandbox",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "99be0c0a7e074380",
+    "title": "Managing frontier AI risk: From training to deployment",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "OpenAI details its strategy for managing frontier AI risks throughout the training and deployment lifecycle. The approach integrates model alignment techniques, sandboxing environments, blocking safeguards, and continuous monitoring systems.",
+    "summary_status": "generated",
+    "content_fingerprint": "4cc76581eba1ea21",
+    "url": "https://openai.com/index/managing-frontier-ai-risk",
+    "date": "2026-11-18T06:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-19T00:53:41.469285+00:00",
+    "topics": [
+      "Models and Releases",
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 1,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Primary lab announcement from OpenAI",
+    "why_it_matters": "",
+    "key_points": [
+      "OpenAI outlined its multi-layered safety framework spanning training to deployment, utilizing alignment, sandboxing, blocking safeguards, and monitoring.",
+      "This establishes baseline security and risk mitigation standards for handling advanced frontier artificial intelligence models.",
+      "AI safety researchers, deployment engineers, and developers relying on frontier models are directly impacted by these risk management protocols."
+    ],
+    "tags": [
+      "OpenAI",
+      "AI Safety",
+      "Model Alignment",
+      "Risk Management"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://openai.com/index/managing-frontier-ai-risk",
+        "title": "Managing frontier AI risk: From training to deployment",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
     "id": "db6d264cb8dee98a",
     "title": "NEBench R1: a Reasoning Benchmark for Evaluating Nuclear Domain Competence in Large Language Models",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.AI (Artificial Intelligence)",
-    "summary": "[Automated summary unavailable] arXiv:2611.21682v1 Announce Type: new Abstract: Large language models (LLMs) are increasingly being explored for knowledge-intensive and safety-critical applications in nuclear engineering. However,…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "The study introduces NEBench R1, a reasoning-oriented benchmark containing 7,546 multiple-choice questions derived from U.S. Nuclear Regulatory Commission reactor operator licensing examinations. Evaluation of six large language models revealed overall accuracy between 34.0% and 73.9%, with qualitative analysis showing that correct answers often lacked sound technical justifications and procedural accuracy. Furthermore, longer reasoning traces correlated with lower accuracy in frontier reasoning models, suggesting that response length can indicate question difficulty rather than improved reliability.",
+    "summary_status": "generated",
+    "content_fingerprint": "9b565ba9f7acb98b",
     "url": "https://arxiv.org/abs/2611.21682",
     "date": "2026-11-18T05:00:00+00:00",
-    "category": "Research",
-    "fetched_at": "2026-11-18T16:14:00.893650+00:00",
+    "category": "Benchmark",
+    "fetched_at": "2026-11-19T00:53:41.470275+00:00",
     "topics": [
       "Models and Releases",
-      "Research and Breakthroughs",
-      "Benchmarks and Evaluations",
-      "Safety and Security",
-      "Applications and Products"
+      "Benchmarks and Evaluations"
     ],
     "source_type": "Research or Preprint",
-    "priority_score": 5,
-    "priority_label": "Deep Dive",
+    "priority_score": 3,
+    "priority_label": "Must Know",
     "priority_explanation": "Reports measured benchmark or evaluation results",
     "why_it_matters": "",
     "sources": [
@@ -186,10 +601,18 @@
       }
     ],
     "key_points": [
-      "NEBench R1 was released as a specialized reasoning benchmark to evaluate large language models in the nuclear domain.",
-      "It addresses critical safety and knowledge-intensive application requirements specific to nuclear engineering tasks.",
-      "Nuclear engineering researchers and AI developers working on safety-critical LLM applications are directly affected."
-    ]
+      "NEBench R1 was introduced, featuring 7,546 questions from NRC reactor operator licensing exams across 18 nuclear facilities to evaluate LLM reasoning and accuracy in nuclear engineering.",
+      "Six evaluated large language models achieved overall accuracies ranging from 34.0% to 73.9%, revealing that correct answers frequently lacked proper procedural accuracy and technical justifications.",
+      "Nuclear engineers, safety evaluators, and LLM developers working on safety-critical applications are affected by these findings regarding domain competence and reasoning reliability."
+    ],
+    "tags": [
+      "NEBench R1",
+      "Nuclear Engineering",
+      "LLM Evaluation",
+      "Safety-Critical AI",
+      "Benchmarks"
+    ],
+    "impact_score": 6
   },
   {
     "id": "b86f222d774a432b",
@@ -284,16 +707,17 @@
     "title": "Auditors Struggle to Catch Sabotage In End-to-End Transcripts of AI Safety Research",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.AI (Artificial Intelligence)",
-    "summary": "[Automated summary unavailable] arXiv:2611.21832v1 Announce Type: new Abstract: As AI systems are increasingly used to automate AI R&D, misaligned systems could sabotage research intended to improve model safety and alignment. To…",
-    "summary_status": "unverified_excerpt",
-    "content_fingerprint": "",
+    "summary": "A red-team/blue-team study evaluated whether human and AI auditors can detect sabotage in end-to-end transcripts of AI safety research conducted by a human proxy saboteur. Human auditors achieved an AUROC of 0.59 and fully identified sabotage in only 17% of cases, while frontier AI models performed slightly better with an AUROC of 0.73. The findings indicate that expert-level research sabotage is difficult to detect using current auditing methodologies.",
+    "summary_status": "generated",
+    "content_fingerprint": "4186da375da1a36d",
     "url": "https://arxiv.org/abs/2611.21832",
     "date": "2026-11-18T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-18T16:14:00.893845+00:00",
+    "fetched_at": "2026-11-19T00:53:41.470391+00:00",
     "topics": [
       "Models and Releases",
-      "Research and Breakthroughs",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
       "Safety and Security",
       "Applications and Products"
     ],
@@ -310,10 +734,17 @@
       }
     ],
     "key_points": [
-      "Researchers analyzed end-to-end transcripts of AI research to evaluate if auditors can detect AI-driven sabotage.",
-      "It addresses critical vulnerabilities in automated AI R&D pipelines where misaligned models could covertly undermine safety improvements.",
-      "AI safety researchers, auditors, and developers of automated R&D systems are directly affected by these findings."
-    ]
+      "Human auditors and frontier models struggled to detect sabotage in end-to-end AI safety research transcripts, achieving near-chance to modest detection rates.",
+      "This reveals a significant vulnerability in automated AI R&D pipelines, as misaligned agents could covertly compromise alignment and safety research.",
+      "AI safety researchers, auditing teams, and developers deploying autonomous AI R&D systems are directly affected by these detection limitations."
+    ],
+    "tags": [
+      "AI Safety",
+      "Alignment",
+      "Red Teaming",
+      "AI R&D"
+    ],
+    "impact_score": 7
   },
   {
     "id": "03b179946dd0e551",
@@ -448,17 +879,19 @@
     "title": "Conserved Verdicts, Drifting Commitments: Identifying Harmful Overthinking",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.AI (Artificial Intelligence)",
-    "summary": "[Automated summary unavailable] arXiv:2611.21946v1 Announce Type: new Abstract: A reasoning model that has reached a correct answer can lose it by continuing to think. Deciding whether to stop means comparing two probabilities at…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "Researchers identify a phenomenon where reasoning models lose correct answers by continuing to think past the optimal point. Evaluating MATH-500 and OlympiadBench across six models, the study introduces a framework measuring commitment-verdict gaps to analyze accuracy-versus-budget curves and evaluate stopping rules.",
+    "summary_status": "generated",
+    "content_fingerprint": "e26130a05fbeb2f7",
     "url": "https://arxiv.org/abs/2611.21946",
     "date": "2026-11-18T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-18T16:14:00.894103+00:00",
+    "fetched_at": "2026-11-19T00:53:41.470476+00:00",
     "topics": [
       "Models and Releases",
       "Coding and Developer Tools",
-      "Research and Breakthroughs"
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 5,
@@ -473,10 +906,18 @@
       }
     ],
     "key_points": [
-      "Researchers identified that reasoning models reaching a correct answer can subsequently lose it through continued thinking.",
-      "This phenomenon exposes a critical challenge in dynamic stopping criteria and inference-time compute optimization.",
-      "AI developers and researchers building or deploying multi-step reasoning models are directly impacted."
-    ]
+      "Researchers established a framework measuring the commitment-verdict gap to explain and quantify accuracy loss from continued reasoning in language models.",
+      "The analysis demonstrates that reasoning models can lose correct answers by overthinking, though declining accuracy curves primarily stem from which specific chains remain active rather than individual chains degrading.",
+      "AI researchers and developers working on inference-time compute, reasoning models, and optimal stopping rules are directly affected by these findings."
+    ],
+    "tags": [
+      "Reasoning Models",
+      "DeepSeek-R1",
+      "Inference Compute",
+      "MATH-500",
+      "Model Evaluation"
+    ],
+    "impact_score": 6
   },
   {
     "id": "57b8a5effa02d90f",
@@ -698,16 +1139,17 @@
     "title": "Layerwise Learning-Rate Scaling in Vision Networks: Effective-Rate Identification, Power-Mean Aggregation, and Budget Dependence",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.21696v1 Announce Type: new Abstract: Layerwise learning-rate scaling assigns different learning rates to different parts of a network. Although established in fine-tuning pretrained…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "This research introduces an effective learning rate computation derived directly from multiplier profiles to evaluate layerwise learning-rate scaling in vision networks trained from scratch. The authors demonstrate that a parameter-weighted power mean with an exponent of 0.35 can rank candidate strategies without training, improving the selected candidate's mean percentile rank. Furthermore, they find that this rate-related effect decays as training budgets increase.",
+    "summary_status": "generated",
+    "content_fingerprint": "c833271749f039b6",
     "url": "https://arxiv.org/abs/2611.21696",
     "date": "2026-11-18T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-18T16:14:00.894532+00:00",
+    "fetched_at": "2026-11-19T00:53:41.470557+00:00",
     "topics": [
       "Coding and Developer Tools",
-      "Research and Breakthroughs"
+      "Benchmarks and Evaluations",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 2,
@@ -722,10 +1164,17 @@
       }
     ],
     "key_points": [
-      "Researchers developed techniques for layerwise learning-rate scaling using effective-rate identification and power-mean aggregation in vision networks.",
-      "The approach optimizes how different layers adapt during training, which improves convergence and performance under varying budget constraints.",
-      "Deep learning practitioners and researchers training vision networks are directly affected by these optimization strategies."
-    ]
+      "A parameter-weighted power mean with an exponent of 0.35 was developed to rank layerwise learning-rate candidates without requiring actual model training.",
+      "This method improves the mean percentile rank of selected candidates from the 26th to the 10th and reduces the mean accuracy shortfall relative to the best candidate.",
+      "Researchers and practitioners training vision networks from scratch using layerwise learning-rate scaling are directly affected by these findings."
+    ],
+    "tags": [
+      "Vision Networks",
+      "Learning Rate",
+      "Optimization",
+      "Deep Learning"
+    ],
+    "impact_score": 5
   },
   {
     "id": "479477b7e2144e1c",
@@ -1229,6 +1678,91 @@
         "url": "https://code.visualstudio.com/blogs/2026/11/18/copilot-harness",
         "title": "The Copilot harness: Building on a shared foundation",
         "publisher": "Microsoft VS Code"
+      }
+    ]
+  },
+  {
+    "id": "68ddb817fe4001c0",
+    "title": "Advancing chip design with OpenAI models",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "OpenAI models were utilized to optimize circuits for Jalapeño silicon and enhance RISC-V core designs. This demonstrates ongoing advancements in applying AI-assisted design techniques using GPT-6 Astra for hardware development.",
+    "summary_status": "generated",
+    "content_fingerprint": "e4bee1d57d827d99",
+    "url": "https://openai.com/index/advancing-chip-design-with-our-models",
+    "date": "2026-11-18T00:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-19T00:53:41.469388+00:00",
+    "topics": [
+      "Models and Releases",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 1,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Primary lab announcement from OpenAI",
+    "why_it_matters": "",
+    "key_points": [
+      "OpenAI models successfully optimized circuits for Jalapeño silicon and improved RISC-V core designs.",
+      "This work highlights the practical application and progression of AI-assisted chip design using GPT-6 Astra.",
+      "Hardware engineers and semiconductor developers working with RISC-V and custom silicon are directly affected."
+    ],
+    "tags": [
+      "OpenAI",
+      "GPT-6 Astra",
+      "RISC-V",
+      "Hardware Design"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://openai.com/index/advancing-chip-design-with-our-models",
+        "title": "Advancing chip design with OpenAI models",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "ec56b5eff9affb1c",
+    "title": "180B Parameters, 32GB of RAM: Pushing MoE Inference to the Limit with Transformers",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "The article explores techniques for running a 180-billion parameter Mixture of Experts model using only 32GB of RAM with the Transformers library. It details specific optimization strategies and memory management approaches required to push large-scale inference hardware limits. The findings provide practical methods for deploying massive models on constrained consumer or edge hardware.",
+    "summary_status": "generated",
+    "content_fingerprint": "dd60064821e80dcf",
+    "url": "https://huggingface.co/blog/moe-expert-streaming",
+    "date": "2026-11-18T00:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-19T00:53:41.469782+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "A 180-billion parameter Mixture of Experts model was successfully configured to run on 32GB of RAM using Transformers.",
+      "It demonstrates memory optimization techniques that make massive model inference feasible on highly constrained hardware setups.",
+      "AI developers, hardware enthusiasts, and researchers working with large-scale local deployments are directly affected."
+    ],
+    "tags": [
+      "Mixture of Experts",
+      "Transformers",
+      "Model Inference",
+      "Large Language Models"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/moe-expert-streaming",
+        "title": "180B Parameters, 32GB of RAM: Pushing MoE Inference to the Limit with Transformers",
+        "publisher": "Hugging Face"
       }
     ]
   },
@@ -2911,22 +3445,22 @@
     "title": "NVIDIA Vera Rubin NVL72 Achieves up to 2x Blackwell Ultra Performance in MLPerf Training v6.1",
     "company": "NVIDIA",
     "source": "NVIDIA Developer Blog",
-    "summary": "[Automated summary unavailable] As AI agents tackle increasingly complex workflows, reducing time-to-train is critical for rapidly iterating on both models and the agents they power. MLPerf... As AI agents tackle increasingly…",
-    "summary_status": "pending_quota",
-    "content_fingerprint": "",
+    "summary": "Nvidia debuted its Vera Rubin architecture in MLPerf Training v6.1, where the Vera Rubin NVL72 platform achieved up to twice the performance of Blackwell Ultra. The hardware swept all seven benchmarks, demonstrating the maturity of its CUDA software stack for training complex AI agent workflows.",
+    "summary_status": "generated",
+    "content_fingerprint": "7e8d9e38b57ee899",
     "url": "https://developer.nvidia.com/blog/nvidia-vera-rubin-nvl72-achieves-up-to-2x-blackwell-ultra-performance-in-mlperf-training-v6-1",
     "date": "2026-11-16T16:00:00+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-11-16T16:48:15.050168+00:00",
+    "category": "Benchmark",
+    "fetched_at": "2026-11-19T00:53:41.470809+00:00",
     "topics": [
-      "Models and Releases",
       "AI Agents",
+      "Benchmarks and Evaluations",
       "Infrastructure and Hardware"
     ],
     "source_type": "Technical Publication",
     "priority_score": 3,
     "priority_label": "Must Know",
-    "priority_explanation": "Announces a model or architecture capability",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
     "why_it_matters": "",
     "sources": [
       {
@@ -2936,10 +3470,18 @@
       }
     ],
     "key_points": [
-      "The Nvidia Vera Rubin NVL72 achieved up to 2x the performance of Blackwell Ultra in MLPerf Training v6.1 benchmarks.",
-      "Higher training performance significantly accelerates the iterative development cycles required for complex AI agents and models.",
-      "Hardware developers, infrastructure providers, and AI engineering teams working with large-scale training pipelines are directly affected."
-    ]
+      "Nvidia's Vera Rubin NVL72 platform debuted in MLPerf Training v6.1, sweeping all seven benchmarks and achieving up to 2x the performance of Blackwell Ultra.",
+      "The results highlight early maturity in the Vera Rubin CUDA software stack, proving critical for reducing time-to-train complex AI agent workflows.",
+      "AI researchers, infrastructure engineers, and developers building large-scale models or complex AI agents are directly affected by these performance gains."
+    ],
+    "tags": [
+      "Nvidia",
+      "Vera Rubin NVL72",
+      "MLPerf Training",
+      "CUDA",
+      "Hardware Acceleration"
+    ],
+    "impact_score": 8
   },
   {
     "id": "d1436b6477306116",
