@@ -1,5 +1,127 @@
 [
   {
+    "id": "fdf247289ced7fca",
+    "title": "Reducing Rollout Bottlenecks in Reinforcement Learning with NVIDIA Dynamo",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "NVIDIA introduces Dynamo to address rollout bottlenecks during reinforcement learning training workflows. The tool aims to optimize inference and weight synchronization between workers and RL frameworks as training scales.",
+    "summary_status": "generated",
+    "content_fingerprint": "578842925db40755",
+    "url": "https://developer.nvidia.com/blog/reducing-rollout-bottlenecks-in-reinforcement-learning-with-nvidia-dynamo",
+    "date": "2026-11-19T20:28:13+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-20T01:00:59.445298+00:00",
+    "topics": [
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "NVIDIA released Dynamo to reduce rollout bottlenecks in reinforcement learning pipelines.",
+      "It addresses inference and weight updating scaling challenges during RL training.",
+      "AI researchers and engineers scaling reinforcement learning workloads are affected."
+    ],
+    "tags": [
+      "NVIDIA",
+      "Reinforcement Learning",
+      "Inference"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://developer.nvidia.com/blog/reducing-rollout-bottlenecks-in-reinforcement-learning-with-nvidia-dynamo",
+        "title": "Reducing Rollout Bottlenecks in Reinforcement Learning with NVIDIA Dynamo",
+        "publisher": "NVIDIA"
+      }
+    ]
+  },
+  {
+    "id": "a165ab416a9d4037",
+    "title": "Enabling Real-Time AI for Scientific Instruments with GPU-Native Data Acquisition",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "Real-time AI analysis of sensor measurements enables scientific instruments to dynamically adjust processes and guide experiments. However, data movement and processing speed limitations heavily constrain instrument design, readout electronics, and acquisition timing.",
+    "summary_status": "generated",
+    "content_fingerprint": "ae41cdd85c6c95c7",
+    "url": "https://developer.nvidia.com/blog/enabling-real-time-ai-for-scientific-instruments-with-gpu-native-data-acquisition",
+    "date": "2026-11-19T17:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-20T01:00:59.445347+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Business and Industry",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers explored how GPU-native data acquisition enables real-time AI analysis of sensor measurements for scientific instruments.",
+      "Eliminating data movement bottlenecks allows instrument makers to simplify readout electronics and dynamically adjust live experiments.",
+      "Scientific instrument designers, hardware engineers, and laboratory researchers are directly affected by these data pipeline constraints."
+    ],
+    "tags": [
+      "GPU-Native",
+      "Data Acquisition",
+      "Scientific Instruments",
+      "Real-Time AI"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://developer.nvidia.com/blog/enabling-real-time-ai-for-scientific-instruments-with-gpu-native-data-acquisition",
+        "title": "Enabling Real-Time AI for Scientific Instruments with GPU-Native Data Acquisition",
+        "publisher": "NVIDIA"
+      }
+    ]
+  },
+  {
+    "id": "2d01b6350c2d3fb2",
+    "title": "Build Tool-Calling Parsers in Rust with AI Agents",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "This article demonstrates how to build frontend parsers in Rust for handling tool calls from AI models, addressing challenges like incomplete arguments and leaked model-specific markup. Readers learn the mechanics of tool-call parsing and use an AI agent to develop a parser for a new model.",
+    "summary_status": "generated",
+    "content_fingerprint": "bd2320d8522709c4",
+    "url": "https://developer.nvidia.com/blog/build-tool-calling-parsers-in-rust-with-ai-agents",
+    "date": "2026-11-19T16:30:46+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-20T01:00:59.445407+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "A tutorial was released on building frontend tool-calling parsers in Rust to process streamed model outputs and handle malformed markup or truncated arguments.",
+      "It enables developers to reliably convert raw token IDs and decoded text into structured application-readable tool calls and reasoning.",
+      "Rust developers and AI application engineers building agentic workflows are directly affected."
+    ],
+    "tags": [
+      "Rust",
+      "AI Agents",
+      "Tool Calling",
+      "Parsing"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://developer.nvidia.com/blog/build-tool-calling-parsers-in-rust-with-ai-agents",
+        "title": "Build Tool-Calling Parsers in Rust with AI Agents",
+        "publisher": "NVIDIA"
+      }
+    ]
+  },
+  {
     "id": "c6b540ac1bf58e99",
     "title": "The Download: AI hype",
     "company": "MIT Technology Review",
@@ -38,6 +160,47 @@
         "url": "https://www.technologyreview.com/2026/11/19/1148979/the-download-liver-kept-alive-sila-battery-deal-ai-hype",
         "title": "The Download: a living liver, a billion-dollar battery deal",
         "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "9342dbf934e428aa",
+    "title": "How OpenAI’s Performance Factory keeps ChatGPT fast",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "OpenAI built the Performance Factory, utilizing Codex-powered workflows to automatically detect and resolve performance bottlenecks. This system is designed to maintain high execution speeds for ChatGPT.",
+    "summary_status": "generated",
+    "content_fingerprint": "4399ced75a1ee903",
+    "url": "https://openai.com/index/how-openai-performance-factory-keeps-chatgpt-fast",
+    "date": "2026-11-19T08:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-20T01:00:59.443984+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "OpenAI introduced the Performance Factory, a system of Codex-powered workflows for finding and fixing performance bottlenecks.",
+      "It automates the detection and resolution of performance issues to maintain high speed in ChatGPT.",
+      "OpenAI engineers and ChatGPT users benefit from optimized system performance."
+    ],
+    "tags": [
+      "OpenAI",
+      "Codex",
+      "ChatGPT"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://openai.com/index/how-openai-performance-factory-keeps-chatgpt-fast",
+        "title": "How OpenAI’s Performance Factory keeps ChatGPT fast",
+        "publisher": "OpenAI"
       }
     ]
   },
@@ -87,21 +250,22 @@
     "title": "Training Language Models for Introspective Oversight",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.AI (Artificial Intelligence)",
-    "summary": "[Automated summary unavailable] arXiv:2611.23365v1 Announce Type: new Abstract: Language models increasingly exhibit behaviors that are difficult to detect in transcripts, such as reward hacking, deception, and sycophancy. Asking…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "The researchers introduce introspective oversight, a training method that assigns a separate, third-person observer role within a language model to answer verifiable questions about the assistant's behavior. Trained on Qwen3.6-27B, this observer achieves a mean AUROC of 0.907 across five held-out oversight evaluations, outperforming traditional approaches such as honesty training and transcript monitoring. Furthermore, implementing this training makes the assistant easier to monitor across all baseline methods.",
+    "summary_status": "generated",
+    "content_fingerprint": "10a334565c9f6236",
     "url": "https://arxiv.org/abs/2611.23365",
     "date": "2026-11-19T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-19T16:28:05.620674+00:00",
+    "fetched_at": "2026-11-20T01:00:59.444631+00:00",
     "topics": [
       "Models and Releases",
-      "Research and Breakthroughs"
+      "Benchmarks and Evaluations",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
-    "priority_score": 2,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Original research or technical finding",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
     "why_it_matters": "",
     "sources": [
       {
@@ -109,7 +273,19 @@
         "title": "Training Language Models for Introspective Oversight",
         "publisher": "arXiv (Cornell University)"
       }
-    ]
+    ],
+    "key_points": [
+      "A third-person observer role was trained to answer verifiable questions about a language model assistant's behavior.",
+      "The method achieved a mean AUROC of 0.907, outperforming baseline oversight methods like transcript monitoring and activation oracles.",
+      "AI alignment researchers and developers working on model oversight and safety can use this approach to detect hidden misbehavior."
+    ],
+    "tags": [
+      "AI Safety",
+      "Model Oversight",
+      "Language Models",
+      "Qwen"
+    ],
+    "impact_score": 7
   },
   {
     "id": "b048edc1eac37768",
@@ -417,17 +593,17 @@
     "title": "Diagnostic Accuracy and Navigation Behavior of Vision-Language Model Agents Reading Emergency CT and MRI Examinations",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.AI (Artificial Intelligence)",
-    "summary": "[Automated summary unavailable] arXiv:2611.23480v1 Announce Type: new Abstract: Purpose. To evaluate the diagnostic accuracy and image navigation behavior of vision-language model (VLM) agents under varying exploration strategies.…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "A retrospective study evaluated six vision-language model agents reading 100 emergency CT and MRI examinations across four navigation strategies. Pooled diagnostic accuracy ranged from 32.6% to 42.5%, significantly lower than the 77.0% accuracy achieved by human radiologists. Models typically formed early hypotheses after viewing a small fraction of slices and rarely corrected incorrect initial assumptions despite reporting high confidence.",
+    "summary_status": "generated",
+    "content_fingerprint": "ccbe0fdfdde2381e",
     "url": "https://arxiv.org/abs/2611.23480",
     "date": "2026-11-19T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-19T16:28:05.621162+00:00",
+    "fetched_at": "2026-11-20T01:00:59.444700+00:00",
     "topics": [
       "Models and Releases",
       "AI Agents",
-      "Research and Breakthroughs",
+      "Coding and Developer Tools",
       "Benchmarks and Evaluations"
     ],
     "source_type": "Research or Preprint",
@@ -443,26 +619,32 @@
       }
     ],
     "key_points": [
-      "Evaluated vision-language model agents on diagnostic accuracy and image navigation tasks using emergency CT and MRI examinations.",
-      "Assessed the impact of varying exploration strategies on the clinical performance of multimodal models in radiological interpretations.",
-      "Targeted at researchers and developers working on AI-driven medical imaging diagnostic tools and autonomous clinical agents."
-    ]
+      "Six vision-language model agents were evaluated on 4,800 diagnostic runs involving emergency CT and MRI scans under varying exploration strategies.",
+      "Model diagnostic accuracy peaked at 42.5% when provided with all or key slices in a single request, compared to 77.0% for human radiologists.",
+      "Clinical AI developers, radiologists, and healthcare institutions assessing autonomous diagnostic workflows are affected by these findings on model navigation and premature confirmation bias."
+    ],
+    "tags": [
+      "Vision-Language Models",
+      "Medical Imaging",
+      "Radiology",
+      "AI Diagnostics"
+    ],
+    "impact_score": 6
   },
   {
     "id": "84553a33d5601021",
     "title": "Neural Network-Based Modeling of Hysteretic Systems: From Prandtl and Preisach Neural Networks to Neuro-Madelung and Neuroplastic Continuous Models",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.23240v1 Announce Type: new Abstract: Hysteresis is a complex nonlinear phenomenon characterized by memory dependence, path dependence, and, in many physical systems, degradation,…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "This review examines neural network-based modeling techniques for hysteretic systems, covering architectures such as Prandtl neural networks, Preisach neural networks, generalized Prandtl neural networks, the neuro-Madelung model, and extended Preisach neural networks. It highlights their mechanisms for representing memory dependence, degradation, and rate effects in nonlinear structural and material systems. The developments culminate in models capable of handling complex behaviors including non-congruent, asymmetric, and rate-dependent hysteresis.",
+    "summary_status": "generated",
+    "content_fingerprint": "9beff6e902102fd7",
     "url": "https://arxiv.org/abs/2611.23240",
     "date": "2026-11-19T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-19T16:28:05.621192+00:00",
+    "fetched_at": "2026-11-20T01:00:59.444769+00:00",
     "topics": [
-      "Models and Releases",
-      "Research and Breakthroughs"
+      "Models and Releases"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 2,
@@ -477,25 +659,33 @@
       }
     ],
     "key_points": [
-      "New neural network architectures including Prandtl, Preisach, Neuro-Madelung, and neuroplastic continuous models were introduced for modeling hysteretic systems.",
-      "This improves the computational modeling of complex nonlinear phenomena involving memory and path dependence as well as system degradation.",
-      "Researchers and engineers working on physical systems with hysteresis and nonlinear dynamics are affected."
-    ]
+      "A comprehensive review of neural network architectures—including Prandtl, Preisach, and neuro-Madelung models—was conducted for simulating hysteretic systems.",
+      "The integration of hysteretic memory operators into neural activation allows networks to accurately model complex physical phenomena such as stiffness degradation, rate dependence, and non-congruent hysteresis.",
+      "Researchers and engineers working on nonlinear structural dynamics, materials science, and physical system modeling are affected."
+    ],
+    "tags": [
+      "Hysteresis",
+      "Neural Networks",
+      "Nonlinear Systems",
+      "Structural Dynamics",
+      "Memory-Dependent Systems"
+    ],
+    "impact_score": 5
   },
   {
     "id": "698034b3c0e3f031",
     "title": "GridForge: An Open Physics-Informed Digital Twin and Benchmark Suite for UK 11 kV Underground Distribution Cables",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.23241v1 Announce Type: new Abstract: The UK distribution-cable monitoring sector is data-rich but framework-poor: each Distribution Network Operator (DNO) collects megabytes of telemetry…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "GridForge introduces an open-source physics-informed digital twin and benchmark suite designed for UK 11 kV underground distribution cables to address a lack of shared evaluation protocols in the sector. The suite integrates IEC-based thermal models, a synthetic dataset covering 320 cable-years, a Physics-Informed Neural Network surrogate, and a five-task benchmark framework. The released resources aim to enable independent verification for maintenance planning and operational decision-making by utility operators.",
+    "summary_status": "generated",
+    "content_fingerprint": "dec2ed2e88c9af32",
     "url": "https://arxiv.org/abs/2611.23241",
     "date": "2026-11-19T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-19T16:28:05.621224+00:00",
+    "fetched_at": "2026-11-20T01:00:59.444856+00:00",
     "topics": [
-      "Research and Breakthroughs",
+      "Models and Releases",
       "Benchmarks and Evaluations"
     ],
     "source_type": "Research or Preprint",
@@ -511,26 +701,34 @@
       }
     ],
     "key_points": [
-      "GridForge was released as an open physics-informed digital twin and benchmark suite specifically targeting UK 11 kV underground distribution cables.",
-      "It addresses the lack of standardized telemetry analysis frameworks across data-rich UK Distribution Network Operators.",
-      "UK Distribution Network Operators and researchers studying underground power cable monitoring are directly affected."
-    ]
+      "GridForge was released as an open-source physics-informed digital twin and benchmark suite for UK 11 kV underground distribution cables.",
+      "It provides standardized datasets, IEC-compliant thermal models, and a PINN surrogate achieving an RMSE of 0.148 degrees Celsius to address data evaluation gaps in the power sector.",
+      "UK Distribution Network Operators, grid engineers, and energy research practitioners are directly affected by this new benchmark suite."
+    ],
+    "tags": [
+      "Digital Twin",
+      "Physics-Informed Neural Networks",
+      "Smart Grid",
+      "Open Source"
+    ],
+    "impact_score": 5
   },
   {
     "id": "2f0228860dfc3ee9",
     "title": "Biologically-Inspired Spike Encoding and Optimization for Spiking Neural Networks",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.23242v1 Announce Type: new Abstract: Spiking Neural Networks (SNNs) offer theoretical energy-efficiency advantages over conventional deep networks, but realizing these advantages on…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "Researchers explore biologically inspired spike-encoding methods combined with Rouser adaptive-threshold surrogate gradients and K-FAC second-order optimization to improve Spiking Neural Network (SNN) efficiency on vision tasks. Experiments on MNIST and Fashion-MNIST show that Difference-of-Gaussians and delta modulation encoders produce significantly sparser spike trains while preserving accuracy in capacity-constrained regimes. These biologically grounded pre-processing techniques help close the accuracy gap between SNNs and conventional non-spiking neural networks.",
+    "summary_status": "generated",
+    "content_fingerprint": "e85fd176a40efb44",
     "url": "https://arxiv.org/abs/2611.23242",
     "date": "2026-11-19T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-19T16:28:05.621255+00:00",
+    "fetched_at": "2026-11-20T01:00:59.444927+00:00",
     "topics": [
       "Coding and Developer Tools",
-      "Research and Breakthroughs"
+      "Benchmarks and Evaluations",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 2,
@@ -545,25 +743,33 @@
       }
     ],
     "key_points": [
-      "Researchers developed biologically-inspired spike encoding and optimization techniques for Spiking Neural Networks.",
-      "The approach addresses the gap between theoretical energy-efficiency advantages of SNNs and their practical hardware implementation challenges.",
-      "Spiking neural network researchers and neuromorphic hardware engineers are directly affected."
-    ]
+      "Biologically inspired spike encoders like Difference-of-Gaussians and delta modulation were combined with Rouser adaptive-thresholds and K-FAC optimization to train SNNs.",
+      "The approach improves parameter efficiency and yields sparser spike trains on MNIST and Fashion-MNIST without increasing model size.",
+      "Neuromorphic computing researchers and developers of edge AI hardware benefit from methods that enhance SNN energy-efficiency."
+    ],
+    "tags": [
+      "Spiking Neural Networks",
+      "Spike Encoding",
+      "Neuromorphic Computing",
+      "K-FAC",
+      "Surrogate Gradients"
+    ],
+    "impact_score": 5
   },
   {
     "id": "b14ee5c8168a9508",
     "title": "Goemans's Unsplittable-Flow Conjecture: The Anatomy of AI-Assisted Counterexample Discovery",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.23244v1 Announce Type: new Abstract: Goemans conjectured that any fractional single-source flow could be converted into an unsplittable flow without increasing total cost and while…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "Researchers analyzed Dmitry Rybin's AI-assisted counterexample to Goemans's Unsplittable-Flow Conjecture and developed a forward counterexample construction pipeline based on conflict polytopes. This pipeline explains the structural features of the counterexample and enables the generation of valid counterexamples on entirely new topologies.",
+    "summary_status": "generated",
+    "content_fingerprint": "ae7da4f5d5d59de8",
     "url": "https://arxiv.org/abs/2611.23244",
     "date": "2026-11-19T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-19T16:28:05.621285+00:00",
+    "fetched_at": "2026-11-20T01:00:59.445006+00:00",
     "topics": [
-      "Research and Breakthroughs"
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 2,
@@ -576,7 +782,19 @@
         "title": "Goemans's Unsplittable-Flow Conjecture: The Anatomy of AI-Assisted Counterexample Discovery",
         "publisher": "arXiv (Cornell University)"
       }
-    ]
+    ],
+    "key_points": [
+      "A forward counterexample construction pipeline was developed using conflict polytopes to characterize and generate counterexamples to Goemans's Unsplittable-Flow Conjecture.",
+      "This research explains the structural mechanisms behind Rybin's AI-assisted counterexample and demonstrates that LLMs can discover valid constructions on 93 other rooted arborescence shapes when guided properly.",
+      "Algorithm researchers and graph theorists studying network flow and AI-assisted mathematical discovery are directly affected by these findings."
+    ],
+    "tags": [
+      "Goemans's Conjecture",
+      "Network Flow",
+      "AI-Assisted Discovery",
+      "Graph Theory"
+    ],
+    "impact_score": 7
   },
   {
     "id": "e0295bcf25cca7d9",
@@ -709,15 +927,17 @@
     "title": "Exploring Parkinson's Diagnosis Using Machine Learning Techniques",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.23248v1 Announce Type: new Abstract: In recent years, machine learning (ML) techniques have emerged as promising tools for accurate and timely diagnosis of Parkinson's disease (PD) which…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "This study evaluates the effectiveness of various machine learning algorithms, including support vector machines, decision trees, and random forests, for diagnosing Parkinson's disease using a dataset from Leeds Teaching Hospitals NHS Trust. Decision tree and logistic regression models achieved the highest accuracy scores between 72% and 76%, while support vector machines reached up to 97.56% sensitivity in classifying positive cases. However, models struggled to reliably distinguish healthy controls from Parkinson's disease patients, indicating a need for larger datasets and further methodological refinement.",
+    "summary_status": "generated",
+    "content_fingerprint": "7c67b67228705ff8",
     "url": "https://arxiv.org/abs/2611.23248",
     "date": "2026-11-19T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-19T16:28:05.621508+00:00",
+    "fetched_at": "2026-11-20T01:00:59.445080+00:00",
     "topics": [
-      "Research and Breakthroughs"
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 2,
@@ -732,33 +952,39 @@
       }
     ],
     "key_points": [
-      "Machine learning techniques were applied to develop improved diagnostic methods for Parkinson's disease.",
-      "The approach offers potential improvements in the accuracy and timeliness of neurological condition diagnoses.",
-      "Medical researchers and clinical practitioners utilizing diagnostic algorithms are directly affected."
-    ]
+      "Researchers applied multiple machine learning algorithms to clinical data from 58 individuals to evaluate Parkinson's disease diagnosis.",
+      "Decision tree and logistic regression achieved 72-76 percent accuracy, while support vector machines reached 97.56 percent sensitivity for positive cases, though distinguishing healthy controls remained challenging.",
+      "Clinical researchers, machine learning practitioners, and healthcare providers focused on neurodegenerative disease diagnostics are affected by these findings."
+    ],
+    "tags": [
+      "Machine Learning",
+      "Parkinson's Disease",
+      "Healthcare AI",
+      "Support Vector Machines"
+    ],
+    "impact_score": 4
   },
   {
     "id": "57af61cbb3f1523e",
     "title": "Optimize the Cob, Then the Kernel: Optimizing Beam Search for Generative Recommendation Inference",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.23339v1 Announce Type: new Abstract: Generative recommendation (GR) inference differs substantially from conventional LLM serving, featuring long input sequences, wide beam search, and…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "The paper introduces an optimized beam search framework for generative recommendation inference that avoids redundant KV cache accesses by concatenating beams along the sequence dimension using Tree Attention. Without custom kernels, the approach achieves up to a 25x reduction in end-to-end latency compared to vLLM on Ascend NPUs. The results demonstrate that holistic pipeline optimization can match the performance of custom kernel solutions.",
+    "summary_status": "generated",
+    "content_fingerprint": "abd68f197a35aeb4",
     "url": "https://arxiv.org/abs/2611.23339",
     "date": "2026-11-19T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-19T16:28:05.621538+00:00",
+    "fetched_at": "2026-11-20T01:00:59.445157+00:00",
     "topics": [
-      "Coding and Developer Tools",
       "Research and Breakthroughs",
       "Infrastructure and Hardware",
       "Applications and Products"
     ],
     "source_type": "Research or Preprint",
-    "priority_score": 2,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Original research or technical finding",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
     "why_it_matters": "",
     "sources": [
       {
@@ -768,32 +994,40 @@
       }
     ],
     "key_points": [
-      "Researchers developed optimization techniques for beam search specifically tailored to generative recommendation inference workloads.",
-      "This approach addresses the unique performance bottlenecks of generative recommendation systems, such as long input sequences and wide beam widths, which differ from standard LLM serving.",
-      "Engineers and developers working on generative recommendation systems and model serving infrastructure are directly affected."
-    ]
+      "Researchers developed a generative recommendation inference optimization using Tree Attention and static KV cache allocation to eliminate redundant KV cache accesses.",
+      "The method reduces end-to-end latency by up to 25x over vLLM on Ascend NPUs without requiring custom kernels.",
+      "Engineers and developers working on generative recommendation systems and LLM serving infrastructure on specialized hardware are directly affected."
+    ],
+    "tags": [
+      "Generative Recommendation",
+      "Beam Search",
+      "KV Cache",
+      "vLLM",
+      "Ascend NPU"
+    ],
+    "impact_score": 7
   },
   {
     "id": "ed880ec6bc7109fa",
     "title": "Confidence-Based Materials Data Quality Assessment via Domain Knowledge and Graph-Structured Learning",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.23342v1 Announce Type: new Abstract: The rapid development of materials machine learning relies on large-scale, heterogeneous datasets, yet model reliability is often compromised by…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "Researchers propose a confidence-based data quality assessment framework combining domain knowledge and graph-structured learning to evaluate materials science datasets. The method utilizes a nine-dimensional feature-quality prior, bipartite graph propagation, and a Memory-GAT module for historical reference scoring. Experimental results across benchmark datasets and contaminated subsets demonstrate significant improvements in regression performance and data reliability.",
+    "summary_status": "generated",
+    "content_fingerprint": "fce91156f6e5ed19",
     "url": "https://arxiv.org/abs/2611.23342",
     "date": "2026-11-19T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-19T16:28:05.621570+00:00",
+    "fetched_at": "2026-11-20T01:00:59.445227+00:00",
     "topics": [
-      "Models and Releases",
       "Coding and Developer Tools",
-      "Research and Breakthroughs"
+      "Benchmarks and Evaluations",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
-    "priority_score": 2,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Original research or technical finding",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
     "why_it_matters": "",
     "sources": [
       {
@@ -803,9 +1037,175 @@
       }
     ],
     "key_points": [
-      "A confidence-based data quality assessment method combining domain knowledge and graph-structured learning was introduced.",
-      "It addresses dataset heterogeneity and improves model reliability in materials science applications.",
-      "Materials machine learning researchers and scientists utilizing heterogeneous datasets are directly affected."
+      "A confidence-based data quality assessment framework was developed using domain knowledge, graph-structured learning, and a Memory-GAT module to evaluate materials databases.",
+      "The approach improves downstream machine learning reliability, raising test R^2 values on contaminated datasets such as mp_20 and MACE subsets.",
+      "Materials scientists, database curators, and researchers building machine learning models for materials discovery are directly affected."
+    ],
+    "tags": [
+      "Materials Science",
+      "Graph Neural Networks",
+      "Data Quality",
+      "Machine Learning"
+    ],
+    "impact_score": 6
+  },
+  {
+    "id": "a890a236270cc5e3",
+    "title": "Deploying Daybreak Red",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "A reference architecture for supervised security investigations using Daybreak Red is presented, detailing safety controls, setup procedures, and monitoring tools. The documentation guides security teams through the deployment and operational oversight of the system.",
+    "summary_status": "generated",
+    "content_fingerprint": "86a3ae69a59dae50",
+    "url": "https://openai.com/business/learn/deploying-daybreak-red",
+    "date": "2026-11-19T00:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-20T01:00:59.444114+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Safety and Security"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "A reference architecture for deploying Daybreak Red was published, featuring guidance on setup, monitoring, and safety controls.",
+      "It establishes structured oversight for supervised security investigations, improving operational safety.",
+      "Security engineers and enterprise defenders deploying Daybreak Red are affected."
+    ],
+    "tags": [
+      "Daybreak Red",
+      "Security",
+      "Reference Architecture"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://openai.com/business/learn/deploying-daybreak-red",
+        "title": "Deploying Daybreak Red",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "17b7a2b39f098895",
+    "title": "See PR scans in action",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "A video walkthrough demonstrates how pull request scans operate within a standard development workflow. The presenter reviews specific scan results directly inside a pull request interface to show practical application.",
+    "summary_status": "generated",
+    "content_fingerprint": "c246d732002b49b5",
+    "url": "https://openai.com/business/learn/pr-scans-demo",
+    "date": "2026-11-19T00:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-20T01:00:59.444185+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 7,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "A walkthrough demonstrates how PR scans display and review results within pull request workflows.",
+      "It provides developers with a clear visual reference for integrating security or code quality checks into existing version control processes.",
+      "Software developers and engineering teams utilizing pull request workflows are directly affected."
+    ],
+    "tags": [
+      "Security Scanning",
+      "Developer Tools",
+      "CI/CD"
+    ],
+    "impact_score": 3,
+    "sources": [
+      {
+        "url": "https://openai.com/business/learn/pr-scans-demo",
+        "title": "See PR scans in action",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "82fe289fe466dcc1",
+    "title": "Explore the Codex Security Plugin",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "A demonstration video showcases the workflow of the Codex Security Plugin, illustrating the process from initial setup to reviewing output results. Developers can observe the practical implementation and functionality of the plugin in a recorded session.",
+    "summary_status": "generated",
+    "content_fingerprint": "3a27862876de5b1d",
+    "url": "https://openai.com/business/learn/codex-security-plugin-demo",
+    "date": "2026-11-19T00:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-20T01:00:59.444244+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Safety and Security",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 7,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "A demonstration video showing the setup and review workflow of the Codex Security Plugin was released.",
+      "It provides visual guidance on how developers can integrate and utilize the security plugin within their development environments.",
+      "Software developers and security teams utilizing Codex tools are directly affected by this workflow demonstration."
+    ],
+    "tags": [
+      "Codex Security Plugin",
+      "Security",
+      "Developer Tools"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://openai.com/business/learn/codex-security-plugin-demo",
+        "title": "Explore the Codex Security Plugin",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "da30645137037f00",
+    "title": "Get started with Daybreak Blue",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "An instructional walkthrough video details the onboarding process and setup experience for Daybreak Blue. Users can follow the guide to understand how to get started with the platform.",
+    "summary_status": "generated",
+    "content_fingerprint": "04ed5d29151674aa",
+    "url": "https://openai.com/business/learn/daybreak-blue-onboarding-demo",
+    "date": "2026-11-19T00:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-20T01:00:59.444299+00:00",
+    "topics": [
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "A walkthrough video demonstrating the Daybreak Blue onboarding and setup experience was published.",
+      "It provides a visual guide for users looking to configure and begin using the platform.",
+      "New users and administrators adopting Daybreak Blue are directly affected."
+    ],
+    "tags": [
+      "Daybreak Blue",
+      "Product Onboarding"
+    ],
+    "impact_score": 3,
+    "sources": [
+      {
+        "url": "https://openai.com/business/learn/daybreak-blue-onboarding-demo",
+        "title": "Get started with Daybreak Blue",
+        "publisher": "OpenAI"
+      }
     ]
   },
   {
@@ -5602,6 +6002,49 @@
         "url": "https://huggingface.co/blog/openrouter",
         "title": "Hugging Face and OpenRouter join forces to make open-weight models easy to run",
         "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
+    "id": "c6febd82e4661f8d",
+    "title": "datasette-maplibre 0.1a0",
+    "company": "Simon Willison's Weblog",
+    "source": "Simon Willison – AI",
+    "summary": "The datasette-maplibre 0.1a0 plugin integrates the MapLibre GL library and OpenFreeMap to render geospatial data within Datasette. Built using generative AI prompting with Claude, the plugin includes performance features like deferred WebGL loading and SVG previews for GeoJSON shapes. A browser-based demo using Datasette Lite and Pyodide allows users to test the plugin without local installation.",
+    "summary_status": "generated",
+    "content_fingerprint": "7f0565b051f135c3",
+    "url": "https://simonwillison.net/2026/Nov/15/datasette-maplibre",
+    "date": "2026-11-15T23:58:36+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-20T01:00:59.445606+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Released datasette-maplibre 0.1a0, a new geospatial plugin for Datasette combining MapLibre GL and OpenFreeMap.",
+      "Demonstrates rapid prototyping of functional software packages using LLM prompting and WebAssembly-based browser execution via Datasette Lite.",
+      "Developers and users working with geospatial data visualization inside Datasette and Datasette Lite."
+    ],
+    "tags": [
+      "Datasette",
+      "MapLibre",
+      "OpenFreeMap",
+      "Geospatial",
+      "Generative AI"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://simonwillison.net/2026/Nov/15/datasette-maplibre",
+        "title": "datasette-maplibre 0.1a0",
+        "publisher": "Simon Willison's Weblog"
       }
     ]
   },
