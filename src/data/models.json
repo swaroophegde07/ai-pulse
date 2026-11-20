@@ -217,8 +217,8 @@
     "api_available": true,
     "consumer_available": false,
     "pricing": {
-      "input_per_1m": 0.036,
-      "output_per_1m": 0.5,
+      "input_per_1m": 0.15,
+      "output_per_1m": 0.6,
       "unit": "USD"
     },
     "documentation_url": "https://openrouter.ai/deepseek/deepseek-v4.1-flash-1017",
@@ -282,8 +282,8 @@
     "api_available": true,
     "consumer_available": false,
     "pricing": {
-      "input_per_1m": 0.27,
-      "output_per_1m": 11.5,
+      "input_per_1m": 1.32,
+      "output_per_1m": 3.96,
       "unit": "USD"
     },
     "documentation_url": "https://openrouter.ai/deepseek/deepseek-v4-pro-0813",
@@ -315,7 +315,7 @@
     "api_available": true,
     "consumer_available": false,
     "pricing": {
-      "input_per_1m": 0.1,
+      "input_per_1m": 0.0443,
       "output_per_1m": 0.3,
       "unit": "USD"
     },
@@ -778,15 +778,15 @@
     "consumer_available": false,
     "pricing": {
       "input_per_1m": 0.06,
-      "output_per_1m": 2.2,
+      "output_per_1m": 1.96,
       "unit": "USD"
     },
     "documentation_url": "https://openrouter.ai/qwen/qwen3.8-27b",
     "source_url": "https://openrouter.ai/qwen/qwen3.8-27b",
-    "last_verified": "2026-11-18",
+    "last_verified": "2026-11-20",
     "verification_sources": {
-      "telemetry": "OpenRouter (2026-11-18)",
-      "pricing": "OpenRouter (2026-11-18)"
+      "telemetry": "OpenRouter (2026-11-20)",
+      "pricing": "OpenRouter (2026-11-20)"
     },
     "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
     "is_featured_frontier": false

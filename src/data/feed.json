@@ -1,5 +1,929 @@
 [
   {
+    "id": "920754852bcdbc0b",
+    "title": "The Download: inside the quest to make our minds immortal",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "MIT Technology Review explored various scientific and technological quests for cognitive immortality, ranging from brain preservation and tissue replacement to AI-powered digital avatars. The discussion highlighted projects like Nectome's brain preservation technique and government-backed replacement brain tissue research, alongside broader discussions on digital clones and mind preservation. Additionally, recent news covered political and regulatory shifts in the tech sector, including the firing of the US cyber director following widespread outages and US approval of AI chip sales to China.",
+    "summary_status": "generated",
+    "content_fingerprint": "6791c6fa850534b3",
+    "url": "https://www.technologyreview.com/2026/11/20/1149371/the-download-quest-to-make-minds-immortal",
+    "date": "2026-11-20T13:10:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-20T16:00:09.854996+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers and companies are actively investigating methods for cognitive immortality, including brain freezing, brain tissue replacement, and LLM-based digital avatars.",
+      "These speculative technologies and projects highlight intersections between biomedicine, artificial intelligence, and philosophical questions about human identity.",
+      "Biomedical researchers, AI developers, and individuals interested in life extension or digital resurrection technologies are affected by these exploratory developments."
+    ],
+    "tags": [
+      "AI Avatars",
+      "Large Language Models",
+      "Biomedicine",
+      "Nvidia",
+      "AI Chips"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/11/20/1149371/the-download-quest-to-make-minds-immortal",
+        "title": "The Download: inside the quest to make our minds immortal",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "5597d4fc8cda207a",
+    "title": "Closing the Analyze-to-Design Gap: An Authorization-Bounded Agent for Self-Driving Laboratories",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.25043v1 Announce Type: new Abstract: Artificial intelligence (AI) agents are increasingly integrated into self-driving laboratories (SDLs) to plan experiments and interpret results.…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.25043",
+    "date": "2026-11-20T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-20T16:00:09.855204+00:00",
+    "topics": [
+      "AI Agents",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.25043",
+        "title": "Closing the Analyze-to-Design Gap: An Authorization-Bounded Agent for Self-Driving Laboratories",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "An authorization-bounded agent was developed to manage experimental planning and result interpretation in self-driving laboratories.",
+      "This framework provides a secure method to connect experimental analysis directly to automated laboratory design loops.",
+      "Researchers and operators of automated self-driving laboratories are directly affected by these enhanced control mechanisms."
+    ]
+  },
+  {
+    "id": "f151cfdf6e9fc323",
+    "title": "An LLM-Agentic Framework for Intelligent Work Order Management in Industrial Maintenance",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "The paper introduces CodeReAct, an LLM-agentic framework designed for intelligent work order management and industrial equipment maintenance. By standardizing industrial data and utilizing a Thought-Action-Observation loop, the agent autonomously generates executable code for tasks like data analysis and anomaly detection. A case study on chiller maintenance demonstrates its ability to process multi-year work orders and reduce reliance on manual data science efforts.",
+    "summary_status": "generated",
+    "content_fingerprint": "623b4efc2a7767e5",
+    "url": "https://arxiv.org/abs/2611.25070",
+    "date": "2026-11-20T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-20T16:00:09.855245+00:00",
+    "topics": [
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "An LLM-agentic framework called CodeReAct was developed to automate industrial equipment maintenance tasks using natural language interactions.",
+      "It streamlines complex analytical tasks by standardizing industrial data into business objects and autonomously generating executable code, replacing manual coding.",
+      "Industrial maintenance teams and data scientists benefit from automated work order recommendations, anomaly detection, and asset status summarization."
+    ],
+    "tags": [
+      "AI Agents",
+      "Industrial Maintenance",
+      "Large Language Models",
+      "Natural Language Processing"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.25070",
+        "title": "An LLM-Agentic Framework for Intelligent Work Order Management in Industrial Maintenance",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "2b004a1d804de81e",
+    "title": "SailSearch: Agent-Assisted Discovery in Combinatorial Optimization",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.25087v1 Announce Type: new Abstract: We present SailSearch, a human-guided workflow for algorithmic research with two language-model agents, and report results on Market Split and maximum…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.25087",
+    "date": "2026-11-20T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-20T16:00:09.855312+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Business and Industry",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.25087",
+        "title": "SailSearch: Agent-Assisted Discovery in Combinatorial Optimization",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "SailSearch was introduced as a human-guided workflow using two language-model agents for algorithmic research in combinatorial optimization.",
+      "The approach addresses complex optimization problems such as Market Split and maximum cut.",
+      "Researchers and practitioners working on combinatorial optimization and AI-assisted algorithm discovery are directly affected."
+    ]
+  },
+  {
+    "id": "5bd812d1ea646250",
+    "title": "BuggyMLE: Scaling Machine Learning Engineering Difficulty with Bug Injection",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduce BuggyMLE, a scalable framework that injects controlled mutations into working machine learning repositories to generate benchmark variants and training curricula. This approach yields BuggyMLE-Bench-Lite, a difficulty-graded repository-level benchmark where top model solve rates drop significantly from 95% to 9% across difficulty tiers. Fine-tuning a Qwen3.5-9B model on the generated curriculum improves its performance on both BuggyMLE-Bench-Lite and external coding benchmarks like SWE-bench Lite.",
+    "summary_status": "generated",
+    "content_fingerprint": "70f07fe4c4f2dfb5",
+    "url": "https://arxiv.org/abs/2611.25088",
+    "date": "2026-11-20T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-20T16:00:09.855346+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "The BuggyMLE framework was developed to inject controlled mutations into working machine learning repositories, synthesizing over 6,600 variants across 222 source repositories.",
+      "The authors introduced BuggyMLE-Bench-Lite, demonstrating that top AI model solve rates drop from 95% to 9% as repository complexity increases.",
+      "Developers and researchers evaluating or training autonomous AI agents for repository-level machine learning and software engineering tasks are directly affected."
+    ],
+    "tags": [
+      "AI Agents",
+      "Machine Learning Engineering",
+      "Benchmarks",
+      "Code Generation",
+      "Qwen"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.25088",
+        "title": "BuggyMLE: Scaling Machine Learning Engineering Difficulty with Bug Injection",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "527d63fc8a52047f",
+    "title": "CoMPASS: A Multi-Turn Benchmark for Measuring LLM Reinforcement of Parasocial Behavior",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduced CoMPASS, a multi-turn benchmark grounded in attachment theory designed to measure whether large language models reinforce escalating parasocial behaviors. Evaluating eight frontier models from four providers revealed that multi-turn escalation increases parasocial reinforcement across all tested models, with provider-level choices showing more impact than model scale. The findings indicate that provider-side interventions may be feasible for mitigating emotional dependency and anthropomorphic attachment in conversational AI.",
+    "summary_status": "generated",
+    "content_fingerprint": "b760af48000960e0",
+    "url": "https://arxiv.org/abs/2611.25109",
+    "date": "2026-11-20T05:00:00+00:00",
+    "category": "Benchmark",
+    "fetched_at": "2026-11-20T16:00:09.855406+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "CoMPASS, a new multi-turn benchmark measuring LLM reinforcement of parasocial behavior, was introduced to address the lack of dynamic evaluation tools for user emotional attachment.",
+      "Evaluating eight frontier models showed that multi-turn escalation significantly raises parasocial reinforcement across anthropomorphism and attachment scores, with cross-provider differences outweighing scale differences.",
+      "AI developers, safety researchers, and deployers of conversational LLMs are affected, as the benchmark highlights the need for provider-level post-training interventions to prevent dangerous emotional dependency."
+    ],
+    "tags": [
+      "CoMPASS",
+      "Benchmark",
+      "LLM Safety",
+      "Anthropomorphism",
+      "Parasocial Behavior"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.25109",
+        "title": "CoMPASS: A Multi-Turn Benchmark for Measuring LLM Reinforcement of Parasocial Behavior",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "dd9d080710ad5a41",
+    "title": "DSFlow: A Neuro-Symbolic Data Workflow Agent with Statistical Diagnostic Guardrails",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.25111v1 Announce Type: new Abstract: Data science workflows often require tools that presume non-trivial technical knowledge. Large language models (LLMs) reduce this barrier, but a gap…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.25111",
+    "date": "2026-11-20T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-20T16:00:09.855495+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Research and Breakthroughs",
+      "Safety and Security"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.25111",
+        "title": "DSFlow: A Neuro-Symbolic Data Workflow Agent with Statistical Diagnostic Guardrails",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "DSFlow, a neuro-symbolic data workflow agent with statistical diagnostic guardrails, was introduced.",
+      "It bridges the technical gap in using large language models for complex data science workflows through automated statistical diagnostics.",
+      "Data scientists and researchers relying on automated LLM-based data processing workflows are affected."
+    ]
+  },
+  {
+    "id": "d56a7ae412a77653",
+    "title": "Calibrated Decision Rewards: Training Language Models with a Judge That Knows How Sure It Is",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.25135v1 Announce Type: new Abstract: Reinforcement learning (RL) can only teach a language model what its reward can recognize. Answer checkers are exact but need a reference answer;…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.25135",
+    "date": "2026-11-20T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-20T16:00:09.855525+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.25135",
+        "title": "Calibrated Decision Rewards: Training Language Models with a Judge That Knows How Sure It Is",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "A reinforcement learning method was introduced utilizing a judge that outputs calibrated uncertainty for rewards.",
+      "This improves reward modeling by accounting for judge uncertainty without relying strictly on reference answers.",
+      "AI researchers and developers training language models with reinforcement learning are affected."
+    ]
+  },
+  {
+    "id": "528f4d1c82bd22be",
+    "title": "EverydayBench: Evaluating Satisfactory Completion of Live User-Facing Digital Work",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "EverydayBench is a new benchmark featuring 77 human-authored tasks across eight everyday domains designed to evaluate AI agents on delivering useful digital outcomes rather than mere web retrieval. The benchmark evaluates agents using deterministic constraint checks, evidence verification against cited webpages, and rubric-based deliverable assessment. Evaluations across 23 agent configurations show top strict pass rates of 54.55% by Claude Opus 5.5 and Claude Fable 5.1.",
+    "summary_status": "generated",
+    "content_fingerprint": "0620393258ee83d3",
+    "url": "https://arxiv.org/abs/2611.25146",
+    "date": "2026-11-20T05:00:00+00:00",
+    "category": "Benchmark",
+    "fetched_at": "2026-11-20T16:00:09.855555+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "EverydayBench was introduced to evaluate AI agents on completing 77 live user-facing digital tasks with predefined success criteria across eight domains.",
+      "It combines deterministic checks, real-time evidence verification, and rubric assessments to handle dynamic web content and multiple valid user outcomes.",
+      "AI agent developers, researchers, and users deploying models like Claude Opus 5.5 and GPT variants for everyday digital workflows are directly affected."
+    ],
+    "tags": [
+      "EverydayBench",
+      "AI Agents",
+      "Benchmark",
+      "Evaluation"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.25146",
+        "title": "EverydayBench: Evaluating Satisfactory Completion of Live User-Facing Digital Work",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "85e593c2e5bbc81b",
+    "title": "A Verifier from the Past: Test-Time Compute for Time Series Foundation Models",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.25171v1 Announce Type: new Abstract: Test-time compute (TTC) improves language models by spending additional inference compute to generate, verify, and select among candidate outputs, but…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.25171",
+    "date": "2026-11-20T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-20T16:00:09.855617+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.25171",
+        "title": "A Verifier from the Past: Test-Time Compute for Time Series Foundation Models",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "A test-time compute methodology using verifiers was adapted for time series foundation models.",
+      "It enhances forecasting accuracy by generating and selecting optimal candidate outputs during inference.",
+      "Time series researchers and practitioners deploying foundation models for forecasting are directly affected."
+    ]
+  },
+  {
+    "id": "d7db2ba0559ff33c",
+    "title": "An AI-Powered Multiverse Analysis of Empirical Finance Research: Evidence from Reused Natural Experiments",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers deployed AI agents to conduct a multiverse analysis of 324 empirical finance papers reusing 13 natural experiments by evaluating 62,409 defensible specifications. The analysis successfully reproduced 42% of the main estimates under original specifications and found that on average 25% of estimates maintained sign and significance across all defensible specifications. These findings demonstrate the feasibility of large-scale multiverse analysis using agentic coding to quantify specification sensitivity in financial research.",
+    "summary_status": "generated",
+    "content_fingerprint": "ad82c5cd3a7aa0b6",
+    "url": "https://arxiv.org/abs/2611.25184",
+    "date": "2026-11-20T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-20T16:00:09.855647+00:00",
+    "topics": [
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "AI agents rebuilt data and re-estimated 62,409 defensible specifications across 324 empirical finance papers reusing natural experiments.",
+      "Only 42% of main published estimates were reproduced, and 25% of estimates remained robust in sign and significance across all tested specifications.",
+      "Empirical finance researchers, academic journal editors, and quantitative analysts utilizing natural experiments are directly affected."
+    ],
+    "tags": [
+      "AI Agents",
+      "Empirical Finance",
+      "Multiverse Analysis",
+      "Natural Experiments"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.25184",
+        "title": "An AI-Powered Multiverse Analysis of Empirical Finance Research: Evidence from Reused Natural Experiments",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "2811d5d7284ac099",
+    "title": "PsyWorld: Profile-Conditioned World Modeling for Human Behavior Prediction",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "The authors introduce PsyWorld, a profile-conditioned state world model designed to predict human behavior by learning transition-informed representations from observed state transitions. Evaluated on the VEET behavioral simulator and AgentSociety, the framework achieves 0.904 Top-1 accuracy and 0.0033 Macro KL on participant-disjoint splits. The results demonstrate that structured transition supervision improves subject-generalized behavior prediction without relying on static profile conditioning alone.",
+    "summary_status": "generated",
+    "content_fingerprint": "c55681fe859c4291",
+    "url": "https://arxiv.org/abs/2611.24999",
+    "date": "2026-11-20T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-20T16:00:09.855710+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "PsyWorld was introduced as a profile-conditioned state world model that uses environment-behavior state transitions for behavioral prediction.",
+      "The method achieves 0.904 Top-1 accuracy on VEET by utilizing continuous next-state modeling and discrete code alignment for subject generalization.",
+      "Computational social scientists and researchers building personalized AI agents and behavioral simulators are directly affected."
+    ],
+    "tags": [
+      "World Models",
+      "Human Behavior Prediction",
+      "Computational Social Science",
+      "AgentSociety",
+      "VEET"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.24999",
+        "title": "PsyWorld: Profile-Conditioned World Modeling for Human Behavior Prediction",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "c102e0e70e6812a5",
+    "title": "Watch Where You Linearize: Predicting and Correcting Model-Merging Interference",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.25000v1 Announce Type: new Abstract: Model merging combines separately fine-tuned models by adding their task vectors to a shared backbone. Interference is typically assessed only after…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.25000",
+    "date": "2026-11-20T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-20T16:00:09.855773+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.25000",
+        "title": "Watch Where You Linearize: Predicting and Correcting Model-Merging Interference",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Researchers analyzed interference occurring when task vectors are combined in model merging.",
+      "Predicting and correcting interference beforehand improves the performance of merged models.",
+      "Machine learning researchers and practitioners working with multi-task model merging are directly affected."
+    ]
+  },
+  {
+    "id": "bad92ad73eeb5eaf",
+    "title": "Density Feedback Control for Transferability of Generative Sparse Adversarial Attacks",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "The authors introduce Density Feedback Control (DFC) for generator-based sparse adversarial attacks to dynamically adjust perturbation sparsity during training. DFC automatically matches target densities within one percentage point in a single run and improves transfer attack success rates on CNN and Transformer targets. This method enables more reliable black-box robustness evaluation under specific per-image l0 budgets.",
+    "summary_status": "generated",
+    "content_fingerprint": "552e58ef87bf8624",
+    "url": "https://arxiv.org/abs/2611.25001",
+    "date": "2026-11-20T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-20T16:00:09.855805+00:00",
+    "topics": [
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers proposed Density Feedback Control (DFC) to dynamically adjust sparsity coefficients based on the gap between observed mask density and the target during training.",
+      "DFC successfully brings mean density within one percentage point of the target in a single run while improving transfer attack success rates and reducing perturbed pixels.",
+      "ML security researchers and robustness evaluation engineers benefit by avoiding iterative re-tuning for target densities during black-box adversarial testing."
+    ],
+    "tags": [
+      "Adversarial Attacks",
+      "Model Robustness",
+      "Transferability",
+      "Sparse Perturbations"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.25001",
+        "title": "Density Feedback Control for Transferability of Generative Sparse Adversarial Attacks",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "f5ece5166f702522",
+    "title": "A Model of Diverse Sampling from Language Models",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduce PoolDPP, a method for diverse generation in language models by sampling a size-K subset using a determinantal point process over a finite candidate pool. The approach addresses the limitation of models producing repeated samples clustering around the same semantic modes. Empirical results show PoolDPP improves performance on open-ended generation, text-to-SQL tasks, and mathematical reasoning.",
+    "summary_status": "generated",
+    "content_fingerprint": "c7c2e16b3dc1cdd4",
+    "url": "https://arxiv.org/abs/2611.25003",
+    "date": "2026-11-20T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-20T16:00:09.855873+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "PoolDPP was proposed to draw diverse size-K subsets from language models using determinantal point processes and a finite candidate pool.",
+      "The method improves the quality-diversity frontier in open-ended text generation, precision-recall in text-to-SQL, and diversity in mathematical reasoning without sacrificing pass@K.",
+      "NLP researchers and developers deploying language models for tasks requiring diverse output sets are directly impacted."
+    ],
+    "tags": [
+      "Language Models",
+      "Diverse Sampling",
+      "Determinantal Point Processes",
+      "Text-to-SQL",
+      "Mathematical Reasoning"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.25003",
+        "title": "A Model of Diverse Sampling from Language Models",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "8284e7b3241721c4",
+    "title": "On the Impact of Feature Reduction Techniques on Adversarial Attacks",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.25004v1 Announce Type: new Abstract: Adversarial attacks have posed significant threats to machine learning models by exploiting their inherent vulnerabilities. Researchers have…",
+    "summary_status": "unverified_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.25004",
+    "date": "2026-11-20T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-20T16:00:09.855930+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.25004",
+        "title": "On the Impact of Feature Reduction Techniques on Adversarial Attacks",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "c43c7baee570166d",
+    "title": "Near-Quadratic Sample Compression for All VC Classes",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers have resolved a longstanding open problem in learning theory by constructing a sample compression scheme of near-quadratic size for all VC classes. Specifically, they proved the weaker sample compression conjecture by developing a scheme of size $O(d^2 \\log^2 d)$, improving significantly upon prior exponential bounds. This finding establishes a fundamental connection between data simplification and generalization for binary concept classes.",
+    "summary_status": "generated",
+    "content_fingerprint": "89704a7c3d401018",
+    "url": "https://arxiv.org/abs/2611.25011",
+    "date": "2026-11-20T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-20T16:00:09.855958+00:00",
+    "topics": [
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Constructed a sample compression scheme of size O(d^2 log^2 d) for every binary concept class of VC dimension d.",
+      "Resolves the weaker sample compression conjecture by replacing previous exponential bounds with a polynomial bound.",
+      "Affects computational learning theorists and researchers studying generalization bounds and VC dimension."
+    ],
+    "tags": [
+      "Learning Theory",
+      "VC Dimension",
+      "Sample Compression",
+      "Generalization"
+    ],
+    "impact_score": 8,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.25011",
+        "title": "Near-Quadratic Sample Compression for All VC Classes",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "9bd411f4856ddec6",
+    "title": "HapBO: Harnessed $\\alpha$-$\\pi$ Bayesian Optimization via Expert Natural Language Priors",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduce HapBO, a Bayesian Optimization framework that converts natural language expert knowledge or large language model insights into reusable belief functions without requiring online LLM calls. The method scales efficiently across 40 HPOBench tasks, a synthetic suite, and real-world applications like cortical neurostimulation and solar design while maintaining low token costs and theoretical regret guarantees. This approach bridges unstructured human expertise and numerical optimization, proving effective under tight budget constraints.",
+    "summary_status": "generated",
+    "content_fingerprint": "2cb98b5a3e86b294",
+    "url": "https://arxiv.org/abs/2611.25100",
+    "date": "2026-11-20T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-20T16:00:09.856020+00:00",
+    "topics": [
+      "Models and Releases",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "HapBO compiles natural language expert intuitions or LLM outputs into a structured belief function for Bayesian Optimization without ongoing token costs during optimization.",
+      "It proves mathematical regret bounds for Expected Improvement even under adversarial beliefs and demonstrates top performance across 40 HPOBench tasks and real-world workloads.",
+      "Researchers, practitioners, and domain experts running hyperparameter optimization or physical design tasks constrained by limited evaluation budgets are directly affected."
+    ],
+    "tags": [
+      "Bayesian Optimization",
+      "Large Language Models",
+      "Hyperparameter Optimization",
+      "Optimization"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.25100",
+        "title": "HapBO: Harnessed $\\alpha$-$\\pi$ Bayesian Optimization via Expert Natural Language Priors",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "d6aae032ad2f2498",
+    "title": "Long-Range Video Presentation Attack Detection: A Three-Class Benchmark Across 1-100 m and Two Sensor Types",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduce a video-based face presentation attack detection benchmark consisting of over 374,000 frames captured across distances from 1 meter to 100 meters using DSLR and mobile sensors. Evaluation of four CNN architectures reveals that capture distance and sensor resolution drastically affect classification performance, with EfficientNet achieving the highest overall accuracy of 98.48%. The new dataset will be publicly released to facilitate reproducible research in long-range biometric security.",
+    "summary_status": "generated",
+    "content_fingerprint": "0b6cc681c744ff68",
+    "url": "https://arxiv.org/abs/2611.25108",
+    "date": "2026-11-20T05:00:00+00:00",
+    "category": "Benchmark",
+    "fetched_at": "2026-11-20T16:00:09.856092+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "A video-based face presentation attack detection dataset of over 374,000 frames was introduced, covering distances from 1 to 100 meters across DSLR and mobile sensors with live, spoof, and props labels.",
+      "EfficientNet achieved top performance at 98.48% accuracy, while mobile sensor performance degraded sharply beyond 50 meters, highlighting sensor resolution and distance as critical vulnerability axes.",
+      "Biometric security researchers and developers of surveillance or border control systems are affected by these findings and the availability of the new benchmark dataset."
+    ],
+    "tags": [
+      "Biometrics",
+      "Dataset",
+      "Computer Vision",
+      "Security"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.25108",
+        "title": "Long-Range Video Presentation Attack Detection: A Three-Class Benchmark Across 1-100 m and Two Sensor Types",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "f2069aea21f62d9b",
+    "title": "Fast and Memory-Light Evaluation of Density-Based Clusterings with the DISCO Index in R",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "The new R package discoCVI version 0.2.0 implements the DISCO internal cluster validity index, enabling efficient evaluation of density-based clustering and noise labels without ground truth. By utilizing the single-linkage merge tree of the mutual-reachability minimum spanning tree, the package reduces memory growth to linear scaling while outperforming previous R and Python implementations in speed and efficiency. The optimized approach processes 100,000 points in approximately 50 seconds using under 200 MB of memory.",
+    "summary_status": "generated",
+    "content_fingerprint": "e07347d5df858d95",
+    "url": "https://arxiv.org/abs/2611.25114",
+    "date": "2026-11-20T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-20T16:00:09.856159+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Released version 0.2.0 of the discoCVI R package which computes the DISCO internal cluster validity index using the single-linkage merge tree instead of storing multiple n-by-n matrices.",
+      "Achieves 23 to 138 times speedups over the previous R version and 3 to 9 times speedups over the Python reference while using significantly less memory.",
+      "R developers and data scientists working with density-based clustering algorithms like HDBSCAN."
+    ],
+    "tags": [
+      "R",
+      "Clustering",
+      "HDBSCAN",
+      "Open-Source"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.25114",
+        "title": "Fast and Memory-Light Evaluation of Density-Based Clusterings with the DISCO Index in R",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "2f4825de1af58eb0",
+    "title": "Auditing Learned Dynamics in Weather Models",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers audit DeepMind's GraphCast weather forecasting model using sparse autoencoder features to test whether causal relevance requires physical semantics. The study demonstrates that ablating a computational mesh feature increases global geopotential height error while suppressing or amplifying physically associated latent directions impacts tropical-cyclone intensity predictions. These findings show that sparse features serve as experimental coordinates for auditing and intervening on learned weather dynamics.",
+    "summary_status": "generated",
+    "content_fingerprint": "085b5fffbc858594",
+    "url": "https://arxiv.org/abs/2611.25119",
+    "date": "2026-11-20T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-20T16:00:09.856224+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers used sparse autoencoder features to audit GraphCast's internal representations, finding that physical semantics are not strictly required for causal relevance.",
+      "Amplifying convection-associated latent features achieved a median 51 percent error reduction for tropical-cyclone intensity across seven storms.",
+      "Atmospheric scientists, AI safety auditors, and developers of high-assurance neural weather forecasting models are affected."
+    ],
+    "tags": [
+      "GraphCast",
+      "DeepMind",
+      "Weather Forecasting",
+      "Sparse Autoencoders",
+      "Model Interpretability"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.25119",
+        "title": "Auditing Learned Dynamics in Weather Models",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "3f7f7cffebe4ba59",
+    "title": "Token fraud is here and it’s BAD (YouTube)",
+    "company": "Simon Willison's Weblog",
+    "source": "Simon Willison – AI",
+    "summary": "Claire Vo, creator of the ChatPRD platform, experienced widespread token fraud involving malicious actors exploiting free trials and promo codes to siphon AI usage for external commercial ventures such as Roblox and Fortnite map studios. Attackers leveraged specific prompt signatures, including requests for SVGs of pelicans riding bicycles, to probe and identify underlying foundation models. In response to the persistent abuse, ChatPRD is entirely eliminating its free trial offerings.",
+    "summary_status": "generated",
+    "content_fingerprint": "c5f45879a1d98b74",
+    "url": "https://simonwillison.net/2026/Nov/20/token-fraud-is-here-and-its-bad",
+    "date": "2026-11-20T02:49:57+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-20T16:00:09.856347+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "ChatPRD suffered extensive token fraud as external groups abused free trials and promo codes to run commercial map-building operations and sniff underlying AI models.",
+      "The abuse forced the platform to completely eliminate its free trial options to protect resources against commercial exploitation and prompt fingerprinting.",
+      "AI application developers offering free trials and API providers handling generative AI workflows are directly affected by this kind of trial manipulation."
+    ],
+    "tags": [
+      "ChatPRD",
+      "Generative AI",
+      "AI Misuse",
+      "LLMs"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://simonwillison.net/2026/Nov/20/token-fraud-is-here-and-its-bad",
+        "title": "Token fraud is here and it’s BAD (YouTube)",
+        "publisher": "Simon Willison's Weblog"
+      }
+    ]
+  },
+  {
+    "id": "701a571706ec6c00",
+    "title": "Introducing harness adapters: adapt your favorite model to your harness to improve performance and cost",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "The introduction of harness adapters allows developers to seamlessly integrate their preferred language models with existing evaluation or execution harnesses. This adaptation layer optimizes both performance and cost metrics by bridging model-specific outputs with standardized evaluation requirements.",
+    "summary_status": "generated",
+    "content_fingerprint": "434b111c344eaf73",
+    "url": "https://huggingface.co/blog/harness-adapters-at-scale",
+    "date": "2026-11-20T00:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-20T16:00:09.854905+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 6,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Harness adapters were introduced to connect preferred language models directly to existing harness infrastructures.",
+      "The adapters improve performance and reduce costs by standardizing model interactions without requiring core pipeline rewrites.",
+      "AI developers and engineering teams utilizing evaluation and orchestration harnesses are directly affected."
+    ],
+    "tags": [
+      "Harness Adapters",
+      "Model Optimization",
+      "Evaluation Harness",
+      "AI Infrastructure"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/harness-adapters-at-scale",
+        "title": "Introducing harness adapters: adapt your favorite model to your harness to improve performance and cost",
+        "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
     "id": "fdf247289ced7fca",
     "title": "Reducing Rollout Bottlenecks in Reinforcement Learning with NVIDIA Dynamo",
     "company": "NVIDIA",
