@@ -1073,6 +1073,48 @@
     ]
   },
   {
+    "id": "f54713977487b6ec",
+    "title": "llm-gemini 0.38.1",
+    "company": "Simon Willison's Weblog",
+    "source": "Simon Willison – AI",
+    "summary": "Version 0.38.1 of the llm-gemini plugin fixes model reasoning level support by adding the missing xhigh setting for Gemini 4 Hydrogen and Gemini 4 Neon. The update enables access to extended reasoning capabilities that significantly increase output token count and cost, yielding improved benchmark results. Users leveraging the llm-gemini CLI plugin can now configure these higher reasoning tiers.",
+    "summary_status": "generated",
+    "content_fingerprint": "edb7aa888ecd2341",
+    "url": "https://simonwillison.net/2026/Nov/20/llm-gemini",
+    "date": "2026-11-20T03:01:57+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-21T23:39:19.861518+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 6,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "The llm-gemini plugin was updated to version 0.38.1 to support the xhigh reasoning level for Gemini 4 Hydrogen and Gemini 4 Neon models.",
+      "Enabling the xhigh reasoning level substantially increases token usage and execution cost while noticeably improving model output quality.",
+      "Developers and users utilizing the llm-gemini plugin to interact with Google Gemini models are affected by this fix."
+    ],
+    "tags": [
+      "Gemini 4",
+      "Google",
+      "LLM CLI",
+      "AI Reasoning"
+    ],
+    "impact_score": 3,
+    "sources": [
+      {
+        "url": "https://simonwillison.net/2026/Nov/20/llm-gemini",
+        "title": "llm-gemini 0.38.1",
+        "publisher": "Simon Willison's Weblog"
+      }
+    ]
+  },
+  {
     "id": "3f7f7cffebe4ba59",
     "title": "Token fraud is here and it’s BAD (YouTube)",
     "company": "Simon Willison's Weblog",

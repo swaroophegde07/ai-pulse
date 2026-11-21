@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-21T15:04:49.988520+00:00",
+  "generated_at": "2026-11-21T23:39:26.245201+00:00",
   "overall_status": "healthy",
   "feed_health": {
     "total_configured_sources": 15,
     "enabled_sources": 14,
     "active_sources": 13,
-    "total_retained_articles": 904
+    "total_retained_articles": 905
   },
   "rss_sources": [
     {
@@ -15,7 +15,7 @@
       "category": "Product Release",
       "status": "active",
       "retained_articles_count": 127,
-      "last_checked": "2026-11-21T15:04:24.938522+00:00",
+      "last_checked": "2026-11-21T23:38:59.472342+00:00",
       "raw_entries_count": 1421,
       "relevant_articles_count": 10
     },
@@ -26,7 +26,7 @@
       "category": "Research",
       "status": "active",
       "retained_articles_count": 28,
-      "last_checked": "2026-11-21T15:04:25.875927+00:00",
+      "last_checked": "2026-11-21T23:39:00.668682+00:00",
       "raw_entries_count": 100,
       "relevant_articles_count": 10
     },
@@ -37,7 +37,7 @@
       "category": "News",
       "status": "active",
       "retained_articles_count": 63,
-      "last_checked": "2026-11-21T15:04:26.659134+00:00",
+      "last_checked": "2026-11-21T23:39:01.280903+00:00",
       "raw_entries_count": 915,
       "relevant_articles_count": 10
     },
@@ -48,7 +48,7 @@
       "category": "Product Release",
       "status": "active",
       "retained_articles_count": 16,
-      "last_checked": "2026-11-21T15:04:27.465630+00:00",
+      "last_checked": "2026-11-21T23:39:02.151700+00:00",
       "raw_entries_count": 10,
       "relevant_articles_count": 10
     },
@@ -59,7 +59,7 @@
       "category": "Product Release",
       "status": "active",
       "retained_articles_count": 4,
-      "last_checked": "2026-11-21T15:04:28.939890+00:00",
+      "last_checked": "2026-11-21T23:39:03.357751+00:00",
       "raw_entries_count": 50,
       "relevant_articles_count": 2
     },
@@ -70,7 +70,7 @@
       "category": "Research",
       "status": "active",
       "retained_articles_count": 21,
-      "last_checked": "2026-11-21T15:04:31.805785+00:00",
+      "last_checked": "2026-11-21T23:39:05.095268+00:00",
       "raw_entries_count": 10,
       "relevant_articles_count": 10
     },
@@ -81,7 +81,7 @@
       "category": "Research",
       "status": "active",
       "retained_articles_count": 10,
-      "last_checked": "2026-11-21T15:04:33.179141+00:00",
+      "last_checked": "2026-11-21T23:39:06.217206+00:00",
       "raw_entries_count": 15,
       "relevant_articles_count": 10
     },
@@ -92,7 +92,7 @@
       "category": "News",
       "status": "active",
       "retained_articles_count": 24,
-      "last_checked": "2026-11-21T15:04:34.387087+00:00",
+      "last_checked": "2026-11-21T23:39:07.795651+00:00",
       "raw_entries_count": 20,
       "relevant_articles_count": 8
     },
@@ -103,7 +103,7 @@
       "category": "News",
       "status": "active",
       "retained_articles_count": 62,
-      "last_checked": "2026-11-21T15:04:35.350105+00:00",
+      "last_checked": "2026-11-21T23:39:08.464161+00:00",
       "raw_entries_count": 10,
       "relevant_articles_count": 8
     },
@@ -114,7 +114,7 @@
       "category": "Research",
       "status": "empty_response",
       "retained_articles_count": 213,
-      "last_checked": "2026-11-21T15:04:36.086307+00:00",
+      "last_checked": "2026-11-21T23:39:09.098306+00:00",
       "raw_entries_count": 0,
       "relevant_articles_count": 0
     },
@@ -125,7 +125,7 @@
       "category": "Research",
       "status": "active",
       "retained_articles_count": 196,
-      "last_checked": "2026-11-21T15:04:36.675641+00:00",
+      "last_checked": "2026-11-21T23:39:09.666170+00:00",
       "raw_entries_count": 359,
       "relevant_articles_count": 10
     },
@@ -145,7 +145,7 @@
       "category": "Product Release",
       "status": "active",
       "retained_articles_count": 57,
-      "last_checked": "2026-11-21T15:04:37.364742+00:00",
+      "last_checked": "2026-11-21T23:39:10.439778+00:00",
       "raw_entries_count": 100,
       "relevant_articles_count": 8
     },
@@ -156,7 +156,7 @@
       "category": "Product Release",
       "status": "active",
       "retained_articles_count": 31,
-      "last_checked": "2026-11-21T15:04:38.315114+00:00",
+      "last_checked": "2026-11-21T23:39:11.298122+00:00",
       "raw_entries_count": 10,
       "relevant_articles_count": 10
     },
@@ -166,8 +166,8 @@
       "url": "https://simonwillison.net/tags/ai.atom",
       "category": "Opinion",
       "status": "active",
-      "retained_articles_count": 52,
-      "last_checked": "2026-11-21T15:04:39.402931+00:00",
+      "retained_articles_count": 53,
+      "last_checked": "2026-11-21T23:39:12.422148+00:00",
       "raw_entries_count": 30,
       "relevant_articles_count": 9
     }
@@ -181,8 +181,8 @@
       "provenance": "Independent Evaluation",
       "url": "https://livebench.ai/",
       "license": "Apache-2.0",
-      "last_known_good_timestamp": "2026-11-21T15:04:42.320139+00:00",
-      "last_retrieval_time": "2026-11-21T15:04:42.320139+00:00",
+      "last_known_good_timestamp": "2026-11-21T23:39:19.973281+00:00",
+      "last_retrieval_time": "2026-11-21T23:39:19.973281+00:00",
       "last_successful_evaluation_date": null,
       "warnings": [],
       "notes": "Contamination-free evaluations with monthly updated problems across reasoning, coding, and mathematics."
@@ -194,8 +194,8 @@
       "provenance": "Independent Evaluation",
       "url": "https://arena.ai/leaderboard",
       "license": "Apache-2.0 / CC-BY",
-      "last_known_good_timestamp": "2026-11-21T15:04:42.320139+00:00",
-      "last_retrieval_time": "2026-11-21T15:04:42.320139+00:00",
+      "last_known_good_timestamp": "2026-11-21T23:39:19.973281+00:00",
+      "last_retrieval_time": "2026-11-21T23:39:19.973281+00:00",
       "last_successful_evaluation_date": null,
       "notes": "Crowdsourced blind pairwise battles evaluated with Bradley-Terry Elo ratings across human preference and coding."
     },
