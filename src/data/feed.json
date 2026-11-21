@@ -1,5 +1,131 @@
 [
   {
+    "id": "f22d46a83ecd25c4",
+    "title": "Researcher plants 2m canaries into the AI supply chain. A privacy disaster surfaced.",
+    "company": "Ars Technica",
+    "source": "Ars Technica – AI",
+    "summary": "Researcher HD Moore planted 2 million digital tripwires and unique secrets into requests sent across various AI services to test for sensitive data leakage. The experiment revealed widespread privacy violations, with brokers and AI routers leaking sensitive credentials and data. The findings highlight significant security vulnerabilities throughout the modern AI supply chain.",
+    "summary_status": "generated",
+    "content_fingerprint": "b5a842214dbaf0f2",
+    "url": "https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate",
+    "date": "2026-11-20T20:59:08+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-21T00:33:52.510849+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researcher HD Moore deployed 2 million canary secrets and credentials into prompts sent across multiple AI services and routers.",
+      "The experiment exposed widespread data leakage and privacy vulnerabilities within AI broker and routing networks.",
+      "AI application developers, users, and service brokers are exposed to severe security risks regarding sensitive data handling."
+    ],
+    "tags": [
+      "Security",
+      "Privacy",
+      "AI Supply Chain",
+      "OpenRouter"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate",
+        "title": "Researcher plants 2m canaries into the AI supply chain. A privacy disaster surfaced.",
+        "publisher": "Ars Technica"
+      }
+    ]
+  },
+  {
+    "id": "6691469f1dc34a79",
+    "title": "The most misunderstood graph in AI just got a major update",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "The AI evaluation nonprofit METR has updated its time horizon plot with new, more complex and open-ended tasks to better measure frontier model capabilities. The findings indicate that while models continue to improve exponentially on verifiable tasks like coding, they still lag in areas requiring human judgment and subjective evaluation. These updates aim to address critical questions regarding whether progress in automated coding will translate to complex research and development tasks.",
+    "summary_status": "generated",
+    "content_fingerprint": "63ae5ecc91143f35",
+    "url": "https://www.technologyreview.com/2026/11/20/1149399/the-most-misunderstood-graph-in-ai-just-got-a-major-update",
+    "date": "2026-11-20T18:15:15+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-21T00:33:52.510938+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "METR released an updated time horizon plot incorporating new, longer, and more open-ended tasks to evaluate frontier AI models.",
+      "The findings show that models excel at verifiable tasks like coding due to reinforcement learning, but struggle with tasks requiring subjective judgment.",
+      "AI researchers, evaluation teams, and labs aiming to automate research and development processes are directly affected by these findings."
+    ],
+    "tags": [
+      "METR",
+      "AI Evaluation",
+      "Reinforcement Learning",
+      "Anthropic"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/11/20/1149399/the-most-misunderstood-graph-in-ai-just-got-a-major-update",
+        "title": "The most misunderstood graph in AI just got a major update",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "7220e54bdf8a93f9",
+    "title": "Quoting Levent Alpöge",
+    "company": "Simon Willison's Weblog",
+    "source": "Simon Willison – AI",
+    "summary": "Mathematician Levent Alpöge claims to have discovered a proof of the Riemann Hypothesis and Generalized Riemann Hypothesis in collaboration with Anthropic's Claude AI model. The collaboration successfully formalized the arguments without assumptions, with Alpöge noting that the AI significantly outpaced human capabilities near the completion of the work.",
+    "summary_status": "generated",
+    "content_fingerprint": "19a6ced4f53b20ab",
+    "url": "https://simonwillison.net/2026/Nov/20/levent-alpoge",
+    "date": "2026-11-20T16:30:48+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-21T00:33:52.511906+00:00",
+    "topics": [
+      "Models and Releases"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Levent Alpöge used Anthropic's Claude model to discover and formalize a proof for the Riemann Hypothesis and Generalized Riemann Hypothesis without assumptions.",
+      "This collaboration demonstrates advanced LLM capability in handling complex, high-level mathematical proofs and pushing the boundaries of automated mathematical reasoning.",
+      "Mathematicians, AI researchers, and the broader scientific community are affected by this potential breakthrough in mathematical problem-solving."
+    ],
+    "tags": [
+      "Anthropic",
+      "Claude",
+      "Mathematics",
+      "LLMs",
+      "Levent Alpöge"
+    ],
+    "impact_score": 8,
+    "sources": [
+      {
+        "url": "https://simonwillison.net/2026/Nov/20/levent-alpoge",
+        "title": "Quoting Levent Alpöge",
+        "publisher": "Simon Willison's Weblog"
+      }
+    ]
+  },
+  {
     "id": "920754852bcdbc0b",
     "title": "The Download: inside the quest to make our minds immortal",
     "company": "MIT Technology Review",
@@ -42,20 +168,64 @@
     ]
   },
   {
+    "id": "7ad44f990f0c53ef",
+    "title": "Combatting adversarial distillation",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "OpenAI uses a layered defense strategy to mitigate adversarial distillation attacks. This approach combines specialized model training, automated safeguards, detection mechanisms, and policy enforcement to prevent capability extraction.",
+    "summary_status": "generated",
+    "content_fingerprint": "c65aca9e84dc9298",
+    "url": "https://openai.com/index/combatting-adversarial-distillation",
+    "date": "2026-11-20T10:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-21T00:33:52.510391+00:00",
+    "topics": [
+      "Models and Releases",
+      "Policy and Regulation",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 1,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Primary lab announcement from OpenAI",
+    "why_it_matters": "",
+    "key_points": [
+      "OpenAI implemented a layered defense strategy combining model training, safeguards, detection, and enforcement against adversarial distillation.",
+      "This defensive framework protects proprietary models from unauthorized capability extraction and intellectual property theft.",
+      "AI developers and organizations deploying large foundation models are directly affected by these extraction threats and protection strategies."
+    ],
+    "tags": [
+      "OpenAI",
+      "Adversarial Distillation",
+      "Model Security",
+      "AI Safety"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://openai.com/index/combatting-adversarial-distillation",
+        "title": "Combatting adversarial distillation",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
     "id": "5597d4fc8cda207a",
     "title": "Closing the Analyze-to-Design Gap: An Authorization-Bounded Agent for Self-Driving Laboratories",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.AI (Artificial Intelligence)",
-    "summary": "[Automated summary unavailable] arXiv:2611.25043v1 Announce Type: new Abstract: Artificial intelligence (AI) agents are increasingly integrated into self-driving laboratories (SDLs) to plan experiments and interpret results.…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "Researchers introduce an authorization-bounded agent architecture designed for self-driving laboratories to bridge the analyze-to-design gap in the DMTA cycle. The system enables unsupervised data interpretation and measurement selection on an LC-MS instrument while maintaining auditable authorization for state-changing physical operations. Empirical evaluation demonstrates that the agent successfully ranks oxidants, identifies failures, and finds high-yielding experimental conditions efficiently within strict operational boundaries.",
+    "summary_status": "generated",
+    "content_fingerprint": "8f8e2daabf9ccc9c",
     "url": "https://arxiv.org/abs/2611.25043",
     "date": "2026-11-20T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-20T16:00:09.855204+00:00",
+    "fetched_at": "2026-11-21T00:33:52.511194+00:00",
     "topics": [
       "AI Agents",
-      "Research and Breakthroughs"
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 5,
@@ -70,10 +240,17 @@
       }
     ],
     "key_points": [
-      "An authorization-bounded agent was developed to manage experimental planning and result interpretation in self-driving laboratories.",
-      "This framework provides a secure method to connect experimental analysis directly to automated laboratory design loops.",
-      "Researchers and operators of automated self-driving laboratories are directly affected by these enhanced control mechanisms."
-    ]
+      "An authorization-bounded agent architecture was developed to safely integrate AI into the Analyze-Design interface of self-driving laboratories.",
+      "The approach enables reliable, auditable control over physical hardware while matching human expert validation and outperforming random selection benchmarks.",
+      "Self-driving laboratory operators, automation engineers, and synthetic chemists benefit from safer, more autonomous experimental workflows."
+    ],
+    "tags": [
+      "AI Agents",
+      "Self-Driving Laboratories",
+      "LC-MS",
+      "Autonomous Chemistry"
+    ],
+    "impact_score": 6
   },
   {
     "id": "f151cfdf6e9fc323",
@@ -122,13 +299,13 @@
     "title": "SailSearch: Agent-Assisted Discovery in Combinatorial Optimization",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.AI (Artificial Intelligence)",
-    "summary": "[Automated summary unavailable] arXiv:2611.25087v1 Announce Type: new Abstract: We present SailSearch, a human-guided workflow for algorithmic research with two language-model agents, and report results on Market Split and maximum…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "Researchers introduced SailSearch, a human-guided workflow utilizing two language-model agents for algorithmic research in combinatorial optimization. Applied to Market Split and maximum independent set problems, the approach discovered the first reported CPU-only solutions to 18 previously open QOBLIB instances. For maximum independent set, the generator created planted XOR constraint graphs where tested solvers fell 5 to 15 vertices short of certified optima.",
+    "summary_status": "generated",
+    "content_fingerprint": "f0aa7b3e4063be1c",
     "url": "https://arxiv.org/abs/2611.25087",
     "date": "2026-11-20T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-20T16:00:09.855312+00:00",
+    "fetched_at": "2026-11-21T00:33:52.511292+00:00",
     "topics": [
       "Models and Releases",
       "AI Agents",
@@ -138,9 +315,9 @@
       "Applications and Products"
     ],
     "source_type": "Research or Preprint",
-    "priority_score": 5,
-    "priority_label": "Deep Dive",
-    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
     "why_it_matters": "",
     "sources": [
       {
@@ -150,10 +327,18 @@
       }
     ],
     "key_points": [
-      "SailSearch was introduced as a human-guided workflow using two language-model agents for algorithmic research in combinatorial optimization.",
-      "The approach addresses complex optimization problems such as Market Split and maximum cut.",
-      "Researchers and practitioners working on combinatorial optimization and AI-assisted algorithm discovery are directly affected."
-    ]
+      "SailSearch, a dual language-model agent workflow, was introduced for discovering combinatorial optimization algorithms.",
+      "The system found the first reported CPU-only solutions for 18 out of 33 previously open QOBLIB Market Split instances.",
+      "Researchers and practitioners working on combinatorial optimization, integer programming, and algorithmic research are affected."
+    ],
+    "tags": [
+      "SailSearch",
+      "Combinatorial Optimization",
+      "Language Model Agents",
+      "QOBLIB",
+      "Algorithms"
+    ],
+    "impact_score": 7
   },
   {
     "id": "5bd812d1ea646250",
@@ -249,18 +434,20 @@
     "title": "DSFlow: A Neuro-Symbolic Data Workflow Agent with Statistical Diagnostic Guardrails",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.AI (Artificial Intelligence)",
-    "summary": "[Automated summary unavailable] arXiv:2611.25111v1 Announce Type: new Abstract: Data science workflows often require tools that presume non-trivial technical knowledge. Large language models (LLMs) reduce this barrier, but a gap…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "Researchers introduce DSFlow, a LangGraph-based neuro-symbolic data agent platform designed to bridge the gap between flexible large language models and statistically controlled pipelines. The system combines LLM-selected skills with deterministic diagnostic guardrails to validate statistical methods, handle replanning, and generate auditable reports. Case studies involving regression and clustering demonstrate how the platform uses diagnostic evidence to correct analytical decisions.",
+    "summary_status": "generated",
+    "content_fingerprint": "9b3c0a64ff454a95",
     "url": "https://arxiv.org/abs/2611.25111",
     "date": "2026-11-20T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-20T16:00:09.855495+00:00",
+    "fetched_at": "2026-11-21T00:33:52.511368+00:00",
     "topics": [
       "Models and Releases",
       "AI Agents",
-      "Research and Breakthroughs",
-      "Safety and Security"
+      "Coding and Developer Tools",
+      "Safety and Security",
+      "Infrastructure and Hardware",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 2,
@@ -275,26 +462,34 @@
       }
     ],
     "key_points": [
-      "DSFlow, a neuro-symbolic data workflow agent with statistical diagnostic guardrails, was introduced.",
-      "It bridges the technical gap in using large language models for complex data science workflows through automated statistical diagnostics.",
-      "Data scientists and researchers relying on automated LLM-based data processing workflows are affected."
-    ]
+      "DSFlow was introduced as a LangGraph-based neuro-symbolic data-agent platform combining LLM-selected skills with deterministic diagnostic guardrails.",
+      "It provides symbolic validation to accept, clarify, replan, override, or supply safe fallbacks for statistical methods, producing auditable reports.",
+      "Data scientists and developers building automated, statistically controlled machine learning and data analysis pipelines are affected."
+    ],
+    "tags": [
+      "DSFlow",
+      "LangGraph",
+      "Neuro-Symbolic AI",
+      "Data Science"
+    ],
+    "impact_score": 5
   },
   {
     "id": "d56a7ae412a77653",
     "title": "Calibrated Decision Rewards: Training Language Models with a Judge That Knows How Sure It Is",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.AI (Artificial Intelligence)",
-    "summary": "[Automated summary unavailable] arXiv:2611.25135v1 Announce Type: new Abstract: Reinforcement learning (RL) can only teach a language model what its reward can recognize. Answer checkers are exact but need a reference answer;…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "Researchers introduce Reinforcement Learning from Calibrated Decision Rewards (RLCDR), a reference-free reward method that converts an LLM into a calibrated decision model using probability distributions and small-scale labeling. Training Qwen3-1.7B with GRPO using this method improves MATH500 accuracy from 72.2% to 76.8%, matching training on ground-truth answer keys. The approach also demonstrates superior calibration and error-detection capabilities compared to baseline judges without requiring step training.",
+    "summary_status": "generated",
+    "content_fingerprint": "935980f4148f7a48",
     "url": "https://arxiv.org/abs/2611.25135",
     "date": "2026-11-20T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-20T16:00:09.855525+00:00",
+    "fetched_at": "2026-11-21T00:33:52.511450+00:00",
     "topics": [
       "Models and Releases",
-      "Research and Breakthroughs"
+      "Benchmarks and Evaluations",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 2,
@@ -309,10 +504,17 @@
       }
     ],
     "key_points": [
-      "A reinforcement learning method was introduced utilizing a judge that outputs calibrated uncertainty for rewards.",
-      "This improves reward modeling by accounting for judge uncertainty without relying strictly on reference answers.",
-      "AI researchers and developers training language models with reinforcement learning are affected."
-    ]
+      "Researchers developed RLCDR, a technique that uses calibrated probability distributions from an LLM-based judge to provide reference-free rewards for reinforcement learning.",
+      "Applying this reward model raised Qwen3-1.7B accuracy on MATH500 by 4.65 points to 76.8%, matching performance achieved using actual answer keys while avoiding reward hacking.",
+      "AI researchers and engineers training language models on complex reasoning tasks are directly affected, as this offers an alternative to costly ground-truth answer keys or uncalibrated reward models."
+    ],
+    "tags": [
+      "Reinforcement Learning",
+      "Language Models",
+      "Reward Modeling",
+      "Qwen3"
+    ],
+    "impact_score": 7
   },
   {
     "id": "528f4d1c82bd22be",
@@ -362,22 +564,23 @@
     "title": "A Verifier from the Past: Test-Time Compute for Time Series Foundation Models",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.AI (Artificial Intelligence)",
-    "summary": "[Automated summary unavailable] arXiv:2611.25171v1 Announce Type: new Abstract: Test-time compute (TTC) improves language models by spending additional inference compute to generate, verify, and select among candidate outputs, but…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "Researchers introduce Backtest-Gated Augmentation Averaging (BGAA), a test-time compute algorithm designed to improve time series foundation models using causal verification built from the series history. BGAA uses rolling-origin backtests to score context views, discarding underperforming ones and averaging survivors, which reduces MASE across multiple benchmarks. The method enables a 313M model to outperform larger models in its family, while highlighting window-level view selection as a key remaining challenge.",
+    "summary_status": "generated",
+    "content_fingerprint": "816bc38a0102f03b",
     "url": "https://arxiv.org/abs/2611.25171",
     "date": "2026-11-20T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-20T16:00:09.855617+00:00",
+    "fetched_at": "2026-11-21T00:33:52.511551+00:00",
     "topics": [
       "Models and Releases",
       "Research and Breakthroughs",
-      "Infrastructure and Hardware"
+      "Benchmarks and Evaluations",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
-    "priority_score": 2,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Original research or technical finding",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
     "why_it_matters": "",
     "sources": [
       {
@@ -387,10 +590,17 @@
       }
     ],
     "key_points": [
-      "A test-time compute methodology using verifiers was adapted for time series foundation models.",
-      "It enhances forecasting accuracy by generating and selecting optimal candidate outputs during inference.",
-      "Time series researchers and practitioners deploying foundation models for forecasting are directly affected."
-    ]
+      "Researchers developed Backtest-Gated Augmentation Averaging (BGAA) to apply test-time compute to causal time series forecasting.",
+      "The algorithm reduces MASE by 0.5% to 5.9% across benchmarks like GIFT-Eval, fev-bench, and BOOM, enabling smaller models to outperform larger ones.",
+      "Time series researchers and developers of time series foundation models seeking to scale inference performance."
+    ],
+    "tags": [
+      "Time Series Forecasting",
+      "Test-Time Compute",
+      "Time Series Foundation Models",
+      "BGAA"
+    ],
+    "impact_score": 7
   },
   {
     "id": "d7db2ba0559ff33c",
@@ -484,16 +694,18 @@
     "title": "Watch Where You Linearize: Predicting and Correcting Model-Merging Interference",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.25000v1 Announce Type: new Abstract: Model merging combines separately fine-tuned models by adding their task vectors to a shared backbone. Interference is typically assessed only after…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "Researchers introduce a method to predict and correct model-merging interference using directional derivatives of task outputs along task vectors. Evaluating the derivative at the receiver model enables the construction of LR-Merge, a label-free coefficient correction technique that optimizes merges through convex teacher matching on unlabeled probes. This approach improves closed-form, isotropic, and sparsified base mergers without requiring backpropagation through the merged networks.",
+    "summary_status": "generated",
+    "content_fingerprint": "25701233622226ad",
     "url": "https://arxiv.org/abs/2611.25000",
     "date": "2026-11-20T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-20T16:00:09.855773+00:00",
+    "fetched_at": "2026-11-21T00:33:52.511643+00:00",
     "topics": [
       "Models and Releases",
-      "Research and Breakthroughs"
+      "Benchmarks and Evaluations",
+      "Infrastructure and Hardware",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 2,
@@ -508,10 +720,18 @@
       }
     ],
     "key_points": [
-      "Researchers analyzed interference occurring when task vectors are combined in model merging.",
-      "Predicting and correcting interference beforehand improves the performance of merged models.",
-      "Machine learning researchers and practitioners working with multi-task model merging are directly affected."
-    ]
+      "A first-order directional derivative evaluated at the receiver model predicts task interference and identifies prediction flips without requiring full merge evaluations.",
+      "The LR-Merge correction technique optimizes merge coefficients using convex teacher matching on unlabeled probes, improving performance across various base mergers.",
+      "Machine learning researchers and engineers merging separately fine-tuned models can bypass expensive coefficient searches and reduce accuracy errors."
+    ],
+    "tags": [
+      "Model Merging",
+      "Task Vectors",
+      "Model Interference",
+      "Fine-Tuning",
+      "LR-Merge"
+    ],
+    "impact_score": 7
   },
   {
     "id": "bad92ad73eeb5eaf",
@@ -603,22 +823,23 @@
     "title": "On the Impact of Feature Reduction Techniques on Adversarial Attacks",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.25004v1 Announce Type: new Abstract: Adversarial attacks have posed significant threats to machine learning models by exploiting their inherent vulnerabilities. Researchers have…",
-    "summary_status": "unverified_excerpt",
-    "content_fingerprint": "",
+    "summary": "This study evaluates the effect of various feature reduction techniques on the adversarial robustness of machine learning models under poisoning, backdoor, and universal adversarial perturbation attacks using the APT dataset. The results indicate that permutation importance ranking and univariate mutual information consistently provide the most reliable robustness improvements across classifiers. Conversely, other reduction methods show variable efficacy depending on the specific classifier and attack scenario employed.",
+    "summary_status": "generated",
+    "content_fingerprint": "22306f7304821cb6",
     "url": "https://arxiv.org/abs/2611.25004",
     "date": "2026-11-20T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-20T16:00:09.855930+00:00",
+    "fetched_at": "2026-11-21T00:33:52.511736+00:00",
     "topics": [
       "Models and Releases",
-      "Research and Breakthroughs",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
       "Applications and Products"
     ],
     "source_type": "Research or Preprint",
-    "priority_score": 2,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Original research or technical finding",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
     "why_it_matters": "",
     "sources": [
       {
@@ -626,7 +847,19 @@
         "title": "On the Impact of Feature Reduction Techniques on Adversarial Attacks",
         "publisher": "arXiv (Cornell University)"
       }
-    ]
+    ],
+    "key_points": [
+      "Evaluated the impact of PCA, permutation importance ranking, recursive feature elimination, and univariate mutual information on adversarial robustness against poisoning, backdoor, and perturbation attacks.",
+      "Demonstrated that permutation importance ranking and univariate mutual information yield the most consistent robustness improvements across multiple machine learning classifiers.",
+      "Machine learning practitioners and security researchers working on defenses against adversarial APT dataset attacks."
+    ],
+    "tags": [
+      "Adversarial Machine Learning",
+      "Feature Reduction",
+      "APT Dataset",
+      "Model Robustness"
+    ],
+    "impact_score": 5
   },
   {
     "id": "c43c7baee570166d",
@@ -919,6 +1152,130 @@
       {
         "url": "https://huggingface.co/blog/harness-adapters-at-scale",
         "title": "Introducing harness adapters: adapt your favorite model to your harness to improve performance and cost",
+        "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
+    "id": "8145fefb47ff1ca9",
+    "title": "Hebbia sees improvements in financial research with GPT-6 Astra",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Hebbia evaluated GPT-6 Astra for financial research tasks and observed improvements in source coverage, citation relevance, and presentation quality. These prerelease findings demonstrate enhanced capabilities for handling complex financial analysis workflows.",
+    "summary_status": "generated",
+    "content_fingerprint": "46a90d45d1e35295",
+    "url": "https://openai.com/business/customer-stories/hebbia",
+    "date": "2026-11-20T00:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-21T00:33:52.510513+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 6,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Hebbia conducted prerelease evaluations of GPT-6 Astra for financial research use cases.",
+      "The model delivered measurable gains in source coverage, citation relevance, and presentation quality.",
+      "Financial researchers and developers building domain-specific search agents are directly impacted."
+    ],
+    "tags": [
+      "Hebbia",
+      "GPT-6 Astra",
+      "Financial Research"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://openai.com/business/customer-stories/hebbia",
+        "title": "Hebbia sees improvements in financial research with GPT-6 Astra",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "c1a2af93db54bfcf",
+    "title": "Can AI help scientists identify promising drug candidates?",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "MedChemBench is a new evaluation framework designed to assess how accurately AI models can interpret molecular structures and reason through experimental evidence. The benchmark specifically targets early drug discovery by testing an AI model's ability to select promising chemical compounds.",
+    "summary_status": "generated",
+    "content_fingerprint": "0a5aabe6e2274f75",
+    "url": "https://openai.com/index/introducing-medchembench",
+    "date": "2026-11-20T00:00:00+00:00",
+    "category": "Benchmark",
+    "fetched_at": "2026-11-21T00:33:52.510620+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "MedChemBench was introduced to evaluate AI performance in interpreting molecular structures and selecting drug compounds.",
+      "It provides a structured way to measure how effectively AI models reason from experimental evidence in early drug discovery.",
+      "AI researchers and pharmaceutical developers working on computational drug discovery are affected."
+    ],
+    "tags": [
+      "MedChemBench",
+      "Drug Discovery",
+      "AI Evaluation",
+      "Molecular Structures"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://openai.com/index/introducing-medchembench",
+        "title": "Can AI help scientists identify promising drug candidates?",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "824c03b970f1dc58",
+    "title": "Welcome Inkling 2 Mini, Cutting-edge Performance for your Local Setup",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "Inkling 2 Mini has been released to provide high-performance local AI capabilities. The model offers cutting-edge execution speed and efficiency tailored for on-premise hardware setups. Users can deploy the new model directly within their local environments.",
+    "summary_status": "generated",
+    "content_fingerprint": "4115905ae9306b52",
+    "url": "https://huggingface.co/blog/inkling2mini",
+    "date": "2026-11-20T00:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-21T00:33:52.510776+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Inkling 2 Mini was released to provide high-performance AI execution for local setups.",
+      "It allows developers and organizations to run cutting-edge models directly on their own hardware for improved privacy and lower latency.",
+      "Developers, system administrators, and organizations utilizing local AI infrastructure are directly affected."
+    ],
+    "tags": [
+      "Inkling 2 Mini",
+      "Local AI",
+      "Product Release",
+      "Edge AI"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/inkling2mini",
+        "title": "Welcome Inkling 2 Mini, Cutting-edge Performance for your Local Setup",
         "publisher": "Hugging Face"
       }
     ]
