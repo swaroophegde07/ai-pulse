@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-22T15:02:36.620616+00:00",
+  "generated_at": "2026-11-22T23:57:34.253295+00:00",
   "overall_status": "healthy",
   "feed_health": {
     "total_configured_sources": 15,
     "enabled_sources": 14,
     "active_sources": 12,
-    "total_retained_articles": 905
+    "total_retained_articles": 907
   },
   "rss_sources": [
     {
@@ -14,9 +14,9 @@
       "url": "https://openai.com/news/rss.xml",
       "category": "Product Release",
       "status": "active",
-      "retained_articles_count": 127,
-      "last_checked": "2026-11-22T15:01:53.760056+00:00",
-      "raw_entries_count": 1421,
+      "retained_articles_count": 128,
+      "last_checked": "2026-11-22T23:56:55.439313+00:00",
+      "raw_entries_count": 1422,
       "relevant_articles_count": 10
     },
     {
@@ -26,7 +26,7 @@
       "category": "Research",
       "status": "active",
       "retained_articles_count": 28,
-      "last_checked": "2026-11-22T15:01:54.949382+00:00",
+      "last_checked": "2026-11-22T23:56:56.607234+00:00",
       "raw_entries_count": 100,
       "relevant_articles_count": 10
     },
@@ -37,7 +37,7 @@
       "category": "News",
       "status": "active",
       "retained_articles_count": 63,
-      "last_checked": "2026-11-22T15:01:55.692800+00:00",
+      "last_checked": "2026-11-22T23:56:57.332137+00:00",
       "raw_entries_count": 915,
       "relevant_articles_count": 10
     },
@@ -48,7 +48,7 @@
       "category": "Product Release",
       "status": "active",
       "retained_articles_count": 16,
-      "last_checked": "2026-11-22T15:01:56.572104+00:00",
+      "last_checked": "2026-11-22T23:56:58.154288+00:00",
       "raw_entries_count": 10,
       "relevant_articles_count": 10
     },
@@ -59,7 +59,7 @@
       "category": "Product Release",
       "status": "active",
       "retained_articles_count": 4,
-      "last_checked": "2026-11-22T15:01:57.766918+00:00",
+      "last_checked": "2026-11-22T23:56:59.486259+00:00",
       "raw_entries_count": 50,
       "relevant_articles_count": 2
     },
@@ -70,7 +70,7 @@
       "category": "Research",
       "status": "active",
       "retained_articles_count": 21,
-      "last_checked": "2026-11-22T15:01:58.687612+00:00",
+      "last_checked": "2026-11-22T23:57:00.069071+00:00",
       "raw_entries_count": 10,
       "relevant_articles_count": 10
     },
@@ -81,7 +81,7 @@
       "category": "Research",
       "status": "active",
       "retained_articles_count": 10,
-      "last_checked": "2026-11-22T15:02:00.335757+00:00",
+      "last_checked": "2026-11-22T23:57:01.280341+00:00",
       "raw_entries_count": 15,
       "relevant_articles_count": 10
     },
@@ -92,7 +92,7 @@
       "category": "News",
       "status": "active",
       "retained_articles_count": 24,
-      "last_checked": "2026-11-22T15:02:01.731532+00:00",
+      "last_checked": "2026-11-22T23:57:02.472103+00:00",
       "raw_entries_count": 20,
       "relevant_articles_count": 8
     },
@@ -103,7 +103,7 @@
       "category": "News",
       "status": "active",
       "retained_articles_count": 62,
-      "last_checked": "2026-11-22T15:02:02.673612+00:00",
+      "last_checked": "2026-11-22T23:57:03.216909+00:00",
       "raw_entries_count": 10,
       "relevant_articles_count": 8
     },
@@ -114,7 +114,7 @@
       "category": "Research",
       "status": "empty_response",
       "retained_articles_count": 213,
-      "last_checked": "2026-11-22T15:02:03.327196+00:00",
+      "last_checked": "2026-11-22T23:57:03.815580+00:00",
       "raw_entries_count": 0,
       "relevant_articles_count": 0
     },
@@ -125,7 +125,7 @@
       "category": "Research",
       "status": "empty_response",
       "retained_articles_count": 196,
-      "last_checked": "2026-11-22T15:02:04.020733+00:00",
+      "last_checked": "2026-11-22T23:57:04.533194+00:00",
       "raw_entries_count": 0,
       "relevant_articles_count": 0
     },
@@ -145,7 +145,7 @@
       "category": "Product Release",
       "status": "active",
       "retained_articles_count": 57,
-      "last_checked": "2026-11-22T15:02:04.539250+00:00",
+      "last_checked": "2026-11-22T23:57:05.060486+00:00",
       "raw_entries_count": 100,
       "relevant_articles_count": 8
     },
@@ -156,7 +156,7 @@
       "category": "Product Release",
       "status": "active",
       "retained_articles_count": 31,
-      "last_checked": "2026-11-22T15:02:05.359795+00:00",
+      "last_checked": "2026-11-22T23:57:05.844060+00:00",
       "raw_entries_count": 10,
       "relevant_articles_count": 10
     },
@@ -166,8 +166,8 @@
       "url": "https://simonwillison.net/tags/ai.atom",
       "category": "Opinion",
       "status": "active",
-      "retained_articles_count": 53,
-      "last_checked": "2026-11-22T15:02:06.653779+00:00",
+      "retained_articles_count": 54,
+      "last_checked": "2026-11-22T23:57:07.268036+00:00",
       "raw_entries_count": 30,
       "relevant_articles_count": 9
     }
@@ -181,8 +181,8 @@
       "provenance": "Independent Evaluation",
       "url": "https://livebench.ai/",
       "license": "Apache-2.0",
-      "last_known_good_timestamp": "2026-11-22T15:02:24.649962+00:00",
-      "last_retrieval_time": "2026-11-22T15:02:24.649962+00:00",
+      "last_known_good_timestamp": "2026-11-22T23:57:26.992358+00:00",
+      "last_retrieval_time": "2026-11-22T23:57:26.992358+00:00",
       "last_successful_evaluation_date": null,
       "warnings": [],
       "notes": "Contamination-free evaluations with monthly updated problems across reasoning, coding, and mathematics."
@@ -194,8 +194,8 @@
       "provenance": "Independent Evaluation",
       "url": "https://arena.ai/leaderboard",
       "license": "Apache-2.0 / CC-BY",
-      "last_known_good_timestamp": "2026-11-22T15:02:24.649962+00:00",
-      "last_retrieval_time": "2026-11-22T15:02:24.649962+00:00",
+      "last_known_good_timestamp": "2026-11-22T23:57:26.992358+00:00",
+      "last_retrieval_time": "2026-11-22T23:57:26.992358+00:00",
       "last_successful_evaluation_date": null,
       "notes": "Crowdsourced blind pairwise battles evaluated with Bradley-Terry Elo ratings across human preference and coding."
     },

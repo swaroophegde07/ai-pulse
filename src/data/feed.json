@@ -1,5 +1,89 @@
 [
   {
+    "id": "1a10f1676d46fc01",
+    "title": "Perplexity and Intelligence",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Perplexity is examined as a metric for measuring progress in artificial intelligence models. The article explores how establishing perplexity as a common evaluation approach could help developers assess emerging capabilities.",
+    "summary_status": "generated",
+    "content_fingerprint": "b520e7e124e492a4",
+    "url": "https://openai.com/index/perplexity-and-intelligence",
+    "date": "2026-11-22T00:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-22T23:57:26.878383+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 6,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "The article explores how perplexity is used to measure progress in AI models.",
+      "It addresses why this metric could help developers establish a shared approach to evaluating emerging capabilities.",
+      "AI developers and researchers evaluating foundational model performance are directly affected."
+    ],
+    "tags": [
+      "Perplexity",
+      "Model Evaluation",
+      "AI Research"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://openai.com/index/perplexity-and-intelligence",
+        "title": "Perplexity and Intelligence",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "aaa55aaf59895092",
+    "title": "Muru",
+    "company": "Simon Willison's Weblog",
+    "source": "Simon Willison – AI",
+    "summary": "Graham Dumpleton has introduced Muru, a new AI-assisted Rust server designed for running ASGI and WSGI Python applications in development and production. Over a three-week period, Dumpleton published a detailed series of technical posts documenting the project's architecture, deployment strategies, and integration with Kubernetes and AI-assisted programming.",
+    "summary_status": "generated",
+    "content_fingerprint": "461c13e9bebfe4dc",
+    "url": "https://simonwillison.net/2026/Nov/21/muru",
+    "date": "2026-11-21T23:56:28+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-22T23:57:26.878927+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Graham Dumpleton launched Muru, an AI-assisted Rust server for serving ASGI and WSGI Python applications.",
+      "The project's development is accompanied by an extensive, multi-part technical documentation series covering architecture, worker models, scaling, and Kubernetes integration.",
+      "Python developers and infrastructure engineers deploying web applications in production or containerized environments."
+    ],
+    "tags": [
+      "Python",
+      "Rust",
+      "WSGI",
+      "ASGI",
+      "AI-assisted programming"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://simonwillison.net/2026/Nov/21/muru",
+        "title": "Muru",
+        "publisher": "Simon Willison's Weblog"
+      }
+    ]
+  },
+  {
     "id": "f22d46a83ecd25c4",
     "title": "Researcher plants 2m canaries into the AI supply chain. A privacy disaster surfaced.",
     "company": "Ars Technica",
