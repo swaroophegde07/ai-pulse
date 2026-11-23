@@ -1,5 +1,933 @@
 [
   {
+    "id": "c708d8c1e7cbbd50",
+    "title": "A legendary philosopher isn’t buying Anthropic’s consciousness argument",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "[Automated summary unavailable] This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first, sign up here . Before going public last week, Anthropic named the…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://www.technologyreview.com/2026/11/23/1149569/a-legendary-philosopher-isnt-buying-anthropics-consciousness-argument",
+    "date": "2026-11-23T17:36:08+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-23T19:04:26.956644+00:00",
+    "topics": [
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/11/23/1149569/a-legendary-philosopher-isnt-buying-anthropics-consciousness-argument",
+        "title": "A legendary philosopher isn’t buying Anthropic’s consciousness argument",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "eb2701ff66febea2",
+    "title": "RoboTrack: Point tracking for real-world robotic manipulation",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "RoboTrack introduces a point tracking system designed specifically for real-world robotic manipulation tasks. The approach improves spatial tracking accuracy to assist robots in interacting dynamically with physical environments.",
+    "summary_status": "generated",
+    "content_fingerprint": "e5a6c42db10ece50",
+    "url": "https://huggingface.co/blog/allenai/robotrack",
+    "date": "2026-11-23T17:20:37+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-23T19:04:26.956538+00:00",
+    "topics": [
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "RoboTrack was introduced as a new point tracking system for real-world robotic manipulation.",
+      "It enhances spatial tracking accuracy, enabling more reliable physical interaction and object manipulation for robots.",
+      "Robotics researchers and engineers working on vision-based control systems are directly affected."
+    ],
+    "tags": [
+      "RoboTrack",
+      "Robotics",
+      "Point Tracking",
+      "Computer Vision"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/allenai/robotrack",
+        "title": "RoboTrack: Point tracking for real-world robotic manipulation",
+        "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
+    "id": "895b540db6a8889e",
+    "title": "Finding faster quantum algorithms with agents and formal verification",
+    "company": "Google DeepMind",
+    "source": "Google DeepMind Blog",
+    "summary": "Agent teams and formal verification are applied to improve quantum algorithms for fusion and chemistry applications. This approach aims to find faster quantum algorithms by combining automated agent workflows with rigorous mathematical verification.",
+    "summary_status": "generated",
+    "content_fingerprint": "3de1674a22881916",
+    "url": "https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification",
+    "date": "2026-11-23T16:59:40+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-23T19:04:26.956354+00:00",
+    "topics": [
+      "AI Agents",
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Agent teams and formal verification were used to improve quantum algorithms targeting fusion and chemistry.",
+      "Combining automated agents with formal verification accelerates the discovery of more efficient and reliable quantum algorithms.",
+      "Researchers and developers working on quantum computing, fusion energy, and computational chemistry are affected."
+    ],
+    "tags": [
+      "Quantum Algorithms",
+      "AI Agents",
+      "Formal Verification",
+      "Quantum Computing"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification",
+        "title": "Finding faster quantum algorithms with agents and formal verification",
+        "publisher": "Google DeepMind"
+      }
+    ]
+  },
+  {
+    "id": "e6f572930446190b",
+    "title": "OpenCode v2.4.1",
+    "company": "OpenCode",
+    "source": "OpenCode Updates",
+    "summary": "OpenCode v2.4.1 introduces a macOS 12 session fix for saving assistant messages on older SQLite versions and allows config-only providers like Ollama to display their models without a login. The release also includes experimental model speed tiers, various TUI and desktop layout improvements, and bug fixes for compaction and keyboard navigation.",
+    "summary_status": "generated",
+    "content_fingerprint": "ca54c59472e4366b",
+    "url": "https://github.com/anomalyco/opencode/releases/tag/v2.4.1",
+    "date": "2026-11-23T15:58:38+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-23T19:04:26.957760+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "OpenCode released version 2.4.1 featuring a fix for macOS 12 SQLite compatibility and updates to config-only providers like Ollama.",
+      "This update improves developer workflow stability by fixing message saving, cache costs after compaction, and UI focus issues.",
+      "Developers utilizing macOS 12, config-only LLM providers, and OpenCode's TUI or desktop interfaces are directly affected."
+    ],
+    "tags": [
+      "OpenCode",
+      "Ollama",
+      "macOS 12",
+      "Developer Tools"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://github.com/anomalyco/opencode/releases/tag/v2.4.1",
+        "title": "OpenCode v2.4.1",
+        "publisher": "OpenCode"
+      }
+    ]
+  },
+  {
+    "id": "96889ade3ac5bf8b",
+    "title": "The Download: carbon removal’s crop threat",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "This newsletter issue covers a new METR report showing that AI models improve exponentially on coding but struggle with tasks requiring human judgment, alongside emerging research questioning the scalability and crop impact of enhanced rock weathering for carbon removal. It also touches on developments regarding Anthropic's Claude being used to prove the Riemann hypothesis, geopolitical tensions around semiconductor supply networks, and cyberattacks on law enforcement databases.",
+    "summary_status": "generated",
+    "content_fingerprint": "5dd21c459538c169",
+    "url": "https://www.technologyreview.com/2026/11/23/1149548/the-download-ai-judgment-problem-carbon-removal-crop-threat",
+    "date": "2026-11-23T13:10:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-23T19:04:26.956731+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/11/23/1149548/the-download-ai-judgment-problem-carbon-removal-crop-threat",
+        "title": "The Download: carbon removal’s crop threat",
+        "publisher": "MIT Technology Review"
+      }
+    ],
+    "key_points": [
+      "METR updated its AI evaluation report to show that models excel at coding while lagging significantly on open-ended judgment tasks.",
+      "New findings reveal that enhanced rock weathering for carbon removal may negatively impact crop yields if too much material is applied.",
+      "AI researchers, climate tech startups, agricultural producers, and enterprise tech firms navigating supply chain and security risks are directly affected."
+    ],
+    "tags": [
+      "METR",
+      "Anthropic",
+      "Claude",
+      "Carbon Removal",
+      "AI Evaluation"
+    ],
+    "impact_score": 6
+  },
+  {
+    "id": "c6d8726b1a33d16b",
+    "title": "OpenCode v2.4.0",
+    "company": "OpenCode",
+    "source": "OpenCode Updates",
+    "summary": "[Automated summary unavailable] Highlights Built-In Desktop Browser : Import your sign-ins and browsing history from Chrome, Edge, Firefox or Safari, and add extensions from Chromium browsers or the Chrome and Edge stores.…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://github.com/anomalyco/opencode/releases/tag/v2.4.0",
+    "date": "2026-11-23T09:22:21+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-23T19:04:26.957803+00:00",
+    "topics": [
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://github.com/anomalyco/opencode/releases/tag/v2.4.0",
+        "title": "OpenCode v2.4.0",
+        "publisher": "OpenCode"
+      }
+    ]
+  },
+  {
+    "id": "cd02a86f341630ad",
+    "title": "Adding One More Agent: How AI Team Size and Formation Shape Productivity and Diversity in Human-AI Brainstorming Teams",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "A brainstorming experiment involving 168 participants evaluated how team size and AI behavioral formation impact productivity and idea diversity in human-AI teams. The study found that two-AI rooms increased total ideas posted on shared boards while substantially decreasing human-authored ideas compared to single-agent setups. Furthermore, single-agent results did not generalize to multi-agent teams, demonstrating that increasing AI partners fundamentally reshapes human contribution patterns.",
+    "summary_status": "generated",
+    "content_fingerprint": "89149d93041f6b07",
+    "url": "https://arxiv.org/abs/2611.26663",
+    "date": "2026-11-23T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-23T19:04:26.956916+00:00",
+    "topics": [
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers studied how varying AI team size (one versus two AI partners) and behavioral formation impacted brainstorming productivity among 168 participants.",
+      "Two-AI rooms generated more total board posts but caused a substantial drop in human-authored ideas, proving that single-agent performance does not scale to multi-agent settings.",
+      "Researchers, behavioral scientists, and developers building multi-agent collaboration tools will need to account for shifts in human contribution and conversational dynamics."
+    ],
+    "tags": [
+      "AI Agents",
+      "Human-AI Collaboration",
+      "Productivity",
+      "Brainstorming"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.26663",
+        "title": "Adding One More Agent: How AI Team Size and Formation Shape Productivity and Diversity in Human-AI Brainstorming Teams",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "585cc50ff286833b",
+    "title": "Coherence by Construction: Synthesizing CTI Knowledge Graphs and the Formal Limits of Coherence Validation",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.26717v1 Announce Type: new Abstract: Synthesizing relational training data such as knowledge graphs with a large language model typically emits structured objects one at a time, which…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.26717",
+    "date": "2026-11-23T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-23T19:04:26.956982+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.26717",
+        "title": "Coherence by Construction: Synthesizing CTI Knowledge Graphs and the Formal Limits of Coherence Validation",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "2ffd747d4cc71821",
+    "title": "TOUMAII: A 4.5M-Pair Tool-Calling Preference Dataset and Its Source-Agnostic Generator",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.26722v1 Announce Type: new Abstract: To autonomously execute multi-step tasks, enterprise agents must reliably interact with tools, call APIs, or query databases, making tool-calling a…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.26722",
+    "date": "2026-11-23T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-23T19:04:26.957019+00:00",
+    "topics": [
+      "AI Agents",
+      "Research and Breakthroughs",
+      "Business and Industry"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.26722",
+        "title": "TOUMAII: A 4.5M-Pair Tool-Calling Preference Dataset and Its Source-Agnostic Generator",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "461a81e08dcc750a",
+    "title": "ChatAtom: A Multi-Agent LLM System for Molecular Dynamics Simulation and Visualization",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduce ChatAtom, a multi-agent large language model system designed to automate molecular dynamics simulation workflows from natural language prompts. The system features specialized agents for orchestration, script generation and review for LAMMPS and OVITO, high-performance computing job dispatch, and analysis. Evaluated through script benchmarks and crack propagation studies, ChatAtom integrates visualization and execution into a single observable pipeline.",
+    "summary_status": "generated",
+    "content_fingerprint": "0218a5ed526f58b3",
+    "url": "https://arxiv.org/abs/2611.26782",
+    "date": "2026-11-23T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-23T19:04:26.957057+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "ChatAtom, a multi-agent LLM system, translates natural language requests into complete molecular dynamics simulation and visualization workflows.",
+      "It automates expert-driven tasks like script writing, remote job dispatch, and data analysis through specialized agents with generator-reviewer pairs, lowering barriers to materials simulation.",
+      "Researchers, materials scientists, and developers relying on molecular dynamics tools like LAMMPS and OVITO are directly affected."
+    ],
+    "tags": [
+      "Molecular Dynamics",
+      "Multi-Agent Systems",
+      "LAMMPS",
+      "OVITO",
+      "Materials Science"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.26782",
+        "title": "ChatAtom: A Multi-Agent LLM System for Molecular Dynamics Simulation and Visualization",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "ba63b85712814233",
+    "title": "Beyond Final Answers: Interpretable Tumor Immune Microenvironment Reasoning from H&E and mIF",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.26794v1 Announce Type: new Abstract: Readouts of the tumor immune microenvironment (TIME), such as CD8+ T-cell density, intra-epithelial infiltration and the Ki67 index, combine tissue…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.26794",
+    "date": "2026-11-23T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-23T19:04:26.957111+00:00",
+    "topics": [
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.26794",
+        "title": "Beyond Final Answers: Interpretable Tumor Immune Microenvironment Reasoning from H&E and mIF",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "9e7d1b0c4460f6f1",
+    "title": "Memorization and Generalization in Generative Models: A Perspective From Energy-based Modeling and Associative Memory",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This research thesis examines the interplay between memorization and generalization in generative models by framing them through associative memory and energy-based modeling. The author demonstrates that diffusion models operate as associative memories where spurious states, traditionally viewed as retrieval failures, drive creative generation. Furthermore, the work shows that uniform-state discrete diffusion models can retrieve unseen data as training volume grows, providing a unified framework for understanding model recall versus creation.",
+    "summary_status": "generated",
+    "content_fingerprint": "2b6d7ba0c8ebb8b8",
+    "url": "https://arxiv.org/abs/2611.26797",
+    "date": "2026-11-23T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-23T19:04:26.957149+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "The author proves that diffusion models function as associative memories, transitioning from memorizing individual training samples to generating novel combinations via spurious states.",
+      "It establishes that memorization and generalization coexist within a single retrieval process, offering a concrete diagnostic via conditional entropy.",
+      "Machine learning researchers and developers working on diffusion models and generative architectures can utilize this associative memory framework to analyze model behavior."
+    ],
+    "tags": [
+      "Associative Memory",
+      "Diffusion Models",
+      "Stable Diffusion",
+      "Energy-Based Models",
+      "Generalization"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.26797",
+        "title": "Memorization and Generalization in Generative Models: A Perspective From Energy-based Modeling and Associative Memory",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "03465724b88b0cc0",
+    "title": "Beyond Demographic Discrimination: Benchmarking Normative-Descriptive Calibration in LLMs",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.26870v1 Announce Type: new Abstract: Large language models (LLMs) are increasingly deployed in socially consequential settings, where they must distinguish between normative reasoning…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.26870",
+    "date": "2026-11-23T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-23T19:04:26.957219+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.26870",
+        "title": "Beyond Demographic Discrimination: Benchmarking Normative-Descriptive Calibration in LLMs",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "d255db050aaeae04",
+    "title": "Towards Robust Partial-Edit Deepfake Localization: An edit and Generator Conditioned Analysis",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.26903v1 Announce Type: new Abstract: Partial-edit deepfake localization aims to identify manipulated regions within otherwise authentic speech. Recent systems report strong overall…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.26903",
+    "date": "2026-11-23T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-23T19:04:26.957248+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.26903",
+        "title": "Towards Robust Partial-Edit Deepfake Localization: An edit and Generator Conditioned Analysis",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "A method for partial-edit deepfake localization using edit and generator conditioned analysis was introduced.",
+      "The approach addresses limitations in current systems regarding localized audio manipulation detection.",
+      "Audio forensic researchers and security system developers targeting synthetic speech manipulation are affected."
+    ]
+  },
+  {
+    "id": "7afd1e283c6656dc",
+    "title": "Budget-Aware Predict-and-Verify Theorem Proving with Heterogeneous LLM Solvers",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.26906v1 Announce Type: new Abstract: Large language model (LLM) theorem solvers differ in both proving capability and inference cost. Applying an expensive solver to every subgoal wastes…",
+    "summary_status": "unverified_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.26906",
+    "date": "2026-11-23T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-23T19:04:26.957287+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.26906",
+        "title": "Budget-Aware Predict-and-Verify Theorem Proving with Heterogeneous LLM Solvers",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "9727016a4ca8e93e",
+    "title": "AstronautBench: Measuring Agent Self-Improvement Across Episodes Through Knowledge, Evidence, and Progress",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.26910v1 Announce Type: new Abstract: LLM agents are expected to improve themselves from their own experience across episodes, with fixed weights. Self-improvement in an embodied world…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.26910",
+    "date": "2026-11-23T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-23T19:04:26.957320+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.26910",
+        "title": "AstronautBench: Measuring Agent Self-Improvement Across Episodes Through Knowledge, Evidence, and Progress",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "e86b0f581b1a2890",
+    "title": "On the loss landscape of the linear neural network: beyond critical points",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.26671v1 Announce Type: new Abstract: While the critical points of the loss landscape in linear neural networks have been extensively studied since the seminal work of Baldi \\& Hornik in…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.26671",
+    "date": "2026-11-23T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-23T19:04:26.957351+00:00",
+    "topics": [
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.26671",
+        "title": "On the loss landscape of the linear neural network: beyond critical points",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Researchers analyzed the loss landscape of linear neural networks beyond traditional critical points.",
+      "The findings extend classical mathematical understandings of neural network optimization pioneered by Baldi and Hornik.",
+      "Machine learning researchers and theoreticians studying neural network optimization dynamics are affected."
+    ]
+  },
+  {
+    "id": "2d34d4aaf55952d0",
+    "title": "Parasite Features: Causal Abstraction Through Spurious Pathways",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.26711v1 Announce Type: new Abstract: Causal Abstraction defines a notion of \\emph{equivalence} between a neural network and an algorithm, thus serving as a powerful framework for…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.26711",
+    "date": "2026-11-23T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-23T19:04:26.957387+00:00",
+    "topics": [
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.26711",
+        "title": "Parasite Features: Causal Abstraction Through Spurious Pathways",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "5dba2522f497bb7d",
+    "title": "Cross-Attack Robust Aggregation for Federated Learning",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.26731v1 Announce Type: new Abstract: Federated learning (FL) lets resource-constrained IoT and edge devices train a shared model without exchanging raw data, but compromised or faulty…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.26731",
+    "date": "2026-11-23T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-23T19:04:26.957437+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.26731",
+        "title": "Cross-Attack Robust Aggregation for Federated Learning",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "926e26dc5cb08537",
+    "title": "Depth-Linked Residual Tokens for Multimodal Retrieval and Generation",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.26752v1 Announce Type: new Abstract: Iterative architectures such as looped language models improve parameter efficiency and reasoning capacity of transformers, yet their sequential…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.26752",
+    "date": "2026-11-23T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-23T19:04:26.957468+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.26752",
+        "title": "Depth-Linked Residual Tokens for Multimodal Retrieval and Generation",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "2e342284bb785fd0",
+    "title": "Who Should Verify? Reviewer Selection with Partial Information and Outcome Audits",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.26770v1 Announce Type: new Abstract: Selecting an AI reviewer requires evidence about what it does after reading a draft. On a fixed batch of items, a team can keep the original answers…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.26770",
+    "date": "2026-11-23T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-23T19:04:26.957497+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.26770",
+        "title": "Who Should Verify? Reviewer Selection with Partial Information and Outcome Audits",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "0da08403671b33ab",
+    "title": "Don't Discard Your Rollouts: Reusing Teacher RL Traces for Student Distillation",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This research introduces a method to reuse expensive teacher reinforcement learning rollouts for student distillation, avoiding the need to regenerate data. By treating rollout reuse as a data selection problem using metadata like prompt pass rates and teacher log-likelihoods, the proposed two-stage recipe matches the performance of canonical distillation without extra inference costs. Evaluations across mathematical reasoning and Python coding tasks demonstrate that the approach works effectively across multiple student model families.",
+    "summary_status": "generated",
+    "content_fingerprint": "2dbf0fcc4aabaa57",
+    "url": "https://arxiv.org/abs/2611.26803",
+    "date": "2026-11-23T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-23T19:04:26.957533+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed a two-stage recipe to reuse saved teacher RL rollout traces for student model distillation using metadata such as prompt pass rates and log-likelihoods.",
+      "This approach eliminates the additional inference costs typically required for dataset construction in canonical distillation while maintaining comparable performance.",
+      "Developers and researchers training smaller student models on mathematical reasoning and Python coding tasks are directly affected."
+    ],
+    "tags": [
+      "Model Distillation",
+      "Reinforcement Learning",
+      "GRPO",
+      "Data Selection"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.26803",
+        "title": "Don't Discard Your Rollouts: Reusing Teacher RL Traces for Student Distillation",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "f33aa1721d852325",
+    "title": "LEAN: Library-Based Adaptation for Asynchronous, Federated Fine-Tuning",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.26805v1 Announce Type: new Abstract: Federated fine-tuning of foundation models with low-rank adapters (LoRA) is typically reconciled by averaging locally trained adapters. In…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.26805",
+    "date": "2026-11-23T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-23T19:04:26.957590+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.26805",
+        "title": "LEAN: Library-Based Adaptation for Asynchronous, Federated Fine-Tuning",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "786be66b40eae8b1",
+    "title": "NitroGen: Observations on the Action Dynamics, Visual Instruction Following, and Spatial Exploration",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.26807v1 Announce Type: new Abstract: NitroGen is an open vision-action foundation model for game control. It is trained by behavior cloning on online gameplay videos. In this paper, we…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.26807",
+    "date": "2026-11-23T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-23T19:04:26.957622+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.26807",
+        "title": "NitroGen: Observations on the Action Dynamics, Visual Instruction Following, and Spatial Exploration",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "54884a326c33bf05",
+    "title": "Realistic Robustness Evaluation of Tabular Data Driven Models",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.26818v1 Announce Type: new Abstract: The increasing adoption of Machine Learning (ML) models in high-stakes applications has raised critical concerns regarding their robustness against…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.26818",
+    "date": "2026-11-23T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-23T19:04:26.957654+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.26818",
+        "title": "Realistic Robustness Evaluation of Tabular Data Driven Models",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "8a61f0df2a3d4fb5",
+    "title": "Graph-XGB: A Hybrid GNN Framework for Outdoor-to-Indoor 5G Signal Reconstruction via Aerial-Only UAV RF Sensing",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.26828v1 Announce Type: new Abstract: Delivering robust In-Building Coverage (IBC) is critically impeded by severe Outdoor-to-Indoor (O2I) attenuation, a constraint that intensifies as…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.26828",
+    "date": "2026-11-23T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-23T19:04:26.957682+00:00",
+    "topics": [
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.26828",
+        "title": "Graph-XGB: A Hybrid GNN Framework for Outdoor-to-Indoor 5G Signal Reconstruction via Aerial-Only UAV RF Sensing",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "A hybrid GNN framework called Graph-XGB was developed for outdoor-to-indoor 5G signal reconstruction via aerial UAV RF sensing.",
+      "It mitigates severe outdoor-to-indoor signal attenuation to improve in-building wireless coverage mapping.",
+      "Telecommunications engineers and network operators deploying 5G infrastructure and aerial UAV sensing systems are directly impacted."
+    ]
+  },
+  {
+    "id": "00d52199bef25f9e",
+    "title": "How to build and maintain an agentic evaluation",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "Building and maintaining effective agentic evaluations requires tracking specific execution paths and tool usage patterns rather than solely measuring final output correctness. Establishing robust evaluation frameworks for autonomous agents helps mitigate non-deterministic failure modes during complex multi-step workflows. Developers and engineering teams deploying agentic systems in production rely on these specialized testing methodologies.",
+    "summary_status": "generated",
+    "content_fingerprint": "fb6cb1561131773c",
+    "url": "https://huggingface.co/blog/agentic-evals",
+    "date": "2026-11-23T00:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-23T19:04:26.956590+00:00",
+    "topics": [
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 6,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Frameworks for building and maintaining agentic evaluations were introduced to address non-deterministic agent workflows.",
+      "This methodology enables developers to debug complex failure modes by analyzing intermediate tool usage and execution paths.",
+      "Engineers and developers building autonomous AI agents in production environments are directly affected."
+    ],
+    "tags": [
+      "AI Agents",
+      "Evaluation",
+      "LLMOps"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/agentic-evals",
+        "title": "How to build and maintain an agentic evaluation",
+        "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
     "id": "1a10f1676d46fc01",
     "title": "Perplexity and Intelligence",
     "company": "OpenAI",
