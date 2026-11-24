@@ -1,19 +1,102 @@
 [
   {
+    "id": "105d2dd6f5d647be",
+    "title": "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer",
+    "company": "Simon Willison's Weblog",
+    "source": "Simon Willison – AI",
+    "summary": "Chinese AI lab Z.ai has released GLM-5.4, its first model utilizing a looped transformer architecture that runs weight-shared layers iteratively without increasing the parameter count. The model is currently accessible via Z.ai's API through a Coding Plan subscription rather than as open weights. This release marks part of an emerging architectural trend toward looped models designed to enhance reasoning capabilities.",
+    "summary_status": "generated",
+    "content_fingerprint": "fbaae47ccca4cb1a",
+    "url": "https://simonwillison.net/2026/Nov/23/glm-54",
+    "date": "2026-11-23T23:40:49+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-24T04:11:17.306873+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Open Source"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 6,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Z.ai released GLM-5.4, utilizing a looped transformer architecture where weight-shared layers run multiple iterations per forward pass.",
+      "The architecture enables a deeper network without increasing parameter count, potentially improving reasoning and coding performance.",
+      "Developers utilizing Z.ai's API can access the model exclusively through a Coding Plan subscription."
+    ],
+    "tags": [
+      "GLM-5.4",
+      "Z.ai",
+      "Looped Transformer",
+      "LLM"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://simonwillison.net/2026/Nov/23/glm-54",
+        "title": "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer",
+        "publisher": "Simon Willison's Weblog"
+      }
+    ]
+  },
+  {
+    "id": "b0689cf87ab570a4",
+    "title": "OpenAI and Cisco introduce Shirudo",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "OpenAI and Cisco have jointly introduced Shirudo, an open-source runtime designed for Linux systems. The tool helps engineering teams protect actively running systems while patches are being rolled out.",
+    "summary_status": "generated",
+    "content_fingerprint": "c2c853599e5cc3c5",
+    "url": "https://openai.com/index/introducing-shirudo",
+    "date": "2026-11-23T21:20:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-24T04:11:17.304439+00:00",
+    "topics": [
+      "Models and Releases"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "OpenAI and Cisco released Shirudo, an open-source Linux runtime.",
+      "It protects running systems during patch deployment to minimize vulnerabilities.",
+      "Linux system administrators and engineering teams deploying patches are directly affected."
+    ],
+    "tags": [
+      "OpenAI",
+      "Cisco",
+      "Shirudo",
+      "Linux",
+      "Open-Source"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://openai.com/index/introducing-shirudo",
+        "title": "OpenAI and Cisco introduce Shirudo",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
     "id": "c708d8c1e7cbbd50",
     "title": "A legendary philosopher isn’t buying Anthropic’s consciousness argument",
     "company": "MIT Technology Review",
     "source": "MIT Technology Review",
-    "summary": "[Automated summary unavailable] This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first, sign up here . Before going public last week, Anthropic named the…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "Anthropic recently highlighted potential AI consciousness and moral status as risk factors for investors and future operations. However, philosopher Thomas Nagel criticized this perspective in a Wired interview, arguing that silicon-based models cannot experience subjective consciousness simply by mimicking human information processing or language generation.",
+    "summary_status": "generated",
+    "content_fingerprint": "6a961314dad37dcc",
     "url": "https://www.technologyreview.com/2026/11/23/1149569/a-legendary-philosopher-isnt-buying-anthropics-consciousness-argument",
     "date": "2026-11-23T17:36:08+00:00",
-    "category": "News",
-    "fetched_at": "2026-11-23T19:04:26.956644+00:00",
+    "category": "Opinion",
+    "fetched_at": "2026-11-24T04:11:17.304831+00:00",
     "topics": [
-      "Research and Breakthroughs",
-      "Applications and Products"
+      "Models and Releases"
     ],
     "source_type": "Independent Reporting",
     "priority_score": 0,
@@ -26,7 +109,19 @@
         "title": "A legendary philosopher isn’t buying Anthropic’s consciousness argument",
         "publisher": "MIT Technology Review"
       }
-    ]
+    ],
+    "key_points": [
+      "Anthropic publicly identified the potential sentience and moral status of future AI models as a factor requiring special corporate rules and investor caution.",
+      "Philosopher Thomas Nagel dismissed concerns regarding AI consciousness, arguing that physical differences between biological neurons and silicon chips prevent AI from having subjective experiences.",
+      "AI researchers, investors, and philosophers concerned with AI safety and machine ethics are directly impacted by this debate over machine sentience."
+    ],
+    "tags": [
+      "Anthropic",
+      "AI Ethics",
+      "Sentience",
+      "Thomas Nagel"
+    ],
+    "impact_score": 4
   },
   {
     "id": "eb2701ff66febea2",
@@ -201,14 +296,15 @@
     "title": "OpenCode v2.4.0",
     "company": "OpenCode",
     "source": "OpenCode Updates",
-    "summary": "[Automated summary unavailable] Highlights Built-In Desktop Browser : Import your sign-ins and browsing history from Chrome, Edge, Firefox or Safari, and add extensions from Chromium browsers or the Chrome and Edge stores.…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "OpenCode v2.4.0 introduces a built-in desktop browser with persistent profiles and extension support, timed and event-driven agent automations, and video generation capabilities. Additional updates include a redesigned terminal user interface, Windows taskbar progress integration, automated plugin version management, and breaking changes such as the renaming of the image tool.",
+    "summary_status": "generated",
+    "content_fingerprint": "31365107d143b672",
     "url": "https://github.com/anomalyco/opencode/releases/tag/v2.4.0",
     "date": "2026-11-23T09:22:21+00:00",
     "category": "Product Release",
-    "fetched_at": "2026-11-23T19:04:26.957803+00:00",
+    "fetched_at": "2026-11-24T04:11:17.306798+00:00",
     "topics": [
+      "AI Agents",
       "Coding and Developer Tools"
     ],
     "source_type": "Technical Publication",
@@ -221,6 +317,99 @@
         "url": "https://github.com/anomalyco/opencode/releases/tag/v2.4.0",
         "title": "OpenCode v2.4.0",
         "publisher": "OpenCode"
+      }
+    ],
+    "key_points": [
+      "OpenCode v2.4.0 was released with a built-in desktop browser, scheduled automations, video generation support, and automated plugin updating.",
+      "These features enable persistent agent workflows, background rendering, and scheduled task execution directly within the workspace.",
+      "OpenCode users and developers managing automated agent routines, plugins, or integrated browser tools are affected."
+    ],
+    "tags": [
+      "OpenCode",
+      "AI Agents",
+      "Browser Automation",
+      "Product Release"
+    ],
+    "impact_score": 5
+  },
+  {
+    "id": "10878202550bbbf9",
+    "title": "Connected intelligence for in-house legal",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "OpenAI representatives Stacey Wang and Craig Bruney join Mary O'Carroll from LECG and Richard Segal from Cooley to discuss AI applications for in-house legal teams. The panel explores how artificial intelligence can integrate business context, construct reusable workflows, and optimize relationships with outside counsel.",
+    "summary_status": "generated",
+    "content_fingerprint": "78d43c5fce12b1f1",
+    "url": "https://openai.com/business/learn/connected-intelligence-for-in-house-legal",
+    "date": "2026-11-23T08:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-24T04:11:17.304585+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 1,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Primary lab announcement from OpenAI",
+    "why_it_matters": "",
+    "key_points": [
+      "Industry leaders from OpenAI, LECG, and Cooley discussed AI integration for in-house legal operations.",
+      "The discussion highlighted methods for connecting business context and building reusable workflows using AI.",
+      "In-house legal teams and outside counsel organizations are impacted by these operational AI workflows."
+    ],
+    "tags": [
+      "OpenAI",
+      "Legal AI",
+      "AI Workflows"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://openai.com/business/learn/connected-intelligence-for-in-house-legal",
+        "title": "Connected intelligence for in-house legal",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "1259b534687dd8b3",
+    "title": "Richpanel helps companies automate 50% of support in 30 days",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Richpanel integrates GPT-6 Astra and GPT-6.1 Sol to supply its AI support agents with necessary tools and procedures, while utilizing GPT-6 Luna to power customer conversations. The platform aims to help companies automate half of their customer support operations within thirty days.",
+    "summary_status": "generated",
+    "content_fingerprint": "5f9c0c602d4a9d03",
+    "url": "https://openai.com/business/customer-stories/richpanel-ai-customer-support",
+    "date": "2026-11-23T08:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-24T04:11:17.304677+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Richpanel integrated GPT-6 Astra, GPT-6.1 Sol, and GPT-6 Luna into its AI support agent platform.",
+      "The integration enables companies to automate up to 50 percent of their customer support workflows within 30 days.",
+      "Customer service teams and enterprises deploying automated support agents are directly affected."
+    ],
+    "tags": [
+      "Richpanel",
+      "GPT-6",
+      "AI Agents",
+      "Customer Support"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://openai.com/business/customer-stories/richpanel-ai-customer-support",
+        "title": "Richpanel helps companies automate 50% of support in 30 days",
+        "publisher": "OpenAI"
       }
     ]
   },
@@ -272,21 +461,22 @@
     "title": "Coherence by Construction: Synthesizing CTI Knowledge Graphs and the Formal Limits of Coherence Validation",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.AI (Artificial Intelligence)",
-    "summary": "[Automated summary unavailable] arXiv:2611.26717v1 Announce Type: new Abstract: Synthesizing relational training data such as knowledge graphs with a large language model typically emits structured objects one at a time, which…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "This research introduces generation by simulation, an alternative paradigm for synthesizing cyber threat intelligence knowledge graphs that enforces coherence by construction through a deterministic world model and referee. The authors prove key properties including referential closure and causal grounding, while demonstrating that standard validators reading structure-matched random graph features fail to evaluate coherence. These findings highlight fundamental limitations in current benchmark methodologies for structured relational data.",
+    "summary_status": "generated",
+    "content_fingerprint": "f46e519a894fa5c0",
     "url": "https://arxiv.org/abs/2611.26717",
     "date": "2026-11-23T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-23T19:04:26.956982+00:00",
+    "fetched_at": "2026-11-24T04:11:17.305213+00:00",
     "topics": [
       "Models and Releases",
-      "Research and Breakthroughs"
+      "Benchmarks and Evaluations",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
-    "priority_score": 2,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Original research or technical finding",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
     "why_it_matters": "",
     "sources": [
       {
@@ -294,24 +484,38 @@
         "title": "Coherence by Construction: Synthesizing CTI Knowledge Graphs and the Formal Limits of Coherence Validation",
         "publisher": "arXiv (Cornell University)"
       }
-    ]
+    ],
+    "key_points": [
+      "The authors developed a generation-by-simulation framework using language-model agents and a deterministic referee to synthesize STIX 2.1 cyber threat intelligence knowledge graphs with inherent coherence.",
+      "They proved mathematically and empirically that traditional validators and structure-matched random graph controls cannot measure coherence, exposing flaws in current embedding transfer and link prediction benchmarks.",
+      "Machine learning researchers, cybersecurity analysts, and developers of synthetic data generation pipelines are affected by these findings regarding validation limits and relational grounding."
+    ],
+    "tags": [
+      "Knowledge Graphs",
+      "Cyber Threat Intelligence",
+      "STIX 2.1",
+      "Language Model Agents"
+    ],
+    "impact_score": 7
   },
   {
     "id": "2ffd747d4cc71821",
     "title": "TOUMAII: A 4.5M-Pair Tool-Calling Preference Dataset and Its Source-Agnostic Generator",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.AI (Artificial Intelligence)",
-    "summary": "[Automated summary unavailable] arXiv:2611.26722v1 Announce Type: new Abstract: To autonomously execute multi-step tasks, enterprise agents must reliably interact with tools, call APIs, or query databases, making tool-calling a…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "The researchers introduce TOUMAII, a large-scale tool-calling preference dataset containing 4.5 million validated pairs for multi-turn and single-turn agent interactions, along with TOUMAII-Gen, a source-agnostic synthetic data generation pipeline. Fine-tuning a 3-billion-parameter model using this data achieves performance parity with existing high-quality tool-calling preference datasets. The complete source code and generated datasets have been publicly released.",
+    "summary_status": "generated",
+    "content_fingerprint": "68b06b501203f8d7",
     "url": "https://arxiv.org/abs/2611.26722",
     "date": "2026-11-23T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-23T19:04:26.957019+00:00",
+    "fetched_at": "2026-11-24T04:11:17.305321+00:00",
     "topics": [
+      "Models and Releases",
       "AI Agents",
+      "Coding and Developer Tools",
       "Research and Breakthroughs",
-      "Business and Industry"
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 2,
@@ -324,7 +528,20 @@
         "title": "TOUMAII: A 4.5M-Pair Tool-Calling Preference Dataset and Its Source-Agnostic Generator",
         "publisher": "arXiv (Cornell University)"
       }
-    ]
+    ],
+    "key_points": [
+      "Researchers developed TOUMAII, a 4.5-million-pair tool-calling preference dataset, and TOUMAII-Gen, a synthetic pipeline for generating preference pairs with realistic failure modes.",
+      "The dataset addresses the scarcity of multi-turn tool-calling preference data needed for direct preference optimization in autonomous enterprise agents.",
+      "AI developers and researchers working on tool-calling capabilities for enterprise agents can utilize the open-source pipeline and datasets."
+    ],
+    "tags": [
+      "AI Agents",
+      "Tool-Calling",
+      "Direct Preference Optimization",
+      "Synthetic Data",
+      "Dataset"
+    ],
+    "impact_score": 7
   },
   {
     "id": "461a81e08dcc750a",
@@ -375,15 +592,18 @@
     "title": "Beyond Final Answers: Interpretable Tumor Immune Microenvironment Reasoning from H&E and mIF",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.AI (Artificial Intelligence)",
-    "summary": "[Automated summary unavailable] arXiv:2611.26794v1 Announce Type: new Abstract: Readouts of the tumor immune microenvironment (TIME), such as CD8+ T-cell density, intra-epithelial infiltration and the Ki67 index, combine tissue…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "Researchers introduced HERMES, an MLLM that jointly reasons over H&E and mIF imaging data for tumor immune microenvironment analysis using step-level reinforcement learning. The 4B-parameter model achieves an average accuracy of 84.5% across four colorectal cancer tasks by verifying intermediate steps against cell-level ground truth. The approach maintains high accuracy on external CODEX cohorts and unseen cancer types without retraining.",
+    "summary_status": "generated",
+    "content_fingerprint": "0fc83be844b4e13e",
     "url": "https://arxiv.org/abs/2611.26794",
     "date": "2026-11-23T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-23T19:04:26.957111+00:00",
+    "fetched_at": "2026-11-24T04:11:17.305423+00:00",
     "topics": [
-      "Research and Breakthroughs"
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 5,
@@ -396,7 +616,19 @@
         "title": "Beyond Final Answers: Interpretable Tumor Immune Microenvironment Reasoning from H&E and mIF",
         "publisher": "arXiv (Cornell University)"
       }
-    ]
+    ],
+    "key_points": [
+      "HERMES was introduced as an R1-style MLLM that combines H&E tissue architecture with mIF cell phenotypes and uses process rewards for step-level reasoning verification.",
+      "It achieves an 84.5% average accuracy across four colorectal cancer tumor immune microenvironment tasks, outperforming twelve evaluated proprietary, general, medical, and pathology MLLMs.",
+      "Pathologists, computational biologists, and researchers developing clinical multimodal AI systems for cancer pathology are affected."
+    ],
+    "tags": [
+      "HERMES",
+      "Multimodal Large Language Models",
+      "Tumor Immune Microenvironment",
+      "Computational Pathology"
+    ],
+    "impact_score": 8
   },
   {
     "id": "9e7d1b0c4460f6f1",
@@ -446,17 +678,18 @@
     "title": "Beyond Demographic Discrimination: Benchmarking Normative-Descriptive Calibration in LLMs",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.AI (Artificial Intelligence)",
-    "summary": "[Automated summary unavailable] arXiv:2611.26870v1 Announce Type: new Abstract: Large language models (LLMs) are increasingly deployed in socially consequential settings, where they must distinguish between normative reasoning…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "Researchers introduce normative-descriptive calibration and the Normative-Descriptive Calibration Benchmark to evaluate how large language models distinguish between predicting what is likely to happen and deciding what should happen. The evaluation across six models reveals that describing disparities and prescribing them are separable behaviors, with Claude Sonnet 4.6 and Claude Opus 4.6 separating the framings most strongly. Additionally, testing showed that all evaluated models favor the first-listed candidate when forced to choose between identical options.",
+    "summary_status": "generated",
+    "content_fingerprint": "466ee612110a73cc",
     "url": "https://arxiv.org/abs/2611.26870",
     "date": "2026-11-23T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-23T19:04:26.957219+00:00",
+    "fetched_at": "2026-11-24T04:11:17.305514+00:00",
     "topics": [
       "Models and Releases",
-      "Research and Breakthroughs",
-      "Benchmarks and Evaluations"
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 5,
@@ -469,28 +702,40 @@
         "title": "Beyond Demographic Discrimination: Benchmarking Normative-Descriptive Calibration in LLMs",
         "publisher": "arXiv (Cornell University)"
       }
-    ]
+    ],
+    "key_points": [
+      "Introduced the Normative-Descriptive Calibration Benchmark with 697 matched-pair scenarios across six domains to measure whether LLMs treat items differently when asked to predict versus decide.",
+      "Demonstrated that models like Claude Sonnet 4.6 and Claude Opus 4.6 strongly separate descriptive and normative framings, whereas GPT-5.5 yielded negative or near-zero separation.",
+      "AI safety researchers, model developers, and deployers in socially consequential settings are affected by these findings on model reasoning stability and positional bias."
+    ],
+    "tags": [
+      "LLM Evaluation",
+      "Fairness",
+      "Bias",
+      "Normative Reasoning"
+    ],
+    "impact_score": 6
   },
   {
     "id": "d255db050aaeae04",
     "title": "Towards Robust Partial-Edit Deepfake Localization: An edit and Generator Conditioned Analysis",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.AI (Artificial Intelligence)",
-    "summary": "[Automated summary unavailable] arXiv:2611.26903v1 Announce Type: new Abstract: Partial-edit deepfake localization aims to identify manipulated regions within otherwise authentic speech. Recent systems report strong overall…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "This research analyzes partial-edit deepfake localization across different editing conditions and generator types using WavLM-Large and XLS-R representations. The findings reveal that aggregate performance scores mask significant weaknesses, with deletion operations and specific generators like SSR-Speech proving notably more difficult to localize. The study demonstrates that robust evaluation requires separate assessment across distinct edit types and generation methods.",
+    "summary_status": "generated",
+    "content_fingerprint": "2b34790f8cdecf50",
     "url": "https://arxiv.org/abs/2611.26903",
     "date": "2026-11-23T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-23T19:04:26.957248+00:00",
+    "fetched_at": "2026-11-24T04:11:17.305611+00:00",
     "topics": [
-      "Coding and Developer Tools",
-      "Research and Breakthroughs"
+      "Benchmarks and Evaluations",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
-    "priority_score": 2,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Original research or technical finding",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
     "why_it_matters": "",
     "sources": [
       {
@@ -500,33 +745,40 @@
       }
     ],
     "key_points": [
-      "A method for partial-edit deepfake localization using edit and generator conditioned analysis was introduced.",
-      "The approach addresses limitations in current systems regarding localized audio manipulation detection.",
-      "Audio forensic researchers and security system developers targeting synthetic speech manipulation are affected."
-    ]
+      "Evaluated Segment-Aware Localization performance across different transcript-derived edit axes and generators.",
+      "Demonstrated that deletion operations and SSR-Speech generated content present the hardest challenges for deepfake localization models.",
+      "Audio forensics researchers and speech deepfake detection system developers are affected by the revelation that aggregate scores mask specific operational weaknesses."
+    ],
+    "tags": [
+      "Deepfake Detection",
+      "Speech Processing",
+      "WavLM",
+      "Audio Forensics"
+    ],
+    "impact_score": 5
   },
   {
     "id": "7afd1e283c6656dc",
     "title": "Budget-Aware Predict-and-Verify Theorem Proving with Heterogeneous LLM Solvers",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.AI (Artificial Intelligence)",
-    "summary": "[Automated summary unavailable] arXiv:2611.26906v1 Announce Type: new Abstract: Large language model (LLM) theorem solvers differ in both proving capability and inference cost. Applying an expensive solver to every subgoal wastes…",
-    "summary_status": "unverified_excerpt",
-    "content_fingerprint": "",
+    "summary": "The authors introduce BudgetPV, an agentic budget-aware system that dynamically allocates computation across heterogeneous LLM solvers for theorem proving. By utilizing a cross-solver predictor trained with class-weighted and plain cross-entropy objectives, BudgetPV routes subgoals to appropriate models while adapting allocations based on verification feedback. Evaluations on Lean Workbook, miniF2F, ProofNet, and PutnamBench demonstrate that BudgetPV achieves computation savings compared to uniform allocation.",
+    "summary_status": "generated",
+    "content_fingerprint": "2538130a410be644",
     "url": "https://arxiv.org/abs/2611.26906",
     "date": "2026-11-23T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-23T19:04:26.957287+00:00",
+    "fetched_at": "2026-11-24T04:11:17.305708+00:00",
     "topics": [
       "Models and Releases",
-      "Research and Breakthroughs",
-      "Infrastructure and Hardware",
+      "AI Agents",
+      "Benchmarks and Evaluations",
       "Applications and Products"
     ],
     "source_type": "Research or Preprint",
-    "priority_score": 2,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Original research or technical finding",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
     "why_it_matters": "",
     "sources": [
       {
@@ -534,30 +786,43 @@
         "title": "Budget-Aware Predict-and-Verify Theorem Proving with Heterogeneous LLM Solvers",
         "publisher": "arXiv (Cornell University)"
       }
-    ]
+    ],
+    "key_points": [
+      "BudgetPV was introduced as an agentic system that predicts and allocates heterogeneous LLM solvers for theorem proving subgoals under computation budgets.",
+      "The method reduces LLM generation costs and computational overhead compared to uniform allocation strategies across multiple theorem proving benchmarks.",
+      "AI researchers and developers working on automated theorem proving and cost-efficient LLM agent routing are directly affected."
+    ],
+    "tags": [
+      "Theorem Proving",
+      "LLM Solvers",
+      "AI Agents",
+      "Budget Optimization"
+    ],
+    "impact_score": 6
   },
   {
     "id": "9727016a4ca8e93e",
     "title": "AstronautBench: Measuring Agent Self-Improvement Across Episodes Through Knowledge, Evidence, and Progress",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.AI (Artificial Intelligence)",
-    "summary": "[Automated summary unavailable] arXiv:2611.26910v1 Announce Type: new Abstract: LLM agents are expected to improve themselves from their own experience across episodes, with fixed weights. Self-improvement in an embodied world…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "Researchers introduce AstronautBench, a benchmark built on the game Outer Wilds to measure LLM agent self-improvement across episodes without weight updates. The benchmark evaluates three distinct views on the same run: what the agent knows, whether its evidence supports that knowledge, and its physical progress in the world. Baseline evaluations using GPT-6.1 Sol and Gemini 4 Argon show that these three metrics do not move together, revealing limitations in current agent self-improvement.",
+    "summary_status": "generated",
+    "content_fingerprint": "7bf2480407a7189a",
     "url": "https://arxiv.org/abs/2611.26910",
     "date": "2026-11-23T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-23T19:04:26.957320+00:00",
+    "fetched_at": "2026-11-24T04:11:17.305795+00:00",
     "topics": [
       "Models and Releases",
       "AI Agents",
       "Coding and Developer Tools",
-      "Research and Breakthroughs"
+      "Benchmarks and Evaluations",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
-    "priority_score": 2,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Original research or technical finding",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
     "why_it_matters": "",
     "sources": [
       {
@@ -565,22 +830,36 @@
         "title": "AstronautBench: Measuring Agent Self-Improvement Across Episodes Through Knowledge, Evidence, and Progress",
         "publisher": "arXiv (Cornell University)"
       }
-    ]
+    ],
+    "key_points": [
+      "AstronautBench was introduced to measure LLM agent self-improvement across episodes by evaluating knowledge, evidence support, and world progress simultaneously.",
+      "Baseline tests showed that agent metrics do not correlate, with GPT-6.1 Sol increasing correct answers to 26.8% while maintaining unverified cited evidence and stagnating rumor discoveries.",
+      "Embodied AI researchers and developers building autonomous LLM agents are affected, as this benchmark provides a more rigorous evaluation method for multi-episode learning."
+    ],
+    "tags": [
+      "AstronautBench",
+      "LLM Agents",
+      "Evaluation",
+      "Embodied AI",
+      "Outer Wilds"
+    ],
+    "impact_score": 6
   },
   {
     "id": "e86b0f581b1a2890",
     "title": "On the loss landscape of the linear neural network: beyond critical points",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.26671v1 Announce Type: new Abstract: While the critical points of the loss landscape in linear neural networks have been extensively studied since the seminal work of Baldi \\& Hornik in…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "This research introduces the critical thalweg, an intermediate geometric structure encompassing all critical points in the loss landscape of linear neural networks. The framework provides a global perspective on the landscape that simplifies prior proofs and can be visualized in two dimensions. Empirical observations indicate that gradient descent is attracted to this structure, moving along it toward the global minimum.",
+    "summary_status": "generated",
+    "content_fingerprint": "c7918a16c085b041",
     "url": "https://arxiv.org/abs/2611.26671",
     "date": "2026-11-23T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-23T19:04:26.957351+00:00",
+    "fetched_at": "2026-11-24T04:11:17.305886+00:00",
     "topics": [
-      "Research and Breakthroughs"
+      "Coding and Developer Tools",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 2,
@@ -595,31 +874,41 @@
       }
     ],
     "key_points": [
-      "Researchers analyzed the loss landscape of linear neural networks beyond traditional critical points.",
-      "The findings extend classical mathematical understandings of neural network optimization pioneered by Baldi and Hornik.",
-      "Machine learning researchers and theoreticians studying neural network optimization dynamics are affected."
-    ]
+      "Introduced the critical thalweg framework to characterize the global and intermediate loss landscape of linear neural networks.",
+      "Provided a new geometric proof for Baldi and Hornik's classical results and enabled two-dimensional visualization of the loss landscape.",
+      "Researchers and practitioners studying neural network optimization dynamics and gradient descent behavior."
+    ],
+    "tags": [
+      "Neural Networks",
+      "Loss Landscape",
+      "Optimization",
+      "Gradient Descent"
+    ],
+    "impact_score": 5
   },
   {
     "id": "2d34d4aaf55952d0",
     "title": "Parasite Features: Causal Abstraction Through Spurious Pathways",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.26711v1 Announce Type: new Abstract: Causal Abstraction defines a notion of \\emph{equivalence} between a neural network and an algorithm, thus serving as a powerful framework for…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "Researchers identify parasite features in neural networks that spuriously pass causal abstraction equivalence tests by leveraging pathways between unrelated input discrimination and output steering directions. Experiments demonstrate that Distributed Alignment Search discovers these misleading features in syntactic agreement and two-digit addition tasks when using linear alignment maps. This finding highlights a fundamental limitation in current mechanistic interpretability methods and emphasizes the need for refined evaluation practices.",
+    "summary_status": "generated",
+    "content_fingerprint": "46d689475b132104",
     "url": "https://arxiv.org/abs/2611.26711",
     "date": "2026-11-23T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-23T19:04:26.957387+00:00",
+    "fetched_at": "2026-11-24T04:11:17.305975+00:00",
     "topics": [
-      "Research and Breakthroughs",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Safety and Security",
+      "Infrastructure and Hardware",
       "Applications and Products"
     ],
     "source_type": "Research or Preprint",
-    "priority_score": 2,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Original research or technical finding",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
     "why_it_matters": "",
     "sources": [
       {
@@ -627,23 +916,37 @@
         "title": "Parasite Features: Causal Abstraction Through Spurious Pathways",
         "publisher": "arXiv (Cornell University)"
       }
-    ]
+    ],
+    "key_points": [
+      "Discovered parasite features that falsely pass causal abstraction equivalence tests in neural network interpretability.",
+      "Exposes a vulnerability in Distributed Alignment Search where linear alignment maps misidentify spurious pathways as causal mechanisms.",
+      "Researchers and practitioners relying on causal abstraction for mechanistic interpretability of neural models are directly impacted."
+    ],
+    "tags": [
+      "Mechanistic Interpretability",
+      "Causal Abstraction",
+      "Distributed Alignment Search",
+      "Neural Networks"
+    ],
+    "impact_score": 7
   },
   {
     "id": "5dba2522f497bb7d",
     "title": "Cross-Attack Robust Aggregation for Federated Learning",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.26731v1 Announce Type: new Abstract: Federated learning (FL) lets resource-constrained IoT and edge devices train a shared model without exchanging raw data, but compromised or faulty…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "Researchers introduced FedTether, a server-side optimizer step for federated learning that reweights client updates using a dead-zoned score based on coordinatewise median deviation. Evaluated across three datasets and three attack types with Byzantine fractions up to 40 percent, FedTether maintains high accuracy under both stealthy and high-magnitude attacks without incurring a robustness tax. The method prevents global model collapse on non-IID data without requiring shared data or validation sets.",
+    "summary_status": "generated",
+    "content_fingerprint": "914615dd5714257e",
     "url": "https://arxiv.org/abs/2611.26731",
     "date": "2026-11-23T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-23T19:04:26.957437+00:00",
+    "fetched_at": "2026-11-24T04:11:17.306065+00:00",
     "topics": [
       "Models and Releases",
-      "Research and Breakthroughs"
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 2,
@@ -656,24 +959,37 @@
         "title": "Cross-Attack Robust Aggregation for Federated Learning",
         "publisher": "arXiv (Cornell University)"
       }
-    ]
+    ],
+    "key_points": [
+      "FedTether was introduced as a robust server-side aggregation method that reweights client updates using a dead-zoned score against coordinatewise median deviation.",
+      "It resolves the limitations of existing defenses like FedAvg, Krum, and trimmed mean by eliminating the robustness tax on non-IID data while maintaining defense against both stealthy and high-magnitude attacks up to 40 percent Byzantine fractions.",
+      "Researchers, developers, and engineers deploying federated learning systems on resource-constrained IoT and edge devices."
+    ],
+    "tags": [
+      "Federated Learning",
+      "Byzantine Robustness",
+      "Edge Devices",
+      "Optimization"
+    ],
+    "impact_score": 6
   },
   {
     "id": "926e26dc5cb08537",
     "title": "Depth-Linked Residual Tokens for Multimodal Retrieval and Generation",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.26752v1 Announce Type: new Abstract: Iterative architectures such as looped language models improve parameter efficiency and reasoning capacity of transformers, yet their sequential…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "The authors introduce Depth-Linked Residual Tokens (DepThink), a framework for multimodal retrieval and generation that uses a lightweight learnable residual recurrence during a single pre-filling forward pass. This approach matches or exceeds the performance of looped architectures while accelerating training by up to 11.9 times and inference by 4.3 times. Evaluations across dense and sparse mixture-of-experts backbones demonstrate consistent improvements over standard learnable-token baselines.",
+    "summary_status": "generated",
+    "content_fingerprint": "10f9a49592ff72d2",
     "url": "https://arxiv.org/abs/2611.26752",
     "date": "2026-11-23T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-23T19:04:26.957468+00:00",
+    "fetched_at": "2026-11-24T04:11:17.306160+00:00",
     "topics": [
-      "Models and Releases",
       "Research and Breakthroughs",
-      "Benchmarks and Evaluations"
+      "Benchmarks and Evaluations",
+      "Infrastructure and Hardware",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 5,
@@ -686,28 +1002,41 @@
         "title": "Depth-Linked Residual Tokens for Multimodal Retrieval and Generation",
         "publisher": "arXiv (Cornell University)"
       }
-    ]
+    ],
+    "key_points": [
+      "DepThink introduces depth-linked residual tokens with a learnable residual recurrence for multimodal retrieval and generation.",
+      "The method matches looped architecture performance while accelerating training up to 11.9x and inference up to 4.3x.",
+      "Researchers and engineers working with dense and sparse mixture-of-experts multimodal transformer models are affected."
+    ],
+    "tags": [
+      "Multimodal Retrieval",
+      "Transformers",
+      "Efficiency",
+      "Architecture"
+    ],
+    "impact_score": 7
   },
   {
     "id": "2e342284bb785fd0",
     "title": "Who Should Verify? Reviewer Selection with Partial Information and Outcome Audits",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.26770v1 Announce Type: new Abstract: Selecting an AI reviewer requires evidence about what it does after reading a draft. On a fixed batch of items, a team can keep the original answers…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "This research paper formalizes the cost of certifying AI reviewer selection procedures under partial information and outcome audits. The authors introduce exact stopping rules, polynomial-time approximation algorithms, and evaluation results across MMLU questions, numerical reports, and electricity forecasts.",
+    "summary_status": "generated",
+    "content_fingerprint": "73a707939a0c2245",
     "url": "https://arxiv.org/abs/2611.26770",
     "date": "2026-11-23T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-23T19:04:26.957497+00:00",
+    "fetched_at": "2026-11-24T04:11:17.306249+00:00",
     "topics": [
-      "Coding and Developer Tools",
-      "Research and Breakthroughs"
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
-    "priority_score": 2,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Original research or technical finding",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
     "why_it_matters": "",
     "sources": [
       {
@@ -715,7 +1044,19 @@
         "title": "Who Should Verify? Reviewer Selection with Partial Information and Outcome Audits",
         "publisher": "arXiv (Cornell University)"
       }
-    ]
+    ],
+    "key_points": [
+      "Researchers developed algorithms and stopping rules to certify the performance cost of selecting specific AI review procedures with partial information.",
+      "This work provides a rigorous economic framework for minimizing the cost of answer keys and audits when evaluating multiple AI reviewers.",
+      "Developers and researchers evaluating LLM-based reviewers or automated grading pipelines are directly affected by these auditing strategies."
+    ],
+    "tags": [
+      "AI Reviewers",
+      "Auditing",
+      "Algorithms",
+      "MMLU"
+    ],
+    "impact_score": 5
   },
   {
     "id": "0da08403671b33ab",
@@ -766,21 +1107,23 @@
     "title": "LEAN: Library-Based Adaptation for Asynchronous, Federated Fine-Tuning",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.26805v1 Announce Type: new Abstract: Federated fine-tuning of foundation models with low-rank adapters (LoRA) is typically reconciled by averaging locally trained adapters. In…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "Researchers introduce LEAN, a library-based adaptation framework for asynchronous federated fine-tuning that replaces traditional model averaging with a server-maintained library of rank-1 basis pairs. The approach enables fully asynchronous communication of low-rank parameters while canceling data heterogeneity at first order. Empirical results across image and text benchmarks demonstrate that LEAN outperforms averaging-based baselines under heavy heterogeneity and asynchrony.",
+    "summary_status": "generated",
+    "content_fingerprint": "ffdcdd46022074a3",
     "url": "https://arxiv.org/abs/2611.26805",
     "date": "2026-11-23T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-23T19:04:26.957590+00:00",
+    "fetched_at": "2026-11-24T04:11:17.306328+00:00",
     "topics": [
       "Models and Releases",
-      "Research and Breakthroughs"
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
-    "priority_score": 2,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Original research or technical finding",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
     "why_it_matters": "",
     "sources": [
       {
@@ -788,24 +1131,36 @@
         "title": "LEAN: Library-Based Adaptation for Asynchronous, Federated Fine-Tuning",
         "publisher": "arXiv (Cornell University)"
       }
-    ]
+    ],
+    "key_points": [
+      "LEAN replaces federated model averaging with a server library of rank-1 basis pairs that participants check out, locally fine-tune, and check back in.",
+      "It eliminates the need for aggregation steps, operating fully asynchronously while communicating only low-rank parameters and mitigating data heterogeneity.",
+      "Researchers, federated learning practitioners, and cross-device AI system developers facing data heterogeneity and asynchronous participation."
+    ],
+    "tags": [
+      "Federated Learning",
+      "LoRA",
+      "Foundation Models",
+      "Distributed Training"
+    ],
+    "impact_score": 7
   },
   {
     "id": "786be66b40eae8b1",
     "title": "NitroGen: Observations on the Action Dynamics, Visual Instruction Following, and Spatial Exploration",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.26807v1 Announce Type: new Abstract: NitroGen is an open vision-action foundation model for game control. It is trained by behavior cloning on online gameplay videos. In this paper, we…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "NitroGen is an open vision-action foundation model trained via behavior cloning on online gameplay videos for game control. The study evaluates the frozen controller in Hollow Knight and Trackmania across action adaptation, visual instruction following, and spatial exploration. The findings reveal that while NitroGen adapts to local context, it lacks the planning, recovery, and exploration required for long-horizon control.",
+    "summary_status": "generated",
+    "content_fingerprint": "8b44ea972806e8c7",
     "url": "https://arxiv.org/abs/2611.26807",
     "date": "2026-11-23T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-23T19:04:26.957622+00:00",
+    "fetched_at": "2026-11-24T04:11:17.306423+00:00",
     "topics": [
       "Models and Releases",
       "Coding and Developer Tools",
-      "Research and Breakthroughs"
+      "Benchmarks and Evaluations"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 2,
@@ -818,23 +1173,35 @@
         "title": "NitroGen: Observations on the Action Dynamics, Visual Instruction Following, and Spatial Exploration",
         "publisher": "arXiv (Cornell University)"
       }
-    ]
+    ],
+    "key_points": [
+      "Researchers studied the NitroGen open vision-action foundation model in Hollow Knight and Trackmania across action adaptation, visual instruction following, and spatial exploration.",
+      "The evaluation demonstrates that behavior cloning enables local action adaptation, but current limitations prevent necessary long-horizon planning and recovery.",
+      "Developers and researchers working on vision-action foundation models and game AI agents are affected by these findings regarding long-horizon control limitations."
+    ],
+    "tags": [
+      "NitroGen",
+      "Vision-Action Models",
+      "Game Control",
+      "Behavior Cloning"
+    ],
+    "impact_score": 5
   },
   {
     "id": "54884a326c33bf05",
     "title": "Realistic Robustness Evaluation of Tabular Data Driven Models",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.26818v1 Announce Type: new Abstract: The increasing adoption of Machine Learning (ML) models in high-stakes applications has raised critical concerns regarding their robustness against…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "This research introduces AURORA, a modular, open-source tool designed to systematically evaluate the robustness of machine learning models on tabular data classification. The framework integrates various perturbation methods and a distance adjustment mechanism to penalize implausible adversarial samples based on feature-level constraints. Furthermore, it generates comprehensive evaluation reports and visual artifacts to help quantify performance degradation and identify model vulnerabilities.",
+    "summary_status": "generated",
+    "content_fingerprint": "8acd771fb44c4d1a",
     "url": "https://arxiv.org/abs/2611.26818",
     "date": "2026-11-23T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-23T19:04:26.957654+00:00",
+    "fetched_at": "2026-11-24T04:11:17.306527+00:00",
     "topics": [
       "Models and Releases",
-      "Research and Breakthroughs",
+      "Coding and Developer Tools",
       "Benchmarks and Evaluations",
       "Applications and Products"
     ],
@@ -849,22 +1216,39 @@
         "title": "Realistic Robustness Evaluation of Tabular Data Driven Models",
         "publisher": "arXiv (Cornell University)"
       }
-    ]
+    ],
+    "key_points": [
+      "AURORA, an open-source evaluation framework for tabular machine learning models, was introduced to assess adversarial robustness and model vulnerabilities.",
+      "The tool incorporates a distance adjustment mechanism that enforces feature-level constraints, ensuring adversarial perturbations remain realistic and reliable.",
+      "Data scientists and machine learning engineers deploying predictive models in high-stakes tabular domains are affected by this testing framework."
+    ],
+    "tags": [
+      "Tabular Data",
+      "Adversarial Robustness",
+      "Machine Learning",
+      "Open-Source",
+      "Model Evaluation"
+    ],
+    "impact_score": 5
   },
   {
     "id": "8a61f0df2a3d4fb5",
     "title": "Graph-XGB: A Hybrid GNN Framework for Outdoor-to-Indoor 5G Signal Reconstruction via Aerial-Only UAV RF Sensing",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.26828v1 Announce Type: new Abstract: Delivering robust In-Building Coverage (IBC) is critically impeded by severe Outdoor-to-Indoor (O2I) attenuation, a constraint that intensifies as…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "The authors introduce Graph-XGB, a hybrid inference framework that utilizes aerial-only UAV RF sensing and a modified SpiderGNN encoder combined with XGBoost regressors to reconstruct 3D indoor 5G signal states. Evaluated on a real-world dataset across a 10-floor building, the framework achieves an R2 of 0.759 for RSSI and 0.770 for RSRP without requiring interior RF measurements as model inputs. This approach successfully addresses severe outdoor-to-indoor attenuation challenges inherent in 5G and future sub-THz wireless deployments.",
+    "summary_status": "generated",
+    "content_fingerprint": "30168b2d7b14ac06",
     "url": "https://arxiv.org/abs/2611.26828",
     "date": "2026-11-23T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-23T19:04:26.957682+00:00",
+    "fetched_at": "2026-11-24T04:11:17.306616+00:00",
     "topics": [
-      "Research and Breakthroughs"
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Infrastructure and Hardware",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 2,
@@ -879,10 +1263,18 @@
       }
     ],
     "key_points": [
-      "A hybrid GNN framework called Graph-XGB was developed for outdoor-to-indoor 5G signal reconstruction via aerial UAV RF sensing.",
-      "It mitigates severe outdoor-to-indoor signal attenuation to improve in-building wireless coverage mapping.",
-      "Telecommunications engineers and network operators deploying 5G infrastructure and aerial UAV sensing systems are directly impacted."
-    ]
+      "Researchers developed Graph-XGB, combining a topology-aware graph neural network with XGBoost regressors to map exterior UAV measurements to interior 3D 5G signal states.",
+      "The framework achieves an R2 of 0.759 (RSSI) and 0.770 (RSRP) on a real-world 10-floor building dataset, significantly outperforming baseline models without utilizing interior RF measurements at inference time.",
+      "Wireless network engineers, telecommunications operators, and researchers tackling outdoor-to-indoor signal attenuation for 5G and sub-THz networks are directly affected."
+    ],
+    "tags": [
+      "5G",
+      "Graph Neural Networks",
+      "UAV",
+      "Signal Reconstruction",
+      "XGBoost"
+    ],
+    "impact_score": 6
   },
   {
     "id": "00d52199bef25f9e",
