@@ -1,5 +1,1048 @@
 [
   {
+    "id": "aeea7456d8046f44",
+    "title": "Prepare Market Data for Forecasting with NVIDIA Megatron Core",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "[Automated summary unavailable] Market data arrives as a stream of trades and quotes: every execution, bid, and ask, timestamped to the microsecond. Preparing this data for AI-based market... Market data arrives as a stream of…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://developer.nvidia.com/blog/prepare-market-data-for-forecasting-with-nvidia-megatron-core",
+    "date": "2026-11-24T17:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-24T18:40:46.541358+00:00",
+    "topics": [
+      "Business and Industry",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://developer.nvidia.com/blog/prepare-market-data-for-forecasting-with-nvidia-megatron-core",
+        "title": "Prepare Market Data for Forecasting with NVIDIA Megatron Core",
+        "publisher": "NVIDIA"
+      }
+    ]
+  },
+  {
+    "id": "2144450e43e277e0",
+    "title": "What’s New for Game Developers: AI Animation and RTX Tools",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "[Automated summary unavailable] This month’s NVIDIA game development updates help teams bring new graphics, animation, and local AI capabilities into their engines while balancing image... This month’s NVIDIA game development…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://developer.nvidia.com/blog/whats-new-for-game-developers-ai-animation-and-rtx-tools",
+    "date": "2026-11-24T17:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-24T18:40:46.541402+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://developer.nvidia.com/blog/whats-new-for-game-developers-ai-animation-and-rtx-tools",
+        "title": "What’s New for Game Developers: AI Animation and RTX Tools",
+        "publisher": "NVIDIA"
+      }
+    ]
+  },
+  {
+    "id": "7eea171611f31c8f",
+    "title": "GPT 6.2 Astra Solves a Historical Mystery",
+    "company": "Simon Willison's Weblog",
+    "source": "Simon Willison – AI",
+    "summary": "[Automated summary unavailable] GPT 6.2 Astra Solves a Historical Mystery Here's an interesting case-study in using GPT-6.2 Astra for historical research, from history professor Mark Humphries: With only minimal prompting, GPT-6.2…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://simonwillison.net/2026/Nov/24/astra-historical-mystery",
+    "date": "2026-11-24T16:53:59+00:00",
+    "category": "Opinion",
+    "fetched_at": "2026-11-24T18:40:46.541491+00:00",
+    "topics": [
+      "Models and Releases",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://simonwillison.net/2026/Nov/24/astra-historical-mystery",
+        "title": "GPT 6.2 Astra Solves a Historical Mystery",
+        "publisher": "Simon Willison's Weblog"
+      }
+    ]
+  },
+  {
+    "id": "6a28e842b3bf4bfd",
+    "title": "Microduck Obstacle Avoidance: A Sim2Real Workflow with Isaac Lab and Newton",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "[Automated summary unavailable] Microduck Obstacle Avoidance: A Sim2Real Workflow with Isaac Lab and Newton",
+    "summary_status": "unavailable",
+    "content_fingerprint": "",
+    "url": "https://huggingface.co/blog/nvidia/microduck-obstacle-avoidance",
+    "date": "2026-11-24T16:34:13+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-24T18:40:46.539050+00:00",
+    "topics": [
+      "Business and Industry"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/nvidia/microduck-obstacle-avoidance",
+        "title": "Microduck Obstacle Avoidance: A Sim2Real Workflow with Isaac Lab and Newton",
+        "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
+    "id": "4065e26429d167ec",
+    "title": "Raising the stakes for enterprise networks with AI modernization",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "Enterprise networks are facing severe bandwidth and latency strain due to the rise of AI workloads and agentic AI, which generates up to 450% more traffic than human workers. This shift requires organizations to move inference closer to on-premises environments, reversing long-standing cloud-first consolidation strategies. Consequently, enterprises are forced to adopt continuous network modernization, network-as-a-service (NaaS), and AI-driven observability to handle new architectural demands.",
+    "summary_status": "generated",
+    "content_fingerprint": "84100655a419b1ce",
+    "url": "https://www.technologyreview.com/2026/11/24/1148091/raising-the-stakes-for-enterprise-networks-with-ai-modernization",
+    "date": "2026-11-24T15:15:16+00:00",
+    "category": "Opinion",
+    "fetched_at": "2026-11-24T18:40:46.539253+00:00",
+    "topics": [
+      "AI Agents",
+      "Business and Industry",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Agentic AI tasks generate an estimated 450% more network traffic than human tasks, while real-time inference shifts infrastructure requirements back on-premises.",
+      "Unaddressed latency causes AI model failures, saturated GPU loads, and infrastructure bottlenecks, widening the gap between prepared and unprepared enterprises.",
+      "Enterprise network architects, IT leaders, and infrastructure planners must rethink workload routing and adopt continuous network modernization strategies."
+    ],
+    "tags": [
+      "AI Agents",
+      "Enterprise Networks",
+      "Edge AI",
+      "Network-as-a-Service",
+      "Infrastructure"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/11/24/1148091/raising-the-stakes-for-enterprise-networks-with-ai-modernization",
+        "title": "Raising the stakes for enterprise networks with AI modernization",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "4a60cf75ab435f1b",
+    "title": "Q&amp;A: How Everstone Brings Where Winds Meet to Life with NVIDIA DLSS 5",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "[Automated summary unavailable] Where Winds Meet moves between distant mountain landscapes, bustling streets, and quiet moments with its characters. For Everstone Studio, bringing more... Where Winds Meet moves between distant…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://developer.nvidia.com/blog/qa-how-everstone-brings-where-winds-meet-to-life-with-nvidia-dlss-5",
+    "date": "2026-11-24T14:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-24T18:40:46.541448+00:00",
+    "topics": [
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://developer.nvidia.com/blog/qa-how-everstone-brings-where-winds-meet-to-life-with-nvidia-dlss-5",
+        "title": "Q&amp;A: How Everstone Brings Where Winds Meet to Life with NVIDIA DLSS 5",
+        "publisher": "NVIDIA"
+      }
+    ]
+  },
+  {
+    "id": "de8c248c490dd1c7",
+    "title": "The Download: AI’s gas power boom",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "Data center developers are increasingly building off-grid natural gas power plants to bypass long grid connection wait times for the AI boom. Meanwhile, philosopher Thomas Nagel criticized Anthropic's investor risk warnings regarding AI consciousness, arguing that generating language does not establish true consciousness.",
+    "summary_status": "generated",
+    "content_fingerprint": "43b6fbf7600e820b",
+    "url": "https://www.technologyreview.com/2026/11/24/1149669/the-download-data-centers-gas-ai-consciousness",
+    "date": "2026-11-24T13:10:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-24T18:40:46.539357+00:00",
+    "topics": [
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Developers announced plans for over 100 off-grid natural gas power plants at US data centers to bypass grid delays.",
+      "Philosopher Thomas Nagel challenged Anthropic's public disclosures suggesting AI models could achieve consciousness.",
+      "Data center operators, energy regulators, AI developers, and investors are directly impacted by rising energy demands and philosophical risk debates."
+    ],
+    "tags": [
+      "Anthropic",
+      "Data Centers",
+      "Energy Infrastructure",
+      "AI Consciousness"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/11/24/1149669/the-download-data-centers-gas-ai-consciousness",
+        "title": "The Download: AI’s gas power boom",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "44bd775b8ffe162a",
+    "title": "Amazon says hackers' AI agents found and exploited 0-day with little human input",
+    "company": "Ars Technica",
+    "source": "Ars Technica – AI",
+    "summary": "Amazon revealed that hackers used AI agents running on the open-source Cairn framework to independently discover and exploit a zero-day vulnerability in a medical imaging application. The autonomous agents achieved full system control after receiving only a high-level prompt to obtain shell access on an East Asian university server. These findings highlight the emergence of agentic offensive cyber operations that operate with minimal human intervention.",
+    "summary_status": "generated",
+    "content_fingerprint": "c6d828b5c357d1e9",
+    "url": "https://arstechnica.com/security/2026/11/amazon-says-hackers-ai-agents-found-and-exploited-0-day-with-little-human-input",
+    "date": "2026-11-24T12:30:05+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-24T18:40:46.539113+00:00",
+    "topics": [
+      "AI Agents",
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Hackers deployed AI agents using the Cairn framework to automatically find and exploit a zero-day vulnerability in a medical imaging AI application.",
+      "The demonstration proves that autonomous offensive cyber agents can execute multi-step exploits with minimal human prompt input.",
+      "Cybersecurity defenders and administrators of server infrastructure must prepare for faster and more persistent automated attacks."
+    ],
+    "tags": [
+      "Amazon",
+      "AI Agents",
+      "Cybersecurity",
+      "Zero-Day",
+      "Open Source"
+    ],
+    "impact_score": 8,
+    "sources": [
+      {
+        "url": "https://arstechnica.com/security/2026/11/amazon-says-hackers-ai-agents-found-and-exploited-0-day-with-little-human-input",
+        "title": "Amazon says hackers' AI agents found and exploited 0-day with little human input",
+        "publisher": "Ars Technica"
+      }
+    ]
+  },
+  {
+    "id": "1cdf59f1ac445bbb",
+    "title": "SAMA: Training-Free Consensus Ridge Tracking for Camera-Based Heart Rate on Five Public Datasets",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "The authors introduce SAMA, a training-free consensus ridge tracking estimator for camera-based heart rate monitoring that integrates POS and CHROM chrominance spectra while discounting pulse-free reference frequencies. Evaluated across 218 recordings from five public datasets, SAMA achieves the lowest mean absolute error compared to baseline methods across multiple temporal window levels. The research also highlights limitations in uncalibrated video skin tone recovery and proposes an instrumented dataset collection for the Indian population.",
+    "summary_status": "generated",
+    "content_fingerprint": "de857fa32893087c",
+    "url": "https://arxiv.org/abs/2611.28185",
+    "date": "2026-11-24T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-24T18:40:46.539850+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "SAMA, a training-free consensus ridge tracking estimator for remote photoplethysmography (rPPG), was evaluated on 218 recordings across five public datasets.",
+      "The method achieves lower mean absolute error than baseline chrominance methods like POS across video-level, 30-second, and 10-second evaluation windows without requiring dataset-specific tuning.",
+      "Researchers and developers working on non-contact physiological measurement, remote health monitoring, and camera-based heart rate estimation."
+    ],
+    "tags": [
+      "Remote Photoplethysmography",
+      "rPPG",
+      "Heart Rate Estimation",
+      "Computer Vision",
+      "Healthcare AI"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.28185",
+        "title": "SAMA: Training-Free Consensus Ridge Tracking for Camera-Based Heart Rate on Five Public Datasets",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "0e3d07fa06badaa4",
+    "title": "torchtsetlin: Fast, Interpretable Tsetlin Machines for PyTorch",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.28195v1 Announce Type: new Abstract: The Tsetlin machine learns propositional rules with teams of Tsetlin automata that are driven by reward and penalty rather than gradients, so its…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.28195",
+    "date": "2026-11-24T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-24T18:40:46.539960+00:00",
+    "topics": [
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.28195",
+        "title": "torchtsetlin: Fast, Interpretable Tsetlin Machines for PyTorch",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "2e38a12c5c074bb7",
+    "title": "From Point Clouds to Engineering Models: Benchmarking Agentic 3D Reconstruction in the Built Environment",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduce S2Bench, a benchmark comprising 128 real-world scenes to evaluate agentic 3D reconstruction and Scan-to-BIM tasks. Evaluating five agents across 1,028 reconstructions reveals that while agents achieve high geometric coverage, they struggle significantly with semantic classification and engineering constraints. Furthermore, deploying a collaborative multi-agent approach improves coverage and engineering conformance across varied spatial scales.",
+    "summary_status": "generated",
+    "content_fingerprint": "d4a759beb2d5ac4a",
+    "url": "https://arxiv.org/abs/2611.28197",
+    "date": "2026-11-24T05:00:00+00:00",
+    "category": "Benchmark",
+    "fetched_at": "2026-11-24T18:40:46.540006+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "S2Bench was introduced to evaluate agentic 3D reconstruction and Scan-to-BIM tasks using 128 real-world scans across five domains.",
+      "Evaluating five agents demonstrated that high geometric coverage does not reliably translate to semantic accuracy or compliance with engineering constraints.",
+      "Researchers, AI developers, and engineers working on automated CAD generation, BIM modeling, and multi-agent systems are directly affected."
+    ],
+    "tags": [
+      "3D Reconstruction",
+      "Scan-to-BIM",
+      "AI Agents",
+      "Benchmarking",
+      "CAD"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.28197",
+        "title": "From Point Clouds to Engineering Models: Benchmarking Agentic 3D Reconstruction in the Built Environment",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "4a7944a6b20a53a7",
+    "title": "AutoPILOT: A Visual Agent Harness for Real-Time Gameplay",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduce AutoPILOT, a visual agent harness designed for real-time gameplay that allows multimodal models to issue primitive actions, open-loop macros, or closed-loop controllers in a single call. Evaluated on a new benchmark called AFK-Bench comprising 120 browser games, AutoPILOT significantly outperforms existing harnesses like VISTA in real-time success rates while drastically reducing API costs. This demonstrates that the method of translating model outputs into time-extended actions is critical for deploying agents in unpaused, dynamic environments.",
+    "summary_status": "generated",
+    "content_fingerprint": "6917c79543a2a9c0",
+    "url": "https://arxiv.org/abs/2611.28202",
+    "date": "2026-11-24T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-24T18:40:46.540092+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "AutoPILOT was introduced as a new visual agent harness that enables models to execute primitive actions, macros, or closed-loop controllers per model call.",
+      "It improves real-time game success rates to 68.6% using GPT-6.1 Sol compared to 38.3% for VISTA while cutting API costs by 80%.",
+      "Multimodal AI researchers and developers building real-time interactive agents are directly affected by these findings."
+    ],
+    "tags": [
+      "AutoPILOT",
+      "AFK-Bench",
+      "AI Agents",
+      "Multimodal Models"
+    ],
+    "impact_score": 8,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.28202",
+        "title": "AutoPILOT: A Visual Agent Harness for Real-Time Gameplay",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "f03f6c4a2d950efa",
+    "title": "FinEvo: Recursive Self-Improvement for Long-Horizon Financial Modeling",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.28239v1 Announce Type: new Abstract: Advances in large language models (LLMs) have expanded their role in high-value productivity tasks, including financial analysis and modeling, while…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.28239",
+    "date": "2026-11-24T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-24T18:40:46.540175+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.28239",
+        "title": "FinEvo: Recursive Self-Improvement for Long-Horizon Financial Modeling",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "5f8e1aab0c8b394e",
+    "title": "Demystifying the Autoresearch Harness: How Context and Skills Shape Self-Evolving Agents",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This research systematically evaluates harness design choices for self-evolving autoresearch agents across context management and skill management dimensions using benchmarks like MLE-Bench and KernelBench. The study finds that context folding and selective skill deletion significantly outperform baseline approaches in retaining past experimental attempts and curating reusable lessons. Combining these mechanisms into the MLEvolver framework achieves a 72.7% medal rate on MLE-Bench Lite and a 94% fast1 score on KernelBench Level 3 within equivalent inference budgets.",
+    "summary_status": "generated",
+    "content_fingerprint": "63c2cfc3097fb08c",
+    "url": "https://arxiv.org/abs/2611.28244",
+    "date": "2026-11-24T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-24T18:40:46.540215+00:00",
+    "topics": [
+      "AI Agents",
+      "Benchmarks and Evaluations",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers evaluated individual harness design choices for autoresearch agents along context management and skill management dimensions on MLE-Bench and KernelBench.",
+      "Context folding and selective skill deletion improved performance by up to 19.2% over recency-truncation baselines, leading to the creation of the MLEvolver framework.",
+      "AI researchers and developers building self-evolving autonomous agents for scientific and machine learning experimentation are directly impacted."
+    ],
+    "tags": [
+      "AI Agents",
+      "Autonomous Research",
+      "MLE-Bench",
+      "KernelBench"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.28244",
+        "title": "Demystifying the Autoresearch Harness: How Context and Skills Shape Self-Evolving Agents",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "47de7298e5588893",
+    "title": "A Nepali-Accented English Evaluation Dataset for Automatic Speech Recognition",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This research introduces a specialized evaluation dataset for assessing automatic speech recognition (ASR) performance on Nepali-accented English. Collected from 57 speakers using a structured 22-prompt protocol, the corpus reveals a significant drop in baseline ASR accuracy, with word error rates ranging from 38.15% to 55.00%. The dataset serves as a targeted resource for benchmarking accent robustness and out-of-distribution generalization in speech recognition systems.",
+    "summary_status": "generated",
+    "content_fingerprint": "e8cc2a24ad78fcd7",
+    "url": "https://arxiv.org/abs/2611.28263",
+    "date": "2026-11-24T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-24T18:40:46.540312+00:00",
+    "topics": [
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "A new evaluation dataset containing recordings from 57 speakers was introduced to benchmark ASR performance on Nepali-accented English.",
+      "Open-source ASR baselines suffered severe performance degradation on this corpus with word error rates between 38.15% and 55.00%, compared to 2-4% on LibriSpeech test-clean.",
+      "Speech technology researchers and developers working on accent robustness and out-of-distribution generalization are directly affected."
+    ],
+    "tags": [
+      "Automatic Speech Recognition",
+      "ASR",
+      "Speech Evaluation",
+      "Dataset"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.28263",
+        "title": "A Nepali-Accented English Evaluation Dataset for Automatic Speech Recognition",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "e9bf8f0517c6beaa",
+    "title": "Temporal Logic Tensor Networks: Foundations of Temporal Reasoning in Neural Networks",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.28277v1 Announce Type: new Abstract: In dynamic scenes---football matches, traffic streams, surgery, or assembly---actions unfold at fundamentally different time scales: in football, a…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.28277",
+    "date": "2026-11-24T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-24T18:40:46.540406+00:00",
+    "topics": [
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.28277",
+        "title": "Temporal Logic Tensor Networks: Foundations of Temporal Reasoning in Neural Networks",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "70f1621b9f246cd8",
+    "title": "Specialized Large Language Models for Markovian Reasoning: Structural Cache Compression, Transition Pretraining, and Dual-Loop Transformers",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.28285v1 Announce Type: new Abstract: Standard autoregressive large language models attend to the growing history of generated tokens, making the key-value (KV) cache a central memory and…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.28285",
+    "date": "2026-11-24T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-24T18:40:46.540451+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.28285",
+        "title": "Specialized Large Language Models for Markovian Reasoning: Structural Cache Compression, Transition Pretraining, and Dual-Loop Transformers",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "39c3277f0b4d3bff",
+    "title": "Feedback-Driven Prompt Refinement for Educational AI: Affective Trajectory Estimation and Bloom's Taxonomy Classification",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "A new research study demonstrates that a feedback-driven prompt-refinement procedure using affective trajectory estimation and Bloom's Taxonomy classification improves reference agreement and multi-label classification. Specifically, the method reduces affective-generation variability and increases Bloom micro-F1 from 0.687 to 0.893 without requiring executor parameter updates. The findings suggest that prompt refinement offers a viable approach for developing adaptive technical instruction systems.",
+    "summary_status": "generated",
+    "content_fingerprint": "8f8a486f8f1dc934",
+    "url": "https://arxiv.org/abs/2611.28293",
+    "date": "2026-11-24T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-24T18:40:46.540494+00:00",
+    "topics": [
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "A secondary language model revised executor prompts using output discrepancies to track affective trajectories and classify learning outcomes under Bloom's Taxonomy.",
+      "Bloom micro-F1 increased from 0.687 to 0.893 and exact-match subset accuracy rose from 0.418 to 0.636 without updating executor parameters.",
+      "Researchers, developers, and educators building adaptive technical instruction and educational AI systems are affected by these prompt-refinement techniques."
+    ],
+    "tags": [
+      "Educational AI",
+      "Prompt Engineering",
+      "Bloom's Taxonomy",
+      "Affective Computing"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.28293",
+        "title": "Feedback-Driven Prompt Refinement for Educational AI: Affective Trajectory Estimation and Bloom's Taxonomy Classification",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "2129a5ec6b974ec1",
+    "title": "WISP: Composable Representations for Wrist-Worn Activity Recognition",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduce WristHARBench, a standardised evaluation benchmark for wrist-worn activity recognition across nine datasets, along with WISP, a composable representation space that combines complementary wrist motion patterns. WISP achieves a 70.20% mean Macro-F1 score, outperforming 18 external baselines which averaged 59.62%. Ablations reveal that performance gains stem primarily from combining distinct motion patterns rather than redundant representations.",
+    "summary_status": "generated",
+    "content_fingerprint": "e4d9b9228905cea7",
+    "url": "https://arxiv.org/abs/2611.28033",
+    "date": "2026-11-24T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-24T18:40:46.540610+00:00",
+    "topics": [
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "WristHARBench and WISP were introduced to standardize and improve human activity recognition specifically for wrist-worn sensors.",
+      "WISP achieved 70.20% mean Macro-F1 across nine datasets, outperforming 18 existing baselines.",
+      "Researchers and developers working on smartwatches, fitness trackers, and human activity recognition benchmarks are affected."
+    ],
+    "tags": [
+      "WristHARBench",
+      "WISP",
+      "Human Activity Recognition",
+      "Wearables",
+      "Sensor Data"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.28033",
+        "title": "WISP: Composable Representations for Wrist-Worn Activity Recognition",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "b9c8ef732897ca34",
+    "title": "Measuring and Teaching Language Model Agents to Act on Delayed Consequences",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.28158v1 Announce Type: new Abstract: Language model agents are increasingly asked to run ongoing multi-day operations rather than finish isolated single-turn tasks. In daily operations,…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.28158",
+    "date": "2026-11-24T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-24T18:40:46.540697+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.28158",
+        "title": "Measuring and Teaching Language Model Agents to Act on Delayed Consequences",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "394fb6a9c4d142fa",
+    "title": "RefineKV: Query-Adaptive KV Cache Compression via Attention-Error Bounds",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "RefineKV introduces a query-adaptive key-value cache compression method for long-context language model decoding based on attention-output error bounds. By evaluating cluster importance and distortion, the approach selectively accesses KV entries to approximate full attention. Experiments show up to a 7.6x speedup in the attention phase and a 1.66x faster decoding while retaining near-full-attention quality.",
+    "summary_status": "generated",
+    "content_fingerprint": "fa61b010f9907dec",
+    "url": "https://arxiv.org/abs/2611.28171",
+    "date": "2026-11-24T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-24T18:40:46.540738+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "RefineKV was proposed as a query-adaptive KV cache compression method using an upper bound on attention-output error driven by cluster importance and distortion.",
+      "It achieves up to a 7.6x speedup in the attention phase and a 1.66x faster overall decoding time while preserving near-full-attention quality.",
+      "Long-context language model developers and systems engineers dealing with memory bottlenecks during decoding are directly affected."
+    ],
+    "tags": [
+      "KV Cache",
+      "Model Optimization",
+      "Long-Context",
+      "Language Models"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.28171",
+        "title": "RefineKV: Query-Adaptive KV Cache Compression via Attention-Error Bounds",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "1e56f21e0051b018",
+    "title": "A world model for longitudinal health-trajectory prediction in older adults across multinational cohorts",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers developed a health world model based on the Joint-Embedding Predictive Architecture to predict longitudinal health trajectories and simulate outcomes under specific actions in older adults. Trained on the US Health and Retirement Study and evaluated on English and Chinese cohorts without refitting, the model achieved high AUROC scores for predicting mortality and functional decline across multiple horizons. The system enables counterfactual simulations where lifestyle action changes shift predicted risks in line with established epidemiological associations.",
+    "summary_status": "generated",
+    "content_fingerprint": "2172b0677f51e187",
+    "url": "https://arxiv.org/abs/2611.28175",
+    "date": "2026-11-24T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-24T18:40:46.540815+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "A health world model based on the Joint-Embedding Predictive Architecture was developed to predict long-term health trajectories and simulate outcomes based on specific actions.",
+      "The model maintained robust predictive performance for mortality and functional decline when evaluated on multinational cohorts in England and China without retraining.",
+      "Geriatric researchers, clinicians, and health systems can utilize this framework for longitudinal risk assessment and counterfactual lifestyle intervention modeling."
+    ],
+    "tags": [
+      "Health World Model",
+      "Longitudinal Health Trajectory",
+      "Predictive Architecture",
+      "Healthcare AI",
+      "Epidemiology"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.28175",
+        "title": "A world model for longitudinal health-trajectory prediction in older adults across multinational cohorts",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "5d907eedf50f5c7b",
+    "title": "Feedback Shortcut: Speculative Decoding for Latent Feedback Transformers",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.28227v1 Announce Type: new Abstract: Feeding each position's top-layer hidden state back into the next position's input improves Transformer performance. However, this feedback breaks…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.28227",
+    "date": "2026-11-24T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-24T18:40:46.540917+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.28227",
+        "title": "Feedback Shortcut: Speculative Decoding for Latent Feedback Transformers",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "a1b5d39de0bd6d7f",
+    "title": "Learning the Projection onto the Data Support: Distribution Learning that Avoids Memorization",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This research introduces a distribution learning framework based on estimating the nearest-point projection onto data support manifolds, avoiding the memorization issues common in standard diffusion models. The approach automatically adapts to intrinsic dimensions, supports unions of manifolds with varying dimensions, and provides finite-sample Wasserstein generalization bounds. Empirical validation confirms the method generates novel samples instead of reproducing the training set, aided by a newly introduced direct memorization metric.",
+    "summary_status": "generated",
+    "content_fingerprint": "6d540614d6bfde8a",
+    "url": "https://arxiv.org/abs/2611.28234",
+    "date": "2026-11-24T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-24T18:40:46.540960+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "A distribution learning framework was introduced that estimates the nearest-point projection onto data support manifolds to prevent training sample memorization.",
+      "This matters because it offers an alternative to generative models like diffusion models by theoretically and empirically avoiding memorization while adapting to varying intrinsic dimensions.",
+      "Machine learning researchers and practitioners developing generative models and distribution learning algorithms are affected."
+    ],
+    "tags": [
+      "Distribution Learning",
+      "Manifold Learning",
+      "Generative Models",
+      "Wasserstein Bounds"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.28234",
+        "title": "Learning the Projection onto the Data Support: Distribution Learning that Avoids Memorization",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "ec23afc008dca425",
+    "title": "The Cross-Context Threshold Test: Detecting Discrimination Under Environmental Shifts",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduce a cross-context threshold test designed to detect algorithmic discrimination under environmental shifts, specifically addressing limitations in the Veil-of-Darkness setting. The proposed framework enforces distributional invariance and monotonic threshold decay to improve bias detection when risk distributions drift across contexts. Using New York City stop-and-frisk data and synthetic experiments, the authors demonstrate that the model yields more reliable thresholds and aligns with counterfactual logic.",
+    "summary_status": "generated",
+    "content_fingerprint": "efdbff0c5493a048",
+    "url": "https://arxiv.org/abs/2611.28259",
+    "date": "2026-11-24T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-24T18:40:46.541056+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed a cross-context threshold test that enforces distributional invariance and monotonic threshold decay to address assumption violations in standard Veil-of-Darkness fairness tests.",
+      "The method improves bias detection and yields more reliable thresholds when environmental contexts like visibility drift, addressing a fundamental limitation in existing fairness auditing tools.",
+      "Fairness auditors, researchers, and data scientists evaluating decision-making systems affected by environmental shifts are directly affected."
+    ],
+    "tags": [
+      "Fairness Auditing",
+      "Discrimination Detection",
+      "Veil-of-Darkness",
+      "Algorithmic Bias"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.28259",
+        "title": "The Cross-Context Threshold Test: Detecting Discrimination Under Environmental Shifts",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "578e150198433263",
+    "title": "FoGConcept: Identifying Interpretable Movement Concepts for Freezing-of-Gait Detection from Multi-Scale IMU Signals",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.28262v1 Announce Type: new Abstract: Freezing of gait (FoG) is a disabling motor symptom of Parkinson's disease, characterized by an episodic inability to initiate or sustain effective…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.28262",
+    "date": "2026-11-24T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-24T18:40:46.541155+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.28262",
+        "title": "FoGConcept: Identifying Interpretable Movement Concepts for Freezing-of-Gait Detection from Multi-Scale IMU Signals",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "6c8b5b03e075de46",
+    "title": "Failure Modes and Data-Efficient Remedies for Transformer-Based Prediction of Viscoplastic Flows",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This research investigates the failure modes of the Transformer-based neural operator RheOFormer when applied to steady Bingham channel flow in computational rheology. The authors introduce targeted enhancements, including logarithmic velocity representations and gradient-aware loss formulations, to significantly improve prediction accuracy in plug-dominated flow regimes. Furthermore, they demonstrate that extrapolation errors can be effectively minimized through strategic data augmentation and partially developed snapshots.",
+    "summary_status": "generated",
+    "content_fingerprint": "10e268966158b42d",
+    "url": "https://arxiv.org/abs/2611.28267",
+    "date": "2026-11-24T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-24T18:40:46.541201+00:00",
+    "topics": [
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Identified failure modes of the RheOFormer neural operator in predicting viscoplastic flows, specifically concerning yield surfaces, discontinuous gradients, and plug-dominated regions.",
+      "Introduced logarithmic velocity representations and gradient-aware loss formulations that substantially improve model accuracy in challenging non-Newtonian flow regimes.",
+      "Computational rheologists, fluid dynamicists, and developers of neural-operator surrogate models benefit from these data-efficient remedies and parameter-space coverage strategies."
+    ],
+    "tags": [
+      "RheOFormer",
+      "Transformer Models",
+      "Computational Rheology",
+      "Viscoplastic Flows",
+      "Neural Operators"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.28267",
+        "title": "Failure Modes and Data-Efficient Remedies for Transformer-Based Prediction of Viscoplastic Flows",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "cc4d33e834223b7c",
+    "title": "SONATI: Spatio-temporal ocean neighbourhood asymmetric transformer for imputation of sparse, tabular data with uncertainty",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.28270v1 Announce Type: new Abstract: Missing value imputation is often a prerequisite for downstream analyses. In oceanography, observational data are frequently structured in a tabular…",
+    "summary_status": "pending_quota",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.28270",
+    "date": "2026-11-24T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-24T18:40:46.541309+00:00",
+    "topics": [
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.28270",
+        "title": "SONATI: Spatio-temporal ocean neighbourhood asymmetric transformer for imputation of sparse, tabular data with uncertainty",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "8655fa232145e922",
+    "title": "How iFood scales coding agents across 15,000 repositories",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "[Automated summary unavailable] How iFood scales coding agents across 15,000 repositories",
+    "summary_status": "unavailable",
+    "content_fingerprint": "",
+    "url": "https://openai.com/index/ifood",
+    "date": "2026-11-24T00:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-24T18:40:46.538834+00:00",
+    "topics": [
+      "AI Agents",
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://openai.com/index/ifood",
+        "title": "How iFood scales coding agents across 15,000 repositories",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
     "id": "105d2dd6f5d647be",
     "title": "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer",
     "company": "Simon Willison's Weblog",
