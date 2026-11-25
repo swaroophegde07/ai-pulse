@@ -1,17 +1,146 @@
 [
   {
+    "id": "5e8eba5b15ac6044",
+    "title": "Three LLM inflection points in twelve months",
+    "company": "Simon Willison's Weblog",
+    "source": "Simon Willison – AI",
+    "summary": "Over a twelve-month period, major developments in large language models and coding agents—such as Claude Opus 4.5, GPT-5.1, and Claude Fable 5—transformed developer workflows by achieving high reliability on complex tasks. These models introduced new inflection points in proactive reasoning and autonomous code generation, though advanced capabilities also prompted government export controls.",
+    "summary_status": "generated",
+    "content_fingerprint": "02b7a70d0a5e16e4",
+    "url": "https://simonwillison.net/2026/Nov/24/llm-inflection-points",
+    "date": "2026-11-24T23:02:07+00:00",
+    "category": "Opinion",
+    "fetched_at": "2026-11-25T02:54:41.548531+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Three distinct technological inflection points occurred in LLMs and coding agents over a twelve-month period, notably driven by the release of Claude Opus 4.5, GPT-5.1, and Claude Fable 5.",
+      "These advancements improved reliability to the point where AI coding tools became genuine daily accelerators rather than requiring constant manual correction.",
+      "Software engineers, AI developers, and organizations utilizing coding agents like Claude Code are directly impacted by these shifts in capability and regulatory export controls."
+    ],
+    "tags": [
+      "Claude Opus 4.5",
+      "GPT-5.1",
+      "Claude Fable 5",
+      "AI Agents"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://simonwillison.net/2026/Nov/24/llm-inflection-points",
+        "title": "Three LLM inflection points in twelve months",
+        "publisher": "Simon Willison's Weblog"
+      }
+    ]
+  },
+  {
+    "id": "ea655aef5669054d",
+    "title": "What's going on with the Riemann hypothesis?",
+    "company": "Ars Technica",
+    "source": "Ars Technica – AI",
+    "summary": "A mathematician has reportedly used artificial intelligence to help develop a proof for the Riemann hypothesis, a long-standing open problem in number theory. This development follows several recent breakthroughs in mathematics enabled or driven by large language models, causing significant discussion within the mathematical community. Mathematicians are currently reviewing the details of the proof to verify its validity.",
+    "summary_status": "generated",
+    "content_fingerprint": "fe710595a7951fc5",
+    "url": "https://arstechnica.com/ai/2026/11/whats-going-on-with-the-riemann-hypothesis",
+    "date": "2026-11-24T20:34:53+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-25T02:54:41.547337+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "A mathematician utilized AI to generate a proof for the Riemann hypothesis.",
+      "The integration of large language models into mathematical research is producing major breakthroughs and disrupting traditional workflows.",
+      "Pure mathematicians, cryptographers, and researchers working in number theory are affected by these developments."
+    ],
+    "tags": [
+      "Riemann hypothesis",
+      "AI in Mathematics",
+      "Large Language Models",
+      "Number Theory"
+    ],
+    "impact_score": 9,
+    "sources": [
+      {
+        "url": "https://arstechnica.com/ai/2026/11/whats-going-on-with-the-riemann-hypothesis",
+        "title": "What's going on with the Riemann hypothesis?",
+        "publisher": "Ars Technica"
+      }
+    ]
+  },
+  {
+    "id": "c0d507596078021a",
+    "title": "How to Run NVIDIA Cosmos 3 on Local AI Devices Using Hugging Face Diffusers",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "This tutorial explains how to run the NVIDIA Cosmos 3 Nano video generation model locally on consumer hardware using Hugging Face Diffusers. It addresses the hardware limitations of executing video generation models by guiding users on managing GPU memory constraints.",
+    "summary_status": "generated",
+    "content_fingerprint": "4b1a3ebbc77f41f4",
+    "url": "https://developer.nvidia.com/blog/how-to-run-nvidia-cosmos-3-on-local-ai-devices-using-hugging-face-diffusers",
+    "date": "2026-11-24T18:44:05+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-25T02:54:41.548286+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Open Source",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "A tutorial was published detailing how to run the NVIDIA Cosmos 3 Nano model locally using Hugging Face Diffusers.",
+      "It enables developers to execute complex physical AI video generation models while navigating strict GPU memory limits.",
+      "AI developers and researchers working with local hardware setups are directly affected."
+    ],
+    "tags": [
+      "NVIDIA",
+      "Cosmos 3 Nano",
+      "Hugging Face Diffusers",
+      "Video Generation",
+      "Physical AI"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://developer.nvidia.com/blog/how-to-run-nvidia-cosmos-3-on-local-ai-devices-using-hugging-face-diffusers",
+        "title": "How to Run NVIDIA Cosmos 3 on Local AI Devices Using Hugging Face Diffusers",
+        "publisher": "NVIDIA"
+      }
+    ]
+  },
+  {
     "id": "aeea7456d8046f44",
     "title": "Prepare Market Data for Forecasting with NVIDIA Megatron Core",
     "company": "NVIDIA",
     "source": "NVIDIA Developer Blog",
-    "summary": "[Automated summary unavailable] Market data arrives as a stream of trades and quotes: every execution, bid, and ask, timestamped to the microsecond. Preparing this data for AI-based market... Market data arrives as a stream of…",
-    "summary_status": "pending_quota",
-    "content_fingerprint": "",
+    "summary": "NVIDIA Megatron Core provides tools for preparing high-frequency market data, such as trades and quotes timestamped to the microsecond, for AI-based forecasting. The data preparation workflow involves aggregating historical price and volume streams into consistent time-unit bars suitable for model training and inference.",
+    "summary_status": "generated",
+    "content_fingerprint": "8a97657490cec506",
     "url": "https://developer.nvidia.com/blog/prepare-market-data-for-forecasting-with-nvidia-megatron-core",
     "date": "2026-11-24T17:00:00+00:00",
     "category": "Product Release",
-    "fetched_at": "2026-11-24T18:40:46.541358+00:00",
+    "fetched_at": "2026-11-25T02:54:41.548336+00:00",
     "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
       "Business and Industry",
       "Infrastructure and Hardware"
     ],
@@ -26,21 +155,35 @@
         "title": "Prepare Market Data for Forecasting with NVIDIA Megatron Core",
         "publisher": "NVIDIA"
       }
-    ]
+    ],
+    "key_points": [
+      "NVIDIA introduced market data preparation workflows using Megatron Core to format high-frequency financial data for AI forecasting models.",
+      "It enables the transformation of raw microsecond-timestamped trade and quote streams into structured, consistent inputs required for effective model training.",
+      "Quantitative researchers, financial institutions, and developers building AI-driven market forecasting systems are directly affected."
+    ],
+    "tags": [
+      "NVIDIA",
+      "Megatron Core",
+      "Financial AI",
+      "Data Engineering",
+      "Time Series Forecasting"
+    ],
+    "impact_score": 5
   },
   {
     "id": "2144450e43e277e0",
     "title": "What’s New for Game Developers: AI Animation and RTX Tools",
     "company": "NVIDIA",
     "source": "NVIDIA Developer Blog",
-    "summary": "[Automated summary unavailable] This month’s NVIDIA game development updates help teams bring new graphics, animation, and local AI capabilities into their engines while balancing image... This month’s NVIDIA game development…",
-    "summary_status": "pending_quota",
-    "content_fingerprint": "",
+    "summary": "NVIDIA released new game development updates providing tools for graphics, animation, and local AI capabilities. The update highlights how Gaijin Entertainment integrated DLSS 5 with 3D-Guided Neural Rendering into the Dagor Engine for War Thunder.",
+    "summary_status": "generated",
+    "content_fingerprint": "81daf84c53be16fe",
     "url": "https://developer.nvidia.com/blog/whats-new-for-game-developers-ai-animation-and-rtx-tools",
     "date": "2026-11-24T17:00:00+00:00",
     "category": "Product Release",
-    "fetched_at": "2026-11-24T18:40:46.541402+00:00",
+    "fetched_at": "2026-11-25T02:54:41.548405+00:00",
     "topics": [
+      "Models and Releases",
       "Coding and Developer Tools",
       "Infrastructure and Hardware"
     ],
@@ -55,7 +198,20 @@
         "title": "What’s New for Game Developers: AI Animation and RTX Tools",
         "publisher": "NVIDIA"
       }
-    ]
+    ],
+    "key_points": [
+      "NVIDIA released game development updates featuring new graphics, animation, and local AI tools, including DLSS 5 integration with 3D-Guided Neural Rendering.",
+      "Game developers can balance image quality, performance, and creative intent while adopting advanced neural rendering techniques.",
+      "Game development teams using engines like Dagor Engine and targeting technologies like DLSS are directly affected."
+    ],
+    "tags": [
+      "NVIDIA",
+      "DLSS",
+      "Neural Rendering",
+      "Game Development",
+      "Gaijin Entertainment"
+    ],
+    "impact_score": 6
   },
   {
     "id": "7eea171611f31c8f",
@@ -84,6 +240,11 @@
         "title": "GPT 6.2 Astra Solves a Historical Mystery",
         "publisher": "Simon Willison's Weblog"
       }
+    ],
+    "key_points": [
+      "GPT-6.2 Astra was used by a history professor to solve a historical mystery with minimal prompting.",
+      "It demonstrates the practical utility of large language models for complex historical data analysis.",
+      "Researchers, historians, and academics utilizing AI tools for investigation are directly affected."
     ]
   },
   {
@@ -91,20 +252,21 @@
     "title": "Microduck Obstacle Avoidance: A Sim2Real Workflow with Isaac Lab and Newton",
     "company": "Hugging Face",
     "source": "Hugging Face Blog",
-    "summary": "[Automated summary unavailable] Microduck Obstacle Avoidance: A Sim2Real Workflow with Isaac Lab and Newton",
-    "summary_status": "unavailable",
-    "content_fingerprint": "",
+    "summary": "This article details a sim-to-real workflow for microduck obstacle avoidance using Isaac Lab and Newton physics. It demonstrates the implementation of simulation-based training transferred directly to physical robotic platforms. The approach provides practical methodologies for robotics engineers deploying autonomous navigation systems.",
+    "summary_status": "generated",
+    "content_fingerprint": "0f23f95bdba0c7c5",
     "url": "https://huggingface.co/blog/nvidia/microduck-obstacle-avoidance",
     "date": "2026-11-24T16:34:13+00:00",
-    "category": "News",
-    "fetched_at": "2026-11-24T18:40:46.539050+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-25T02:54:41.547275+00:00",
     "topics": [
-      "Business and Industry"
+      "Coding and Developer Tools",
+      "Applications and Products"
     ],
     "source_type": "Technical Publication",
-    "priority_score": 0,
+    "priority_score": 2,
     "priority_label": "Worth a Look",
-    "priority_explanation": "Relevant AI development",
+    "priority_explanation": "Original research or technical finding",
     "why_it_matters": "",
     "sources": [
       {
@@ -112,7 +274,20 @@
         "title": "Microduck Obstacle Avoidance: A Sim2Real Workflow with Isaac Lab and Newton",
         "publisher": "Hugging Face"
       }
-    ]
+    ],
+    "key_points": [
+      "A sim-to-real workflow for microduck obstacle avoidance was implemented using Isaac Lab and Newton.",
+      "It bridges simulation training and physical deployment for robust autonomous navigation.",
+      "Robotics engineers and researchers working on sim-to-real transfer and obstacle avoidance are directly affected."
+    ],
+    "tags": [
+      "Isaac Lab",
+      "Newton",
+      "Robotics",
+      "Sim2Real",
+      "Autonomous Navigation"
+    ],
+    "impact_score": 5
   },
   {
     "id": "4065e26429d167ec",
@@ -162,20 +337,20 @@
     "title": "Q&amp;A: How Everstone Brings Where Winds Meet to Life with NVIDIA DLSS 5",
     "company": "NVIDIA",
     "source": "NVIDIA Developer Blog",
-    "summary": "[Automated summary unavailable] Where Winds Meet moves between distant mountain landscapes, bustling streets, and quiet moments with its characters. For Everstone Studio, bringing more... Where Winds Meet moves between distant…",
-    "summary_status": "pending_quota",
-    "content_fingerprint": "",
+    "summary": "Everstone Studio is utilizing NVIDIA DLSS and Streamline to enhance the lighting and material realism in the wuxia action-RPG Where Winds Meet. The integration aims to preserve the game's distinctive aesthetics and atmospheric world design across diverse virtual environments. This technical collaboration builds on ongoing development work between the studio and NVIDIA.",
+    "summary_status": "generated",
+    "content_fingerprint": "d55ade4fe6c774bc",
     "url": "https://developer.nvidia.com/blog/qa-how-everstone-brings-where-winds-meet-to-life-with-nvidia-dlss-5",
     "date": "2026-11-24T14:00:00+00:00",
-    "category": "Product Release",
-    "fetched_at": "2026-11-24T18:40:46.541448+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-25T02:54:41.548469+00:00",
     "topics": [
       "Infrastructure and Hardware"
     ],
     "source_type": "Technical Publication",
-    "priority_score": 3,
-    "priority_label": "Must Know",
-    "priority_explanation": "Announces a model or architecture capability",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
     "why_it_matters": "",
     "sources": [
       {
@@ -183,7 +358,19 @@
         "title": "Q&amp;A: How Everstone Brings Where Winds Meet to Life with NVIDIA DLSS 5",
         "publisher": "NVIDIA"
       }
-    ]
+    ],
+    "key_points": [
+      "Everstone Studio integrated NVIDIA DLSS and Streamline into the game Where Winds Meet.",
+      "The integration improves lighting and material fidelity while preserving the game's visual aesthetics.",
+      "Game developers utilizing NVIDIA graphics technologies and players of Where Winds Meet are affected."
+    ],
+    "tags": [
+      "Everstone Studio",
+      "NVIDIA DLSS",
+      "Where Winds Meet",
+      "Game Development"
+    ],
+    "impact_score": 4
   },
   {
     "id": "de8c248c490dd1c7",
@@ -222,6 +409,46 @@
         "url": "https://www.technologyreview.com/2026/11/24/1149669/the-download-data-centers-gas-ai-consciousness",
         "title": "The Download: AI’s gas power boom",
         "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "ac2f786b30f6d457",
+    "title": "GPT-6 models demonstrate intrinsic protein-design capabilities",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "GPT-6 models have demonstrated the intrinsic capability to design protein structures and sequences through reasoning and code generation. Laboratory tests successfully confirmed evidence of binding across five distinct targets.",
+    "summary_status": "generated",
+    "content_fingerprint": "4a7a11670a7634ff",
+    "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities",
+    "date": "2026-11-24T13:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-25T02:54:41.546847+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 9,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "GPT-6 models were used to design functional protein structures and sequences via reasoning and code.",
+      "Experimental lab tests validated successful binding activity across five specific targets, demonstrating real-world utility.",
+      "Protein engineers, biotech researchers, and developers working on computational biology are directly impacted."
+    ],
+    "tags": [
+      "GPT-6",
+      "Protein Design",
+      "Computational Biology"
+    ],
+    "impact_score": 8,
+    "sources": [
+      {
+        "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities",
+        "title": "GPT-6 models demonstrate intrinsic protein-design capabilities",
+        "publisher": "OpenAI"
       }
     ]
   },
@@ -265,6 +492,47 @@
         "url": "https://arstechnica.com/security/2026/11/amazon-says-hackers-ai-agents-found-and-exploited-0-day-with-little-human-input",
         "title": "Amazon says hackers' AI agents found and exploited 0-day with little human input",
         "publisher": "Ars Technica"
+      }
+    ]
+  },
+  {
+    "id": "7758c04a629331bf",
+    "title": "Searching for distant planets with Astra",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Two amateur astronomers used Codex and Astra to identify potential exoplanets within public data from NASA's Kepler and TESS space telescopes. The process demonstrates how AI coding assistants and specialized tools enable individuals to perform complex astronomical data analysis. This approach broadens the accessibility of space exploration and data-driven scientific discovery.",
+    "summary_status": "generated",
+    "content_fingerprint": "0d361e527974b3b3",
+    "url": "https://openai.com/index/searching-for-distant-planets-with-astra",
+    "date": "2026-11-24T11:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-25T02:54:41.546968+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Two amateur astronomers successfully identified potential exoplanets using Codex and Astra in public NASA Kepler and TESS datasets.",
+      "Demonstrates the capability of AI tools to democratize complex data analysis and astronomy research for non-professionals.",
+      "Amateur astronomers and researchers utilizing public NASA space telescope archives are directly affected by these accessible methods."
+    ],
+    "tags": [
+      "Codex",
+      "Astra",
+      "NASA",
+      "Exoplanets"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://openai.com/index/searching-for-distant-planets-with-astra",
+        "title": "Searching for distant planets with Astra",
+        "publisher": "OpenAI"
       }
     ]
   },
@@ -316,15 +584,16 @@
     "title": "torchtsetlin: Fast, Interpretable Tsetlin Machines for PyTorch",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.AI (Artificial Intelligence)",
-    "summary": "[Automated summary unavailable] arXiv:2611.28195v1 Announce Type: new Abstract: The Tsetlin machine learns propositional rules with teams of Tsetlin automata that are driven by reward and penalty rather than gradients, so its…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "torchtsetlin implements Tsetlin machine architectures as native PyTorch modules, enabling gradient-free learning within the standard deep learning ecosystem. By using a batched formulation of Type I and Type II feedback with binomial draws, the library achieves up to an 81.2X training speedup over existing tools while matching accuracy. The pure Python, MIT-licensed package supports vanilla, weighted, regression, convolutional, and segmentation variants.",
+    "summary_status": "generated",
+    "content_fingerprint": "e966a7ebe5331f56",
     "url": "https://arxiv.org/abs/2611.28195",
     "date": "2026-11-24T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-24T18:40:46.539960+00:00",
+    "fetched_at": "2026-11-25T02:54:41.547706+00:00",
     "topics": [
-      "Research and Breakthroughs"
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 2,
@@ -337,7 +606,20 @@
         "title": "torchtsetlin: Fast, Interpretable Tsetlin Machines for PyTorch",
         "publisher": "arXiv (Cornell University)"
       }
-    ]
+    ],
+    "key_points": [
+      "torchtsetlin introduces Tsetlin machines as native PyTorch modules supporting standard operations like state_dict() and .to(device).",
+      "It implements a batched feedback formulation using binomial draws, delivering 2.4X to 81.2X faster training on a GPU compared to existing Tsetlin machine libraries.",
+      "PyTorch developers and researchers working with interpretable, gradient-free propositional rule learning models benefit from its integration into the PyTorch ecosystem."
+    ],
+    "tags": [
+      "PyTorch",
+      "Tsetlin Machines",
+      "Interpretable AI",
+      "Neural-Symbolic",
+      "Open-Source"
+    ],
+    "impact_score": 6
   },
   {
     "id": "2e38a12c5c074bb7",
@@ -433,22 +715,22 @@
     "title": "FinEvo: Recursive Self-Improvement for Long-Horizon Financial Modeling",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.AI (Artificial Intelligence)",
-    "summary": "[Automated summary unavailable] arXiv:2611.28239v1 Announce Type: new Abstract: Advances in large language models (LLMs) have expanded their role in high-value productivity tasks, including financial analysis and modeling, while…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "Researchers introduce FinEvo, a recursive self-improvement framework that integrates autonomous experience construction with financial capability enhancement using executable rewards. Evaluated with Qwen3.6-27B, the framework improves whole-task success rates from 22.73 to 29.09 on held-out within-source tasks and from 13.13 to 19.19 on SpreadsheetBench 2 Financial. These results demonstrate that self-play and executable checks can strengthen underlying financial modeling capabilities across professional domain tasks.",
+    "summary_status": "generated",
+    "content_fingerprint": "e2af12d4ad1fabc8",
     "url": "https://arxiv.org/abs/2611.28239",
     "date": "2026-11-24T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-24T18:40:46.540175+00:00",
+    "fetched_at": "2026-11-25T02:54:41.547783+00:00",
     "topics": [
       "Models and Releases",
-      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
       "Applications and Products"
     ],
     "source_type": "Research or Preprint",
-    "priority_score": 2,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Original research or technical finding",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
     "why_it_matters": "",
     "sources": [
       {
@@ -456,7 +738,20 @@
         "title": "FinEvo: Recursive Self-Improvement for Long-Horizon Financial Modeling",
         "publisher": "arXiv (Cornell University)"
       }
-    ]
+    ],
+    "key_points": [
+      "FinEvo was introduced as a recursive self-improvement framework using autonomous experience construction and executable rewards for financial modeling.",
+      "Applying FinEvo with Qwen3.6-27B raised whole-task success from 22.73 to 29.09 on held-out within-source tasks and from 13.13 to 19.19 on SpreadsheetBench 2 Financial.",
+      "AI researchers and developers working on financial modeling and autonomous self-evolution frameworks are directly affected by these findings."
+    ],
+    "tags": [
+      "FinEvo",
+      "Financial Modeling",
+      "Self-Improvement",
+      "Qwen3.6-27B",
+      "SpreadsheetBench"
+    ],
+    "impact_score": 7
   },
   {
     "id": "5f8e1aab0c8b394e",
@@ -547,15 +842,17 @@
     "title": "Temporal Logic Tensor Networks: Foundations of Temporal Reasoning in Neural Networks",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.AI (Artificial Intelligence)",
-    "summary": "[Automated summary unavailable] arXiv:2611.28277v1 Announce Type: new Abstract: In dynamic scenes---football matches, traffic streams, surgery, or assembly---actions unfold at fundamentally different time scales: in football, a…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "The paper introduces Temporal Logic Tensor Networks (tLTN), a differentiable neuro-symbolic framework that models actions across multiple time scales by combining point-wise and interval semantics. By grounding state predicates as fuzzy truth-value paths and treating events as entities with learnable durations, tLTN enables bidirectional constraint enforcement between fine-grained instants and extended intervals. This approach addresses the limitations of single-modality learning in dynamic scenes while reducing frame-level computational costs on long traces.",
+    "summary_status": "generated",
+    "content_fingerprint": "38f6697807fbc8ed",
     "url": "https://arxiv.org/abs/2611.28277",
     "date": "2026-11-24T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-24T18:40:46.540406+00:00",
+    "fetched_at": "2026-11-25T02:54:41.547855+00:00",
     "topics": [
-      "Research and Breakthroughs"
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 5,
@@ -568,20 +865,32 @@
         "title": "Temporal Logic Tensor Networks: Foundations of Temporal Reasoning in Neural Networks",
         "publisher": "arXiv (Cornell University)"
       }
-    ]
+    ],
+    "key_points": [
+      "Temporal Logic Tensor Networks (tLTN) were introduced as a differentiable neuro-symbolic framework to reason across fine-grained instants and broader temporal intervals simultaneously.",
+      "The framework enables bidirectional constraint enforcement, where intervals restrict point-wise evaluation spans and point-wise states validate interval relations, improving learning in multi-scale dynamic scenes.",
+      "Researchers and developers working on video understanding, action recognition, and neuro-symbolic AI systems for complex dynamic environments are affected."
+    ],
+    "tags": [
+      "Neuro-Symbolic AI",
+      "Temporal Reasoning",
+      "Tensor Networks",
+      "Interval Logic"
+    ],
+    "impact_score": 6
   },
   {
     "id": "70f1621b9f246cd8",
     "title": "Specialized Large Language Models for Markovian Reasoning: Structural Cache Compression, Transition Pretraining, and Dual-Loop Transformers",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.AI (Artificial Intelligence)",
-    "summary": "[Automated summary unavailable] arXiv:2611.28285v1 Announce Type: new Abstract: Standard autoregressive large language models attend to the growing history of generated tokens, making the key-value (KV) cache a central memory and…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "The paper introduces a unified design paradigm for Markovian-reasoning specialized large language models that replaces growing KV caches with a constant-size state transfer interface. It utilizes a dual-loop Transformer architecture featuring an outer loop for reasoning state advancement and an inner recurrent-depth loop for adaptive transition computation. These methods decouple the memory footprint from reasoning-chain length by reformulating long-chain prediction into independently trainable one-step transition objectives.",
+    "summary_status": "generated",
+    "content_fingerprint": "39e7af4bc28dee08",
     "url": "https://arxiv.org/abs/2611.28285",
     "date": "2026-11-24T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-24T18:40:46.540451+00:00",
+    "fetched_at": "2026-11-25T02:54:41.547930+00:00",
     "topics": [
       "Models and Releases",
       "Research and Breakthroughs"
@@ -597,7 +906,19 @@
         "title": "Specialized Large Language Models for Markovian Reasoning: Structural Cache Compression, Transition Pretraining, and Dual-Loop Transformers",
         "publisher": "arXiv (Cornell University)"
       }
-    ]
+    ],
+    "key_points": [
+      "Proposed a Markovian state interface and dual-loop Transformer architecture for large language models to decouple memory footprint from reasoning chain length.",
+      "Enables constant-size state transfer and independently trainable one-step transition objectives instead of growing history-dependent KV storage.",
+      "Aids developers and researchers working on long-chain reasoning and multi-branch sampling systems facing throughput bottlenecks."
+    ],
+    "tags": [
+      "Large Language Models",
+      "Transformer Architecture",
+      "KV Cache",
+      "Markovian Reasoning"
+    ],
+    "impact_score": 7
   },
   {
     "id": "39c3277f0b4d3bff",
@@ -686,17 +1007,18 @@
     "title": "Measuring and Teaching Language Model Agents to Act on Delayed Consequences",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.28158v1 Announce Type: new Abstract: Language model agents are increasingly asked to run ongoing multi-day operations rather than finish isolated single-turn tasks. In daily operations,…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "The researchers introduce SMB Bench, a calibrated 90-day wholesale simulator designed to evaluate language model agents on their ability to handle delayed consequences in multi-day operations. Testing 16 frontier models reveals that only three outperform a simple fixed buying rule, highlighting a gap between diagnosing problems and modifying behavior. Furthermore, training an open model using archived business records improved its consistency in following operational commitments and reduced severe-loss quarters.",
+    "summary_status": "generated",
+    "content_fingerprint": "d256d39f92b26c6f",
     "url": "https://arxiv.org/abs/2611.28158",
     "date": "2026-11-24T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-24T18:40:46.540697+00:00",
+    "fetched_at": "2026-11-25T02:54:41.548001+00:00",
     "topics": [
       "Models and Releases",
       "AI Agents",
-      "Research and Breakthroughs"
+      "Benchmarks and Evaluations",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 2,
@@ -709,7 +1031,19 @@
         "title": "Measuring and Teaching Language Model Agents to Act on Delayed Consequences",
         "publisher": "arXiv (Cornell University)"
       }
-    ]
+    ],
+    "key_points": [
+      "Researchers developed SMB Bench, a 90-day wholesale simulator with 18 causally paired tasks to evaluate how language model agents handle delayed operational consequences.",
+      "Only 3 out of 16 frontier models outperformed a fixed buying rule, demonstrating that current models struggle to translate problem diagnoses into timely behavioral changes.",
+      "AI developers, enterprise automation architects, and researchers studying multi-turn language model agents in long-horizon operations are directly affected by these findings."
+    ],
+    "tags": [
+      "SMB Bench",
+      "AI Agents",
+      "Language Models",
+      "Decision Making"
+    ],
+    "impact_score": 7
   },
   {
     "id": "394fb6a9c4d142fa",
@@ -805,16 +1139,18 @@
     "title": "Feedback Shortcut: Speculative Decoding for Latent Feedback Transformers",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.28227v1 Announce Type: new Abstract: Feeding each position's top-layer hidden state back into the next position's input improves Transformer performance. However, this feedback breaks…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "Researchers introduce Feedback Shortcut, a method to enable speculative decoding for latent feedback Transformers by using state alignment and pipelined correction. The technique matches exact-decoding performance within 10^-4 bits per byte on Paloma while achieving a 2.4-2.8x speedup at 135M and 780M scales. This approach overcomes the architectural conflict between token feedback mechanisms and parallel speculative verification passes.",
+    "summary_status": "generated",
+    "content_fingerprint": "8a668e4486c0af22",
     "url": "https://arxiv.org/abs/2611.28227",
     "date": "2026-11-24T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-24T18:40:46.540917+00:00",
+    "fetched_at": "2026-11-25T02:54:41.548072+00:00",
     "topics": [
       "Coding and Developer Tools",
-      "Research and Breakthroughs"
+      "Research and Breakthroughs",
+      "Safety and Security",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 2,
@@ -827,7 +1163,19 @@
         "title": "Feedback Shortcut: Speculative Decoding for Latent Feedback Transformers",
         "publisher": "arXiv (Cornell University)"
       }
-    ]
+    ],
+    "key_points": [
+      "Feedback Shortcut was introduced to resolve the architectural conflict where latent feedback mechanisms break speculative decoding verification passes.",
+      "The method accelerates decoding by 2.4-2.8x across 135M and 780M model scales while remaining within 10^-4 bits per byte of the exact-decoding ceiling.",
+      "Developers and researchers building or deploying latent feedback Transformer architectures are directly affected."
+    ],
+    "tags": [
+      "Speculative Decoding",
+      "Transformers",
+      "Latent Feedback",
+      "Model Acceleration"
+    ],
+    "impact_score": 7
   },
   {
     "id": "a1b5d39de0bd6d7f",
@@ -918,16 +1266,17 @@
     "title": "FoGConcept: Identifying Interpretable Movement Concepts for Freezing-of-Gait Detection from Multi-Scale IMU Signals",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.28262v1 Announce Type: new Abstract: Freezing of gait (FoG) is a disabling motor symptom of Parkinson's disease, characterized by an episodic inability to initiate or sustain effective…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "Researchers introduce FoGConcept, an interpretability framework that identifies nine human-understandable movement concepts from multi-scale IMU signals for freezing-of-gait detection in Parkinson's disease. The model achieves a 94.2% F1 score for detection while mapping predictions to recognizable patterns that domain experts validate at an 88.9% rate. This approach demonstrates that accurate clinical detection models can learn stable, interpretable movement dynamics across varying temporal contexts.",
+    "summary_status": "generated",
+    "content_fingerprint": "45034c726b842651",
     "url": "https://arxiv.org/abs/2611.28262",
     "date": "2026-11-24T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-24T18:40:46.541155+00:00",
+    "fetched_at": "2026-11-25T02:54:41.548135+00:00",
     "topics": [
+      "Models and Releases",
       "Coding and Developer Tools",
-      "Research and Breakthroughs"
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 2,
@@ -940,7 +1289,20 @@
         "title": "FoGConcept: Identifying Interpretable Movement Concepts for Freezing-of-Gait Detection from Multi-Scale IMU Signals",
         "publisher": "arXiv (Cornell University)"
       }
-    ]
+    ],
+    "key_points": [
+      "Identified nine human-understandable movement concepts encoded by a multi-scale freezing-of-gait model using IMU signals.",
+      "Provides a mechanism-based interpretability framework achieving an F1 score of 94.2% while domain experts validate 88.9% of the concepts.",
+      "Parkinson's disease researchers, clinicians, and developers of biomedical IMU-based diagnostic systems are affected."
+    ],
+    "tags": [
+      "Freezing of Gait",
+      "Parkinson's Disease",
+      "IMU",
+      "Model Interpretability",
+      "Healthcare AI"
+    ],
+    "impact_score": 6
   },
   {
     "id": "6c8b5b03e075de46",
@@ -990,15 +1352,17 @@
     "title": "SONATI: Spatio-temporal ocean neighbourhood asymmetric transformer for imputation of sparse, tabular data with uncertainty",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.28270v1 Announce Type: new Abstract: Missing value imputation is often a prerequisite for downstream analyses. In oceanography, observational data are frequently structured in a tabular…",
-    "summary_status": "pending_quota",
-    "content_fingerprint": "",
+    "summary": "Researchers introduced SONATI, a masked factorized time-space transformer designed to impute missing values in sparse, tabular oceanographic data while quantifying aleatoric and epistemic uncertainties. Operating on local time and space neighborhoods to reduce computational complexity, SONATI outperformed classical and transformer-based imputers by at least 12.5% in RMSE on North Atlantic datasets. The architecture leverages combined geographic and per-sample masking to improve imputation accuracy and spatial-temporal smoothness.",
+    "summary_status": "generated",
+    "content_fingerprint": "b6dc2cf83a916875",
     "url": "https://arxiv.org/abs/2611.28270",
     "date": "2026-11-24T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-24T18:40:46.541309+00:00",
+    "fetched_at": "2026-11-25T02:54:41.548204+00:00",
     "topics": [
-      "Research and Breakthroughs"
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 2,
@@ -1011,15 +1375,28 @@
         "title": "SONATI: Spatio-temporal ocean neighbourhood asymmetric transformer for imputation of sparse, tabular data with uncertainty",
         "publisher": "arXiv (Cornell University)"
       }
-    ]
+    ],
+    "key_points": [
+      "Researchers developed SONATI, a spatio-temporal ocean neighborhood asymmetric transformer for imputing sparse tabular data.",
+      "The model outperformed classical and transformer methods by at least 12.5% in root mean squared error on North Atlantic biogeochemical and physical data.",
+      "Oceanographers and researchers working with sparse, multi-parameter observational datasets benefit from improved missing value imputation and uncertainty quantification."
+    ],
+    "tags": [
+      "SONATI",
+      "Transformer",
+      "Oceanography",
+      "Data Imputation",
+      "Uncertainty Quantification"
+    ],
+    "impact_score": 6
   },
   {
     "id": "8655fa232145e922",
     "title": "How iFood scales coding agents across 15,000 repositories",
     "company": "OpenAI",
     "source": "OpenAI News",
-    "summary": "[Automated summary unavailable] How iFood scales coding agents across 15,000 repositories",
-    "summary_status": "unavailable",
+    "summary": "iFood details its engineering approach for scaling autonomous coding agents across 15,000 code repositories. The article outlines the infrastructure and architectural strategies required to manage large-scale automated software development workflows effectively.",
+    "summary_status": "generated",
     "content_fingerprint": "",
     "url": "https://openai.com/index/ifood",
     "date": "2026-11-24T00:00:00+00:00",
@@ -1038,6 +1415,108 @@
       {
         "url": "https://openai.com/index/ifood",
         "title": "How iFood scales coding agents across 15,000 repositories",
+        "publisher": "OpenAI"
+      },
+      {
+        "title": "How iFood scales coding agents across 15,000 repositories",
+        "url": "https://openai.com/business/customer-stories/ifood",
+        "publisher": "OpenAI"
+      }
+    ],
+    "tags": [
+      "AI Agents",
+      "Coding and Developer Tools",
+      "iFood",
+      "Coding Agents",
+      "Software Engineering"
+    ],
+    "key_points": [
+      "iFood deployed coding agents to operate across 15,000 distinct code repositories.",
+      "The deployment addresses the operational complexity of managing multi-repository automated software engineering at scale.",
+      "Software engineers and infrastructure teams at large technology companies managing vast codebases are directly affected."
+    ],
+    "impact_score": 6
+  },
+  {
+    "id": "7e14b56be6744308",
+    "title": "How Intentful uses dots to make more time for growth",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Marina Petrova utilizes an AI assistant named Aria to research websites, draft proposals, flag messages, and resolve operational issues. This tool enables users to automate routine tasks and dedicate more time to business growth.",
+    "summary_status": "generated",
+    "content_fingerprint": "64aa5db0ce771093",
+    "url": "https://openai.com/business/customer-stories/intentful-dots",
+    "date": "2026-11-24T00:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-25T02:54:41.547049+00:00",
+    "topics": [
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Marina Petrova deployed an AI assistant named Aria to handle web research, proposal building, message flagging, and issue resolution.",
+      "The tool streamlines administrative workflows to create more capacity for business growth activities.",
+      "Business professionals and researchers utilizing the Intentful platform are directly affected."
+    ],
+    "tags": [
+      "Intentful",
+      "AI Assistants",
+      "Productivity",
+      "Automation"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://openai.com/business/customer-stories/intentful-dots",
+        "title": "How Intentful uses dots to make more time for growth",
+        "publisher": "OpenAI"
+      }
+    ]
+  },
+  {
+    "id": "a3c9028eefd69cfd",
+    "title": "Clay helps sales teams win with Codex and ChatGPT",
+    "company": "OpenAI",
+    "source": "OpenAI News",
+    "summary": "Clay integrates ChatGPT and Codex, utilizing GPT-6 models to assist sales teams with deal research and go-to-market data processing. These integrations enable users to transform raw data into actionable sales strategies through automated reasoning.",
+    "summary_status": "generated",
+    "content_fingerprint": "436e8c88a791b342",
+    "url": "https://openai.com/business/customer-stories/clay-plugins-openai",
+    "date": "2026-11-24T00:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-25T02:54:41.547168+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Business and Industry",
+      "Applications and Products"
+    ],
+    "source_type": "Primary Source",
+    "priority_score": 7,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Clay integrated ChatGPT and Codex, powered by GPT-6 models, to automate deal research and sales strategy generation.",
+      "The integration streamlines go-to-market workflows by turning raw data into actionable sales plays.",
+      "Sales teams and go-to-market professionals using the Clay platform are directly affected by these new capabilities."
+    ],
+    "tags": [
+      "Clay",
+      "ChatGPT",
+      "Codex",
+      "GPT-6",
+      "Sales Automation"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://openai.com/business/customer-stories/clay-plugins-openai",
+        "title": "Clay helps sales teams win with Codex and ChatGPT",
         "publisher": "OpenAI"
       }
     ]
@@ -1081,6 +1560,50 @@
       {
         "url": "https://simonwillison.net/2026/Nov/23/glm-54",
         "title": "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer",
+        "publisher": "Simon Willison's Weblog"
+      }
+    ]
+  },
+  {
+    "id": "981d6178a1cb2235",
+    "title": "Ladybird's first alpha release",
+    "company": "Simon Willison's Weblog",
+    "source": "Simon Willison – AI",
+    "summary": "The Ladybird browser project has launched its first alpha release for macOS and Linux, allowing users to install it without compiling from source. The browser features an independently developed layout, JavaScript, WebAssembly, and parsing engine while leveraging AI coding agents like Claude Code and Codex for major engineering milestones.",
+    "summary_status": "generated",
+    "content_fingerprint": "28ac69f327f9de23",
+    "url": "https://simonwillison.net/2026/Nov/23/ladybird",
+    "date": "2026-11-23T21:46:35+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-25T02:54:41.548650+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "The Ladybird browser published its first alpha release, introducing pre-built binaries for macOS and Linux.",
+      "The project accelerated development using AI coding agents such as Claude Code and Codex to port engine components to Rust and implement major performance features.",
+      "Web developers, Linux and macOS users, and browser engine developers gain an independent, greenfield web browser implementation."
+    ],
+    "tags": [
+      "Ladybird",
+      "Claude Code",
+      "WebAssembly",
+      "Rust",
+      "Browsers"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://simonwillison.net/2026/Nov/23/ladybird",
+        "title": "Ladybird's first alpha release",
         "publisher": "Simon Willison's Weblog"
       }
     ]
