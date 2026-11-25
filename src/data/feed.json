@@ -1,5 +1,1014 @@
 [
   {
+    "id": "9dc01b6ea2baec9b",
+    "title": "Etsy clarifies AI terms after seller backlash",
+    "company": "Ars Technica",
+    "source": "Ars Technica – AI",
+    "summary": "[Automated summary unavailable] After backlash from sellers frustrated by Etsy’s new AI policies, which appeared to allow the company to train AI on user artwork, Etsy has now clarified its stance. In a note published on Monday,…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arstechnica.com/tech-policy/2026/11/etsy-clarifies-ai-terms-after-seller-backlash",
+    "date": "2026-11-25T17:12:57+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-25T17:50:25.972649+00:00",
+    "topics": [
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arstechnica.com/tech-policy/2026/11/etsy-clarifies-ai-terms-after-seller-backlash",
+        "title": "Etsy clarifies AI terms after seller backlash",
+        "publisher": "Ars Technica"
+      }
+    ],
+    "key_points": [
+      "Etsy clarified its AI policies in a published note following seller backlash over art training rights.",
+      "The policy update resolves ambiguity regarding platform rights over creator-submitted content and intellectual property.",
+      "Etsy marketplace sellers and independent creators are directly affected by these terms of service clarifications."
+    ]
+  },
+  {
+    "id": "ff551cab1dd1feb7",
+    "title": "The Download: AI swamping open records",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "Venture-backed startups and automated chatbots are straining American open records systems by increasing request volumes and harvesting public data for business signals, prompting states to consider restrictive legislation. Meanwhile, recent technology news covers hackers allegedly using an AI tool called Artex to breach US spy agencies, permafrost research related to Arctic wildfires, and legal actions involving Huawei and AI server financing tied to China.",
+    "summary_status": "generated",
+    "content_fingerprint": "9bf5d0b99c6e647b",
+    "url": "https://www.technologyreview.com/2026/11/25/1149808/the-download-ai-open-records-permafrost-fires",
+    "date": "2026-11-25T13:10:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-25T17:50:25.972888+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Business and Industry",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "AI-powered tools and automated chatbots are dramatically increasing the volume of public records requests, leading some US states to pass legislation making it easier to deny them.",
+      "The strain on open records laws threatens to reduce government transparency and complicate how public agencies process information requests.",
+      "Government agencies, public records administrators, and citizens seeking public information are directly affected by these administrative strains and legislative changes."
+    ],
+    "tags": [
+      "Open Records",
+      "AI Agents",
+      "Cybersecurity",
+      "Huawei"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/11/25/1149808/the-download-ai-open-records-permafrost-fires",
+        "title": "The Download: AI swamping open records",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "319f463cce75ff29",
+    "title": "AI may soon change what it means to be a theoretical physicist",
+    "company": "Ars Technica",
+    "source": "Ars Technica – AI",
+    "summary": "Suvrat Raju, a physics professor at the International Centre for Theoretical Sciences, tested a frontier AI model on an unpublished physics problem to evaluate its reasoning capabilities beyond memorized data. Finding the model's performance surprisingly capable, he and a colleague are now developing a formal theoretical physics benchmark for artificial intelligence. This initiative addresses the need for testing AI on novel problems that have never appeared online.",
+    "summary_status": "generated",
+    "content_fingerprint": "86a4a75b50f1f819",
+    "url": "https://arstechnica.com/ai/2026/11/ai-can-do-the-calculations-physicists-are-figuring-out-what-comes-next",
+    "date": "2026-11-25T12:00:28+00:00",
+    "category": "Benchmark",
+    "fetched_at": "2026-11-25T17:50:25.972742+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "A professor tested a frontier AI model on an unpublished theoretical physics problem to prevent memorization from online training data.",
+      "The model's better-than-expected performance prompted researchers to develop a formal physics benchmark for evaluating AI capabilities.",
+      "Theoretical physicists and AI developers working on reasoning benchmarks are affected by this effort to create rigorous, contamination-free evaluation methods."
+    ],
+    "tags": [
+      "Theoretical Physics",
+      "AI Benchmark",
+      "LLM Evaluation"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://arstechnica.com/ai/2026/11/ai-can-do-the-calculations-physicists-are-figuring-out-what-comes-next",
+        "title": "AI may soon change what it means to be a theoretical physicist",
+        "publisher": "Ars Technica"
+      }
+    ]
+  },
+  {
+    "id": "0077e07924e43bf7",
+    "title": "An Indic Voice Agent with CUGA",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "[Automated summary unavailable] An Indic Voice Agent with CUGA",
+    "summary_status": "unavailable",
+    "content_fingerprint": "",
+    "url": "https://huggingface.co/blog/ibm-research/an-indic-voice-agent-with-cuga",
+    "date": "2026-11-25T10:22:09+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-25T17:50:25.972581+00:00",
+    "topics": [
+      "AI Agents"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/ibm-research/an-indic-voice-agent-with-cuga",
+        "title": "An Indic Voice Agent with CUGA",
+        "publisher": "Hugging Face"
+      }
+    ],
+    "key_points": [
+      "An Indic voice agent was developed using CUGA.",
+      "It enables voice-based interactions specifically for Indic languages.",
+      "Users and developers working with multilingual and Indic speech technologies are affected."
+    ]
+  },
+  {
+    "id": "1684673b3d07d7df",
+    "title": "AI is straining America’s open records systems",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "Artificial intelligence tools and data brokers are dramatically increasing the volume and scope of public records requests across local and federal US agencies. Venture-backed startups are using automated scraping to collect government data for commercial intelligence, while citizens use AI to draft broader inquiries, straining understaffed public offices.",
+    "summary_status": "generated",
+    "content_fingerprint": "f03fadbe39e9fc79",
+    "url": "https://www.technologyreview.com/2026/11/25/1149702/ai-is-straining-americas-open-records-systems",
+    "date": "2026-11-25T10:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-25T17:50:25.973143+00:00",
+    "topics": [
+      "Business and Industry"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Venture-backed startups and commercial entities have increased targeted public records requests to mine government data using AI tools.",
+      "The surge in AI-generated, broader requests is overwhelming understaffed municipal clerks and agencies, prompting some states to consider legislation making denials easier.",
+      "Local government clerks, state agencies, and public transparency advocates are directly affected by the strain on public records systems."
+    ],
+    "tags": [
+      "AI Agents",
+      "Freedom of Information Act",
+      "Data Brokers",
+      "Government Transparency"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/11/25/1149702/ai-is-straining-americas-open-records-systems",
+        "title": "AI is straining America’s open records systems",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "7afc949f55d9cb94",
+    "title": "Irreducible Governance Structure for Autonomous Agent Systems: Fair Allocation, Strategy-Proofness, and Multi-Scale Composition",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This research paper formalizes resource allocation as an irreducible structural component of autonomous multi-agent governance, proving through impossibility results that allocation trade-offs cannot be collapsed. The authors demonstrate that multi-agent systems require a four-dimensional governance architecture encompassing temporal, state, behavioral, and population layers to maintain stability and correctness under finite observability. Analytical constructions and empirical ablations validate that removing or approximating any of these architectural layers causes systematic failure modes.",
+    "summary_status": "generated",
+    "content_fingerprint": "10810fdb4487184c",
+    "url": "https://arxiv.org/abs/2611.31284",
+    "date": "2026-11-25T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-25T17:50:25.973619+00:00",
+    "topics": [
+      "AI Agents",
+      "Research and Breakthroughs",
+      "Policy and Regulation",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Proved impossibility results showing that multi-agent resource allocation introduces unavoidable trade-offs between fairness, efficiency, and resistance to strategic manipulation.",
+      "Established an irreducibility theorem demonstrating that governance architectures cannot collapse their temporal, state, behavioral, and population dimensions without sacrificing correctness and stability.",
+      "Developers and architects of multi-agent autonomous systems."
+    ],
+    "tags": [
+      "AI Agents",
+      "Multi-Agent Systems",
+      "Governance",
+      "Resource Allocation"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.31284",
+        "title": "Irreducible Governance Structure for Autonomous Agent Systems: Fair Allocation, Strategy-Proofness, and Multi-Scale Composition",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "651273c9af5bc4aa",
+    "title": "MOZAIC: An Audio-Video Deepfake Benchmark for Telling What Is Fake",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.31301v1 Announce Type: new Abstract: Audio-video (AV) deepfakes can fake the face, the voice, or both. Most benchmarks only ask whether a clip is real or fake, so they cannot show whether…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.31301",
+    "date": "2026-11-25T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-25T17:50:25.973754+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.31301",
+        "title": "MOZAIC: An Audio-Video Deepfake Benchmark for Telling What Is Fake",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "MOZAIC, a new audio-video deepfake benchmark, was introduced to evaluate manipulation across face, voice, or both modalities.",
+      "It addresses the limitation of binary real-or-fake benchmarks by enabling granular identification of specific deepfake modalities.",
+      "Researchers, developers of audio-video forensics tools, and deepfake detection system evaluators are affected."
+    ]
+  },
+  {
+    "id": "77050cf38aa17dde",
+    "title": "Conservative Overlap Fuzzy Rough Sets for Incomplete Data",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.31329v1 Announce Type: new Abstract: Attribute reduction in incomplete information systems is difficult because missing values break the equivalence-class structure of rough set theory.…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.31329",
+    "date": "2026-11-25T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-25T17:50:25.973834+00:00",
+    "topics": [
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.31329",
+        "title": "Conservative Overlap Fuzzy Rough Sets for Incomplete Data",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Researchers developed conservative overlap fuzzy rough sets to perform attribute reduction on incomplete information systems.",
+      "The method resolves the limitation where missing values break standard equivalence-class structures in rough set theory.",
+      "Data scientists and researchers working with incomplete datasets and feature selection methodologies are directly affected."
+    ]
+  },
+  {
+    "id": "6fc08516e3b37e32",
+    "title": "Beyond Static Charts: Benchmarking Interactive Chart-to-Code Generation for MLLMs",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduced ChartInt, the first benchmark designed to evaluate interactive chart-to-code generation in multimodal large language models. The benchmark comprises 2,779 annotated examples and a preset state snapshot protocol to assess behavioral consistency across dynamic user interactions like hovers, highlights, and tooltips. Experiments demonstrate that current MLLM performance drops significantly on these interactive tasks compared to traditional static chart generation.",
+    "summary_status": "generated",
+    "content_fingerprint": "c0f3d33e44822196",
+    "url": "https://arxiv.org/abs/2611.31345",
+    "date": "2026-11-25T05:00:00+00:00",
+    "category": "Benchmark",
+    "fetched_at": "2026-11-25T17:50:25.973883+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "ChartInt was introduced as the first benchmark for interactive chart-to-code generation, featuring 2,779 annotated examples and editing tasks.",
+      "It addresses the limitation of static chart evaluations by testing behavioral consistency and dynamic state evolution under user interactions using a preset state snapshot protocol.",
+      "Multimodal large language model developers and researchers are affected, as current models show significant performance drops on interactive tasks."
+    ],
+    "tags": [
+      "MLLMs",
+      "Benchmark",
+      "Chart-to-Code",
+      "Multimodal AI"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.31345",
+        "title": "Beyond Static Charts: Benchmarking Interactive Chart-to-Code Generation for MLLMs",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "fb2699a7376a0c6d",
+    "title": "What People Choose Not to Say: A Multimodal Benchmark for Fine-Grained Information Manipulation in Conversations",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduced InfoCon, a new multimodal benchmark designed to evaluate fine-grained information manipulation strategies in conversational settings, moving beyond binary truth-deception detection. The benchmark categorizes six specific manipulation behaviors—such as withholding, leakage, fabrication, evasion, and defensive counterclaim—using an evidence-grounded multi-agent annotation framework. Evaluations of representative multimodal models reveal their capabilities and limitations in understanding complex conversational deception and context.",
+    "summary_status": "generated",
+    "content_fingerprint": "23a1a1e1f8fd46b5",
+    "url": "https://arxiv.org/abs/2611.31346",
+    "date": "2026-11-25T05:00:00+00:00",
+    "category": "Benchmark",
+    "fetched_at": "2026-11-25T17:50:25.973994+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed the InfoCon benchmark to evaluate six fine-grained conversational information manipulation strategies.",
+      "The benchmark advances evaluation beyond coarse emotion recognition and binary truth-deception detection by incorporating rich contextual evidence and multi-agent annotation.",
+      "Multimodal large language model developers and researchers studying social understanding in AI are affected."
+    ],
+    "tags": [
+      "InfoCon",
+      "Multimodal Benchmark",
+      "Deception Detection",
+      "Conversational AI",
+      "MLLMs"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.31346",
+        "title": "What People Choose Not to Say: A Multimodal Benchmark for Fine-Grained Information Manipulation in Conversations",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "eea58e4f2b8d4083",
+    "title": "Antares-Smaug: Adversarial Names, Tokens and Attack Rewrites: Sanitisers Miss Unseen Generalisations",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This research paper evaluates the vulnerability of Laya open decision models to 81 programmatic edits and attacks, finding that unseen attack wordings successfully hijack a significant share of model choices. The study demonstrates that option names heavily drive these vulnerabilities while option descriptions matter very little, and shows that existing sanitisers struggle to generalize against held-out attack types.",
+    "summary_status": "generated",
+    "content_fingerprint": "5e4450c868f57fff",
+    "url": "https://arxiv.org/abs/2611.31347",
+    "date": "2026-11-25T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-25T17:50:25.974090+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers attacked six Laya decision models using 81 programmatic edits and synthetic items, finding that unmitigated attack wordings hijack the released model on 59% of items.",
+      "The study proves that option names are the primary vector for steering model output, whereas character edits and option descriptions behave differently under sanitisation and fine-tuning defenses.",
+      "Developers of open decision models and automated sanitisation pipelines are directly affected by these findings on generalization failures against unseen adversarial attacks."
+    ],
+    "tags": [
+      "Adversarial Attacks",
+      "Decision Models",
+      "Model Sanitisation",
+      "Fine-Tuning",
+      "Security"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.31347",
+        "title": "Antares-Smaug: Adversarial Names, Tokens and Attack Rewrites: Sanitisers Miss Unseen Generalisations",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "53f5ec81ab8cc09a",
+    "title": "ContextLure: Exploiting Benign Conversation History for Indirect Prompt Injection",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.31424v1 Announce Type: new Abstract: As LLMs become more capable, agents can perform more complex tasks with tools and maintain longer interactions with users. These benign conversations…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.31424",
+    "date": "2026-11-25T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-25T17:50:25.974209+00:00",
+    "topics": [
+      "AI Agents",
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.31424",
+        "title": "ContextLure: Exploiting Benign Conversation History for Indirect Prompt Injection",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "ContextLure was introduced to exploit benign conversation history for indirect prompt injection attacks against LLMs.",
+      "The finding highlights a security vector in long-horizon agent interactions and tool usage.",
+      "AI developers, security researchers, and builders of LLM-based autonomous agents are affected."
+    ]
+  },
+  {
+    "id": "27454ecd3dc1f870",
+    "title": "Learning What vs. Learning How: Decomposing Task and Interface Competence in Agentic Training",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This research paper decomposes agentic competence into task competence and interface competence, showing that harness-conditioned training can cause catastrophic performance drops on held-out harnesses due to interface interference. To address this, the authors introduce harness rehearsal combined with cross-harness task supervision, which together yield substantial performance gains on benchmarks like BFCL V3 multi-turn. Additionally, the study demonstrates that on-policy reinforcement learning is more robust to single-harness training than distillation.",
+    "summary_status": "generated",
+    "content_fingerprint": "36dda786f8761e51",
+    "url": "https://arxiv.org/abs/2611.31427",
+    "date": "2026-11-25T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-25T17:50:25.974259+00:00",
+    "topics": [
+      "AI Agents",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Policy and Regulation",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "The authors decompose agentic competence into task competence and interface competence, revealing that single-harness training can degrade performance on held-out interfaces despite improving underlying task knowledge.",
+      "Combining cross-harness task supervision with harness rehearsal achieves dramatically higher performance than either method alone, reaching 58.8% on BFCL V3 multi-turn with Qwen3-4B.",
+      "AI researchers and developers working on LLM agents and training pipelines are affected, as the findings show that on-policy reinforcement learning is more robust to harness interference than distillation."
+    ],
+    "tags": [
+      "AI Agents",
+      "LLM Training",
+      "Reinforcement Learning",
+      "Model Distillation"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.31427",
+        "title": "Learning What vs. Learning How: Decomposing Task and Interface Competence in Agentic Training",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "155cf74d593fc9fc",
+    "title": "Taxi: Analyzing Agents at (Real) Scale",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "[Automated summary unavailable] arXiv:2611.31457v1 Announce Type: new Abstract: In this technical report, we present Taxi -- a system for debugging, clustering, and monitoring agents at scale. Taxi scales to millions of steps…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.31457",
+    "date": "2026-11-25T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-25T17:50:25.974380+00:00",
+    "topics": [
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.31457",
+        "title": "Taxi: Analyzing Agents at (Real) Scale",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Taxi was released as a system for debugging, clustering, and monitoring AI agents at a scale of millions of steps.",
+      "It addresses critical observability and troubleshooting challenges for large-scale agent deployments.",
+      "AI developers and engineers building complex autonomous agent systems are directly affected."
+    ]
+  },
+  {
+    "id": "b77f0e482deef83a",
+    "title": "SpatialCraft: Evolving Procedural Intelligence from Experience and Skills for Spatial Reasoning Agents",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "SpatialCraft is a self-evolving framework that enables frozen tool-using agents to improve spatial reasoning orchestration through maintained experiences and skills. By utilizing a Contrastive Utility Score, the system distills condition-action tactics and consolidates them into multi-step procedures without requiring parameter updates. Across five spatial benchmarks and four backbones, SpatialCraft achieves superior accuracy in all evaluated settings.",
+    "summary_status": "generated",
+    "content_fingerprint": "2cb2559a4c84c448",
+    "url": "https://arxiv.org/abs/2611.31475",
+    "date": "2026-11-25T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-25T17:50:25.974443+00:00",
+    "topics": [
+      "AI Agents",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "SpatialCraft was introduced as a self-evolving framework that maintains external knowledge in the form of Experiences and Skills to improve agent tool orchestration.",
+      "It enables a frozen multimodal language model to learn from interaction history without parameter updates, using a Contrastive Utility Score to measure and consolidate effective tactics.",
+      "Researchers and developers building spatial reasoning agents relying on external tools for 3D reconstruction and geometric computation are directly affected."
+    ],
+    "tags": [
+      "Spatial Reasoning",
+      "AI Agents",
+      "Multimodal Models",
+      "Tool Orchestration"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.31475",
+        "title": "SpatialCraft: Evolving Procedural Intelligence from Experience and Skills for Spatial Reasoning Agents",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "c65ea16d440df30c",
+    "title": "Local subspace encoding for spectral prediction: from TabPFN to operator-adaptive calibration",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This study evaluates Local Vibrational Subspace Encoding (LVSE) and Global Compositional Unmixing (GCU) representations for spectral prediction tasks using TabPFN, Partial Least Squares, and Ridge regression across public datasets. Results demonstrate that LVSE consistently reduces root mean squared error for TabPFN checkpoints and improves classification metrics, whereas GCU proves less reliable. The findings highlight LVSE as a valuable representation choice for spectral data analysis alongside classical calibration methods.",
+    "summary_status": "generated",
+    "content_fingerprint": "c95fcb07ec9b72c8",
+    "url": "https://arxiv.org/abs/2611.31245",
+    "date": "2026-11-25T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-25T17:50:25.974543+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Local Vibrational Subspace Encoding (LVSE) reduced TabPFN root mean squared error by up to 14.52% and increased classification weighted F1 scores by up to 3.81 percentage points across evaluated datasets.",
+      "The evaluation establishes that LVSE also benefits classical calibration methods like Partial Least Squares and Ridge regression, outperforming Global Compositional Unmixing.",
+      "Chemometricians, machine learning researchers, and practitioners working with near-infrared or Raman spectra models are directly affected by these representation choices."
+    ],
+    "tags": [
+      "TabPFN",
+      "Spectral Prediction",
+      "Representation Learning",
+      "Chemometrics"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.31245",
+        "title": "Local subspace encoding for spectral prediction: from TabPFN to operator-adaptive calibration",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "e07ac3c4387dc83a",
+    "title": "Actionwave: A Systematic Benchmark for Waveform-Centric Clinical Prediction Across Care Scenarios",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduced Actionwave, a systematic benchmark for waveform-centric clinical prediction across intensive-care, operating-room, and emergency-department settings. The benchmark evaluates diverse architectures and pretrained biosignal encoders across 20 tasks and 1.4 million task-labelled windows, accounting for over 87,000 model fits. The findings demonstrate how model performance depends on signal duration, warning time, and available inputs, emphasizing the need for strict evaluation controls in clinical AI.",
+    "summary_status": "generated",
+    "content_fingerprint": "34be8d1322565cc5",
+    "url": "https://arxiv.org/abs/2611.31249",
+    "date": "2026-11-25T05:00:00+00:00",
+    "category": "Benchmark",
+    "fetched_at": "2026-11-25T17:50:25.974694+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Actionwave was introduced as a systematic benchmark for waveform-centric clinical prediction across intensive-care, operating-room, and emergency-department settings.",
+      "The study evaluates diverse architectures and biosignal encoders across 87,000 model fits, revealing how signal duration, warning time, and controls impact performance.",
+      "Clinical AI researchers, healthcare institutions, and developers of biosignal foundation models are affected by these findings."
+    ],
+    "tags": [
+      "Actionwave",
+      "Clinical Prediction",
+      "Biosignal Encoders",
+      "Healthcare AI",
+      "Benchmark"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.31249",
+        "title": "Actionwave: A Systematic Benchmark for Waveform-Centric Clinical Prediction Across Care Scenarios",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "eaa68ee5819fbd46",
+    "title": "Chain-of-Thought Is Not Explainability",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This position paper argues that chain-of-thought (CoT) rationales generated by language models are frequently unfaithful to the underlying hidden computations and are insufficient for trustworthy interpretability. An analysis of 1,000 recent CoT-centric papers reveals that 21.7% explicitly treat CoT as a load-bearing interpretability technique, including applications in high-stakes domains like medicine, law, and autonomous systems. The authors propose avoiding treating CoT as sufficient for interpretability without verification, adopting rigorous faithfulness assessments, and reporting these evaluations alongside interpretability claims.",
+    "summary_status": "generated",
+    "content_fingerprint": "236e980585d95335",
+    "url": "https://arxiv.org/abs/2611.31271",
+    "date": "2026-11-25T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-25T17:50:25.974813+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers analyzed 1,000 recent CoT-centric papers and found that 21.7% treat chain-of-thought as a load-bearing interpretability technique despite verbalized chains often diverging from actual hidden computations.",
+      "Relying on unfaithful rationales for high-stakes decision-making creates safety risks and undermines trustworthiness in sensitive domains.",
+      "Developers, researchers, and practitioners relying on language models for high-stakes domains such as medicine, law, and autonomous systems are affected."
+    ],
+    "tags": [
+      "Chain-of-Thought",
+      "Interpretability",
+      "Language Models",
+      "Research"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.31271",
+        "title": "Chain-of-Thought Is Not Explainability",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "0773c77330033c67",
+    "title": "Hidden Clues in WM-811K: Uncovering the Spatial Signals Behind Wafer Map Prediction",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.31292v1 Announce Type: new Abstract: WM-811K (also known as LSWMD) is a wafer map dataset first made publicly available in a 2015 paper by Wu et al. Convolutional neural networks have…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.31292",
+    "date": "2026-11-25T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-25T17:50:25.974932+00:00",
+    "topics": [
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.31292",
+        "title": "Hidden Clues in WM-811K: Uncovering the Spatial Signals Behind Wafer Map Prediction",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Researchers analyzed the spatial signals and underlying patterns within the WM-811K (LSWMD) wafer map dataset.",
+      "The findings provide insights into how convolutional neural networks perform wafer map prediction and defect classification.",
+      "Semiconductor manufacturers and computer vision researchers working on automated defect detection are directly affected."
+    ]
+  },
+  {
+    "id": "bbc8295d58933e1d",
+    "title": "Conformalized Tree-Based Gradient Ensembles for Out-of-Distribution Detection and Plausible Recourse",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.31319v1 Announce Type: new Abstract: Counterfactual recourse provides actionable feature adjustments that reverse unfavourable predictions made by automated decision models. However, when…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.31319",
+    "date": "2026-11-25T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-25T17:50:25.975010+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.31319",
+        "title": "Conformalized Tree-Based Gradient Ensembles for Out-of-Distribution Detection and Plausible Recourse",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "3ddc9ec5b82cb2b5",
+    "title": "Layer-Readout Interfaces in EEG Foundation Models: Predictive Accessibility and Cross-Dataset Transfer",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This research investigates layer-readout interfaces in EEG foundation models by analyzing intermediate versus final layer representations across multiple models and tasks. The findings demonstrate that while improved final-layer readouts recover performance, intermediate layers still provide advantages as frozen feature extractors, and selected layers successfully transfer across datasets. This enables a reusable feature interface that reduces target-side layer search requirements while outperforming final-layer baselines.",
+    "summary_status": "generated",
+    "content_fingerprint": "eaa8c3621d84a3b4",
+    "url": "https://arxiv.org/abs/2611.31320",
+    "date": "2026-11-25T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-25T17:50:25.975056+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers evaluated EEG foundation models across five architectures and three tasks to determine the predictive utility of intermediate versus final layers.",
+      "The study proves that source-selected layers function as a reusable feature interface across datasets, reducing the need for target-side layer searching.",
+      "AI researchers and developers working with EEG foundation models and neural signal processing benefit from these cross-dataset transfer techniques."
+    ],
+    "tags": [
+      "EEG Foundation Models",
+      "Representation Learning",
+      "Transfer Learning",
+      "Neural Signals"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.31320",
+        "title": "Layer-Readout Interfaces in EEG Foundation Models: Predictive Accessibility and Cross-Dataset Transfer",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "1988713d9412ba2e",
+    "title": "Flagging Batch Shift in Flow Cytometry using Jeffreys Divergence between Gaussian Mixtures",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers propose a model-agnostic criterion for predicting reliability in clinical flow cytometry by measuring the Jeffreys divergence between Gaussian mixture models of patient samples and training data reference distributions. Evaluated on acute myeloid leukaemia cohorts predicting NPM1 mutation status, the method successfully identifies shifted cohorts and flags unreliable predictions with a rejection threshold. This divergence-based abstention framework helps mitigate the risks of unannounced batch shifts during routine clinical machine learning deployment.",
+    "summary_status": "generated",
+    "content_fingerprint": "007b74abd9c38cdd",
+    "url": "https://arxiv.org/abs/2611.31321",
+    "date": "2026-11-25T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-25T17:50:25.975179+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "A model-agnostic criterion using Jeffreys divergence between Gaussian mixture models and Monte Carlo integration was proposed to detect batch shift in clinical flow cytometry.",
+      "The method successfully identifies acquisition cohort structures and isolates unreliable predictions, yielding a misclassification rate 2.5 times higher in rejected samples than retained ones.",
+      "Clinical machine learning practitioners, healthcare institutions, and developers of diagnostic abstention frameworks dealing with acute myeloid leukaemia and flow cytometry data are affected."
+    ],
+    "tags": [
+      "Flow Cytometry",
+      "Gaussian Mixture Models",
+      "Batch Shift",
+      "Clinical Diagnostics"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.31321",
+        "title": "Flagging Batch Shift in Flow Cytometry using Jeffreys Divergence between Gaussian Mixtures",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "5774fc73315fb6fd",
+    "title": "Fusion Gains Depend on the Implementation and the Calibration Target: An 18-Task Study of Prediction Intervals with a Single-Source Fallback",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This research evaluates four model fusion implementations against matched single-source learners across 18 regression tasks focused on prediction intervals. The study demonstrates that linear stacking and development-set selectors with fallbacks can improve interval scores, though implementation choices and calibration targets significantly impact the outcomes. The findings highlight the importance of comparing matched candidates on held-out data and reporting selector failure rates alongside average gains.",
+    "summary_status": "generated",
+    "content_fingerprint": "319d65de2dd5884c",
+    "url": "https://arxiv.org/abs/2611.31333",
+    "date": "2026-11-25T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-25T17:50:25.975284+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers evaluated four model fusion implementations against matched single-source learners across 18 regression tasks with prediction intervals.",
+      "Linear stacking improved interval scores by 6.0% against single-source models without a second stage, while development-set selectors with fallbacks improved task-averaged scores by 2.2-6.3%.",
+      "Machine learning researchers and practitioners developing multi-source prediction interval models are affected by these findings on implementation sensitivity and calibration targets."
+    ],
+    "tags": [
+      "Model Fusion",
+      "Regression Tasks",
+      "Prediction Intervals",
+      "Calibration"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.31333",
+        "title": "Fusion Gains Depend on the Implementation and the Calibration Target: An 18-Task Study of Prediction Intervals with a Single-Source Fallback",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "6d4fb1088d1d071c",
+    "title": "GHC:Expanding Residual Interfaces in Hyper-Connections",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.31350v1 Announce Type: new Abstract: Hyper-Connections expand residual capacity across parallel streams, yet restrict every branch to narrow read and write interfaces: each branch still…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.31350",
+    "date": "2026-11-25T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-25T17:50:25.975386+00:00",
+    "topics": [
+      "Research and Breakthroughs"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.31350",
+        "title": "GHC:Expanding Residual Interfaces in Hyper-Connections",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ],
+    "key_points": [
+      "Proposed GHC to expand residual interfaces within hyper-connections.",
+      "Overcomes limitations where parallel streams are restricted to narrow read and write branches.",
+      "Researchers and practitioners developing advanced neural network architectures with parallel stream designs."
+    ]
+  },
+  {
+    "id": "8d2991894aeda713",
+    "title": "Detecting Harmful Short Videos in Toxic Diet Culture: A Governance-Ready Evidence Framework with Sparse Autoencoders",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "[Automated summary unavailable] arXiv:2611.31354v1 Announce Type: new Abstract: Algorithmic content moderation is increasingly important for governing short-form video content, yet harmful-content detection research focuses…",
+    "summary_status": "publisher_excerpt",
+    "content_fingerprint": "",
+    "url": "https://arxiv.org/abs/2611.31354",
+    "date": "2026-11-25T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-25T17:50:25.975435+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Policy and Regulation",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.31354",
+        "title": "Detecting Harmful Short Videos in Toxic Diet Culture: A Governance-Ready Evidence Framework with Sparse Autoencoders",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "df3be113c8aed13f",
+    "title": "Hill-climbing Inkling 2 Mini inference on one RTX PRO 6000",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "[Automated summary unavailable] Hill-climbing Inkling 2 Mini inference on one RTX PRO 6000",
+    "summary_status": "unavailable",
+    "content_fingerprint": "",
+    "url": "https://huggingface.co/blog/inkling-2-mini-inference-hillclimb",
+    "date": "2026-11-25T00:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-25T17:50:25.972614+00:00",
+    "topics": [
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/inkling-2-mini-inference-hillclimb",
+        "title": "Hill-climbing Inkling 2 Mini inference on one RTX PRO 6000",
+        "publisher": "Hugging Face"
+      }
+    ],
+    "key_points": [
+      "Hill-climbing Inkling 2 Mini inference was performed on a single RTX PRO 6000.",
+      "It demonstrates hardware compatibility and performance parameters for running the model locally.",
+      "Developers and hardware operators using RTX PRO 6000 GPUs are affected."
+    ]
+  },
+  {
     "id": "5e8eba5b15ac6044",
     "title": "Three LLM inflection points in twelve months",
     "company": "Simon Willison's Weblog",
@@ -218,15 +1227,17 @@
     "title": "GPT 6.2 Astra Solves a Historical Mystery",
     "company": "Simon Willison's Weblog",
     "source": "Simon Willison – AI",
-    "summary": "[Automated summary unavailable] GPT 6.2 Astra Solves a Historical Mystery Here's an interesting case-study in using GPT-6.2 Astra for historical research, from history professor Mark Humphries: With only minimal prompting, GPT-6.2…",
-    "summary_status": "pending_quota",
-    "content_fingerprint": "",
+    "summary": "History professor Mark Humphries used GPT-6.2 Astra to autonomously identify the creator of an anonymous 1808 sketchbook at Yale’s Beinecke Library in just 22 minutes. The AI model successfully discovered a rare archival reference pointing to the vicomte de Chabot, uncovering a major find for fur trade historians. This case study highlights the growing capability of agentic AI systems in conducting complex historical research.",
+    "summary_status": "generated",
+    "content_fingerprint": "1e2dee2a905d64bb",
     "url": "https://simonwillison.net/2026/Nov/24/astra-historical-mystery",
     "date": "2026-11-24T16:53:59+00:00",
-    "category": "Opinion",
-    "fetched_at": "2026-11-24T18:40:46.541491+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-25T17:50:25.975517+00:00",
     "topics": [
       "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
       "Applications and Products"
     ],
     "source_type": "Technical Publication",
@@ -242,10 +1253,17 @@
       }
     ],
     "key_points": [
-      "GPT-6.2 Astra was used by a history professor to solve a historical mystery with minimal prompting.",
-      "It demonstrates the practical utility of large language models for complex historical data analysis.",
-      "Researchers, historians, and academics utilizing AI tools for investigation are directly affected."
-    ]
+      "GPT-6.2 Astra autonomously identified the creator of an anonymous 1808 sketchbook at Yale’s Beinecke Library by analyzing public and archival sources within 22 minutes.",
+      "The AI predicted and located a rare diary reference confirming the sketchbook belonged to the vicomte de Chabot, representing a significant discovery for Canadian and fur trade historians.",
+      "History researchers and academic institutions utilizing AI-assisted archival search and agentic models are directly affected by these capabilities."
+    ],
+    "tags": [
+      "GPT-6.2 Astra",
+      "AI-assisted-search",
+      "Generative-AI",
+      "History"
+    ],
+    "impact_score": 6
   },
   {
     "id": "6a28e842b3bf4bfd",
@@ -409,6 +1427,45 @@
         "url": "https://www.technologyreview.com/2026/11/24/1149669/the-download-data-centers-gas-ai-consciousness",
         "title": "The Download: AI’s gas power boom",
         "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
+    "id": "616293296550946f",
+    "title": "From spectrum to structure: Identifying molecules with Mass Spec Skills for Google Antigravity",
+    "company": "Google DeepMind",
+    "source": "Google DeepMind Blog",
+    "summary": "Mass Spec Skills enables scientists utilizing Google Antigravity to interpret tandem mass spectra. The tool streamlines the identification of molecular structures from spectral data.",
+    "summary_status": "generated",
+    "content_fingerprint": "95c38060599baa4e",
+    "url": "https://deepmind.google/blog/interpreting-mass-spectra-with-google-antigravity",
+    "date": "2026-11-24T13:07:53+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-25T17:50:25.972351+00:00",
+    "topics": [
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Research Laboratory",
+    "priority_score": 4,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Mass Spec Skills was introduced for interpreting tandem mass spectra within Google Antigravity.",
+      "It automates and simplifies the complex process of identifying molecular structures from spectral data for researchers.",
+      "Scientists and researchers utilizing the Google Antigravity platform are directly affected by this integration."
+    ],
+    "tags": [
+      "Google Antigravity",
+      "Mass Spectrometry",
+      "Molecular Identification"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://deepmind.google/blog/interpreting-mass-spectra-with-google-antigravity",
+        "title": "From spectrum to structure: Identifying molecules with Mass Spec Skills for Google Antigravity",
+        "publisher": "Google DeepMind"
       }
     ]
   },
