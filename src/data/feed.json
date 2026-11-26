@@ -1,18 +1,101 @@
 [
   {
+    "id": "7dd97966d379cae1",
+    "title": "OpenCode v2.4.2",
+    "company": "OpenCode",
+    "source": "OpenCode Updates",
+    "summary": "OpenCode version 2.4.2 introduces system prompt updates for GPT-6.2 variants, refactors image and video generation tools into Code Mode to reduce token overhead, and improves automation resilience and session management. The release also includes upgrades to the TUI interface, permission handling for web fetches, and numerous bug fixes across MCP server sign-ins, Plan mode loops, and Windows path handling.",
+    "summary_status": "generated",
+    "content_fingerprint": "21bb5f833b1cba79",
+    "url": "https://github.com/anomalyco/opencode/releases/tag/v2.4.2",
+    "date": "2026-11-26T01:00:12+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-26T02:02:10.304110+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "OpenCode released version 2.4.2, adding GPT-6.2 system prompts, refactoring tool definitions into Code Mode, and updating automation behavior.",
+      "Token usage is optimized by moving generation tools out of top-level requests, and session handling is improved with features like unarchiving on send and subagent migration.",
+      "Developers and users utilizing the OpenCode platform and its TUI interface are directly affected by these workflow, performance, and bug fixes."
+    ],
+    "tags": [
+      "OpenCode",
+      "GPT-6.2",
+      "Developer Tools",
+      "Model Context Protocol"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://github.com/anomalyco/opencode/releases/tag/v2.4.2",
+        "title": "OpenCode v2.4.2",
+        "publisher": "OpenCode"
+      }
+    ]
+  },
+  {
+    "id": "88bd06d7e0e9b82f",
+    "title": "Where scientists draw the line on AI agents",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "Where scientists establish boundaries regarding the autonomy and capabilities of artificial intelligence agents in research and laboratory environments. It highlights the growing tension between leveraging advanced automation for discovery and maintaining rigorous human oversight to prevent unintended outcomes. The discussion emphasizes the technical and ethical considerations facing researchers who deploy autonomous systems in scientific workflows.",
+    "summary_status": "generated",
+    "content_fingerprint": "de13fcf92be396f1",
+    "url": "https://huggingface.co/blog/allenai/where-scientists-draw-the-line-on-ai-agents",
+    "date": "2026-11-25T18:52:55+00:00",
+    "category": "Opinion",
+    "fetched_at": "2026-11-26T02:02:10.302887+00:00",
+    "topics": [
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Scientists are actively debating the boundaries and operational limits of deploying autonomous AI agents in research settings.",
+      "Establishing clear ethical and technical boundaries prevents unintended experimental hazards and maintains rigorous oversight.",
+      "Scientific researchers, laboratory managers, and AI developers must navigate the balance between automation and human control."
+    ],
+    "tags": [
+      "AI Agents",
+      "Scientific Research",
+      "AI Safety",
+      "Automation"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/allenai/where-scientists-draw-the-line-on-ai-agents",
+        "title": "Where scientists draw the line on AI agents",
+        "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
     "id": "9dc01b6ea2baec9b",
     "title": "Etsy clarifies AI terms after seller backlash",
     "company": "Ars Technica",
     "source": "Ars Technica – AI",
-    "summary": "[Automated summary unavailable] After backlash from sellers frustrated by Etsy’s new AI policies, which appeared to allow the company to train AI on user artwork, Etsy has now clarified its stance. In a note published on Monday,…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "Etsy CEO Kruti Patel Goyal clarified the company's updated terms of service following seller backlash over perceived permissions to train AI on user artwork. Goyal stated that the updates were intended to support seller tools and explicitly denied that Etsy uses seller content to train AI models to create item copycats.",
+    "summary_status": "generated",
+    "content_fingerprint": "e0175486dac38797",
     "url": "https://arstechnica.com/tech-policy/2026/11/etsy-clarifies-ai-terms-after-seller-backlash",
     "date": "2026-11-25T17:12:57+00:00",
     "category": "News",
-    "fetched_at": "2026-11-25T17:50:25.972649+00:00",
+    "fetched_at": "2026-11-26T02:02:10.303124+00:00",
     "topics": [
-      "Applications and Products"
+      "Models and Releases"
     ],
     "source_type": "Independent Reporting",
     "priority_score": 0,
@@ -27,9 +110,59 @@
       }
     ],
     "key_points": [
-      "Etsy clarified its AI policies in a published note following seller backlash over art training rights.",
-      "The policy update resolves ambiguity regarding platform rights over creator-submitted content and intellectual property.",
-      "Etsy marketplace sellers and independent creators are directly affected by these terms of service clarifications."
+      "Etsy clarified its terms of service following backlash from sellers concerned about artificial intelligence training on their artwork.",
+      "The clarification explicitly guarantees that Etsy does not and will not train AI models to create copycat items based on seller content.",
+      "Etsy sellers and marketplace artisans are directly affected by these platform policy interpretations."
+    ],
+    "tags": [
+      "Etsy",
+      "Artificial Intelligence",
+      "Terms of Service",
+      "E-commerce"
+    ],
+    "impact_score": 5
+  },
+  {
+    "id": "bbd93c6708a57349",
+    "title": "How to choose the next safe step in application modernization",
+    "company": "GitHub",
+    "source": "GitHub AI & Copilot",
+    "summary": "This article outlines an evidence-first methodology for application modernization, emphasizing the creation of a concrete evidence inventory before selecting frameworks or making changes. It details a repeatable process applied to four public applications and shows how to encode this procedure into a GitHub Copilot agent skill.",
+    "summary_status": "generated",
+    "content_fingerprint": "93359983334ed68d",
+    "url": "https://github.blog/ai-and-ml/github-copilot/how-to-choose-the-next-safe-step-in-application-modernization",
+    "date": "2026-11-25T15:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-26T02:02:10.303060+00:00",
+    "topics": [
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Open Source",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "An evidence-first methodology was used to evaluate four public applications, establishing inventories of manifests, commands, runtime pins, external contracts, and dependencies before modernization.",
+      "The approach helps developers choose the least disruptive treatment per component—ranging from keeping or upgrading code to swapping dependencies or wrapping legacy systems—while preserving architectural judgment.",
+      "Software engineers, technical leads, and teams managing legacy monoliths or microservices are affected, as the process can be encoded into a GitHub Copilot agent skill."
+    ],
+    "tags": [
+      "Application Modernization",
+      "GitHub Copilot",
+      "Software Architecture",
+      "Legacy Systems"
+    ],
+    "impact_score": 4,
+    "sources": [
+      {
+        "url": "https://github.blog/ai-and-ml/github-copilot/how-to-choose-the-next-safe-step-in-application-modernization",
+        "title": "How to choose the next safe step in application modernization",
+        "publisher": "GitHub"
+      }
     ]
   },
   {
@@ -120,20 +253,22 @@
     "title": "An Indic Voice Agent with CUGA",
     "company": "Hugging Face",
     "source": "Hugging Face Blog",
-    "summary": "[Automated summary unavailable] An Indic Voice Agent with CUGA",
-    "summary_status": "unavailable",
-    "content_fingerprint": "",
+    "summary": "An Indic voice agent built using CUGA, enabling natural language spoken interactions across multiple Indian languages. This system integrates automatic speech recognition, translation, and text-to-speech pipelines tailored for regional linguistic nuances. It impacts developers and users working on localized conversational interfaces and multilingual AI applications in India.",
+    "summary_status": "generated",
+    "content_fingerprint": "ec470bba8e808798",
     "url": "https://huggingface.co/blog/ibm-research/an-indic-voice-agent-with-cuga",
     "date": "2026-11-25T10:22:09+00:00",
-    "category": "News",
-    "fetched_at": "2026-11-25T17:50:25.972581+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-26T02:02:10.302955+00:00",
     "topics": [
-      "AI Agents"
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Applications and Products"
     ],
     "source_type": "Technical Publication",
-    "priority_score": 0,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Relevant AI development",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
     "why_it_matters": "",
     "sources": [
       {
@@ -143,10 +278,17 @@
       }
     ],
     "key_points": [
-      "An Indic voice agent was developed using CUGA.",
-      "It enables voice-based interactions specifically for Indic languages.",
-      "Users and developers working with multilingual and Indic speech technologies are affected."
-    ]
+      "An Indic voice agent integrating CUGA has been released to support spoken interactions in multiple Indian languages.",
+      "It addresses regional linguistic diversity by combining speech recognition, translation, and text-to-speech for localized AI deployment.",
+      "Developers, regional businesses, and end-users interacting with multilingual conversational agents in India are directly affected."
+    ],
+    "tags": [
+      "Voice Agent",
+      "CUGA",
+      "Indic Languages",
+      "Conversational AI"
+    ],
+    "impact_score": 5
   },
   {
     "id": "1684673b3d07d7df",
@@ -236,21 +378,23 @@
     "title": "MOZAIC: An Audio-Video Deepfake Benchmark for Telling What Is Fake",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.AI (Artificial Intelligence)",
-    "summary": "[Automated summary unavailable] arXiv:2611.31301v1 Announce Type: new Abstract: Audio-video (AV) deepfakes can fake the face, the voice, or both. Most benchmarks only ask whether a clip is real or fake, so they cannot show whether…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "Researchers introduced MOZAIC, a paired audio-video deepfake benchmark containing 137,745 clips with four-way combinations of real and fake modalities to evaluate detector performance. Evaluations across 12 multimodal large language models and trained detectors revealed that while traditional detectors reach high binary accuracy, they struggle significantly with generalization on held-out generators and voice-only fakes. The authors released the full dataset, compact split, code, and prompts to support ongoing research into deepfake detection and explanation.",
+    "summary_status": "generated",
+    "content_fingerprint": "4d0e3b78f78918b3",
     "url": "https://arxiv.org/abs/2611.31301",
     "date": "2026-11-25T05:00:00+00:00",
-    "category": "Research",
-    "fetched_at": "2026-11-25T17:50:25.973754+00:00",
+    "category": "Benchmark",
+    "fetched_at": "2026-11-26T02:02:10.303525+00:00",
     "topics": [
+      "Models and Releases",
       "Coding and Developer Tools",
       "Research and Breakthroughs",
-      "Benchmarks and Evaluations"
+      "Benchmarks and Evaluations",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
-    "priority_score": 5,
-    "priority_label": "Deep Dive",
+    "priority_score": 3,
+    "priority_label": "Must Know",
     "priority_explanation": "Reports measured benchmark or evaluation results",
     "why_it_matters": "",
     "sources": [
@@ -261,30 +405,39 @@
       }
     ],
     "key_points": [
-      "MOZAIC, a new audio-video deepfake benchmark, was introduced to evaluate manipulation across face, voice, or both modalities.",
-      "It addresses the limitation of binary real-or-fake benchmarks by enabling granular identification of specific deepfake modalities.",
-      "Researchers, developers of audio-video forensics tools, and deepfake detection system evaluators are affected."
-    ]
+      "MOZAIC was released as a 137,745-clip paired audio-video deepfake benchmark featuring four-way modality labels and four distinct evaluation tasks.",
+      "Multimodal large language models and detectors showed severe performance gaps, catching far more video-only fakes than voice-only fakes and experiencing drops on held-out generators.",
+      "Audio-video deepfake detectors, multimodal LLM developers, and security researchers are directly affected by these generalization and explanation challenges."
+    ],
+    "tags": [
+      "MOZAIC",
+      "Deepfake Detection",
+      "Multimodal LLMs",
+      "Audio-Visual Benchmark"
+    ],
+    "impact_score": 7
   },
   {
     "id": "77050cf38aa17dde",
     "title": "Conservative Overlap Fuzzy Rough Sets for Incomplete Data",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.AI (Artificial Intelligence)",
-    "summary": "[Automated summary unavailable] arXiv:2611.31329v1 Announce Type: new Abstract: Attribute reduction in incomplete information systems is difficult because missing values break the equivalence-class structure of rough set theory.…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "The authors introduce the Conservative Overlap Fuzzy Rough Set (COFRS) model to perform attribute reduction on incomplete information systems without treating missing values as wildcards. Evaluations on 11 UCI datasets show that COFRS produces significantly more compact reducts than baseline methods, though it ranks lower in classification accuracy when paired with an RBF-SVM classifier. This research addresses challenges in handling missing data within rough set theory by penalizing missing values globally.",
+    "summary_status": "generated",
+    "content_fingerprint": "8346b03bc51c7f94",
     "url": "https://arxiv.org/abs/2611.31329",
     "date": "2026-11-25T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-25T17:50:25.973834+00:00",
+    "fetched_at": "2026-11-26T02:02:10.303586+00:00",
     "topics": [
-      "Research and Breakthroughs"
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
-    "priority_score": 2,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Original research or technical finding",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
     "why_it_matters": "",
     "sources": [
       {
@@ -294,10 +447,17 @@
       }
     ],
     "key_points": [
-      "Researchers developed conservative overlap fuzzy rough sets to perform attribute reduction on incomplete information systems.",
-      "The method resolves the limitation where missing values break standard equivalence-class structures in rough set theory.",
-      "Data scientists and researchers working with incomplete datasets and feature selection methodologies are directly affected."
-    ]
+      "Proposed the Conservative Overlap Fuzzy Rough Set (COFRS) model for attribute reduction in incomplete datasets with a greedy backward elimination complexity of O(|U|^2 |A|^2).",
+      "Achieved the smallest average reduct size of 4.1 attributes across 11 UCI benchmarks compared to baseline methods like Tolerance-RS and Zhou-RS.",
+      "Researchers and data scientists working with incomplete information systems and attribute selection will need to weigh the trade-off between model compactness and RBF-SVM classification accuracy."
+    ],
+    "tags": [
+      "Fuzzy Rough Sets",
+      "Attribute Reduction",
+      "Incomplete Data",
+      "Machine Learning"
+    ],
+    "impact_score": 5
   },
   {
     "id": "6fc08516e3b37e32",
@@ -439,21 +599,23 @@
     "title": "ContextLure: Exploiting Benign Conversation History for Indirect Prompt Injection",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.AI (Artificial Intelligence)",
-    "summary": "[Automated summary unavailable] arXiv:2611.31424v1 Announce Type: new Abstract: As LLMs become more capable, agents can perform more complex tasks with tools and maintain longer interactions with users. These benign conversations…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "Researchers introduce ContextLure, a red-teaming framework that exploits benign conversation history to construct indirect prompt injections without prior conversation poisoning. The framework selects evidence using user and system preference dimensions and translates it into malicious requests via an urgency and priority matrix. Evaluations demonstrate a 67.4% attack success rate on AgentDojo and 87.3% on InjecAgent.",
+    "summary_status": "generated",
+    "content_fingerprint": "f99b55b7704ab8f3",
     "url": "https://arxiv.org/abs/2611.31424",
     "date": "2026-11-25T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-25T17:50:25.974209+00:00",
+    "fetched_at": "2026-11-26T02:02:10.303650+00:00",
     "topics": [
       "AI Agents",
-      "Research and Breakthroughs"
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
-    "priority_score": 2,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Original research or technical finding",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
     "why_it_matters": "",
     "sources": [
       {
@@ -463,10 +625,18 @@
       }
     ],
     "key_points": [
-      "ContextLure was introduced to exploit benign conversation history for indirect prompt injection attacks against LLMs.",
-      "The finding highlights a security vector in long-horizon agent interactions and tool usage.",
-      "AI developers, security researchers, and builders of LLM-based autonomous agents are affected."
-    ]
+      "ContextLure was introduced as a red-teaming framework that extracts evidence from benign LLM conversations to build indirect prompt injections.",
+      "The method demonstrates that attackers can leverage historical conversation context to achieve high attack success rates (67.4% on AgentDojo and 87.3% on InjecAgent) without poisoning prior turns.",
+      "LLM agent developers and security researchers working on multi-turn agent safety are affected by these findings."
+    ],
+    "tags": [
+      "Indirect Prompt Injection",
+      "LLM Security",
+      "AgentDojo",
+      "InjecAgent",
+      "Red Teaming"
+    ],
+    "impact_score": 7
   },
   {
     "id": "27454ecd3dc1f870",
@@ -517,18 +687,20 @@
     "title": "Taxi: Analyzing Agents at (Real) Scale",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.AI (Artificial Intelligence)",
-    "summary": "[Automated summary unavailable] arXiv:2611.31457v1 Announce Type: new Abstract: In this technical report, we present Taxi -- a system for debugging, clustering, and monitoring agents at scale. Taxi scales to millions of steps…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "Researchers introduce Taxi, a system designed for debugging, clustering, and monitoring AI agents at scale across millions of steps. The platform combines step clustering for structured taxonomies, full SQL access for engineers and automated agents, and experimental decision models for semantic routing. Taxi provides an extensible ecosystem with built-in evaluators and daily reports to support modular agent monitoring workflows.",
+    "summary_status": "generated",
+    "content_fingerprint": "ab36ab91dfaab5a1",
     "url": "https://arxiv.org/abs/2611.31457",
     "date": "2026-11-25T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-25T17:50:25.974380+00:00",
+    "fetched_at": "2026-11-26T02:02:10.303713+00:00",
     "topics": [
+      "Models and Releases",
       "AI Agents",
       "Coding and Developer Tools",
-      "Research and Breakthroughs",
-      "Infrastructure and Hardware"
+      "Benchmarks and Evaluations",
+      "Infrastructure and Hardware",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 2,
@@ -543,10 +715,18 @@
       }
     ],
     "key_points": [
-      "Taxi was released as a system for debugging, clustering, and monitoring AI agents at a scale of millions of steps.",
-      "It addresses critical observability and troubleshooting challenges for large-scale agent deployments.",
-      "AI developers and engineers building complex autonomous agent systems are directly affected."
-    ]
+      "Taxi was released as a system for debugging, clustering, and monitoring AI agents at scale across millions of steps.",
+      "It enables hybrid pipelines combining clustering taxonomies with full SQL access and Jev-style decision models for semantic routing.",
+      "AI engineers and development teams building or monitoring complex agent workflows are directly affected."
+    ],
+    "tags": [
+      "AI Agents",
+      "Agent Debugging",
+      "Monitoring",
+      "Clustering",
+      "SQL"
+    ],
+    "impact_score": 6
   },
   {
     "id": "b77f0e482deef83a",
@@ -724,20 +904,22 @@
     "title": "Hidden Clues in WM-811K: Uncovering the Spatial Signals Behind Wafer Map Prediction",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.31292v1 Announce Type: new Abstract: WM-811K (also known as LSWMD) is a wafer map dataset first made publicly available in a 2015 paper by Wu et al. Convolutional neural networks have…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "This research analyzes the structural performance drivers of the WM-811K wafer map dataset using convolutional neural networks across four dataset variations. The findings demonstrate that predictive accuracy stems from multiple information levels, including layout, failure counts, radial distribution, and exact two-dimensional locations, rather than solely from exact defect configurations. This investigation provides deeper interpretability for a widely used semiconductor manufacturing defect classification benchmark.",
+    "summary_status": "generated",
+    "content_fingerprint": "bb415426e70eb0af",
     "url": "https://arxiv.org/abs/2611.31292",
     "date": "2026-11-25T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-25T17:50:25.974932+00:00",
+    "fetched_at": "2026-11-26T02:02:10.303761+00:00",
     "topics": [
-      "Research and Breakthroughs"
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
-    "priority_score": 2,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Original research or technical finding",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
     "why_it_matters": "",
     "sources": [
       {
@@ -747,33 +929,40 @@
       }
     ],
     "key_points": [
-      "Researchers analyzed the spatial signals and underlying patterns within the WM-811K (LSWMD) wafer map dataset.",
-      "The findings provide insights into how convolutional neural networks perform wafer map prediction and defect classification.",
-      "Semiconductor manufacturers and computer vision researchers working on automated defect detection are directly affected."
-    ]
+      "Researchers evaluated the WM-811K wafer map dataset using four distinct data variations to measure feature contribution to convolutional neural network performance.",
+      "The analysis proves that classification accuracy relies on multiple spatial factors like layout, failure count, and radial distribution, preventing false attribution of model success entirely to defect configurations.",
+      "Semiconductor manufacturing researchers and computer vision engineers utilizing industrial defect classification benchmarks are affected by these findings."
+    ],
+    "tags": [
+      "WM-811K",
+      "Semiconductor Manufacturing",
+      "Convolutional Neural Networks",
+      "Defect Classification"
+    ],
+    "impact_score": 5
   },
   {
     "id": "bbc8295d58933e1d",
     "title": "Conformalized Tree-Based Gradient Ensembles for Out-of-Distribution Detection and Plausible Recourse",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.31319v1 Announce Type: new Abstract: Counterfactual recourse provides actionable feature adjustments that reverse unfavourable predictions made by automated decision models. However, when…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "This research paper introduces conformalized out-of-distribution gating coupled with actionability-constrained counterfactual search for gradient-boosted decision trees to prevent Goodhart's law exploitation. Evaluated on the Adult and Give Me Some Credit tabular benchmarks, the proposed gate_ALL method significantly reduces out-of-distribution flags at the expense of increased recourse cost and reduced feasibility. The findings formally quantify the underlying trade-offs between cost, feasibility, and manifold plausibility in automated decision models.",
+    "summary_status": "generated",
+    "content_fingerprint": "c1f04849ae9609b1",
     "url": "https://arxiv.org/abs/2611.31319",
     "date": "2026-11-25T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-25T17:50:25.975010+00:00",
+    "fetched_at": "2026-11-26T02:02:10.303829+00:00",
     "topics": [
       "Models and Releases",
-      "Coding and Developer Tools",
       "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
       "Applications and Products"
     ],
     "source_type": "Research or Preprint",
-    "priority_score": 2,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Original research or technical finding",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
     "why_it_matters": "",
     "sources": [
       {
@@ -781,7 +970,20 @@
         "title": "Conformalized Tree-Based Gradient Ensembles for Out-of-Distribution Detection and Plausible Recourse",
         "publisher": "arXiv (Cornell University)"
       }
-    ]
+    ],
+    "key_points": [
+      "Researchers studied conformalized out-of-distribution gating combined with actionability-constrained counterfactual search across gradient-boosted decision trees on the Adult and Give Me Some Credit tabular benchmarks.",
+      "The method successfully reduces out-of-distribution generation artifacts, demonstrating a clear formal trade-off between increased recourse cost, reduced overall feasibility, and improved manifold plausibility.",
+      "Machine learning practitioners and developers building high-stakes automated decision systems on tabular data are directly affected."
+    ],
+    "tags": [
+      "Counterfactual Recourse",
+      "Gradient-Boosted Decision Trees",
+      "Out-of-Distribution Detection",
+      "Tabular Data",
+      "Goodhart's Law"
+    ],
+    "impact_score": 5
   },
   {
     "id": "3ddc9ec5b82cb2b5",
@@ -916,15 +1118,18 @@
     "title": "GHC:Expanding Residual Interfaces in Hyper-Connections",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.31350v1 Announce Type: new Abstract: Hyper-Connections expand residual capacity across parallel streams, yet restrict every branch to narrow read and write interfaces: each branch still…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "Researchers introduce Grouped Hyper-Connections (GHC), a method that partitions network branches into parallel groups along attention heads or FFN channels to expand residual interfaces. Experiments demonstrate that GHC increases training efficiency by 35% over Pre-Norm and 10% over Identity Hyper-Connections while maintaining negligible overhead. This approach overcomes the diminishing returns of adding streams in dense and Mixture-of-Experts models.",
+    "summary_status": "generated",
+    "content_fingerprint": "4c38db5c63666912",
     "url": "https://arxiv.org/abs/2611.31350",
     "date": "2026-11-25T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-25T17:50:25.975386+00:00",
+    "fetched_at": "2026-11-26T02:02:10.303901+00:00",
     "topics": [
-      "Research and Breakthroughs"
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Applications and Products"
     ],
     "source_type": "Research or Preprint",
     "priority_score": 2,
@@ -939,33 +1144,42 @@
       }
     ],
     "key_points": [
-      "Proposed GHC to expand residual interfaces within hyper-connections.",
-      "Overcomes limitations where parallel streams are restricted to narrow read and write branches.",
-      "Researchers and practitioners developing advanced neural network architectures with parallel stream designs."
-    ]
+      "Grouped Hyper-Connections (GHC) partition branch interfaces to supply distinct stream mixtures and aggregate outputs with learned weights.",
+      "The method improves training efficiency by 35% over Pre-Norm and 10% over Identity Hyper-Connections with minimal parameter overhead.",
+      "Developers and researchers training dense and Mixture-of-Experts models benefit from scalable residual states that avoid diminishing returns."
+    ],
+    "tags": [
+      "Hyper-Connections",
+      "Mixture-of-Experts",
+      "Neural Network Architecture",
+      "Training Efficiency"
+    ],
+    "impact_score": 7
   },
   {
     "id": "8d2991894aeda713",
     "title": "Detecting Harmful Short Videos in Toxic Diet Culture: A Governance-Ready Evidence Framework with Sparse Autoencoders",
     "company": "arXiv (Cornell University)",
     "source": "arXiv cs.LG (Machine Learning)",
-    "summary": "[Automated summary unavailable] arXiv:2611.31354v1 Announce Type: new Abstract: Algorithmic content moderation is increasingly important for governing short-form video content, yet harmful-content detection research focuses…",
-    "summary_status": "publisher_excerpt",
-    "content_fingerprint": "",
+    "summary": "Researchers introduce the Sparse Autoencoder-based Policy-Aligned Contrastive Evidence (SPACE) framework to address the governance challenges of algorithmic content moderation in toxic diet culture short videos. Operating on a pretrained SAE feature space derived from a large multimodal model, SPACE uses a global relevance gate and linear evidence head to achieve a 0.8507 Macro F1 score on TikTok data. The framework provides decision-linked evidence, localizes harmful segments, and aligns outputs with platform policies to assist moderation review.",
+    "summary_status": "generated",
+    "content_fingerprint": "d5c4da8d5ca183f1",
     "url": "https://arxiv.org/abs/2611.31354",
     "date": "2026-11-25T05:00:00+00:00",
     "category": "Research",
-    "fetched_at": "2026-11-25T17:50:25.975435+00:00",
+    "fetched_at": "2026-11-26T02:02:10.303955+00:00",
     "topics": [
+      "Models and Releases",
       "Coding and Developer Tools",
       "Research and Breakthroughs",
       "Policy and Regulation",
+      "Infrastructure and Hardware",
       "Applications and Products"
     ],
     "source_type": "Research or Preprint",
-    "priority_score": 2,
-    "priority_label": "Worth a Look",
-    "priority_explanation": "Original research or technical finding",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
     "why_it_matters": "",
     "sources": [
       {
@@ -973,27 +1187,41 @@
         "title": "Detecting Harmful Short Videos in Toxic Diet Culture: A Governance-Ready Evidence Framework with Sparse Autoencoders",
         "publisher": "arXiv (Cornell University)"
       }
-    ]
+    ],
+    "key_points": [
+      "The SPACE framework was developed using Sparse Autoencoders to generate governance-ready evidence for toxic diet culture content moderation.",
+      "It achieves a Macro F1 score of 0.8507 on 3,711 labeled TikTok videos while localizing harmful spans and aligning outputs with platform policies.",
+      "Trust and safety teams, content moderators, and platform developers are affected by this framework for auditing and justifying moderation decisions."
+    ],
+    "tags": [
+      "Content Moderation",
+      "Sparse Autoencoders",
+      "Multimodal Models",
+      "TikTok",
+      "AI Governance"
+    ],
+    "impact_score": 7
   },
   {
     "id": "df3be113c8aed13f",
     "title": "Hill-climbing Inkling 2 Mini inference on one RTX PRO 6000",
     "company": "Hugging Face",
     "source": "Hugging Face Blog",
-    "summary": "[Automated summary unavailable] Hill-climbing Inkling 2 Mini inference on one RTX PRO 6000",
-    "summary_status": "unavailable",
-    "content_fingerprint": "",
+    "summary": "The Inkling 2 Mini model was successfully executed using hill-climbing inference methods on a single RTX PRO 6000 hardware configuration. This deployment demonstrates the feasibility of running specialized mini models locally on workstation-class graphics hardware.",
+    "summary_status": "generated",
+    "content_fingerprint": "a723e3160fd87b4f",
     "url": "https://huggingface.co/blog/inkling-2-mini-inference-hillclimb",
     "date": "2026-11-25T00:00:00+00:00",
-    "category": "News",
-    "fetched_at": "2026-11-25T17:50:25.972614+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-26T02:02:10.303013+00:00",
     "topics": [
+      "Models and Releases",
       "Infrastructure and Hardware"
     ],
     "source_type": "Technical Publication",
-    "priority_score": 0,
+    "priority_score": 2,
     "priority_label": "Worth a Look",
-    "priority_explanation": "Relevant AI development",
+    "priority_explanation": "Original research or technical finding",
     "why_it_matters": "",
     "sources": [
       {
@@ -1003,10 +1231,17 @@
       }
     ],
     "key_points": [
-      "Hill-climbing Inkling 2 Mini inference was performed on a single RTX PRO 6000.",
-      "It demonstrates hardware compatibility and performance parameters for running the model locally.",
-      "Developers and hardware operators using RTX PRO 6000 GPUs are affected."
-    ]
+      "Hill-climbing inference for Inkling 2 Mini was implemented on a single RTX PRO 6000 GPU.",
+      "It demonstrates efficient local execution of compact AI models on workstation hardware.",
+      "Developers and researchers utilizing local workstation setups for model inference are affected."
+    ],
+    "tags": [
+      "Inkling 2 Mini",
+      "RTX PRO 6000",
+      "Inference",
+      "Hardware"
+    ],
+    "impact_score": 4
   },
   {
     "id": "5e8eba5b15ac6044",
@@ -5346,6 +5581,46 @@
         "url": "https://huggingface.co/blog/inkling2mini",
         "title": "Welcome Inkling 2 Mini, Cutting-edge Performance for your Local Setup",
         "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
+    "id": "e4a1155f01dc6f57",
+    "title": "Manage Liquid-Cooled AI Factories with NVIDIA Mission Control",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "NVIDIA introduced Mission Control to manage liquid-cooled AI factories like the NVIDIA Vera Rubin NVL72 architecture. The system coordinates compute, power, and cooling operations to handle tasks such as leak responses, workload shutdowns, and node isolation. It bridges the historical operational gap between IT compute domains and facility infrastructure.",
+    "summary_status": "generated",
+    "content_fingerprint": "d9b0801a6805b094",
+    "url": "https://developer.nvidia.com/blog/manage-liquid-cooled-ai-factories-with-nvidia-mission-control",
+    "date": "2026-11-19T22:02:30+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-26T02:02:10.304054+00:00",
+    "topics": [
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "NVIDIA launched Mission Control to orchestrate compute, power, and cooling systems in liquid-cooled AI factories.",
+      "It addresses the operational challenge of bridging separately managed IT compute and facility infrastructure domains during events like leak responses.",
+      "Data center operators and facility teams managing high-density hardware like the NVIDIA Vera Rubin NVL72 are affected."
+    ],
+    "tags": [
+      "NVIDIA",
+      "Liquid Cooling",
+      "AI Infrastructure",
+      "Data Center"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://developer.nvidia.com/blog/manage-liquid-cooled-ai-factories-with-nvidia-mission-control",
+        "title": "Manage Liquid-Cooled AI Factories with NVIDIA Mission Control",
+        "publisher": "NVIDIA"
       }
     ]
   },
