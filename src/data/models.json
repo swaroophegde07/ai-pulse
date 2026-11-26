@@ -217,8 +217,8 @@
     "api_available": true,
     "consumer_available": false,
     "pricing": {
-      "input_per_1m": 0.3,
-      "output_per_1m": 1.2,
+      "input_per_1m": 0.15,
+      "output_per_1m": 0.6,
       "unit": "USD"
     },
     "documentation_url": "https://openrouter.ai/deepseek/deepseek-v4.1-flash-1017",
@@ -315,8 +315,8 @@
     "api_available": true,
     "consumer_available": false,
     "pricing": {
-      "input_per_1m": 0.06,
-      "output_per_1m": 0.18,
+      "input_per_1m": 0.0456,
+      "output_per_1m": 0.3,
       "unit": "USD"
     },
     "documentation_url": "https://openrouter.ai/deepseek/deepseek-v4-flash-0731",
@@ -447,8 +447,8 @@
     "api_available": true,
     "consumer_available": false,
     "pricing": {
-      "input_per_1m": 0.14,
-      "output_per_1m": 0.42,
+      "input_per_1m": 0.0507,
+      "output_per_1m": 0.2028,
       "unit": "USD"
     },
     "documentation_url": "https://openrouter.ai/deepseek/deepseek-v4.1-flash",
@@ -777,16 +777,16 @@
     "api_available": true,
     "consumer_available": false,
     "pricing": {
-      "input_per_1m": 0.035,
-      "output_per_1m": 1.5,
+      "input_per_1m": 0.06,
+      "output_per_1m": 1.96,
       "unit": "USD"
     },
     "documentation_url": "https://openrouter.ai/qwen/qwen3.8-27b",
     "source_url": "https://openrouter.ai/qwen/qwen3.8-27b",
-    "last_verified": "2026-11-25",
+    "last_verified": "2026-11-26",
     "verification_sources": {
-      "telemetry": "OpenRouter (2026-11-25)",
-      "pricing": "OpenRouter (2026-11-25)"
+      "telemetry": "OpenRouter (2026-11-26)",
+      "pricing": "OpenRouter (2026-11-26)"
     },
     "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
     "is_featured_frontier": false
@@ -1140,8 +1140,8 @@
     "api_available": true,
     "consumer_available": false,
     "pricing": {
-      "input_per_1m": 0.8882,
-      "output_per_1m": 1.5082,
+      "input_per_1m": 0.7894,
+      "output_per_1m": 1.5699,
       "unit": "USD"
     },
     "documentation_url": "https://openrouter.ai/deepseek/deepseek-v4-pro",

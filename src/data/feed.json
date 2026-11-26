@@ -1,5 +1,988 @@
 [
   {
+    "id": "dbe542754cd16121",
+    "title": "Quoting Jack Despain Zhou",
+    "company": "Simon Willison's Weblog",
+    "source": "Simon Willison – AI",
+    "summary": "Jack Despain Zhou observes that generative artificial intelligence, specifically mentioning Anthropic's Claude, is causing widespread de-individualization across digital media, presentations, and professional communications. The ubiquity of AI-generated content has led to noticeable homogenization in videos, conference talks, and emails from otherwise reputable individuals and institutions.",
+    "summary_status": "generated",
+    "content_fingerprint": "53943b9f23f40889",
+    "url": "https://simonwillison.net/2026/Nov/26/jack-despain-zhou",
+    "date": "2026-11-26T15:09:31+00:00",
+    "category": "Opinion",
+    "fetched_at": "2026-11-26T17:33:36.935032+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Jack Despain Zhou highlighted the pervasive use of Claude resulting in widespread de-individualization across digital content, emails, and presentations.",
+      "This homogenization threatens the authenticity and distinct voices of serious professionals and institutions relying on generative tools.",
+      "Writers, creators, professionals, and audiences consuming digital media or academic pitches are affected by the rise of homogenized AI text."
+    ],
+    "tags": [
+      "Claude",
+      "Generative AI",
+      "LLMs",
+      "AI Misuse"
+    ],
+    "impact_score": 3,
+    "sources": [
+      {
+        "url": "https://simonwillison.net/2026/Nov/26/jack-despain-zhou",
+        "title": "Quoting Jack Despain Zhou",
+        "publisher": "Simon Willison's Weblog"
+      }
+    ]
+  },
+  {
+    "id": "a734da9d3a1d8760",
+    "title": "Introducing the llama.cpp benchmark dashboard for AMD Ryzen and Radeon",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "A new benchmark dashboard has been introduced for llama.cpp targeting AMD Ryzen processors and Radeon graphics cards. The tool provides performance metrics and comparative evaluation data for running large language models locally on AMD hardware.",
+    "summary_status": "generated",
+    "content_fingerprint": "abbe1cf891414fec",
+    "url": "https://huggingface.co/blog/ggml-org/llamacpp-amd-bench",
+    "date": "2026-11-26T11:37:17+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-26T17:33:36.932124+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 6,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "A performance benchmark dashboard for running llama.cpp on AMD Ryzen and Radeon hardware has been launched.",
+      "It enables developers and users to evaluate local inference speeds and hardware efficiency across different AMD processors and GPUs.",
+      "Developers and hardware enthusiasts running local large language models on AMD systems are directly affected."
+    ],
+    "tags": [
+      "llama.cpp",
+      "AMD Ryzen",
+      "AMD Radeon",
+      "Hardware Benchmarks"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/ggml-org/llamacpp-amd-bench",
+        "title": "Introducing the llama.cpp benchmark dashboard for AMD Ryzen and Radeon",
+        "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
+    "id": "3d2697b636d74b83",
+    "title": "Building on Nemotron 3.5 Parse: Open Data, Fine-Tuning, and Faster Inference",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "Nvidia released updates for Nemotron 3.5 Parse focusing on open data, fine-tuning methodologies, and inference acceleration. The release provides developers with tools to customize and deploy the document parsing model more efficiently.",
+    "summary_status": "generated",
+    "content_fingerprint": "a91f81098e15adce",
+    "url": "https://huggingface.co/blog/nvidia/building-on-nemotron-35-parse-open-data-fine-tunin",
+    "date": "2026-11-26T05:05:36+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-26T17:33:36.932197+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Infrastructure and Hardware"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "Nvidia released open data and optimization methods for Nemotron 3.5 Parse, enabling faster inference and fine-tuning.",
+      "The improvements allow developers to better customize document parsing capabilities for specific domain requirements and reduce operational latency.",
+      "Developers, enterprises, and AI practitioners deploying document processing and parsing pipelines are directly affected."
+    ],
+    "tags": [
+      "Nvidia",
+      "Nemotron",
+      "Fine-Tuning",
+      "Open Data",
+      "Document Parsing"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/nvidia/building-on-nemotron-35-parse-open-data-fine-tunin",
+        "title": "Building on Nemotron 3.5 Parse: Open Data, Fine-Tuning, and Faster Inference",
+        "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
+    "id": "bb9da84a9c3c24b4",
+    "title": "Context Scaling: A New Frontier of AI Scaling",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This research paper introduces context scaling as a new paradigm to address deployment failures caused by mismatches between task state and available model context. The authors formalize context infrastructure alongside training and decision-time budgets, proposing a five-operation lifecycle and evaluation framework for persistent AI systems.",
+    "summary_status": "generated",
+    "content_fingerprint": "b73080ceb51eb391",
+    "url": "https://arxiv.org/abs/2611.33160",
+    "date": "2026-11-26T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-26T17:33:36.933073+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "The authors framed context scaling as an effort to reduce deployment bottlenecks by improving how AI systems acquire, represent, deliver, evaluate, and persist state.",
+      "The research provides a structured model-infrastructure unit of analysis, evaluating system budgets across training, decision-time, and context-infrastructure dimensions.",
+      "Researchers, developers, and deployment architects working on persistent, adaptive AI systems are affected by these new evaluation frameworks and utility-cost curves."
+    ],
+    "tags": [
+      "Context Scaling",
+      "AI Systems",
+      "Model Infrastructure",
+      "AI Governance"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.33160",
+        "title": "Context Scaling: A New Frontier of AI Scaling",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "2244d4408ad5facf",
+    "title": "Constraint-Aware Test-Time Scoring for LLM and VLM Candidate Selection",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers propose a constraint-aware test-time scoring framework that combines hard checks with blended soft checks to select the best LLM or VLM candidate answers. Evaluations across four tasks—including secure coding, robot manipulation, competitive programming, and retrieval-augmented QA—showed that combining hard checks with candidate comparison lifts joint correctness and safety by up to +0.28. Ablation studies revealed that grounded hard checks, rather than soft-factor configuration layers, are the primary driver of performance gains.",
+    "summary_status": "generated",
+    "content_fingerprint": "1bf86d24170817cd",
+    "url": "https://arxiv.org/abs/2611.33161",
+    "date": "2026-11-26T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-26T17:33:36.933156+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "A new test-time scoring framework was developed that combines hard operational checks with weighted soft checks for LLM and VLM candidate selection.",
+      "Combining hard checks and candidate comparison increased joint correctness and safety by up to +0.28 on CWEval and +0.21 on retrieval-augmented QA.",
+      "AI researchers, developers deploying LLMs or VLMs in safety-critical domains, and practitioners building agentic pipelines are directly impacted."
+    ],
+    "tags": [
+      "LLM",
+      "VLM",
+      "Test-Time Compute",
+      "Model Evaluation",
+      "AI Safety"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.33161",
+        "title": "Constraint-Aware Test-Time Scoring for LLM and VLM Candidate Selection",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "74c57a4f51eebf28",
+    "title": "AutoformBench: A Lean Formalization Benchmark for Advanced Mathematics",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduce AutoformBench, a benchmark comprising 341 Lean 4 formalization tasks sourced from advanced mathematics to evaluate AI systems on building missing formal infrastructure and supporting definitions. Evaluations of frontier models reveal that formalization success depends heavily on a model's ability to construct intermediate lemmas and infrastructure rather than specific mathematical domains. The dataset and corresponding code are made available by Meta researchers via GitHub.",
+    "summary_status": "generated",
+    "content_fingerprint": "a546fcdabf78a1d4",
+    "url": "https://arxiv.org/abs/2611.33165",
+    "date": "2026-11-26T05:00:00+00:00",
+    "category": "Benchmark",
+    "fetched_at": "2026-11-26T17:33:36.933258+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Open Source",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "AutoformBench was introduced as a benchmark of 341 Lean 4 formalization tasks drawn from 24 advanced mathematical sources.",
+      "It tests AI models on constructing missing definitions, intermediate lemmas, and supporting infrastructure rather than just isolated theorem proving.",
+      "AI researchers and developers working on automated theorem proving and formal mathematical verification systems are directly affected."
+    ],
+    "tags": [
+      "AutoformBench",
+      "Lean 4",
+      "Theorem Proving",
+      "Mathematics",
+      "Meta"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.33165",
+        "title": "AutoformBench: A Lean Formalization Benchmark for Advanced Mathematics",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "3b8ab80803540df3",
+    "title": "General-Purpose Decision Models for AI Configuration Tuning",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This research investigates the effectiveness of general-purpose decision models, represented by Jev, in guiding AI configuration tuning across eight different tasks. The study evaluates Jev against conventional optimizers, performance predictors, and LLMs in roles such as optimization, prediction, and region guidance. Results indicate that while conventional methods generally outperform Jev in optimization and prediction, Jev's region guidance can successfully identify configurations with lower perplexity at the expense of increased decision time and API costs.",
+    "summary_status": "generated",
+    "content_fingerprint": "69086c4d864aba99",
+    "url": "https://arxiv.org/abs/2611.33190",
+    "date": "2026-11-26T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-26T17:33:36.933339+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers evaluated the general-purpose decision model Jev as an optimizer, performance predictor, and region guider across eight AI configuration tuning tasks.",
+      "Conventional optimizers and established predictors outperformed Jev in most direct comparisons, though Jev's region guidance found configurations with lower perplexity at higher time and API costs.",
+      "AI engineers and researchers tuning configuration settings under budget constraints."
+    ],
+    "tags": [
+      "Configuration Tuning",
+      "Decision Models",
+      "Optimization"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.33190",
+        "title": "General-Purpose Decision Models for AI Configuration Tuning",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "8c99a37c1ea2cc3b",
+    "title": "What, Who, and When: Structured Harm Assessment for Mental Health Safety via Short Reasoning",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduced a clinically grounded taxonomy for mental health safety in large language models that categorizes harm by what, who, and when. They developed MindGuard2, a 35B-A3B reasoning-based guard model trained via supervised fine-tuning and reinforcement learning with a reasoning-length penalty. The model achieves accuracy comparable to GLM-5.3 at approximately 10x lower median latency while maintaining low false-positive rates.",
+    "summary_status": "generated",
+    "content_fingerprint": "02bc3693fa050500",
+    "url": "https://arxiv.org/abs/2611.33263",
+    "date": "2026-11-26T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-26T17:33:36.933429+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "MindGuard2, a 35B-A3B reasoning-based guard model, was trained using supervised fine-tuning and reinforcement learning to assess mental health safety.",
+      "The approach decouples harm characterization from intervention decisions using clinician-curated instructions, addressing shortcomings in existing public benchmarks.",
+      "AI developers and mental health platforms deployment safety guardrails benefit from state-of-the-art accuracy and 10x lower latency compared to larger models."
+    ],
+    "tags": [
+      "MindGuard2",
+      "Mental Health",
+      "Safety Guardrails",
+      "Reasoning Models",
+      "LLM Safety"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.33263",
+        "title": "What, Who, and When: Structured Harm Assessment for Mental Health Safety via Short Reasoning",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "7768337a6b165cbf",
+    "title": "Certify What You Plant: Shortcut-Free Proof Depth in Logical Reasoning Data",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "This research analyzes procedurally generated logic datasets to reveal that planted proofs often overstate the true logical depth required to solve problems due to the presence of shorter or alternative proofs. The authors introduce a certification framework to compute exact proof metrics and indispensable premises, allowing the construction of shortcut-free datasets. Experiments demonstrate that training Qwen3 models on these certified data mixtures improves downstream transfer performance compared to traditional derivation data.",
+    "summary_status": "generated",
+    "content_fingerprint": "23b28e63d7e4e92b",
+    "url": "https://arxiv.org/abs/2611.33303",
+    "date": "2026-11-26T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-26T17:33:36.933513+00:00",
+    "topics": [
+      "Models and Releases",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed a certification framework to audit logical reasoning datasets, discovering that many benchmarks contain shortcut proofs that require significantly fewer steps than their stated depth.",
+      "This methodology matters because it enables the automated generation of shortcut-free reasoning problems with verified certificates, ensuring language models are trained on genuinely rigorous data.",
+      "AI researchers and developers training language models on logical reasoning tasks are affected, particularly those utilizing models such as Qwen3 ranging from 0.6B to 8B parameters."
+    ],
+    "tags": [
+      "Logical Reasoning",
+      "Qwen3",
+      "Dataset Evaluation",
+      "Proof Theory",
+      "Language Model Training"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.33303",
+        "title": "Certify What You Plant: Shortcut-Free Proof Depth in Logical Reasoning Data",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "dee6b374d67d7080",
+    "title": "The Platonic Representation Hypothesis in Jacobian-Space: Language and Vision Models Agree Approximately Up to a Rotation",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers investigate the Platonic Representation Hypothesis in Jacobian-space across vision and language models. They find that models converge not just in their internal representations, but also in how they act on them, with J-spaces mostly converging up to a rotation. Fitting a single rotation maps one model's J-space onto another's, allowing vectors to cross-apply between text models, vision-language models, image generators, and classifiers.",
+    "summary_status": "generated",
+    "content_fingerprint": "082f85403fdab576",
+    "url": "https://arxiv.org/abs/2611.33304",
+    "date": "2026-11-26T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-26T17:33:36.933616+00:00",
+    "topics": [
+      "Models and Releases",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers discovered that vision and language model J-spaces converge up to a rotation, meaning a single rotation maps one model's J-space onto another's.",
+      "This reveals that AI models converge not only in how they represent the world internally, but also in how they act on those representations across different modalities.",
+      "AI researchers and developers working with multi-modal transformers, image classifiers, and generative models can leverage these cross-modal Jacobian-space alignments."
+    ],
+    "tags": [
+      "Platonic Representation Hypothesis",
+      "Jacobian Lens",
+      "Multimodal Models",
+      "Representation Learning"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.33304",
+        "title": "The Platonic Representation Hypothesis in Jacobian-Space: Language and Vision Models Agree Approximately Up to a Rotation",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "63785b617ca60230",
+    "title": "Brand Recall and Category Accuracy in Language Models: An Audit of 1,000 B2B SaaS Brands",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "A study evaluating brand recall and category accuracy across 1,000 B2B SaaS brands using Gemma 4 12B reveals distinct separation between brand naming and correct classification. The findings show that model recall varies across four generations and that representation-based sentiment measures show little linear association with customer ratings.",
+    "summary_status": "generated",
+    "content_fingerprint": "dbbd0cf078d440c5",
+    "url": "https://arxiv.org/abs/2611.33322",
+    "date": "2026-11-26T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-26T17:33:36.933710+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Evaluated brand recall and category accuracy for 1,000 B2B SaaS brands across 333 product categories using Gemma 4 12B.",
+      "Demonstrates that language models can name brands without classifying them correctly, establishing a 19.8% error rate among separated rankings.",
+      "Affects B2B SaaS marketers, brand auditors, and researchers studying representation and recall in large language models."
+    ],
+    "tags": [
+      "Gemma",
+      "B2B SaaS",
+      "Brand Recall",
+      "Language Models",
+      "Model Evaluation"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.33322",
+        "title": "Brand Recall and Category Accuracy in Language Models: An Audit of 1,000 B2B SaaS Brands",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "77b97ec96375532d",
+    "title": "Confidence scores for gated automation of large language models",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers developed a supervised learning approach using a linear confidence score head fitted to frozen LLM hidden states to predict answer correctness and gate automated decisions. Evaluated on a 2B-parameter backbone using SQuAD and TruthfulQA datasets, the method outperforms traditional prompt-based calibration and text-only metamodels. This confidence scoring framework improves safety for LLM-based agents by routing uncertain responses to human reviewers while maintaining high accuracy.",
+    "summary_status": "generated",
+    "content_fingerprint": "5f6575da79ed9eca",
+    "url": "https://arxiv.org/abs/2611.33394",
+    "date": "2026-11-26T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-26T17:33:36.933790+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "A linear confidence score head was trained on the final-layer hidden state of a frozen LLM backbone to predict answer correctness and gate automated decisions.",
+      "This approach outperforms existing baseline methods and text-only metamodels by automating a larger fraction of workloads at high accuracy targets.",
+      "Developers of AI agents and organizations deploying automated decision systems can use this framework to improve safety and reliability."
+    ],
+    "tags": [
+      "Large Language Models",
+      "AI Agents",
+      "Uncertainty Estimation",
+      "Supervised Learning"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.33394",
+        "title": "Confidence scores for gated automation of large language models",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "67c9e709c0576805",
+    "title": "Partial Routing: Trace-Tuned Delegation for Resource-Efficient Agentic Workflows",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.AI (Artificial Intelligence)",
+    "summary": "Researchers introduce partial routing, a method that enables a frontier lead model to delegate suitable subtasks to a cheaper worker model during agentic workflows. By analyzing past runs to measure quality and cost, the approach generates delegation guidance controlled by a parameter without requiring model retraining. Evaluated on ViBench and Terminal-Bench 4.0, partial routing improves task performance while reducing or maintaining execution costs compared to task-level routing and using the lead model alone.",
+    "summary_status": "generated",
+    "content_fingerprint": "97e1c608925c0376",
+    "url": "https://arxiv.org/abs/2611.33402",
+    "date": "2026-11-26T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-26T17:33:36.933872+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "A partial routing framework was developed to allow a frontier lead model to delegate specific subtasks to a cheaper worker model during execution.",
+      "The method improves task performance and reduces costs by leveraging performance and cost measurements derived from the analysis of past runs.",
+      "AI developers and practitioners deploying agentic workflows on benchmarks like ViBench and Terminal-Bench 4.0 benefit from higher scores and lower operational overhead."
+    ],
+    "tags": [
+      "Model Routing",
+      "AI Agents",
+      "ViBench",
+      "Terminal-Bench",
+      "Cost Optimization"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.33402",
+        "title": "Partial Routing: Trace-Tuned Delegation for Resource-Efficient Agentic Workflows",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "22d05d1fdaa6bdd0",
+    "title": "Attributing Agentic Failure in Reasoning Vision-Language Models with Interactive 2D Environments",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduce MultiNet v2.0-Gridworld, an interactive 2D maze environment designed to attribute agentic failure causes in reasoning vision-language models rather than simply ranking success rates. The evaluation framework utilizes breadth-first search to determine exact optimal action counts across customizable mechanisms like key-door pairs and switch-gates. Testing three vision-language models across 50 mazes revealed an extremely low success rate, with zero episodes containing switch-gate mechanisms being solved.",
+    "summary_status": "generated",
+    "content_fingerprint": "9e224254ea920707",
+    "url": "https://arxiv.org/abs/2611.33162",
+    "date": "2026-11-26T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-26T17:33:36.933976+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "MultiNet v2.0-Gridworld was released as an interactive maze environment to isolate specific causes of agentic failure in vision-language models.",
+      "The framework matters because it disconfounds distinct failure modes like misreading environments, wrong operation order, or error recovery through exact optimal action counts.",
+      "Vision-language model developers and researchers evaluating agentic reasoning capabilities are directly affected by these evaluation findings."
+    ],
+    "tags": [
+      "Vision-Language Models",
+      "Agentic Benchmarks",
+      "MultiNet v2.0-Gridworld",
+      "AI Agents"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.33162",
+        "title": "Attributing Agentic Failure in Reasoning Vision-Language Models with Interactive 2D Environments",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "94fb241daa7c17db",
+    "title": "Quantum Machine Learning for Signature Forgery Detection",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This research explores quantum machine learning pipelines for offline signature forgery detection using a Kaggle corpus of signature images. The authors combine classical learners with quantum kernels and propose a hybrid model featuring an EfficientNetB0 feature extractor and quantum principal component projection. The proposed hybrid pipeline achieves 92.62 percent accuracy on a held-out test fold and a mean accuracy of 91.26 percent on stratified five-fold cross-validation.",
+    "summary_status": "generated",
+    "content_fingerprint": "c942d18fadab8599",
+    "url": "https://arxiv.org/abs/2611.33163",
+    "date": "2026-11-26T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-26T17:33:36.934066+00:00",
+    "topics": [
+      "Models and Releases",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers developed a hybrid quantum-classical pipeline using EfficientNetB0 and a quantum principal component projection to detect offline signature forgeries.",
+      "The approach achieves a mean accuracy of 91.26 percent across five-fold cross-validation while maintaining a quantum embedding step portable to NISQ hardware.",
+      "Financial institutions, legal professionals, and biometric security researchers working with document verification and offline signature datasets are affected."
+    ],
+    "tags": [
+      "Quantum Machine Learning",
+      "Signature Forgery Detection",
+      "EfficientNetB0",
+      "NISQ Hardware"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.33163",
+        "title": "Quantum Machine Learning for Signature Forgery Detection",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "5c44d89dba608a3b",
+    "title": "Code availability is not enough: schemas for documenting and extending data analysis",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers propose a structured schema that documents data analysis decisions in natural language, enabling large language models to generate, validate, and alter analysis scripts directly. This workflow bridges the gap between high-level manuscripts and low-level code by allowing readers to easily specify alternative decision paths and evaluate their impacts. The approach is demonstrated by reproducing a published smoking data regression and conducting a reproducibility check on a football study.",
+    "summary_status": "generated",
+    "content_fingerprint": "8a4460899ac62366",
+    "url": "https://arxiv.org/abs/2611.33167",
+    "date": "2026-11-26T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-26T17:33:36.934160+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "A natural language schema was introduced to represent data analysis decisions explicitly as an intermediate layer between manuscripts and code.",
+      "The method enables large language models to automatically generate scripts, validate findings, and expand single analyses into alternative multiverses.",
+      "Data scientists, researchers, and peer reviewers can use this workflow to systematically test alternative decisions and reproduce computational results."
+    ],
+    "tags": [
+      "Large Language Models",
+      "Data Analysis",
+      "Reproducibility",
+      "Multiverse Analysis"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.33167",
+        "title": "Code availability is not enough: schemas for documenting and extending data analysis",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "0dcbf7b6eefd1947",
+    "title": "Temporal Exposure to Byzantine Vulnerability Under Intermittent Participation in Federated Learning",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This research formalizes Dynamic Participation Exposure (DPE), a phenomenon where intermittent client participation in federated learning causes the active Byzantine fraction to violate robust aggregation assumptions despite global compliance. The study derives the probability of per-round exposure under stochastic participation and shows that intermittent participation transforms Byzantine robustness into a temporal property. To address this risk, the authors propose mitigation strategies including minimum active-set constraints, temporal monitoring, and adaptive aggregation.",
+    "summary_status": "generated",
+    "content_fingerprint": "c9976f9cc02ca3d9",
+    "url": "https://arxiv.org/abs/2611.33168",
+    "date": "2026-11-26T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-26T17:33:36.934245+00:00",
+    "topics": [
+      "Safety and Security",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Researchers formalized Dynamic Participation Exposure (DPE) to analyze how intermittent client participation alters per-round Byzantine vulnerability in federated learning.",
+      "The analysis demonstrates that stochastic participation turns Byzantine robustness from a static population-level property into a temporal property, risking aggregation failure even when global Byzantine fractions remain compliant.",
+      "Federated learning practitioners and systems designers implementing robust aggregation rules are affected, as they must incorporate minimum active-set constraints and temporal monitoring to mitigate DPE risks."
+    ],
+    "tags": [
+      "Federated Learning",
+      "Byzantine Robustness",
+      "Stochastic Participation",
+      "Security"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.33168",
+        "title": "Temporal Exposure to Byzantine Vulnerability Under Intermittent Participation in Federated Learning",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "d345c8b816124932",
+    "title": "Geophysics-informed invertible operator network for Bayesian geophysical inversion",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "The authors propose a geophysics-informed invertible operator network (GI-ION) that integrates an invertible neural network within a deep operator-learning framework for efficient Bayesian geophysical inversion. By enforcing statistical independence between branch coefficients and latent variables, GI-ION enables efficient conditional sampling from sparse boundary observations. The method is validated on 1D surface-wave dispersion and 2D synthetic random-field and seismic-slice tomography models.",
+    "summary_status": "generated",
+    "content_fingerprint": "e431f6306d8dd02f",
+    "url": "https://arxiv.org/abs/2611.33178",
+    "date": "2026-11-26T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-26T17:33:36.934366+00:00",
+    "topics": [
+      "Models and Releases"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "A geophysics-informed invertible operator network (GI-ION) was developed to integrate invertible neural networks with deep operator learning for Bayesian geophysical inversion.",
+      "This approach overcomes the high computational cost of classical MCMC sampling and the physical inconsistency of purely data-driven models under limited training data.",
+      "Geophysicists, researchers, and practitioners working on seismic tomography, subsurface modeling, and Bayesian inverse problems are directly affected."
+    ],
+    "tags": [
+      "Bayesian Inversion",
+      "Operator Learning",
+      "Invertible Neural Networks",
+      "Geophysics",
+      "Seismic Tomography"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.33178",
+        "title": "Geophysics-informed invertible operator network for Bayesian geophysical inversion",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "4f0f3dbffe39e0c4",
+    "title": "Deep Learning-Based Mesoscopic Emission Modeling",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers introduce Direct Emission Prediction (DEP), a Gated Recurrent Unit-based deep learning model designed to bridge the gap between macroscopic and microscopic traffic emission modeling. Trained on over one million synthetic trips, DEP matches reference microscopic model accuracy within 0.35% for CO2 and 1.87% for NOx while reducing computational runtime to 2.2%. The model successfully validates against real-world remote sensing data for diesel vehicles and accurately identifies urban emission hotspots.",
+    "summary_status": "generated",
+    "content_fingerprint": "010b816f817b5232",
+    "url": "https://arxiv.org/abs/2611.33179",
+    "date": "2026-11-26T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-26T17:33:36.934464+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "A Gated Recurrent Unit-based deep learning model named Direct Emission Prediction (DEP) was developed to predict vehicle CO2 and NOx emissions from sequential link-level inputs.",
+      "DEP achieves microscopic emission accuracy within 0.35% for CO2 and 1.87% for NOx while reducing computational runtime to 2.2% compared to reference models.",
+      "Urban planners, environmental scientists, and transportation simulation developers benefit from scalable, high-resolution emission modeling that avoids pre-computed emission factor databases."
+    ],
+    "tags": [
+      "Deep Learning",
+      "Gated Recurrent Unit",
+      "Urban Air Pollution",
+      "Traffic Emissions",
+      "MATSim"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.33179",
+        "title": "Deep Learning-Based Mesoscopic Emission Modeling",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "da6ea8f92745fc0c",
+    "title": "Neighbor Crowding Predicts Feature Stability in Sparse Autoencoders",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "Researchers explore how to identify stable features in Sparse Autoencoders without the costly requirement of training multiple seeds. The study demonstrates that cross-seed feature stability in TopK SAEs is highly predictable using six statistics derived from a single training run. Specifically, neighbor crowding emerges as the strongest predictor, showing that features in dense unit sphere regions are more stable than isolated ones.",
+    "summary_status": "generated",
+    "content_fingerprint": "51edf1605f7c1e5c",
+    "url": "https://arxiv.org/abs/2611.33182",
+    "date": "2026-11-26T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-26T17:33:36.934559+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Cross-seed feature stability in TopK Sparse Autoencoders was shown to be predictable using six cheap statistics from a single training run.",
+      "This removes the significant computational expense of training multiple random seeds to verify feature stability.",
+      "Interpretability researchers and language model engineers working with Sparse Autoencoders are directly affected."
+    ],
+    "tags": [
+      "Sparse Autoencoders",
+      "Interpretability",
+      "Language Models"
+    ],
+    "impact_score": 5,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.33182",
+        "title": "Neighbor Crowding Predicts Feature Stability in Sparse Autoencoders",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "0d14209f3e1d8d99",
+    "title": "REI: Learning Ideation from Repository Evolution",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "The authors introduce REI, a framework that learns reusable ideation policies from repository evolution to address the bottleneck of generating valid technical hypotheses in automated engineering. They also identify a hidden failure mode called semantic diversity collapse and propose Semantic Prior Optimization and Debiasing (SPOD) to preserve method diversity during ideation optimization. Empirical evaluations on public benchmarks and a real-world industrial setting demonstrate improvements in ideation quality, diversity, cross-task generalization, and long-tail exploration.",
+    "summary_status": "generated",
+    "content_fingerprint": "1e2c33b229a60b76",
+    "url": "https://arxiv.org/abs/2611.33183",
+    "date": "2026-11-26T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-26T17:33:36.934643+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "REI and SPOD frameworks were introduced to learn technical ideation policies from repository evolution and prevent semantic diversity collapse.",
+      "The approach reduces costly trial-and-error in automated scientific and engineering iteration by leveraging historical code changes and revision signals.",
+      "AI researchers and engineers building automated scientific discovery systems or code generation agents are affected."
+    ],
+    "tags": [
+      "Automated Scientific Discovery",
+      "Code Generation",
+      "AI Agents",
+      "Repository Evolution"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.33183",
+        "title": "REI: Learning Ideation from Repository Evolution",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "a8004f5e7c90f63f",
+    "title": "Semantic Density Does Not Predict Agent-Memory Collapse",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "An empirical analysis of 805 snapshots across 13 memory methods reveals that global semantic density and local crowding statistics fail to reliably predict memory-store collapse or task accuracy declines in LLM agents. Instead, failures in long-horizon runs were driven by unbounded token growth exceeding model input capacity during whole-store prompting. The findings demonstrate that simple item counts and token limits are more reliable indicators of performance degradation than complex geometric memory statistics.",
+    "summary_status": "generated",
+    "content_fingerprint": "b20fa47b13b672f3",
+    "url": "https://arxiv.org/abs/2611.33184",
+    "date": "2026-11-26T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-26T17:33:36.934736+00:00",
+    "topics": [
+      "Models and Releases",
+      "AI Agents",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Evaluated 14 memory statistics across 805 snapshots from 13 memory methods on multiple benchmark environments, finding that mean pairwise cosine similarity had zero median lead in predicting accuracy decline.",
+      "Trained classifiers on memory-store statistics falsely flagged 56.9% of stable size-limited checkpoints and detected only 18% of catastrophic failures, proving local crowding metrics do not transfer consistently across memory designs.",
+      "Developers and researchers building persistent memory systems for long-horizon LLM agents can avoid failures by monitoring token growth and input capacity limits rather than relying on semantic density metrics."
+    ],
+    "tags": [
+      "LLM Agents",
+      "Memory Collapse",
+      "Agent Memory",
+      "Evaluation",
+      "arXiv"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.33184",
+        "title": "Semantic Density Does Not Predict Agent-Memory Collapse",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
+    "id": "17bcad2e36d06ce8",
+    "title": "KiRA: Kronecker Input-Gated Rank Adaptation for Parameter-Efficient Fine-Tuning of Pretrained Models",
+    "company": "arXiv (Cornell University)",
+    "source": "arXiv cs.LG (Machine Learning)",
+    "summary": "This research introduces Kronecker input-gated rank adaptation (KiRA), a parameter-efficient fine-tuning method that overcomes the traditional low-rank bottleneck using Kronecker products and input-gated rank adjustment. Across six medical imaging and language benchmarks, KiRA achieves the highest mean score while using 8.7 to 9.7 times fewer trainable parameters than standard low-rank adaptation. Furthermore, the method allows the benefit of input conditioning to be predicted before training using a small sample of labeled inputs.",
+    "summary_status": "generated",
+    "content_fingerprint": "6964a2a76cac14a6",
+    "url": "https://arxiv.org/abs/2611.33236",
+    "date": "2026-11-26T05:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-26T17:33:36.934842+00:00",
+    "topics": [
+      "Models and Releases",
+      "Research and Breakthroughs",
+      "Benchmarks and Evaluations",
+      "Applications and Products"
+    ],
+    "source_type": "Research or Preprint",
+    "priority_score": 5,
+    "priority_label": "Deep Dive",
+    "priority_explanation": "Reports measured benchmark or evaluation results",
+    "why_it_matters": "",
+    "key_points": [
+      "Proposed Kronecker input-gated rank adaptation (KiRA), which uses a Kronecker product of a frozen random matrix and an input-gated trainable factor to exceed conventional low-rank adaptation limits.",
+      "Eliminates the standard low-rank bottleneck and reduces trainable parameter counts by 8.7 to 9.7 times compared to standard LoRA while improving performance across medical imaging and language benchmarks.",
+      "Machine learning researchers and practitioners fine-tuning large pretrained models for specialized language and medical imaging domains."
+    ],
+    "tags": [
+      "Parameter-Efficient Fine-Tuning",
+      "PEFT",
+      "Kronecker Product",
+      "Model Fine-Tuning"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.33236",
+        "title": "KiRA: Kronecker Input-Gated Rank Adaptation for Parameter-Efficient Fine-Tuning of Pretrained Models",
+        "publisher": "arXiv (Cornell University)"
+      }
+    ]
+  },
+  {
     "id": "7dd97966d379cae1",
     "title": "OpenCode v2.4.2",
     "company": "OpenCode",
@@ -37,6 +1020,46 @@
         "url": "https://github.com/anomalyco/opencode/releases/tag/v2.4.2",
         "title": "OpenCode v2.4.2",
         "publisher": "OpenCode"
+      }
+    ]
+  },
+  {
+    "id": "819f2bb8e324e5e7",
+    "title": "Swarms, Flocks, Gangs: How to build, train, and evaluate multi-agent systems",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "This article explores the methodologies for building, training, and evaluating multi-agent artificial intelligence systems. It details the coordination patterns and performance metrics required to optimize collaborative agent behaviors.",
+    "summary_status": "generated",
+    "content_fingerprint": "1243840631807f1e",
+    "url": "https://huggingface.co/blog/training-swarms",
+    "date": "2026-11-26T00:00:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-26T17:33:36.932270+00:00",
+    "topics": [
+      "AI Agents",
+      "Benchmarks and Evaluations"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Methods for building, training, and evaluating multi-agent systems were detailed.",
+      "Improves coordination and collaborative performance in multi-agent architectures.",
+      "AI researchers and developers building collaborative agent frameworks."
+    ],
+    "tags": [
+      "AI Agents",
+      "Multi-Agent Systems",
+      "Model Evaluation"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/training-swarms",
+        "title": "Swarms, Flocks, Gangs: How to build, train, and evaluate multi-agent systems",
+        "publisher": "Hugging Face"
       }
     ]
   },
@@ -1654,13 +2677,19 @@
       "Anthropic",
       "Data Centers",
       "Energy Infrastructure",
-      "AI Consciousness"
+      "AI Consciousness",
+      "Neuralink"
     ],
-    "impact_score": 6,
+    "impact_score": 7,
     "sources": [
       {
         "url": "https://www.technologyreview.com/2026/11/24/1149669/the-download-data-centers-gas-ai-consciousness",
         "title": "The Download: AI’s gas power boom",
+        "publisher": "MIT Technology Review"
+      },
+      {
+        "title": "The Download: AI’s natural-gas boom",
+        "url": "https://www.technologyreview.com/2026/11/26/1149934/the-download-better-bionic-hands-ai-natural-gas-boom",
         "publisher": "MIT Technology Review"
       }
     ]
