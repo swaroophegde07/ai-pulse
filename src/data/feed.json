@@ -41,6 +41,52 @@
     ]
   },
   {
+    "id": "d82bac3bccb6bc7d",
+    "title": "The Download: Better bionic hands",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "Data center developers are increasingly building off-grid natural gas power plants to bypass long grid connection wait times for the AI boom. Meanwhile, philosopher Thomas Nagel criticized Anthropic's investor risk warnings regarding AI consciousness, arguing that generating language does not establish true consciousness.",
+    "summary_status": "generated",
+    "content_fingerprint": "f882dcb400e50b61",
+    "url": "https://www.technologyreview.com/2026/11/26/1149934/the-download-better-bionic-hands-ai-natural-gas-boom",
+    "date": "2026-11-26T13:10:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-27T02:00:22.289409+00:00",
+    "topics": [
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Developers announced plans for over 100 off-grid natural gas power plants at US data centers to bypass grid delays.",
+      "Philosopher Thomas Nagel challenged Anthropic's public disclosures suggesting AI models could achieve consciousness.",
+      "Data center operators, energy regulators, AI developers, and investors are directly impacted by rising energy demands and philosophical risk debates."
+    ],
+    "tags": [
+      "Anthropic",
+      "Data Centers",
+      "Energy Infrastructure",
+      "AI Consciousness",
+      "Neuralink"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/11/24/1149669/the-download-data-centers-gas-ai-consciousness",
+        "title": "The Download: AI’s gas power boom",
+        "publisher": "MIT Technology Review"
+      },
+      {
+        "url": "https://www.technologyreview.com/2026/11/26/1149934/the-download-better-bionic-hands-ai-natural-gas-boom",
+        "title": "The Download: AI’s natural-gas boom",
+        "publisher": "MIT Technology Review"
+      }
+    ]
+  },
+  {
     "id": "a734da9d3a1d8760",
     "title": "Introducing the llama.cpp benchmark dashboard for AMD Ryzen and Radeon",
     "company": "Hugging Face",
