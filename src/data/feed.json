@@ -1,5 +1,46 @@
 [
   {
+    "id": "c2bd7953104652e4",
+    "title": "Taking Trainium3 to the Track: Generating Videos with LTX-2.5",
+    "company": "Hugging Face",
+    "source": "Hugging Face Blog",
+    "summary": "This article details the deployment and execution of the LTX-2.5 video generation model using AWS Trainium3 hardware. It outlines the performance metrics and technical steps required to run large-scale video models on custom cloud silicon accelerators.",
+    "summary_status": "generated",
+    "content_fingerprint": "c3da40340f861ef0",
+    "url": "https://huggingface.co/blog/video-trainium3",
+    "date": "2026-11-27T00:00:00+00:00",
+    "category": "Product Release",
+    "fetched_at": "2026-11-27T17:12:53.969002+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 3,
+    "priority_label": "Must Know",
+    "priority_explanation": "Announces a model or architecture capability",
+    "why_it_matters": "",
+    "key_points": [
+      "AWS Trainium3 hardware was used to generate videos using the LTX-2.5 model.",
+      "Demonstrates the viability of utilizing custom cloud silicon for intensive video generation workloads.",
+      "Machine learning engineers and cloud infrastructure providers working with video generation models."
+    ],
+    "tags": [
+      "AWS Trainium3",
+      "LTX-2.5",
+      "Video Generation",
+      "Cloud Silicon"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://huggingface.co/blog/video-trainium3",
+        "title": "Taking Trainium3 to the Track: Generating Videos with LTX-2.5",
+        "publisher": "Hugging Face"
+      }
+    ]
+  },
+  {
     "id": "dbe542754cd16121",
     "title": "Quoting Jack Despain Zhou",
     "company": "Simon Willison's Weblog",
