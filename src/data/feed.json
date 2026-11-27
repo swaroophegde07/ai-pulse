@@ -125,7 +125,8 @@
         "title": "The Download: AI’s natural-gas boom",
         "publisher": "MIT Technology Review"
       }
-    ]
+    ],
+    "image_url": "https://wp.technologyreview.com/wp-content/uploads/2026/08/vincentkilbride-mit-technology-review-ai-puzzles.jpg?w=840"
   },
   {
     "id": "a734da9d3a1d8760",
@@ -1230,7 +1231,8 @@
       "Terms of Service",
       "E-commerce"
     ],
-    "impact_score": 5
+    "impact_score": 5,
+    "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/GettyImages-2289651678-500x500.jpg"
   },
   {
     "id": "bbd93c6708a57349",
@@ -1315,7 +1317,8 @@
         "title": "The Download: AI swamping open records",
         "publisher": "MIT Technology Review"
       }
-    ]
+    ],
+    "image_url": "https://wp.technologyreview.com/wp-content/uploads/2026/08/3_HighChair-crop.jpg?w=840"
   },
   {
     "id": "319f463cce75ff29",
@@ -1356,7 +1359,8 @@
         "title": "AI may soon change what it means to be a theoretical physicist",
         "publisher": "Ars Technica"
       }
-    ]
+    ],
+    "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/physics-and-ai-500x500.jpg"
   },
   {
     "id": "0077e07924e43bf7",
@@ -2393,7 +2397,8 @@
         "title": "Three LLM inflection points in twelve months",
         "publisher": "Simon Willison's Weblog"
       }
-    ]
+    ],
+    "image_url": "https://static.simonwillison.net/static/2026/fable-class.webp"
   },
   {
     "id": "ea655aef5669054d",
@@ -2434,7 +2439,8 @@
         "title": "What's going on with the Riemann hypothesis?",
         "publisher": "Ars Technica"
       }
-    ]
+    ],
+    "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/GettyImages-220180413-500x500.jpeg"
   },
   {
     "id": "c0d507596078021a",
@@ -2478,7 +2484,8 @@
         "title": "How to Run NVIDIA Cosmos 3 on Local AI Devices Using Hugging Face Diffusers",
         "publisher": "NVIDIA"
       }
-    ]
+    ],
+    "image_url": "https://developer-blogs.nvidia.com/wp-content/uploads/2026/11/ai-model-768x432.jpg"
   },
   {
     "id": "aeea7456d8046f44",
@@ -2522,7 +2529,8 @@
       "Data Engineering",
       "Time Series Forecasting"
     ],
-    "impact_score": 5
+    "impact_score": 5,
+    "image_url": "https://developer-blogs.nvidia.com/wp-content/uploads/2026/11/megatron-market-forecasting-e1795123732504-768x432.webp"
   },
   {
     "id": "2144450e43e277e0",
@@ -2565,7 +2573,8 @@
       "Game Development",
       "Gaijin Entertainment"
     ],
-    "impact_score": 6
+    "impact_score": 6,
+    "image_url": "https://developer-blogs.nvidia.com/wp-content/uploads/2026/11/Featured-War-Thunder-DLSS-5-on-768x432.jpg"
   },
   {
     "id": "7eea171611f31c8f",
@@ -2733,7 +2742,8 @@
       "Where Winds Meet",
       "Game Development"
     ],
-    "impact_score": 4
+    "impact_score": 4,
+    "image_url": "https://developer-blogs.nvidia.com/wp-content/uploads/2026/11/image4-11-768x432.jpg"
   },
   {
     "id": "de8c248c490dd1c7",
@@ -2779,7 +2789,8 @@
         "url": "https://www.technologyreview.com/2026/11/26/1149934/the-download-better-bionic-hands-ai-natural-gas-boom",
         "publisher": "MIT Technology Review"
       }
-    ]
+    ],
+    "image_url": "https://wp.technologyreview.com/wp-content/uploads/2024/06/MIT_Gamification_Badges-thumb.png?w=840"
   },
   {
     "id": "616293296550946f",
@@ -2818,7 +2829,8 @@
         "title": "From spectrum to structure: Identifying molecules with Mass Spec Skills for Google Antigravity",
         "publisher": "Google DeepMind"
       }
-    ]
+    ],
+    "image_url": "https://lh3.googleusercontent.com/CtAfS_JWygw2R9cuDNty3xd0S4WFRzVew1vtNDiPaN1ZOGa88hCwTiCLxtgCtpSFER2t3jFO-moRkPnQYPjXziNgMvKHVc0wkOkzBTdGRoOYL3Ld=w528-h297-n-nu-rw-lo"
   },
   {
     "id": "ac2f786b30f6d457",
@@ -2901,7 +2913,8 @@
         "title": "Amazon says hackers' AI agents found and exploited 0-day with little human input",
         "publisher": "Ars Technica"
       }
-    ]
+    ],
+    "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/cairn-banner-500x500.jpg"
   },
   {
     "id": "7758c04a629331bf",
@@ -3970,7 +3983,8 @@
         "title": "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer",
         "publisher": "Simon Willison's Weblog"
       }
-    ]
+    ],
+    "image_url": "https://static.simonwillison.net/static/2026/glm-5.4-max.webp"
   },
   {
     "id": "981d6178a1cb2235",
@@ -4014,7 +4028,8 @@
         "title": "Ladybird's first alpha release",
         "publisher": "Simon Willison's Weblog"
       }
-    ]
+    ],
+    "image_url": "https://static.simonwillison.net/static/2026/ladybird-ffmpeg.webp"
   },
   {
     "id": "b0689cf87ab570a4",
@@ -4178,7 +4193,8 @@
         "title": "Finding faster quantum algorithms with agents and formal verification",
         "publisher": "Google DeepMind"
       }
-    ]
+    ],
+    "image_url": "https://lh3.googleusercontent.com/jIoM2lo98EDqLMQjIaXBlXPmXgPbUPpM2GgtXcDsGekZBOPUY41IjBsnuZIhLac7MSOuRkklNBsp20a5M25oDz-xTIY0BIqoBxUqmmXvEHwlM3MJJw=w528-h297-n-nu-rw-lo"
   },
   {
     "id": "e6f572930446190b",
@@ -5417,7 +5433,8 @@
         "title": "Researcher plants 2m canaries into the AI supply chain. A privacy disaster surfaced.",
         "publisher": "Ars Technica"
       }
-    ]
+    ],
+    "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/ai-privacy-leakage-500x500.jpg"
   },
   {
     "id": "6691469f1dc34a79",
@@ -6490,7 +6507,8 @@
         "title": "llm-gemini 0.38.1",
         "publisher": "Simon Willison's Weblog"
       }
-    ]
+    ],
+    "image_url": "https://static.simonwillison.net/static/2026/gemini-4-xhigh-pelicans.webp"
   },
   {
     "id": "3f7f7cffebe4ba59",
@@ -6738,7 +6756,8 @@
         "title": "Manage Liquid-Cooled AI Factories with NVIDIA Mission Control",
         "publisher": "NVIDIA"
       }
-    ]
+    ],
+    "image_url": "https://developer-blogs.nvidia.com/wp-content/uploads/2026/08/AI-Factory-e1786140990629-768x432.webp"
   },
   {
     "id": "fdf247289ced7fca",
@@ -6777,7 +6796,8 @@
         "title": "Reducing Rollout Bottlenecks in Reinforcement Learning with NVIDIA Dynamo",
         "publisher": "NVIDIA"
       }
-    ]
+    ],
+    "image_url": "https://developer-blogs.nvidia.com/wp-content/uploads/2026/11/image3-17-768x432.png"
   },
   {
     "id": "a165ab416a9d4037",
@@ -6819,7 +6839,8 @@
         "title": "Enabling Real-Time AI for Scientific Instruments with GPU-Native Data Acquisition",
         "publisher": "NVIDIA"
       }
-    ]
+    ],
+    "image_url": "https://developer-blogs.nvidia.com/wp-content/uploads/2026/11/electron-energy-loss-spectroscopy-768x432.jpg"
   },
   {
     "id": "2d01b6350c2d3fb2",
@@ -9505,7 +9526,8 @@
         "title": "Copilot is \"the new OS for work,\" and now Office runs inside of it",
         "publisher": "Ars Technica"
       }
-    ]
+    ],
+    "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/MS_Ignite_Perception-500x454.png"
   },
   {
     "id": "772553b7dc508165",
@@ -11214,7 +11236,8 @@
         "title": "TokenEconomizer: Learning from Experience to Make AI Coding Agents More Efficient",
         "publisher": "Microsoft Research"
       }
-    ]
+    ],
+    "image_url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/fig1_teaser-scaled.png"
   },
   {
     "id": "2d7a5d6b20fff3cd",
@@ -15062,7 +15085,8 @@
         "title": "AlphaGenome 2: Deciphering how cells read DNA to better understand disease",
         "publisher": "Google DeepMind"
       }
-    ]
+    ],
+    "image_url": "https://lh3.googleusercontent.com/VPOhADdGu1T7kK_gWBiGzyVawQbKCjpL3-B0L0wxpYCyr8cHxviYmo9Hghy4f1laeIo2YKwuz8E07TR9HWWk2b0EONi0uvju-8TDLHX6YWHG4dXe3w=w528-h297-n-nu-rw-lo"
   },
   {
     "id": "ed6381bbe7836253",
@@ -16179,7 +16203,8 @@
       "Model Security",
       "Open-Weight Models"
     ],
-    "impact_score": 8
+    "impact_score": 8,
+    "image_url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/MSR-BLG_LAZ_HERO.png"
   },
   {
     "id": "5bf610d1dd7d8e14",
@@ -16391,7 +16416,8 @@
         "title": "Introducing AlphaProof Code: a breakthrough in verifying complex software at depth",
         "publisher": "Google DeepMind"
       }
-    ]
+    ],
+    "image_url": "https://lh3.googleusercontent.com/hn6AiI6lYFo6chi1mL6uJ9nOW9UXfsAKnSyOApiie2urHNU2tmSPUmGn0hNfWyYLRcsWCGjCIrBZSCt1ihZmvW-LDJPfyolsr5w-yvzlknZVzmaH=w528-h297-n-nu-rw-lo"
   },
   {
     "id": "0f0020abcf733229",
@@ -16473,7 +16499,8 @@
         "title": "Opening the datasets behind our AI weather models",
         "publisher": "Google DeepMind"
       }
-    ]
+    ],
+    "image_url": "https://lh3.googleusercontent.com/ggsqfaBnOayx-i7z9Kj8AeZruz8BSo0N7tsnqwH8Z3REnHcDKBt-QSA3DR4UUM8lcwklWihSARoEN2AyQFhoRFGFlk2-0-xGuKt_rtGoFwpJg8LHVQ=w528-h297-n-nu-rw-lo"
   },
   {
     "id": "cf4bae744f4146a7",
@@ -17920,7 +17947,8 @@
         "title": "Gemini Robotics 2.5 accelerates real-world general dexterity",
         "publisher": "Google DeepMind"
       }
-    ]
+    ],
+    "image_url": "https://lh3.googleusercontent.com/F1CrVEYRb8lJOyyxGgcyow-Td1de-nkp7K8MZrhjrKPANJUc0EYB754Ninn-Yrppjdb54nolOWo6Rk8iDaRNuixWwLaEKc0K9ImGooxen9fj9IOh=w528-h297-n-nu-rw-lo"
   },
   {
     "id": "caa9073cefb43725",
@@ -18051,7 +18079,8 @@
         "title": "SpaceX now fundamentally an \"infrastructure company,\" senior official says",
         "publisher": "Ars Technica"
       }
-    ]
+    ],
+    "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/Flight_15_Website_Desktop_1_7111645b6d-500x500.png"
   },
   {
     "id": "ac8f18750241a65f",
@@ -19569,7 +19598,8 @@
         "title": "Could potential AI clones of GTA VI force a quicker official port?",
         "publisher": "Ars Technica"
       }
-    ]
+    ],
+    "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/gta6-500x500-1793980851.jpg"
   },
   {
     "id": "5a90caffb2c87d2e",
@@ -20930,7 +20960,8 @@
         "title": "Formally verifying agent-written full-stack web apps with PDD Kit",
         "publisher": "Microsoft Research"
       }
-    ]
+    ],
+    "image_url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/PDDKitRecap-BlogHeroFeature-1400x788-1.jpg"
   },
   {
     "id": "7a4fd1de9b53747b",
@@ -26617,7 +26648,8 @@
         "title": "From synthetic enterprise data evaluations to real Microsoft Copilot AI confidence",
         "publisher": "Microsoft Research"
       }
-    ]
+    ],
+    "image_url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FromSyntheticEnterprise-BlogHeroFeature-1400x788-1-1024x576.jpg"
   },
   {
     "id": "84abd1857de5dfd9",
@@ -31163,7 +31195,8 @@
         "title": "Flint-interactive: A language for creating interactive data visualizations",
         "publisher": "Microsoft Research"
       }
-    ]
+    ],
+    "image_url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FlintInteractive-BlogHeroFeature-1400x788-1.jpg"
   },
   {
     "id": "a9592e53f2c7c709",
@@ -32616,7 +32649,8 @@
         "title": "Solving a 31-year-old grand challenge in mathematics – the KLS conjecture",
         "publisher": "Microsoft Research"
       }
-    ]
+    ],
+    "image_url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/KLS-BlogHeroFeature-1400x788-1.jpg"
   },
   {
     "id": "c2ed162a157709f5",
@@ -42525,7 +42559,8 @@
         "url": "https://thegradient.pub/virtue-ethics-ai-alignment",
         "publisher": "The Gradient"
       }
-    ]
+    ],
+    "image_url": "https://thegradient.pub/content/images/2026/02/ramelli-featured.jpg"
   },
   {
     "id": "3c841b625a861f7b",
@@ -42560,7 +42595,8 @@
         "url": "https://thegradient.pub/agi-is-not-multimodal",
         "publisher": "The Gradient"
       }
-    ]
+    ],
+    "image_url": "https://thegradient.pub/content/images/2025/06/Gradient_Article_Art3-downscaled.png"
   },
   {
     "id": "dc7f976627ff115f",
@@ -42594,7 +42630,8 @@
         "url": "https://thegradient.pub/shape-symmetry-structure",
         "publisher": "The Gradient"
       }
-    ]
+    ],
+    "image_url": "https://thegradient.pub/content/images/2024/11/DALL-E-2024-11-15-15.40.52---Create-an-abstract-image-that-illustrates-how-ReLU-based-neural-networks-shatter-input-space-into-numerous-polygonal-regions--each-behaving-like-a-lin.webp"
   },
   {
     "id": "4cdcbf892cac7571",
@@ -42629,7 +42666,8 @@
         "url": "https://thegradient.pub/dialog",
         "publisher": "The Gradient"
       }
-    ]
+    ],
+    "image_url": "https://thegradient.pub/content/images/2024/09/cropped.jpeg"
   },
   {
     "id": "660278244728367a",
@@ -42661,7 +42699,8 @@
         "url": "https://thegradient.pub/we-need-positive-visions-for-ai-grounded-in-wellbeing",
         "publisher": "The Gradient"
       }
-    ]
+    ],
+    "image_url": "https://thegradient.pub/content/images/2024/07/wellbeing_ai_cover_image.webp"
   },
   {
     "id": "e86bddf9f1c8ad8b",
@@ -42694,7 +42733,8 @@
         "url": "https://thegradient.pub/financial-market-applications-of-llms",
         "publisher": "The Gradient"
       }
-    ]
+    ],
+    "image_url": "https://thegradient.pub/content/images/2024/04/shutterstock_2448136839.jpg"
   },
   {
     "id": "50f1c1400ec9766f",
@@ -42727,7 +42767,8 @@
         "url": "https://thegradient.pub/gender-bias-in-ai",
         "publisher": "The Gradient"
       }
-    ]
+    ],
+    "image_url": "https://thegradient.pub/content/images/2024/04/gender_gradient_header.jpeg"
   },
   {
     "id": "0a666323496ec028",
@@ -42760,7 +42801,8 @@
         "url": "https://thegradient.pub/mamba-explained",
         "publisher": "The Gradient"
       }
-    ]
+    ],
+    "image_url": "https://images.unsplash.com/photo-1598348341635-33a3f4205d32?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDh8fHRyYW5zZm9ybWVyfGVufDB8fHx8MTcxMTM0NTEwM3ww&ixlib=rb-4.0.3&q=80&w=2000"
   },
   {
     "id": "a55a21215ea5a47d",
@@ -42795,7 +42837,8 @@
         "url": "https://thegradient.pub/car-gpt",
         "publisher": "The Gradient"
       }
-    ]
+    ],
+    "image_url": "https://thegradient.pub/content/images/2024/03/car-gpt.jpg"
   },
   {
     "id": "f088286c4f5c3357",
@@ -42829,6 +42872,7 @@
         "url": "https://thegradient.pub/text-embedding-inversion",
         "publisher": "The Gradient"
       }
-    ]
+    ],
+    "image_url": "https://thegradient.pub/content/images/2024/03/main-1.png"
   }
 ]
