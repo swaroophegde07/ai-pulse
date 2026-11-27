@@ -156,6 +156,41 @@
     .theme-btn:active {
       transform: none !important;
     }
+
+    .chart-bar,
+    .chart-column,
+    .chart-wipe,
+    .donut-seg,
+    .scatter-dot,
+    .hero-aurora span,
+    .text-shimmer,
+    .animate-ping {
+      animation: none !important;
+    }
+
+    html.reveal-ready [data-reveal] {
+      opacity: 1 !important;
+      animation: none !important;
+    }
+
+    .stat-card:hover {
+      transform: none !important;
+    }
+
+    .ticker__track {
+      animation: none !important;
+    }
+
+    .ticker {
+      overflow-x: auto;
+    }
+
+    .news-card:hover .article-cover__art,
+    .news-card:hover .article-cover__img,
+    .cover-host:hover .article-cover__art,
+    .cover-host:hover .article-cover__img {
+      transform: none !important;
+    }
   }
 }
 
@@ -271,6 +306,539 @@
 
   .chip-interactive:active {
     transform: scale(0.96);
+  }
+
+  /* =========================================================
+     Generated article covers
+     ========================================================= */
+  .article-cover {
+    --ink: hsl(var(--h) 60% 22% / 0.22);
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    flex-shrink: 0;
+    background:
+      radial-gradient(120% 140% at 0% 0%, hsl(var(--h) 85% 72% / 0.95), transparent 60%),
+      radial-gradient(120% 140% at 100% 100%, hsl(var(--h2) 80% 66% / 0.85), transparent 65%),
+      linear-gradient(135deg, hsl(var(--h) 70% 90%), hsl(var(--h2) 65% 82%));
+  }
+
+  html.dark .article-cover {
+    --ink: hsl(0 0% 100% / 0.12);
+    background:
+      radial-gradient(120% 140% at 0% 0%, hsl(var(--h) 80% 45% / 0.6), transparent 60%),
+      radial-gradient(120% 140% at 100% 100%, hsl(var(--h2) 75% 40% / 0.5), transparent 65%),
+      linear-gradient(135deg, hsl(var(--h) 45% 16%), hsl(var(--h2) 50% 9%));
+  }
+
+  .article-cover--sm { height: 4.5rem; }
+  .article-cover--md { height: 7rem; }
+  .article-cover--lg { height: 9.5rem; }
+
+  .article-cover__art {
+    position: absolute;
+    inset: -12%;
+    background-image: radial-gradient(var(--ink) 1.2px, transparent 1.6px);
+    background-size: 14px 14px;
+    -webkit-mask-image: linear-gradient(120deg, #000 15%, transparent 80%);
+    mask-image: linear-gradient(120deg, #000 15%, transparent 80%);
+    transition: transform 700ms var(--ease-standard);
+  }
+
+  .article-cover[data-pattern="research"] .article-cover__art {
+    background-image:
+      linear-gradient(var(--ink) 1px, transparent 1px),
+      linear-gradient(90deg, var(--ink) 1px, transparent 1px);
+    background-size: 18px 18px;
+  }
+
+  .article-cover[data-pattern="product-release"] .article-cover__art {
+    background-image: repeating-linear-gradient(45deg, var(--ink) 0 2px, transparent 2px 12px);
+    background-size: auto;
+  }
+
+  .article-cover[data-pattern="benchmark"] .article-cover__art {
+    background-image: repeating-linear-gradient(90deg, var(--ink) 0 6px, transparent 6px 15px);
+    background-size: auto;
+    -webkit-mask-image: linear-gradient(to top, #000 10%, transparent 85%);
+    mask-image: linear-gradient(to top, #000 10%, transparent 85%);
+  }
+
+  .article-cover[data-pattern="opinion"] .article-cover__art {
+    background-image: repeating-radial-gradient(circle at 100% 100%, var(--ink) 0 1.5px, transparent 1.5px 12px);
+    background-size: auto;
+  }
+
+  .article-cover__img {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 700ms var(--ease-standard);
+  }
+
+  .article-cover__mark {
+    position: absolute;
+    right: 0.75rem;
+    bottom: -0.35rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-weight: 800;
+    font-size: 3rem;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    color: hsl(var(--h) 60% 22% / 0.3);
+    transition: transform 700ms var(--ease-standard);
+  }
+
+  html.dark .article-cover__mark {
+    color: hsl(0 0% 100% / 0.2);
+  }
+
+  .article-cover--sm .article-cover__mark { font-size: 1.9rem; }
+  .article-cover--lg .article-cover__mark { font-size: 3.75rem; }
+
+  .article-cover__img ~ .article-cover__mark {
+    display: none;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .news-card:hover .article-cover__art,
+    .cover-host:hover .article-cover__art {
+      transform: scale(1.08) translate3d(2%, -3%, 0);
+    }
+
+    .news-card:hover .article-cover__img,
+    .cover-host:hover .article-cover__img {
+      transform: scale(1.04);
+    }
+
+    .news-card:hover .article-cover__mark,
+    .cover-host:hover .article-cover__mark {
+      transform: translate3d(-4px, -3px, 0);
+    }
+  }
+
+  /* =========================================================
+     Charts
+     ========================================================= */
+  .chart-ink { color: hsl(var(--h, 160) 72% 38%); }
+  html.dark .chart-ink { color: hsl(var(--h, 160) 70% 58%); }
+
+  .chart-gridline {
+    position: relative;
+    height: 0;
+    border-top: 1px dashed var(--border-primary);
+  }
+
+  .chart-gridline--base { border-top-style: solid; }
+
+  .chart-gridline span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    transform: translateY(-115%);
+    padding: 0 3px 0 0;
+    border-radius: 2px;
+    background: var(--bg-surface);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 9px;
+    color: var(--text-muted);
+  }
+
+  .chart-gridline--base span { display: none; }
+
+  .chart-col {
+    position: relative;
+    flex: 1;
+    height: 100%;
+  }
+
+  .chart-col::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    background: currentColor;
+    opacity: 0;
+    transition: opacity var(--duration-micro) var(--ease-standard);
+  }
+
+  .chart-col__dot {
+    position: absolute;
+    left: 50%;
+    bottom: var(--y);
+    width: 9px;
+    height: 9px;
+    border-radius: 9999px;
+    background: var(--bg-surface);
+    border: 2px solid currentColor;
+    transform: translate(-50%, 50%) scale(0);
+    transition: transform var(--duration-base) var(--ease-standard);
+  }
+
+  .chart-col:hover::before { opacity: 0.3; }
+  .chart-col:hover .chart-col__dot { transform: translate(-50%, 50%) scale(1); }
+
+  .chart-tip {
+    position: absolute;
+    z-index: 30;
+    left: 50%;
+    bottom: calc(100% + 8px);
+    transform: translate(-50%, 4px);
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 10px;
+    line-height: 1.3;
+    color: var(--bg-surface);
+    background: var(--text-primary);
+    box-shadow: 0 6px 16px -4px rgba(0, 0, 0, 0.25);
+    transition: opacity var(--duration-micro) var(--ease-standard),
+                transform var(--duration-micro) var(--ease-standard);
+  }
+
+  .chart-col > .chart-tip { bottom: calc(var(--y) + 12px); }
+
+  .has-tip:hover > .chart-tip { opacity: 1; transform: translate(-50%, 0); }
+  .has-tip.tip-start > .chart-tip { left: 0; transform: translate(0, 4px); }
+  .has-tip.tip-start:hover > .chart-tip { transform: translate(0, 0); }
+  .has-tip.tip-end > .chart-tip { left: auto; right: 0; transform: translate(0, 4px); }
+  .has-tip.tip-end:hover > .chart-tip { transform: translate(0, 0); }
+
+  .chart-track {
+    display: block;
+    height: 8px;
+    border-radius: 9999px;
+    background: var(--bg-surface-elevated);
+    overflow: hidden;
+  }
+
+  .chart-bar {
+    display: block;
+    height: 100%;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, hsl(var(--h) 80% 60% / 0.55), currentColor);
+    transform-origin: left center;
+  }
+
+  .chart-column {
+    display: block;
+    background: linear-gradient(to top, hsl(var(--h) 80% 60% / 0.4), currentColor);
+    transform-origin: bottom center;
+    transition: filter var(--duration-micro) var(--ease-standard);
+  }
+
+  .has-tip:hover > .chart-column { filter: brightness(1.2) saturate(1.1); }
+
+  .chart-swatch {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    flex-shrink: 0;
+    background: hsl(var(--h) 70% 46%);
+  }
+
+  html.dark .chart-swatch { background: hsl(var(--h) 70% 58%); }
+
+  .donut-track { stroke: var(--bg-surface-elevated); }
+
+  .donut-seg {
+    stroke: hsl(var(--h) 70% 46%);
+    transition: stroke-width var(--duration-base) var(--ease-standard);
+    cursor: default;
+  }
+
+  html.dark .donut-seg { stroke: hsl(var(--h) 70% 58%); }
+  .donut-seg:hover { stroke-width: 6.5; }
+
+  .scatter-grid-y {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 0;
+    border-top: 1px dashed var(--border-primary);
+  }
+
+  .scatter-grid-y span,
+  .scatter-grid-x span {
+    position: absolute;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 9px;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  .scatter-grid-y span { right: calc(100% + 6px); top: 0; transform: translateY(-50%); }
+
+  .scatter-grid-x {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    border-left: 1px dashed var(--border-primary);
+  }
+
+  .scatter-grid-x span { top: calc(100% + 5px); left: 0; transform: translateX(-50%); }
+
+  .scatter-dot {
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    margin: 0 0 -5.5px -5.5px;
+    border-radius: 9999px;
+    background: hsl(var(--h) 75% 52% / 0.7);
+    border: 1.5px solid hsl(var(--h) 72% 36%);
+    transition: box-shadow var(--duration-base) var(--ease-standard);
+  }
+
+  html.dark .scatter-dot {
+    background: hsl(var(--h) 75% 58% / 0.7);
+    border-color: hsl(var(--h) 75% 70%);
+  }
+
+  .scatter-dot:hover {
+    z-index: 20;
+    box-shadow: 0 0 0 5px hsl(var(--h) 75% 52% / 0.25);
+  }
+
+  .scatter-dot.is-highlight {
+    box-shadow: 0 0 0 4px hsl(var(--h) 75% 52% / 0.18);
+  }
+
+  .scatter-label {
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 5px);
+    transform: translateX(-50%);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 9.5px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  .scatter-dot.tip-start .scatter-label { left: 0; transform: none; }
+  .scatter-dot.tip-end .scatter-label { left: auto; right: 0; transform: none; }
+
+  @media (max-width: 639px) {
+    .scatter-label { display: none; }
+  }
+
+  /* =========================================================
+     Scroll reveal + chart entrance animations
+     (only armed once the reveal script runs; see scripts/reveal.ts)
+     ========================================================= */
+  /* Keyframes with "backwards" fill (not a transition) so that, once revealed,
+     cards fall back to their own transform/transition rules (hover lifts etc.). */
+  html.reveal-ready [data-reveal]:not(.is-visible) {
+    opacity: 0;
+  }
+
+  html.reveal-ready [data-reveal].is-visible {
+    animation: revealIn 700ms var(--ease-standard) backwards;
+    animation-delay: var(--reveal-delay, 0ms);
+  }
+
+  @keyframes revealIn {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 18px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  html.reveal-ready [data-reveal].is-visible .chart-bar {
+    animation: chartGrowX 1000ms var(--ease-standard) both;
+    animation-delay: calc(var(--reveal-delay, 0ms) + 150ms + var(--i, 0) * 70ms);
+  }
+
+  html.reveal-ready [data-reveal].is-visible .chart-column {
+    animation: chartGrowY 900ms var(--ease-standard) both;
+    animation-delay: calc(var(--reveal-delay, 0ms) + 150ms + var(--i, 0) * 45ms);
+  }
+
+  html.reveal-ready [data-reveal].is-visible .chart-wipe {
+    animation: chartWipe 1400ms var(--ease-smooth) both;
+    animation-delay: calc(var(--reveal-delay, 0ms) + 150ms);
+  }
+
+  html.reveal-ready [data-reveal].is-visible .donut-seg {
+    animation: donutSweep 1100ms var(--ease-standard) both;
+    animation-delay: calc(var(--reveal-delay, 0ms) + 200ms + var(--i, 0) * 120ms);
+  }
+
+  html.reveal-ready [data-reveal].is-visible .scatter-dot {
+    animation: dotPop 600ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    animation-delay: calc(var(--reveal-delay, 0ms) + 200ms + var(--i, 0) * 15ms);
+  }
+
+  @keyframes chartGrowX { from { transform: scaleX(0); } }
+  @keyframes chartGrowY { from { transform: scaleY(0); } }
+  @keyframes chartWipe {
+    from { clip-path: inset(0 100% 0 0); }
+    to { clip-path: inset(0 0 0 0); }
+  }
+  @keyframes donutSweep { from { stroke-dasharray: 0 100; } }
+  @keyframes dotPop { from { transform: scale(0); opacity: 0; } }
+
+  /* =========================================================
+     Hero ambience: aurora glow, grid, shimmer headline, ticker
+     ========================================================= */
+  .hero-aurora {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-aurora::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--border-primary) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border-primary) 1px, transparent 1px);
+    background-size: 44px 44px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 80% at 85% 0%, #000 5%, transparent 70%);
+    mask-image: radial-gradient(ellipse 70% 80% at 85% 0%, #000 5%, transparent 70%);
+    opacity: 0.8;
+  }
+
+  .hero-aurora span {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(64px);
+    opacity: 0.32;
+    animation: auroraDrift 22s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+
+  .hero-aurora span:nth-child(1) {
+    width: 36rem;
+    height: 20rem;
+    top: -9rem;
+    right: -6rem;
+    background: radial-gradient(circle, #10b981, transparent 65%);
+  }
+
+  .hero-aurora span:nth-child(2) {
+    width: 28rem;
+    height: 18rem;
+    top: -2rem;
+    right: 26%;
+    background: radial-gradient(circle, #6366f1, transparent 65%);
+    animation-duration: 28s;
+    animation-delay: -7s;
+  }
+
+  .hero-aurora span:nth-child(3) {
+    width: 26rem;
+    height: 16rem;
+    bottom: -9rem;
+    left: -5rem;
+    background: radial-gradient(circle, #06b6d4, transparent 65%);
+    animation-duration: 34s;
+    animation-delay: -13s;
+  }
+
+  html.dark .hero-aurora span { opacity: 0.24; }
+
+  @keyframes auroraDrift {
+    0% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(-5%, 8%, 0) scale(1.08); }
+    100% { transform: translate3d(6%, -4%, 0) scale(0.95); }
+  }
+
+  .text-shimmer {
+    background-image: linear-gradient(90deg, #059669, #0891b2, #6366f1, #059669);
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: textShimmer 10s linear infinite;
+  }
+
+  html.dark .text-shimmer {
+    background-image: linear-gradient(90deg, #34d399, #22d3ee, #a5b4fc, #34d399);
+  }
+
+  @keyframes textShimmer {
+    to { background-position: 300% center; }
+  }
+
+  .stat-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--duration-base) var(--ease-standard),
+                border-color var(--duration-base) var(--ease-standard),
+                background-color var(--duration-base) var(--ease-standard),
+                box-shadow var(--duration-base) var(--ease-standard);
+  }
+
+  .stat-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #10b981, #06b6d4, #6366f1);
+    transform: scaleX(0.15);
+    transform-origin: left;
+    transition: transform 500ms var(--ease-standard);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .stat-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-accent);
+      box-shadow: 0 8px 20px -8px rgba(16, 185, 129, 0.25);
+    }
+
+    .stat-card:hover::before { transform: scaleX(1); }
+  }
+
+  .ticker {
+    position: relative;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  }
+
+  .ticker__track {
+    display: flex;
+    width: max-content;
+    animation: tickerScroll var(--ticker-duration, 80s) linear infinite;
+  }
+
+  .ticker:hover .ticker__track,
+  .ticker:focus-within .ticker__track {
+    animation-play-state: paused;
+  }
+
+  .ticker__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-right: 2.5rem;
+    white-space: nowrap;
+  }
+
+  @keyframes tickerScroll {
+    to { transform: translate3d(-50%, 0, 0); }
   }
 }
 

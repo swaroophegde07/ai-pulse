@@ -4,6 +4,10 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import NewsCard from "../../components/NewsCard.astro";
 import Footer from "../../components/Footer.astro";
+import ChartCard from "../../components/charts/ChartCard.astro";
+import BarList from "../../components/charts/BarList.astro";
+import ScatterPlot, { type ScatterPoint } from "../../components/charts/ScatterPlot.astro";
+import { brandHue } from "../../lib/visuals";
 import feedData from "../../data/feed.json";
 import benchmarksData from "../../data/benchmarks.json";
 import modelsData from "../../data/models.json";
@@ -29,6 +33,9 @@ interface FeedRecord {
   why_it_matters?: string;
   source_type?: string;
   summary_status?: string;
+  image_url?: string | null;
+  summary_provider?: string | null;
+  summary_model?: string | null;
 }
 
 interface BenchmarkRecord {
@@ -284,6 +291,56 @@ const topOverall = [...benchmarks]
 const costEfficientModel = [...models]
   .filter((m) => m.pricing && m.pricing.input_per_1m !== undefined)
   .sort((a, b) => (a.pricing!.input_per_1m) - (b.pricing!.input_per_1m))[0];
+
+// Leaderboard charts (build time)
+const LIVEBENCH_OVERALL = "LiveBench 2.0 Overall Average";
+const ARENA_TEXT = "Chatbot Arena (Text)";
+const toBar = (b: BenchmarkRecord) => ({
+  label: b.model_name,
+  value: b.score,
+  hue: brandHue(b.provider),
+  title: `${b.model_name} (${b.provider}): ${b.score}`,
+});
+const liveBenchOverall = benchmarks.filter((b) => b.benchmark_name === LIVEBENCH_OVERALL);
+const liveBenchTop = liveBenchOverall.slice(0, 10).map(toBar);
+const arenaTop = benchmarks.filter((b) => b.benchmark_name === ARENA_TEXT).slice(0, 10).map(toBar);
+const minOf = (rows: { value: number }[]) => Math.min(...rows.map((r) => r.value));
+const liveBenchDomainMin = liveBenchTop.length ? Math.max(0, Math.floor((minOf(liveBenchTop) - 10) / 10) * 10) : 0;
+const arenaDomainMin = arenaTop.length ? Math.floor((minOf(arenaTop) - 50) / 50) * 50 : 0;
+
+// Score vs. blended OpenRouter price, (3 x input + output) / 4 per 1M tokens.
+const metricsBySlug = new Map<string, any>();
+for (const m of (benchmarksData.model_metrics || []) as any[]) {
+  const slug = String(m.canonical_id || "").split("/").pop();
+  if (slug) metricsBySlug.set(slug, m);
+}
+const valueRows = liveBenchOverall
+  .map((b) => {
+    const m = metricsBySlug.get(String(b.canonical_id).split("/").pop() || "");
+    if (!m || typeof m.input_price_per_1m !== "number" || typeof m.output_price_per_1m !== "number") return null;
+    const price = (3 * m.input_price_per_1m + m.output_price_per_1m) / 4;
+    return price > 0 ? { b, price } : null;
+  })
+  .filter((r): r is { b: BenchmarkRecord; price: number } => r !== null);
+// Pareto frontier: no other model is both cheaper and higher scoring.
+const paretoIds = new Set<string>();
+let bestScoreSoFar = -Infinity;
+for (const r of [...valueRows].sort((a, b) => a.price - b.price || b.b.score - a.b.score)) {
+  if (r.b.score > bestScoreSoFar) {
+    bestScoreSoFar = r.b.score;
+    paretoIds.add(r.b.canonical_id);
+  }
+}
+const valuePoints: ScatterPoint[] = valueRows.map(({ b, price }) => ({
+  x: price,
+  y: b.score,
+  label: b.model_name,
+  hue: brandHue(b.provider),
+  highlight: paretoIds.has(b.canonical_id),
+  detail: `${b.provider} · ${b.score} LiveBench · $${price.toFixed(2)}/1M blended${paretoIds.has(b.canonical_id) ? " · best value at this price" : ""}`,
+}));
+const valueLegend = Array.from(new Set(valueRows.map((r) => r.b.provider))).map((p) => ({ label: p, hue: brandHue(p) }));
+const formatPrice = (v: number) => (v < 1 ? `$${v}` : `$${v.toFixed(0)}`);
 ---
 
 <Layout title="AI Benchmark Board & Model Intelligence">
@@ -359,6 +416,71 @@ const costEfficientModel = [...models]
         </div>
       </div>
     </div>
+
+    <!-- Leaderboard charts -->
+    {
+      (liveBenchTop.length > 0 || arenaTop.length > 0) && (
+        <section id="leaderboard-charts" class="mb-12" aria-labelledby="leaderboard-charts-title">
+          <div class="mb-4" data-reveal>
+            <h2 id="leaderboard-charts-title" class="text-xs font-mono text-theme-muted tracking-widest uppercase mb-1">
+              Leaderboards at a glance
+            </h2>
+            <p class="text-[11px] font-mono text-theme-muted">
+              Top 10 per leaderboard. Bars start at a non-zero baseline to make close scores readable.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            {liveBenchTop.length > 0 && (
+              <ChartCard eyebrow="LiveBench · Overall average" title="Top 10 models" footnote={`Score in %. Axis starts at ${liveBenchDomainMin}.`}>
+                <BarList
+                  data={liveBenchTop}
+                  ariaLabel="Top 10 models by LiveBench overall average score"
+                  domainMin={liveBenchDomainMin}
+                  formatValue={(v) => v.toFixed(1)}
+                  labelWidth="10rem"
+                />
+              </ChartCard>
+            )}
+            {arenaTop.length > 0 && (
+              <ChartCard eyebrow="Chatbot Arena · Text" title="Top 10 by Elo" footnote={`Elo rating. Axis starts at ${arenaDomainMin}.`} delay={100}>
+                <BarList
+                  data={arenaTop}
+                  ariaLabel="Top 10 models by Chatbot Arena text Elo rating"
+                  domainMin={arenaDomainMin}
+                  formatValue={(v) => v.toFixed(0)}
+                  labelWidth="10rem"
+                />
+              </ChartCard>
+            )}
+            {valuePoints.length > 2 && (
+              <ChartCard
+                class="lg:col-span-2"
+                eyebrow="Price vs. performance"
+                title="LiveBench score vs. blended API price"
+                stat={String(paretoIds.size)}
+                statLabel="best-value models labeled"
+                delay={60}
+                footnote="Blended price = (3 × input + output) / 4 per 1M tokens, from OpenRouter. Labeled dots are the efficient frontier: no other model scores higher for less."
+              >
+                <ScatterPlot
+                  points={valuePoints}
+                  ariaLabel="Scatter plot of LiveBench overall score against blended price per million tokens"
+                  xLabel="Blended $ / 1M tokens (log scale)"
+                  yLabel="LiveBench overall"
+                  xLog
+                  xTicks={[0.1, 1, 10]}
+                  yTicks={[50, 60, 70, 80, 90]}
+                  formatX={formatPrice}
+                  formatY={(v) => `${v}`}
+                  height={300}
+                  legend={valueLegend}
+                />
+              </ChartCard>
+            )}
+          </div>
+        </section>
+      )
+    }
 
     <!-- 4A. Overview Highlights -->
     <section class="mb-12">
@@ -968,6 +1090,9 @@ const costEfficientModel = [...models]
                 why_it_matters={article.why_it_matters}
                 source_type={article.source_type}
                 summary_status={article.summary_status}
+                image_url={article.image_url}
+                summary_provider={article.summary_provider}
+                summary_model={article.summary_model}
               />
             ))}
           </div>

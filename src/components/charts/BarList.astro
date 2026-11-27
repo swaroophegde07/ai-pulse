@@ -1,0 +1,45 @@
+---
+// BarList.astro — horizontal ranked bars that grow in when revealed.
+import type { Datum } from "../../lib/visuals";
+
+interface Props {
+  data: Datum[];
+  ariaLabel: string;
+  hue?: number;
+  domainMin?: number;
+  formatValue?: (value: number) => string;
+  labelWidth?: string;
+}
+
+const {
+  data,
+  ariaLabel,
+  hue = 160,
+  domainMin = 0,
+  formatValue = (v: number) => String(v),
+  labelWidth = "9rem",
+} = Astro.props;
+
+const max = Math.max(domainMin + 1, ...data.map((d) => d.value));
+const widthFor = (v: number) => {
+  const span = max - domainMin;
+  const pct = span > 0 ? ((v - domainMin) / span) * 100 : 100;
+  return Math.max(4, Math.min(100, pct));
+};
+---
+
+<ol class="chart-barlist space-y-2.5" aria-label={ariaLabel}>
+  {data.map((d, i) => (
+    <li
+      class="grid items-center gap-3"
+      style={`grid-template-columns:minmax(0,${labelWidth}) 1fr auto;--i:${i}`}
+      title={d.title || `${d.label}: ${formatValue(d.value)}`}
+    >
+      <span class="text-xs text-theme-secondary truncate">{d.label}</span>
+      <span class="chart-track" aria-hidden="true">
+        <span class="chart-bar chart-ink" style={`width:${widthFor(d.value).toFixed(1)}%;--h:${d.hue ?? hue}`}></span>
+      </span>
+      <span class="font-mono text-[11px] text-theme-primary tabular-nums text-right">{formatValue(d.value)}</span>
+    </li>
+  ))}
+</ol>

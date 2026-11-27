@@ -108,6 +108,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     <script>
       import "../scripts/theme";
       import "../scripts/relativeTime";
+      import "../scripts/reveal";
 
       let toastTimer: number | null = null;
       window.addEventListener("ai-pulse:toast", (e: any) => {

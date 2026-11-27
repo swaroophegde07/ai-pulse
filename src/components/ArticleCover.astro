@@ -1,0 +1,42 @@
+---
+// ArticleCover.astro — publisher image when available, otherwise a generated
+// gradient cover derived from the publisher name and article category.
+import { brandHue, brandMark } from "../lib/visuals";
+
+interface Props {
+  company: string;
+  category: string;
+  image_url?: string | null;
+  size?: "sm" | "md" | "lg";
+  class?: string;
+}
+
+const { company, category, image_url, size = "md", class: className = "" } = Astro.props;
+const hue = brandHue(company);
+const hue2 = (hue + 40) % 360;
+const pattern = (category || "news").toLowerCase().replace(/\s+/g, "-");
+const safeImage = typeof image_url === "string" && image_url.startsWith("https://") ? image_url : null;
+// Literal class names so Tailwind keeps the matching component styles.
+const sizeClass = { sm: "article-cover--sm", md: "article-cover--md", lg: "article-cover--lg" }[size];
+---
+
+<div
+  class={`article-cover ${sizeClass} ${className}`}
+  data-pattern={pattern}
+  style={`--h:${hue};--h2:${hue2}`}
+  aria-hidden="true"
+>
+  <span class="article-cover__art"></span>
+  {safeImage && (
+    <img
+      class="article-cover__img"
+      src={safeImage}
+      alt=""
+      loading="lazy"
+      decoding="async"
+      referrerpolicy="no-referrer"
+      onerror="this.remove()"
+    />
+  )}
+  <span class="article-cover__mark">{brandMark(company)}</span>
+</div>

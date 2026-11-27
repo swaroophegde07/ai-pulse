@@ -404,6 +404,77 @@ def extract_text(entry: Any) -> str:
     return ""
 
 
+_IMG_SRC_RE = re.compile(r"<img\b[^>]*?\bsrc\s*=\s*[\"']([^\"']+)[\"']", re.IGNORECASE)
+_IMG_TAG_RE = re.compile(r"<img\b[^>]*>", re.IGNORECASE)
+_IMG_DIM_RE = re.compile(r"\b(width|height)\s*=\s*[\"']?(\d+)", re.IGNORECASE)
+_BLOCKED_IMAGE_HINTS = ("pixel", "feedburner", "gravatar", "tracking", "/emoji/", "spacer", "1x1")
+_MIN_IMAGE_DIMENSION = 100
+
+
+def _usable_image_url(url: Any, width: Any = None, height: Any = None) -> str | None:
+    """Return the URL when it looks like a real https article image, else None."""
+    if not isinstance(url, str):
+        return None
+    url = html.unescape(url.strip())
+    if not url.startswith("https://") or len(url) > 1000:
+        return None
+    lowered = url.lower()
+    if any(hint in lowered for hint in _BLOCKED_IMAGE_HINTS):
+        return None
+    for dim in (width, height):
+        try:
+            if dim is not None and int(dim) < _MIN_IMAGE_DIMENSION:
+                return None
+        except (TypeError, ValueError):
+            continue
+    return url
+
+
+def extract_image_url(entry: Any) -> str | None:
+    """Return the best feed-provided image for an entry (https only), or None.
+
+    Preference: media:thumbnail -> media:content (image) -> image enclosure -> first
+    usable <img> in the entry content/summary. Tiny and tracking images are ignored.
+    """
+    def _items(attr: str) -> list:
+        value = getattr(entry, attr, None)
+        return [v for v in value if isinstance(v, dict)] if isinstance(value, list) else []
+
+    for item in _items("media_thumbnail"):
+        url = _usable_image_url(item.get("url"), item.get("width"), item.get("height"))
+        if url:
+            return url
+
+    for item in _items("media_content"):
+        medium = str(item.get("medium") or "").lower()
+        mime = str(item.get("type") or "").lower()
+        if medium == "image" or mime.startswith("image/") or (not medium and not mime):
+            url = _usable_image_url(item.get("url"), item.get("width"), item.get("height"))
+            if url:
+                return url
+
+    for item in _items("enclosures"):
+        if str(item.get("type") or "").lower().startswith("image/"):
+            url = _usable_image_url(item.get("href") or item.get("url"))
+            if url:
+                return url
+
+    html_blobs = [c.get("value") for c in _items("content")]
+    html_blobs.append(getattr(entry, "summary", None))
+    for blob in html_blobs:
+        if not isinstance(blob, str):
+            continue
+        for tag in _IMG_TAG_RE.findall(blob):
+            src = _IMG_SRC_RE.search(tag)
+            if not src:
+                continue
+            dims = {k.lower(): v for k, v in _IMG_DIM_RE.findall(tag)}
+            url = _usable_image_url(src.group(1), dims.get("width"), dims.get("height"))
+            if url:
+                return url
+    return None
+
+
 # ---------------------------------------------------------------------------
 # Feed fetching
 # ---------------------------------------------------------------------------
@@ -543,6 +614,9 @@ def fetch_feed(
             "category": source["category"],
             "text": text,
         }
+        image_url = extract_image_url(entry)
+        if image_url:
+            candidate["image_url"] = image_url
 
         # Handle mixed newsletters or single stories through the relevance gate
         sub_articles = split_mixed_newsletter(candidate)

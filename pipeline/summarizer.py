@@ -9,6 +9,8 @@ Key capabilities:
   - Explicit summary statuses: 'generated', 'publisher_excerpt', 'pending_quota', 'unavailable'.
   - Unnecessary Automatic Function Calling (AFC) disabled.
   - Structured JSON output with strict verification.
+  - Optional Groq fallback (OpenAI-compatible API, default openai/gpt-oss-120b)
+    used when Gemini is unconfigured, out of quota, or failing. Gemini stays primary.
 """
 
 from __future__ import annotations
@@ -21,6 +23,7 @@ import re
 import time
 from typing import Any
 
+import requests
 from google import genai
 from google.genai import types
 from google.genai.errors import APIError
@@ -41,6 +44,22 @@ logger = logging.getLogger(__name__)
 
 DEFAULT_MODEL = "gemini-3.5-flash-lite"
 FALLBACK_SUMMARY_PREFIX = "[Automated summary unavailable] "
+
+GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
+DEFAULT_GROQ_MODEL = "openai/gpt-oss-120b"
+# Groq's free tier allows ~8K tokens/min for gpt-oss-120b; one summary uses ~2K.
+DEFAULT_GROQ_REQUESTS_PER_MINUTE = 3
+DEFAULT_GROQ_MAX_REQUESTS_PER_RUN = 15
+# Rate-limit responses asking us to wait longer than this are treated as quota exhaustion.
+GROQ_MAX_RETRY_WAIT_SECONDS = 30.0
+
+
+def _env_int(name: str, default: int) -> int:
+    try:
+        return int(os.environ.get(name, "").strip() or default)
+    except ValueError:
+        logger.warning("Ignoring invalid integer for %s; using %d.", name, default)
+        return default
 
 # ---------------------------------------------------------------------------
 # Content fingerprinting & Cache Validation
@@ -244,7 +263,8 @@ class RateLimiter:
 class CircuitBreaker:
     """Pipeline-wide circuit breaker that halts calls when quota is exhausted."""
 
-    def __init__(self):
+    def __init__(self, provider: str = "Gemini"):
+        self.provider = provider
         self.is_open: bool = False
         self.reason: str = ""
         self.retry_after: float = 0.0
@@ -257,8 +277,9 @@ class CircuitBreaker:
         self.retry_after = retry_after
         self.opened_at = time.time()
         logger.warning(
-            "Circuit breaker TRIPPED: %s. Halting subsequent Gemini requests for this run.",
+            "Circuit breaker TRIPPED: %s. Halting subsequent %s requests for this run.",
             reason,
+            self.provider,
         )
 
     def reset(self) -> None:
@@ -282,6 +303,188 @@ def _get_client() -> genai.Client:
             "Set it to your Google AI Studio API key."
         )
     return genai.Client(api_key=api_key)
+
+
+# ---------------------------------------------------------------------------
+# Groq fallback provider
+# ---------------------------------------------------------------------------
+
+
+class ProviderError(RuntimeError):
+    """Failed request to a fallback summarization provider."""
+
+    def __init__(self, message: str, status_code: int | None = None):
+        super().__init__(message)
+        self.status_code = status_code
+
+
+def _to_strict_json_schema(schema: Any) -> Any:
+    """Convert the Gemini-style schema into standard JSON Schema for strict structured outputs.
+
+    Strict mode requires lowercase types, every property listed in ``required``,
+    and ``additionalProperties: false`` on every object.
+    """
+    if isinstance(schema, list):
+        return [_to_strict_json_schema(item) for item in schema]
+    if not isinstance(schema, dict):
+        return schema
+    converted = {
+        key: value.lower() if key == "type" and isinstance(value, str) else _to_strict_json_schema(value)
+        for key, value in schema.items()
+    }
+    if converted.get("type") == "object":
+        converted["required"] = list(converted.get("properties", {}).keys())
+        converted["additionalProperties"] = False
+    return converted
+
+
+_GROQ_SUMMARY_JSON_SCHEMA: dict = _to_strict_json_schema(_SUMMARY_JSON_SCHEMA)
+
+
+def _parse_retry_after(value: str | None) -> float:
+    try:
+        return max(0.0, float(value)) if value else 0.0
+    except ValueError:
+        return 0.0
+
+
+def _groq_error_detail(response: requests.Response) -> str:
+    try:
+        detail = response.json().get("error", {}).get("message", "")
+    except (ValueError, AttributeError):
+        detail = ""
+    return (detail or response.text or "no error details")[:200]
+
+
+class GroqSummarizer:
+    """Fallback summarizer backed by Groq's OpenAI-compatible chat completions API.
+
+    Keeps its own rate limiter, per-run request budget, and circuit breaker so a
+    Groq outage or quota exhaustion never blocks the Gemini path (and vice versa).
+    """
+
+    provider = "groq"
+
+    def __init__(
+        self,
+        api_key: str,
+        model: str | None = None,
+        requests_per_minute: int = DEFAULT_GROQ_REQUESTS_PER_MINUTE,
+        max_requests: int = DEFAULT_GROQ_MAX_REQUESTS_PER_RUN,
+        retries: int = 1,
+        timeout: float = 60.0,
+        session: requests.Session | None = None,
+    ):
+        if not api_key:
+            raise ValueError("A Groq API key is required.")
+        self._api_key = api_key
+        self.model = model or DEFAULT_GROQ_MODEL
+        self.limiter = RateLimiter(requests_per_minute=requests_per_minute)
+        self.circuit = CircuitBreaker(provider="Groq")
+        self.max_requests = max(0, max_requests)
+        self.retries = max(0, retries)
+        self.timeout = timeout
+        self.requests_sent = 0
+        self._session = session or requests.Session()
+
+    def __repr__(self) -> str:
+        return f"GroqSummarizer(model={self.model!r}, requests_sent={self.requests_sent})"
+
+    @classmethod
+    def from_env(cls) -> GroqSummarizer | None:
+        """Build the fallback from GROQ_* environment variables, or None when GROQ_API_KEY is unset."""
+        api_key = os.environ.get("GROQ_API_KEY", "").strip()
+        if not api_key:
+            return None
+        return cls(
+            api_key=api_key,
+            model=os.environ.get("GROQ_MODEL", "").strip() or DEFAULT_GROQ_MODEL,
+            requests_per_minute=_env_int("GROQ_MAX_REQUESTS_PER_MINUTE", DEFAULT_GROQ_REQUESTS_PER_MINUTE),
+            max_requests=_env_int("GROQ_MAX_SUMMARIES_PER_RUN", DEFAULT_GROQ_MAX_REQUESTS_PER_RUN),
+            retries=_env_int("GROQ_MAX_RETRIES", 1),
+        )
+
+    def available(self) -> bool:
+        return not self.circuit.is_open and self.requests_sent < self.max_requests
+
+    def generate(self, prompt: str) -> str:
+        """Return the raw JSON text produced for *prompt*, raising ProviderError on failure."""
+        payload = {
+            "model": self.model,
+            "messages": [
+                {"role": "system", "content": _SYSTEM_INSTRUCTION},
+                {"role": "user", "content": prompt},
+            ],
+            "response_format": {
+                "type": "json_schema",
+                "json_schema": {
+                    "name": "article_summary",
+                    "strict": True,
+                    "schema": _GROQ_SUMMARY_JSON_SCHEMA,
+                },
+            },
+            "temperature": 0.2,
+            "max_completion_tokens": 1024,
+        }
+        if self.model.startswith("openai/gpt-oss"):
+            payload["reasoning_effort"] = "low"
+
+        for attempt in range(self.retries + 1):
+            if not self.available():
+                raise ProviderError("Groq fallback unavailable (circuit open or run budget reached)")
+            self.limiter.wait()
+            self.requests_sent += 1
+            can_retry = attempt < self.retries
+
+            try:
+                response = self._session.post(
+                    GROQ_API_URL,
+                    headers={
+                        "Authorization": f"Bearer {self._api_key}",
+                        "Content-Type": "application/json",
+                    },
+                    json=payload,
+                    timeout=self.timeout,
+                )
+            except requests.RequestException as exc:
+                if can_retry:
+                    time.sleep(2.0)
+                    continue
+                raise ProviderError(f"Groq request failed: {type(exc).__name__}") from None
+
+            status = response.status_code
+            if status == 200:
+                try:
+                    content = response.json()["choices"][0]["message"]["content"]
+                except (ValueError, KeyError, IndexError, TypeError):
+                    raise ProviderError("Groq returned an unexpected response shape", status) from None
+                if not isinstance(content, str) or not content.strip():
+                    raise ProviderError("Groq returned empty content", status)
+                return content
+
+            detail = _groq_error_detail(response)
+            message = f"Groq HTTP {status}: {detail}"
+
+            if status == 429:
+                retry_after = _parse_retry_after(response.headers.get("retry-after"))
+                if can_retry and retry_after <= GROQ_MAX_RETRY_WAIT_SECONDS:
+                    time.sleep(retry_after or 5.0)
+                    continue
+                self.circuit.trip(f"Groq rate limit or quota exhausted: {detail}", retry_after=retry_after or 60.0)
+                raise ProviderError(message, status)
+
+            if status in (401, 403, 404):
+                # Invalid key, missing permission, or unknown model: every later call would fail too.
+                self.circuit.trip(f"Groq configuration error: {message}", retry_after=0.0)
+                raise ProviderError(message, status)
+
+            if status >= 500 and can_retry:
+                time.sleep(2.0)
+                continue
+
+            raise ProviderError(message, status)
+
+        raise ProviderError("Groq request failed after retries")
 
 
 # ---------------------------------------------------------------------------
@@ -515,31 +718,112 @@ def _validate_gemini_response(data: Any, article_url: str) -> dict | None:
 # ---------------------------------------------------------------------------
 
 
+def _default_sources(a: dict) -> list[dict]:
+    return a.get("sources") or [
+        {
+            "title": a.get("title", ""),
+            "url": a.get("url", ""),
+            "publisher": a.get("company", a.get("source", "")),
+        }
+    ]
+
+
+def _build_prompt(title: str, text: str) -> str:
+    prompt_parts = ["Title: " + title]
+    if text:
+        prompt_parts.append("Article text (may be truncated):\n" + text[:3000])
+    return "\n\n".join(prompt_parts)
+
+
+def _excerpt_result(article: dict, status: str, category: str | None = None) -> dict:
+    """Return the article with a non-fabricated excerpt summary and the given status."""
+    result = dict(article)
+    result["summary"] = make_fallback_summary(article.get("title", ""), article.get("text", ""))
+    result["summary_status"] = status
+    result["category"] = category or article.get("category", "News")
+    result["sources"] = _default_sources(article)
+    return result
+
+
+def _generated_result(article: dict, validated: dict, provider: str, model: str) -> dict:
+    """Apply quality checks to a validated model response and build the final record."""
+    title = article.get("title", "")
+    text = article.get("text", "")
+    url = article.get("url", "")
+
+    quality_ok, quality_reason = validate_article_summary_quality(title, validated["summary"], text)
+    if not quality_ok:
+        logger.warning(
+            "Summary quality validation failed (%s) for %s via %s; setting unverified excerpt fallback.",
+            quality_reason,
+            url,
+            provider,
+        )
+        return _excerpt_result(article, "unverified_excerpt", validated["category"])
+
+    result = dict(article)
+    result["summary"] = validated["summary"]
+    result["category"] = validated["category"]
+    result["summary_status"] = "generated"
+    result["summary_provider"] = provider
+    result["summary_model"] = model
+    result["content_fingerprint"] = compute_content_fingerprint(title, text)
+    if validated.get("key_points"):
+        result["key_points"] = validated["key_points"]
+    if validated.get("tags"):
+        result["tags"] = validated["tags"]
+    if validated.get("impact_score") is not None:
+        result["impact_score"] = validated["impact_score"]
+    result["sources"] = _default_sources(article)
+    return result
+
+
+def _summarize_with_fallback(article: dict, prompt: str, fallback: GroqSummarizer | None) -> dict | None:
+    """Try the fallback provider; return None when it is unavailable or fails."""
+    if fallback is None or not fallback.available():
+        return None
+    url = article.get("url", "")
+    try:
+        data = json.loads(fallback.generate(prompt))
+    except ProviderError as exc:
+        logger.warning("Fallback provider %s failed for %s: %s", fallback.provider, url, exc)
+        return None
+    except ValueError as exc:
+        logger.warning("Fallback provider %s returned invalid JSON for %s: %s", fallback.provider, url, exc)
+        return None
+    validated = _validate_gemini_response(data, url)
+    if not validated:
+        return None
+    logger.info("Summarized %s with fallback provider %s (%s).", url, fallback.provider, fallback.model)
+    return _generated_result(article, validated, fallback.provider, fallback.model)
+
+
 def summarize_article(
     article: dict,
-    client: genai.Client,
+    client: genai.Client | None,
     model: str | None = None,
     retries: int | None = None,
     circuit_breaker: CircuitBreaker | None = None,
+    fallback: GroqSummarizer | None = None,
 ) -> dict:
-    """Summarize a single article using Gemini with quota awareness."""
-    def _default_sources(a: dict) -> list[dict]:
-        return a.get("sources") or [
-            {
-                "title": a.get("title", ""),
-                "url": a.get("url", ""),
-                "publisher": a.get("company", a.get("source", "")),
-            }
-        ]
+    """Summarize a single article using Gemini with quota awareness.
 
-    if circuit_breaker and circuit_breaker.is_open:
-        # Circuit open: do not call API; mark as deferred
-        res = dict(article)
-        res["summary"] = make_fallback_summary(article.get("title", ""), article.get("text", ""))
-        res["summary_status"] = "pending_quota"
-        res["category"] = article.get("category", "News")
-        res["sources"] = _default_sources(article)
-        return res
+    When *fallback* is provided it is tried whenever Gemini cannot produce a
+    summary: no client, circuit open, quota exhausted, or repeated API errors.
+    """
+    title = article.get("title", "")
+    text = article.get("text", "")
+    url = article.get("url", "")
+    prompt = _build_prompt(title, text)
+
+    circuit_open = circuit_breaker is not None and circuit_breaker.is_open
+    if client is None or circuit_open:
+        fallback_result = _summarize_with_fallback(article, prompt, fallback)
+        if fallback_result is not None:
+            return fallback_result
+        # Circuit open or fallback attempted: defer so a later run retries.
+        status = "pending_quota" if (circuit_open or fallback is not None) else "unavailable"
+        return _excerpt_result(article, status)
 
     if not model:
         model = os.environ.get("GEMINI_MODEL", DEFAULT_MODEL)
@@ -547,19 +831,8 @@ def summarize_article(
     if retries is None:
         retries = int(os.environ.get("GEMINI_MAX_RETRIES", "1"))
 
-    title = article.get("title", "")
-    text = article.get("text", "")
-    url = article.get("url", "")
-    default_category = article.get("category", "News")
-
-    prompt_parts = ["Title: " + title]
-    if text:
-        prompt_parts.append("Article text (may be truncated):\n" + text[:3000])
-    prompt = "\n\n".join(prompt_parts)
-
     for attempt in range(retries + 1):
         try:
-            # Build request config with explicit tools=[] to disable AFC
             config_kwargs: dict[str, Any] = {
                 "system_instruction": _SYSTEM_INSTRUCTION,
                 "response_mime_type": "application/json",
@@ -567,7 +840,6 @@ def summarize_article(
                 "temperature": 0.1,
                 "max_output_tokens": 512,
             }
-            # Only pass tools if the SDK types support it
             if hasattr(types, "GenerateContentConfig"):
                 config = types.GenerateContentConfig(**config_kwargs)
             else:
@@ -583,29 +855,7 @@ def summarize_article(
             data = json.loads(raw_text)
             validated = _validate_gemini_response(data, url)
             if validated:
-                quality_ok, quality_reason = validate_article_summary_quality(title, validated["summary"], text)
-                if not quality_ok:
-                    logger.warning("Summary quality validation failed (%s) for %s; setting unverified excerpt fallback.", quality_reason, url)
-                    result = dict(article)
-                    result["summary"] = make_fallback_summary(title, text)
-                    result["summary_status"] = "unverified_excerpt"
-                    result["category"] = validated["category"]
-                    result["sources"] = _default_sources(article)
-                    return result
-
-                result = dict(article)
-                result["summary"] = validated["summary"]
-                result["category"] = validated["category"]
-                result["summary_status"] = "generated"
-                result["content_fingerprint"] = compute_content_fingerprint(title, text)
-                if validated.get("key_points"):
-                    result["key_points"] = validated["key_points"]
-                if validated.get("tags"):
-                    result["tags"] = validated["tags"]
-                if validated.get("impact_score") is not None:
-                    result["impact_score"] = validated["impact_score"]
-                result["sources"] = _default_sources(article)
-                return result
+                return _generated_result(article, validated, "gemini", model)
 
         except Exception as exc:
             err_type, retry_after = classify_error(exc)
@@ -621,12 +871,10 @@ def summarize_article(
             if err_type == "quota_exhausted":
                 if circuit_breaker:
                     circuit_breaker.trip(f"Quota exhausted: {exc}", retry_after=retry_after)
-                result = dict(article)
-                result["summary"] = make_fallback_summary(title, text)
-                result["summary_status"] = "pending_quota"
-                result["category"] = default_category
-                result["sources"] = _default_sources(article)
-                return result
+                fallback_result = _summarize_with_fallback(article, prompt, fallback)
+                if fallback_result is not None:
+                    return fallback_result
+                return _excerpt_result(article, "pending_quota")
 
             if err_type == "permanent":
                 break
@@ -634,13 +882,11 @@ def summarize_article(
             if err_type == "transient" and attempt < retries:
                 time.sleep(min(retry_after, 3.0))
 
-    # All attempts exhausted
-    result = dict(article)
-    result["summary"] = make_fallback_summary(title, text)
-    result["summary_status"] = "publisher_excerpt" if text else "unavailable"
-    result["category"] = default_category
-    result["sources"] = _default_sources(article)
-    return result
+    # All Gemini attempts exhausted
+    fallback_result = _summarize_with_fallback(article, prompt, fallback)
+    if fallback_result is not None:
+        return fallback_result
+    return _excerpt_result(article, "publisher_excerpt" if text else "unavailable")
 
 
 # ---------------------------------------------------------------------------
@@ -662,6 +908,7 @@ def summarize_articles(
     max_per_run = int(os.environ.get("GEMINI_MAX_SUMMARIES_PER_RUN", "30"))
     limiter = RateLimiter(requests_per_minute=rpm)
     circuit = CircuitBreaker()
+    groq = GroqSummarizer.from_env()
 
     # Index existing records by ID, canonical URL, and valid records list
     existing_by_id: dict[str, dict] = {}
@@ -700,6 +947,9 @@ def summarize_articles(
             reused["tags"] = matched["topics"]
         if matched.get("impact_score") is not None:
             reused["impact_score"] = matched["impact_score"]
+        for provenance_field in ("summary_provider", "summary_model"):
+            if matched.get(provenance_field):
+                reused[provenance_field] = matched[provenance_field]
 
         # Ensure source attribution preserves both matched and incoming source
         base_sources = matched.get("sources") or [
@@ -720,12 +970,19 @@ def summarize_articles(
         "generated": 0,
         "deferred": 0,
         "fallbacks": 0,
+        "groq_requests": 0,
+        "groq_generated": 0,
     }
 
     try:
         client = _get_client()
     except ValueError as exc:
-        logger.warning("Gemini client initialization skipped: %s", exc)
+        client = None
+        if groq is not None:
+            logger.warning("Gemini client initialization skipped: %s Using Groq fallback (%s) only.", exc, groq.model)
+        else:
+            logger.warning("Gemini client initialization skipped: %s", exc)
+    if client is None and groq is None:
         results = []
         for a in articles:
             rec = dict(a)
@@ -803,8 +1060,9 @@ def summarize_articles(
             metrics["skipped_cached"] += 1
             continue
 
-        # 5. Check if circuit breaker is open or run budget reached
-        if circuit.is_open or summaries_in_run >= max_per_run:
+        # 5. Defer when neither Gemini (circuit/run budget) nor the Groq fallback can take the request
+        gemini_ready = client is not None and not circuit.is_open and summaries_in_run < max_per_run
+        if not gemini_ready and not (groq is not None and groq.available()):
             deferred = dict(article)
             deferred["summary"] = make_fallback_summary(title, text)
             deferred["summary_status"] = "pending_quota"
@@ -820,20 +1078,24 @@ def summarize_articles(
             metrics["deferred"] += 1
             continue
 
-        # 3. Rate-limit wait before request
-        limiter.wait()
-        metrics["requests_sent"] += 1
-        summaries_in_run += 1
-
-        summarized = summarize_article(
-            article,
-            client=client,
-            circuit_breaker=circuit,
-        )
+        if gemini_ready:
+            limiter.wait()
+            metrics["requests_sent"] += 1
+            summaries_in_run += 1
+            summarized = summarize_article(
+                article,
+                client=client,
+                circuit_breaker=circuit,
+                fallback=groq,
+            )
+        else:
+            summarized = summarize_article(article, client=None, fallback=groq)
 
         status = summarized.get("summary_status")
         if status == "generated":
             metrics["generated"] += 1
+            if summarized.get("summary_provider") == GroqSummarizer.provider:
+                metrics["groq_generated"] += 1
         elif status == "pending_quota":
             metrics["deferred"] += 1
         else:
@@ -841,6 +1103,7 @@ def summarize_articles(
 
         results.append(summarized)
 
+    metrics["groq_requests"] = groq.requests_sent if groq is not None else 0
     logger.info(
         "Summarization finished: %d considered, %d cache hits, %d API requests, %d generated, %d deferred, %d fallbacks.",
         metrics["considered"],
@@ -850,6 +1113,13 @@ def summarize_articles(
         metrics["deferred"],
         metrics["fallbacks"],
     )
+    if groq is not None:
+        logger.info(
+            "Groq fallback (%s): %d requests, %d summaries generated.",
+            groq.model,
+            metrics["groq_requests"],
+            metrics["groq_generated"],
+        )
     return results, metrics
 
 

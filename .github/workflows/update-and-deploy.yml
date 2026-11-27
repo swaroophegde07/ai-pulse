@@ -10,6 +10,9 @@
 # Required repository secrets:
 #   GEMINI_API_KEY  — Google AI Studio API key for Gemini summarization.
 #
+# Optional repository secrets:
+#   GROQ_API_KEY    — GroqCloud API key for the fallback summarizer.
+#
 # Required repository settings:
 #   Settings → Pages → Source → GitHub Actions
 # =============================================================================
@@ -86,6 +89,9 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           # Optional: override the model.
           # GEMINI_MODEL: gemini-3.8-flash
+          # Optional fallback used when Gemini is missing, out of quota, or failing.
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          # GROQ_MODEL: openai/gpt-oss-120b
         run: python -m pipeline.run
 
       - name: Commit updated feed data
@@ -104,19 +110,15 @@ jobs:
           echo "commit_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
   # ---------------------------------------------------------------------------
-  # Job 2: Build and Deploy — install Node deps, build Astro, deploy to Pages
+  # Job 2: Build — install Node deps, build Astro, upload the Pages artifact
   # ---------------------------------------------------------------------------
-  build-and-deploy:
-    name: Build and deploy to GitHub Pages
+  build:
+    name: Build site
     runs-on: ubuntu-latest
     # Run after ingestion (if it ran); or directly if ingestion was skipped.
     needs: [ingest]
     # If ingest was skipped, still run build.
     if: ${{ always() && (needs.ingest.result == 'success' || needs.ingest.result == 'skipped') }}
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
 
     steps:
       - name: Check out repository
@@ -155,6 +157,33 @@ jobs:
         with:
           path: dist/
 
+  # ---------------------------------------------------------------------------
+  # Job 3: Deploy — publish the uploaded artifact. Kept separate from the build
+  # so "Re-run failed jobs" redeploys the existing artifact instead of uploading
+  # a duplicate (which deploy-pages rejects), and so the artifact is registered
+  # before deployment starts.
+  # ---------------------------------------------------------------------------
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    needs: [build]
+    if: ${{ always() && needs.build.result == 'success' }}
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url || steps.deploy_retry.outputs.page_url }}
+
+    steps:
       - name: Deploy to GitHub Pages
         id: deploy
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+
+      - name: Wait before retrying deployment
+        if: ${{ steps.deploy.outcome == 'failure' }}
+        run: sleep 30
+
+      - name: Retry deploy to GitHub Pages
+        id: deploy_retry
+        if: ${{ steps.deploy.outcome == 'failure' }}
         uses: actions/deploy-pages@v4

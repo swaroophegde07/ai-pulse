@@ -5,6 +5,13 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import NewsCard from "../components/NewsCard.astro";
 import Footer from "../components/Footer.astro";
+import ArticleCover from "../components/ArticleCover.astro";
+import ChartCard from "../components/charts/ChartCard.astro";
+import AreaChart from "../components/charts/AreaChart.astro";
+import BarList from "../components/charts/BarList.astro";
+import ColumnChart from "../components/charts/ColumnChart.astro";
+import DonutChart from "../components/charts/DonutChart.astro";
+import { CATEGORY_HUES, brandHue, countBy, dailyCounts, formatMonth, formatShortDate, monthlyCounts } from "../lib/visuals";
 import sourcesData from "../data/sources.json";
 import feedData from "../data/feed.json";
 import modelsData from "../data/models.json";
@@ -33,6 +40,9 @@ interface FeedRecord {
   why_it_matters?: string;
   source_type?: string;
   summary_status?: string;
+  image_url?: string | null;
+  summary_provider?: string | null;
+  summary_model?: string | null;
 }
 
 const feed = feedData as FeedRecord[];
@@ -164,6 +174,26 @@ const priorityStories = sortedArticles
 const displayedIds = new Set([...briefIds, ...priorityStories.map((a) => a.id)]);
 const latestArticles = sortedArticles.filter((a) => !displayedIds.has(a.id)).slice(0, 6);
 
+// "Pulse at a glance" chart data (computed at build time)
+const dailyVolume = dailyCounts(realArticles.map((a) => a.date), 30, nowMs);
+const dailyTotal = dailyVolume.reduce((sum, d) => sum + d.value, 0);
+const dailyAverage = dailyVolume.length ? dailyTotal / dailyVolume.length : 0;
+const categoryMix = countBy(realArticles, (a) => a.category).map((d) => ({
+  ...d,
+  hue: CATEGORY_HUES[d.label] ?? 200,
+}));
+const topPublishers = countBy(realArticles, (a) => a.company)
+  .slice(0, 7)
+  .map((d) => ({ ...d, hue: brandHue(d.label), label: d.label.replace(/\s*\(.*?\)\s*/g, "") }));
+const modelReleaseDates = Array.isArray(modelsData) ? (modelsData as any[]).map((m) => m.release_date) : [];
+const modelReleases = monthlyCounts(modelReleaseDates, 12, nowMs);
+const modelReleasesTotal = modelReleases.reduce((sum, d) => sum + d.value, 0);
+
+// Headline ticker: newest published stories
+const tickerArticles = sortedArticles
+  .filter((a) => a.date && new Date(a.date).getTime() <= nowMs)
+  .slice(0, 12);
+
 // Provenance and pipeline run metadata from health snapshot
 const pipelineGeneratedAt = (pipelineStatusData as any)?.generated_at;
 const feedHealth = (pipelineStatusData as any)?.feed_health;
@@ -198,16 +228,20 @@ function formatLastUpdated(iso: string | undefined): string {
 
   <main id="main-content">
     <!-- Hero / Intro Section -->
-    <section class="border-b border-theme-border bg-theme-page">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 animate-reveal">
+    <section class="relative overflow-hidden border-b border-theme-border bg-theme-page">
+      <div class="hero-aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 animate-reveal">
         <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
           <div class="max-w-2xl">
             <div class="inline-flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase px-2.5 py-1 rounded border border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 mb-3">
-              <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400"></span>
+              <span class="relative inline-flex w-1.5 h-1.5" aria-hidden="true">
+                <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
+                <span class="relative inline-flex w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400"></span>
+              </span>
               <span>Frontier Intelligence Stream</span>
             </div>
-            <h1 class="text-2xl sm:text-3xl font-bold text-theme-primary tracking-tight mb-2">
-              AI Intelligence Dashboard
+            <h1 class="text-2xl sm:text-4xl font-bold text-theme-primary tracking-tight mb-2">
+              <span class="text-shimmer">AI Intelligence</span> Dashboard
             </h1>
             <p class="text-sm text-theme-secondary leading-relaxed">
               Objective news aggregation, verified model capabilities, empirical benchmarks, and research tracking. Filtered for high-signal developments with traceable provenance.
@@ -217,6 +251,7 @@ function formatLastUpdated(iso: string | undefined): string {
           <!-- Fast section jump navigation -->
           <nav aria-label="Page sections" class="flex items-center gap-2 flex-wrap font-mono text-[10px]">
             <span class="text-theme-muted uppercase tracking-wider">Jump to:</span>
+            <a href="#pulse-at-a-glance" class="px-2.5 py-1 rounded border border-theme-border bg-theme-surface text-theme-secondary hover:text-emerald-700 dark:hover:text-emerald-400 hover:border-theme-border-accent transition-colors">Charts</a>
             <a href="#why-ai-pulse" class="px-2.5 py-1 rounded border border-theme-border bg-theme-surface text-theme-secondary hover:text-emerald-700 dark:hover:text-emerald-400 hover:border-theme-border-accent transition-colors">Why AI Pulse?</a>
             <a href="#todays-brief" class="px-2.5 py-1 rounded border border-theme-border bg-theme-surface text-theme-secondary hover:text-emerald-700 dark:hover:text-emerald-400 hover:border-theme-border-accent transition-colors">Today's Brief</a>
             <a href="#priority-intelligence" class="px-2.5 py-1 rounded border border-theme-border bg-theme-surface text-theme-secondary hover:text-emerald-700 dark:hover:text-emerald-400 hover:border-theme-border-accent transition-colors">Priority Intel</a>
@@ -256,7 +291,7 @@ function formatLastUpdated(iso: string | undefined): string {
                 title: `Automated pipeline run: ${pipelineGeneratedAt || "N/A"}${lastUpdated ? ` | Latest story fetch: ${lastUpdated}` : ""}`,
               },
             ].map(({ label, value, subtext, title }) => (
-              <div class="bg-theme-surface border border-theme-border rounded-lg p-3.5 flex flex-col justify-between">
+              <div class="stat-card bg-theme-surface border border-theme-border rounded-lg p-3.5 flex flex-col justify-between">
                 <span class="font-mono text-[10px] text-theme-muted tracking-wider uppercase">
                   {label}
                 </span>
@@ -276,8 +311,109 @@ function formatLastUpdated(iso: string | undefined): string {
             ))
           }
         </div>
+
+        <!-- Live headline ticker (pauses on hover/focus; static under reduced motion) -->
+        {
+          tickerArticles.length > 0 && (
+            <div class="mt-5 flex items-center gap-3 rounded-lg border border-theme-border bg-theme-surface px-3 py-2">
+              <span class="shrink-0 inline-flex items-center gap-1.5 font-mono text-[10px] font-semibold uppercase tracking-widest text-emerald-700 dark:text-emerald-400">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true"></span>
+                Latest
+              </span>
+              <div class="ticker flex-1 min-w-0" style={`--ticker-duration:${Math.max(40, tickerArticles.length * 7)}s`}>
+                <ul class="ticker__track" aria-label="Latest headlines">
+                  {[0, 1].map((copy) =>
+                    tickerArticles.map((a) => (
+                      <li class="ticker__item" aria-hidden={copy === 1 ? "true" : undefined}>
+                        <span class="chart-swatch" style={`--h:${brandHue(a.company)}`} aria-hidden="true"></span>
+                        <span class="font-mono text-[10px] uppercase tracking-wider text-theme-muted">{a.company.replace(/\s*\(.*?\)\s*/g, "")}</span>
+                        <a
+                          href={a.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          tabindex={copy === 1 ? -1 : undefined}
+                          class="text-xs text-theme-secondary hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors"
+                        >
+                          {a.title}
+                        </a>
+                      </li>
+                    ))
+                  )}
+                </ul>
+              </div>
+            </div>
+          )
+        }
       </div>
     </section>
+
+    <!-- Pulse at a glance: build-time charts -->
+    {
+      dailyVolume.length > 0 && (
+        <section id="pulse-at-a-glance" class="border-b border-theme-border py-12 sm:py-14">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-8" data-reveal>
+              <div>
+                <div class="inline-flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase px-2.5 py-1 rounded border border-indigo-500/30 bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 mb-3">
+                  <span>Pulse at a glance</span>
+                </div>
+                <h2 class="text-xl sm:text-2xl font-bold text-theme-primary tracking-tight">
+                  What the AI world is publishing
+                </h2>
+                <p class="text-sm text-theme-secondary mt-1">
+                  Live aggregates from {realArticles.length} ingested articles and {modelsCount} tracked models. Hover any chart for details.
+                </p>
+              </div>
+              <a href={`${base}/news/`} class="font-mono text-[10px] text-theme-muted hover:text-emerald-700 dark:hover:text-emerald-400 tracking-wide transition-colors">
+                Explore the full feed →
+              </a>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+              <ChartCard
+                class="lg:col-span-2"
+                eyebrow="Last 30 days"
+                title="Daily article volume"
+                stat={dailyAverage.toFixed(1)}
+                statLabel="avg / day"
+              >
+                <AreaChart
+                  data={dailyVolume}
+                  ariaLabel="Articles published per day over the last 30 days"
+                  formatLabel={formatShortDate}
+                  hue={160}
+                />
+              </ChartCard>
+
+              <ChartCard eyebrow="All coverage" title="Story mix by category" delay={120}>
+                <DonutChart data={categoryMix} ariaLabel="Share of articles by category" centerLabel="articles" />
+              </ChartCard>
+
+              <ChartCard eyebrow="All coverage" title="Most active publishers" delay={60}>
+                <BarList data={topPublishers} ariaLabel="Publishers ranked by number of articles" labelWidth="8.5rem" />
+              </ChartCard>
+
+              <ChartCard
+                class="lg:col-span-2"
+                eyebrow="Model tracker · last 12 months"
+                title="New models released per month"
+                stat={String(modelReleasesTotal)}
+                statLabel="releases"
+                delay={140}
+              >
+                <ColumnChart
+                  data={modelReleases}
+                  ariaLabel="Tracked model releases per month"
+                  formatLabel={formatMonth}
+                  hue={262}
+                  labelEvery={2}
+                />
+              </ChartCard>
+            </div>
+          </div>
+        </section>
+      )
+    }
 
     <!-- Why AI Pulse? Value Proposition & Information Landscape -->
     <section id="why-ai-pulse" class="border-b border-theme-border bg-theme-surface py-12 sm:py-16">
@@ -723,7 +859,7 @@ function formatLastUpdated(iso: string | undefined): string {
 
     <!-- Today's AI Brief Section -->
     <section id="todays-brief" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-b border-theme-border">
-      <div class="flex items-center justify-between mb-6">
+      <div class="flex items-center justify-between mb-6" data-reveal>
         <div class="flex items-center gap-2 flex-wrap">
           <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400"></span>
           <h2 class="text-xs font-mono text-theme-primary font-semibold tracking-widest uppercase">
@@ -761,8 +897,14 @@ function formatLastUpdated(iso: string | undefined): string {
           </div>
         ) : (
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {todaysBrief.map((article) => (
-              <div class="bg-theme-surface border border-theme-border rounded-lg p-5 flex flex-col justify-between hover:border-theme-border-accent hover:bg-theme-hover transition-colors">
+            {todaysBrief.map((article, i) => (
+              <div
+                class="cover-host overflow-hidden bg-theme-surface border border-theme-border rounded-lg flex flex-col hover:border-theme-border-accent hover:bg-theme-hover transition-colors"
+                data-reveal
+                style={`--reveal-delay:${(i % 2) * 90}ms`}
+              >
+                <ArticleCover company={article.company} category={article.category} image_url={article.image_url} size="lg" />
+                <div class="p-5 flex flex-col justify-between flex-1">
                 <div>
                   <div class="flex items-center justify-between gap-2 mb-2 flex-wrap">
                     <div class="flex items-center gap-1.5">
@@ -806,6 +948,7 @@ function formatLastUpdated(iso: string | undefined): string {
                     <span>↗</span>
                   </a>
                 </div>
+                </div>
               </div>
             ))}
           </div>
@@ -817,7 +960,7 @@ function formatLastUpdated(iso: string | undefined): string {
     {
       priorityStories.length > 0 && (
         <section id="priority-intelligence" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-b border-theme-border">
-          <div class="flex items-center justify-between mb-6">
+          <div class="flex items-center justify-between mb-6" data-reveal>
             <div>
               <h2 class="text-xs font-mono text-theme-primary font-semibold tracking-widest uppercase mb-1">
                 Priority Intelligence
@@ -835,8 +978,14 @@ function formatLastUpdated(iso: string | undefined): string {
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {priorityStories.map((article) => (
-              <div class="bg-theme-surface border border-theme-border rounded-lg p-4 flex flex-col justify-between hover:border-theme-border-accent hover:bg-theme-hover transition-colors">
+            {priorityStories.map((article, i) => (
+              <div
+                class="cover-host overflow-hidden bg-theme-surface border border-theme-border rounded-lg flex flex-col hover:border-theme-border-accent hover:bg-theme-hover transition-colors"
+                data-reveal
+                style={`--reveal-delay:${i * 70}ms`}
+              >
+                <ArticleCover company={article.company} category={article.category} image_url={article.image_url} size="sm" />
+                <div class="p-4 flex flex-col justify-between flex-1">
                 <div>
                   <div class="flex items-center justify-between gap-1 mb-2">
                     <span class="font-mono text-[9px] text-amber-800 dark:text-amber-300 bg-amber-500/10 border border-amber-500/30 uppercase tracking-wider px-1.5 py-0.5 rounded">
@@ -861,6 +1010,7 @@ function formatLastUpdated(iso: string | undefined): string {
                     Source ↗
                   </a>
                 </div>
+                </div>
               </div>
             ))}
           </div>
@@ -870,7 +1020,7 @@ function formatLastUpdated(iso: string | undefined): string {
 
     <!-- Latest Articles Section -->
     <section id="latest-coverage" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <div class="flex items-center justify-between mb-6">
+      <div class="flex items-center justify-between mb-6" data-reveal>
         <h2 class="text-xs font-mono text-theme-muted tracking-widest uppercase">
           Latest Coverage
         </h2>
@@ -916,6 +1066,9 @@ function formatLastUpdated(iso: string | undefined): string {
                 why_it_matters={article.why_it_matters}
                 source_type={article.source_type}
                 summary_status={article.summary_status}
+                image_url={article.image_url}
+                summary_provider={article.summary_provider}
+                summary_model={article.summary_model}
               />
             ))}
           </div>
@@ -952,10 +1105,12 @@ function formatLastUpdated(iso: string | undefined): string {
                 "LiveBench evaluations, OpenRouter real-time pricing telemetry, and interactive head-to-head model comparisons.",
               href: `${base}/benchmarks/`,
             },
-          ].map(({ title, tag, description, href }) => (
+          ].map(({ title, tag, description, href }, i) => (
             <a
               href={href}
-              class="border border-theme-border bg-theme-surface rounded-lg p-6 flex flex-col justify-between hover:border-theme-border-accent hover:bg-theme-hover transition-colors group"
+              class="stat-card border border-theme-border bg-theme-surface rounded-lg p-6 flex flex-col justify-between hover:border-theme-border-accent hover:bg-theme-hover group"
+              data-reveal
+              style={`--reveal-delay:${i * 90}ms`}
             >
               <div>
                 <div class="flex items-center justify-between mb-2">

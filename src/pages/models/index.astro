@@ -4,6 +4,10 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import NewsCard from "../../components/NewsCard.astro";
 import Footer from "../../components/Footer.astro";
+import ChartCard from "../../components/charts/ChartCard.astro";
+import BarList from "../../components/charts/BarList.astro";
+import ScatterPlot, { type ScatterPoint } from "../../components/charts/ScatterPlot.astro";
+import { brandHue, countBy } from "../../lib/visuals";
 import feedData from "../../data/feed.json";
 import modelsData from "../../data/models.json";
 import modelUpdatesData from "../../data/model-updates.json";
@@ -29,6 +33,9 @@ interface FeedRecord {
   why_it_matters?: string;
   source_type?: string;
   summary_status?: string;
+  image_url?: string | null;
+  summary_provider?: string | null;
+  summary_model?: string | null;
 }
 
 interface ModelRecord {
@@ -234,6 +241,19 @@ function getUpdateBadgeClass(t: string): string {
 }
 
 const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))];
+
+// Model landscape charts (build time)
+const modelsPerProvider = countBy(models, (m) => m.provider).map((d) => ({ ...d, hue: brandHue(d.label) }));
+const pricedModels = models.filter((m) => m.pricing && m.pricing.input_per_1m > 0 && m.context_window > 0);
+const landscapePoints: ScatterPoint[] = pricedModels.map((m) => ({
+  x: m.context_window,
+  y: m.pricing!.input_per_1m,
+  label: m.name,
+  hue: brandHue(m.provider),
+  detail: `${m.provider} · ${formatTokens(m.context_window)} ctx · $${m.pricing!.input_per_1m}/1M in`,
+}));
+const landscapeLegend = modelsPerProvider.map((d) => ({ label: d.label, hue: d.hue! }));
+const formatUsd = (v: number) => (v < 1 ? `$${v}` : `$${v.toFixed(0)}`);
 ---
 
 <Layout title="AI Models Tracker & Official Changelog">
@@ -292,6 +312,51 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
         <span class="font-mono text-xl font-bold text-theme-primary">{providers.length - 1}</span>
       </div>
     </div>
+
+    <!-- Model landscape charts -->
+    {
+      landscapePoints.length > 0 && (
+        <section id="model-landscape" class="mb-14" aria-labelledby="model-landscape-title">
+          <div class="mb-6" data-reveal>
+            <h2 id="model-landscape-title" class="text-xs font-mono text-theme-primary font-semibold tracking-widest uppercase mb-1">
+              Model Landscape
+            </h2>
+            <p class="text-[11px] font-mono text-theme-muted">
+              Who ships the most models, and how context length trades off against price. Hover a dot for details.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+            <ChartCard eyebrow="Catalog" title="Models per provider" stat={String(models.length)} statLabel="models">
+              <BarList data={modelsPerProvider} ariaLabel="Number of cataloged models per provider" labelWidth="8rem" />
+            </ChartCard>
+            <ChartCard
+              class="lg:col-span-2"
+              eyebrow="Log–log · API list price"
+              title="Context window vs input price"
+              stat={String(landscapePoints.length)}
+              statLabel="priced models"
+              delay={100}
+              footnote="Input price per 1M tokens (USD), from each provider's published pricing."
+            >
+              <ScatterPlot
+                points={landscapePoints}
+                ariaLabel="Scatter plot of model context window against input price per million tokens"
+                xLabel="Context window (tokens)"
+                yLabel="Input $ / 1M tokens"
+                xLog
+                yLog
+                xTicks={[16000, 128000, 1000000, 2000000]}
+                yTicks={[0.03, 0.1, 1, 10, 30]}
+                formatX={formatTokens}
+                formatY={formatUsd}
+                height={280}
+                legend={landscapeLegend}
+              />
+            </ChartCard>
+          </div>
+        </section>
+      )
+    }
 
     <!-- Featured Frontier Models Section -->
     <section class="mb-14">
@@ -1035,6 +1100,9 @@ const providers = ["All", ...Array.from(new Set(models.map((m) => m.provider)))]
                 why_it_matters={article.why_it_matters}
                 source_type={article.source_type}
                 summary_status={article.summary_status}
+                image_url={article.image_url}
+                summary_provider={article.summary_provider}
+                summary_model={article.summary_model}
               />
             ))}
           </div>

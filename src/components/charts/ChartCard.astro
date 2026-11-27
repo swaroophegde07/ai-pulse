@@ -1,0 +1,39 @@
+---
+// ChartCard.astro — framed, scroll-revealed container for a chart.
+interface Props {
+  title: string;
+  eyebrow?: string;
+  stat?: string;
+  statLabel?: string;
+  footnote?: string;
+  delay?: number;
+  class?: string;
+}
+
+const { title, eyebrow, stat, statLabel, footnote, delay = 0, class: className = "" } = Astro.props;
+---
+
+<figure
+  class={`chart-card relative bg-theme-surface border border-theme-border rounded-xl p-5 flex flex-col gap-4 ${className}`}
+  data-reveal
+  style={`--reveal-delay:${delay}ms`}
+>
+  <figcaption class="flex items-start justify-between gap-3">
+    <div class="min-w-0">
+      {eyebrow && (
+        <div class="font-mono text-[10px] uppercase tracking-widest text-theme-muted mb-1">{eyebrow}</div>
+      )}
+      <h3 class="text-sm font-semibold text-theme-primary leading-snug">{title}</h3>
+    </div>
+    {stat && (
+      <div class="text-right shrink-0">
+        <div class="font-mono text-lg font-bold text-theme-primary leading-none">{stat}</div>
+        {statLabel && <div class="font-mono text-[10px] text-theme-muted mt-1">{statLabel}</div>}
+      </div>
+    )}
+  </figcaption>
+  <div class="flex-1 min-h-0">
+    <slot />
+  </div>
+  {footnote && <p class="font-mono text-[10px] text-theme-dim leading-relaxed">{footnote}</p>}
+</figure>

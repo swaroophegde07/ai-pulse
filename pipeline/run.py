@@ -3,7 +3,7 @@ Main ingestion pipeline for AI Pulse.
 
 Orchestrates:
   1. Fetch RSS feeds → raw articles.
-  2. Summarize new articles with Gemini.
+  2. Summarize new articles with Gemini (Groq fallback when configured).
   3. Merge with existing feed.json, deduplicate, sort, trim.
   4. Write feed.json atomically.
 
@@ -14,6 +14,8 @@ Usage:
 Environment variables:
   GEMINI_API_KEY    Required for summarization.
   GEMINI_MODEL      Optional. Defaults to gemini-3.5-flash-lite.
+  GROQ_API_KEY      Optional. Enables the Groq fallback summarizer.
+  GROQ_MODEL        Optional. Defaults to openai/gpt-oss-120b.
   MAX_ARTICLES      Optional. Maximum articles to retain. Default: None (unlimited).
   FEED_PATH         Optional. Path to feed.json. Default: src/data/feed.json.
 """
@@ -41,6 +43,7 @@ from pipeline.scraper import (
 from pipeline.sources import ALLOWED_CATEGORIES, SOURCES
 from pipeline.summarizer import (
     CircuitBreaker,
+    GroqSummarizer,
     RateLimiter,
     _get_client,
     is_generic_why_it_matters,
@@ -327,6 +330,11 @@ def merge_records(
                     existing_rec["summary_status"] = "generated"
                     if article.get("key_points"):
                         existing_rec["key_points"] = article["key_points"]
+                    for provenance_field in ("summary_provider", "summary_model"):
+                        if article.get(provenance_field):
+                            existing_rec[provenance_field] = article[provenance_field]
+                if article.get("image_url") and not existing_rec.get("image_url"):
+                    existing_rec["image_url"] = article["image_url"]
                 merged_duplicates += 1
                 found_related = True
                 break
@@ -721,6 +729,14 @@ def prepare_article(raw: dict) -> dict:
         record["impact_score"] = valid_impact_score
     if valid_sources:
         record["sources"] = valid_sources
+    if record["summary_status"] == "generated":
+        for provenance_field in ("summary_provider", "summary_model"):
+            value = raw.get(provenance_field)
+            if isinstance(value, str) and value.strip():
+                record[provenance_field] = value.strip()
+    image_url = raw.get("image_url")
+    if isinstance(image_url, str) and image_url.startswith("https://"):
+        record["image_url"] = image_url
 
     return record
 
@@ -835,13 +851,20 @@ def backfill_recent_tldrs(
         len(to_process),
     )
 
-    # 4. Initialize Gemini client (safely handle missing credential)
+    # 4. Initialize Gemini client and optional Groq fallback (safely handle missing credentials)
+    fallback = GroqSummarizer.from_env()
     if client is None:
         try:
             client = _get_client()
         except ValueError as exc:
-            logger.warning("Gemini client initialization skipped for TL;DR backfill: %s", exc)
-            return (0, len(candidates))
+            if fallback is None:
+                logger.warning("Gemini client initialization skipped for TL;DR backfill: %s", exc)
+                return (0, len(candidates))
+            logger.warning(
+                "Gemini client unavailable for TL;DR backfill (%s); using Groq fallback (%s) only.",
+                exc,
+                fallback.model,
+            )
 
     # 5. Rate limiting & circuit breaker
     rpm = int(os.environ.get("GEMINI_MAX_REQUESTS_PER_MINUTE", "10"))
@@ -850,11 +873,13 @@ def backfill_recent_tldrs(
 
     updated_count = 0
     for art in to_process:
-        if circuit.is_open:
+        gemini_ready = client is not None and not circuit.is_open
+        if not gemini_ready and not (fallback is not None and fallback.available()):
             logger.warning("Circuit breaker is open; halting TL;DR backfill early to preserve quota.")
             break
 
-        limiter.wait()
+        if gemini_ready:
+            limiter.wait()
 
         article_input = {
             "id": art.get("id", ""),
@@ -865,7 +890,7 @@ def backfill_recent_tldrs(
         }
 
         try:
-            res = summarize_article(article_input, client=client, circuit_breaker=circuit)
+            res = summarize_article(article_input, client=client, circuit_breaker=circuit, fallback=fallback)
             new_kp = res.get("key_points")
             if new_kp and validate_key_points(new_kp):
                 # PRESERVE all existing article summaries, URLs, tags, impact scores, source links, etc.
@@ -1215,6 +1240,12 @@ def run_pipeline(
     # 3. Identify candidate articles to summarize:
     # - Brand new articles not in existing_ids
     # - Previously deferred articles (pending_quota / unavailable) that need summarization
+    # Also attach newly available feed images to existing records that lack one.
+    images_by_id = {a["id"]: a["image_url"] for a in raw_articles if a.get("image_url")}
+    for rec in existing:
+        if not rec.get("image_url") and rec.get("id") in images_by_id:
+            rec["image_url"] = images_by_id[rec["id"]]
+
     candidate_articles: list[dict] = []
     for art in raw_articles:
         art_id = art["id"]

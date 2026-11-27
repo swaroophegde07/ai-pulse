@@ -27,6 +27,9 @@ interface FeedRecord {
   why_it_matters?: string;
   source_type?: string;
   summary_status?: string;
+  image_url?: string | null;
+  summary_provider?: string | null;
+  summary_model?: string | null;
 }
 
 const feed = feedData as FeedRecord[];
@@ -307,6 +310,9 @@ const researchLabs = [
                   why_it_matters={article.why_it_matters}
                   source_type={article.source_type}
                   summary_status={article.summary_status}
+                  image_url={article.image_url}
+                  summary_provider={article.summary_provider}
+                  summary_model={article.summary_model}
                 />
               ))}
             </div>
