@@ -47,6 +47,7 @@ from pipeline.relevance import is_article_ai_relevant, split_mixed_newsletter
 from pipeline.scraper import (
     are_articles_closely_related,
     are_titles_duplicate,
+    extract_image_url,
     fetch_feed,
     normalize_title,
     normalize_url,
@@ -57,7 +58,9 @@ from pipeline.sources import ALLOWED_CATEGORIES, load_sources
 from pipeline.summarizer import (
     FALLBACK_SUMMARY_PREFIX,
     CircuitBreaker,
+    GroqSummarizer,
     RateLimiter,
+    _to_strict_json_schema,
     _validate_gemini_response,
     classify_error,
     compute_content_fingerprint,
@@ -4141,3 +4144,223 @@ if __name__ == "__main__":
 
 
 
+
+
+# ===========================================================================
+# Groq fallback provider tests
+# ===========================================================================
+
+
+class _FakeGroqResponse:
+    def __init__(self, status_code=200, payload=None, headers=None):
+        self.status_code = status_code
+        self._payload = payload or {}
+        self.headers = headers or {}
+        self.text = json.dumps(self._payload)
+
+    def json(self):
+        return self._payload
+
+
+def _groq_ok(summary="Groq correctly summarized this article about AI.", category="Research"):
+    content = json.dumps(
+        {
+            "summary": summary,
+            "category": category,
+            "key_points": [],
+            "tags": [],
+            "impact_score": 5,
+        }
+    )
+    return _FakeGroqResponse(200, {"choices": [{"message": {"content": content}}]})
+
+
+def _make_groq(*responses, max_requests=15, retries=1):
+    session = MagicMock()
+    session.post.side_effect = list(responses)
+    groq = GroqSummarizer(
+        api_key="test-key",
+        requests_per_minute=6000,
+        max_requests=max_requests,
+        retries=retries,
+        session=session,
+    )
+    return groq, session
+
+
+class TestGroqFallback(unittest.TestCase):
+    def setUp(self):
+        self.article = {
+            "id": stable_id("https://example.com/groq"),
+            "title": "Test Article About AI",
+            "company": "Test Corp",
+            "source": "Test Feed",
+            "url": "https://example.com/groq",
+            "date": "2024-01-01T00:00:00+00:00",
+            "category": "News",
+            "text": "This is the article body text about AI developments.",
+        }
+
+    def test_gemini_quota_exhaustion_falls_back_to_groq(self):
+        gemini = MagicMock()
+        gemini.models.generate_content.side_effect = Exception("429 RESOURCE_EXHAUSTED: quota exceeded")
+        groq, session = _make_groq(_groq_ok())
+        cb = CircuitBreaker()
+
+        result = summarize_article(self.article, client=gemini, circuit_breaker=cb, fallback=groq)
+
+        self.assertTrue(cb.is_open)
+        self.assertEqual(gemini.models.generate_content.call_count, 1)
+        self.assertEqual(result["summary_status"], "generated")
+        self.assertEqual(result["summary_provider"], "groq")
+        self.assertEqual(result["summary_model"], "openai/gpt-oss-120b")
+        self.assertEqual(result["summary"], "Groq correctly summarized this article about AI.")
+        payload = session.post.call_args.kwargs["json"]
+        self.assertEqual(payload["response_format"]["json_schema"]["strict"], True)
+        self.assertEqual(payload["reasoning_effort"], "low")
+
+    def test_missing_gemini_client_uses_groq(self):
+        groq, _ = _make_groq(_groq_ok())
+        result = summarize_article(self.article, client=None, fallback=groq)
+        self.assertEqual(result["summary_status"], "generated")
+        self.assertEqual(result["summary_provider"], "groq")
+
+    def test_groq_long_rate_limit_trips_its_circuit_and_defers(self):
+        groq, session = _make_groq(_FakeGroqResponse(429, {"error": {"message": "rate limited"}}, {"retry-after": "120"}))
+
+        first = summarize_article(self.article, client=None, fallback=groq)
+        second = summarize_article(self.article, client=None, fallback=groq)
+
+        self.assertTrue(groq.circuit.is_open)
+        self.assertFalse(groq.available())
+        self.assertEqual(session.post.call_count, 1)
+        self.assertEqual(first["summary_status"], "pending_quota")
+        self.assertEqual(second["summary_status"], "pending_quota")
+
+    def test_groq_short_rate_limit_is_retried(self):
+        groq, session = _make_groq(
+            _FakeGroqResponse(429, {"error": {"message": "slow down"}}, {"retry-after": "0.01"}),
+            _groq_ok(),
+        )
+        result = summarize_article(self.article, client=None, fallback=groq)
+        self.assertEqual(result["summary_status"], "generated")
+        self.assertEqual(session.post.call_count, 2)
+        self.assertEqual(groq.requests_sent, 2)
+
+    def test_groq_auth_error_disables_fallback_for_run(self):
+        groq, _ = _make_groq(_FakeGroqResponse(401, {"error": {"message": "Invalid API Key"}}))
+        result = summarize_article(self.article, client=None, fallback=groq)
+        self.assertEqual(result["summary_status"], "pending_quota")
+        self.assertFalse(groq.available())
+
+    def test_groq_run_budget_is_enforced(self):
+        groq, session = _make_groq(_groq_ok(), _groq_ok(), max_requests=1)
+        summarize_article(self.article, client=None, fallback=groq)
+        result = summarize_article(self.article, client=None, fallback=groq)
+        self.assertEqual(session.post.call_count, 1)
+        self.assertEqual(result["summary_status"], "pending_quota")
+
+    def test_gemini_success_records_provider_and_skips_groq(self):
+        gemini = MagicMock()
+        gemini.models.generate_content.return_value = MagicMock(
+            text=json.dumps({"summary": "Gemini correctly summarized this article about AI.", "category": "Research"})
+        )
+        groq, session = _make_groq(_groq_ok())
+        result = summarize_article(self.article, client=gemini, model="gemini-test", fallback=groq)
+        self.assertEqual(result["summary_provider"], "gemini")
+        self.assertEqual(result["summary_model"], "gemini-test")
+        self.assertEqual(session.post.call_count, 0)
+
+    def test_from_env_requires_key_and_repr_hides_it(self):
+        self.assertIsNone(GroqSummarizer.from_env())
+        with patch.dict("os.environ", {"GROQ_API_KEY": "secret-value", "GROQ_MAX_SUMMARIES_PER_RUN": "4"}):
+            groq = GroqSummarizer.from_env()
+        self.assertIsNotNone(groq)
+        self.assertEqual(groq.max_requests, 4)
+        self.assertNotIn("secret-value", repr(groq))
+
+    def test_strict_schema_requires_all_fields_and_forbids_extras(self):
+        schema = _to_strict_json_schema(
+            {
+                "type": "OBJECT",
+                "properties": {
+                    "summary": {"type": "STRING"},
+                    "nested": {"type": "OBJECT", "properties": {"a": {"type": "INTEGER"}}},
+                },
+                "required": ["summary"],
+            }
+        )
+        self.assertEqual(schema["type"], "object")
+        self.assertEqual(sorted(schema["required"]), ["nested", "summary"])
+        self.assertIs(schema["additionalProperties"], False)
+        self.assertEqual(schema["properties"]["nested"]["required"], ["a"])
+        self.assertEqual(schema["properties"]["nested"]["properties"]["a"]["type"], "integer")
+
+    def test_summarize_articles_uses_groq_when_gemini_key_missing(self):
+        groq, _ = _make_groq(_groq_ok())
+        with (
+            patch("pipeline.summarizer._get_client", side_effect=ValueError("GEMINI_API_KEY is not set")),
+            patch("pipeline.summarizer.GroqSummarizer.from_env", return_value=groq),
+        ):
+            results, metrics = summarize_articles([self.article], existing_records=[])
+
+        self.assertEqual(results[0]["summary_status"], "generated")
+        self.assertEqual(results[0]["summary_provider"], "groq")
+        self.assertEqual(metrics["requests_sent"], 0)
+        self.assertEqual(metrics["groq_requests"], 1)
+        self.assertEqual(metrics["groq_generated"], 1)
+
+    def test_prepare_article_keeps_provider_and_https_image(self):
+        raw = {
+            **self.article,
+            "summary": "Groq correctly summarized this article about AI.",
+            "summary_status": "generated",
+            "summary_provider": "groq",
+            "summary_model": "openai/gpt-oss-120b",
+            "image_url": "https://cdn.example.com/cover.jpg",
+        }
+        record = prepare_article(raw)
+        self.assertEqual(record["summary_provider"], "groq")
+        self.assertEqual(record["summary_model"], "openai/gpt-oss-120b")
+        self.assertEqual(record["image_url"], "https://cdn.example.com/cover.jpg")
+
+        record = prepare_article({**raw, "image_url": "http://insecure.example.com/cover.jpg"})
+        self.assertNotIn("image_url", record)
+
+
+class TestExtractImageUrl(unittest.TestCase):
+    def _entry(self, **attrs):
+        entry = MagicMock()
+        entry.media_thumbnail = None
+        entry.media_content = None
+        entry.enclosures = None
+        entry.content = None
+        entry.summary = ""
+        for k, v in attrs.items():
+            setattr(entry, k, v)
+        return entry
+
+    def test_prefers_media_thumbnail(self):
+        entry = self._entry(
+            media_thumbnail=[{"url": "https://cdn.example.com/thumb.jpg", "width": "640"}],
+            summary='<img src="https://cdn.example.com/body.jpg">',
+        )
+        self.assertEqual(extract_image_url(entry), "https://cdn.example.com/thumb.jpg")
+
+    def test_skips_tiny_insecure_and_tracking_images(self):
+        entry = self._entry(
+            media_thumbnail=[{"url": "https://avatars.example.com/a.png", "width": "30", "height": "30"}],
+            content=[
+                {
+                    "value": '<img src="http://cdn.example.com/plain.jpg">'
+                    '<img src="https://feeds.feedburner.com/~r/x/pixel.gif">'
+                    '<img width="800" src="https://cdn.example.com/hero.jpg?w=800&amp;h=400">'
+                }
+            ],
+        )
+        self.assertEqual(extract_image_url(entry), "https://cdn.example.com/hero.jpg?w=800&h=400")
+
+    def test_image_enclosure_and_no_image(self):
+        entry = self._entry(enclosures=[{"type": "image/png", "href": "https://cdn.example.com/e.png"}])
+        self.assertEqual(extract_image_url(entry), "https://cdn.example.com/e.png")
+        self.assertIsNone(extract_image_url(MagicMock()))

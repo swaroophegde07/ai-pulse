@@ -132,9 +132,28 @@ Edit `.env` and provide your Gemini API key:
 ```env
 GEMINI_API_KEY=your_gemini_api_key_here
 GEMINI_MODEL=gemini-2.5-flash
+# Optional fallback when Gemini is unavailable or out of quota
+GROQ_API_KEY=your_groq_key_here
 ```
 
 *(Note: The frontend runs without an API key because it reads pre-built data from `src/data/feed.json`.)*
+
+#### Groq fallback summarizer (optional)
+
+When `GROQ_API_KEY` is set, articles that Gemini cannot summarize (missing key, quota exhausted, repeated errors) are summarized with Groq's free-tier `openai/gpt-oss-120b` using strict JSON-schema output. The fallback is throttled and budgeted per run:
+
+| Variable | Default | Purpose |
+|---|---|---|
+| `GROQ_MODEL` | `openai/gpt-oss-120b` | Groq model ID |
+| `GROQ_MAX_REQUESTS_PER_MINUTE` | `3` | Client-side rate limit |
+| `GROQ_MAX_SUMMARIES_PER_RUN` | `15` | HTTP request budget per pipeline run |
+| `GROQ_MAX_RETRIES` | `1` | Retries for 5xx / short 429 responses |
+
+Generated records store `summary_provider` and `summary_model`, so the site can show which model wrote each summary. To compare both providers on live articles without touching `feed.json`:
+
+```bash
+python -m pipeline.compare_providers --limit 5 --output /tmp/provider-comparison.md
+```
 
 ### 3. Install Dependencies
 
@@ -201,10 +220,10 @@ The repository uses two dedicated GitHub Actions workflows to cleanly separate p
   * **Manual Dispatch:** Can be triggered on demand via **Actions → Update and Deploy → Run workflow**.
 * **Pipeline Sequence:**
   1. Runs pipeline test suite (`pytest`).
-  2. Runs `python -m pipeline.run` with repository secrets `GEMINI_API_KEY` and `DATA_SYNC_TOKEN` (admin bypass token).
+  2. Runs `python -m pipeline.run` with repository secrets `GEMINI_API_KEY`, optional `GROQ_API_KEY` (fallback summarizer), and `DATA_SYNC_TOKEN` (admin bypass token).
   3. Commits updated `src/data/feed.json`, `src/data/benchmarks.json`, and `src/data/models.json` using `[skip ci]`.
-  4. Runs `npm run check` and `npm run build`.
-  5. Deploys the static `dist/` bundle to GitHub Pages via `actions/deploy-pages`.
+  4. **Build job:** runs `npm run check` and `npm run build`, then uploads the Pages artifact.
+  5. **Deploy job:** deploys the static `dist/` bundle to GitHub Pages via `actions/deploy-pages`, retrying once after 30 s if the artifact is not visible yet. Because build and deploy are separate jobs, **Re-run failed jobs** only re-runs the deploy and never uploads a duplicate `github-pages` artifact.
 
 ### 2. On-Demand PR Quality Gate (`.github/workflows/pr-checks.yml`)
 * **Zero AI Credit Burn:** Does **not** run the ingestion pipeline, does **not** call the Gemini API, and does **not** deploy to GitHub Pages.

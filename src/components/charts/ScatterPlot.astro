@@ -1,0 +1,108 @@
+---
+// ScatterPlot.astro — responsive HTML/CSS scatter plot with optional log axes.
+export interface ScatterPoint {
+  x: number;
+  y: number;
+  label: string;
+  hue: number;
+  detail?: string;
+  highlight?: boolean;
+}
+
+interface Props {
+  points: ScatterPoint[];
+  ariaLabel: string;
+  xLabel: string;
+  yLabel: string;
+  xLog?: boolean;
+  yLog?: boolean;
+  xTicks: number[];
+  yTicks: number[];
+  formatX?: (v: number) => string;
+  formatY?: (v: number) => string;
+  height?: number;
+  legend?: { label: string; hue: number }[];
+}
+
+const {
+  points,
+  ariaLabel,
+  xLabel,
+  yLabel,
+  xLog = false,
+  yLog = false,
+  xTicks,
+  yTicks,
+  formatX = (v: number) => String(v),
+  formatY = (v: number) => String(v),
+  height = 300,
+  legend = [],
+} = Astro.props;
+
+const tx = (v: number) => (xLog ? Math.log10(Math.max(v, 1e-9)) : v);
+const ty = (v: number) => (yLog ? Math.log10(Math.max(v, 1e-9)) : v);
+const xs = [...points.map((p) => tx(p.x)), ...xTicks.map(tx)];
+const ys = [...points.map((p) => ty(p.y)), ...yTicks.map(ty)];
+// 5% padding so edge points and their halos stay inside the plot area.
+const pad = (lo: number, hi: number) => {
+  const d = (hi - lo) * 0.05 || 0.5;
+  return [lo - d, hi + d];
+};
+const [x0, x1] = pad(Math.min(...xs), Math.max(...xs));
+const [y0, y1] = pad(Math.min(...ys), Math.max(...ys));
+const px = (v: number) => (x1 === x0 ? 50 : ((tx(v) - x0) / (x1 - x0)) * 100);
+const py = (v: number) => (y1 === y0 ? 50 : ((ty(v) - y0) / (y1 - y0)) * 100);
+---
+
+<div class="chart-scatter">
+  <div class="flex gap-2">
+    <div class="w-4 shrink-0 flex items-center justify-center" aria-hidden="true">
+      <span class="font-mono text-[10px] text-theme-muted whitespace-nowrap -rotate-90">{yLabel}</span>
+    </div>
+    <div class="flex-1 min-w-0 pl-9 pb-9 relative">
+      <div
+        class="relative border-l border-b border-theme-border"
+        style={`height:${height}px`}
+        role="img"
+        aria-label={`${ariaLabel}. ${points.length} points. ${xLabel} versus ${yLabel}.`}
+      >
+        {yTicks.map((t) => (
+          <div class="scatter-grid-y" style={`bottom:${py(t)}%`} aria-hidden="true">
+            <span>{formatY(t)}</span>
+          </div>
+        ))}
+        {xTicks.map((t) => (
+          <div class="scatter-grid-x" style={`left:${px(t)}%`} aria-hidden="true">
+            <span>{formatX(t)}</span>
+          </div>
+        ))}
+        {points.map((p, i) => (
+          <span
+            class={`scatter-dot has-tip chart-ink ${p.highlight ? "is-highlight" : ""} ${px(p.x) < 20 ? "tip-start" : px(p.x) > 80 ? "tip-end" : ""}`}
+            style={`left:${px(p.x).toFixed(2)}%;bottom:${py(p.y).toFixed(2)}%;--h:${p.hue};--i:${i}`}
+            aria-hidden="true"
+          >
+            <span class="chart-tip">
+              <strong>{p.label}</strong>
+              {p.detail && <> · {p.detail}</>}
+            </span>
+            {p.highlight && <span class="scatter-label">{p.label}</span>}
+          </span>
+        ))}
+      </div>
+      <div class="absolute bottom-0 left-9 right-0 text-center font-mono text-[10px] text-theme-muted" aria-hidden="true">
+        {xLabel}
+      </div>
+    </div>
+  </div>
+  {legend.length > 0 && (
+    <ul class="flex flex-wrap gap-x-4 gap-y-1.5 mt-3 pl-6" aria-hidden="true">
+      {legend.map((l) => (
+        <li class="flex items-center gap-1.5 text-[11px] text-theme-secondary">
+          <span class="chart-swatch" style={`--h:${l.hue}`}></span>
+          {l.label}
+        </li>
+      ))}
+    </ul>
+  )}
+</div>

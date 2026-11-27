@@ -1,0 +1,82 @@
+---
+// AreaChart.astro — responsive SVG area/line chart with hover tooltips.
+import { hashString, type Datum } from "../../lib/visuals";
+
+interface Props {
+  data: Datum[];
+  ariaLabel: string;
+  hue?: number;
+  height?: number;
+  formatLabel?: (label: string) => string;
+  valueSuffix?: string;
+}
+
+const { data, ariaLabel, hue = 160, height = 170, formatLabel = (l: string) => l, valueSuffix = "" } = Astro.props;
+
+const W = 1000;
+const H = 300;
+const max = Math.max(1, ...data.map((d) => d.value));
+const n = data.length;
+const xAt = (i: number) => (n <= 1 ? W / 2 : (i / (n - 1)) * W);
+const yAt = (v: number) => H - (v / max) * (H - 18);
+
+let line = "";
+data.forEach((d, i) => {
+  const x = xAt(i);
+  const y = yAt(d.value);
+  if (i === 0) {
+    line = `M${x.toFixed(1)},${y.toFixed(1)}`;
+  } else {
+    const px = xAt(i - 1);
+    const py = yAt(data[i - 1].value);
+    const mx = (px + x) / 2;
+    line += ` C${mx.toFixed(1)},${py.toFixed(1)} ${mx.toFixed(1)},${y.toFixed(1)} ${x.toFixed(1)},${y.toFixed(1)}`;
+  }
+});
+const area = n > 0 ? `${line} L${W},${H} L0,${H} Z` : "";
+const gradientId = `area-${hashString(ariaLabel + n)}`;
+const tickIdx = n > 2 ? [0, Math.floor((n - 1) / 2), n - 1] : data.map((_, i) => i);
+const total = data.reduce((sum, d) => sum + d.value, 0);
+---
+
+<div class="chart-area chart-ink" style={`--h:${hue}`}>
+  <div class="relative" style={`height:${height}px`}>
+    <div class="absolute inset-0 flex flex-col justify-between pointer-events-none" aria-hidden="true">
+      <div class="chart-gridline"><span>{max}{valueSuffix}</span></div>
+      <div class="chart-gridline"><span>{Math.round(max / 2)}{valueSuffix}</span></div>
+      <div class="chart-gridline chart-gridline--base"><span>0</span></div>
+    </div>
+    <svg
+      class="chart-wipe absolute inset-0 w-full h-full overflow-visible"
+      viewBox={`0 0 ${W} ${H}`}
+      preserveAspectRatio="none"
+      role="img"
+      aria-label={`${ariaLabel}. ${total} total across ${n} points.`}
+    >
+      <defs>
+        <linearGradient id={gradientId} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="currentColor" stop-opacity="0.35" />
+          <stop offset="100%" stop-color="currentColor" stop-opacity="0" />
+        </linearGradient>
+      </defs>
+      <path d={area} fill={`url(#${gradientId})`} />
+      <path d={line} fill="none" stroke="currentColor" stroke-width="2.5" vector-effect="non-scaling-stroke" stroke-linejoin="round" stroke-linecap="round" />
+    </svg>
+    <div class="absolute inset-0 flex" aria-hidden="true">
+      {data.map((d, i) => (
+        <div
+          class={`chart-col has-tip ${i < n * 0.2 ? "tip-start" : i > n * 0.8 ? "tip-end" : ""}`}
+          style={`--y:${((H - yAt(d.value)) / H) * 100}%`}
+        >
+          <span class="chart-col__dot"></span>
+          <span class="chart-tip">
+            <strong>{d.value}{valueSuffix}</strong> · {formatLabel(d.label)}
+          </span>
+        </div>
+      ))}
+    </div>
+  </div>
+  <div class="flex justify-between mt-2 font-mono text-[10px] text-theme-muted" aria-hidden="true">
+    {tickIdx.map((i) => <span>{formatLabel(data[i].label)}</span>)}
+  </div>
+</div>

@@ -1,0 +1,43 @@
+---
+// ColumnChart.astro — vertical bars with hover tooltips.
+import type { Datum } from "../../lib/visuals";
+
+interface Props {
+  data: Datum[];
+  ariaLabel: string;
+  hue?: number;
+  height?: number;
+  formatLabel?: (label: string) => string;
+  labelEvery?: number;
+}
+
+const { data, ariaLabel, hue = 217, height = 150, formatLabel = (l: string) => l, labelEvery = 1 } = Astro.props;
+const max = Math.max(1, ...data.map((d) => d.value));
+const n = data.length;
+---
+
+<div class="chart-columns" role="img" aria-label={`${ariaLabel}: ${data.map((d) => `${formatLabel(d.label)} ${d.value}`).join(", ")}`}>
+  <div class="flex items-end gap-1.5 border-b border-theme-border" style={`height:${height}px`} aria-hidden="true">
+    {data.map((d, i) => (
+      <div class={`relative flex-1 h-full flex items-end has-tip ${i < n * 0.2 ? "tip-start" : i > n * 0.8 ? "tip-end" : ""}`} style={`--i:${i}`}>
+        <span
+          class="chart-column chart-ink w-full rounded-t"
+          style={`height:${d.value === 0 ? 0 : Math.max(3, (d.value / max) * 100).toFixed(1)}%;--h:${d.hue ?? hue}`}
+        ></span>
+        <span class="chart-tip"><strong>{d.value}</strong> · {formatLabel(d.label)}</span>
+      </div>
+    ))}
+  </div>
+  <div class="flex gap-1.5 mt-1.5 font-mono text-[9px] text-theme-muted" aria-hidden="true">
+    {data.map((d, i) => {
+      const shown = i % labelEvery === 0 || i === n - 1;
+      // Narrow screens keep every other visible label so the text never truncates.
+      const mobileShown = i % (labelEvery * 2) === 0 || i === n - 1;
+      return (
+        <span class={`flex-1 min-w-0 text-center whitespace-nowrap ${mobileShown ? "" : "invisible sm:visible"}`}>
+          {shown ? formatLabel(d.label) : ""}
+        </span>
+      );
+    })}
+  </div>
+</div>
