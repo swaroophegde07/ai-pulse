@@ -1140,16 +1140,16 @@
     "api_available": true,
     "consumer_available": false,
     "pricing": {
-      "input_per_1m": 0.6846,
-      "output_per_1m": 1.544,
+      "input_per_1m": 0.4717,
+      "output_per_1m": 1.5016,
       "unit": "USD"
     },
     "documentation_url": "https://openrouter.ai/deepseek/deepseek-v4-pro",
     "source_url": "https://openrouter.ai/deepseek/deepseek-v4-pro",
-    "last_verified": "2026-11-27",
+    "last_verified": "2026-11-28",
     "verification_sources": {
-      "telemetry": "OpenRouter (2026-11-27)",
-      "pricing": "OpenRouter (2026-11-27)"
+      "telemetry": "OpenRouter (2026-11-28)",
+      "pricing": "OpenRouter (2026-11-28)"
     },
     "notes": "Discovered via OpenRouter catalog API. Telemetry specifications verified as of 2026-10-11.",
     "is_featured_frontier": false

@@ -1152,6 +1152,53 @@
     ]
   },
   {
+    "id": "f09aeb2897d18148",
+    "title": "How to Optimize NVFP4 Attention on NVIDIA RTX Blackwell Through Register Recycling",
+    "company": "NVIDIA",
+    "source": "NVIDIA Developer Blog",
+    "summary": "The article explores optimizing NVFP4 attention mechanisms on NVIDIA RTX Blackwell GPUs using register recycling techniques. This approach targets computational bottlenecks during long-sequence inference for world foundation models.",
+    "summary_status": "generated",
+    "content_fingerprint": "aa4d9f5b166611ef",
+    "url": "https://developer.nvidia.com/blog/how-to-optimize-nvfp4-attention-on-nvidia-rtx-blackwell-through-register-recycling",
+    "date": "2026-11-25T19:30:00+00:00",
+    "category": "Research",
+    "fetched_at": "2026-11-28T01:44:26.357677+00:00",
+    "topics": [
+      "Models and Releases",
+      "Coding and Developer Tools",
+      "Research and Breakthroughs",
+      "Infrastructure and Hardware",
+      "Applications and Products"
+    ],
+    "source_type": "Technical Publication",
+    "priority_score": 2,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Original research or technical finding",
+    "why_it_matters": "",
+    "key_points": [
+      "Register recycling is introduced to optimize NVFP4 attention performance on NVIDIA RTX Blackwell GPUs.",
+      "It alleviates the computational bottlenecks caused by long-sequence inference in world foundation models.",
+      "AI engineers and developers serving large-scale foundation models on Blackwell hardware are directly affected."
+    ],
+    "tags": [
+      "NVIDIA Blackwell",
+      "NVFP4",
+      "FlashAttention",
+      "GPU Optimization"
+    ],
+    "impact_score": 6,
+    "sources": [
+      {
+        "url": "https://developer.nvidia.com/blog/how-to-optimize-nvfp4-attention-on-nvidia-rtx-blackwell-through-register-recycling",
+        "title": "How to Optimize NVFP4 Attention on NVIDIA RTX Blackwell Through Register Recycling",
+        "publisher": "NVIDIA"
+      }
+    ],
+    "summary_provider": "gemini",
+    "summary_model": "gemini-3.5-flash-lite",
+    "image_url": "https://developer-blogs.nvidia.com/wp-content/uploads/2025/10/floating-cubes-768x431.png"
+  },
+  {
     "id": "88bd06d7e0e9b82f",
     "title": "Where scientists draw the line on AI agents",
     "company": "Hugging Face",
@@ -2956,6 +3003,49 @@
         "publisher": "OpenAI"
       }
     ]
+  },
+  {
+    "id": "d64a6f51a4eb0dd6",
+    "title": "Data centers are getting their own natural gas power plants",
+    "company": "MIT Technology Review",
+    "source": "MIT Technology Review",
+    "summary": "Data center developers are increasingly bypassing long electric grid connection queues by planning their own off-grid, behind-the-meter natural gas power plants to accelerate AI infrastructure deployment. Market data indicates that developers have announced over 100 such gas power plants in the US representing more than 115 gigawatts of planned capacity. While this strategy accelerates deployment for the AI boom, it raises significant regulatory, cost, and environmental concerns for energy grids.",
+    "summary_status": "generated",
+    "content_fingerprint": "a024d15b58ccfefa",
+    "url": "https://www.technologyreview.com/2026/11/24/1149622/data-centers-natural-gas",
+    "date": "2026-11-24T11:00:00+00:00",
+    "category": "News",
+    "fetched_at": "2026-11-28T01:44:26.357608+00:00",
+    "topics": [
+      "Coding and Developer Tools",
+      "Business and Industry"
+    ],
+    "source_type": "Independent Reporting",
+    "priority_score": 0,
+    "priority_label": "Worth a Look",
+    "priority_explanation": "Relevant AI development",
+    "why_it_matters": "",
+    "key_points": [
+      "Data center developers announced plans for over 100 behind-the-meter natural gas power plants totaling more than 115 gigawatts of capacity in the US.",
+      "Bypassing yearslong electric grid connection delays allows developers to speed up AI infrastructure deployment despite higher costs and regulatory scrutiny.",
+      "Energy grid planners, utility regulators, and climate advocates face long-term impacts on grid reliability and emissions."
+    ],
+    "tags": [
+      "Data Centers",
+      "Energy Infrastructure",
+      "Natural Gas",
+      "xAI"
+    ],
+    "impact_score": 7,
+    "sources": [
+      {
+        "url": "https://www.technologyreview.com/2026/11/24/1149622/data-centers-natural-gas",
+        "title": "Data centers are getting their own natural gas power plants",
+        "publisher": "MIT Technology Review"
+      }
+    ],
+    "summary_provider": "gemini",
+    "summary_model": "gemini-3.5-flash-lite"
   },
   {
     "id": "1cdf59f1ac445bbb",
